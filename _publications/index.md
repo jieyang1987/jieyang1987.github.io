@@ -8,7 +8,7 @@ permalink: /publications/index.html
 - **J. Yang**, A. Horé and O. Yadid-Pecht, “Local tone mapping algorithm and hardware implementation,”Electronics Letters, vol. 54, no. 9, pp. 560-562, 5 May 2018.
 
 
--  **J. Yang**, Y. Yang, Z. Chen, L. Liu, J. Liu, and N. Wu, “A Heterogeneous Parallel Processor for High-Speed Vision Chip,”IEEE Transactions on Circuits and Systems for Video Technology, vol.28, no. 3, pp. 746-758, March 2018. [PDF](https://jieyang1987.github.io/files/Heterogeneous_processor.pdf.)
+-  **J. Yang**, Y. Yang, Z. Chen, L. Liu, J. Liu, and N. Wu, “A Heterogeneous Parallel Processor for High-Speed Vision Chip,”IEEE Transactions on Circuits and Systems for Video Technology, vol.28, no. 3, pp. 746-758, March 2018. [PDF](https://jieyang1987.github.io/files/heterogeneous_processor.pdf)
 
 
 - **J. Yang**, C. Shi, L. Liu, J. Liu, and N. Wu, “Pixel-parallel feature detection on vision chip,”Electronics Letters, vol. 50, no. 24, pp. 1839-1841, 20 December 2014.
