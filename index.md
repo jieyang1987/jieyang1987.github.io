@@ -10,6 +10,6 @@ permalink: index.html
 
 ## Recent News
 
-- A New paper titled "Mantissa-exponent based Tone Mapping for Wide Dynamic Range Image Sensors" will soon appear in IEEE Transaction on Circuit and System II: Express Briefs.
+- Nov. 27, 2018. One paper accepted at TCAS2.
 
--  
+-   
