@@ -9,7 +9,9 @@ mapping algorithms.
 
 ***Some Results***
 
-<div align="center">
-<img src="https://jieyang1987.github.io/files/AtriumMorning/AtriumMorning_Gu.jpg" height="300px" alt="图片说明" >
-<img src="https://jieyang1987.github.io/files/AtriumMorning/AtriumMorning_Gu.jpg" height="300px" alt="图片说明" >
-</div>
+| <img src="http://jieyang1987.github.io/files/AtriumMorning/AtriumMorning_Gu.jpg" height="200px" alt="图片说明" > |<img src="http://jieyang1987.github.io/files/AtriumMorning/AtriumMorning_durand.jpg" height="200px" alt="图片说明" >|<img src="http://jieyang1987.github.io/files/AtriumMorning/AtriumMorning_paris.jpg" height="200px" alt="图片说明" >|<img src="http://jieyang1987.github.io/files/AtriumMorning/AtriumMorning_mshist.png" height="200px" alt="图片说明" >|
+|:----------:|:-------------:|:------:|:-----:|
+| Gu *et al.* |  Durand *et al.* | Paris *etl al.* | The proposed |
+
+
+<img src="http://jieyang1987.github.io/files/AtriumMorning/AtriumMorning_Gu.jpg" height="300px" alt="图片说明" >
