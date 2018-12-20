@@ -13,5 +13,6 @@ mapping algorithms.
 |:----------:|:-------------:|:------:|:-----:|
 | Gu *et al.* |  Durand *et al.* | Paris *etl al.* | The proposed |
 
-
-<img src="http://jieyang1987.github.io/files/AtriumMorning/AtriumMorning_Gu.jpg" height="300px" alt="图片说明" >
+| <img src="http://jieyang1987.github.io/files/garage/gu.jpg" height="200px" alt="图片说明" > |<img src="http://jieyang1987.github.io/files/garage/durand.jpg" height="200px" alt="图片说明" >|<img src="http://jieyang1987.github.io/files/garage/paris.jpg" height="200px" alt="图片说明" >|<img src="http://jieyang1987.github.io/files/garage/ours.bmp" height="200px" alt="图片说明" >|
+|:----------:|:-------------:|:------:|:-----:|
+| Gu *et al.* |  Durand *et al.* | Paris *etl al.* | The proposed |
