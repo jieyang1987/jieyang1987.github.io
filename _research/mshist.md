@@ -1,6 +1,6 @@
 ---
 title: Multi-scale Histogram based Wide Dynamic Range Tone Mapping
-permalink: /publications/mshist.html
+permalink: /research/mshist.html
 ---
 ***Abstract***
 
@@ -8,4 +8,5 @@ we present a novel tone mapping algorithm that can be used for displaying wide d
 mapping algorithms.
 
 ***Some Results***
-![](https://jieyang1987.github.io/files/AtriumMorning/AtriumMorning_durand.jpg)
+
+|![曝光时间0.05](http://upload-images.jianshu.io/upload_images/1817489-c02669e20db450c9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/200) |![曝光时间0.0125](http://upload-images.jianshu.io/upload_images/1817489-f1d2608c9bd21cf3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/200)|![曝光时间0.003125](http://upload-images.jianshu.io/upload_images/1817489-6cb041161f01c7ac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/200)|
