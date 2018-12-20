@@ -4,7 +4,7 @@ permalink: /research/index.html
 ---
 
 ---
-## [Multi-scale Histogram based Wide Dynamic Range Tone Mapping]()
+## [Multi-scale Histogram based Wide Dynamic Range Tone Mapping](./mshist.html)
 
 ## [Heterogeneous Vision Chip Processor]()
 
