@@ -11,12 +11,28 @@ mapping algorithms.
 
 | <img src="http://jieyang1987.github.io/files/AtriumMorning/AtriumMorning_Gu.jpg" width="250px" alt="图片说明" > |<img src="http://jieyang1987.github.io/files/AtriumMorning/AtriumMorning_durand.jpg" width="250px" alt="图片说明" >|<img src="http://jieyang1987.github.io/files/AtriumMorning/AtriumMorning_paris.jpg" width="250px" alt="图片说明" >|<img src="http://jieyang1987.github.io/files/AtriumMorning/AtriumMorning_mshist.png" width="250px" alt="图片说明" >|
 |:----------:|:-------------:|:------:|:-----:|
-| Gu *et al.* |  Durand *et al.* | Paris *etl al.* | The proposed |
+| Gu *et al.* [1] |  Durand *et al.* [2] | Paris *etl al.* [3] | The proposed |
 
 | <img src="http://jieyang1987.github.io/files/garage/gu.jpg" width="250px" alt="图片说明" > |<img src="http://jieyang1987.github.io/files/garage/durand.jpg" width="250px" alt="图片说明" >|<img src="http://jieyang1987.github.io/files/garage/paris.jpg" width="250px" alt="图片说明" >|<img src="http://jieyang1987.github.io/files/garage/ours.bmp" width="250px" alt="图片说明" >|
 |:----------:|:-------------:|:------:|:-----:|
-| Gu *et al.* |  Durand *et al.* | Paris *etl al.* | The proposed |
+| Gu *et al.* [1] |  Durand *et al.* [2] | Paris *etl al.* [3] | The proposed |
 
 | <img src="http://jieyang1987.github.io/files/memorial/gu.jpg" width="250px" alt="图片说明" > |<img src="http://jieyang1987.github.io/files/memorial/durand.jpg" width="250px" alt="图片说明" >|<img src="http://jieyang1987.github.io/files/memorial/memorial_Paris.png" width="250px" alt="图片说明" >|<img src="http://jieyang1987.github.io/files/memorial/mshist.bmp" width="250px" alt="图片说明" >|
 |:----------:|:-------------:|:------:|:-----:|
-| Gu *et al.* |  Durand *et al.* | Paris *etl al.* | The proposed |
+| Gu *et al.* [1] |  Durand *et al.* [2] | Paris *etl al.* [3] | The proposed |
+
+***Reference***
+
+[1] B. Gu, W. Li, M. Zhu, and M. Wang, “Local edge-preserving multiscale decomposition for high dynamic range image tone mapping,” IEEE Transactions on image Processing, vol. 22, no. 1, pp. 70–79, 2013.
+
+[2] F. Durand and J. Dorsey, “Fast bilateral filtering for the display of high dynamic-range images,” in ACM transactions on graphics (TOG), vol. 21,
+pp. 257–266, ACM, 2002
+
+[3] S. Paris, S. W. Hasinoff, and J. Kautz, “Local laplacian filters: edgeaware image processing with a laplacian pyramid,” Communications of
+the ACM, vol. 58, no. 3, pp. 81–91, 2015
+
+
+
+***Code***
+
+Matlab and Python Code are available for [download](./mshist_code.html)
