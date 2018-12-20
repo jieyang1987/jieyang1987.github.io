@@ -25,9 +25,12 @@ applications, including feature extraction, face detection, and
 high-speed tracking, are demonstrated.
 
 
-***Chip Performance***
+***Performance***
 
-![Chip and Packaging Image](http://jieyang1987.github.io/files/hchip.png)
+![Performance](http://jieyang1987.github.io/files/hchip_performance.png)
+
+<!--
+![Chip and Packaging Image]
 
 | Technology| 65nm 1P9M |
 |:---:|:---:|
@@ -38,3 +41,4 @@ high-speed tracking, are demonstrated.
 |Word Bit-width| 16-bit Fixed-point / 2*8b0t uint8|
 |Peak Performance| 208 GOPS@16bit, 413 GOPS@8bit)
 |I/O Bandwidth| 3.2 Gbps (duplex)|
+-->
