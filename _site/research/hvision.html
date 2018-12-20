@@ -19,7 +19,7 @@
 
 
 
-<title>Multi-scale Histogram based Wide Dynamic Range Tone Mapping - Jie Yang</title>
+<title>Heterogeneous Vision Chip Processor - Jie Yang</title>
 
 
 
@@ -29,11 +29,11 @@
 
 <meta property="og:locale" content="en-US">
 <meta property="og:site_name" content="Jie Yang">
-<meta property="og:title" content="Multi-scale Histogram based Wide Dynamic Range Tone Mapping">
+<meta property="og:title" content="Heterogeneous Vision Chip Processor">
 
 
-  <link rel="canonical" href="https://jieyang1987.github.io/research/mshist.html">
-  <meta property="og:url" content="https://jieyang1987.github.io/research/mshist.html">
+  <link rel="canonical" href="https://jieyang1987.github.io/research/hvision.html">
+  <meta property="og:url" content="https://jieyang1987.github.io/research/hvision.html">
 
 
 
@@ -244,7 +244,7 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Multi-scale Histogram based Wide Dynamic Range Tone Mapping">
+    <meta itemprop="headline" content="Heterogeneous Vision Chip Processor">
     <meta itemprop="description" content="Abstract">
     
     
@@ -252,7 +252,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Multi-scale Histogram based Wide Dynamic Range Tone Mapping
+          <h1 class="page__title" itemprop="headline">Heterogeneous Vision Chip Processor
 </h1>
           
         
@@ -268,81 +268,68 @@
       <section class="page__content" itemprop="text">
         <p><strong><em>Abstract</em></strong></p>
 
-<p>We present a novel tone mapping algorithm that can be used for displaying wide dynamic range (WDR) images on low dynamic range (LDR) devices. The proposed algorithm is mainly motivated by the logarithmic response and local adaptation features of the human visual system (HVS). HVS perceives luminance differently when under different adaptation levels, and therefore our algorithm uses functions built upon different scales to tone map pixels to different values. Functions of large scales are used to maintain image brightness consistency and functions of small scales are used to preserve local detail and contrast. An efficient method using local variance has been proposed to fuse the values of different scales and to remove artifacts. The algorithm utilizes integral images and integral histograms to reduce computation complexity and processing time. Experimental results show that the proposed algorithm can generate high brightness, good contrast and appealing images that surpass the performance of many state-of-the-art tone
-mapping algorithms.</p>
+<p>This paper proposes a heterogeneous parallel
+processor for high-speed vision chip. It contains four levels of
+processors with different parallelisms and complexities: processing element (PE) array processor, patch processing unit (PPU)
+array processor, self-organizing map (SOM) neural network
+processor, and dual-core microprocessor unit (MPU). The finegrained PE array processor, middle-grained PPU array processor,
+and SOM neural network processor carry out image processing
+in pixel-parallel, patch-parallel, and distributed-parallel fashions,
+respectively. The MPU controls the overall system and executes
+some serial algorithms. The processor can improve the total
+system performance from low-level to high-level image processing
+significantly. A prototype is implemented with 64 × 64 PE array,
+8 × 8 PPU array, 16 × 24 SOM network, and a dual-core MPU.
+The proposed heterogeneous parallel processor introduces a new
+degree of parallelism, namely, patch parallel, which is for parallel
+local-feature extraction and feature detection. It can flexibly
+perform the state-of-the-art computer vision as well as various
+image processing algorithms at high speed. Various complicated
+applications, including feature extraction, face detection, and
+high-speed tracking, are demonstrated.</p>
 
-<p><strong><em>Some Results</em></strong></p>
+<p><strong><em>Chip Performance</em></strong></p>
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center"><img src="http://jieyang1987.github.io/files/AtriumMorning/AtriumMorning_Gu.jpg" width="250px" alt="图片说明" /></th>
-      <th style="text-align: center"><img src="http://jieyang1987.github.io/files/AtriumMorning/AtriumMorning_durand.jpg" width="250px" alt="图片说明" /></th>
-      <th style="text-align: center"><img src="http://jieyang1987.github.io/files/AtriumMorning/AtriumMorning_paris.jpg" width="250px" alt="图片说明" /></th>
-      <th style="text-align: center"><img src="http://jieyang1987.github.io/files/AtriumMorning/AtriumMorning_mshist.png" width="250px" alt="图片说明" /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">Gu <em>et al.</em> [1]</td>
-      <td style="text-align: center">Durand <em>et al.</em> [2]</td>
-      <td style="text-align: center">Paris <em>etl al.</em> [3]</td>
-      <td style="text-align: center">The proposed</td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center"><img src="http://jieyang1987.github.io/files/garage/gu.jpg" width="250px" alt="图片说明" /></th>
-      <th style="text-align: center"><img src="http://jieyang1987.github.io/files/garage/durand.jpg" width="250px" alt="图片说明" /></th>
-      <th style="text-align: center"><img src="http://jieyang1987.github.io/files/garage/paris.jpg" width="250px" alt="图片说明" /></th>
-      <th style="text-align: center"><img src="http://jieyang1987.github.io/files/garage/ours.bmp" width="250px" alt="图片说明" /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">Gu <em>et al.</em> [1]</td>
-      <td style="text-align: center">Durand <em>et al.</em> [2]</td>
-      <td style="text-align: center">Paris <em>etl al.</em> [3]</td>
-      <td style="text-align: center">The proposed</td>
-    </tr>
-  </tbody>
-</table>
+<p><img src="" alt="Chip and Packaging" /></p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: center"><img src="http://jieyang1987.github.io/files/memorial/gu.jpg" width="250px" alt="图片说明" /></th>
-      <th style="text-align: center"><img src="http://jieyang1987.github.io/files/memorial/durand.jpg" width="250px" alt="图片说明" /></th>
-      <th style="text-align: center"><img src="http://jieyang1987.github.io/files/memorial/memorial_Paris.png" width="250px" alt="图片说明" /></th>
-      <th style="text-align: center"><img src="http://jieyang1987.github.io/files/memorial/mshist.bmp" width="250px" alt="图片说明" /></th>
+      <th style="text-align: center">Technology</th>
+      <th style="text-align: center">65nm 1P9M</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center">Gu <em>et al.</em> [1]</td>
-      <td style="text-align: center">Durand <em>et al.</em> [2]</td>
-      <td style="text-align: center">Paris <em>etl al.</em> [3]</td>
-      <td style="text-align: center">The proposed</td>
+      <td style="text-align: center">Size</td>
+      <td style="text-align: center">4mm × 6mm</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Core Frequency</td>
+      <td style="text-align: center">200 MHz</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">On-Chip SRAM</td>
+      <td style="text-align: center">320 KB</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Processing unit</td>
+      <td style="text-align: center">16 + 512</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Word Bit-width</td>
+      <td style="text-align: center">16-bit Fixed-point / 2*8b0t uint8</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Peak Performance</td>
+      <td style="text-align: center">208 GOPS@16bit, 413 GOPS@8bit)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">I/O Bandwidth</td>
+      <td style="text-align: center">3.2 Gbps (duplex)</td>
     </tr>
   </tbody>
 </table>
-
-<p><strong><em>Reference</em></strong></p>
-
-<p>[1] B. Gu, W. Li, M. Zhu, and M. Wang, “Local edge-preserving multiscale decomposition for high dynamic range image tone mapping,” IEEE Transactions on image Processing, vol. 22, no. 1, pp. 70–79, 2013.</p>
-
-<p>[2] F. Durand and J. Dorsey, “Fast bilateral filtering for the display of high dynamic-range images,” in ACM transactions on graphics (TOG), vol. 21,
-pp. 257–266, ACM, 2002</p>
-
-<p>[3] S. Paris, S. W. Hasinoff, and J. Kautz, “Local laplacian filters: edgeaware image processing with a laplacian pyramid,” Communications of
-the ACM, vol. 58, no. 3, pp. 81–91, 2015</p>
-
-<p><strong><em>Code</em></strong></p>
-
-<p>Matlab and Python Code are available for <a href="./mshist_code.html">download</a></p>
 
         
       </section>
@@ -363,13 +350,13 @@ the ACM, vol. 58, no. 3, pp. 81–91, 2015</p>
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=https://jieyang1987.github.io/research/mshist.html" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=https://jieyang1987.github.io/research/hvision.html" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https://jieyang1987.github.io/research/mshist.html" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://jieyang1987.github.io/research/hvision.html" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=https://jieyang1987.github.io/research/mshist.html" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=https://jieyang1987.github.io/research/hvision.html" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://jieyang1987.github.io/research/mshist.html" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://jieyang1987.github.io/research/hvision.html" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
       
@@ -377,11 +364,10 @@ the ACM, vol. 58, no. 3, pp. 81–91, 2015</p>
 
   <nav class="pagination">
     
+      <a href="#" class="pagination--pager disabled">Previous</a>
+    
+    
       <a href="https://jieyang1987.github.io/research/index.html" class="pagination--pager" title="Research
-">Previous</a>
-    
-    
-      <a href="https://jieyang1987.github.io/research/mshist_code.html" class="pagination--pager" title="MSHIST Code Download
 ">Next</a>
     
   </nav>
