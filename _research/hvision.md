@@ -1,5 +1,5 @@
 ---
-title: Heterogeneous Vision Chip Processor
+title: A Heterogeneous Parallel Processor for High-Speed Vision Chip
 permalink: /research/hvision.html
 ---
 ***Abstract***
@@ -26,8 +26,6 @@ high-speed tracking, are demonstrated.
 
 
 ***Performance***
-
-![Performance](http://jieyang1987.github.io/files/hchip_performance.png)
 
 <!--
 ![Chip and Packaging Image]
