@@ -30,12 +30,6 @@
 <loc>http://localhost:4000/publications/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/research/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/research/mshist.html</loc>
-</url>
-<url>
 <loc>http://localhost:4000/talks/2012-03-01-talk-1</loc>
 <lastmod>2012-03-01T00:00:00-08:00</lastmod>
 </url>
