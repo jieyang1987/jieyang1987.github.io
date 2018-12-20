@@ -27,7 +27,7 @@ high-speed tracking, are demonstrated.
 
 ***Chip Performance***
 
-![Chip and Packaging]()
+![Chip and Packaging Image](http://jieyang1987.github.io/files/hchip.png)
 
 | Technology| 65nm 1P9M |
 |:---:|:---:|
