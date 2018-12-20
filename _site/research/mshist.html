@@ -19,7 +19,7 @@
 
 
 
-<title>About Me - Jie Yang</title>
+<title>Multi-scale Histogram based Wide Dynamic Range Tone Mapping - Jie Yang</title>
 
 
 
@@ -29,13 +29,15 @@
 
 <meta property="og:locale" content="en-US">
 <meta property="og:site_name" content="Jie Yang">
-<meta property="og:title" content="About Me">
+<meta property="og:title" content="Multi-scale Histogram based Wide Dynamic Range Tone Mapping">
 
 
-  <link rel="canonical" href="http://localhost:4000/">
-  <meta property="og:url" content="http://localhost:4000/">
+  <link rel="canonical" href="http://localhost:4000/research/mshist.html">
+  <meta property="og:url" content="http://localhost:4000/research/mshist.html">
 
 
+
+  <meta property="og:description" content="Abstract">
 
 
 
@@ -242,15 +244,15 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="About Me">
-    
+    <meta itemprop="headline" content="Multi-scale Histogram based Wide Dynamic Range Tone Mapping">
+    <meta itemprop="description" content="Abstract">
     
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">About Me
+          <h1 class="page__title" itemprop="headline">Multi-scale Histogram based Wide Dynamic Range Tone Mapping
 </h1>
           
         
@@ -264,25 +266,69 @@
       
 
       <section class="page__content" itemprop="text">
-        <ul>
-  <li>
-    <p>I am a Post-doc Fellow at <a href="https://ucalgary.ca/i2sense/">I2Sense Lab</a>, <a href="https://www.ucalgary.ca/">University of Calgary</a>, Calgary, Canada. My supervisor is Prof. <a href="https://www.ucalgary.ca/i2sense/yadid_pecht_biography">Orly Yadid-Pecht</a>. Our Research focuses on image processing, especially the wide dynamic range tone mapping.</p>
-  </li>
-  <li>
-    <p>I received my B.Eng. School of Electronic Information Engineering, <a href="http://www.tju.edu.cn/english/">Tianjin University</a>, Tianjin, China in 2010 and PhD from State Key Laboratory for Superlattices and Microstructures  <a href="http://english.semi.cas.cn/">Institute of Semiconductors</a>, <a href="http://english.cas.cn/">Chinese Academy of Sciences</a>, Beijing, China in 2015. My PhD supervisor is Prof. <a href="http://lab.semi.ac.cn/yanjiusheng/contents/1323/124591.html">Nanjian Wu</a>. My PhD thesis is about vision chip design.</p>
-  </li>
-</ul>
+        <p><strong><em>Abstract</em></strong></p>
 
-<h2 id="recent-news">Recent News</h2>
+<p>we present a novel tone mapping algorithm that can be used for displaying wide dynamic range (WDR) images on low dynamic range (LDR) devices. The proposed algorithm is mainly motivated by the logarithmic response and local adaptation features of the human visual system (HVS). HVS perceives luminance differently when under different adaptation levels, and therefore our algorithm uses functions built upon different scales to tone map pixels to different values. Functions of large scales are used to maintain image brightness consistency and functions of small scales are used to preserve local detail and contrast. An efficient method using local variance has been proposed to fuse the values of different scales and to remove artifacts. The algorithm utilizes integral images and integral histograms to reduce computation complexity and processing time. Experimental results show that the proposed algorithm can generate high brightness, good contrast and appealing images that surpass the performance of many state-of-the-art tone
+mapping algorithms.</p>
 
-<ul>
-  <li>
-    <p>Nov. 27, 2018. One paper accepted at TCAS2.</p>
-  </li>
-  <li>
-    <p>Nov. 7, 2018.</p>
-  </li>
-</ul>
+<p><strong><em>Some Results</em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="http://jieyang1987.github.io/files/AtriumMorning/AtriumMorning_Gu.jpg" width="250px" alt="图片说明" /></th>
+      <th style="text-align: center"><img src="http://jieyang1987.github.io/files/AtriumMorning/AtriumMorning_durand.jpg" width="250px" alt="图片说明" /></th>
+      <th style="text-align: center"><img src="http://jieyang1987.github.io/files/AtriumMorning/AtriumMorning_paris.jpg" width="250px" alt="图片说明" /></th>
+      <th style="text-align: center"><img src="http://jieyang1987.github.io/files/AtriumMorning/AtriumMorning_mshist.png" width="250px" alt="图片说明" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Gu <em>et al.</em></td>
+      <td style="text-align: center">Durand <em>et al.</em></td>
+      <td style="text-align: center">Paris <em>etl al.</em></td>
+      <td style="text-align: center">The proposed</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="http://jieyang1987.github.io/files/garage/gu.jpg" width="250px" alt="图片说明" /></th>
+      <th style="text-align: center"><img src="http://jieyang1987.github.io/files/garage/durand.jpg" width="250px" alt="图片说明" /></th>
+      <th style="text-align: center"><img src="http://jieyang1987.github.io/files/garage/paris.jpg" width="250px" alt="图片说明" /></th>
+      <th style="text-align: center"><img src="http://jieyang1987.github.io/files/garage/ours.bmp" width="250px" alt="图片说明" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Gu <em>et al.</em></td>
+      <td style="text-align: center">Durand <em>et al.</em></td>
+      <td style="text-align: center">Paris <em>etl al.</em></td>
+      <td style="text-align: center">The proposed</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="http://jieyang1987.github.io/files/memorial/gu.jpg" width="250px" alt="图片说明" /></th>
+      <th style="text-align: center"><img src="http://jieyang1987.github.io/files/memorial/durand.jpg" width="250px" alt="图片说明" /></th>
+      <th style="text-align: center"><img src="http://jieyang1987.github.io/files/memorial/memorial_Paris.png" width="250px" alt="图片说明" /></th>
+      <th style="text-align: center"><img src="http://jieyang1987.github.io/files/memorial/mshist.bmp" width="250px" alt="图片说明" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Gu <em>et al.</em></td>
+      <td style="text-align: center">Durand <em>et al.</em></td>
+      <td style="text-align: center">Paris <em>etl al.</em></td>
+      <td style="text-align: center">The proposed</td>
+    </tr>
+  </tbody>
+</table>
 
         
       </section>
@@ -298,8 +344,32 @@
 
       
 
+<section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/research/mshist.html" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/research/mshist.html" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http://localhost:4000/research/mshist.html" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/research/mshist.html" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
       
 
+
+  <nav class="pagination">
+    
+      <a href="http://localhost:4000/research/index.html" class="pagination--pager" title="Research
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
 
     </div>
 

@@ -9,10 +9,14 @@ mapping algorithms.
 
 ***Some Results***
 
-| <img src="http://jieyang1987.github.io/files/AtriumMorning/AtriumMorning_Gu.jpg" height="200px" alt="图片说明" > |<img src="http://jieyang1987.github.io/files/AtriumMorning/AtriumMorning_durand.jpg" height="200px" alt="图片说明" >|<img src="http://jieyang1987.github.io/files/AtriumMorning/AtriumMorning_paris.jpg" height="200px" alt="图片说明" >|<img src="http://jieyang1987.github.io/files/AtriumMorning/AtriumMorning_mshist.png" height="200px" alt="图片说明" >|
+| <img src="http://jieyang1987.github.io/files/AtriumMorning/AtriumMorning_Gu.jpg" width="250px" alt="图片说明" > |<img src="http://jieyang1987.github.io/files/AtriumMorning/AtriumMorning_durand.jpg" width="250px" alt="图片说明" >|<img src="http://jieyang1987.github.io/files/AtriumMorning/AtriumMorning_paris.jpg" width="250px" alt="图片说明" >|<img src="http://jieyang1987.github.io/files/AtriumMorning/AtriumMorning_mshist.png" width="250px" alt="图片说明" >|
 |:----------:|:-------------:|:------:|:-----:|
 | Gu *et al.* |  Durand *et al.* | Paris *etl al.* | The proposed |
 
-| <img src="http://jieyang1987.github.io/files/garage/gu.jpg" height="200px" alt="图片说明" > |<img src="http://jieyang1987.github.io/files/garage/durand.jpg" height="200px" alt="图片说明" >|<img src="http://jieyang1987.github.io/files/garage/paris.jpg" height="200px" alt="图片说明" >|<img src="http://jieyang1987.github.io/files/garage/ours.bmp" height="200px" alt="图片说明" >|
+| <img src="http://jieyang1987.github.io/files/garage/gu.jpg" width="250px" alt="图片说明" > |<img src="http://jieyang1987.github.io/files/garage/durand.jpg" width="250px" alt="图片说明" >|<img src="http://jieyang1987.github.io/files/garage/paris.jpg" width="250px" alt="图片说明" >|<img src="http://jieyang1987.github.io/files/garage/ours.bmp" width="250px" alt="图片说明" >|
+|:----------:|:-------------:|:------:|:-----:|
+| Gu *et al.* |  Durand *et al.* | Paris *etl al.* | The proposed |
+
+| <img src="http://jieyang1987.github.io/files/memorial/gu.jpg" width="250px" alt="图片说明" > |<img src="http://jieyang1987.github.io/files/memorial/durand.jpg" width="250px" alt="图片说明" >|<img src="http://jieyang1987.github.io/files/memorial/memorial_Paris.png" width="250px" alt="图片说明" >|<img src="http://jieyang1987.github.io/files/memorial/mshist.bmp" width="250px" alt="图片说明" >|
 |:----------:|:-------------:|:------:|:-----:|
 | Gu *et al.* |  Durand *et al.* | Paris *etl al.* | The proposed |
