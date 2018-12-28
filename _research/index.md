@@ -4,10 +4,11 @@ permalink: /research/index.html
 ---
 
 ---
-## [Multi-scale Histogram based Wide Dynamic Range Tone Mapping](./mshist.html)
+### [Multi-scale Histogram based Wide Dynamic Range Tone Mapping](./mshist.html)
 
-## [Heterogeneous Vision Chip Processor](./hvision.html)
+### [A Heterogeneous Parallel Processor for High-Speed Vision Chip](./hvision.html)
+![](https://jieyang1987.github.io/files/chip_architecture.png)
 
-## [Dynamic Reconfigurable Hybrid Vision Chip Architecture]()
+### [A 1000 fps Vision Chip Based on a Dynamically Reconfigurable Hybrid Architecture Comprising a PE Array Processor and Self-Organizing Map Neural Network](./somchip.html)
 
-## [Local Binary Pattern Based High-speed Tracking]()
+### [Local Binary Pattern Based High-speed Tracking]()
