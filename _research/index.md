@@ -10,5 +10,6 @@ permalink: /research/index.html
 ![](https://jieyang1987.github.io/files/chip_architecture.png)
 
 ### [A 1000 fps Vision Chip Based on a Dynamically Reconfigurable Hybrid Architecture Comprising a PE Array Processor and Self-Organizing Map Neural Network](./somchip.html)
+![](https://jieyang1987.github.io/files/som_chip.png)
 
 ### [Local Binary Pattern Based High-speed Tracking]()
