@@ -19,4 +19,5 @@ achieve 1000 fps robust tracking.
 
 ![](https://jieyang1987.github.io/files/lbp_tracking.png)
 
-Some detailed
+
+This work is further developed in paper "High-Speed Target Tracking System Based on a Hierarchical Parallel Vision Processor and Gray-Level LBP Algorithm" in *IEEE Transactions on Systems, Man, and Cybernetics: Systems*
