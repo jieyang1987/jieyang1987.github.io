@@ -6,6 +6,8 @@ Published in *IEEE Transactions on Circuit and System for Video Technology*
 
 **Jie Yang**, Yongxing Yang, Zhe Chen, LiYuan Liu, Jian Liu, and Nanjian Wu.
 
+[[Paper]](https://jieyang1987.github.io/files/heterogeneous_processor.pdf)
+
 ***Abstract***
 
 This paper proposes a heterogeneous parallel

@@ -4,7 +4,7 @@ permalink: /research/index.html
 ---
 
 ---
-### [Multi-scale Histogram based Wide Dynamic Range Tone Mapping](./mshist.html)
+### [Tone Mapping Based on Multi-scale Histogram Synthesis](./mshist.html)
 <center><img width="450" src="https://jieyang1987.github.io/files/mshist.png"/></center>
 
 

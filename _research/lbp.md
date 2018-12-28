@@ -5,7 +5,7 @@ permalink: /research/lbp.html
 Published in *Electronics Letters*
 
 **Jie Yang**, Cong Shi, Liyuan Liu and Najian Wu
-
+[[Paper]](https://jieyang1987.github.io/files/el20141.pdf)
 
 ***Abstract***
 
