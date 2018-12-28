@@ -7,6 +7,7 @@ Published in *Electronics Letters*
 
 
 ###Abstract
+
 A local binary pattern (LBP)-based tracking algorithm and a novel
 heterogeneous vision chip architecture that implements the algorithm
 in high speed are proposed. The algorithm is more robust than previously

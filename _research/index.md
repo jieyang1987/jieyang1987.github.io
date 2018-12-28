@@ -14,4 +14,4 @@ permalink: /research/index.html
 ![](https://jieyang1987.github.io/files/som_chip.png)
 
 ### [Heterogeneous vision chip and LBP-based algorithm for high-speed tracking](./lbp.html)
-![](https://jieyang1987.github.io/files/lbp.png)
+![](https://jieyang1987.github.io/files/lbp_tracking.png)
