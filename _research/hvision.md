@@ -2,6 +2,7 @@
 title: A Heterogeneous Parallel Processor for High-Speed Vision Chip
 permalink: /research/hvision.html
 ---
+
 ***Abstract***
 
 This paper proposes a heterogeneous parallel
@@ -24,8 +25,11 @@ image processing algorithms at high speed. Various complicated
 applications, including feature extraction, face detection, and
 high-speed tracking, are demonstrated.
 
+![](https://jieyang1987.github.io/files/chip_architecture.png)
 
+<!--
 ***Performance***
+-->
 
 <!--
 ![Chip and Packaging Image]
