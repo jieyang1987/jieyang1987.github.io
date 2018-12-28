@@ -1,30 +1,18 @@
 ---
-title: A 1000 fps Vision Chip Based on a Dynamically Reconfigurable Hybrid Architecture Comprising a PE Array Processor and Self-Organizing Map Neural Network
-permalink: /research/somchip.html
+title: A CMOS Fully Integrated 860-GHz Terahertz Sensor
+permalink: /research/thz.html
 ---
-Published in *IEEE Solid-State Circuits,IEEE Journal*
 
-Cong Shi, **Jie Yang**, Ye Han, Zhongxiang Cao, Qi Qin, Liyuan Liu, Nan-Jian Wu, Zhihua Wang.
+Published in *IEEE Transactions on Terahertz Science and Technology*
 
-[[Paper]](https://jieyang1987.github.io/files/jssc2014.pdf)
+Zhao-yang Liu, Li-yuan Liu, **Jie Yang**, and Nan-Jian Wu.
+
+[[Paper]](https://jieyang1987.github.io/files/ttst2017.pdf)
 
 ***Abstract***
-This paper proposes a vision chip hybrid architecture with dynamically reconfigurable processing element (PE) array processor and self-organizing map (SOM) neural network. It
-integrates a high speed CMOS image sensor, three von Neumann-type processors, and a non-von Neumann-type bio-inspired SOM neural network. The processors consist of a pixel-parallel PE array processor with *O(N $\times$ N)* parallelism, a row-parallel
-row-processor (RP) array processor with *O(N)* parallelism
-and a thread-parallel dual-core microprocessor unit (MPU) with *O(2)*
-parallelism. They execute low-, mid- and high-level image
-processing, respectively. The SOM network speeds up high-level
-processing in pattern recognition tasks by , which
-improves the chip performance remarkably. The SOM network
-can be dynamically reconfigured from the PE array to largely save
-chip area. A prototype chip with a 256 $\times$ 256 image sensor, a reconfigurable
-64 $\times$ 64 PE array processor 16 $\times$ 16 SOM network,
-a 64 $\times$ 1 RP array processor and a dual-core 32-bit MPU was
-implemented in a 0.18 m CMOS image sensor process. The chip
-can perform image capture and various-level image processing at
-a high speed and in flexible fashion. Various complicated applications
-including M-S functional solution, horizon estimation, hand
-gesture recognition, face recognition are demonstrated at high
-speed from several hundreds to 1000 fps.
-![](https://jieyang1987.github.io/files/som_chip.png)
+This paper proposes a CMOS fully integrated 860-GHz terahertz (THz) sensor. The sensor integrates a single-NMOS THz detector, a low-noise chopper instrumentation amplifier and a high-resolution ΔΣ-ADC. The detector consists of a novel on-chip grounded patch antenna and a source-feeding NMOS field-effect transistor (FET) of the minimum size. A microstrip transmission line is designed to improve the power transfer efficiency between
+the antenna and the NMOS transistor. A notch filter is proposed to improve detector performance. To enable the theoretical analysis of the operation of the THz detector and the formulation of design guidelines, we propose a THz-FET device model in which a sourcecoupled FET for THz detection is modeled as a dc voltage source with a resistor. The model indicates that an FET with the minimum physical dimensions for a given CMOS process can produce the maximum output signal. The sensor is implemented in a 180-nm
+standard CMOS process. The detector achieves a voltage responsivity of 3.3 kV/W and an NEP of 106 pW/Hz1/2 at 860 GHz. The sensor noise and the readout circuit noise are 10.81 and 2.03 µVrms, respectively. The sensor obtains clear raster-scanning transmission
+images under continuous THz illumination.
+
+![](https://jieyang1987.github.io/files/thz.png)
