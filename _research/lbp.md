@@ -3,6 +3,7 @@ title: Heterogeneous vision chip and LBP-based algorithm for high-speed tracking
 permalink: /research/lbp.html
 ---
 Published in *Electronics Letters*
+
 **Jie Yang**, Cong Shi, Liyuan Liu and Najian Wu
 
 
