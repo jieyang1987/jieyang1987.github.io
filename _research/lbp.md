@@ -6,7 +6,7 @@ Published in *Electronics Letters*
 **Jie Yang**, Cong Shi, Liyuan Liu and Najian Wu
 
 
-###Abstract
+***Abstract***
 
 A local binary pattern (LBP)-based tracking algorithm and a novel
 heterogeneous vision chip architecture that implements the algorithm
