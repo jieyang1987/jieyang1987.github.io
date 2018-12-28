@@ -5,7 +5,7 @@ permalink: /research/index.html
 
 ---
 ### [Multi-scale Histogram based Wide Dynamic Range Tone Mapping](./mshist.html)
-![]()
+![](https://jieyang1987.github.io/files/mshist.png)
 
 ### [A Heterogeneous Parallel Processor for High-Speed Vision Chip](./hvision.html)
 ![](https://jieyang1987.github.io/files/chip_architecture.png)
