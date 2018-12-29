@@ -6,6 +6,8 @@ Published in *IEEE Solid-State Circuits,IEEE Journal*
 
 Cong Shi, **Jie Yang**, Ye Han, Zhongxiang Cao, Qi Qin, Liyuan Liu, Nan-Jian Wu, Zhihua Wang.
 
+[[Paper]](https://jieyang1987.github.io/files/jssc2014.pdf)
+
 ***Abstract***
 This paper proposes a vision chip hybrid architecture with dynamically reconfigurable processing element (PE) array processor and self-organizing map (SOM) neural network. It
 integrates a high speed CMOS image sensor, three von Neumann-type processors, and a non-von Neumann-type bio-inspired SOM neural network. The processors consist of a pixel-parallel PE array processor with *O(N $\times$ N)* parallelism, a row-parallel

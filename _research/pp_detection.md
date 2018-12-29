@@ -6,7 +6,10 @@ Published in *Electronics Letters*
 
 **Jie Yang**, Cong Shi, Liyuan Liu, Jian Liu and Nanjian Wu
 
+[[Paper]](https://jieyang1987.github.io/files/el20142.pdf)
+
 ***Abstract***
+
 Pixel-parallel FAST and SIFT feature detection algorithms are proposed,
 which are suitable for the vision chip architecture. The proposed algorithms
 can execute the FAST and SIFT feature detections on the vision
