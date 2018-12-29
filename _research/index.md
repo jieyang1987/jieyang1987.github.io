@@ -4,6 +4,12 @@ permalink: /research/index.html
 ---
 
 ---
+
+### [Mantissa-exponent based Tone Mapping for Wide Dynamic Range Image Sensors](./hardware_tm.html)
+<center><img width="450" src="https://jieyang1987.github.io/files/hardware_tm.png"/></center>
+
+
+
 ### [Tone Mapping Based on Multi-scale Histogram Synthesis](./mshist.html)
 <center><img width="450" src="https://jieyang1987.github.io/files/mshist.png"/></center>
 
