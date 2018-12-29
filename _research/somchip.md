@@ -27,4 +27,6 @@ a high speed and in flexible fashion. Various complicated applications
 including M-S functional solution, horizon estimation, hand
 gesture recognition, face recognition are demonstrated at high
 speed from several hundreds to 1000 fps.
+
+
 ![](https://jieyang1987.github.io/files/som_chip.png)
