@@ -22,6 +22,8 @@ permalink: /research/index.html
 ### [A 1000 fps Vision Chip Based on a Dynamically Reconfigurable Hybrid Architecture Comprising a PE Array Processor and Self-Organizing Map Neural Network](./somchip.html)
 <center><img width="550" src="https://jieyang1987.github.io/files/som_chip.png"/></center>
 
+### [Pixel-parallel feature detection on vision chip](./pp_detection.html)
+<center><img width="550" src="https://jieyang1987.github.io/files/pp_detection.png"/></center>
 
 
 ### [Heterogeneous vision chip and LBP-based algorithm for high-speed tracking](./lbp.html)
