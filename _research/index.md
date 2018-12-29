@@ -4,6 +4,9 @@ permalink: /research/index.html
 ---
 
 ---
+### [Deep Multi-band Tone Mapping](./deep_tm.html)
+
+
 
 ### [Mantissa-exponent based Tone Mapping for Wide Dynamic Range Image Sensors](./hardware_tm.html)
 <center><img width="450" src="https://jieyang1987.github.io/files/hardware_tm.png"/></center>
