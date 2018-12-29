@@ -273,7 +273,13 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-redirect-from
+  - jekyll-analytics
 # mimic GitHub Pages with --safe
+
+jekyll_analytics:
+  GoogleAnalytics:          # Add, if you want to track with Google Analytics
+    id: UA-131484897-1          # Required - replace with your tracking id
+
 whitelist:
   - jekyll-paginate
   - jekyll-sitemap
