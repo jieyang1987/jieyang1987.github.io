@@ -3,7 +3,7 @@ title: About Me
 permalink: index.html
 ---
 
-- I will join [Westlake University](http://www.wias.org.cn/english-xh.html) as a research scientist (副研究员), and work with Prof. [Mohamad Sawan](http://www.mohamadsawan.org/).
+- I am currently a research scientist in the Center for Biomedical Research and Innovation (CenBrain),[Westlake University](http://www.wias.org.cn/english-xh.html). The Founder and Principle Investigator of the CenBrain if [Prof. Mohamad Sawan](http://www.mohamadsawan.org/)
 
 - I was a Post-doc Fellow at [I2Sense Lab](https://ucalgary.ca/i2sense/), [University of Calgary](https://www.ucalgary.ca/), Calgary, Canada. My supervisor is Prof. [Orly Yadid-Pecht](https://www.ucalgary.ca/i2sense/yadid_pecht_biography). Our Research focuses on image processing, especially wide dynamic range tone mapping algorithm.
 
