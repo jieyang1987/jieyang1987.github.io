@@ -82,11 +82,11 @@ analytics:
 author:
   name             : "Jie Yang"
   avatar           : "profile.png"
-  bio              : "Postdoc Fellow at I2Sense Lab, Univesity of Calgary"
-  location         : "Calgary"
+  bio              : "Research Scientist at the Center for Biomedical Research and Innovation, Westlake University"
+  location         : "Hangzhou, China"
   employer         :
   googlescholar    : "https://scholar.google.ca/citations?user=6T786i8AAAAJ&hl=en"
-  email            : "jie.yang2@ucaglary.ca"
+  email            : "yangjie@westlake.edu.cn"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
