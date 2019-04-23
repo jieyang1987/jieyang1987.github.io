@@ -32,12 +32,12 @@
 <meta property="og:title" content="Blog Post number 1">
 
 
-  <link rel="canonical" href="https://jieyang1987.github.io/posts/2012/08/blog-post-1/">
-  <meta property="og:url" content="https://jieyang1987.github.io/posts/2012/08/blog-post-1/">
+  <link rel="canonical" href="https://jieyang1987.github.io/posts/2019/04/blog-post-1/">
+  <meta property="og:url" content="https://jieyang1987.github.io/posts/2019/04/blog-post-1/">
 
 
 
-  <meta property="og:description" content="This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.Headings are coolYou can have many headingsAren’t headings cool?">
+  <meta property="og:description" content="从线性回归到逻辑回归回归分析(Regression analysis)是统计学上分析变量之间关系的一系列方法的统称。更加具体的说，回归分析帮我们了解任意一个自变量变化时因变量的变化情况。回归有别与分类(Classification)，它的预测值是连续的，而分类则是一系列的离散值。线性回归则是回归分析中的一种方法，顾名思义，它的自变量和因变量之间是线性关系。从最为简单的单个变量入手，我们可以认为：$\hat{y}(x) = mx + b$其中$x$为自变量，$\hat{y}(x)$为线性回归得到的值。$\hat{y}(x) =\theta_0 x_0 + \theta_1 x_1 +  \theta_2 x_2 + …+ \theta_{n} x_{n}  $如果：$$\theta = \left( \begin{matrix}\theta_0 \theta_1 …\theta_n\end{matrix}\right), \ \ \ x =  \left( \begin{matrix}x_0 x_1 …x_n\end{matrix}\right)$$那么我们可以重写$\hat{y}(x)$的表达式如下：$\hat{y}(x) = \theta^T x$">
 
 
 
@@ -52,7 +52,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2012-08-14T00:00:00-06:00">
+  <meta property="article:published_time" content="2019-04-10T00:00:00-06:00">
 
 
 
@@ -248,8 +248,8 @@
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="Blog Post number 1">
-    <meta itemprop="description" content="This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.Headings are coolYou can have many headingsAren’t headings cool?">
-    <meta itemprop="datePublished" content="August 14, 2012">
+    <meta itemprop="description" content="从线性回归到逻辑回归回归分析(Regression analysis)是统计学上分析变量之间关系的一系列方法的统称。更加具体的说，回归分析帮我们了解任意一个自变量变化时因变量的变化情况。回归有别与分类(Classification)，它的预测值是连续的，而分类则是一系列的离散值。线性回归则是回归分析中的一种方法，顾名思义，它的自变量和因变量之间是线性关系。从最为简单的单个变量入手，我们可以认为：$\hat{y}(x) = mx + b$其中$x$为自变量，$\hat{y}(x)$为线性回归得到的值。$\hat{y}(x) =\theta_0 x_0 + \theta_1 x_1 +  \theta_2 x_2 + …+ \theta_{n} x_{n}  $如果：$$\theta = \left( \begin{matrix}\theta_0 \theta_1 …\theta_n\end{matrix}\right), \ \ \ x =  \left( \begin{matrix}x_0 x_1 …x_n\end{matrix}\right)$$那么我们可以重写$\hat{y}(x)$的表达式如下：$\hat{y}(x) = \theta^T x$">
+    <meta itemprop="datePublished" content="April 10, 2019">
     
 
     <div class="page__inner-wrap">
@@ -269,7 +269,7 @@
         
         
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2012-08-14T00:00:00-06:00">August 14, 2012</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2019-04-10T00:00:00-06:00">April 10, 2019</time></p>
         
         
              
@@ -279,13 +279,41 @@
       
 
       <section class="page__content" itemprop="text">
-        <p>This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.</p>
+        <h3 id="从线性回归到逻辑回归">从线性回归到逻辑回归</h3>
 
-<h1 id="headings-are-cool">Headings are cool</h1>
+<p><strong>回归分析(Regression analysis)</strong>是统计学上分析变量之间关系的一系列方法的统称。更加具体的说，回归分析帮我们了解任意一个自变量变化时因变量的变化情况。回归有别与分类(Classification)，它的预测值是连续的，而分类则是一系列的离散值。</p>
 
-<h1 id="you-can-have-many-headings">You can have many headings</h1>
+<p>线性回归则是回归分析中的一种方法，顾名思义，它的自变量和因变量之间是线性关系。从最为简单的单个变量入手，我们可以认为：</p>
 
-<h2 id="arent-headings-cool">Aren’t headings cool?</h2>
+<p>$\hat{y}(x) = mx + b$</p>
+
+<p>其中$x$为自变量，$\hat{y}(x)$为线性回归得到的值。</p>
+
+<p>$\hat{y}(x) =\theta_0 x_0 + \theta_1 x_1 +  \theta_2 x_2 + …+ \theta_{n} x_{n}  $</p>
+
+<p>如果：
+$$
+\theta = \left( \begin{matrix}</p>
+
+<p>\theta_0 <br />
+\theta_1 <br />
+…<br />
+\theta_n
+\end{matrix}
+\right), \ \ \ x =  \left( \begin{matrix}</p>
+
+<p>x_0 <br />
+x_1 <br />
+…<br />
+x_n
+\end{matrix}
+\right)
+$$</p>
+
+<p>那么我们可以重写$\hat{y}(x)$的表达式如下：</p>
+
+<p>$\hat{y}(x) = \theta^T x$</p>
+
 
         
       </section>
@@ -293,35 +321,6 @@
       <footer class="page__meta">
         
         
-
-
-  
-
-
-
-
-  
-  
-  
-
-  <p class="page__taxonomy">
-    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
-    <span itemprop="keywords">
-    
-      
-      
-      <a href="https://jieyang1987.github.io/tags/#category1" class="page__taxonomy-item" rel="tag">category1</a><span class="sep">, </span>
-    
-      
-      
-      <a href="https://jieyang1987.github.io/tags/#category2" class="page__taxonomy-item" rel="tag">category2</a><span class="sep">, </span>
-    
-      
-      
-      <a href="https://jieyang1987.github.io/tags/#cool-posts" class="page__taxonomy-item" rel="tag">cool posts</a>
-    
-    </span>
-  </p>
 
 
 
@@ -335,13 +334,13 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=https://jieyang1987.github.io/posts/2012/08/blog-post-1/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=https://jieyang1987.github.io/posts/2019/04/blog-post-1/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https://jieyang1987.github.io/posts/2012/08/blog-post-1/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://jieyang1987.github.io/posts/2019/04/blog-post-1/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=https://jieyang1987.github.io/posts/2012/08/blog-post-1/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=https://jieyang1987.github.io/posts/2019/04/blog-post-1/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://jieyang1987.github.io/posts/2012/08/blog-post-1/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://jieyang1987.github.io/posts/2019/04/blog-post-1/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
       
@@ -349,10 +348,11 @@
 
   <nav class="pagination">
     
-      <a href="#" class="pagination--pager disabled">Previous</a>
+      <a href="https://jieyang1987.github.io/posts/2012/08/blog-post-4/" class="pagination--pager" title="Blog Post number 4
+">Previous</a>
     
     
-      <a href="https://jieyang1987.github.io/posts/2013/08/blog-post-2/" class="pagination--pager" title="Blog Post number 2
+      <a href="https://jieyang1987.github.io/posts/2012/08/blog-post-4/" class="pagination--pager" title="Future Blog Post
 ">Next</a>
     
   </nav>
