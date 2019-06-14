@@ -3,7 +3,7 @@ title: Publications
 permalink: /publications/index.html
 ---
 ### Peer-Reviewed Journal Articles
--  **J. Yang**, U. Shahnovich, and O. Yadid-Pecht, “Mantissa-exponent based Tone Mapping for Wide Dynamic Range Image Sensors,” accepted at IEEE Transactions on Circuits and System II:Express Briefs.
+-  **J. Yang**, U. Shahnovich, and O. Yadid-Pecht, “Mantissa-exponent based Tone Mapping for Wide Dynamic Range Image Sensors,” accepted at IEEE Transactions on Circuits and System II:Express Briefs. [PDF]((https://jieyang1987.github.io/files/tcas2_2019.pdf)
 
 - **J. Yang**, A. Horé and O. Yadid-Pecht, “Local tone mapping algorithm and hardware implementation,”Electronics Letters, vol. 54, no. 9, pp. 560-562, 5 May 2018. [PDF](https://jieyang1987.github.io/files/el2018.pdf)
 

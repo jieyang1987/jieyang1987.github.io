@@ -13,7 +13,7 @@ permalink: index.html
 
 ## Recent News
 
-- I added the project page for our algorithm "[***Tone Mapping Based on Multi-scale Histogram Synthesis***](<https://github.com/jieyang1987/Tone-Mapping-Based-on-Multi-scale-Histogram-Synthesis>)".
+- Project page for our algorithm "[***Tone Mapping Based on Multi-scale Histogram Synthesis***](<https://github.com/jieyang1987/Tone-Mapping-Based-on-Multi-scale-Histogram-Synthesis>)" is now added on github.
 - Apr. 9, 2019. I officially joined the Center for Biomedical Research and Innovation (CenBrain), [Westlake University](http://www.wias.org.cn/english-xh.html).
 - Feb. 25, 2019. Paper [Mantissa-exponent based Tone Mapping for Wide Dynamic Range Image Sensors](/research/hardware_tm.html) accepted at IEEE Trans Circuit and Systems II: Express Brief.
 - Mar. 9, 2018. Paper [Local tone mapping algorithm and hardware implementation](https://jieyang1987.github.io/files/el2018.pdf) accepted at Electronics Letters.
