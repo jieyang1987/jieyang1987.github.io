@@ -13,6 +13,7 @@ permalink: index.html
 
 ## Recent News
 
+- Project page for our algorithm [***Deep Reformulated Laplacian Tone Mapping***](<https://github.com/linmc86/Deep-Reformulated-Laplacian-Tone-Mapping>) is now added on github. Both [Tensorflow implementation]() and [Keras implementation](<https://github.com/PinkLoveyi/Deep-Reformulated-Laplacian-Tone-Mapping-Keras>) are available.
 - Project page for our algorithm "[***Tone Mapping Based on Multi-scale Histogram Synthesis***](<https://github.com/jieyang1987/Tone-Mapping-Based-on-Multi-scale-Histogram-Synthesis>)" is now added on github.
 - Apr. 9, 2019. I officially joined the Center for Biomedical Research and Innovation (CenBrain), [Westlake University](http://www.wias.org.cn/english-xh.html).
 - Feb. 25, 2019. Paper [Mantissa-exponent based Tone Mapping for Wide Dynamic Range Image Sensors](/research/hardware_tm.html) accepted at IEEE Trans Circuit and Systems II: Express Brief.
