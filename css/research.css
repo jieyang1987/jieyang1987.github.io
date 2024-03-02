@@ -1,0 +1,84 @@
+
+
+.research-direction {
+    display: flex;
+    align-items: flex-start; /* 图片保持在顶部 */
+    margin-bottom: 40px; /* 根据需要调整间距 */
+}
+
+.research-images {
+    display: flex;
+    flex-direction: column; /* 设置图片纵向排列 */
+    align-items: flex-start; /* 保持图片左对齐 */
+    margin-right: 20px; /* 文本与图片组之间的间距 */
+}
+
+.research-image {
+    flex-shrink: 0; /* 防止图片在flex容器内缩小 */
+    width: 200px; /* 根据需要调整宽度 */
+    height: auto; /* 保持图片原始纵横比 */
+    margin-right: 20px; /* 文本与图片之间的间距 */
+    flex-direction:column;
+    border: 1px solid #ccc; /* 添加一个浅灰色的边框 */
+
+}
+
+.research-text {
+    flex-grow: 1; /* 文本部分占据剩余空间 */
+    text-align: justify;  /*左右对齐*/
+}
+
+.research-text h3 {
+    margin-top: 10px; /* 标题上边距 */
+    color: #333; /* 标题颜色 */
+}
+
+.research-text p {
+    margin-top: 0px; /* 段落上边距 */
+    margin-bottom: 5px; /* 段落下边距 */
+    text-indent: 2em; /* 或者使用像素值，如 20px */ 
+
+}
+
+.research-text ul {
+    margin-top: 0px; /* 段落上边距 */
+    margin-bottom: 15px; /* 段落下边距 */
+    margin-left: 0;
+    padding-left: 0;
+    color: #00440B
+}
+
+.research-text a {
+    font-weight: bold;
+    color: #6495ED;
+}
+
+
+.research-index {
+    <!--padding: 20px; -->
+    <!--background-color: #f5f5f5; /* 索引背景色 */ -->
+
+}
+
+.research-index ul {
+    <!-- list-style: none; /* 去除列表符号 */ -->
+    padding: 0;
+}
+
+
+
+.research-index li {
+    margin-bottom: 10px; /* 列表项间距 */
+}
+
+.research-index a {
+    color: #00440B; /* 链接颜色 */
+    text-decoration: none; /* 去除下划线 */
+    font-weight: bold; /* 确保加粗 */
+}
+
+.research-index a:hover {
+    text-decoration: underline; /* 鼠标悬停时下划线 */
+}
+
+

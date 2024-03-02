@@ -1,0 +1,40 @@
+
+
+.publications-list li {
+    font-size: 15px; /* 根据需要调整字体大小 */
+    margin-bottom: 6px; /* 减少每个条目下方的外边距 */
+    margin-top: 6px; /* 减少每个条目下方的外边距 */
+}
+
+.publications-list ul {
+    font-size: 15px; /* 根据需要调整字体大小 */
+    margin-bottom: 6px; /* 减少每个条目下方的外边距 */
+    margin-top: 6px; /* 减少每个条目下方的外边距 */
+}
+
+
+.publications-list ul a {
+    background-color: #3399FF; /* 灰色背景 */
+    color: white; /* 白色文字 */
+    padding: 1px 6px; /* 添加一些内边距，使背景框更明显 */
+    text-decoration: none; /* 去除下划线 */
+    border-radius: 6px; /* 轻微圆角，使外观更柔和 */
+    font-family: Arial, sans-serif;
+    font-size: 14px; /* 设置字体大小为14像素 */
+}
+
+
+.publications-list li a {
+    background-color:  #8080ff; /* 灰色背景 */
+    color: white; /* 白色文字 */
+    padding: 1px 6px; /* 添加一些内边距，使背景框更明显 */
+    text-decoration: none; /* 去除下划线 */
+    border-radius: 6px; /* 轻微圆角，使外观更柔和 */
+    font-family: Arial, sans-serif;
+    font-size: 14px; /* 设置字体大小为14像素 */
+}
+
+.h2 {
+	font-size: 16px;
+
+}
