@@ -6,6 +6,7 @@
     margin-top: 6px; /* 减少每个条目下方的外边距 */
 }
 
+
 .publications-list ul {
     font-size: 15px; /* 根据需要调整字体大小 */
     margin-bottom: 6px; /* 减少每个条目下方的外边距 */
@@ -34,7 +35,9 @@
     font-size: 14px; /* 设置字体大小为14像素 */
 }
 
+
 .h2 {
 	font-size: 16px;
-
 }
+
+

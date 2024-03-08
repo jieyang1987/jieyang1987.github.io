@@ -203,3 +203,29 @@ section {
     text-indent: 2em; /* 或者使用像素值，如 20px */ 
 }
 
+
+/* 子菜单*/
+.dropdown-content {
+    display: none; /* 默认不显示 */
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 120px; /* 确保有足够的宽度 */
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #555555;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block; /* 确保垂直排列 */
+}
+
+/* 修改的动画效果 */
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 0;
+    visibility: visible;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+}

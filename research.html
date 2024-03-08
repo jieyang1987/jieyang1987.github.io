@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <meta name="viewport" content="width=1200">
-    <title>脑机接口与类脑-西湖大学杨杰</title>
+    <title>杨杰 - 西湖大学脑机接口与类脑计算 | 研究方向与成果 </title>
+    <meta name="description" content="杨杰在西湖大学的研究方向与成果，涉及人工智能驱动的闭环神经调控算法与芯片、神经形态计算芯片与系统、高通量侵入式脑机接口芯片与系统、侵入式脑机接口汉语解码、基于光遗传的穿戴式视网膜假体、高动态图像处理算法与芯片及人工智能视觉芯片。深入了解杨杰在脑机接口和神经科学研究领域的前沿技术和突破性成就。">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/research.css">
+
 </head>
 <body>
 
@@ -24,9 +26,16 @@
         </div>
         <nav>
             <ul>
-               <li><a href="index.html">主页</a></li>
+                    <li><a href="index.html">主页</a></li>
                     <li><a href="research.html">研究项目</a></li>
                     <li><a href="publications.html">论文发表</a></li>
+                    <li class="dropdown">
+                        <a href="#">我的书籍</a> <!-- 修改这里 -->
+                        <ul class="dropdown-content">
+                            <li><a href="bci_book.html">侵入式脑机接口芯片</a></li>
+                            <li><a href="neuromorphic_book.html">类脑计算芯片(建设中...)</a></li>
+                        </ul>
+                    </li>
                     <li><a href="news_media.html">新闻报道</a></li>
             </ul>
         </nav>
@@ -61,7 +70,7 @@
                 <ul><strong>人工智能驱动的闭环神经调控算法与芯片</strong></ul>
                 <!--<p>利用植入式医疗设备进行神经调控已成为治疗多种重大脑疾病的最有效的方法之一，全球已有数十万脑疾病患者从中获益。-->
                 <p>闭环神经调控系统对大脑神经活动进行实时监测，并检测神经信号中与发病相关的特征，最后再按需进行神经系统刺激，可实现精准、个性化的治疗方案，是神经调控的未来发展方向。然而，现有的MCU或DSP无法满足复杂生物信号特征提取、分类的算力要求和低功耗要求，导致现有的闭环调控设备治疗效果差、待机时间短。我们提出了在片上集成微瓦级(μW)低功耗神经网络实现精准闭环调控的路径<a href="https://ieeexplore.ieee.org/abstract/document/9173735">[TBIOCAS'20</a>, <a href="https://ieeexplore.ieee.org/abstract/document/9760507">TCAS-II'22]</a> 。首先，我们对基于CNN网络<a href="https://ieeexplore.ieee.org/abstract/document/9073988">[AICAS'20</a>, <a href="https://ieeexplore.ieee.org/abstract/document/9458571">AICAS'21]</a>、BNN网络<a href="https://ieeexplore.ieee.org/abstract/document/9180430">[BIOCAS'20]</a>以及SNN网络<a href="https://ieeexplore.ieee.org/abstract/document/9401560">[ISCAS'21]</a>的神经信号处理算法进行了各种尝试，并取得了优于传统方法的分类效果。我们结合神经信号特点和网络架构搜索、剪枝以及量化技术将网络规模进一步压缩至100KB以下<a href="https://ieeexplore.ieee.org/abstract/document/9479737">[TBME'21]</a>。在上述算法基础上，我们还设计流片了专用的低功耗生物信号处理芯片<a href="https://ieeexplore.ieee.org/abstract/document/10105432">[TBIOCAS'23]</a>，通过可重构设计，该芯片实现了对上述多种网络类型的支持，具备高效的生物信号处理和标志物分类能力。该芯片通过事件驱动的工作方式实现了μW级别的功耗，为下一代智能闭环神经调控系统提供了关键技术支持。</p>
-                <p>除此之外，我们还提出基于GAN网络的数据增广技术来弥补颅内脑电信号缺乏、数据分布不均的问题，达到提高分类网络的准确率的目的<a href="https://ieeexplore.ieee.org/abstract/document/9767764">[TBME'22]</a>，并把疾病检测任务从传统的二元分类转换为发作概率的预测，同时降低了预测的延迟<a href="https://www.sciencedirect.com/science/article/abs/pii/S0957417423018614">[Expert Syst. Appl.'24]</a>。</p>
+                <p>除此之外，针对脑电信号本身，我们还提出基于GAN网络的数据增广技术<a href="https://ieeexplore.ieee.org/abstract/document/9767764">[TBME'22]</a>以及基于知识蒸馏的跨个体训练方法<a href="https://iopscience.iop.org/article/10.1088/1741-2552/ac73b3/meta">[JNE'22]</a>，来弥补颅内脑电信号缺乏、数据分布不均的问题以及个体差异性大等问题，并把疾病检测任务从传统的二元分类转换为发作概率的预测，同时降低了预测的延迟<a href="https://www.sciencedirect.com/science/article/abs/pii/S0957417423018614">[Expert Syst. Appl.'24]</a>。</p>
    <!-- 其他信息 -->
             </div>
             </div>
@@ -81,7 +90,8 @@
                 、可推广到一般生物信号处理的通用神经形态计算框架<a href="https://www.frontiersin.org/articles/10.3389/fnins.2023.1093865/full">[Front. Neurosci.'23]</a>以及支持片上学习和不同模态的神经形态处理器<a href="https://ieeexplore.ieee.org/abstract/document/9937459">[ISCAS'22</a>, <a href="https://ieeexplore.ieee.org/abstract/document/9980727">ASSCC'22</a>, <a href="https://ieeexplore.ieee.org/abstract/document/10132492">TBioCAS'23]</a>来满足穿戴式和植入式等边缘设备的功耗和性能要求。
                 </p>
                 <p>             
-                我们同时也希望在类脑芯片上高效地集成数量众多的类脑神经元来完成更加复杂与智能的任务，为此我们研究多核类脑处理器中的路由协议与相关电路来降低处理器延迟和相应的功耗开销<a href="https://ieeexplore.ieee.org/abstract/document/10168590">[AICAS'23]</a>。通过"脑科学与类脑研究"重大项目课题的牵引，我们后续将在无人车和无人机等场景中应用大规模集成的类脑芯片与系统。
+                我们同时也希望在类脑芯片上高效地集成数量众多的类脑神经元来完成更加复杂与智能的任务，为此我们研究多核类脑处理器中的路由协议与相关电路来降低处理器延迟和相应的功耗开销<a href="https://ieeexplore.ieee.org/abstract/document/10168590">[AICAS'23]</a>。同时，为了解决大规模类脑模型部署中数据访存带来的功耗、延迟开销，以及高度稀疏化数据带来的吞吐率下降问题，我们还设计了具备高度并行化和非结构化稀疏感知的类脑处理芯片，实现了0.078pJ/SOP的卓越性能<a href="#research2">[CICC'24]</a>。
+                通过"脑科学与类脑研究"重大项目课题的牵引，我们后续将在无人车、机器人以及无人机等场景中应用大规模集成的类脑芯片与系统。
                 </p>
 
    <!-- 其他信息 -->
@@ -102,7 +112,7 @@
                 <p>侵入式脑机接口在大脑与机器之间构建一条直接、高效的信息交互通路，是一项具有广阔想象和应用空间的前沿技术，而其中的脑机接口芯片作为关键器件，需要在极低的功耗和面积下实现成百上千通道的脑信号的读取和传输，这对芯片设计带来了巨大挑战<a href="https://ieeexplore.ieee.org/abstract/document/9766042">[TCAS-II'22]</a>。芯片功耗主要来源于高通量数据的传输，因此从降低系统功耗的角度出发，我们利用压缩感知和人工智能方法，实现了对采样数据的16倍低损压缩<a href="https://ieeexplore.ieee.org/abstract/document/10012381/">[TNSRE'23]</a>，并进一步利用软硬件协同设计方式实现了低功耗约束下的片上部署 <a href="https://ieeexplore.ieee.org/abstract/document/10024315">[TBIOCAS'23]</a>。利用该技术，即使使用低功耗的蓝牙通讯，仍然可实现对上百通道的神经信号实时传输。除此之外，通过在片上集成事件驱动采样<a href="https://ieeexplore.ieee.org/abstract/document/10090325">[APCCAS'22]</a>并保留尖峰电位，还可实现上百倍的数据压缩<a href="https://ieeexplore.ieee.org/abstract/document/10168619">[AICAS'23]</a>。降低数据率的同时，我们还研究基于IR-UWB的通讯模块来提高数据传输能效，进一步降低数据传输过程中的能耗。
                 </p>
 
-                <p>为了在有限的硅面积上集成更多的高质量信号读出通道，我们还设计了基于交流耦合斩波稳定的小面积(0.048mm<sup>2</sup>)、低功耗(2.47μW)放大器。该放大器具有可配置的高通截止频率、超低截止频率以及低噪声(1.7μV<sub>rms</sub>)等特点<a href="https://ieeexplore.ieee.org/abstract/document/10177203">[TBIOCAS'23]</a>。我们将在2024年初，完成数百通道读出前端的集成。
+                <p>为了在有限的硅面积上集成更多的高质量信号读出通道，我们还设计了基于交流耦合斩波稳定的小面积(0.048mm<sup>2</sup>)、低功耗(2.47μW)放大器。该放大器具有可配置的高通截止频率、超低截止频率以及低噪声(1.7μV<sub>rms</sub>)等特点<a href="https://ieeexplore.ieee.org/abstract/document/10177203">[TBIOCAS'23]</a>。利用集成快速时分复用、片上事件驱动采样、IR-UWB传输等几项技术，我们在40nm工艺下实现了0.0032mm<sup>2</sup>，1.38μW每通道的神经信号记录芯片<a href="#research2">[CICC'24]</a>，为实现超高密度低功耗脑机接口系统建立了基础。 通过"2024浙江省尖兵研发攻关计划"项目的牵引，我们将在2024年初完成数百通道读出前端的开发，并完成相应脑机接口微系统的集成与动物实验。
                 </p>
    <!-- 其他信息 -->
             </div>
