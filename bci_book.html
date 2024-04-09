@@ -7,10 +7,18 @@
     <meta name="description" content="杨杰的《侵入式脑机接口芯片》, 了解侵入式脑机接口技术和关键电路模块设计。本网页提供对该领域研究和应用感兴趣的读者全面的信息资源，包括电路设计概述、神经信号处理、无线通讯、以及刺激电路等核心技术。">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/book.css">
+    <link rel="stylesheet" media="screen and (max-width: 768px)" href="./css/bootstrap.css">
+    <style>
+        @media screen and (min-width: 768px) {
+            .shouji{
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-            <header style="background-image:url('images/header_bg.jpg');background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <div class="container d-none d-md-block">
+        <header style="background-image:url('images/header_bg.jpg');background-size: cover; background-position: center; background-repeat: no-repeat;">
             <h1>侵入式脑机接口芯片</h1>
             <p>杨杰，Mohamad Sawan</p>
             <p>西湖大学工学院先进神经芯片中心，杭州 310030</p>
@@ -58,6 +66,63 @@
             </section>
         </main>
     </div>
+    <div class="container col-lg-6 shadow-lg p-4 d-block d-md-none shouji">
+        <div class="d-block d-md-none" style="background-image: url(./images/header_bg.jpg);background-size: 100% 100%;height: 250px;padding: 30px;color: rgb(22, 22, 22);">
+            <div style="line-height: 20px;">
+                <h4 class="font-weight-bold">侵入式脑机接口芯片</h4>
+                <p style="font-size: 15px;" class="mt-4 font-weight-bold">杨杰，Mohamad Sawan</p>
+                <p style="font-size: 15px;" class="font-weight-bold">西湖大学工学院先进神经芯片中心，杭州 310030</p>
+                <p style="font-size: 15px;" class="font-weight-bold">yangjie.ac.cn</p>
+                <p style="font-size: 15px;" class="font-weight-bold">yangjie@westlake.edu.cn</p>
+            </div>
+        </div>
+        <div class="d-none d-md-block" style="background-image: url(./images/header_bg.jpg);background-size: 100% 100%;height: 250px;padding: 30px;color: rgb(22, 22, 22);">
+            <div style="line-height: 20px;font-size: 20px;">
+                <h1 class="font-weight-bold">侵入式脑机接口芯片</h1>
+                <p class="mt-4 font-weight-bold">杨杰，Mohamad Sawan</p>
+                <p class="font-weight-bold">西湖大学工学院先进神经芯片中心，杭州 310030</p>
+                <p class="font-weight-bold">yangjie.ac.cn</p>
+                <p class="font-weight-bold">yangjie@westlake.edu.cn</p>
+            </div>
+        </div>
+        <div class="text-center m-2 mt-3">
+            <a class="btn btn-primary" href="./index.html">回到主页</a>
+        </div>
+        <div class="mt-5 p-1">
+            <p style="text-indent: 2em;font-size: 19px;text-align: justify;">人类与数字世界之间的通讯方式经历了不断的更迭和演进，从打孔卡、键盘、鼠标，到触摸屏，再到借助大语言模型实现的自然语言，通讯效率不断提高。这种通讯的本质是人类大脑或神经系统与数字世界的信息交流。因此，建立大脑和数字世界之间的直接通讯成为21世纪人类最终目标之一。如今，侵入式脑机接口技术在建立这种直接通讯方面取得了重要进展，正在逐步向着这一目标迈进。在脑机接口技术中，芯片扮演着重要的角色，通过将关键电路部分或全部集成在平方毫米级别大小、毫瓦甚至更低功耗的半导体芯片上，摆脱了尺寸、功耗、电缆连接等方面的限制，从而使得侵入式脑机接口系统更容易、更安全、更舒适地进行植入人体。本网页旨在梳理侵入式脑机接口芯片中的主要电路模块设计，希望为对此领域感兴趣的读者提供帮助。</p>
+        </div>
+        
+        <h1>引用本网页</h1>
+        <section class="book_cite" style="background-color: rgb(248, 248, 248);border: 1px solid #ccc;padding: 10px;margin-top: 30px;">
+            <pre> @book{
+        title={侵入式脑机接口芯片},
+        author={杨杰，Mohamad Sawan}, 
+        note={url{http://yangjie.ac.cn/bci_book}},
+        year={2024}
+ }</pre>
+        </section>
+        <div class="col-md-12 m-auto text-center">
+            <h1>侵入式脑机接口芯片</h1>
+            <div class="row mt-4">
+                <img class="col-md-8 shadow-lg mb-4" style="width: 100%;" src="images/chip_demo.jpg" alt="研究领域图解">
+                <div class="col-md-4 text-left">
+                    <ul style="list-style: none;line-height: 35px;padding: 0;">
+                        <li><a href="book/chapter_1.html">一、侵入式脑机接口芯片概述</a></li>
+                        <li><a href="book/chapter_2.html">二、神经信号读出电路 </a></li>
+                        <li><a href="book/chapter_3.html">三、神经信号处理电路</a></li>
+                        <li><a href="book/chapter_4.html">四、无线能量传输与通讯电路 </a></li>
+                        <li><a href="book/chapter_5.html">五、刺激电路 </a></li>
+                        <li><a href="book/bib.html">六、参考文献 </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4">
+            <h1>Note</h1>
+            <p style="text-indent: 2rem;">如果您发现任何错误，请随时通过电子邮件直接与作者联系：yangjie@westlake.edu.cn。我将会对内容进行持续修改和更新，后续本网站还将上线相关内容的英文版。</p>
+        </div>
+    </div>
+
         <footer>
       <p>
         <a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备2022004406号-1</a>
