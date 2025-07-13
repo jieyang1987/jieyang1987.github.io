@@ -1,513 +1,490 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport">
-    <title>杨杰 - 西湖大学脑机接口与类脑计算 | 研究方向与成果 </title>
-    <meta name="description" content="杨杰在西湖大学的研究方向与成果，涉及人工智能驱动的闭环神经调控算法与芯片、神经形态计算芯片与系统、高通量侵入式脑机接口芯片与系统、侵入式脑机接口汉语解码、基于光遗传的穿戴式视网膜假体、高动态图像处理算法与芯片及人工智能视觉芯片。深入了解杨杰在脑机接口和神经科学研究领域的前沿技术和突破性成就。">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/research.css">
-    <link rel="stylesheet" media="screen and (max-width: 768px)" href="./css/bootstrap.css">
-    <style>
-        @media screen and (min-width: 768px) {
-            .shouji{
-                display: none;
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="author" content="杨杰, 西湖大学, Jie Yang, Westlake University" />
+    <title>杨杰 - 西湖大学脑机接口与类脑计算 | 研究方向与成果</title>
+    <meta name="description" content="杨杰博士在西湖大学从事脑机接口与类脑计算方向研究，涵盖闭环神经调控芯片、类脑计算芯片、高通量侵入式脑机接口、汉语解码系统、光遗传视网膜假体、高动态视觉算法与AI视觉芯片。本页面展示其在脑科学、神经工程与智能芯片领域的重要成果。">
+
+    <!-- Icon -->
+    <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+
+    <!-- Bootstrap icons-->
+    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" /> -->
+    <link href="static/css/bootstrap-icons-150.css" rel="stylesheet" />
+
+    <!-- Google fonts-->
+    <!--
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap"
+        rel="stylesheet" />
+    -->
+    <link href="static/css/google-fonts-newsreader.css" rel="stylesheet"/>
+    <link href="static/css/google-fonts-mulish.css" rel="stylesheet"/>
+    <link href="static/css/google-fonts-kanit.css" rel="stylesheet"/>
+
+    <!-- Libraries Stylesheet -->
+    <link href="static/css/animate.min.css" rel="stylesheet">
+    <link href="static/css/owl.carousel.min.css" rel="stylesheet">
+    <link href="static/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link type="text/css" href="static/css/styles.css" rel="stylesheet" />
+    <link type="text/css" href="static/css/main.css" rel="stylesheet" />
+
+    <!-- Bootstrap core JS-->
+    <script type="text/javascript" src="static/js/bootstrap.bundle.min.js"></script>
+
+    <!-- For Compatability <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> -->
+    
+
+    <!-- Markdown -->
+    <script type="text/javascript" src="static/js/marked.min.js"></script>
+
+    <!-- Mathematics -->
+    <script>
+        // See https://docs.mathjax.org/en/latest/index.html for more details.
+        MathJax = {
+            tex: {
+                packages: {},              // extensions to use
+                inlineMath: [              // start/end delimiter pairs for in-line math
+                    ['$', '$'],
+                    ['\\(', '\\)']
+                ],
+                displayMath: [             // start/end delimiter pairs for display math
+                    ['$$', '$$'],
+                    ['\\[', '\\]']
+                ],
+                processEscapes: false,      // use \$ to produce a literal dollar sign
+                processEnvironments: true, // process \begin{xxx}...\end{xxx} outside math mode
+                processRefs: true,         // process \ref{...} outside of math mode
+                digits: /^(?:[0-9]+(?:\{,\}[0-9]{3})*(?:\.[0-9]*)?|\.[0-9]+)/,    // pattern for recognizing numbers
+                tags: 'all',              // or 'ams' or 'all'
+                tagSide: 'right',          // side for \tag macros
+                tagIndent: '0.8em',        // amount to indent tags
+                useLabelIds: true,         // use label name rather than tag for ids
+                maxMacros: 10000,          // maximum number of macro substitutions per expression
+                maxBuffer: 5 * 1024,       // maximum size for the internal TeX string (5K)
+                // baseURL:                   // URL for use with links to tags (when there is a <base> tag in effect)
+                // (document.getElementsByTagName('base').length === 0) ? '' : String(document.location).replace(/#.*$/, ''),
+                formatError:               // function called when TeX syntax errors occur
+                    (jax, err) => jax.formatError(err)
             }
-        }
-    </style>
+        };
+    </script>
+    <!--
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/javascript" id="MathJax-script" src="static/js/tex-svg.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="static/js/tex-mml-chtml.js"></script>
+    -->
+    
+    <!-- Core JS-->
+    <script type="text/javascript" src="static/js/scripts.js"></script>
+    <script type="text/javascript" src="static/js/js-yaml.min.js"></script>
+
+
+<style>
+    #top-section-bg-text {
+        font-size: clamp(2.5rem, 6vw, 4.5rem); /* 适配不同设备 */
+        font-weight: 400;
+        font-family: 'AlibabaPuHuiTi-Regular', sans-serif;
+    }
+</style>
 
 </head>
-<body>
 
-<div class="containers d-none d-md-block">
-    <!-- 使用您提供的 header 内容 -->
-    <header>
-        <div class="profile-container">
-             <img src="images/selfie.jpg" alt="Jie Yang" class="profile-pic">
-            <div class="contact-info">
-                <h1>杨杰</h1>
-                <p>Phone/Wechat: +86 13157577935</p>
-                <p>Email: yangjie@westlake.edu.cn</p>
-                <p>Google Scholar: <a href="https://scholar.google.com/citations?user=6T786i8AAAAJ&hl=en">Link</a></p>
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="header navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
+        <div class="container px-5">
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto p-4 p-lg-0">
+                    <a href="index.html" class="nav-item nav-link me-lg-3 text-dark">主页</a>
+                    <a href="research.html" class="nav-item nav-link me-lg-3 text-dark">研究方向</a>
+                    <a href="chip_gallery.html" class="nav-item nav-link me-lg-3 text-dark">芯片展示</a>
+                    <a href="publications.html" class="nav-item nav-link me-lg-3 text-dark">论文发表</a>
+                    <div class="nav-item dropdown me-lg-3">
+                        <a href="#" class="nav-link dropdown-toggle fw-normal text-dark" data-bs-toggle="dropdown">出版书籍</a>
+                        <div class="dropdown-menu rounded">
+                            <a href="book-item-bci.html" class="dropdown-item">侵入式脑机接口芯片</a>
+                            <a href="#" class="dropdown-item">类脑计算芯片（建设中）</a>
+                        </div>
+                    </div>
+                    <a href="coverage.html" class="nav-item nav-link me-lg-3 text-dark">学术活动</a>
+                    <div class="d-inline-flex">
+                        <button type="button" class="nav-link me-lg-3 btn btn-sm btn-outline-primary px-2 py-0 text-primary" onclick="window.location.href='index_en.html';">EN</button>
+                    </div>
+                </div>
             </div>
         </div>
-        <nav>
-            <ul>
-                    <li><a href="index.html">主页</a></li>
-                    <li><a href="research.html">研究项目</a></li>
-                    <li><a href="publications.html">论文发表</a></li>
-                    <li class="dropdown">
-                        <a href="#">我的书籍</a> <!-- 修改这里 -->
-                        <ul class="dropdown-content">
-                            <li><a href="bci_book.html">侵入式脑机接口芯片</a></li>
-                            <li><a href="neuromorphic_book.html">类脑计算芯片(建设中...)</a></li>
-                        </ul>
+    </nav>
+
+    <!-- Top Section -->
+    <section class="top-section container-fluid" style="background-image: url('static/assets/img/westlake-rim-banner-thin.jpeg');background-size: cover; height: 10vh">
+        <div class="top-section-content">
+            <div class="container px-5">
+                <h2 id="top-section-bg-text" class="text-white lh-1">杨杰 博士 Yangjie , Ph.D.</h2>
+            </div>
+    </section>
+    <!-- Top Section -->
+
+    <!-- Photo -->
+   <div class="container px-5">
+    <div id="avatar">
+        <div class="d-flex flex-row justify-content-end align-items-end">
+            <div class="mx-auto d-block float-start px-3" style="width:50vw">
+                <p class='mt-0 mb-0 text-end' style="font-size:clamp(10px,1.2vw,20px); font-weight: 400;">Phone/Wechat: +86 13157577935</p>
+                <p class='mt-0 mb-0 text-end' style="font-size:clamp(10px,1.2vw,20px); font-weight: 400;">Email: yangjie@westlake.edu.cn</p>
+                <p class='mt-0 mb-1 text-end' style="font-size:clamp(10px,1.2vw,20px); font-weight: 400;">Google Scholar: <a href="https://scholar.google.com/citations?user=6T786i8AAAAJ&hl=en">Link</a></p>
+            </div>
+            <img class="shadow d-block mx-auto" src="static/assets/img/yangjie.jpg">
+        </div>
+    </div>
+</div>
+    <!-- Photo -->
+    
+    <!-- Home -->
+    <section class="bg-gradient-primary-to-secondary-light mt5 md5" id="home">
+        <div class="container px-5">
+            <header>
+                <h2 id="home-subtitle"> 研究方向索引 </h2>
+                <!-- <span class="bi bi-list"></span> -->
+            </header>
+            <div class="main-body" id="introduction">
+                <ul class="research-index">
+                    <li>
+                    <a href="#research1">人工智能驱动的闭环神经调控算法与芯片</a>
                     </li>
-                    <li><a href="news_media.html">新闻报道</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-
-<!-- 研究项目索引 -->
-        <div class="research-index">  
-          <h3> 项目索引</h3> 
-            <ul>
-                <li><a href="#research1">人工智能驱动的闭环神经调控算法与芯片</a></li>
-                <li><a href="#research2">神经形态计算芯片与系统</a></li>
-                <li><a href="#research3">高通量脑机接口芯片与系统</a></li>
-                <li><a href="#research4">侵入式脑机接口汉语解码</a></li>
-                <li><a href="#research5">基于光遗传的穿戴式视网膜假体</a></li>
-                <li><a href="#research6">高动态图像处理算法与芯片</a></li>
-                <li><a href="#research6">人工智能视觉芯片</a></li>
-                <!-- 其他研究方向的链接 -->
-            </ul>
+                    <li><a href="#research2">神经形态计算芯片与系统</a></li>
+                    <li><a href="#research3">侵入式脑机接口芯片与系统</a></li>
+                    <li><a href="#research4">侵入式脑机接口汉语解码</a></li>
+                    <li><a href="#research5">基于光遗传的穿戴式视网膜假体</a></li>
+                    <li><a href="#research6">高动态图像处理算法与芯片</a></li>
+                    <li><a href="#research7">人工智能视觉芯片</a></li>
+                    <!-- 其他研究方向的链接 -->
+                </ul>
+            </div>
         </div>
-        <!-- 第一个研究方向 -->
-        <div class="research-direction" id="research1">
-            <div class="research-images">
-                <img src="images/closed-loop_system.png" alt="闭环调控系统框图" class="research-image"> 
-                <img src="images/seizure_prediction_network.png" alt="癫痫预测神经网络" class="research-image">
-                <img src="images/CODEV1_die_photo.png" alt="die_photo" class="research-image">
+    </section>
+    <!-- Home -->
 
-   <!-- 可以继续添加更多图片 -->
-            </div>
-            <div class="research-text">
-                <ul><strong>人工智能驱动的闭环神经调控算法与芯片</strong></ul>
-                <!--<p>利用植入式医疗设备进行神经调控已成为治疗多种重大脑疾病的最有效的方法之一，全球已有数十万脑疾病患者从中获益。-->
-                <p>闭环神经调控系统对大脑神经活动进行实时监测，并检测神经信号中与发病相关的特征，最后再按需进行神经系统刺激，可实现精准、个性化的治疗方案，是神经调控的未来发展方向。然而，现有的MCU或DSP无法满足复杂生物信号特征提取、分类的算力要求和低功耗要求，导致现有的闭环调控设备治疗效果差、待机时间短。我们提出了在片上集成微瓦级(μW)低功耗神经网络实现精准闭环调控的路径<a href="https://ieeexplore.ieee.org/abstract/document/9173735">[TBIOCAS'20</a>, <a href="https://ieeexplore.ieee.org/abstract/document/9760507">TCAS-II'22]</a> 。首先，我们对基于CNN网络<a href="https://ieeexplore.ieee.org/abstract/document/9073988">[AICAS'20</a>, <a href="https://ieeexplore.ieee.org/abstract/document/9458571">AICAS'21]</a>、BNN网络<a href="https://ieeexplore.ieee.org/abstract/document/9180430">[BIOCAS'20]</a>以及SNN网络<a href="https://ieeexplore.ieee.org/abstract/document/9401560">[ISCAS'21]</a>的神经信号处理算法进行了各种尝试，并取得了优于传统方法的分类效果。我们结合神经信号特点和网络架构搜索、剪枝以及量化技术将网络规模进一步压缩至100KB以下<a href="https://ieeexplore.ieee.org/abstract/document/9479737">[TBME'21]</a>。在上述算法基础上，我们还设计流片了专用的低功耗生物信号处理芯片<a href="https://ieeexplore.ieee.org/abstract/document/10105432">[TBIOCAS'23]</a>，通过可重构设计，该芯片实现了对上述多种网络类型的支持，具备高效的生物信号处理和标志物分类能力。该芯片通过事件驱动的工作方式实现了μW级别的功耗，为下一代智能闭环神经调控系统提供了关键技术支持。</p>
-                <p>除此之外，针对脑电信号本身，我们还提出基于GAN网络的数据增广技术<a href="https://ieeexplore.ieee.org/abstract/document/9767764">[TBME'22]</a>以及基于知识蒸馏的跨个体训练方法<a href="https://iopscience.iop.org/article/10.1088/1741-2552/ac73b3/meta">[JNE'22]</a>，来弥补颅内脑电信号缺乏、数据分布不均的问题以及个体差异性大等问题，并把疾病检测任务从传统的二元分类转换为发作概率的预测，同时降低了预测的延迟<a href="https://www.sciencedirect.com/science/article/abs/pii/S0957417423018614">[Expert Syst. Appl.'24]</a>。</p>
-   <!-- 其他信息 -->
-            </div>
-            </div>
-
-        <!-- 第二个研究方向 -->
-        <div class="research-direction" id="research2">
-            <div class="research-images">
-                    <img src="images/SCNN-ECG.png" alt="ECG processing" class="research-image"> 
-                    <img src="images/CNN-SNN-conversion.png" alt="CNN-SNN-conversion" class="research-image">
-                    <img src="images/RAINE_V1_die_photo.png" alt="RAINE" class="research-image">
-   <!-- 可以继续添加更多图片 -->
-            </div>
-            <div class="research-text">
-                <ul><strong>类脑计算芯片与系统</strong></ul>
-                <p>
-                使用尖峰神经网络设计的神经形态处理器，在能效和性能方面比传统处理器具有显著优势，因此在边缘计算系统里具有巨大的应用潜力。我们利用神经形态计算来完成生物信号处理，包括低功耗的ECG信号处理<a href="https://ieeexplore.ieee.org/abstract/document/9937756">[ISCAS'22]</a>、癫痫信号处理<a href="https://ieeexplore.ieee.org/abstract/document/9401560">[ISCAS'21]</a>、新型的脉冲编码方式<a href="https://ieeexplore.ieee.org/abstract/document/10181850">[ISCAS'23]</a>
-                、可推广到一般生物信号处理的通用神经形态计算框架<a href="https://www.frontiersin.org/articles/10.3389/fnins.2023.1093865/full">[Front. Neurosci.'23]</a>以及支持片上学习和不同模态的神经形态处理器<a href="https://ieeexplore.ieee.org/abstract/document/9937459">[ISCAS'22</a>, <a href="https://ieeexplore.ieee.org/abstract/document/9980727">ASSCC'22</a>, <a href="https://ieeexplore.ieee.org/abstract/document/10132492">TBioCAS'23]</a>来满足穿戴式和植入式等边缘设备的功耗和性能要求。
-                </p>
-                <p>             
-                我们同时也希望在类脑芯片上高效地集成数量众多的类脑神经元来完成更加复杂与智能的任务，为此我们研究多核类脑处理器中的路由协议与相关电路来降低处理器延迟和相应的功耗开销<a href="https://ieeexplore.ieee.org/abstract/document/10168590">[AICAS'23]</a>。同时，为了解决大规模类脑模型部署中数据访存带来的功耗、延迟开销，以及高度稀疏化数据带来的吞吐率下降问题，我们还设计了具备高度并行化和非结构化稀疏感知的类脑处理芯片，实现了0.078pJ/SOP的卓越性能<a href="#research2">[CICC'24]</a>。
-                通过"脑科学与类脑研究"重大项目课题的牵引，我们后续将在无人车、机器人以及无人机等场景中应用大规模集成的类脑芯片与系统。
-                </p>
-
-   <!-- 其他信息 -->
-            </div>
-            </div>
-
-        <!-- 第三个研究方向 -->
-        <div class="research-direction" id="research3">
-            <div class="research-images">
-                    <img src="images/signal compression.png" alt="signal compression" class="research-image">
-                    <img src="images/compression hardware.png" alt="compression hardware" class="research-image">
-                    <img src="images/CAFE.png" alt="CAFE" class="research-image">
-
-   <!-- 可以继续添加更多图片 -->
-            </div>
-            <div class="research-text">
-                <ul><strong>高通量侵入式脑机接口芯片与系统</strong></ul>
-                <p>侵入式脑机接口在大脑与机器之间构建一条直接、高效的信息交互通路，是一项具有广阔想象和应用空间的前沿技术，而其中的脑机接口芯片作为关键器件，需要在极低的功耗和面积下实现成百上千通道的脑信号的读取和传输，这对芯片设计带来了巨大挑战<a href="https://ieeexplore.ieee.org/abstract/document/9766042">[TCAS-II'22]</a>。芯片功耗主要来源于高通量数据的传输，因此从降低系统功耗的角度出发，我们利用压缩感知和人工智能方法，实现了对采样数据的16倍低损压缩<a href="https://ieeexplore.ieee.org/abstract/document/10012381/">[TNSRE'23]</a>，并进一步利用软硬件协同设计方式实现了低功耗约束下的片上部署 <a href="https://ieeexplore.ieee.org/abstract/document/10024315">[TBIOCAS'23]</a>。利用该技术，即使使用低功耗的蓝牙通讯，仍然可实现对上百通道的神经信号实时传输。除此之外，通过在片上集成事件驱动采样<a href="https://ieeexplore.ieee.org/abstract/document/10090325">[APCCAS'22]</a>并保留尖峰电位，还可实现上百倍的数据压缩<a href="https://ieeexplore.ieee.org/abstract/document/10168619">[AICAS'23]</a>。降低数据率的同时，我们还研究基于IR-UWB的通讯模块来提高数据传输能效，进一步降低数据传输过程中的能耗。
-                </p>
-
-                <p>为了在有限的硅面积上集成更多的高质量信号读出通道，我们还设计了基于交流耦合斩波稳定的小面积(0.048mm<sup>2</sup>)、低功耗(2.47μW)放大器。该放大器具有可配置的高通截止频率、超低截止频率以及低噪声(1.7μV<sub>rms</sub>)等特点<a href="https://ieeexplore.ieee.org/abstract/document/10177203">[TBIOCAS'23]</a>。利用集成快速时分复用、片上事件驱动采样、IR-UWB传输等几项技术，我们在40nm工艺下实现了0.0032mm<sup>2</sup>，1.38μW每通道的神经信号记录芯片<a href="#research2">[CICC'24]</a>，为实现超高密度低功耗脑机接口系统建立了基础。 通过"2024浙江省尖兵研发攻关计划"项目的牵引，我们将在2024年初完成数百通道读出前端的开发，并完成相应脑机接口微系统的集成与动物实验。
-                </p>
-   <!-- 其他信息 -->
-            </div>
-            </div>
-        <!-- 更多研究项目... -->
-        <!-- 第四个研究方向 -->
-        <div class="research-direction" id="research4">
-            <div class="research-images">
-                <img src="images/decoding architecture.png" alt="decoding architecture" class="research-image"> 
-                <img src="images/initial decoding.png" alt="initial decoding" class="research-image">
-                <img src="images/decoding performance.png" alt="decoding performance" class="research-image">
-
-   <!-- 可以继续添加更多图片 -->
-            </div>
-            <div class="research-text">
-                <ul><strong>侵入式脑机接口汉语解码</strong></ul>
-                <p>脑机接口技术中，将脑电信号转换为语音或相关的运动信号，以帮助中风或渐冻症等患者恢复沟通能力，是最具挑战性的任务之一，世界上仅有少数研究机构具备将脑电翻译为字母语言(英语和荷兰语)的能力。为此，我们开发了世界上首个专门针对汉语言设计的解码系统，它能将语音相关的立体脑电图（sEEG）信号解码成完整的中文句子，可实现所有汉语发音的解码。</p>
-                <p>我们的研究团队从汉语发音音节的声母、声调和韵母三个要素出发，设计覆盖所有407个汉语拼音音节以及汉语发音特点的语音库并同步收集脑电信号，构建了超过100小时的汉语语音-sEEG数据库。通过人工智能模型训练，构建了针对汉字发音音节三要素（声母、声调和韵母）的预测模型，并最终通过一个语言模型对所有预测得到的元素进行整合，结合语义信息生成最可能的完整汉语句子。在超过100次随机选择的2个字符-15个字符的复杂交流场景解码测试后，所有参与者字符错误率中位数平均仅为29%，部分参与者通过脑电解码得到的句子完全正确率达到了30%，该研究成果已以预印本<a href="https://www.biorxiv.org/content/10.1101/2023.11.05.562313v1.abstract">[A high-performance brain-to-sentence decoder for logosyllabic language]</a>形式发布。
-                </p>
-   <!-- 其他信息 -->
-            </div>
-            </div>
-
-<!-- 第5个研究方向 -->
-        <div class="research-direction" id="research5">
-            <div class="research-images">
-                    <img src="images/JBHI.png" alt="JBHI" class="research-image">
-                    <img src="images/spike database.png" alt="spike database" class="research-image">
-                    <img src="images/spike see.png" alt="spike see" class="research-image"> 
-                    
-
-   <!-- 可以继续添加更多图片 -->
-            </div>
-            <div class="research-text">
-                <ul><strong>基于神经形态处理和光遗传的视网膜假体</strong></ul>
-                <p>视网膜假体可以帮助患有严重年龄相关性黄斑变性(AMD)或视网膜色素变性(RP)的患者恢复视力。传统的假体试图通过将光信号转化为电刺激来模拟视网膜细胞的活动，以产生或者恢复患者的视觉感觉。视网膜假体对光信号的处理机制对视觉的恢复效果起到至关重要的作用，我们首先综述了视觉恢复中所采用的信号处理算法<a href="https://iopscience.iop.org/article/10.1088/1741-2552/acb295/meta">[JNE'23]</a>，为了更好的拟合视网膜的功能，我们从仿生角度出发提出了首先利用DVS传感器对视觉信息进行脉冲编码，再结合神经形态处理器进行脉冲处理的新型架构，该架构可产生与生物视网膜高度类似的脉冲信号，在高度拟态视网膜的信息处理机制的同时，实现了系统的低功耗，为后续穿戴或植入视网膜假体方案提供了可能性，被<a href="https://ieeexplore.ieee.org/abstract/document/9767670">[JBHI'22]</a>作为封面文章报道。 在该框架基础上，我们进一步采用尖峰循环神经网络来提高模拟视网膜功能，与真实视网膜信号的皮尔逊相关系数达到了0.93
-                <a href="https://www.sciencedirect.com/science/article/abs/pii/S0893608023002332">[Neural Netw.'23]</a>。
-                    
-
-                </p>
-   <!-- 其他信息 -->
-            </div>
-            </div>
-<div class="research-direction" id="research6">
-            <div class="research-images">
-                    <img src="images/TM results.png" alt="TM results" class="research-image">
-                    <img src="images/mobile app.png" alt="mobile app" class="research-image">
-
-   <!-- 可以继续添加更多图片 -->
-            </div>
-            <div class="research-text">
-                <ul><strong>高动态图像处理算法与芯片</strong></ul>
-                <p>
-                人眼可以同时感受自然界极弱和极强的光线，其动态范围超过120dB。然而，目前的图像传感器动态范围大约在60-70dB左右，难以覆盖人类视觉的动态范围。为了弥补图像传感器动态范围的不足，我们对高动态场景进行多次曝光构建了高动态场景数据库<a href="https://arxiv.org/abs/2101.03826">[arXiv'21]</a>，并通过将同一像素在不同曝光度和不同尺度下的映射值进行融合得到高动态图像<a href="https://ieeexplore.ieee.org/abstract/document/8078533">[AVSS'17]</a>。利用积分直方图以及引导滤波器，我们对算法性能进行了优化和提升，使其可以将高动态图像场景中的极暗和极亮区域的细节展现得淋漓尽致<a href="https://ieeexplore.ieee.org/abstract/document/8313070">[CAMSAP'17</a>, <a href="https://arxiv.org/abs/2102.00408">arXiv'21]</a>。该<a href="https://github.com/jieyang1987/Tone-Mapping-Based-on-Multi-scale-Histogram-Synthesis">展示页面</a>展示了经过该算法处理后的高动态图像效果。在经过移动端GPU优化后，该算法被成功应用到手机移动端<a href="https://arxiv.org/abs/2102.01289">[arXiv'21]</a>。为了优化和控制图像中的纹理细节，我们利用拉普拉斯金字塔将图像拆解到多个拉普拉斯空间，然后通过神经网络对不同尺度下的纹理进行增强，最后通过优化后的拉普拉斯金字塔恢复出高动态图像。该算法通过对不同尺度纹理的权重调整，可以对图像细节的展现度进行调节<a href="hhttps://arxiv.org/abs/2102.00348">[arXiv'21]</a>，该<a href="https://github.com/jieyang1987/Deep-Reformulated-Laplacian-Tone-Mapping">展示页面</a>展示了经处理后高动态图像效果。
-                </p>
-
-                <p>
-                为了在低成本的摄像头上实现高动态图像处理，我们还设计了基于局部映射的高动态图像处理算法和FPGA硬件实现
-                <a href="https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/el.2017.3227">[EL'18]</a>，以及基于尾数-指数表达的全局图像处理算法和FPGA硬件实现<a href="https://ieeexplore.ieee.org/abstract/document/8660478">[TCAS-II'19]</a>。
-                </p>
+    <!-- Publications bg-gradient-primary-to-secondary-gray -->
+    <section class="bg-gradient-primary-to-secondary-gray mt5 md5" id="interests">
+        <div class="container px-5">
+            <div class="main-body lh-base" id="interests-content">
                 
-                
-   <!-- 其他信息 -->
-            </div>
-            </div>
+
+                <!-- 第一个研究方向 -->
+                <div class="row mb-5" id="research1">
+                    <div class="container">
+                        <header>
+                            <h4 id="interests-subtitle"><i class="bi bi-file-text-fill"></i>&nbsp;人工智能驱动的闭环神经调控算法与芯片</h4>
+                        </header>
+                        <div class="container-fluid" style="width:30%; float:left">
+                            <div class="text-center col">
+                                <div class="row">
+                                    <img src="images/closed-loop_system.png" alt="闭环调控系统框图" class="img-fluid" >
+                                </div>
+                                <div class="row">
+                                    <img src="images/seizure_prediction_network.png" alt="癫痫预测神经网络" class="img-fluid" >
+                                </div>
+                                <div class="row">
+                                    <img src="images/CODEV1_die_photo.png" alt="die_photo" class="img-fluid" >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="text-align: justify;">
+                            <!--<p>利用植入式医疗设备进行神经调控已成为治疗多种重大脑疾病的最有效的方法之一，全球已有数十万脑疾病患者从中获益。-->
+
+<p>
+闭环神经调控系统通过实时监测大脑神经活动，检测与病理状态相关的信号特征，并按需输出神经刺激，实现精准、个性化的治疗方案，是神经调控的重要发展方向。然而，现有的芯片难以同时满足生物信号特征提取的算力与功耗约束，导致当前设备治疗效果有限、续航能力不足。
+</p>
+
+<p>
+为此，我们提出在片上集成微瓦级（μW）低功耗神经网络以实现精准闭环调控的路径<a href="https://ieeexplore.ieee.org/abstract/document/9173735">[TBioCAS'20</a>,
+<a href="https://ieeexplore.ieee.org/abstract/document/9760507">TCAS-II'22]</a>。我们系统地探索了基于 CNN<a href="https://ieeexplore.ieee.org/abstract/document/9073988">[AICAS'20</a>,
+<a href="https://ieeexplore.ieee.org/abstract/document/9458571">AICAS'21]</a>、BNN<a href="https://ieeexplore.ieee.org/abstract/document/9180430">[BioCAS'20]</a> 和 SNN<a href="https://ieeexplore.ieee.org/abstract/document/9401560">[ISCAS'21]</a> 的神经信号处理算法，取得了优于传统方法的分类性能。通过结合网络结构搜索、剪枝与量化等技术，成功将模型规模压缩至 100KB 以下<a href="https://ieeexplore.ieee.org/abstract/document/9479737">[TBME'21]</a>。
+</p>
+
+<p>
+在算法基础上，我们进一步设计了支持 CNN/SNN/BNN 的可重构低功耗信号处理芯片<a href="https://ieeexplore.ieee.org/abstract/document/10105432">[TBioCAS’23]</a>，采用事件驱动架构，实现了 μW 级能耗下的高效信号处理与标志物检测。为实现患者个性化，我们开发了支持直接反馈对齐机制的片上训练芯片<a href="https://ieeexplore.ieee.org/abstract/document/10504647">[TBioCAS'24]</a>，在小样本在线学习条件下识别准确率进一步提升。我们最终总结出一套算法-芯片协同设计流程，系统阐述于 <a href="https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2024.1340164/full">[Front. Neurosci.'24]</a>。
+</p>
+
+<p>
+在神经信号建模方面，我们提出基于 GAN 的数据增强方法<a href="https://ieeexplore.ieee.org/abstract/document/9767764">[TBME'22]</a>和基于知识蒸馏的跨个体训练策略<a href="https://iopscience.iop.org/article/10.1088/1741-2552/ac73b3/meta">[JNE'22]</a>，分别用于解决脑电数据稀缺与分布不均问题。为利用大量未标注数据，我们设计了 Fourier 掩码自编码驱动的神经信号预训练框架 Neuro-BERT<a href="https://ieeexplore.ieee.org/abstract/document/10561479">[JBHI'24]</a>，显著提升了下游神经分析任务的性能。
+</p>
+
+<p>
+此外，我们将疾病检测从传统二分类任务拓展为概率预测，并通过模型架构改进降低预测延迟<a href="https://www.sciencedirect.com/science/article/abs/pii/S0957417423018614">[Expert Syst. Appl.'24]</a>，并融合多模态视觉信息辅助癫痫发作检测<a href="https://link.springer.com/chapter/10.1007/978-3-031-73007-8_14">[ECCV'24]</a>，提升系统的临床可用性与泛化能力。
+</p>
 
 
 
-
-<!-- 第6个研究方向 -->
-        <div class="research-direction" id="research6">
-            <div class="research-images">
-                    <img src="images/Heterogeneous processor.png" alt="Heterogeneous processor" class="research-image">
-                    <img src="images/Heterogeneous processor die.png" alt="Heterogeneous processor die" class="research-image">
-                    <img src="images/tracker.png" alt="tracker" class="research-image">
-
-   <!-- 可以继续添加更多图片 -->
-            </div>
-            <div class="research-text">
-                <ul><strong>人工智能视觉芯片</strong></ul>
-                <p>
-                视觉芯片旨在模拟人的视觉信息处理方式，以期望实现或超越人类视觉系统的功能和性能。在高速目标追踪、图像识别等领域具有广泛的应用前景。我们研发了国内最早的1000fps高速视觉芯片<a href="https://ieeexplore.ieee.org/abstract/document/6853420">[JSSC'14]</a>，在高帧率下实现了简单特征的提取与分类功能。为了进一步解决高速目标追踪过程中遮挡、形变等问题,我们设计了具备像素级特征处理和区域级局部特征处理的异构视觉芯片<a href="https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/el.2014.0033">[EL'14</a>, <a href="https://ieeexplore.ieee.org/abstract/document/7593227">TCSVT'18]</a>以及与之对应的像素级、区域级特征提取算法<a href="https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/el.2014.1787">[EL'14</a>, <a href="https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/el.2015.3071">EL'16]</a>。通过协同设计视觉芯片和算法，我们的目标追踪系统能够在每秒1000帧的速度下，稳定地追踪目标，即使目标发生形变或被遮挡也能够有效运作<a href="https://ieeexplore.ieee.org/abstract/document/7414458">[TSMCS'16</a>, <a href="http://scis.scichina.com/en/2017/062401.pdf">Sci. China Inf. Sci'17]</a></p>
-                <p>2015年左右，我们首次将卷积神经网络的处理机制引入视觉芯片中，将原有的区域级处理过度为卷积处理，从而实现更加智能的特征提取和分类，并在RISC指令集上进行扩展，实现卷积神经网络算法的快速部署。该架构采用65nm标准CMOS工艺制程流片，在200 MHz 系统时钟下达到 413GOPS 的峰值运算性能，能够高效地完成包括完成人脸识别、目标检测等多种计算机视觉和人工智能算法<a href="https://www.researching.cn/ArticlePdf/m00018/2020/49/5/20190553.pdf">[Infrared Laser Eng.'20]</a>。该芯片被应用于高速遥感图像检测<a href="https://www.researching.cn/rticlePdf/m00018/2020/49/5/20190553.pdf">[J. Infrared Millim. Waves'19]</a>并为后续多款中科院半导体所研发的视觉芯片<a href="https://ieeexplore.ieee.org/abstract/document/9790848">[TCAS-II'22</a>, <a href="https://ieeexplore.ieee.org/document/10375547">JSSC'23]</a>建立了架构基础。</p>
-                
-   <!-- 其他信息 -->
-            </div>
-            </div>
-    </main>
-</div>
-
-<div class="container col-lg-6 shadow-lg p-4 d-block d-md-none shouji">
-    <!-- 导航栏 -->
-    <nav class="navbar container navbar-expand-sm bg-white mt-n1 navbar-dark fixed-top d-block d-md-none">
-        <!-- 面包屑导航 -->
-        <div class="btn-white text-right">
-            <button class="navbar-toggler bg-secondary" type="button" data-toggle="collapse" data-target="#navtop">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-        <!-- 选项 -->
-        <div class="collapse navbar-collapse ml-3" id="navtop">
-            <ul class="nav navbar-nav" id="daohanglan"
-                style="display: flex;width: 100%;justify-content: space-around;">
-                <li class="navbar-item mr-3"><a class="nav-link font-weight-bold"
-                     style="color: #0044BB;"   href="index.html">主页</a></li>
-                <li class="navbar-item mr-3"><a class="nav-link font-weight-bold"
-                    style="color: #0044BB;"    href="research.html">研究项目</a></li>
-                <li class="navbar-item mr-3"><a class="nav-link font-weight-bold"
-                    style="color: #0044BB;"    href="publications.html">论文发表</a></li>
-                <li class="navbar-item dropdown mr-3">
-                    <a class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdown"
-                        role="button" style="color: #0044BB;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        我的书籍
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item pt-3 pb-3 pr-3" href="bci_book.html">接入式脑机接口芯片</a>
-                        <a class="dropdown-item pt-3 pb-3 pr-3" href="neuromorphic_book.html">类脑计算芯片(建设中...)</a>
+                            <!-- 其他信息 -->
+                        </div>
                     </div>
-                </li>
-                <li class="navbar-item mr-3"><a class="nav-link font-weight-bold"
-                    style="color: #0044BB;"    href="news_media.html">新闻报道</a></li>
-            </ul>
-        </div>
-    </nav>
-    <div class="d-flex d-md-none mt-5">
-        <img style="width: 100px;height: 137px;" src="images/selfie.jpg" alt="Jie Yang" class="profile-pic">
-        <div>
-            <h4>杨杰</h4>
-            <p style="font-size: 13px;margin: 10px 0;">Phone/Wechat: +86 13157577935</p>
-            <p style="font-size: 13px;margin: 10px 0;">Email: yangjie@westlake.edu.cn</p>
-            <p style="font-size: 13px;margin: 10px 0;">Google Scholar: <a href="https://scholar.google.com/citations?user=6T786i8AAAAJ&hl=en">Link</a></p>
-        </div>
-    </div>
-    <div class="row d-none d-md-flex mt-n1 mb-2">
-        <img class="renwu" style="width: 106px;height: 150px;" src="images/selfie.jpg" alt="Jie Yang" class="profile-pic">
-        <div class="col-md-7">
-            <div class="pl-3">
-                <h1 class="font-weight-bold">杨杰</h1>
-                <p style="font-size: 16.2px;margin: 10px 0;">Phone/Wechat: +86 13157577935</p>
-                <p style="font-size: 16.2px;margin: 10px 0;">Email: yangjie@westlake.edu.cn</p>
-                <p style="font-size: 16.2px;margin: 10px 0;">Google Scholar: <a href="https://scholar.google.com/citations?user=6T786i8AAAAJ&hl=en">Link</a></p>
-            </div>
-        </div>
-    </div>
-    <nav class="navbar container navbar-expand-sm navbar-white d-none d-md-block">
-        <!-- 面包屑导航 -->
-        <div class="btn-dark">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navtop">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-        <!-- 选项 -->
-        <div class="collapse navbar-collapse ml-3" id="navtop">
-            <ul class="nav navbar-nav" id="daohanglan"
-                style="display: flex;width: 100%;justify-content: space-around;">
-                <li class="navbar-item mr-3"><a class="nav-link font-weight-bold"
-                        href="index.html">主页</a></li>
-                <li class="navbar-item mr-3"><a class="nav-link font-weight-bold"
-                        href="research.html">研究项目</a></li>
-                <li class="navbar-item mr-3"><a class="nav-link font-weight-bold"
-                        href="publications.html">论文发表</a></li>
-                <li class="navbar-item dropdown mr-3">
-                    <a class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdown"
-                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        我的书籍
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item pt-3 pb-3 pr-3" href="bci_book.html">接入式脑机接口芯片</a>
-                        <a class="dropdown-item pt-3 pb-3 pr-3" href="neuromorphic_book.html">类脑计算芯片(建设中...)</a>
+                </div>
+
+                <!-- 第二个研究方向 -->
+                <div class="row mb-5" id="research2">
+                    <div class="container">
+                        <header>
+                            <h4 id="interests-subtitle"><i class="bi bi-file-text-fill"></i>&nbsp;类脑计算芯片与系统</h4>
+                        </header>
+                        <div class="container-fluid" style="width:30%; float:left">
+                            <div class="text-center col">
+                                <div class="row">
+                                    <img src="images/SCNN-ECG.png" alt="ECG processing" class="img-fluid" >
+                                </div>
+                                <div class="row">
+                                    <img src="images/CNN-SNN-conversion.png" alt="CNN-SNN-conversion"  class="img-fluid" >
+                                </div>
+                                <div class="row">
+                                    <img src="images/RAINE_V1_die_photo.png" alt="RAINE" class="img-fluid" >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="text-align: justify;">
+                            <!--<p>利用植入式医疗设备进行神经调控已成为治疗多种重大脑疾病的最有效的方法之一，全球已有数十万脑疾病患者从中获益。-->
+<p>
+用于脉冲神经网络（Spiking Neural Networks, SNN）计算的类脑处理器在能效与性能方面显著优于传统处理器，尤其适用于对功耗敏感的边缘计算系统。我们基于类脑计算技术，开发了一系列低功耗生物信号处理应用，包括 ECG 信号处理<a href="https://ieeexplore.ieee.org/abstract/document/9937756">[ISCAS'22]</a>、癫痫信号分析<a href="https://ieeexplore.ieee.org/abstract/document/9401560">[ISCAS'21]</a>、新型脉冲编码机制<a href="https://ieeexplore.ieee.org/abstract/document/10181850">[ISCAS'23]</a>，并提出了面向通用生物信号的类脑计算框架<a href="https://www.frontiersin.org/articles/10.3389/fnins.2023.1093865/full">[Front. Neurosci.'23]</a>。此外，我们研发了支持片上学习和多模态处理的可重构类脑芯片平台<a href="https://ieeexplore.ieee.org/abstract/document/9937459">[ISCAS'22</a>,
+<a href="https://ieeexplore.ieee.org/abstract/document/9980727">ASSCC'22</a>,
+<a href="https://ieeexplore.ieee.org/abstract/document/10132492">TBioCAS'23]</a>，满足了植入式与穿戴式边缘设备对超低功耗与实时处理能力的双重需求。
+</p>
+
+<p>
+为支撑更大规模、更复杂的类脑计算任务，我们研究了多核类脑处理器中的低延迟、低功耗路由协议与片上通信机制<a href="https://ieeexplore.ieee.org/abstract/document/10168590">[AICAS’23]</a>。针对大规模脉冲神经网络部署所面临的数据访存瓶颈与稀疏性导致的吞吐率下降，我们提出了具备非结构化稀疏感知与高度并行计算能力的类脑芯片，实现了 0.078 pJ/SOP 的超高能效<a href="https://ieeexplore.ieee.org/abstract/document/10529019/">[CICC'24]</a>，并支持深度 SNN 与脉冲 Transformer 网络的加速推理<a href="https://ieeexplore.ieee.org/abstract/document/10777513">[JSSC'25]</a>。为进一步提升Spiking Transformer的计算效率，我们还设计了基于两级Carry-Save Adder（CSA）结构的计算阵列，能够在1位自注意力模式与8位线性模式之间实现最大程度的逻辑复用，提升资源利用率与计算能效<a href="https://ieeexplore.ieee.org/abstract/document/11043823">[ISCAS'25]</a>。
+</p>
+
+<p>
+在“脑科学与类脑研究”重大科技项目支持下，我们正围绕类脑芯片、算法模型与软件工具链展开协同开发<a href="https://ieeexplore.ieee.org/abstract/document/11043979/">[ISCAS'25]</a>，致力于将类脑软硬件系统应用于无人车、机器人、无人机等高能效场景，加速类脑智能技术的实用化落地。
+</p>
+
+
+                        </div>
                     </div>
-                </li>
-                <li class="navbar-item mr-3"><a class="nav-link font-weight-bold"
-                        href="news_media.html">新闻报道</a></li>
-            </ul>
-        </div>
-    </nav>
-    <!-- 个人简历 -->
-    <header class="container">
-        <div class="row">
-            <div>
-                <div class="mt-4">
-                    <h3 style="font-size: 21px;font-weight: bold;">项目索引</h3>
-                    <ul style="line-height: 33px;">
-                        <li><a class="font-weight-bold" style="color: #00440B;font-size: 18px;" href="#researchs1">人工智能驱动的闭环神经调控算法与芯片</a></li>
-                        <li><a class="font-weight-bold" style="color: #00440B;font-size: 18px;" href="#researchs2">神经形态计算芯片与系统</a></li>
-                        <li><a class="font-weight-bold" style="color: #00440B;font-size: 18px;" href="#researchs3">高通量脑机接口芯片与系统</a></li>
-                        <li><a class="font-weight-bold" style="color: #00440B;font-size: 18px;" href="#researchs4">侵入式脑机接口汉语解码</a></li>
-                        <li><a class="font-weight-bold" style="color: #00440B;font-size: 18px;" href="#researchs5">基于光遗传的穿戴式视网膜假体</a></li>
-                        <li><a class="font-weight-bold" style="color: #00440B;font-size: 18px;" href="#researchs6">高动态图像处理算法与芯片</a></li>
-                        <li><a class="font-weight-bold" style="color: #00440B;font-size: 18px;" href="#researchs7">人工智能视觉芯片</a></li>
-                        <!-- 其他研究方向的链接 -->
-                    </ul>
                 </div>
-            </div>
-        </div>
-    </header>
-    <div class="content">
-        <!-- 第一个 -->
-        <div class="row" id="researchs1">
-            <div class="col-md-3 mb-4">
-                <div class="d-block d-lg-none">
-                    <img style="width: 150px;" src="images/closed-loop_system.png" alt="闭环调控系统框图">
-                    <img style="width: 150px;margin-top: 12px;" src="images/seizure_prediction_network.png" alt="癫痫预测神经网络">
-                    <img style="width: 150px;margin-top: 12px;" src="images/CODEV1_die_photo.png" alt="die_photo">
+
+
+                <!-- 第三个研究方向 -->
+                <div class="row mb-5" id="research3">
+                    <div class="container">
+                        <header>
+                            <h4 id="interests-subtitle"><i class="bi bi-file-text-fill"></i>&nbsp;侵入式脑机接口芯片与系统</h4>
+                        </header>
+                        <div class="container-fluid" style="width:30%; float:left">
+                            <div class="text-center col">
+                                <div class="row">
+                                    <img src="images/signal%20compression.png" alt="signal compression" class="img-fluid" >
+                                </div>
+                                <div class="row">
+                                    <img src="images/compression%20hardware.png" alt="compression hardware"  class="img-fluid" >
+                                </div>
+                                <div class="row">
+                                    <img src="images/CAFE.png" alt="CAFE" class="img-fluid" >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="text-align: justify;">
+<p>
+侵入式脑机接口通过在大脑与外部设备之间建立直接、高效的神经信息通路，是一项极具前景的前沿技术。其中，脑机接口芯片作为核心组件，需要在极低功耗与小面积条件下实现成百上千通道的神经信号采集与传输，设计挑战极大<a href="https://ieeexplore.ieee.org/abstract/document/9766042">[TCAS-II'22]</a>。针对高通量数据传输带来的系统功耗瓶颈，我们采用压缩感知与人工智能算法，实现了16倍低损压缩率<a href="https://ieeexplore.ieee.org/abstract/document/10012381/">[TNSRE'23]</a>，并通过软硬件协同设计将该方案部署于片上低功耗平台<a href="https://ieeexplore.ieee.org/abstract/document/10024315">[TBioCAS'23]</a>。该方案即使在蓝牙等低功耗无线链路下，也可支持百通道神经信号的实时传输。
+</p>
+
+<p>
+在此基础上，我们进一步集成了事件驱动采样机制<a href="https://ieeexplore.ieee.org/abstract/document/10090325">[APCCAS'22]</a>，利用神经信号的稀疏性实现超过百倍的数据压缩<a href="https://ieeexplore.ieee.org/abstract/document/10168619">[AICAS'23]</a>或者功耗压缩<a href="https://ieeexplore.ieee.org/abstract/document/11044160">[ISCAS'25]</a>。同时，我们还开发了基于 IR-UWB 的无线通信模块<a href = "https://ieeexplore.ieee.org/abstract/document/10798161">[BioCAS'24]</a>，有效提升了跨皮肤数据传输的能效与带宽利用率。
+</p>
+
+<p>
+为突破面积限制、提升通道密度，我们设计了基于交流耦合斩波稳定结构的超小型低功耗前端放大器（面积 0.048mm<sup>2</sup>，功耗 2.47μW），具有可配置的截止频率与极低输入噪声（1.7μV<sub>rms</sub>）<a href="https://ieeexplore.ieee.org/abstract/document/10177203">[TBioCAS'23]</a>。为了解决CCIA结构中伪电阻存在的稳定速度、线性度等问题，我们还设计了两阶段（充电、稳定）运行机制的自适应伪电阻技术<a href="https://ieeexplore.ieee.org/abstract/document/11043802">[ISCAS'25]</a>。
+通过整合快速时分复用、片上事件驱动采样与高效无线传输技术，我们在 40nm 工艺下实现了每通道面积 0.0032mm<sup>2</sup>、功耗仅 1.38μW 的神经信号记录芯片<a href="https://ieeexplore.ieee.org/abstract/document/10529097">[CICC'24]</a>，为构建超高密度、低功耗的侵入式脑机接口系统奠定了硬件基础。
+</p>
+
+<p>
+依托“浙江省尖兵研发攻关计划”项目《新型高生物兼容微电极阵列与脑机微系统研发》，我们已成功研制并验证了64通道与256通道脑机接口读出芯片、脑机接口微系统以及实时神经数据串流与解码平台。该系统已应用于常规动物实验研究，同时我们还与深海技术实验室展开合作，探索将脑机接口技术拓展至深海探索等极端环境中的应用场景<a href="https://www.academia.edu/2994-7065/2/2/10.20935/AcadEng7721">[Acad. Eng.'25]</a>。
+</p>
+
+                        </div>
+                    </div>
                 </div>
-                <div class="d-none d-lg-block">
-                    <img style="width: 200px;" src="images/closed-loop_system.png" alt="闭环调控系统框图">
-                    <img style="width: 200px;margin-top: 12px;" src="images/seizure_prediction_network.png" alt="癫痫预测神经网络">
-                    <img style="width: 200px;margin-top: 12px;" src="images/CODEV1_die_photo.png" alt="die_photo">
+
+ 
+                <!-- 第四个研究方向 -->
+                <div class="row mb-5" id="research4">
+                    <div class="container">
+                        <header>
+                            <h4 id="interests-subtitle"><i class="bi bi-file-text-fill"></i>&nbsp;侵入式脑机接口汉语解码</h4>
+                        </header>
+                        <div class="container-fluid" style="width:30%; float:left">
+                            <div class="text-center col">
+                                <div class="row">
+                                    <img src="images/decoding%20architecture.png" alt="decoding architecture" class="img-fluid" >
+                                </div>
+                                <div class="row">
+                                    <img src="images/decoding%20performance.png" alt="decoding performance"   class="img-fluid" >
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div style="text-align: justify;">
+<p> 
+将脑电信号解码为语音或运动控制信号，是脑机接口技术中最具挑战性的方向之一，尤其对于帮助中风或渐冻症等重度语言障碍患者恢复沟通能力具有重大意义。目前，全球仅有少数研究团队实现了对字母语言（如英语、荷兰语）的脑电解码，而针对中文这一音节文字系统，尚缺乏完整的侵入式脑机接口解码解决方案。 </p> <p> 为填补这一空白，我们构建了全球首个专门面向汉语的侵入式脑机接口解码系统，能够将与语音相关的立体脑电图（sEEG）信号直接解码为完整的中文句子，具备覆盖全部汉语发音的能力。该系统以汉语拼音的三个基本要素——声母、韵母和声调——为切入点，设计覆盖 407 个音节的语料库，并同步采集语音和脑电信号，构建了超过 100 小时的中文语音-sEEG 数据库。基于该数据库，我们分别训练了三个人工智能模型对声母、韵母和声调进行独立解码，并通过语言模型融合各个要素，结合上下文语义生成完整句子。 </p> <p> 在超过 100 组随机交流任务中（字数范围 2–15 个字），所有参与者的字符错误率中位数平均为 29%，部分参与者的句子解码准确率可达 30%。相关成果2023年在<a href="https://www.biorxiv.org/content/10.1101/2023.11.05.562313v3">[bioRxiv'23]</a>以预印本形式发表，2025年正式发表在<a href="https://spj.science.org/doi/full/10.34133/cbsystems.0257">[Cyborg Bionic Syst.'25]</a>上。为进一步应对跨个体数据异质性问题，我们引入了同质性-异质性分离的解码策略，利用共享码本提取不同个体间相同脑区的共性声调编码模式，结合个体私有码本捕捉个体差异，显著提升了解码准确率<a href="https://arxiv.org/pdf/2410.12866">[ICLR'25]</a>。 </p> <p> 在此基础上，我们还开发了具备在线实时解码能力的脑-汉语解码系统。该系统采用多个体脑区聚合网络，整合多个受试者数据的新型框架，建立了一个通用的大脑功能模型来进一步优化跨个体的解码性能，而我们设计的流式推理架构具备每秒超过 200 次推理能力，端到端解码延迟低于 10 毫秒，可实现每分钟 30 个汉字的连续解码。同时支持快速模型训练、部署和个体化校准，具备良好的临床应用潜力<a href="https://www.biorxiv.org/content/10.1101/2025.06.02.657011v2.abstract">[bioRxiv'25]</a>。 
+</p>
+                        </div>
+                    </div>
                 </div>
-                
-            </div>
-            <div class="col-md-9">
-                <strong class="font-weight-bold" style="color: #00440B;font-size: 20px;">人工智能驱动的闭环神经调控算法与芯片</strong>
-                <p class="mt-3">
-                    闭环神经调控系统对大脑神经活动进行实时监测，并检测神经信号中与发病相关的特征，最后再按需进行神经系统刺激，可实现精准、个性化的治疗方案，是神经调控的未来发展方向。然而，现有的MCU或DSP无法满足复杂生物信号特征提取、分类的算力要求和低功耗要求，导致现有的闭环调控设备治疗效果差、待机时间短。我们提出了在片上集成微瓦级(μW)低功耗神经网络实现精准闭环调控的路径<a
-                        href="https://ieeexplore.ieee.org/abstract/document/9173735">[TBIOCAS'20</a>, <a
-                        href="https://ieeexplore.ieee.org/abstract/document/9760507">TCAS-II'22]</a>
-                    。首先，我们对基于CNN网络<a href="https://ieeexplore.ieee.org/abstract/document/9073988">[AICAS'20</a>, <a
-                        href="https://ieeexplore.ieee.org/abstract/document/9458571">AICAS'21]</a>、BNN网络<a
-                        href="https://ieeexplore.ieee.org/abstract/document/9180430">[BIOCAS'20]</a>以及SNN网络<a
-                        href="https://ieeexplore.ieee.org/abstract/document/9401560">[ISCAS'21]</a>的神经信号处理算法进行了各种尝试，并取得了优于传统方法的分类效果。我们结合神经信号特点和网络架构搜索、剪枝以及量化技术将网络规模进一步压缩至100KB以下<a
-                        href="https://ieeexplore.ieee.org/abstract/document/9479737">[TBME'21]</a>。在上述算法基础上，我们还设计流片了专用的低功耗生物信号处理芯片<a
-                        href="https://ieeexplore.ieee.org/abstract/document/10105432">[TBIOCAS'23]</a>，通过可重构设计，该芯片实现了对上述多种网络类型的支持，具备高效的生物信号处理和标志物分类能力。该芯片通过事件驱动的工作方式实现了μW级别的功耗，为下一代智能闭环神经调控系统提供了关键技术支持。
-                </p>
-                <p>除此之外，针对脑电信号本身，我们还提出基于GAN网络的数据增广技术<a
-                        href="https://ieeexplore.ieee.org/abstract/document/9767764">[TBME'22]</a>以及基于知识蒸馏的跨个体训练方法<a
-                        href="https://iopscience.iop.org/article/10.1088/1741-2552/ac73b3/meta">[JNE'22]</a>，来弥补颅内脑电信号缺乏、数据分布不均的问题以及个体差异性大等问题，并把疾病检测任务从传统的二元分类转换为发作概率的预测，同时降低了预测的延迟<a
-                        href="https://www.sciencedirect.com/science/article/abs/pii/S0957417423018614">[Expert Syst.
-                        Appl.'24]</a>。</p>
-                <!-- 其他信息 -->
-            </div>
-        </div>
-        <!-- 第二个 -->
-        <div class="row mt-5" id="researchs2">
-            <div class="col-md-3 mb-4">
-                <div class="d-block d-lg-none">
-                    <img style="width: 150px;;" src="images/SCNN-ECG.png" alt="ECG processing" class="research-image">
-                    <img style="width: 150px;;margin-top: 12px;" src="images/CNN-SNN-conversion.png" alt="CNN-SNN-conversion" class="research-image">
-                    <img style="width: 150px;;margin-top: 12px;" src="images/RAINE_V1_die_photo.png" alt="RAINE" class="research-image">
+
+                <!-- 第5个研究方向 -->
+                <div class="row mb-5" id="research5">
+                    <div class="container">
+                        <header>
+                            <h4 id="interests-subtitle"><i class="bi bi-file-text-fill"></i>&nbsp;基于神经形态处理和光遗传的视网膜假体</h4>
+                        </header>
+                        <div class="container-fluid" style="width:30%; float:left">
+                            <div class="text-center col">
+                                <div class="row">
+                                    <img src="images/JBHI.png" alt="JBHI"  class="img-fluid" >
+                                </div>
+                                <div class="row">
+                                    <img src="images/spike%20see.png" alt="spike see"  class="img-fluid" >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="text-align: justify;">
+<p>
+视网膜假体有望帮助患有严重年龄相关性黄斑变性（AMD）或视网膜色素变性（RP）的患者恢复部分视力。传统假体主要通过将光信号转换为电刺激，模拟视网膜细胞活动来重建视觉感知，其中光信号的处理机制对视觉恢复效果具有决定性影响。我们首先综述了当前主流视觉恢复系统中采用的信号处理策略<a href="https://iopscience.iop.org/article/10.1088/1741-2552/acb295/meta">[JNE’23]</a>，并提出一种仿生类脑视觉假体架构：利用动态视觉传感器（DVS）进行脉冲编码，再通过类脑处理器进行事件驱动计算。该架构能生成与真实视网膜高度一致的脉冲模式，同时具备极低功耗，适用于穿戴式与植入式应用场景，相关成果作为封面论文发表于<a href="https://ieeexplore.ieee.org/abstract/document/9767670">[JBHI'22]</a>。
+</p>
+
+<p>
+在此基础上，我们进一步引入尖峰循环神经网络（S-RNN）提升功能仿真精度，使输出脉冲序列与真实视网膜记录信号之间的皮尔逊相关系数达到 0.93<a href="https://www.sciencedirect.com/science/article/abs/pii/S0893608023002332">[Neural Netw.'23]</a>。同时，构建了一个端到端类脑视觉处理框架，集成视网膜神经网络、光幻视模型与初级视觉皮层网络，其预测放电率与正常神经元反应的相关性达 0.78<a href="https://openreview.net/forum?id=cKAUvMePUN">[ICLR'24]</a>。
+</p>
+
+<p>
+目前该方向正处于由理论算法向实验验证的关键阶段。我们已完成标准化动物行为学范式的设计与实验平台的搭建，计划于 2025 年底前通过多维度行为学指标体系对视觉假体算法进行系统评估，为推动类脑视觉重建技术的临床应用奠定基础。
+</p>
+
+                        </div>
+                    </div>
                 </div>
-                <div class="d-none d-lg-block">
-                    <img style="width: 200px;;" src="images/SCNN-ECG.png" alt="ECG processing" class="research-image">
-                    <img style="width: 200px;;margin-top: 12px;" src="images/CNN-SNN-conversion.png" alt="CNN-SNN-conversion" class="research-image">
-                    <img style="width: 200px;;margin-top: 12px;" src="images/RAINE_V1_die_photo.png" alt="RAINE" class="research-image">
+
+
+
+                <!-- 第6个研究方向 -->
+                <div class="row mb-5" id="research6">
+                    <div class="container">
+                        <header>
+                            <h4 id="interests-subtitle"><i class="bi bi-file-text-fill"></i>&nbsp;高动态图像处理算法与芯片</h4>
+                        </header>
+                        <div class="container-fluid" style="width:30%; float:left">
+                            <div class="text-center col">
+                                <div class="row">
+                                    <img src="images/TM%20results.png" alt="TM results"  class="img-fluid" >
+                                </div>
+                                <div class="row">
+                                    <img src="images/mobile%20app.png" alt="mobile app"   class="img-fluid" >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="text-align: justify;">
+<p>
+人眼可以同时感知极强与极弱的光线，动态范围超过 120 dB，而现有图像传感器的动态范围通常仅为 60–70 dB，难以覆盖复杂自然场景的亮度跨度。为弥补这一差距，我们构建了面向高动态场景的多曝光图像数据库<a href="https://arxiv.org/abs/2101.03826">[arXiv'21]</a>，并提出了基于多尺度、多曝光融合的图像重建算法<a href="https://ieeexplore.ieee.org/abstract/document/8078533">[AVSS'17]</a>。该方法通过对同一像素在不同曝光和尺度下的映射值进行融合，有效保留了明暗区域的细节信息。
+</p>
+
+<p>
+进一步地，我们引入积分直方图与引导滤波器以提升图像质量，使得高动态场景下的极亮与极暗区域细节得以清晰呈现<a href="https://ieeexplore.ieee.org/abstract/document/8313070">[CAMSAP'17</a>, <a href="https://arxiv.org/abs/2102.00408">arXiv'21]</a>。该算法已在 <a href="https://github.com/jieyang1987/Tone-Mapping-Based-on-Multi-scale-Histogram-Synthesis">展示页面</a>中公开，并在移动端 GPU 上进行优化部署，实现了在手机平台上的高效实时运行<a href="https://arxiv.org/abs/2102.01289">[arXiv'21]</a>。
+</p>
+
+<p>
+为了进一步增强图像细节表现，我们基于拉普拉斯金字塔将图像分解为多个尺度层级，并引入神经网络对不同尺度下的纹理进行增强，再通过重构优化后的金字塔恢复高动态图像。该方法支持根据纹理尺度权重调整整体细节强度，获得更优的视觉效果<a href="https://arxiv.org/abs/2102.00348">[arXiv'21]</a>，相关算法效果展示详见 <a href="https://github.com/jieyang1987/Deep-Reformulated-Laplacian-Tone-Mapping">展示页面</a>。
+</p>
+
+<p>
+此外，为在低成本图像传感器中实现高动态图像重建，我们还设计了两种硬件友好型算法：一是基于局部映射策略的 HDR 处理算法及其 FPGA 实现<a href="https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/el.2017.3227">[EL'18]</a>；二是基于尾数-指数表达的全局图像压缩算法与硬件结构<a href="https://ieeexplore.ieee.org/abstract/document/8660478">[TCAS-II'19]</a>，为嵌入式 HDR 图像处理提供了高性价比方案。
+</p>
+
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-9">
-                <strong class="font-weight-bold">类脑计算芯片与系统</strong>
-                <p class="mt-3">
-                    使用尖峰神经网络设计的神经形态处理器，在能效和性能方面比传统处理器具有显著优势，因此在边缘计算系统里具有巨大的应用潜力。我们利用神经形态计算来完成生物信号处理，包括低功耗的ECG信号处理<a
-                        href="https://ieeexplore.ieee.org/abstract/document/9937756">[ISCAS'22]</a>、癫痫信号处理<a
-                        href="https://ieeexplore.ieee.org/abstract/document/9401560">[ISCAS'21]</a>、新型的脉冲编码方式<a
-                        href="https://ieeexplore.ieee.org/abstract/document/10181850">[ISCAS'23]</a>
-                    、可推广到一般生物信号处理的通用神经形态计算框架<a
-                        href="https://www.frontiersin.org/articles/10.3389/fnins.2023.1093865/full">[Front.
-                        Neurosci.'23]</a>以及支持片上学习和不同模态的神经形态处理器<a
-                        href="https://ieeexplore.ieee.org/abstract/document/9937459">[ISCAS'22</a>, <a
-                        href="https://ieeexplore.ieee.org/abstract/document/9980727">ASSCC'22</a>, <a
-                        href="https://ieeexplore.ieee.org/abstract/document/10132492">TBioCAS'23]</a>来满足穿戴式和植入式等边缘设备的功耗和性能要求。
-                </p>
-                <p>
-                    我们同时也希望在类脑芯片上高效地集成数量众多的类脑神经元来完成更加复杂与智能的任务，为此我们研究多核类脑处理器中的路由协议与相关电路来降低处理器延迟和相应的功耗开销<a
-                        href="https://ieeexplore.ieee.org/abstract/document/10168590">[AICAS'23]</a>。同时，为了解决大规模类脑模型部署中数据访存带来的功耗、延迟开销，以及高度稀疏化数据带来的吞吐率下降问题，我们还设计了具备高度并行化和非结构化稀疏感知的类脑处理芯片，实现了0.078pJ/SOP的卓越性能<a
-                        href="#research2">[CICC'24]</a>。
-                    通过"脑科学与类脑研究"重大项目课题的牵引，我们后续将在无人车、机器人以及无人机等场景中应用大规模集成的类脑芯片与系统。
-                </p>
-            </div>
-        </div>
-        <!-- 第三个 -->
-        <div class="row mt-5" id="researchs3">
-            <div class="col-md-3 mb-4">
-                <div class="d-block d-lg-none">
-                    <img style="width: 150px;" src="images/signal compression.png" alt="signal compression">
-                    <img style="width: 150px;margin-top: 12px;" src="images/compression hardware.png" alt="compression hardware">
-                    <img style="width: 150px;margin-top: 12px;" src="images/CAFE.png" alt="CAFE">
+
+
+                <!-- 第7个研究方向 -->
+                <div class="row mb-5" id="research7">
+                    <div class="container">
+                        <header>
+                            <h4 id="interests-subtitle"><i class="bi bi-file-text-fill"></i>&nbsp;人工智能视觉芯片</h4>
+                        </header>
+                        <div class="container-fluid" style="width:30%; float:left">
+                            <div class="text-center col">
+                                <div class="row">
+                                    <img src="images/Heterogeneous%20processor.png" alt="Heterogeneous processor"  class="img-fluid" >
+                                </div>
+                                <div class="row">
+                                    <img src="images/Heterogeneous%20processor%20die.png" alt="Heterogeneous processor die"  class="img-fluid" >
+                                </div>
+                                <div class="row">
+                                    <img src="images/tracker.png" alt="tracker"  class="img-fluid" >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="text-align: justify;">
+<p>
+视觉芯片旨在模拟人类视觉系统的信息处理机制，以实现或超越人类视觉在目标识别、跟踪等任务中的功能与性能，广泛应用于自动驾驶、安防监控、机器人等领域。我们研发了国内首款千帧速率（1000 fps）高速视觉芯片<a href="https://ieeexplore.ieee.org/abstract/document/6853420">[JSSC'14]</a>，在高帧率下实现了低延迟的图像特征提取与分类。为解决目标遮挡、形变等问题，我们进一步设计了具备像素级与区域级特征处理能力的异构视觉芯片架构<a href="https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/el.2014.0033">[EL'14</a>, <a href="https://ieeexplore.ieee.org/abstract/document/7593227">TCSVT'18]</a>，并配套开发了对应的特征提取算法<a href="https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/el.2014.1787">[EL'14</a>, <a href="https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/el.2015.3071">EL'16]</a>。通过芯片-算法协同设计，我们实现了在 1000 fps 情况下目标的稳定跟踪，具备良好的遮挡鲁棒性<a href="https://ieeexplore.ieee.org/abstract/document/7414458">[TSMCS'16</a>, <a href="en/2017/062401.pdf">Sci. China Inf. Sci'17]</a>。
+</p>
+
+<p>
+自 2015 年起，我们率先将卷积神经网络（CNN）架构引入视觉芯片设计，替代传统区域处理方式，实现了更智能的视觉特征提取与目标识别。该视觉处理器在 65nm CMOS 工艺下流片，运行频率为 200 MHz，峰值算力达 413 GOPS，支持多类人工智能视觉任务，包括人脸识别与目标检测<a href="ArticlePdf/m00018/2020/49/5/20190553.pdf">[Infrared Laser Eng.'20]</a>。该芯片被成功应用于高速遥感图像处理任务<a href="https://www.researching.cn/rticlePdf/m00018/2020/49/5/20190553.pdf">[J. Infrared Millim. Waves'19]</a>，并成为中科院半导体所后续多款视觉芯片<a href="https://ieeexplore.ieee.org/abstract/document/9790848">[TCAS-II'22</a>, <a href="https://ieeexplore.ieee.org/document/10375547">JSSC'23]</a>的重要技术基础。
+</p>
+
+<p> 视觉芯片的发展本身便源于早期的神经形态计算理念，而我在博士期间所从事的视觉芯片研究，为我后续在类脑计算芯片与人工视觉系统（如视觉皮层解码与视网膜假体）方面的研究奠定了坚实基础。该技术路径自图像感知与特征提取起步，逐步拓展至支持脉冲神经网络计算的类脑处理器，最终发展为面向多模态视觉信息处理的智能系统，构成了我当前类脑计算研究的主要方向。 </p>
+
+
+                        </div>
+                    </div>
                 </div>
-                <div class="d-none d-lg-block">
-                    <img style="width: 200px;" src="images/signal compression.png" alt="signal compression">
-                    <img style="width: 200px;margin-top: 12px;" src="images/compression hardware.png" alt="compression hardware">
-                    <img style="width: 200px;margin-top: 12px;" src="images/CAFE.png" alt="CAFE">
-                </div>
-            </div>
-            <div class="col-md-9">
-                <strong class="font-weight-bold">高通量侵入式脑机接口芯片与系统</strong>
-                <p class="mt-3">侵入式脑机接口在大脑与机器之间构建一条直接、高效的信息交互通路，是一项具有广阔想象和应用空间的前沿技术，而其中的脑机接口芯片作为关键器件，需要在极低的功耗和面积下实现成百上千通道的脑信号的读取和传输，这对芯片设计带来了巨大挑战<a href="https://ieeexplore.ieee.org/abstract/document/9766042">[TCAS-II'22]</a>。芯片功耗主要来源于高通量数据的传输，因此从降低系统功耗的角度出发，我们利用压缩感知和人工智能方法，实现了对采样数据的16倍低损压缩<a href="https://ieeexplore.ieee.org/abstract/document/10012381/">[TNSRE'23]</a>，并进一步利用软硬件协同设计方式实现了低功耗约束下的片上部署 <a href="https://ieeexplore.ieee.org/abstract/document/10024315">[TBIOCAS'23]</a>。利用该技术，即使使用低功耗的蓝牙通讯，仍然可实现对上百通道的神经信号实时传输。除此之外，通过在片上集成事件驱动采样<a href="https://ieeexplore.ieee.org/abstract/document/10090325">[APCCAS'22]</a>并保留尖峰电位，还可实现上百倍的数据压缩<a href="https://ieeexplore.ieee.org/abstract/document/10168619">[AICAS'23]</a>。降低数据率的同时，我们还研究基于IR-UWB的通讯模块来提高数据传输能效，进一步降低数据传输过程中的能耗。
-                </p>
-                <p>为了在有限的硅面积上集成更多的高质量信号读出通道，我们还设计了基于交流耦合斩波稳定的小面积(0.048mm<sup>2</sup>)、低功耗(2.47μW)放大器。该放大器具有可配置的高通截止频率、超低截止频率以及低噪声(1.7μV<sub>rms</sub>)等特点<a href="https://ieeexplore.ieee.org/abstract/document/10177203">[TBIOCAS'23]</a>。利用集成快速时分复用、片上事件驱动采样、IR-UWB传输等几项技术，我们在40nm工艺下实现了0.0032mm<sup>2</sup>，1.38μW每通道的神经信号记录芯片<a href="#research2">[CICC'24]</a>，为实现超高密度低功耗脑机接口系统建立了基础。 通过"2024浙江省尖兵研发攻关计划"项目的牵引，我们将在2024年初完成数百通道读出前端的开发，并完成相应脑机接口微系统的集成与动物实验。
-                </p>
-            </div>
-        </div>
-        <!-- 第四个 -->
-        <div class="row mt-5" id="researchs4">
-            <div class="col-md-3 mb-4">
-                <div class="d-block d-lg-none">
-                    <img style="width: 150px;" src="images/decoding architecture.png" alt="decoding architecture"> 
-                    <img style="width: 150px;margin-top: 12px;" src="images/initial decoding.png" alt="initial decoding">
-                    <img style="width: 150px;margin-top: 12px;" src="images/decoding performance.png" alt="decoding performance">
-                </div>
-                <div class="d-none d-lg-block">
-                    <img style="width: 200px;" src="images/decoding architecture.png" alt="decoding architecture"> 
-                    <img style="width: 200px;margin-top: 12px;" src="images/initial decoding.png" alt="initial decoding">
-                    <img style="width: 200px;margin-top: 12px;" src="images/decoding performance.png" alt="decoding performance">
-                </div>
-            </div>
-            <div class="col-md-9">
-                <strong class="font-weight-bold">侵入式脑机接口汉语解码</strong>
-                <p>脑机接口技术中，将脑电信号转换为语音或相关的运动信号，以帮助中风或渐冻症等患者恢复沟通能力，是最具挑战性的任务之一，世界上仅有少数研究机构具备将脑电翻译为字母语言(英语和荷兰语)的能力。为此，我们开发了世界上首个专门针对汉语言设计的解码系统，它能将语音相关的立体脑电图（sEEG）信号解码成完整的中文句子，可实现所有汉语发音的解码。</p>
-                <p>我们的研究团队从汉语发音音节的声母、声调和韵母三个要素出发，设计覆盖所有407个汉语拼音音节以及汉语发音特点的语音库并同步收集脑电信号，构建了超过100小时的汉语语音-sEEG数据库。通过人工智能模型训练，构建了针对汉字发音音节三要素（声母、声调和韵母）的预测模型，并最终通过一个语言模型对所有预测得到的元素进行整合，结合语义信息生成最可能的完整汉语句子。在超过100次随机选择的2个字符-15个字符的复杂交流场景解码测试后，所有参与者字符错误率中位数平均仅为29%，部分参与者通过脑电解码得到的句子完全正确率达到了30%，该研究成果已以预印本<a href="https://www.biorxiv.org/content/10.1101/2023.11.05.562313v1.abstract">[A high-performance brain-to-sentence decoder for logosyllabic language]</a>形式发布。
-                </p>
-            </div>
-        </div>
-        <!-- 第五个 -->
-        <div class="row mt-5" id="researchs5">
-            <div class="col-md-3 mb-4">
-                <div class="d-block d-lg-none">
-                    <img style="width: 150px;" src="images/JBHI.png" alt="JBHI">
-                    <img style="width: 150px;margin-top: 12px;" src="images/spike database.png" alt="spike database">
-                    <img style="width: 150px;margin-top: 12px;" src="images/spike see.png" alt="spike see"> 
-                </div>
-                <div class="d-none d-lg-block">
-                    <img style="width: 200px;" src="images/JBHI.png" alt="JBHI">
-                    <img style="width: 200px;margin-top: 12px;" src="images/spike database.png" alt="spike database">
-                    <img style="width: 200px;margin-top: 12px;" src="images/spike see.png" alt="spike see"> 
-                </div>
-            </div>
-            <div class="col-md-9">
-                <strong class="font-weight-bold">基于神经形态处理和光遗传的视网膜假体</strong>
-                <p>视网膜假体可以帮助患有严重年龄相关性黄斑变性(AMD)或视网膜色素变性(RP)的患者恢复视力。传统的假体试图通过将光信号转化为电刺激来模拟视网膜细胞的活动，以产生或者恢复患者的视觉感觉。视网膜假体对光信号的处理机制对视觉的恢复效果起到至关重要的作用，我们首先综述了视觉恢复中所采用的信号处理算法<a href="https://iopscience.iop.org/article/10.1088/1741-2552/acb295/meta">[JNE'23]</a>，为了更好的拟合视网膜的功能，我们从仿生角度出发提出了首先利用DVS传感器对视觉信息进行脉冲编码，再结合神经形态处理器进行脉冲处理的新型架构，该架构可产生与生物视网膜高度类似的脉冲信号，在高度拟态视网膜的信息处理机制的同时，实现了系统的低功耗，为后续穿戴或植入视网膜假体方案提供了可能性，被<a href="https://ieeexplore.ieee.org/abstract/document/9767670">[JBHI'22]</a>作为封面文章报道。 在该框架基础上，我们进一步采用尖峰循环神经网络来提高模拟视网膜功能，与真实视网膜信号的皮尔逊相关系数达到了0.93
-                <a href="https://www.sciencedirect.com/science/article/abs/pii/S0893608023002332">[Neural Netw.'23]</a>。
-                </p>
-            </div>
-        </div>
-        <!-- 第六个 -->
-        <div class="row mt-5" id="researchs6">
-            <div class="col-md-3 mb-4">
-                <div class="d-block d-lg-none">
-                    <img style="width: 150px;" src="images/TM results.png" alt="TM results">
-                    <img style="width: 150px;margin-top: 12px;" src="images/mobile app.png" alt="mobile app">
-                </div>
-                <div class="d-none d-lg-block">
-                    <img style="width: 200px;" src="images/TM results.png" alt="TM results">
-                    <img style="width: 200px;margin-top: 12px;" src="images/mobile app.png" alt="mobile app">
-                </div>
-            </div>
-            <div class="col-md-9">
-                <strong class="font-weight-bold">高动态图像处理算法与芯片</strong>
-                <p>
-                人眼可以同时感受自然界极弱和极强的光线，其动态范围超过120dB。然而，目前的图像传感器动态范围大约在60-70dB左右，难以覆盖人类视觉的动态范围。为了弥补图像传感器动态范围的不足，我们对高动态场景进行多次曝光构建了高动态场景数据库<a href="https://arxiv.org/abs/2101.03826">[arXiv'21]</a>，并通过将同一像素在不同曝光度和不同尺度下的映射值进行融合得到高动态图像<a href="https://ieeexplore.ieee.org/abstract/document/8078533">[AVSS'17]</a>。利用积分直方图以及引导滤波器，我们对算法性能进行了优化和提升，使其可以将高动态图像场景中的极暗和极亮区域的细节展现得淋漓尽致<a href="https://ieeexplore.ieee.org/abstract/document/8313070">[CAMSAP'17</a>, <a href="https://arxiv.org/abs/2102.00408">arXiv'21]</a>。该<a href="https://github.com/jieyang1987/Tone-Mapping-Based-on-Multi-scale-Histogram-Synthesis">展示页面</a>展示了经过该算法处理后的高动态图像效果。在经过移动端GPU优化后，该算法被成功应用到手机移动端<a href="https://arxiv.org/abs/2102.01289">[arXiv'21]</a>。为了优化和控制图像中的纹理细节，我们利用拉普拉斯金字塔将图像拆解到多个拉普拉斯空间，然后通过神经网络对不同尺度下的纹理进行增强，最后通过优化后的拉普拉斯金字塔恢复出高动态图像。该算法通过对不同尺度纹理的权重调整，可以对图像细节的展现度进行调节<a href="hhttps://arxiv.org/abs/2102.00348">[arXiv'21]</a>，该<a href="https://github.com/jieyang1987/Deep-Reformulated-Laplacian-Tone-Mapping">展示页面</a>展示了经处理后高动态图像效果。
-                </p>
 
                 <p>
-                为了在低成本的摄像头上实现高动态图像处理，我们还设计了基于局部映射的高动态图像处理算法和FPGA硬件实现
-                <a href="https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/el.2017.3227">[EL'18]</a>，以及基于尾数-指数表达的全局图像处理算法和FPGA硬件实现<a href="https://ieeexplore.ieee.org/abstract/document/8660478">[TCAS-II'19]</a>。
+                    <a href="#home">回到顶部</a>
                 </p>
-            </div>
-        </div>
-        <!-- 第七个 -->
-        <div class="row mt-5" id="researchs7">
-            <div class="col-md-3 mb-4">
-                <div class="d-block d-lg-none">
-                    <img style="width: 150px;" src="images/Heterogeneous processor.png" alt="Heterogeneous processor">
-                    <img style="width: 150px;margin-top: 12px;" src="images/Heterogeneous processor die.png" alt="Heterogeneous processor die">
-                    <img style="width: 150px;margin-top: 12px;" src="images/tracker.png" alt="tracker">
-                </div>
-                <div class="d-none d-lg-block">
-                    <img style="width: 200px;" src="images/Heterogeneous processor.png" alt="Heterogeneous processor">
-                    <img style="width: 200px;margin-top: 12px;" src="images/Heterogeneous processor die.png" alt="Heterogeneous processor die">
-                    <img style="width: 200px;margin-top: 12px;" src="images/tracker.png" alt="tracker">
-                </div>
-            </div>
-            <div class="col-md-9">
-                <strong class="font-weight-bold">人工智能视觉芯片</strong>
-                <p>
-                视觉芯片旨在模拟人的视觉信息处理方式，以期望实现或超越人类视觉系统的功能和性能。在高速目标追踪、图像识别等领域具有广泛的应用前景。我们研发了国内最早的1000fps高速视觉芯片<a href="https://ieeexplore.ieee.org/abstract/document/6853420">[JSSC'14]</a>，在高帧率下实现了简单特征的提取与分类功能。为了进一步解决高速目标追踪过程中遮挡、形变等问题,我们设计了具备像素级特征处理和区域级局部特征处理的异构视觉芯片<a href="https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/el.2014.0033">[EL'14</a>, <a href="https://ieeexplore.ieee.org/abstract/document/7593227">TCSVT'18]</a>以及与之对应的像素级、区域级特征提取算法<a href="https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/el.2014.1787">[EL'14</a>, <a href="https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/el.2015.3071">EL'16]</a>。通过协同设计视觉芯片和算法，我们的目标追踪系统能够在每秒1000帧的速度下，稳定地追踪目标，即使目标发生形变或被遮挡也能够有效运作<a href="https://ieeexplore.ieee.org/abstract/document/7414458">[TSMCS'16</a>, <a href="http://scis.scichina.com/en/2017/062401.pdf">Sci. China Inf. Sci'17]</a></p>
-                <p>2015年左右，我们首次将卷积神经网络的处理机制引入视觉芯片中，将原有的区域级处理过度为卷积处理，从而实现更加智能的特征提取和分类，并在RISC指令集上进行扩展，实现卷积神经网络算法的快速部署。该架构采用65nm标准CMOS工艺制程流片，在200 MHz 系统时钟下达到 413GOPS 的峰值运算性能，能够高效地完成包括完成人脸识别、目标检测等多种计算机视觉和人工智能算法<a href="https://www.researching.cn/ArticlePdf/m00018/2020/49/5/20190553.pdf">[Infrared Laser Eng.'20]</a>。该芯片被应用于高速遥感图像检测<a href="https://www.researching.cn/rticlePdf/m00018/2020/49/5/20190553.pdf">[J. Infrared Millim. Waves'19]</a>并为后续多款中科院半导体所研发的视觉芯片<a href="https://ieeexplore.ieee.org/abstract/document/9790848">[TCAS-II'22</a>, <a href="https://ieeexplore.ieee.org/document/10375547">JSSC'23]</a>建立了架构基础。</p>
-            </div>
-        </div>
-    </div>
-</div>
 
-<footer>
-  <p>
-    <a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备2022004406号-1</a>
-  </p>
-</footer>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Publications  -->
+
+    
+
+
+    <!-- Footer-->
+    <footer class="bg-bottom text-center py-5">
+        <div class="container px-5">
+            <div class="text-white-50 small">
+                <div id="copyright-text" class="mb-2">
+                    <a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备2022004406号-1</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
 </body>
-<script src="./js/jquery-3.5.1.slim.min.js"></script>
-<script src="./js/bootstrap.js"></script>
+
 </html>

@@ -1,0 +1,205 @@
+@import "./styles.css";
+
+
+:root{
+    --h-title-color:#3948d2;
+}
+
+.header {
+    border-bottom: solid 2px var(--bs-blue);
+    z-index: 10000;
+}
+
+.bg-bottom {
+    background-color: var(--h-title-color);
+}
+
+.top-section {
+    position: relative;
+    padding: 10rem 0;
+    background-position: center;
+    background-size: cover;
+    height: 25rem;
+}
+
+.top-section h2 {
+    font-weight: 400;
+}
+
+.top-section .top-section-content {
+    position: relative;
+    z-index: 1;
+}
+
+.top-section:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+
+@font-face {
+    font-family: 'AlibabaPuHuiTi-Thin';
+    src: url('static/fonts/AlibabaPuHuiTi-3-35-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AlibabaPuHuiTi-Light';
+    src: url('static/fonts/AlibabaPuHuiTi-3-45-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AlibabaPuHuiTi-Regular';
+    src: url('static/fonts/AlibabaPuHuiTi-3-55-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+main, .main-body, .content, #home, #interests, #awards {
+    font-family: 'AlibabaPuHuiTi-Thin', sans-serif;
+    font-size: 20px;
+}
+
+
+#publication-content, .publication-list, .publication-item {
+    font-family: 'AlibabaPuHuiTi-Light', sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+
+h1, h2, h3 {
+    font-family: 'AlibabaPuHuiTi-Regular', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+}
+
+h1 { color: #1a73e8; }   /* 亮蓝 */
+h2 { color: #3948D2; }   /* 略深红 */
+h3 { color: #34a853; }   /* 草绿 */
+
+
+h5 {
+    font-size: 1.25rem;        
+    font-weight: 350;
+    font-family: 'AlibabaPuHuiTi-Light', sans-serif;
+    margin-bottom: 0.5rem;
+}
+
+
+
+
+p {
+    font-family: 'AlibabaPuHuiTi-Thin', sans-serif;
+    font-weight: 320;
+    line-height: 1.45;
+}
+
+
+.bg-gradient-primary-to-secondary-light {
+    background: linear-gradient(45deg, #fcfcfc, #ffffff) !important;
+}
+
+.bg-gradient-primary-to-secondary-gray {
+    background: linear-gradient(45deg, #f0f0f0, #f1f1f1) !important;
+}
+
+
+
+.on-top {
+    position: relative;
+    z-index: 10000;
+}
+
+.top-bg {
+    background-position: center;
+    background-size: fill;
+    width: 100%;
+    height: 100%;
+}
+
+.top-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+
+#avatar {
+    position: relative;
+    height: 0;
+    top:min(-65px,max(-100px,calc(-1*100vw/12)));
+    max-width: 55em;
+    margin: 0 1.5rem 0 0;
+    float: right;
+    z-index: 9000;
+}
+
+#avatar img {
+    height: max(130px,min(200px,calc(100vw/6)));
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 991px) {
+    #avatar {
+        margin: 0;
+    }
+}
+
+
+.publications-list h3 {
+    margin-top: 0.8em;   /* 增加与上方论文条目的间距 */
+    margin-bottom: 0.5em;  /* 减少与下方论文条目的间距 */
+
+    color: #444;
+}
+
+
+.publication-item {
+    transition: all 0.3s ease;
+    opacity: 1;
+}
+.publication-item[style*="display: none"] {
+    opacity: 0;
+}
+
+
+
+.chip-image {
+  width: 100%;
+  height: 180px;              /* 你希望统一的高度 */
+  object-fit: contain;        /* 保留原始比例并完整显示图像 */
+  background-color: #fff;     /* 背景色可选，避免透明图像溢出 */
+  padding: 4px;               /* 可选增加一点内边距 */
+
+}
+
+#chip-gallery p {
+    font-size: 0.875rem;     /* 缩小字号（默认small约为0.875rem） */
+    line-height: 1.5;        /* 减少行间距 */
+    margin-bottom: 0.6rem;   /* 缩小段落间距 */
+    color: #6c757d; /* Bootstrap 默认的 muted 灰色 */
+}
+#chip-gallery h5 {
+    font-size: 1rem;         /* 缩小标题字号 */
+    margin-bottom: 0.3rem;   /* 缩小标题与段落之间的间距 */
+}
+

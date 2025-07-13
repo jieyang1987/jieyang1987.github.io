@@ -1,274 +1,283 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="author" content="杨杰, 西湖大学, Jie Yang, Westlake University"/>
     <title>杨杰 - 西湖大学脑机接口与类脑计算 | 研究成果概述 </title>
-    <meta name="description" content="杨杰，西湖大学先进神经芯片中心副研究员，专注于脑机接口与神经形态计算芯片研究。探索高通量低功耗脑机接口芯片、闭环神经调控系统芯片、神经形态计算与脑机解码技术，旨在实现脑疾病的精准诊断与治疗以及促进残疾人士的康复。拥有丰富的教学经验和学术成就，主持多个国家级科研项目，累计科研经费超2000万元。">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" media="screen and (max-width: 768px)" href="./css/bootstrap.css">
-    <style>
-        @media screen and (min-width: 768px) {
-            .shouji{
-                display: none;
+    <meta name="description" content="杨杰，西湖大学先进神经芯片中心研究员，专注脑机接口与类脑计算芯片研究，聚焦高通量低功耗BCI、闭环神经调控、类脑计算与脑语言解码。主持国家重点项目，科研经费超2000万元，致力于推动脑疾病诊疗与残疾康复的技术突破。">
+
+    <!-- Icon -->
+    <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+
+    <!-- Bootstrap icons-->
+    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" /> -->
+    <link href="static/css/bootstrap-icons-150.css" rel="stylesheet" />
+
+    <!-- Google fonts-->
+    <!--
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap"
+        rel="stylesheet" />
+    -->
+
+    <!-- 引入适用于中文和英文的现代字体 Noto Sans SC -->
+
+
+
+    <link href="static/css/google-fonts-newsreader.css" rel="stylesheet"/>
+    <link href="static/css/google-fonts-mulish.css" rel="stylesheet"/>
+    <link href="static/css/google-fonts-kanit.css" rel="stylesheet"/>
+
+
+    <!-- Libraries Stylesheet -->
+    <link href="static/css/animate.min.css" rel="stylesheet">
+    <link href="static/css/owl.carousel.min.css" rel="stylesheet">
+    <link href="static/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link type="text/css" href="static/css/styles.css" rel="stylesheet" />
+    <link type="text/css" href="static/css/main.css" rel="stylesheet" />
+
+    <!-- Bootstrap core JS-->
+    <script type="text/javascript" src="static/js/popper.min.js"></script>
+
+    <!-- Bootstrap core JS-->
+    <script type="text/javascript" src="static/js/bootstrap.bundle.min.js"></script>
+
+    <!-- For Compatability <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> -->
+    
+
+    <!-- Markdown -->
+    <script type="text/javascript" src="static/js/marked.min.js"></script>
+
+    <!-- Mathematics -->
+    <script>
+        // See https://docs.mathjax.org/en/latest/index.html for more details.
+        MathJax = {
+            tex: {
+                packages: {},              // extensions to use
+                inlineMath: [              // start/end delimiter pairs for in-line math
+                    ['$', '$'],
+                    ['\\(', '\\)']
+                ],
+                displayMath: [             // start/end delimiter pairs for display math
+                    ['$$', '$$'],
+                    ['\\[', '\\]']
+                ],
+                processEscapes: false,      // use \$ to produce a literal dollar sign
+                processEnvironments: true, // process \begin{xxx}...\end{xxx} outside math mode
+                processRefs: true,         // process \ref{...} outside of math mode
+                digits: /^(?:[0-9]+(?:\{,\}[0-9]{3})*(?:\.[0-9]*)?|\.[0-9]+)/,    // pattern for recognizing numbers
+                tags: 'all',              // or 'ams' or 'all'
+                tagSide: 'right',          // side for \tag macros
+                tagIndent: '0.8em',        // amount to indent tags
+                useLabelIds: true,         // use label name rather than tag for ids
+                maxMacros: 10000,          // maximum number of macro substitutions per expression
+                maxBuffer: 5 * 1024,       // maximum size for the internal TeX string (5K)
+                // baseURL:                   // URL for use with links to tags (when there is a <base> tag in effect)
+                // (document.getElementsByTagName('base').length === 0) ? '' : String(document.location).replace(/#.*$/, ''),
+                formatError:               // function called when TeX syntax errors occur
+                    (jax, err) => jax.formatError(err)
             }
-        }
-    </style>
+        };
+    </script>
+    <!--
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/javascript" id="MathJax-script" src="static/js/tex-svg.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="static/js/tex-mml-chtml.js"></script>
+    -->
+    
+    <!-- Core JS-->
+    <script type="text/javascript" src="static/js/scripts.js"></script>
+    <script type="text/javascript" src="static/js/js-yaml.min.js"></script>
+<style>
+    .paper-link {
+        color: #2B5BA9; /* 蓝紫色 */
+        text-decoration: none; /* 默认没有下划线 */
+        font-weight: bold; /* 加粗 */
+    }
+
+    .paper-link:hover {
+        color: #1d3f7a; /* 悬停时颜色稍深（可选） */
+        text-decoration: underline; /* 悬停出现下划线 */
+    }
+
+</style>
+
+
+<style>
+    #top-section-bg-text {
+        font-size: clamp(2.5rem, 6vw, 4.5rem); /* 适配不同设备 */
+        font-weight: 400;
+        font-family: 'AlibabaPuHuiTi-Regular', sans-serif;
+    }
+</style>
+
+<style>
+  .rounded.shadow:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+  }
+</style>
+
 </head>
-<body>
-    <div class="containers d-none d-md-block">
-        <header>
-            <div class="profile-container">
-                <img src="images/selfie.jpg" alt="Jie Yang" class="profile-pic">
-                <div class="contact-info">
-                    <h1>杨杰</h1>
-                    <p>Phone/Wechat: +86 13157577935</p>
-                    <p>Email: yangjie@westlake.edu.cn</p>
-                    <p>Google Scholar: <a href="https://scholar.google.com/citations?user=6T786i8AAAAJ&hl=en">Link</a></p>
-                </div> 
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">主页</a></li>
-                    <li><a href="research.html">研究项目</a></li>
-                    <li><a href="publications.html">论文发表</a></li>
-                    <li class="dropdown">
-                        <a href="#">我的书籍</a> <!-- 修改这里 -->
-                        <ul class="dropdown-content">
-                            <li><a href="bci_book.html">侵入式脑机接口芯片</a></li>
-                            <li><a href="neuromorphic_book.html">类脑计算芯片(建设中...)</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="news_media.html">新闻报道</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <section id="resume">
-                <h2>个人简历</h2>
-                <div class="cv-overview"> 
-                <p>杨杰博士于2010年在天津大学电子信息学院获得学士学位，于2015年在中国科学院半导体研究所获得微电子学博士学位。2015年至2019年期间，在加拿大卡尔加里大学进行博士后工作，2019年4月加入西湖大学工学院任先进神经芯片中心副研究员。</p>
-	            <p> 杨杰博士目前聚焦脑机接口与神经形态计算芯片领域，具体的研究方向包括：<strong><a href="research.html#research3">高通量低功耗脑机接口芯片</a></strong>、<strong><a href="research.html#research1">闭环神经调控片上系统芯片</a></strong>、<strong><a href="research.html#research2">神经形态计算</a></strong>以及<strong><a href="research.html#research4">脑-汉语解码</a></strong>。目前，已经在上述研究方向获得了领先的科研成果，在相关领域知名学术期刊和会议（TBioCAS、TBME、JNE、JBHI等）上以第一作者和通讯作者身份发表超过50篇论文。</p>
-                <p>加入西湖大学以后，杨杰博士先后入选<strong>杭州市西湖明珠工程-青年人才专项</strong>、<strong>杭州市海外高层次人才</strong>。目前主持<strong>国家科技创新2030-"脑科学与类脑研究"重大项目课题</strong>、<strong>浙江省“尖兵”研发攻关计划</strong>等科研项目，累计科研经费超过2000万元。</p>
-                </div> 
-            </section>
-            <section id="research">
-                <h2>研究兴趣</h2>
-                <div class="research-overview"> 
-                <p>脑疾病的风险贯穿人的整个生命周期，比如儿童自闭症、癫痫、强迫症、抑郁症以及老年时期的帕金森、阿兹海默症等。我们研制的<strong>闭环神经调控片上系统芯片</strong>通过对颅内脑信号的实时读取、人工智能处理和调控，可以达到脑疾病精准诊断治疗的目的。不仅如此，我们开发的<strong>高通量低功耗脑机接口芯片及系统</strong>，可实现对上千通道颅内脑信号的实时放大、数字化以及无线传输，为<strong>基于人工智能算法的脑-汉语解码</strong>、外部设备控制提供了基础平台，有望帮助残疾人员或渐冻症患者实现运动、语言等功能的康复。</p>
-                <p>大脑是人类卓越创新以及学习能力的载体，其智能程度和能效水平远远超过任何现有的人工智能模型。神经形态计算采用新的算法和硬件，
-                来模拟人脑与世界交互的方式，期望实现更加接近人类的智能与更高能效的计算。我们所研究的<strong>基于尖峰神经网络的神经形态处理器</strong>，在能效和性能上较传统处理器可获得数量级以上的提升。除此之外，我们还将神经形态处理器应用在包括<strong>智能感知、机器人和生物医疗</strong>等高能效和持续学习需求场景。 </p>
-                </div>
-                <div class="research-areas">
-                    <img src="images/research_overview.jpg" alt="研究领域图解" class="research-overview" >
-                </div>
-            </section>
-            <section id="BookTeaching">
-                <h2>教学与书籍</h2>
-                <div class="teaching-content">
-                    <p>在卡尔加里大学与Orly Yadid-Pecht院士共同教学"Integrated Micro and Nanotechnology Sensory Systems"课程(16-17年度)，在西湖大学与Sawan院士共同教学本科生课程"Digital Circuits"(23年度)和博士研究生课程"Hardware Description Language and System Simulation"(21-23年度)、"Integrated Circuits Design"(23年度)。</p>
-	    <p>主持编撰的<a href="bci_book.html">《侵入式脑机接口芯片设计》</a>被收录至“十四五”普通高等教育规划教材《脑机接口》一书中。合作编撰英文丛书<a href="https://ieeexplore.ieee.org/document/9648040">《Emerging Trends of Biomedical Circuits and Systems》</a>。</p>
-                </div>
-                <div class="book-covers">
-                    <div class="book">
-                        <a href="bci_book.html">
-                        <img src="images/invasive_bci_chip_design_cover.png" alt="书籍一封面" class="book-image">
-                        </a>
-                        <div class="book-description">
-                           <!-- <p>本部分内容为《脑机接口》一书的第二十二章，对侵入式脑机接口芯片设计所涉及的放大器、模数转换器、通讯、电源管理以及信号处理相关的电路进行了概述。本书适用于初次接触该领域的学生和工程师，可以帮助他们快速了解该领域的全貌。本章节由杨杰博士和Sawan院士合作编著。</p> -->
-                        </div>
-                    </div>
-                    <div class="book">
-                        <a href="https://www.amazon.com/Emerging-Biomedical-Circuits-Foundations-Integrated/dp/1680839063">
-                        <img src="images/emerging_trends_cover.jpg" alt="书籍二封面" class="book-image">
-                        </a>
-                        <div class="book-description">
-                         <!-- <p>本书对生物医学集成电路和系统进行了广泛和全面的介绍，涵盖了各种生物信号采集、信号处理、能量收集、通信等电路以及生物医学成像系统、化学和分子分析电路与系统等领域。本书适用于生物医学工程、电路和系统相关领域的学生、研究人员和工程师。本书由Sawan院士和杨杰博士合作编著。</p>  -->
-                        </div>
-                    </div>
-                </div>
-            </section>
 
-        </main>
-    </div>
-    <div class="container col-lg-6 shadow-lg p-4 d-block d-md-none shouji">
-        <nav class="navbar container navbar-expand-sm bg-white mt-n1 navbar-dark fixed-top d-block d-md-none">
-            <!-- 面包屑导航 -->
-            <div class="btn-white text-right">
-                <button class="navbar-toggler bg-secondary" type="button" data-toggle="collapse" data-target="#navtop">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-            <!-- 选项 -->
-            <div class="collapse navbar-collapse ml-3" id="navtop">
-                <ul class="nav navbar-nav" id="daohanglan"
-                    style="display: flex;width: 100%;justify-content: space-around;">
-                    <li class="navbar-item mr-3"><a class="nav-link font-weight-bold"
-                         style="color: #0044BB;"   href="index.html">主页</a></li>
-                    <li class="navbar-item mr-3"><a class="nav-link font-weight-bold"
-                        style="color: #0044BB;"    href="research.html">研究项目</a></li>
-                    <li class="navbar-item mr-3"><a class="nav-link font-weight-bold"
-                        style="color: #0044BB;"    href="publications.html">论文发表</a></li>
-                    <li class="navbar-item dropdown mr-3">
-                        <a class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdown"
-                            role="button" style="color: #0044BB;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            我的书籍
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item pt-3 pb-3 pr-3" href="bci_book.html">接入式脑机接口芯片</a>
-                            <a class="dropdown-item pt-3 pb-3 pr-3" href="neuromorphic_book.html">类脑计算芯片(建设中...)</a>
-                        </div>
-                    </li>
-                    <li class="navbar-item mr-3"><a class="nav-link font-weight-bold"
-                        style="color: #0044BB;"    href="news_media.html">新闻报道</a></li>
-                </ul>
-            </div>
-        </nav>
-        <div class="d-flex d-md-none mt-5">
-            <img style="width: 100px;height: 137px;" src="images/selfie.jpg" alt="Jie Yang" class="profile-pic">
-            <div>
-                <h4>杨杰</h4>
-                <p style="font-size: 13px;margin: 10px 0;">Phone/Wechat: +86 13157577935</p>
-                <p style="font-size: 13px;margin: 10px 0;">Email: yangjie@westlake.edu.cn</p>
-                <p style="font-size: 13px;margin: 10px 0;">Google Scholar: <a href="https://scholar.google.com/citations?user=6T786i8AAAAJ&hl=en">Link</a></p>
-            </div>
-        </div>
-        <div class="row d-none d-md-flex mt-n1 mb-2">
-            <img class="renwu" style="width: 106px;height: 150px;" src="images/selfie.jpg" alt="Jie Yang" class="profile-pic">
-            <div class="col-md-7">
-                <div class="pl-3">
-                    <h1 class="font-weight-bold">杨杰</h1>
-                    <p style="font-size: 16.2px;margin: 10px 0;">Phone/Wechat: +86 13157577935</p>
-                    <p style="font-size: 16.2px;margin: 10px 0;">Email: yangjie@westlake.edu.cn</p>
-                    <p style="font-size: 16.2px;margin: 10px 0;">Google Scholar: <a href="https://scholar.google.com/citations?user=6T786i8AAAAJ&hl=en">Link</a></p>
-                </div>
-            </div>
-        </div>
-        <nav class="navbar container navbar-expand-sm navbar-white d-none d-md-block">
-            <!-- 面包屑导航 -->
-            <div class="btn-dark">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navtop">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-            <!-- 选项 -->
-            <div class="collapse navbar-collapse ml-3" id="navtop">
-                <ul class="nav navbar-nav" id="daohanglan"
-                    style="display: flex;width: 100%;justify-content: space-around;">
-                    <li class="navbar-item mr-3"><a class="nav-link font-weight-bold"
-                            href="index.html">主页</a></li>
-                    <li class="navbar-item mr-3"><a class="nav-link font-weight-bold"
-                            href="research.html">研究项目</a></li>
-                    <li class="navbar-item mr-3"><a class="nav-link font-weight-bold"
-                            href="publications.html">论文发表</a></li>
-                    <li class="navbar-item dropdown mr-3">
-                        <a class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdown"
-                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            我的书籍
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item pt-3 pb-3 pr-3" href="bci_book.html">接入式脑机接口芯片</a>
-                            <a class="dropdown-item pt-3 pb-3 pr-3" href="neuromorphic_book.html">类脑计算芯片(建设中...)</a>
-                        </div>
-                    </li>
-                    <li class="navbar-item mr-3"><a class="nav-link font-weight-bold"
-                            href="news_media.html">新闻报道</a></li>
-                </ul>
-            </div>
-        </nav>
-        <!-- 个人简历 -->
-        <header class="mt-4">
-            <h3 style="font-size: 21px;font-weight: bold;">个人简历</h3>
-            <div class="row p-4">
-                <div>
-                    <p style="text-indent: 2rem;">杨杰博士于2010年在天津大学电子信息学院获得学士学位，于2015年在中国科学院半导体研究所获得微电子学博士学位。2015年至2019年期间，在加拿大卡尔加里大学进行博士后工作，2019年4月加入西湖大学工学院任先进神经芯片中心副研究员。
-                    </p>
-                    <p style="text-indent: 2rem;"> 杨杰博士目前聚焦脑机接口与神经形态计算芯片领域，具体的研究方向包括：<strong><a
-                            style="color: #0000EE;text-decoration:underline;" href="research.html#research3">高通量低功耗脑机接口芯片</a></strong>、<strong><a
-                            style="color: #0000EE;text-decoration:underline;" href="research.html#research1">闭环神经调控片上系统芯片</a></strong>、<strong><a
-                            style="color: #0000EE;text-decoration:underline;" href="research.html#research2">神经形态计算</a></strong>以及<strong><a
-                            style="color: #0000EE;text-decoration:underline;"  href="research.html#research4">脑-汉语解码</a></strong>。目前，已经在上述研究方向获得了领先的科研成果，在相关领域知名学术期刊和会议（TBioCAS、TBME、JNE、JBHI等）上以第一作者和通讯作者身份发表超过50篇论文。
-                    <p style="text-indent: 2rem;">加入西湖大学以后，杨杰博士先后入选<strong>杭州市西湖明珠工程-青年人才专项</strong>、<strong>杭州市海外高层次人才</strong>。目前主持<strong>国家科技创新2030-"脑科学与类脑研究"重大项目课题</strong>、<strong>浙江省“尖兵”研发攻关计划</strong>等科研项目，累计科研经费超过2000万元。
-                    </p>
-                </div>
-            </div>
-        </header>
-        <!-- 导航栏 -->
-        <!-- 研究兴趣 -->
-        <div>
-            <h3 class="font-weight-bold">研究兴趣</h3>
-            <div class="row">
-                <div class="col-md-12 mb-4">
-                    <p style="text-indent: 2rem;">脑疾病的风险贯穿人的整个生命周期，比如儿童自闭症、癫痫、强迫症、抑郁症以及老年时期的帕金森、阿兹海默症等。我们研制的<strong>闭环神经调控片上系统芯片</strong>通过对颅内脑信号的实时读取、人工智能处理和调控，可以达到脑疾病精准诊断治疗的目的。不仅如此，我们开发的<strong>高通量低功耗脑机接口芯片及系统</strong>，可实现对上千通道颅内脑信号的实时放大、数字化以及无线传输，为<strong>基于人工智能算法的脑-汉语解码</strong>、外部设备控制提供了基础平台，有望帮助残疾人员或渐冻症患者实现运动、语言等功能的康复。
-                    </p>
-                    <p style="text-indent: 2rem;">大脑是人类卓越创新以及学习能力的载体，其智能程度和能效水平远远超过任何现有的人工智能模型。神经形态计算采用新的算法和硬件，
-                        来模拟人脑与世界交互的方式，期望实现更加接近人类的智能与更高能效的计算。我们所研究的<strong>基于尖峰神经网络的神经形态处理器</strong>，在能效和性能上较传统处理器可获得数量级以上的提升。除此之外，我们还将神经形态处理器应用在包括<strong>智能感知、机器人和生物医疗</strong>等高能效和持续学习需求场景。
-                    </p>
-                </div>
-                <div class="col-md-10 m-auto xingqu">
-                    <img class="" style="width: 100%;" src="images/research_overview.jpg" alt="研究领域图解">
-                </div>
-            </div>
-        </div>
-        <!-- 教学与书籍 -->
-        <div class="mt-5">
-            <h3 class="font-weight-bold">教学与书籍</h3>
-            <div class="row">
-                <div class="col-md-12 mb-4">
-                    <p style="text-indent: 2rem;">在卡尔加里大学与Orly Yadid-Pecht院士共同教学"Integrated Micro and Nanotechnology Sensory
-                        Systems"课程(16-17年度)，在西湖大学与Sawan院士共同教学本科生课程"Digital Circuits"(23年度)和博士研究生课程"Hardware Description
-                        Language and System Simulation"(21-23年度)、"Integrated Circuits Design"(23年度)。</p>
-                    <p style="text-indent: 2rem;">主持编撰的<a href="bci_book.html">《侵入式脑机接口芯片设计》</a>被收录至“十四五”普通高等教育规划教材《脑机接口》一书中。合作编撰英文丛书<a
-                            href="https://ieeexplore.ieee.org/document/9648040">《Emerging Trends of Biomedical Circuits
-                            and Systems》</a>。</p>
-                </div>
-                <div class="col-md-12 m-auto row d-none d-md-flex">
-                    <div class="col-md-6 text-center">
-                        <a href="bci_book.html">
-                        <img class="book" style="width: 271px;height: 400px;margin: 10px;" src="images/invasive_bci_chip_design_cover.png" alt="书籍一封面" class="book-image">
-                        </a>
-                        <div class="book-description">
-                           <!-- <p>本部分内容为《脑机接口》一书的第二十二章，对侵入式脑机接口芯片设计所涉及的放大器、模数转换器、通讯、电源管理以及信号处理相关的电路进行了概述。本书适用于初次接触该领域的学生和工程师，可以帮助他们快速了解该领域的全貌。本章节由杨杰博士和Sawan院士合作编著。</p> -->
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="header navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
+        <div class="container px-5">
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto p-4 p-lg-0">
+                    <a href="index.html" class="nav-item nav-link me-lg-3 text-dark">主页</a>
+                    <a href="research.html" class="nav-item nav-link me-lg-3 text-dark">研究方向</a>
+                    <a href="chip_gallery.html" class="nav-item nav-link me-lg-3 text-dark">芯片展示</a>
+                    <a href="publications.html" class="nav-item nav-link me-lg-3 text-dark">论文发表</a>
+                    <div class="nav-item dropdown me-lg-3">
+                        <a href="#" class="nav-link dropdown-toggle fw-normal text-dark" data-bs-toggle="dropdown">出版书籍</a>
+                        <div class="dropdown-menu rounded">
+                            <a href="book-item-bci.html" class="dropdown-item">侵入式脑机接口芯片</a>
+                            <a href="#" class="dropdown-item">类脑计算芯片（建设中）</a>
                         </div>
                     </div>
-                    <div class="col-md-6 text-center">
-                        <a href="https://www.amazon.com/Emerging-Biomedical-Circuits-Foundations-Integrated/dp/1680839063">
-                        <img class="book" style="width: 271px;height: 400px;margin: 10px;" src="images/emerging_trends_cover.jpg" alt="书籍二封面" class="book-image">
-                        </a>
-                        <div class="book-description">
-                         <!-- <p>本书对生物医学集成电路和系统进行了广泛和全面的介绍，涵盖了各种生物信号采集、信号处理、能量收集、通信等电路以及生物医学成像系统、化学和分子分析电路与系统等领域。本书适用于生物医学工程、电路和系统相关领域的学生、研究人员和工程师。本书由Sawan院士和杨杰博士合作编著。</p>  -->
-                        </div>
+                    <a href="coverage.html" class="nav-item nav-link me-lg-3 text-dark">学术活动</a>
+                    <div class="d-inline-flex">
+                        <button type="button" class="nav-link me-lg-3 btn btn-sm btn-outline-primary px-2 py-0 text-primary" onclick="window.location.href='index_en.html';">EN</button>
                     </div>
                 </div>
+            </div>
+        </div>
+    </nav>
 
-                <div class="col-12 m-auto d-flex d-md-none justify-content-center">
-                    <div class="text-center">
-                        <a href="bci_book.html">
-                        <img class="book" style="width: 150px;height: 230px;margin: 10px;" src="images/invasive_bci_chip_design_cover.png" alt="书籍一封面" class="book-image">
-                        </a>
-                        <div class="book-description">
-                           <!-- <p>本部分内容为《脑机接口》一书的第二十二章，对侵入式脑机接口芯片设计所涉及的放大器、模数转换器、通讯、电源管理以及信号处理相关的电路进行了概述。本书适用于初次接触该领域的学生和工程师，可以帮助他们快速了解该领域的全貌。本章节由杨杰博士和Sawan院士合作编著。</p> -->
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <a href="https://www.amazon.com/Emerging-Biomedical-Circuits-Foundations-Integrated/dp/1680839063">
-                        <img class="book" style="width: 150px;height: 230px;margin: 10px;" src="images/emerging_trends_cover.jpg" alt="书籍二封面" class="book-image">
-                        </a>
-                        <div class="book-description">
-                         <!-- <p>本书对生物医学集成电路和系统进行了广泛和全面的介绍，涵盖了各种生物信号采集、信号处理、能量收集、通信等电路以及生物医学成像系统、化学和分子分析电路与系统等领域。本书适用于生物医学工程、电路和系统相关领域的学生、研究人员和工程师。本书由Sawan院士和杨杰博士合作编著。</p>  -->
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Top Section -->
+<section class="top-section container-fluid" style="background-image: url('static/assets/img/westlake-rim-banner-thin.jpeg'); background-size: cover; height: 10vh;">
+    <div class="top-section-content">
+        <div class="container px-5">
+            <h2 id="top-section-bg-text" class="text-white lh-1">杨杰 博士 Yangjie , Ph.D.</h2>
         </div>
     </div>
-    <footer>
-      <p>
-        <a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备2022004406号-1</a>
-      </p>
+</section>
+    <!-- Top Section -->
+
+    <!-- Photo -->
+<div class="container px-5">
+    <div id="avatar">
+        <div class="d-flex flex-row justify-content-end align-items-end">
+            <div class="mx-auto d-block float-start px-3" style="width:50vw">
+                <p class='mt-0 mb-0 text-end' style="font-size:clamp(10px,1.2vw,20px); font-weight: 400;">Phone/Wechat: +86 13157577935</p>
+                <p class='mt-0 mb-0 text-end' style="font-size:clamp(10px,1.2vw,20px); font-weight: 400;">Email: yangjie@westlake.edu.cn</p>
+                <p class='mt-0 mb-1 text-end' style="font-size:clamp(10px,1.2vw,20px); font-weight: 400;">Google Scholar: <a href="https://scholar.google.com/citations?user=6T786i8AAAAJ&hl=en">Link</a></p>
+            </div>
+            <img class="shadow d-block mx-auto" src="static/assets/img/yangjie.jpg">
+        </div>
+    </div>
+</div>
+
+    <!-- Photo -->
+    
+    <!-- Home -->
+    <section class="bg-gradient-primary-to-secondary-light mt5 md5" id="home">
+        <div class="container px-5">
+            <header>
+                <h2 id="home-subtitle"> 个人简历 </h2>
+                <!-- <span class="bi bi-list"></span> -->
+            </header>
+            <div class="main-body lh-base" id="introduction">
+                <p>杨杰博士于2010年毕业于天津大学电子信息学院，获学士学位；2015年于中国科学院半导体研究所获得微电子学博士学位。2015至2019年在加拿大卡尔加里大学从事博士后研究，2019年加入西湖大学，现任工学院先进神经芯片中心研究员、脑机接口智能芯片系统浙江省工程研究中心副主任，IEEE Senior Member。</p>
+                <p> 杨杰博士长期致力于脑机接口与类脑计算芯片领域的研究，重点聚焦<strong><a href="research.html#research3">高通量脑机接口芯片</a></strong>、<strong><a href="research.html#research1">闭环神经调控系统</a></strong>、<strong><a href="research.html#research2">类脑计算芯片</a></strong>以及<strong><a href="research.html#research4">脑-语言解码技术</a></strong>。迄今已主持设计<strong><a href="chip_gallery.html">超过20款高水平芯片</a></strong>，在<strong>JSSC、TBioCAS、TBME、JNE、JBHI</strong>等领域权威期刊以及<strong>ISSCC、ECCV、ICLR</strong>等顶级会议上，以第一作者和通讯作者身份发表超过50篇论文。</p>
+                <p>杨杰博士先后入选<span style="color: blue;"><strong>杭州市西湖明珠工程</strong></span>、<span style="color: blue;"><strong>杭州市海外高层次人才</strong></span>以及<span style="color: blue;"><strong>浙江省高层次人才</strong></span>。目前<span style="color: blue;"><strong>主持国家科技创新2030-"脑科学与类脑研究"重大项目课题</strong></span>、<span style="color: blue;"><strong>浙江省“尖兵”研发攻关计划</strong></span>等科研项目。<span style="color: blue;"><strong>累计科研经费超过2000万元</strong></span>，积极推动脑机接口与类脑计算领域的理论突破、芯片研制与工程转化。</p>
+            </div>
+        </div>
+    </section>
+    <!-- Home -->
+
+    <!-- Publications bg-gradient-primary-to-secondary-gray -->
+    <section class="bg-gradient-primary-to-secondary-gray mt5 md5" id="interests">
+        <div class="container px-5">
+            <header>
+                <h2 id="interests-subtitle">研究兴趣</h2>
+            </header>
+            <div class="main-body lh-base" id="interests-content">
+                <p><strong>我的研究聚焦于“保护、连接与模拟大脑”三大主线，涵盖神经调控、脑机接口与类脑计算等关键方向。</strong></p>
+                <p><strong>保护大脑：</strong>脑疾病如自闭症、癫痫、强迫症、抑郁症以及帕金森、阿兹海默症等的风险贯穿人的整个生命周期，对社会和家庭造成巨大负担。我们研发了集成颅内脑信号的实时采集、人工智能处理和刺激反馈功能的<strong><a href="research.html#research1">闭环神经调控系统芯片</a></strong>，实现脑疾病的精准诊断治疗，为下一代神经疾病治疗提供关键支撑。</p>
+                <p><strong>连接大脑：</strong>为帮助大脑与外部世界建立高效信息通路，我们构建了<strong><a href="research.html#research3">高通量低功耗脑机接口芯片系统</a></strong>，具备千通道级信号采集与无线传输能力，并结合神经网络算法，实现<strong><a href="research.html#research4">颅内信号到语言或运动控制信号的精准解码</a></strong>，为语言重建、肢体康复、意图识别等提供核心技术平台。</p>
+                <p><strong>模拟大脑：</strong>大脑以极高的能效实现复杂智能，启发我们构建具备低功耗与持续学习能力的<strong><a href="research.html#research2">类脑计算芯片</a></strong>，相比传统处理器，类脑芯片在能效上实现数量级的提升。我们已将其应用于 <strong>智能感知、机器人控制、生物医疗</strong> 等对能效与在线学习能力要求较高的场景，展现出广阔的应用前景。 </p>
+                </div>
+                <div class="d-flex justify-content-center align-items-center">
+                    <img class="img-fluid rounded shadow" src="images/research_overview.jpg" alt="研究领域图解" style="width:70%" >
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- Publications  -->
+
+    <!-- Awards -->
+    <section class="bg-gradient-primary-to-secondary-light mt5 md5" id="awards">
+        <div class="container px-5">
+            <header>
+                <h2 id="awards-subtitle">教学与书籍 </h2>
+            </header>
+            <div class="main-body lh-base" id="awards-content">
+<p>杨杰博士曾于2016–2017年在加拿大卡尔加里大学与 <a href="https://www.ucalgary.ca/labs/integrated-intelligent-sensing/dr-orly-yadid-pecht">Orly Yadid-Pecht 院士</a>联合授课，主讲《Integrated Micro and Nanotechnology Sensory Systems》。在西湖大学期间，与 <a href="https://mohamadsawan.org/">Mohamad Sawan 院士</a>共同讲授《Digital Circuits》（2023年–2024年本科课程）、《Hardware Description Language and System Simulation》（2021–2023年博士课程）及《Integrated Circuits Design》（2023年博士课程）。</p> <p>在教材与著作方面，主持编撰的<a href="book-item-bci.html">《侵入式脑机接口芯片设计》</a>作为第二十二章收录于国家“十四五”普通高等教育规划教材《脑机接口》中，用于指导相关课程教学与研究。并与 Sawan 院士合著英文专著 <a href="https://ieeexplore.ieee.org/document/9648040">《Emerging Trends of Biomedical Circuits and Systems》</a>，由 Now Publishers 出版，系统介绍了生物医学电路的最新进展。</p>
+<p>此外，杨杰博士与 Sawan 院士目前正共同主持“十四五”第二批本科与研究生教学改革项目<a href = "https://jyt.zj.gov.cn/art/2024/12/31/art_1228998760_58943323.html">《新质生产力下的垂直整合与跨学科集成电路课程》</a>，旨在结合新一代产业变革需求，探索以芯片为核心的跨学科融合型课程体系，推动集成电路人才培养模式向垂直整合与高阶应用转型。该课程的教学与实验内容将在项目推进过程中以开源形式陆续发布，供广大教师与学生参考学习。</p>
+            </div>
+
+<div class="container px-5">
+  <div class="row text-center">
+    <div class="col-12 col-md-4 mb-4">
+      <a href="book-item-bci.html">
+        <img src="images/invasive_bci_chip_design_cover.png" alt="《侵入式脑机接口芯片设计》封面" class="img-fluid rounded shadow" loading="lazy">
+        <div class="mt-2 fw-semibold" style="font-size: 0.95rem;">《侵入式脑机接口芯片设计》</div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-4 mb-4">
+      <a href="https://www.amazon.com/Emerging-Biomedical-Circuits-Foundations-Integrated/dp/1680839063">
+        <img src="images/emerging_trends_cover.jpg" alt="Emerging Trends 封面" class="img-fluid rounded shadow" loading="lazy">
+        <div class="mt-2 fw-semibold" style="font-size: 0.95rem;">Emerging Trends of Biomedical Circuits and Systems</div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-4 mb-4">
+      <a href="https://jyt.zj.gov.cn/art/2024/12/31/art_1228998760_58943323.html">
+        <img src="images/teaching_reform.png" alt="课程改革项目图" class="img-fluid rounded shadow" loading="lazy">
+        <div class="mt-2 fw-semibold" style="font-size: 0.95rem;">新质生产力下的垂直整合课程</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+    </section>
+
+
+    <!-- Awards -->
+ 
+
+
+
+    <!-- Footer-->
+    <footer class="bg-bottom text-center py-5">
+        <div class="container px-5">
+            <div class="text-white-50 small">
+                <div id="copyright-text" class="mb-2">
+                    <a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备2022004406号-1</a>
+                </div>
+            </div>
+        </div>
     </footer>
+
 </body>
-<script src="./js/jquery-3.5.1.slim.min.js"></script>
-<script src="./js/bootstrap.js"></script>
+
 </html>
