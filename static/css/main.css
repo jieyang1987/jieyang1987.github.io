@@ -29,6 +29,7 @@
 .top-section .top-section-content {
     position: relative;
     z-index: 1;
+    padding-top: 10px;
 }
 
 .top-section:before {
@@ -164,6 +165,186 @@ p {
     }
 }
 
+/* Mobile-first tweaks: improve avatar/contact layout on small screens */
+@media screen and (max-width: 768px) {
+    /* 保持与桌面相同的布局（右浮动并部分覆盖顶部），但在小屏上缩小尺寸以避免遮挡过多内容 */
+    #avatar {
+        position: relative;
+        height: 0;
+        top: min(-50px, max(-90px, calc(-1*100vw/14)));
+        max-width: 40em;
+        margin: 0 1rem 0 0;
+        float: right;
+        z-index: 9000;
+    }
+
+    #avatar img {
+        /* 增大移动端头像尺寸：提升最小值与最大值，并使用更大的视口比例以获得略大效果 */
+        height: max(130px, min(190px, calc(100vw/5.2)));
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+    }
+
+    #avatar p {
+        text-align: right !important;
+        /* 再微调：进一步减小移动端字号以更紧凑显示 */
+        font-size: clamp(0.7rem, 1.2vw, 0.85rem) !important;
+        line-height: 2.25 !important;
+        margin: 0;
+    }
+}
+
+/* Mobile navbar tweaks: move toggler to right and use floating panel */
+@media screen and (max-width: 768px) {
+    #mainNav .container {
+        padding-left: 0.75rem;
+        padding-right: 0;
+    }
+
+    #mainNav {
+        position: relative;
+        padding-top: 0;
+        padding-bottom: 0;
+        min-height: 0;
+        height: 0;
+        background-color: transparent !important;
+        box-shadow: none !important;
+    }
+
+    #mainNav .navbar-toggler {
+        position: fixed;
+        right: 0;   /* move 10px to the right */
+        top: 10px;     /* margin-top +40px effect */
+        margin: 0;
+        border-color: transparent;
+        box-shadow: none;
+        z-index: 11001;
+        background-color: transparent;
+        
+    }
+
+    /* Toggler icon default: white */
+    #mainNav .navbar-toggler .navbar-toggler-icon {
+        filter: invert(1);
+        opacity: 1;
+    }
+
+    /* Toggler when menu is open: gray background + dark icon (styles commented out intentionally) */
+
+    #mainNav .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+        filter: none;
+    }
+
+    #mainNav .navbar-toggler:focus,
+    #mainNav .navbar-toggler:active {
+        outline: none;
+        box-shadow: none;
+        border-color: transparent;
+    }
+
+    /* Make collapsed menu a floating panel instead of pushing content */
+    #mainNav .navbar-collapse {
+        position: fixed;
+        top: 10px;             /* below the moved toggler */
+        right: 0;
+        width: 45vw;           /* narrower floating panel */
+        max-width: 200px;
+        max-height: 80vh;
+        overflow-y: auto;
+        background-color: rgba(255, 255, 255, 0.90); /* slightly transparent */
+        border-radius: 0.75rem;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+        padding: 0.75rem 1rem 1rem;
+    }
+
+    #mainNav .navbar-nav {
+        padding: 0;
+    }
+
+    #mainNav .navbar-nav .nav-link,
+    #mainNav .navbar-nav .dropdown-item {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* Dropdown menu styling in mobile */
+    #mainNav .dropdown-menu {
+        position: static;
+        float: none;
+        width: 100%;
+        margin-top: 0.35rem;
+        background-color: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 0.5rem;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+        padding: 0.25rem 0.5rem;
+    }
+
+    #mainNav .dropdown-item {
+        padding: 0.45rem 0.25rem;
+        font-size: 0.95rem;
+        border-radius: 0.35rem;
+    }
+
+    #mainNav .dropdown-item:hover,
+    #mainNav .dropdown-item:focus {
+        background-color: rgba(13, 110, 253, 0.08);
+        color: #0d6efd;
+    }
+}
+
+/* Research page: image/text layout on small screens */
+@media screen and (max-width: 768px) {
+    #interests .row > .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    #interests .container-fluid[style*="float:left"] {
+        width: 100% !important;
+        float: none !important;
+        margin: 0 auto 1rem !important;
+    }
+
+    #interests .container-fluid[style*="float:left"] .row {
+        justify-content: center;
+    }
+
+    #interests .container-fluid[style*="float:left"] img {
+        max-width: 80vw;
+        height: auto;
+    }
+
+    #interests .container > div[style*="text-align: justify"] {
+        margin-top: 0.5rem;
+    }
+}
+
+/* Coverage (news list): improve spacing on mobile */
+@media screen and (max-width: 768px) {
+    .news-list {
+        padding-left: 0;
+        list-style: none;
+    }
+
+    .news-item {
+        display: flex;
+        flex-direction: column;
+        padding: 0.4rem 0;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .news-time {
+        font-size: 1.1rem;      /* 日期略大一点 */
+        color: #6c757d;
+        /* margin-bottom: 0.01rem; */
+    }
+
+    .news-title a {
+        word-break: break-all;
+        font-size: 1.25rem;    /* 列表标题略小一点 */
+    }
+}
+
 
 .publications-list h3 {
     margin-top: 0.8em;   /* 增加与上方论文条目的间距 */
@@ -192,14 +373,194 @@ p {
 
 }
 
+/* Back-to-top button */
+.back-to-top {
+    position: fixed;
+    right: 1rem;
+    bottom: 1.25rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    padding: 0;
+    display: none;
+    z-index: 11000;
+    background-color: #6c757d !important;   /* 灰色背景 */
+    border-color: #6c757d !important;       /* 灰色边框 */
+    color: #ffffff !important;              /* 白色箭头 */
+}
+
+.back-to-top.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Mobile: enlarge key overview images, reduce perceived white space */
+@media screen and (max-width: 768px) {
+    #interests img.img-fluid.rounded.shadow,
+    #interests img[src*="research_overview"] {
+        width: 100% !important;
+        max-width: none;
+    }
+
+    /* Soften vertical spacing between sections to avoid large blank areas */
+    section.bg-gradient-primary-to-secondary-light,
+    section.bg-gradient-primary-to-secondary-gray {
+        padding-top: 1.75rem;
+        padding-bottom: 1.75rem;
+    }
+
+    .mt5,
+    .md5 {
+        margin-top: 1.5rem !important;
+    }
+
+    /* Reduce extra margin before/after single images in text blocks */
+    #interests .main-body > div[row],
+    #interests .main-body img {
+        margin-top: 0.75rem;
+        margin-bottom: 0.75rem;
+    }
+
+    /* Reduce horizontal padding for containers */
+    .container.px-5,
+    .container .px-5 {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    /* Reduce top section height and padding */
+    .top-section {
+        padding: 1.5rem 0 !important;
+        height: auto !important;
+        min-height: 6vh !important;
+    }
+
+    .top-section .container.px-5 {
+        padding-top: 0.65rem !important;
+        padding-bottom: 0.25rem !important;
+    }
+
+    /* Further reduce section vertical spacing */
+    section.bg-gradient-primary-to-secondary-light,
+    section.bg-gradient-primary-to-secondary-gray {
+        padding-top: 1.0rem !important;
+        padding-bottom: 1.0rem !important;
+    }
+
+    /* Reduce spacing between content blocks */
+    .main-body {
+        margin-top: 0.5rem;
+        margin-bottom: 0.25rem;
+    }
+
+    /* Tighten line-height and paragraph spacing in main text on mobile */
+    .main-body p {
+        line-height: 1.4;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Research index list: significantly tighter line-height on mobile */
+    .research-index li,
+    .research-index a {
+        line-height: 1.4;
+        margin-bottom: 0.25rem;
+    }
+
+    /* Reduce spacing below the research index block */
+    .research-index {
+        margin-bottom: 0.5rem !important;
+    }
+
+    /* Reduce bottom padding of the home section to cut the blank area in half
+       and add top padding so content sits below the right-floating avatar.
+       Also apply to chip-gallery (本页“芯片展示”使用此 id)。 */
+    #home,
+    #chip-gallery {
+        padding-bottom: 0.2rem !important;
+        /* 最终微调：进一步减小顶部空白，最小值设得更小以更贴合视觉需求 */
+        padding-top: max(calc(100vw / 6 - 0.15rem), 1.2rem) !important;
+    }
+
+    /* Publications page: tighten year filter & stats spacing on mobile */
+    #home .d-flex.gap-2.my-2 {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    #home .year-link {
+        line-height: 1.01;
+    }
+
+    header {
+        margin-bottom: 0.75rem !important;
+    }
+
+    /* Reduce avatar section spacing */
+    #avatar {
+        margin-top: 0.75rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+
+    /* Reduce footer padding */
+    footer {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+}
+
+/* 在小屏幕上将 Awards/Books 的三张封面缩小并横向排列（允许水平滚动） */
+@media screen and (max-width: 768px) {
+    /* 仅作用于 awards 区和常见的中心对齐行，避免影响其他网格 */
+    #awards .row.text-center,
+    .container .row.text-center.awards-row {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        gap: 1rem;
+        overflow-x: auto;
+        padding-bottom: 0.75rem;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* 让每列成为不可收缩的横向项，并缩小最大宽度 */
+    #awards .row.text-center > [class*="col-"],
+    .container .row.text-center.awards-row > [class*="col-"] {
+        -webkit-box-flex: 0 !important;
+        -ms-flex: 0 0 auto !important;
+        flex: 0 0 auto !important;
+        max-width: 42vw !important;
+        width: 42vw !important;
+    }
+
+    /* 图片尺寸更小，居中显示 */
+    #awards .row.text-center img,
+    .container .row.text-center.awards-row img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        max-width: 38vw;
+        height: auto;
+    }
+}
+
 #chip-gallery p {
-    font-size: 0.875rem;     /* 缩小字号（默认small约为0.875rem） */
+    font-size: 1.005rem;     /* 缩小字号（默认small约为0.875rem） */
     line-height: 1.5;        /* 减少行间距 */
+    margin-top: 0.5rem;
     margin-bottom: 0.6rem;   /* 缩小段落间距 */
     color: #6c757d; /* Bootstrap 默认的 muted 灰色 */
 }
 #chip-gallery h5 {
-    font-size: 1rem;         /* 缩小标题字号 */
+    font-size: 1.015rem;         /* 缩小标题字号 */
+    margin-top: 0.5rem;
     margin-bottom: 0.3rem;   /* 缩小标题与段落之间的间距 */
 }
 
