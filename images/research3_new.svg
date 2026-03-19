@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fff7f0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bg-grad)"/>
+  
+  <!-- 左上装饰 -->
+  <rect x="50" y="50" width="100" height="100" fill="#FFD4A3" stroke="#E8752A" stroke-width="3" opacity="0.8" transform="rotate(45 100 100)"/>
+  <circle cx="100" cy="100" r="35" fill="#E8752A" opacity="0.7"/>
+  
+  <!-- 右下装饰 -->
+  <circle cx="750" cy="500" r="70" fill="#FFD4A3" stroke="#E8752A" stroke-width="2" opacity="0.6"/>
+  <circle cx="750" cy="500" r="40" fill="#FF9800" opacity="0.5"/>
+  
+  <!-- 中央芯片结构 -->
+  <g id="chip-structure">
+    <!-- 外壳 -->
+    <rect x="320" y="200" width="160" height="200" fill="#FFD4A3" stroke="#E8752A" stroke-width="3" rx="10"/>
+    
+    <!-- 内部芯片层 -->
+    <rect x="340" y="220" width="120" height="160" fill="#FF9800" stroke="#E8752A" stroke-width="2" rx="5"/>
+    
+    <!-- 内核 -->
+    <rect x="360" y="240" width="80" height="120" fill="#E8752A" rx="3"/>
+    
+    <!-- 连接点 - 上 -->
+    <circle cx="400" cy="200" r="6" fill="#E8752A"/>
+    <line x1="400" y1="200" x2="400" y2="150" stroke="#E8752A" stroke-width="2"/>
+    
+    <!-- 连接点 - 下 -->
+    <circle cx="400" cy="400" r="6" fill="#E8752A"/>
+    <line x1="400" y1="400" x2="400" y2="450" stroke="#E8752A" stroke-width="2"/>
+    
+    <!-- 连接点 - 左 -->
+    <circle cx="320" cy="300" r="6" fill="#E8752A"/>
+    <line x1="320" y1="300" x2="250" y2="300" stroke="#E8752A" stroke-width="2"/>
+    
+    <!-- 连接点 - 右 -->
+    <circle cx="480" cy="300" r="6" fill="#E8752A"/>
+    <line x1="480" y1="300" x2="550" y2="300" stroke="#E8752A" stroke-width="2"/>
+  </g>
+  
+  <!-- 数据流指示 -->
+  <g fill="#E8752A" opacity="0.6">
+    <circle cx="250" cy="300" r="5"/>
+    <circle cx="550" cy="300" r="5"/>
+    <circle cx="400" cy="150" r="5"/>
+    <circle cx="400" cy="450" r="5"/>
+  </g>
+  
+  <!-- 脉冲信号 -->
+  <g stroke="#FF9800" stroke-width="2" fill="none" opacity="0.5">
+    <path d="M 150 280 L 170 280 L 170 260 L 190 260 L 190 280 L 210 280 L 210 270 L 230 270" stroke-linecap="round"/>
+    <path d="M 570 280 L 590 280 L 590 260 L 610 260 L 610 280 L 630 280 L 630 270 L 650 270" stroke-linecap="round"/>
+  </g>
+  
+  <!-- 标题 -->
+  <text x="400" y="510" font-size="48" font-weight="bold" text-anchor="middle" fill="#E8752A" font-family="SimHei, sans-serif">
+    脑机接口芯片
+  </text>
+  
+  <!-- 副标题 -->
+  <text x="400" y="560" font-size="24" text-anchor="middle" fill="#FF9800" font-family="Arial, sans-serif">
+    BCI Recording Chips
+  </text>
+</svg>

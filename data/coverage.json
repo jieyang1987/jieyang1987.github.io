@@ -1,0 +1,218 @@
+{
+  "pageTitle": {
+    "zh": "活动记事",
+    "en": "Activities & News"
+  },
+  "items": [
+    {
+      "date": "2026.2.3",
+      "title": "荣获中国脑-机接口华瑙奖-杰出青年奖",
+      "url": "https://mp.weixin.qq.com/s/fedbC1ge9CRuKQ6NGG7WGQ"
+    },
+    {
+      "date": "2026.1.22",
+      "title": "北方工业大学集成电路学院名师分享会：从芯片设计到语言解码看脑机接口的技术演进",
+      "url": ""
+    },
+    {
+      "date": "2026.1.9",
+      "title": "基于实时汉语言解码的植入式脑机接口系统：入围2025年人工智能医疗器械创新任务揭榜挂帅项目",
+      "url": "https://www.miit.gov.cn/zwgk/zcwj/wjfb/tz/art/2026/art_fbd44649a63c4b8d94f5a16a858b879a.html"
+    },
+    {
+      "date": "2025.12.27",
+      "title": "兰州大学物理学院系列报告：从芯片设计到语言解码看脑机接口的技术演进",
+      "url": ""
+    },
+    {
+      "date": "2025.12.5",
+      "title": "2025脑机接口大会: 入选脑机接口产业联盟「青百荟」",
+      "url": "https://mp.weixin.qq.com/s/A5AAT5bdNJJ6hhxA7o8Rvw"
+    },
+    {
+      "date": "2025.11.29",
+      "title": "中国医疗器械行业协会产教融合发展大会:《语言神经假肢：从高集成芯片到汉语神经解码》",
+      "url": "https://mp.weixin.qq.com/s/o66iV2QdUnSkuqqQCDNbAA"
+    },
+    {
+      "date": "2025.11.23",
+      "title": "脑机接口社区:《语言神经假肢：从高通量芯片到汉语神经解码》",
+      "url": "https://mp.weixin.qq.com/s/O-NtQyDt-uvfYm_P6A6SSg"
+    },
+    {
+      "date": "2025.11.11",
+      "title": "第四届南渡江论坛圆桌讨论:《脑机接口的发展机遇与挑战》",
+      "url": "https://www.bilibili.com/video/BV1yuCvBLEZB?spm_id_from=333.788.videopod.sections&vd_source=15b3f7b70265110e16e17eace0ba089a"
+    },
+    {
+      "date": "2025.11.11",
+      "title": "第四届南渡江论坛：报告主题:《脑机接口底层技术：从高集成芯片到汉语神经解码》",
+      "url": "https://www.bilibili.com/video/BV1yuCvBLEvp?spm_id_from=333.788.videopod.sections&vd_source=15b3f7b70265110e16e17eace0ba089a"
+    },
+    {
+      "date": "2025.11.05",
+      "title": "脑机接口语言解码相关研究成果被Science News报道：\"In April, BCI researcher Jie Yang and his colleagues at Westlake University reported results ...\"",
+      "url": "https://www.science.org/content/article/researchers-decode-mandarin-chinese-neural-signals"
+    },
+    {
+      "date": "2025.11.02",
+      "title": "CCF DAC：报告主题:《类脑计算芯片、算法的协同设计及应用探索》",
+      "url": "https://mp.weixin.qq.com/s/D32tBL9RzhnaWKOmI6O08g"
+    },
+    {
+      "date": "2025.11.01",
+      "title": "MIND：Poster Session:《NeuroPlat: An FPGA-based Neuromorphic ... & Spiking Decision-Making System Based on ...》",
+      "url": "https://www.ic-mind.org/"
+    },
+    {
+      "date": "2025.10.14",
+      "title": "APCCAS：报告主题:《A Pipeline-Driven FPGA Accelerator ... & A Reconfigurable 8-Channel Dual-Mode Neural Stimulator ...》",
+      "url": "https://apccas2025.org/program-at-a-glance/"
+    },
+    {
+      "date": "2025.7.08",
+      "title": "九三学社: 《关于尽快建立全国层面大模型...》，单篇报送全国政协",
+      "url": ""
+    },
+    {
+      "date": "2025.6.22",
+      "title": "NEWCAS2025 Special Session: Bridging Brain and AI",
+      "url": "https://www.newcas2025.com/program-glance/"
+    },
+    {
+      "date": "2025.5.18",
+      "title": "北京天坛医院：全国脑机接口临床评价与应用研讨会",
+      "url": "https://mp.weixin.qq.com/s/HS8-O0HP3o1rzNYUP2mtmA"
+    },
+    {
+      "date": "2025.5.17",
+      "title": "天津大学: 重点研发项目《面向动态记忆处理的超精细解码与增强技术》启动会",
+      "url": "https://mp.weixin.qq.com/s/FwbNywTmv173_Q2Ma0J2Wg"
+    },
+    {
+      "date": "2025.3.31",
+      "title": "中国科学院半导体所学术交流: 《脑机接口与类脑计算研究进展》",
+      "url": ""
+    },
+    {
+      "date": "2025.3.28",
+      "title": "第七届华人芯片设计技术研讨会（ICAC 2025）: 报告主题：《An Energy-Efficient Unstructured Sparsity-Aware Deep SNN Accelerator with 3D Compute Array》",
+      "url": "https://icacworkshop.cn/"
+    },
+    {
+      "date": "2024.12.12",
+      "title": "「十四五」第二批本科和研究生省级教学改革项目《新质生产力下的垂直整合与跨学科集成电路课程》正式启动",
+      "url": "https://jyt.zj.gov.cn/art/2024/12/31/art_1228998760_58943323.html"
+    },
+    {
+      "date": "2024.11.21",
+      "title": "同济大学《微电子学堂》学术讲座：报告主题：《脑机接口——大脑信号读出与解码》",
+      "url": ""
+    },
+    {
+      "date": "2024.10.24",
+      "title": "IEEE 17th ICSICT Conference：报告主题：《侵入式脑机接口的系统级芯片：挑战与机遇》",
+      "url": "https://www.icsict.com/Data/List/FinalProgram"
+    },
+    {
+      "date": "2024.10.18",
+      "title": "华东师范大学 Neuroscience Guest Lecture Series：报告主题：《脑机接口—大脑信号读出与解码》",
+      "url": "https://www.ecnu.edu.cn/info/1034/67618.htm"
+    },
+    {
+      "date": "2024.10.08",
+      "title": "省发展改革委：脑机接口智能芯片系统浙江省工程研究中心获批",
+      "url": "https://fzggw.zj.gov.cn/art/2024/10/8/art_1229629046_5381206.html"
+    },
+    {
+      "date": "2024.08.03",
+      "title": "昆山杜克大学神经科学专题研讨会：报告主题：《High-throughput brain-computer interface chip design and language decoding application》",
+      "url": "https://news.dukekunshan.edu.cn/zh-hans/campus-news/1st-dku-neuroscience-symposium/"
+    },
+    {
+      "date": "2024.07.19",
+      "title": "中国计算机学会芯片大会：报告主题：《High-throughput BCI —— Recording and Decoding》",
+      "url": "https://ccf.org.cn/chip2024/general_1054"
+    },
+    {
+      "date": "2024.05.18",
+      "title": "九三学社：九三学社中央第四十次科学座谈会，发言内容：《学科交叉与产业投资双驱动——加速脑机接口技术由点到链的发展》",
+      "url": "https://www.93.gov.cn/xwjc-snyw/779013.html"
+    },
+    {
+      "date": "2024.05.14",
+      "title": "第一财经：数新风丨脑机接口「华山论剑」",
+      "url": "https://yicai.smgbb.cn/live/m/102104240.html"
+    },
+    {
+      "date": "2024.04.20",
+      "title": "2024片上脑机接口国际会议：报告题目《全植入脑机接口芯片与脑-汉语神经解码》",
+      "url": "https://mp.weixin.qq.com/s/jQcTmt7yyR5itbgronXmeA"
+    },
+    {
+      "date": "2023.12.18",
+      "title": "浙江省科技厅：2024年度「尖兵」研发攻关计划项目获得立项",
+      "url": "https://kjt.zj.gov.cn/art/2023/12/18/art_1228971387_59010222.html?share_token=9cf7bc57-6c03-4c60-995f-3cc993fbfae4"
+    },
+    {
+      "date": "2023.11.30",
+      "title": "新智元：成功实现「全谱汉语解码」：Top 3准确率接近100%",
+      "url": "https://mp.weixin.qq.com/s/-dtpDjljjn-ZEgCav-pKYw"
+    },
+    {
+      "date": "2023.11.25",
+      "title": "九三学社：「之江同心·经济圆桌会议」",
+      "url": "http://www.hzjs.org.cn/proscenium/show/5133"
+    },
+    {
+      "date": "2023.11.24",
+      "title": "浙大求是高等研究院：「脑机接口与神经工程前沿交叉」研讨会",
+      "url": "http://www.qaas.zju.edu.cn/news.asp?id=169"
+    },
+    {
+      "date": "2023.09.11",
+      "title": "第一财经：Neuralink最大的突破在于技术链和产业链的整合",
+      "url": "https://m.yicai.com/video/101863672.html"
+    },
+    {
+      "date": "2023.08.27",
+      "title": "第一财经：医学科创成果转化亟需医工交叉人才体系支撑",
+      "url": "https://new.qq.com/rain/a/20230827A0787U00"
+    },
+    {
+      "date": "2023.08.25",
+      "title": "九三学社：「脑机智能·未来科技创业沙龙」",
+      "url": "http://www.hzjs.org.cn/proscenium/show/4943"
+    },
+    {
+      "date": "2023.08.08",
+      "title": "西湖大学工学院：侵入式脑机接口系统项目荣获「大走廊杯」金奖",
+      "url": "https://mp.weixin.qq.com/s/E50Mo8VGc-fgq2qgETHNjw"
+    },
+    {
+      "date": "2023.07.15",
+      "title": "钱江晚报：神奇的「脑机接口」技术，会带来「超人时代」吗？",
+      "url": "https://baijiahao.baidu.com/s?id=1771462545951775870&wfr=spider&for=pc"
+    },
+    {
+      "date": "2023.06.13",
+      "title": "科普中国：西湖大学研发出1平方毫米大小神经芯片",
+      "url": "https://www.kepuchina.cn/article/articleinfo?business_type=100&ar_id=418378"
+    },
+    {
+      "date": "2023.06.11",
+      "title": "潮新闻：有请科普人 | 大脑中装芯片，人类治病的新希望？",
+      "url": "https://www.toutiao.com/article/7277856974841315840/"
+    },
+    {
+      "date": "2022.10.20",
+      "title": "NEWCAS2022 Tutorial: Towards Smart and Closed-Loop Neuromodulation",
+      "url": "https://aicas2022.org/?page_id=194"
+    },
+    {
+      "date": "2022.06.14",
+      "title": "AICAS2022 Special Session: Artificial Intelligence Boosted Circuits and Systems for Brain-Machine Interface",
+      "url": "https://aicas2022.org/?page_id=194"
+    }
+  ]
+}

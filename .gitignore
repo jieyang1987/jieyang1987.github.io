@@ -1,0 +1,36 @@
+# Google Drive 同步文件
+desktop.ini
+Thumbs.db
+.DS_Store
+
+# 编辑器临时文件
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# 系统文件
+*.lnk
+
+# 本地脚本（不需要发布）
+add_pdf_field.ps1
+add_pdf.bat
+
+# CloudBase 本地配置（含 envId，不提交）
+cloudbaserc.json
+
+# 脚本文件
+generate_research_images.py
+generate_research_images_new.py
+
+# 无关目录
+done/
+echo/
+
+# PDF 文件（如需包含论文文件，请删除此行）
+# papers/
+
+# 数据文件（如需包含原始数据，请删除此行）
+# data/
+

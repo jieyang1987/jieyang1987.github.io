@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="author" content="Yang Jie, Westlake University" />
+    <title>Yang Jie – Westlake University | Invasive Brain-Computer Interface Chip Design</title>
+    <meta name="description" content="Online companion to 'Invasive Brain-Computer Interface Chip Design' by Dr. Jie Yang and Prof. Mohamad Sawan. Covers neural recording front-ends, signal processing, wireless power/data transfer, and stimulation circuits for invasive BCI systems.">
+    <meta name="keywords" content="BCI, brain-computer interface, neural recording, neural signal processing, neuromodulation, wireless power transfer, stimulation circuit, Yang Jie, Westlake University">
+
+    <!-- Icon -->
+    <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link href="static/css/bootstrap-icons-150.css" rel="stylesheet" />
+
+    <link href="static/css/google-fonts-newsreader.css" rel="stylesheet"/>
+    <link href="static/css/google-fonts-mulish.css" rel="stylesheet"/>
+    <link href="static/css/google-fonts-kanit.css" rel="stylesheet"/>
+
+    <link href="static/css/animate.min.css" rel="stylesheet">
+    <link href="static/css/owl.carousel.min.css" rel="stylesheet">
+    <link href="static/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <link type="text/css" href="static/css/styles.css" rel="stylesheet" />
+    <link type="text/css" href="static/css/main.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="static/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="static/js/marked.min.js"></script>
+
+    <script>
+        MathJax = {
+            tex: {
+                packages: {},
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: false,
+                processEnvironments: true,
+                processRefs: true,
+                digits: /^(?:[0-9]+(?:\{,\}[0-9]{3})*(?:\.[0-9]*)?|\.[0-9]+)/,
+                tags: 'all',
+                tagSide: 'right',
+                tagIndent: '0.8em',
+                useLabelIds: true,
+                maxMacros: 10000,
+                maxBuffer: 5 * 1024,
+                formatError: (jax, err) => jax.formatError(err)
+            }
+        };
+    </script>
+
+    <script type="text/javascript" src="static/js/scripts.js"></script>
+    <script type="text/javascript" src="static/js/js-yaml.min.js"></script>
+    <style>
+        #top-section-bg-text {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 400;
+            font-family: 'AlibabaPuHuiTi-Regular', sans-serif;
+        }
+    </style>
+
+</head>
+
+<body id="page-top" data-page="book-item-bci">
+    <!-- Navigation -->
+    <nav class="header navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
+        <div class="container px-5">
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto p-4 p-lg-0" id="nav-links"></div>
+                <div class="nav-lang-switch" id="lang-switch"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Top Section -->
+    <section class="top-section container-fluid" id="site-banner">
+        <div class="top-section-content">
+            <div class="container px-5">
+                <h2 id="banner-name" class="text-white lh-1 banner-title"></h2>
+                <p id="banner-subtitle" class="text-white lead fw-light banner-sub"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Avatar & Contact -->
+    <div class="container px-5">
+        <div id="avatar">
+            <div class="d-flex flex-row justify-content-end align-items-end">
+                <div id="avatar-contact" class="avatar-contact-block mx-auto d-block float-start px-3"></div>
+                <img id="avatar-img" class="shadow d-block mx-auto avatar-photo" src="" alt="">
+            </div>
+        </div>
+    </div>
+
+    <!-- Introduction -->
+    <section class="bg-gradient-primary-to-secondary-light mt-5 pt-3" id="home">
+        <div class="container px-5">
+            <header>
+                <h2 id="home-subtitle">Invasive Brain-Computer Interface Chip Design</h2>
+                <p class="name">Jie Yang &amp; Mohamad Sawan</p>
+                <p>Advanced Neural Chip Center, School of Engineering, Westlake University, Hangzhou 310030</p>
+                <p>yangjie.ac.cn</p>
+                <p>yangjie@westlake.edu.cn</p>
+            </header>
+            <div class="main-body lh-base" id="introduction">
+                <p>
+                The interface between the human brain and the digital world has evolved dramatically — from punch cards and keyboards to touchscreens and, more recently, natural language driven by large language models. At its core, this evolution reflects an ongoing effort to reduce friction between the biological brain and computational systems. Establishing a direct, high-bandwidth communication channel between the brain and the digital world has become one of the defining challenges of the 21st century.
+                </p>
+                <p>
+                Invasive brain-computer interfaces (BCIs) represent the most direct approach to this goal, and have achieved remarkable progress in recent years. Custom integrated circuits — fabricated at the millimeter scale and consuming milliwatts or less — are central to this progress. By integrating neural recording, signal processing, and wireless communication on a single chip, these systems eliminate the bulk and power constraints of conventional instrumentation, making implantable BCIs safer, more comfortable, and clinically practical.
+                </p>
+                <p>
+                This page presents an overview of the key circuit modules in invasive BCI chip design, intended as a resource for researchers and students entering the field.
+                </p>
+
+                <h2>How to Cite</h2>
+<pre class="bg-light p-3 rounded">
+<code>
+@book{yangjie_bci_2024,
+  title     = {Invasive Brain-Computer Interface Chip Design},
+  author    = {Jie Yang and Mohamad Sawan},
+  note      = {\url{https://yangjie.ac.cn/book-item-bci_en.html}},
+  year      = {2024}
+}
+</code>
+</pre>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapter List -->
+    <section class="bg-gradient-primary-to-secondary-gray mt-5 pt-3" id="interests">
+        <div class="container px-5">
+            <header>
+                <h3 id="interests-subtitle"><i class="bi bi-file-text-fill"></i>&nbsp;Invasive BCI Chip Design — Contents</h3>
+            </header>
+            <div class="main-body lh-sm" id="interests-content">
+                <div class="d-flex justify-content-center align-items-center">
+                    <img class="img-fluid rounded shadow mt-4 mb-3" src="images/chip_demo.jpg" alt="BCI Chip System Overview" style="width:70%" >
+                </div>
+                <ul>
+                    <li><a href="book/chapter_1.html">1. Overview of Invasive BCI Chips</a></li>
+                    <li><a href="book/chapter_2.html">2. Neural Signal Readout Circuits</a></li>
+                    <li><a href="book/chapter_3.html">3. Neural Signal Processing Circuits</a></li>
+                    <li><a href="book/chapter_4.html">4. Wireless Power Transfer and Communication Circuits</a></li>
+                    <li><a href="book/chapter_5.html">5. Stimulation Circuits</a></li>
+                    <li><a href="book/bib.html">6. References</a></li>
+                </ul>
+
+                <h2>Note</h2>
+                <p>If you find any errors or have suggestions, please contact the author directly at yangjie@westlake.edu.cn. This content is continuously updated. A fully bilingual version of this site is under active development.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to top button -->
+    <button type="button" id="backToTop" class="btn btn-primary back-to-top">↑</button>
+
+    <!-- Footer -->
+    <footer class="bg-bottom text-center py-5" id="site-footer">
+        <div class="container px-5">
+            <div class="text-white-50 small">
+                <div class="mb-2" id="copyright-text"></div>
+            </div>
+        </div>
+    </footer>
+    <script src="static/js/site-renderer.js"></script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="author" content="杨杰, Yang Jie, 西湖大学, Westlake University" />
+    <title>杨杰 Yang Jie – 西湖大学 | 侵入式脑机接口芯片设计</title>
+    <meta name="description" content="杨杰（Yang Jie）主编《侵入式脑机接口芯片设计》在线版。涵盖神经信号读出电路、信号处理、无线能量传输与通讯、刺激电路等侵入式BCI芯片核心电路模块。">
+    <meta name="keywords" content="脑机接口, BCI, 神经信号处理, 神经调控, 类脑芯片, 无线能量传输, 神经刺激电路, 杨杰, 西湖大学">
+
+    <!-- Icon -->
+    <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- Bootstrap icons-->
+    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" /> -->
+    <link href="static/css/bootstrap-icons-150.css" rel="stylesheet" />
+
+        <!-- Google fonts-->
+    <!--
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap"
+        rel="stylesheet" />
+    -->
+    <link href="static/css/google-fonts-newsreader.css" rel="stylesheet"/>
+    <link href="static/css/google-fonts-mulish.css" rel="stylesheet"/>
+    <link href="static/css/google-fonts-kanit.css" rel="stylesheet"/>
+
+    <!-- Libraries Stylesheet -->
+    <link href="static/css/animate.min.css" rel="stylesheet">
+    <link href="static/css/owl.carousel.min.css" rel="stylesheet">
+    <link href="static/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link type="text/css" href="static/css/styles.css" rel="stylesheet" />
+    <link type="text/css" href="static/css/main.css" rel="stylesheet" />
+
+    <!-- Schema.org 结构化数据 - 书籍 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Book",
+      "name": "侵入式脑机接口芯片设计",
+      "url": "https://yangjie.ac.cn/book-item-bci.html",
+      "author": {
+        "@type": "Person",
+        "name": "杨杰 (Yang Jie)"
+      },
+      "editor": {
+        "@type": "Person",
+        "name": "杨杰 (Yang Jie)"
+      },
+      "description": "详细讲述侵入式脑机接口芯片的设计，涵盖神经信号读出电路、信号处理、无线能量传输与通讯、刺激电路等核心模块。",
+      "inLanguage": "zh-CN",
+      "isPartOf": {
+        "@type": "Book",
+        "name": "脑机接口"
+      },
+      "keywords": "脑机接口, BCI, 芯片设计, 神经信号处理, 无线能量传输, 神经刺激"
+    }
+    </script>
+
+    <!-- Bootstrap core JS-->
+    <script type="text/javascript" src="static/js/bootstrap.bundle.min.js"></script>
+
+    <!-- For Compatability <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> -->
+    
+
+    <!-- Markdown -->
+    <script type="text/javascript" src="static/js/marked.min.js"></script>
+
+    <!-- Mathematics -->
+    <script>
+        // See https://docs.mathjax.org/en/latest/index.html for more details.
+        MathJax = {
+            tex: {
+                packages: {},              // extensions to use
+                inlineMath: [              // start/end delimiter pairs for in-line math
+                    ['$', '$'],
+                    ['\\(', '\\)']
+                ],
+                displayMath: [             // start/end delimiter pairs for display math
+                    ['$$', '$$'],
+                    ['\\[', '\\]']
+                ],
+                processEscapes: false,      // use \$ to produce a literal dollar sign
+                processEnvironments: true, // process \begin{xxx}...\end{xxx} outside math mode
+                processRefs: true,         // process \ref{...} outside of math mode
+                digits: /^(?:[0-9]+(?:\{,\}[0-9]{3})*(?:\.[0-9]*)?|\.[0-9]+)/,    // pattern for recognizing numbers
+                tags: 'all',              // or 'ams' or 'all'
+                tagSide: 'right',          // side for \tag macros
+                tagIndent: '0.8em',        // amount to indent tags
+                useLabelIds: true,         // use label name rather than tag for ids
+                maxMacros: 10000,          // maximum number of macro substitutions per expression
+                maxBuffer: 5 * 1024,       // maximum size for the internal TeX string (5K)
+                // baseURL:                   // URL for use with links to tags (when there is a <base> tag in effect)
+                // (document.getElementsByTagName('base').length === 0) ? '' : String(document.location).replace(/#.*$/, ''),
+                formatError:               // function called when TeX syntax errors occur
+                    (jax, err) => jax.formatError(err)
+            }
+        };
+    </script>
+    <!--
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/javascript" id="MathJax-script" src="static/js/tex-svg.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="static/js/tex-mml-chtml.js"></script>
+    -->
+    
+    <!-- Core JS-->
+    <script type="text/javascript" src="static/js/scripts.js"></script>
+    <script type="text/javascript" src="static/js/js-yaml.min.js"></script>
+<style>
+    #top-section-bg-text {
+        font-size: clamp(2.5rem, 6vw, 4.5rem); /* 适配不同设备 */
+        font-weight: 400;
+        font-family: 'AlibabaPuHuiTi-Regular', sans-serif;
+    }
+</style>
+
+</head>
+
+<body id="page-top" data-page="book-item-bci">
+    <!-- Navigation-->
+    <nav class="header navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
+        <div class="container px-5">
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto p-4 p-lg-0" id="nav-links"></div>
+                <div class="nav-lang-switch" id="lang-switch"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Top Section -->
+    <section class="top-section container-fluid" id="site-banner">
+        <div class="top-section-content">
+            <div class="container px-5">
+                <h2 id="banner-name" class="text-white lh-1 banner-title"></h2>
+                <p id="banner-subtitle" class="text-white lead fw-light banner-sub"></p>
+            </div>
+        </div>
+    </section>
+    <!-- Top Section -->
+
+
+    
+    <!-- Photo -->
+<div class="container px-5">
+    <div id="avatar">
+        <div class="d-flex flex-row justify-content-end align-items-end">
+            <div id="avatar-contact" class="avatar-contact-block mx-auto d-block float-start px-3"></div>
+            <img id="avatar-img" class="shadow d-block mx-auto avatar-photo" src="" alt="">
+        </div>
+    </div>
+</div>
+    <!-- Photo -->
+
+    <!-- Home -->
+    <section class="bg-gradient-primary-to-secondary-light mt-5 pt-3" id="home">
+        <div class="container px-5">
+            <header>
+                <h2 id="home-subtitle"> 侵入式脑机接口芯片 </h2>
+                <p class="name">杨杰，Mohamad Sawan</p>
+                <p>西湖大学工学院先进神经芯片中心，杭州 310030</p>
+                <p>yangjie.ac.cn</p>
+                <p>yangjie@westlake.edu.cn</p>  
+                <!-- <span class="bi bi-list"></span> -->
+            </header>
+            <div class="main-body lh-base" id="introduction">
+                <p>
+                人类与数字世界之间的通讯方式经历了不断的更迭和演进，从打孔卡、键盘、鼠标，到触摸屏，再到借助大语言模型实现的自然语言，通讯效率不断提高。这种通讯的本质是人类大脑或神经系统与数字世界的信息交流。因此，建立大脑和数字世界之间的直接通讯成为21世纪人类最终目标之一。如今，侵入式脑机接口技术在建立这种直接通讯方面取得了重要进展，正在逐步向着这一目标迈进。在脑机接口技术中，芯片扮演着重要的角色，通过将关键电路部分或全部集成在平方毫米级别大小、毫瓦甚至更低功耗的半导体芯片上，摆脱了尺寸、功耗、电缆连接等方面的限制，从而使得侵入式脑机接口系统更容易、更安全、更舒适地进行植入人体。本网页旨在梳理侵入式脑机接口芯片中的主要电路模块设计，希望为对此领域感兴趣的读者提供帮助。
+                </p>
+
+            <h2>引用本网页</h2>
+<pre class="bg-light p-3 rounded">
+<code>
+@book{yangjie_bci_2024,
+  title={侵入式脑机接口芯片},
+  author={杨杰，Mohamad Sawan}, 
+  note={\url{https://yangjie.ac.cn/book-item-bci.html}},
+  year={2024}
+}
+</code>
+</pre>
+
+
+
+            </div>
+        </div>
+    </section>
+    <!-- Home -->
+
+    <!-- Publications bg-gradient-primary-to-secondary-gray -->
+    <section class="bg-gradient-primary-to-secondary-gray mt-5 pt-3" id="interests">
+        <div class="container px-5">
+            <header>
+                <h3 id="interests-subtitle"><i class="bi bi-file-text-fill"></i>&nbsp;侵入式脑机接口芯片</h3>
+            </header>
+            <div class="main-body lh-sm" id="interests-content">
+                <div class="d-flex justify-content-center align-items-center">
+                    <img class="img-fluid rounded shadow mt-4 mb-3" src="images/chip_demo.jpg" alt="研究领域图解" style="width:70%" >
+                </div>
+                <ul>
+                    <li><a href="book/chapter_1.html">一、侵入式脑机接口芯片概述</a></li>
+                    <li><a href="book/chapter_2.html">二、神经信号读出电路 </a></li>
+                    <li><a href="book/chapter_3.html">三、神经信号处理电路</a></li>
+                    <li><a href="book/chapter_4.html">四、无线能量传输与通讯电路 </a></li>
+                    <li><a href="book/chapter_5.html">五、刺激电路 </a></li>
+                    <li><a href="book/bib.html">六、参考文献 </a></li>
+                </ul>
+
+                <h2>Note</h2>
+                <p>如果您发现任何错误，请随时通过电子邮件直接与作者联系：yangjie@westlake.edu.cn。我将会对内容进行持续修改和更新，后续本网站还将上线相关内容的英文版。</p>
+            </div>
+        </div>
+    </section>
+    <!-- Publications  -->
+
+    <!-- Back to top button -->
+    <button type="button" id="backToTop" class="btn btn-primary back-to-top">
+        ↑
+    </button>
+
+    <!-- Footer-->
+    <footer class="bg-bottom text-center py-5" id="site-footer">
+        <div class="container px-5">
+            <div class="text-white-50 small">
+                <div class="mb-2" id="copyright-text"></div>
+            </div>
+        </div>
+    </footer>
+    <script src="static/js/site-renderer.js"></script>
+</body>
+</html>

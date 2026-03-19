@@ -1,0 +1,139 @@
+{
+  "name": {
+    "zh": "杨杰",
+    "en": "Yang Jie"
+  },
+  "title": {
+    "zh": "博士",
+    "en": "Ph.D."
+  },
+  "subtitle": {
+    "zh": "专注脑机接口、类脑计算芯片与神经解码",
+    "en": "Focused on brain–computer interfaces, neuromorphic computing chips, and neural decoding"
+  },
+  "position": {
+    "zh": "西湖大学工学院先进神经芯片中心 研究员",
+    "en": "Researcher, Advanced Neural Chip Center, Westlake University"
+  },
+  "affiliations": [
+    {
+      "zh": "脑机接口智能芯片系统浙江省工程研究中心 副主任",
+      "en": "Deputy Director, Zhejiang Provincial Engineering Research Center for BCI Intelligent Chip Systems"
+    }
+  ],
+  "roles": [
+    { "zh": "IEEE Senior Member", "en": "IEEE Senior Member" },
+    { "zh": "<a href='https://www.elspub.com/journals/Neuroelectronics/editorial/' target='_blank'>Neuroelectronics</a> 杂志副主编", "en": "Associate Editor, <a href='https://www.elspub.com/journals/Neuroelectronics/editorial/' target='_blank'>Neuroelectronics</a>" },
+    { "zh": "西湖灵犀科技联合创始人", "en": "Co-founder, Westlake Lingxi Technology" },
+    { "zh": "脑机接口产业联盟'青百荟'学者", "en": "Scholar, BCI Industry Alliance" }
+  ],
+  "contact": {
+    "phone": "+86 13157577935",
+    "email": "yangjie@westlake.edu.cn",
+    "googleScholar": "https://scholar.google.com/citations?user=6T786i8AAAAJ&hl=en"
+  },
+  "photo": "static/assets/img/yangjie.jpg",
+  "banner": "static/assets/img/westlake-rim-banner-thin.jpeg",
+  "icp": {
+    "number": "浙ICP备2022004406号-1",
+    "url": "https://beian.miit.gov.cn/"
+  },
+  "about": {
+    "zh": "<p><strong>杨杰博士，现任西湖大学工学院先进神经芯片中心研究员、脑机接口智能芯片系统浙江省工程研究中心副主任，IEEE Senior Member，<a href='https://www.elspub.com/journals/Neuroelectronics/editorial/' target='_blank'>Neuroelectronics</a> 杂志副主编，西湖灵犀科技联合创始人。</strong></p><p>在科研方面，他长期致力于<a href='research.html#research3' style='color:black;font-weight:normal;'>高通量脑机接口</a>、<a href='research.html#research2' style='color:black;font-weight:normal;'>脑-语言解码</a>、<a href='research.html#research2' style='color:black;font-weight:normal;'>类脑计算芯片</a>及<a href='research.html#research1' style='color:black;font-weight:normal;'>闭环神经调控系统</a>的研究与产业化。作为项目负责人，他主持了<span style='color:blue;'><strong>国家科技创新2030-'脑科学与类脑研究'重大项目课题</strong></span>、<span style='color:blue;'><strong>工信部揭榜挂帅</strong></span>、<span style='color:blue;'><strong>浙江省'尖兵'计划</strong></span>等国家与省部级重大项目，<span style='color:blue;'><strong>累计研发经费超过3000万元</strong></span>。至今，他已主持设计了超过30款高水平芯片，在<strong>ISSCC、JSSC、JBHI、ICLR</strong>等顶级学术会议与期刊发表论文百余篇。</p><p>杨杰博士是<span style='color:blue;'><strong>中国脑机接口华瑙奖'杰出青年奖'获得者</strong></span>，并入选<span style='color:blue;'><strong>浙江省高层次人才</strong></span>、<span style='color:blue;'><strong>杭州市海外高层次人才</strong></span>及<span style='color:blue;'><strong>杭州市西湖明珠工程</strong></span>等人才计划。在推动技术成果转化方面，其研究成果荣获<span style='color:blue;'><strong>城西科创大走廊创业大赛金奖</strong></span>，并获得<span style='color:blue;'><strong>西湖英才B类创业项目支持</strong></span>，多项专利成果转化总额达数百万元。</p><p>杨杰博士于2015年获得中国科学院微电子专业博士学位，曾于加拿大University of Calgary从事博士后研究工作。他本科毕业于天津大学电子科学与技术系。</p>",
+    "en": "<p>Dr. Jie Yang is a researcher at the Advanced Neural Chip Center, Westlake University, and the Zhejiang Provincial Engineering Research Center for BCI Intelligent Chip Systems. He received his Ph.D. in Microelectronics from the Institute of Semiconductors, Chinese Academy of Sciences, and completed his postdoctoral training at the University of Calgary, Canada.</p><p>Dr. Yang's research focuses on brain-computer interfaces (BCI) and neuromorphic (brain-inspired) computing chips, including <strong><a href='research_en.html#research3'>high-throughput BCI chips</a></strong>, <strong><a href='research_en.html#research1'>closed-loop neural modulation systems</a></strong>, <strong><a href='research_en.html#research2'>neuromorphic computing</a></strong>, and <strong><a href='research_en.html#research4'>brain-language decoding</a></strong>. He has led the design of <strong><a href='chip_gallery_en.html'>over 30 advanced chips</a></strong> and published more than 100 papers in leading journals and conferences, including <strong>JSSC, TBioCAS, TBME, JNE, JBHI, ISSCC, ECCV,</strong> and <strong>ICLR</strong>.</p><p>He is a recipient of several talent awards, including the <span style='color:blue;'><strong>West Lake Pearl Project</strong></span> and <span style='color:blue;'><strong>Zhejiang Provincial High-level Talent</strong></span>. Dr. Yang currently leads major national and provincial research projects with total funding exceeding 30 million RMB, driving innovation in BCI and neuromorphic technology from theory to real-world applications.</p>"
+  },
+  "researchInterests": {
+    "zh": {
+      "summary": "<strong>我的研究聚焦于「连接、模拟与保护大脑」三大主线，致力于通过芯片架构创新与多学科交叉，解决脑机接口在超大规模集成、极低功耗处理以及复杂神经信号实时解码中的核心瓶颈。</strong>",
+      "items": [
+        {
+          "title": "连接大脑",
+          "content": "旨在打通生物脑与数字世界的「宽带」通路，我们构建了具备千通道级采集与无线传输能力的<strong><a href='research.html#research3'>高通量低功耗脑机接口芯片系统</a></strong>。结合前沿神经网络算法，我们重点突破<strong><a href='research.html#research4'>颅内信号到语言及运动意图的精准解码</a></strong>，为语言重建、肢体康复及意图识别提供关键技术平台。"
+        },
+        {
+          "title": "模拟大脑",
+          "content": "受人脑极高能效与可塑性的启发，我们构建具备存算一体架构与在线持续学习能力的<strong><a href='research.html#research2'>类脑计算芯片</a></strong>。相比传统处理器，该技术在能效上实现了数量级的飞跃，已在<strong>智能感知、机器人控制、生物医疗</strong>等对边缘端计算要求严苛的场景中展现出广阔应用前景。"
+        },
+        {
+          "title": "保护大脑",
+          "content": "针对癫痫、抑郁症、帕金森等全生命周期脑健康挑战，我们研发了集成颅内脑信号实时采集、端侧AI处理与刺激反馈功能的<strong><a href='research.html#research1'>闭环神经调控系统芯片</a></strong>。该系统实现了对脑疾病病理状态的精准监测与实时干预，为下一代数字化神经诊疗提供核心硬件支撑。"
+        }
+      ]
+    },
+    "en": {
+      "summary": "<strong>My research aims to protect, connect, and simulate the brain, focusing on neural modulation, brain-computer interfaces, and neuromorphic computing.</strong>",
+      "items": [
+        {
+          "title": "Protecting the Brain",
+          "content": "We develop <strong><a href='research_en.html#research1'>closed-loop neural modulation chips</a></strong> that combine real-time brain signal acquisition, AI processing, and feedback stimulation, enabling precise diagnosis and treatment of neurological disorders such as autism, epilepsy, depression, Parkinson's, and Alzheimer's disease."
+        },
+        {
+          "title": "Connecting the Brain",
+          "content": "Our <strong><a href='research_en.html#research3'>high-throughput, low-power BCI chips</a></strong> support thousands of channels for neural signal acquisition and wireless transmission. With advanced decoding algorithms, these systems enable applications in speech restoration, rehabilitation, and intention recognition."
+        },
+        {
+          "title": "Simulating the Brain",
+          "content": "Inspired by the brain's efficiency, we design <strong><a href='research_en.html#research2'>neuromorphic chips</a></strong> with low power and lifelong learning capabilities. These chips are used in intelligent sensing, robotics, and biomedical devices, offering significant improvements in energy efficiency over traditional processors."
+        }
+      ]
+    },
+    "overviewImage": "images/research_overview.jpg"
+  },
+  "teaching": {
+    "zh": "<p>杨杰博士曾于2016–2017年在加拿大卡尔加里大学与 <a href='https://www.ucalgary.ca/labs/integrated-intelligent-sensing/dr-orly-yadid-pecht'>Orly Yadid-Pecht 院士</a>联合授课，主讲《Integrated Micro and Nanotechnology Sensory Systems》。在西湖大学期间，与 <a href='https://mohamadsawan.org/'>Mohamad Sawan 院士</a>共同讲授《Digital Circuits》（2023年–2025年本科课程）、《Hardware Description Language and System Simulation》（2021–2023年博士课程）及《Integrated Circuits Design》（2023年博士课程）。</p><p>在教材与著作方面，主持编撰的<a href='book-item-bci.html'>《侵入式脑机接口芯片设计》</a>作为第二十二章收录于国家「十四五」普通高等教育规划教材《脑机接口》中。并与Sawan院士合著英文专著 <a href='https://ieeexplore.ieee.org/document/9648040'>《Emerging Trends of Biomedical Circuits and Systems》</a>，由 Now Publishers 出版。</p><p>此外，杨杰博士与Sawan院士目前正共同主持「十四五」第二批教学改革项目<a href='https://jyt.zj.gov.cn/art/2024/12/31/art_1228998760_58943323.html'>《新质生产力下的垂直整合与跨学科集成电路课程》</a>，致力于探索以芯片为核心的跨学科融合型课程体系。</p>",
+    "en": "<p>Dr. Yang has taught and co-taught courses such as \"Integrated Micro and Nanotechnology Sensory Systems\" (University of Calgary), \"Digital Circuits,\" \"Hardware Description Language and System Simulation,\" and \"Integrated Circuits Design\" (Westlake University).</p><p>He is the lead author of <a href='book-item-bci_en.html'>\"Invasive Brain-Computer Interface Chip Design\"</a> (featured in the national textbook \"Brain-Computer Interface\") and co-author of the English monograph <a href='https://ieeexplore.ieee.org/document/9648040'>\"Emerging Trends of Biomedical Circuits and Systems\"</a> with Prof. Sawan. Dr. Yang is also co-leading a curriculum reform project on interdisciplinary integrated circuit education.</p>",
+    "books": [
+      {
+        "titleZh": "《侵入式脑机接口芯片设计》",
+        "titleEn": "Invasive Brain-Computer Interface Chip Design",
+        "image": "images/invasive_bci_chip_design_cover.png",
+        "linkZh": "book-item-bci.html",
+        "linkEn": "book-item-bci_en.html"
+      },
+      {
+        "titleZh": "Emerging Trends of Biomedical Circuits and Systems",
+        "titleEn": "Emerging Trends of Biomedical Circuits and Systems",
+        "image": "images/emerging_trends_cover.jpg",
+        "linkZh": "https://www.amazon.com/Emerging-Biomedical-Circuits-Foundations-Integrated/dp/1680839063",
+        "linkEn": "https://www.amazon.com/Emerging-Biomedical-Circuits-Foundations-Integrated/dp/1680839063"
+      },
+      {
+        "titleZh": "新质生产力下的垂直整合课程",
+        "titleEn": "Interdisciplinary IC Curriculum Reform",
+        "image": "images/teaching_reform.png",
+        "linkZh": "https://jyt.zj.gov.cn/art/2024/12/31/art_1228998760_58943323.html",
+        "linkEn": "https://jyt.zj.gov.cn/art/2024/12/31/art_1228998760_58943323.html"
+      }
+    ]
+  },
+  "nav": {
+    "zh": [
+      { "label": "主页", "href": "index.html" },
+      { "label": "研究方向", "href": "research.html" },
+      { "label": "芯片展示", "href": "chip_gallery.html" },
+      { "label": "论文发表", "href": "publications.html" },
+      {
+        "label": "出版书籍",
+        "dropdown": [
+          { "label": "侵入式脑机接口芯片", "href": "book-item-bci.html" },
+          { "label": "类脑计算芯片（建设中）", "href": "#" }
+        ]
+      },
+      { "label": "活动记事", "href": "coverage.html" }
+    ],
+    "en": [
+      { "label": "Home", "href": "index_en.html" },
+      { "label": "Research", "href": "research_en.html" },
+      { "label": "Chip Gallery", "href": "chip_gallery_en.html" },
+      { "label": "Publications", "href": "publications_en.html" },
+      {
+        "label": "Published Books",
+        "dropdown": [
+          { "label": "Invasive BCI Chip", "href": "book-item-bci_en.html" },
+          { "label": "Neuromorphic Chip (Coming)", "href": "#" }
+        ]
+      },
+      { "label": "Activities", "href": "coverage_en.html" }
+    ]
+  }
+}

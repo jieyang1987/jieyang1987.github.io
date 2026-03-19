@@ -1,0 +1,127 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6d28d9;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="#f9f7fd"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="50" font-size="28" font-weight="bold" text-anchor="middle" fill="#4a1d79">
+    汉语脑机解码流程
+  </text>
+  
+  <!-- 第一阶段：信号采集 -->
+  <g filter="url(#shadow)">
+    <circle cx="100" cy="150" r="35" fill="url(#grad4)" opacity="0.9"/>
+    <text x="100" y="160" font-size="24" text-anchor="middle" fill="white">🧠</text>
+  </g>
+  <text x="100" y="210" font-size="12" text-anchor="middle" fill="#4a1d79" font-weight="bold">sEEG信号采集</text>
+  <text x="100" y="226" font-size="10" text-anchor="middle" fill="#555">100小时数据库</text>
+  
+  <!-- 箭头1 -->
+  <path d="M 135 150 L 195 150" stroke="#a855f7" stroke-width="2.5" marker-end="url(#arrowhead)" fill="none"/>
+  
+  <!-- 第二阶段：拼音分解 -->
+  <g filter="url(#shadow)">
+    <rect x="195" y="95" width="130" height="110" rx="8" fill="#f3e8ff" stroke="#a855f7" stroke-width="2"/>
+  </g>
+  
+  <circle cx="220" cy="125" r="18" fill="#e9d5ff" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="220" y="132" font-size="13" text-anchor="middle" fill="#4a1d79" font-weight="bold">声</text>
+  <text x="220" y="147" font-size="10" text-anchor="middle" fill="#555">母</text>
+  
+  <circle cx="260" cy="125" r="18" fill="#e9d5ff" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="260" y="132" font-size="13" text-anchor="middle" fill="#4a1d79" font-weight="bold">韵</text>
+  <text x="260" y="147" font-size="10" text-anchor="middle" fill="#555">母</text>
+  
+  <circle cx="300" cy="125" r="18" fill="#e9d5ff" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="300" y="132" font-size="13" text-anchor="middle" fill="#4a1d79" font-weight="bold">声</text>
+  <text x="300" y="147" font-size="10" text-anchor="middle" fill="#555">调</text>
+  
+  <text x="260" y="190" font-size="11" font-weight="bold" text-anchor="middle" fill="#4a1d79">407 汉语音节</text>
+  
+  <!-- 箭头2 -->
+  <path d="M 325 150 L 385 150" stroke="#a855f7" stroke-width="2.5" marker-end="url(#arrowhead)" fill="none"/>
+  
+  <!-- 第三阶段：AI解码 -->
+  <g filter="url(#shadow)">
+    <rect x="385" y="95" width="130" height="110" rx="8" fill="#f3e8ff" stroke="#a855f7" stroke-width="2"/>
+  </g>
+  
+  <text x="450" y="125" font-size="13" font-weight="bold" text-anchor="middle" fill="#4a1d79">神经网络</text>
+  <text x="450" y="142" font-size="10" text-anchor="middle" fill="#555">模型组合</text>
+  <text x="450" y="158" font-size="10" text-anchor="middle" fill="#555">3 × Transformer</text>
+  <text x="450" y="190" font-size="11" font-weight="bold" text-anchor="middle" fill="#4a1d79">实时推理 &lt;10ms</text>
+  
+  <!-- 箭头3 -->
+  <path d="M 515 150 L 575 150" stroke="#a855f7" stroke-width="2.5" marker-end="url(#arrowhead)" fill="none"/>
+  
+  <!-- 第四阶段：输出融合 -->
+  <g filter="url(#shadow)">
+    <circle cx="630" cy="150" r="55" fill="url(#grad4)" opacity="0.8"/>
+  </g>
+  
+  <text x="630" y="145" font-size="16" text-anchor="middle" fill="white" font-weight="bold">中文</text>
+  <text x="630" y="165" font-size="16" text-anchor="middle" fill="white" font-weight="bold">句子</text>
+  
+  <text x="630" y="230" font-size="12" text-anchor="middle" fill="#4a1d79" font-weight="bold">语义融合</text>
+  <text x="630" y="246" font-size="10" text-anchor="middle" fill="#555">29% 字符错误率</text>
+  
+  <!-- 阶段连接线 -->
+  <line x1="100" y1="185" x2="100" y2="250" stroke="#a855f7" stroke-width="1.5" opacity="0.5"/>
+  <line x1="100" y1="250" x2="630" y2="250" stroke="#a855f7" stroke-width="1.5" opacity="0.5"/>
+  <line x1="630" y1="250" x2="630" y2="205" stroke="#a855f7" stroke-width="1.5" opacity="0.5"/>
+  
+  <!-- 底部：关键特性 -->
+  <g filter="url(#shadow)">
+    <rect x="60" y="320" width="680" height="240" rx="12" fill="white" stroke="#a855f7" stroke-width="1.5"/>
+  </g>
+  
+  <text x="400" y="355" font-size="16" font-weight="bold" text-anchor="middle" fill="#4a1d79">核心成就</text>
+  
+  <!-- 成就卡片1 -->
+  <g filter="url(#shadow)">
+    <rect x="80" y="375" width="130" height="160" rx="8" fill="#f3e8ff" stroke="#a855f7" stroke-width="1.5"/>
+    <text x="145" y="400" font-size="24" text-anchor="middle" fill="#a855f7">🌍</text>
+    <text x="145" y="425" font-size="11" font-weight="bold" text-anchor="middle" fill="#4a1d79">全球首个</text>
+    <text x="145" y="443" font-size="10" text-anchor="middle" fill="#555">汉语BCI</text>
+    <text x="145" y="459" font-size="10" text-anchor="middle" fill="#555">解码系统</text>
+    <text x="145" y="505" font-size="12" font-weight="bold" text-anchor="middle" fill="#a855f7">ICLR'25</text>
+  </g>
+  
+  <!-- 成就卡片2 -->
+  <g filter="url(#shadow)">
+    <rect x="230" y="375" width="130" height="160" rx="8" fill="#f3e8ff" stroke="#a855f7" stroke-width="1.5"/>
+    <text x="295" y="400" font-size="24" text-anchor="middle" fill="#a855f7">📊</text>
+    <text x="295" y="425" font-size="11" font-weight="bold" text-anchor="middle" fill="#4a1d79">高精度解码</text>
+    <text x="295" y="443" font-size="10" text-anchor="middle" fill="#555">100+ 任务</text>
+    <text x="295" y="459" font-size="10" text-anchor="middle" fill="#555">29% CER</text>
+    <text x="295" y="505" font-size="12" font-weight="bold" text-anchor="middle" fill="#a855f7">&gt;407 音节</text>
+  </g>
+  
+  <!-- 成就卡片3 -->
+  <g filter="url(#shadow)">
+    <rect x="380" y="375" width="130" height="160" rx="8" fill="#f3e8ff" stroke="#a855f7" stroke-width="1.5"/>
+    <text x="445" y="400" font-size="24" text-anchor="middle" fill="#a855f7">⚡</text>
+    <text x="445" y="425" font-size="11" font-weight="bold" text-anchor="middle" fill="#4a1d79">实时处理</text>
+    <text x="445" y="443" font-size="10" text-anchor="middle" fill="#555">在线解码</text>
+    <text x="445" y="459" font-size="10" text-anchor="middle" fill="#555">&lt;10ms 延迟</text>
+    <text x="445" y="505" font-size="12" font-weight="bold" text-anchor="middle" fill="#a855f7">200+ Hz</text>
+  </g>
+  
+  <!-- 成就卡片4 -->
+  <g filter="url(#shadow)">
+    <rect x="530" y="375" width="130" height="160" rx="8" fill="#f3e8ff" stroke="#a855f7" stroke-width="1.5"/>
+    <text x="595" y="400" font-size="24" text-anchor="middle" fill="#a855f7">🧬</text>
+    <text x="595" y="425" font-size="11" font-weight="bold" text-anchor="middle" fill="#4a1d79">跨个体学习</text>
+    <text x="595" y="443" font-size="10" text-anchor="middle" fill="#555">共享-私有码本</text>
+    <text x="595" y="459" font-size="10" text-anchor="middle" fill="#555">个性化适配</text>
+    <text x="595" y="505" font-size="12" font-weight="bold" text-anchor="middle" fill="#a855f7">生物适应</text>
+  </g>
+</svg>

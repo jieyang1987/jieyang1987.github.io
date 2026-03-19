@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="350" height="350" viewBox="0 0 350 350">
+  <defs>
+    <linearGradient id="grad6" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF67B0;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#C06C84;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6C5B7B;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="350" height="350" fill="url(#grad6)"/>
+  
+  <!-- 装饰元素 -->
+  <circle cx="260" cy="100" r="80" fill="#FFFFFF" opacity="0.15"/>
+  <circle cx="100" cy="270" r="60" fill="#FFFFFF" opacity="0.2"/>
+  
+  <!-- 中心内容 -->
+  <g text-anchor="middle">
+    <!-- 图标 -->
+    <text x="175" y="80" font-size="64" fill="#FFFFFF">🖼️</text>
+    
+    <!-- 标题 -->
+    <text x="175" y="165" font-size="32" font-weight="bold" fill="#FFFFFF" font-family="SimHei, Arial">高动态图像处理</text>
+    
+    <!-- 英文标题 -->
+    <text x="175" y="205" font-size="16" fill="#FFFFFF" font-family="Arial" opacity="0.9">HDR Image Processing</text>
+    
+    <!-- 关键词 -->
+    <text x="175" y="320" font-size="12" fill="#FFFFFF" font-family="Arial" opacity="0.85">Multi-scale • 120dB • Real-time</text>
+  </g>
+  
+  <!-- 底部强调线 -->
+  <line x1="80" y1="340" x2="270" y2="340" stroke="#FFFFFF" stroke-width="2" opacity="0.6"/>
+</svg>

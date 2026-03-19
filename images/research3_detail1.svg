@@ -1,0 +1,131 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8752a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="#fef6f3"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="50" font-size="28" font-weight="bold" text-anchor="middle" fill="#5a1f1f">
+    千通道脑机接口系统
+  </text>
+  
+  <!-- 左侧：电极阵列 -->
+  <g filter="url(#shadow)">
+    <circle cx="120" cy="200" r="45" fill="url(#grad3)" opacity="0.9"/>
+    <text x="120" y="210" font-size="28" text-anchor="middle" fill="white">⚡</text>
+  </g>
+  <text x="120" y="280" font-size="13" font-weight="bold" text-anchor="middle" fill="#5a1f1f">电极阵列</text>
+  <text x="120" y="298" font-size="11" text-anchor="middle" fill="#555">1000+ 通道</text>
+  
+  <!-- 中间：芯片区域 -->
+  <g filter="url(#shadow)">
+    <rect x="240" y="140" width="320" height="200" rx="12" fill="#fff8f6" stroke="#e8752a" stroke-width="2.5"/>
+  </g>
+  
+  <!-- 芯片子模块 -->
+  <!-- 前端放大 -->
+  <g filter="url(#shadow)">
+    <rect x="260" y="160" width="70" height="60" rx="5" fill="#fed7aa" stroke="#e8752a" stroke-width="1.5"/>
+    <text x="295" y="180" font-size="10" text-anchor="middle" fill="#5a1f1f" font-weight="bold">前端</text>
+    <text x="295" y="195" font-size="10" text-anchor="middle" fill="#555">放大</text>
+    <text x="295" y="208" font-size="9" text-anchor="middle" fill="#666">2.47μW</text>
+  </g>
+  
+  <!-- 模数转换 -->
+  <g filter="url(#shadow)">
+    <rect x="360" y="160" width="70" height="60" rx="5" fill="#fed7aa" stroke="#e8752a" stroke-width="1.5"/>
+    <text x="395" y="180" font-size="10" text-anchor="middle" fill="#5a1f1f" font-weight="bold">ADC</text>
+    <text x="395" y="195" font-size="10" text-anchor="middle" fill="#555">转换</text>
+    <text x="395" y="208" font-size="9" text-anchor="middle" fill="#666">快速</text>
+  </g>
+  
+  <!-- 数据压缩 -->
+  <g filter="url(#shadow)">
+    <rect x="460" y="160" width="70" height="60" rx="5" fill="#fed7aa" stroke="#e8752a" stroke-width="1.5"/>
+    <text x="495" y="180" font-size="10" text-anchor="middle" fill="#5a1f1f" font-weight="bold">压缩</text>
+    <text x="495" y="195" font-size="10" text-anchor="middle" fill="#555">处理</text>
+    <text x="495" y="208" font-size="9" text-anchor="middle" fill="#666">16×压缩</text>
+  </g>
+  
+  <!-- 无线传输 -->
+  <g filter="url(#shadow)">
+    <rect x="560" y="160" width="70" height="60" rx="5" fill="#fed7aa" stroke="#e8752a" stroke-width="1.5"/>
+    <text x="595" y="180" font-size="10" text-anchor="middle" fill="#5a1f1f" font-weight="bold">无线</text>
+    <text x="595" y="195" font-size="10" text-anchor="middle" fill="#555">传输</text>
+    <text x="595" y="208" font-size="9" text-anchor="middle" fill="#666">IR-UWB</text>
+  </g>
+  
+  <!-- 事件驱动采样 -->
+  <g filter="url(#shadow)">
+    <rect x="260" y="245" width="140" height="70" rx="6" fill="#ffedd5" stroke="#e8752a" stroke-width="2"/>
+    <text x="330" y="268" font-size="11" text-anchor="middle" fill="#5a1f1f" font-weight="bold">事件驱动采样</text>
+    <text x="330" y="285" font-size="10" text-anchor="middle" fill="#555">100×功耗压缩</text>
+  </g>
+  
+  <!-- 片上训练 -->
+  <g filter="url(#shadow)">
+    <rect x="450" y="245" width="140" height="70" rx="6" fill="#ffedd5" stroke="#e8752a" stroke-width="2"/>
+    <text x="520" y="268" font-size="11" text-anchor="middle" fill="#5a1f1f" font-weight="bold">片上训练</text>
+    <text x="520" y="285" font-size="10" text-anchor="middle" fill="#555">自适应学习</text>
+  </g>
+  
+  <!-- 右侧：无线模块 -->
+  <g filter="url(#shadow)">
+    <circle cx="700" cy="200" r="45" fill="url(#grad3)" opacity="0.9"/>
+    <text x="700" y="210" font-size="28" text-anchor="middle" fill="white">📡</text>
+  </g>
+  <text x="700" y="280" font-size="13" font-weight="bold" text-anchor="middle" fill="#5a1f1f">无线接收</text>
+  <text x="700" y="298" font-size="11" text-anchor="middle" fill="#555">实时解码</text>
+  
+  <!-- 连接箭头 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#e8752a" />
+    </marker>
+  </defs>
+  <line x1="165" y1="200" x2="240" y2="200" stroke="#e8752a" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+  <line x1="560" y1="200" x2="655" y2="200" stroke="#e8752a" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+  
+  <!-- 性能指标 -->
+  <g filter="url(#shadow)">
+    <rect x="100" y="400" width="600" height="170" rx="10" fill="white" stroke="#e8752a" stroke-width="1.5"/>
+  </g>
+  
+  <text x="400" y="430" font-size="15" font-weight="bold" text-anchor="middle" fill="#5a1f1f">关键性能指标</text>
+  
+  <!-- 四个指标卡 -->
+  <g>
+    <rect x="120" y="450" width="120" height="100" rx="6" fill="#ffedd5" stroke="#e8752a" stroke-width="1.5"/>
+    <text x="180" y="472" font-size="12" text-anchor="middle" fill="#5a1f1f" font-weight="bold">面积</text>
+    <text x="180" y="495" font-size="14" text-anchor="middle" fill="#e8752a" font-weight="bold">0.0032</text>
+    <text x="180" y="512" font-size="10" text-anchor="middle" fill="#555">mm²/通道</text>
+  </g>
+  
+  <g>
+    <rect x="270" y="450" width="120" height="100" rx="6" fill="#ffedd5" stroke="#e8752a" stroke-width="1.5"/>
+    <text x="330" y="472" font-size="12" text-anchor="middle" fill="#5a1f1f" font-weight="bold">功耗</text>
+    <text x="330" y="495" font-size="14" text-anchor="middle" fill="#e8752a" font-weight="bold">1.38μW</text>
+    <text x="330" y="512" font-size="10" text-anchor="middle" fill="#555">每通道</text>
+  </g>
+  
+  <g>
+    <rect x="420" y="450" width="120" height="100" rx="6" fill="#ffedd5" stroke="#e8752a" stroke-width="1.5"/>
+    <text x="480" y="472" font-size="12" text-anchor="middle" fill="#5a1f1f" font-weight="bold">压缩比</text>
+    <text x="480" y="495" font-size="14" text-anchor="middle" fill="#e8752a" font-weight="bold">16×</text>
+    <text x="480" y="512" font-size="10" text-anchor="middle" fill="#555">无损压缩</text>
+  </g>
+  
+  <g>
+    <rect x="570" y="450" width="120" height="100" rx="6" fill="#ffedd5" stroke="#e8752a" stroke-width="1.5"/>
+    <text x="630" y="472" font-size="12" text-anchor="middle" fill="#5a1f1f" font-weight="bold">工艺</text>
+    <text x="630" y="495" font-size="14" text-anchor="middle" fill="#e8752a" font-weight="bold">40nm</text>
+    <text x="630" y="512" font-size="10" text-anchor="middle" fill="#555">CMOS</text>
+  </g>
+</svg>
