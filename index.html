@@ -130,7 +130,7 @@
   </div>
 
   <!-- 个人简介 -->
-  <section class="bg-gradient-primary-to-secondary-light mt5 md5" id="home">
+  <section class="bg-gradient-primary-to-secondary-light mt-5 pt-3" id="home">
     <div class="container px-5">
       <header>
         <h2>个人简介</h2>
@@ -159,11 +159,16 @@
       <div class="main-body lh-base" id="about-content">
         <!-- 由 site-renderer.js 注入 -->
       </div>
+      
+      <!-- 移动端展开按钮 -->
+      <button class="expand-toggle-btn" id="about-expand-btn">
+        展开更多 <span>▼</span>
+      </button>
     </div>
   </section>
 
   <!-- 研究兴趣 -->
-  <section class="bg-gradient-primary-to-secondary-gray mt5 md5" id="interests">
+  <section class="bg-gradient-primary-to-secondary-gray mt-5 pt-3" id="interests">
     <div class="container px-5">
       <header>
         <h2>研究兴趣</h2>
@@ -176,7 +181,7 @@
   </section>
 
   <!-- 教学与书籍 -->
-  <section class="bg-gradient-primary-to-secondary-light mt5 md5" id="awards">
+  <section class="bg-gradient-primary-to-secondary-light mt-5 pt-3" id="awards">
     <div class="container px-5">
       <header>
         <h2>教学与书籍</h2>
@@ -184,6 +189,12 @@
       <div class="main-body lh-base" id="teaching-content">
         <!-- 由 site-renderer.js 注入 -->
       </div>
+      
+      <!-- 移动端展开按钮 -->
+      <button class="expand-toggle-btn" id="teaching-expand-btn">
+        展开更多 <span>▼</span>
+      </button>
+      
       <div class="container mt-3">
         <div class="row text-center" id="books-grid">
           <!-- 由 site-renderer.js 注入 -->
@@ -207,6 +218,7 @@
   </footer>
 
   <script src="static/js/site-renderer.js"></script>
+  <script src="static/js/scripts.js"></script>
 
 </body>
 

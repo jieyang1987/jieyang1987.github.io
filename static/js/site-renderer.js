@@ -204,21 +204,18 @@
     const interestSummary = document.getElementById('interest-summary');
     if (interestSummary) interestSummary.innerHTML = ri.summary;
 
-    // 三栏卡片图标（按顺序对应三个研究方向）
-    const cardIcons = ['fa-brain', 'fa-microchip', 'fa-heart-pulse'];
-
     const interestItems = document.getElementById('interest-items');
     if (interestItems && ri.items) {
-      // 渲染为三栏信息卡片
+      // 渲染为紧凑的横向标签列表
       interestItems.innerHTML = `
-        <div class="research-cards">
+        <div class="research-interests-list">
           ${ri.items.map((item, idx) => `
-            <div class="research-card">
-              <div class="research-card-icon">
-                <i class="fa-solid ${cardIcons[idx] || 'fa-circle-dot'}"></i>
+            <div class="research-interest-item">
+              <div class="interest-header">
+                <span class="interest-number">${String(idx + 1).padStart(2, '0')}</span>
+                <span class="interest-title">${item.title}</span>
               </div>
-              <p class="research-card-title">${item.title}</p>
-              <p class="research-card-body">${item.content}</p>
+              <div class="interest-content">${item.content}</div>
             </div>
           `).join('')}
         </div>
@@ -264,6 +261,7 @@
     if (filterContainer) {
       filterContainer.innerHTML = pubData.filterTopics.map((t, i) => `
         <button class="btn btn-outline-success btn-sm topic-btn${i === 0 ? ' active' : ''}"
+          style="font-size: 1.1rem;"
           data-topic="${t.id}">${t[lang === 'zh' ? 'labelZh' : 'labelEn']}</button>
       `).join('');
     }

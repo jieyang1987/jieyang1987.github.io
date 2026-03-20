@@ -80,6 +80,14 @@ body {
   color: var(--text-primary);
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
+  background-color: var(--section-light);
+}
+
+/* 桌面端默认显示完整内容 */
+#about-content,
+#teaching-content {
+  max-height: none;
+  overflow: visible;
 }
 
 h1, h2, h3 {
@@ -350,7 +358,7 @@ h4 {
 #avatar {
   position: relative;
   height: 0;
-  top: min(-65px, max(-100px, calc(-1*100vw/12)));
+  top: min(-70px, max(-100px, calc(-1*100vw/12)));
   max-width: 55em;
   margin: 0 1.5rem 0 0;
   float: right;
@@ -379,7 +387,7 @@ h4 {
 .contact-line {
   font-family: 'AlibabaPuHuiTi-Light', sans-serif;
   font-size: clamp(0.78rem, 1vw + 0.6rem, 1rem);
-  line-height: 2;
+  line-height: 1.6;
   color: var(--text-primary);
   white-space: nowrap;
 }
@@ -416,109 +424,84 @@ h4 {
 }
 
 /* ══════════════════════════════════════════════
-   研究方向三栏信息卡片
+   研究兴趣紧凑列表样式
 ══════════════════════════════════════════════ */
-.research-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-  margin-top: 1.75rem;
+.research-interests-list {
+  margin-top: 1rem;
 }
 
-.research-card {
-  background: #ffffff;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
-  padding: 1.5rem 1.4rem 1.4rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  transition: transform var(--transition), box-shadow var(--transition);
-  border-top: 4px solid transparent;
-  position: relative;
-  overflow: hidden;
+.research-interest-item {
+  background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%);
+  border-left: 4px solid var(--brand-blue);
+  border-radius: 0.5rem;
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: all var(--transition);
 }
 
-.research-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+.research-interest-item:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transform: translateX(4px);
+  border-left-color: var(--brand-blue);
 }
 
-/* 三张卡片各自的主题色 */
-.research-card:nth-child(1) { border-top-color: #3948d2; }
-.research-card:nth-child(2) { border-top-color: #34a853; }
-.research-card:nth-child(3) { border-top-color: #e8752a; }
+/* 每个项目的主题色 */
+.research-interest-item:nth-child(1) { border-left-color: #3948d2; }
+.research-interest-item:nth-child(1):hover { border-left-color: #3948d2; }
+.research-interest-item:nth-child(2) { border-left-color: #34a853; }
+.research-interest-item:nth-child(2):hover { border-left-color: #34a853; }
+.research-interest-item:nth-child(3) { border-left-color: #e8752a; }
+.research-interest-item:nth-child(3):hover { border-left-color: #e8752a; }
 
-/* 图标圆形背景 */
-.research-card-icon {
-  width: 2.6rem;
-  height: 2.6rem;
-  border-radius: 50%;
+.interest-header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 1.15rem;
-  flex-shrink: 0;
-  margin-bottom: 0.2rem;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
-.research-card:nth-child(1) .research-card-icon { background: rgba(57,72,210,0.1); color: #3948d2; }
-.research-card:nth-child(2) .research-card-icon { background: rgba(52,168,83,0.1);  color: #34a853; }
-.research-card:nth-child(3) .research-card-icon { background: rgba(232,117,42,0.1); color: #e8752a; }
+.interest-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(57,72,210,0.1) 0%, rgba(57,72,210,0.05) 100%);
+  color: var(--brand-blue);
+  font-family: var(--font-en-heading, 'Inter', system-ui, sans-serif);
+  font-size: 0.85rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
 
-/* 标题 */
-.research-card-title {
+.interest-title {
   font-family: 'AlibabaPuHuiTi-Regular', sans-serif;
-  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin: 0;
-  line-height: 1.3;
-}
-
-/* 正文 */
-.research-card-body {
-  font-family: 'AlibabaPuHuiTi-Regular', sans-serif;
-  font-size: clamp(0.82rem, 0.9vw + 0.65rem, 0.95rem);
-  color: #2c2f38;
-  line-height: 1.7;
-  margin: 0;
+  line-height: 1.4;
   flex: 1;
 }
 
-.research-card-body a {
+.interest-content {
+  font-family: 'AlibabaPuHuiTi-Light', sans-serif;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-left: 2.75rem;
+}
+
+.interest-content a {
   color: var(--link-color);
   text-decoration: none;
+  transition: color var(--transition);
 }
 
-.research-card-body a:hover {
+.interest-content a:hover {
   color: var(--brand-blue);
   text-decoration: underline;
-}
-
-/* 平板端：两列 */
-@media screen and (max-width: 900px) {
-  .research-cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .research-card:nth-child(3) {
-    grid-column: 1 / -1;
-  }
-}
-
-/* 移动端：单列 */
-@media screen and (max-width: 576px) {
-  .research-cards {
-    grid-template-columns: 1fr;
-    gap: 0.9rem;
-    margin-top: 1.25rem;
-  }
-  .research-card:nth-child(3) {
-    grid-column: auto;
-  }
-  .research-card {
-    padding: 1.1rem 1rem;
-  }
 }
 
 /* ══════════════════════════════════════════════
@@ -557,8 +540,21 @@ h4 {
 ══════════════════════════════════════════════ */
 section.bg-gradient-primary-to-secondary-light,
 section.bg-gradient-primary-to-secondary-gray {
-  padding: 2.5rem 0;
-  border-bottom: 1px solid rgba(57, 72, 210, 0.08);
+  padding: 1.5rem 0;
+  border-bottom: none;
+}
+
+/* 首页个人简介区域增加顶部padding，避免与头像联系信息重叠，恢复与Banner的间隙 */
+#home.bg-gradient-primary-to-secondary-light {
+  padding-top: 7rem;
+}
+
+/* 强制移除section之间的margin */
+section.bg-gradient-primary-to-secondary-light.mt-5,
+section.bg-gradient-primary-to-secondary-gray.mt-5,
+section.bg-gradient-primary-to-secondary-light.mt-5.pt-3,
+section.bg-gradient-primary-to-secondary-gray.mt-5.pt-3 {
+  margin-top: 0 !important;
 }
 
 section.bg-gradient-primary-to-secondary-light header,
@@ -566,6 +562,16 @@ section.bg-gradient-primary-to-secondary-gray header {
   border-left: 5px solid var(--brand-blue);
   padding-left: 0.8rem;
   margin-bottom: 1.25rem;
+}
+
+/* 首页个人简介标题增加顶部留白，避免与联系信息重叠 */
+#home header {
+  margin-top: 2rem;
+}
+
+/* 个人简介标题后面增加留白 */
+#home header h2 {
+  margin-bottom: 1rem !important;
 }
 
 section.bg-gradient-primary-to-secondary-light header h2,
@@ -583,7 +589,8 @@ section.bg-gradient-primary-to-secondary-gray header h2 {
 .publications-list h3 {
   margin-top: 1.2em;
   margin-bottom: 0.5em;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
+  font-weight: 700;
   color: #3a3f4a;
   border-bottom: 1px solid #d8dae0;
   padding-bottom: 0.25em;
@@ -688,11 +695,17 @@ section.bg-gradient-primary-to-secondary-gray header h2 {
   margin-bottom: 0.25rem;
 }
 
+/* 为芯片展示页面添加适当的左右内边距 */
+#chip-gallery {
+  padding-left: 3rem !important;
+  padding-right: 3rem !important;
+}
+
 /* ══════════════════════════════════════════════
    论文页面 - 年份导航和统计卡片
 ══════════════════════════════════════════════ */
 .year-link {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   margin: 0 0.4rem;
   color: var(--brand-blue);
   text-decoration: none;
@@ -1063,8 +1076,14 @@ section.bg-gradient-primary-to-secondary-gray header h2 {
 
   /* --- sections --- */
   section.bg-gradient-primary-to-secondary-light,
-  section.bg-gradient-primary-to-secondary-gray {
-    padding: 1.25rem 0 !important;
+  section.bg-gradient-primary-to-secondary-gray,
+  section.bg-gradient-primary-to-secondary-light.mt-5,
+  section.bg-gradient-primary-to-secondary-gray.mt-5,
+  section.bg-gradient-primary-to-secondary-light.mt-5.pt-3,
+  section.bg-gradient-primary-to-secondary-gray.mt-5.pt-3 {
+    padding: 1rem 0 !important;
+    border-bottom: none !important;
+    margin-top: 0 !important;
   }
 
   /* 容器内边距 */
@@ -1078,6 +1097,25 @@ section.bg-gradient-primary-to-secondary-gray header h2 {
   .main-body { margin-top: 0.25rem; margin-bottom: 0.25rem; }
   .main-body p { line-height: 1.6; margin-bottom: 0.5rem; }
 
+  /* 减小移动端正文和标题字体大小 */
+  .main-body,
+  #home .main-body {
+    font-size: 0.9rem !important;
+  }
+
+  .main-body p,
+  .main-body li {
+    font-size: 0.9rem !important;
+    line-height: 1.6;
+  }
+
+  .main-body h3,
+  .main-body h4,
+  .main-body h5 {
+    font-size: 1.1rem !important;
+    margin-bottom: 0.5rem;
+  }
+
   /* #home 区顶部留出头像空间 */
   #home,
   #chip-gallery {
@@ -1085,8 +1123,22 @@ section.bg-gradient-primary-to-secondary-gray header h2 {
     padding-bottom: 0.5rem !important;
   }
 
+  /* 移动端个人简介标题留白与其他section一致 */
+  #home header {
+    margin-top: 0 !important;
+  }
+
+  #home header h2 {
+    margin-bottom: 0 !important;
+  }
+
   header {
     margin-bottom: 0.75rem !important;
+  }
+
+  /* 移动端 h2 标题字体大小统一 */
+  h2 {
+    font-size: clamp(1.3rem, 5vw, 1.8rem) !important;
   }
 
   footer { padding-top: 2rem !important; padding-bottom: 2rem !important; }
@@ -1692,13 +1744,15 @@ section.bg-gradient-primary-to-secondary-gray header h2 {
   #home {
     padding-top: 0.5rem !important;
   }
-  
+
+  /* 个人简介内容 - 折叠状态 */
   #about-content {
-    max-height: 150px;
-    overflow: hidden;
+    max-height: 150px !important;
+    overflow: hidden !important;
     position: relative;
+    transition: max-height 0.3s ease;
   }
-  
+
   #about-content::after {
     content: "";
     position: absolute;
@@ -1706,67 +1760,133 @@ section.bg-gradient-primary-to-secondary-gray header h2 {
     left: 0;
     right: 0;
     height: 40px;
-    background: linear-gradient(to bottom, transparent, white);
+    background: linear-gradient(to bottom, transparent, var(--section-light));
     pointer-events: none;
   }
-  
-  /* 首页研究兴趣卡片 - 移动端显示为 2x2 网格 */
-  .research-cards {
-    grid-template-columns: 1fr 1fr !important;
+
+  #about-content.expanded {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  #about-content.expanded::after {
+    display: none;
+  }
+
+  /* 首页研究兴趣列表 - 移动端更紧凑 */
+  .research-interests-list {
+    margin-top: 0.75rem !important;
+  }
+
+  .research-interest-item {
+    padding: 0.75rem 0.9rem !important;
+    margin-bottom: 0.6rem !important;
+    border-left-width: 3px !important;
+    border-radius: 0.4rem !important;
+  }
+
+  .interest-header {
+    margin-bottom: 0.4rem !important;
+    gap: 0.6rem !important;
+  }
+
+  .interest-number {
+    width: 1.75rem !important;
+    height: 1.75rem !important;
+    font-size: 0.8rem !important;
+  }
+
+  .interest-title {
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+  }
+
+  .interest-content {
+    font-size: 0.85rem !important;
+    line-height: 1.6 !important;
+    margin-left: 2.35rem !important;
   }
   
-  .research-card {
-    padding: 1rem !important;
-  }
-  
-  /* 移动端隐藏教学书籍部分的详细内容 */
+  /* 移动端隐藏教学书籍部分的详细内容 - 折叠状态 */
   #teaching-content {
-    max-height: 100px;
-    overflow: hidden;
+    max-height: 100px !important;
+    overflow: hidden !important;
+    position: relative;
+    transition: max-height 0.3s ease;
   }
-  
+
+  #teaching-content::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, var(--section-light));
+    pointer-events: none;
+  }
+
+  #teaching-content.expanded {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  #teaching-content.expanded::after {
+    display: none;
+  }
+
+  /* 展开/折叠按钮样式 */
+  .expand-toggle-btn {
+    display: block;
+    width: 100%;
+    padding: 0.35rem 0.5rem;
+    margin-top: 0.5rem;
+    background-color: rgba(57, 72, 210, 0.08);
+    border: 1px solid rgba(57, 72, 210, 0.25);
+    border-radius: 0.35rem;
+    color: var(--brand-blue);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    line-height: 1.3;
+  }
+
+  .expand-toggle-btn:hover {
+    background-color: rgba(57, 72, 210, 0.15);
+    border-color: rgba(57, 72, 210, 0.4);
+  }
+
+  .expand-toggle-btn:active {
+    background-color: rgba(57, 72, 210, 0.25);
+  }
+
+  .expand-toggle-btn span {
+    margin-left: 0.15rem;
+    font-size: 0.7rem;
+  }
+
+  .expand-toggle-btn.expanded {
+    background-color: rgba(57, 72, 210, 0.05);
+    border-color: rgba(57, 72, 210, 0.15);
+    color: var(--text-muted);
+  }
+}
+
+/* 桌面端隐藏展开/折叠按钮 */
+@media screen and (min-width: 769px) {
+  .expand-toggle-btn {
+    display: none !important;
+  }
+
   #books-grid {
     grid-template-columns: 1fr !important;
   }
-  
-  /* 研究首屏快速导航 - 移动端新增 */
+
+  /* 桌面端隐藏移动端快速导航 */
   .mobile-research-highlight {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
-    margin-top: 1rem;
-  }
-  
-  .mobile-research-highlight .highlight-card {
-    background: white;
-    border-left: 4px solid var(--brand-blue);
-    padding: 1rem 0.75rem;
-    border-radius: 0.35rem;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    cursor: pointer;
-    transition: all var(--transition);
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  .mobile-research-highlight .highlight-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-    border-left-color: var(--brand-secondary);
-  }
-  
-  .mobile-research-highlight .highlight-title {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--text-dark);
-    margin-bottom: 0.3rem;
-  }
-  
-  .mobile-research-highlight .highlight-desc {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    line-height: 1.3;
+    display: none !important;
   }
   
   .research-card {
@@ -1807,53 +1927,6 @@ section.bg-gradient-primary-to-secondary-gray header h2 {
     width: 100%;
   }
   
-  .research-index {
-    display: none !important;
-  }
-  
-  /* ═══════════════════════════════════════════════════════════
-     芯片展示页面移动端优化
-  ═══════════════════════════════════════════════════════════ */
-  #chip-gallery {
-    padding-top: 0.75rem !important;
-    margin-top: 0.5rem !important;
-  }
-  
-  #chip-gallery header {
-    margin-bottom: 0.75rem !important;
-  }
-  
-  #chip-gallery h2 {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  /* 芯片筛选按钮 - 移动端进一步精简 */
-  #chip-gallery .text-center {
-    margin-bottom: 0.75rem !important;
-  }
-  
-  .filter-btn {
-    font-size: 0.8rem !important;
-    padding: 0.35rem 0.65rem !important;
-    margin: 0.2rem 0.15rem !important;
-  }
-  
-  /* 芯片卡片网格 - 移动端单列显示 */
-  #chip-gallery .row {
-    grid-template-columns: 1fr !important;
-  }
-  
-  #chip-gallery .gallery-item {
-    margin-bottom: 1rem;
-  }
-  
-  /* 芯片图片 - 缩小高度 */
-  .chip-image {
-    max-height: 200px !important;
-    object-fit: cover;
-  }
-  
   /* ═══════════════════════════════════════════════════════════
      论文发表页面移动端优化
   ═══════════════════════════════════════════════════════════ */
@@ -1862,68 +1935,11 @@ section.bg-gradient-primary-to-secondary-gray header h2 {
   #topic-filters {
     margin-bottom: 0.75rem !important;
   }
-  
+
   #topic-filters .topic-btn {
-    font-size: 0.9rem !important;
+    font-size: 1.1rem !important;
     padding: 0.4rem 0.7rem !important;
     margin: 0.2rem 0.15rem !important;
-  }
-  
-  /* 隐藏桌面端的年份导航 */
-  #year-nav-desktop {
-    display: none !important;
-  }
-  
-  /* 移动端统计卡片 - 紧凑水平展示 */
-  .mobile-pub-stats {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 0.75rem;
-    margin-top: 0.5rem;
-  }
-  
-  .pub-stat-item {
-    flex: 1;
-    background: linear-gradient(135deg, rgba(57,72,210,0.08) 0%, rgba(52,168,83,0.05) 100%);
-    border: 1px solid rgba(57,72,210,0.15);
-    border-radius: 0.4rem;
-    padding: 0.4rem 0.35rem;
-    text-align: center;
-    transition: all var(--transition);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .pub-stat-item:hover {
-    border-color: var(--brand-blue);
-    background: linear-gradient(135deg, rgba(57,72,210,0.12) 0%, rgba(52,168,83,0.08) 100%);
-    transform: translateY(-2px);
-  }
-  
-  .pub-stat-label {
-    display: block;
-    font-size: 0.6rem;
-    color: var(--text-muted);
-    margin-bottom: 0.08rem;
-    font-weight: 500;
-    line-height: 1.1;
-  }
-  
-  .pub-stat-value {
-    display: block;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--brand-blue);
-    line-height: 1.2;
-  }
-  
-  .pub-stat-sublabel {
-    display: block;
-    font-size: 0.55rem;
-    color: var(--text-muted);
-    margin-top: 0.05rem;
   }
   
   /* 论文列表 */
@@ -1953,8 +1969,11 @@ section.bg-gradient-primary-to-secondary-gray header h2 {
     margin-bottom: 0.5rem !important;
   }
   
-  #home h2 {
-    font-size: 1.3rem !important;
+  /* 桌面端 h2 使用全局一致的字体大小 */
+  #home h2,
+  #interests h2,
+  #awards h2 {
+    font-size: clamp(1.5rem, 3vw, 2.2rem) !important;
     margin-bottom: 0.5rem !important;
   }
   
@@ -1971,9 +1990,10 @@ section.bg-gradient-primary-to-secondary-gray header h2 {
     margin-bottom: 0.75rem !important;
   }
   
+  /* 论文页面桌面端h2保持与全局一致 */
   #journal h2,
   #conference h2 {
-    font-size: 1.2rem !important;
+    font-size: clamp(1.5rem, 3vw, 2.2rem) !important;
     margin-bottom: 0.5rem !important;
   }
 }
@@ -2070,8 +2090,155 @@ section.bg-gradient-primary-to-secondary-gray header h2 {
   .mobile-info-card {
     display: grid;
   }
-  
+
   .mobile-research-highlight {
-    display: grid;
+    display: grid !important;
+    visibility: visible !important;
+    height: auto !important;
+    overflow: visible !important;
+    margin-top: 1rem !important;
+    margin-bottom: 1.5rem !important;
+    padding: 0 !important;
+  }
+
+  /* 移动端隐藏研究索引目录及其标题 */
+  .research-index {
+    display: none !important;
+  }
+  #research-index-title {
+    display: none !important;
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     芯片展示页面移动端优化
+  ═══════════════════════════════════════════════════════════ */
+  #chip-gallery {
+    padding-top: 0.75rem !important;
+    margin-top: 0.5rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  #chip-gallery header {
+    margin-bottom: 0.75rem !important;
+  }
+
+  #chip-gallery h2 {
+    display: none !important;
+  }
+
+  /* 芯片筛选按钮 - 移动端进一步精简 */
+  #chip-gallery .text-center {
+    margin-bottom: 0.75rem !important;
+  }
+
+  .filter-btn {
+    font-size: 0.8rem !important;
+    padding: 0.35rem 0.65rem !important;
+    margin: 0.2rem 0.15rem !important;
+  }
+
+  /* 芯片卡片网格 - 移动端单列显示 */
+  #chip-gallery .row {
+    grid-template-columns: 1fr !important;
+  }
+
+  #chip-gallery .gallery-item {
+    margin-bottom: 1rem;
+  }
+
+  /* 芯片图片 - 缩小高度 */
+  .chip-image {
+    max-height: 200px !important;
+    object-fit: cover;
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     论文发表页面移动端优化
+  ═══════════════════════════════════════════════════════════ */
+  #home header h2 {
+    display: none !important;
+  }
+
+  .topic-btn {
+    font-size: 0.8rem !important;
+    padding: 0.35rem 0.65rem !important;
+    margin: 0.2rem 0.15rem !important;
+  }
+
+  /* 移动端隐藏统计徽章块 */
+  #pub-stats-block {
+    display: none !important;
+  }
+
+  /* 移动端年份导航紧凑显示 */
+  #year-nav-desktop {
+    margin-bottom: 0.5rem !important;
+  }
+
+  #year-nav-desktop .d-flex {
+    margin-bottom: 0.15rem !important;
+    margin-top: 0 !important;
+  }
+
+  #year-nav-desktop .fw-bold {
+    font-size: 0.85rem !important;
+  }
+
+  #year-nav-desktop .year-link {
+    font-size: 0.8rem !important;
+    margin: 0 0.25rem !important;
+  }
+
+  /* 移动端统计卡片 - 紧凑水平展示 */
+  .mobile-pub-stats {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .pub-stat-item {
+    flex: 1;
+    background: linear-gradient(135deg, rgba(57,72,210,0.08) 0%, rgba(52,168,83,0.05) 100%);
+    border: 1px solid rgba(57,72,210,0.15);
+    border-radius: 0.4rem;
+    padding: 0.25rem 0.2rem;
+    text-align: center;
+    transition: all var(--transition);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pub-stat-item:hover {
+    border-color: var(--brand-blue);
+    background: linear-gradient(135deg, rgba(57,72,210,0.12) 0%, rgba(52,168,83,0.08) 100%);
+    transform: translateY(-2px);
+  }
+
+  .pub-stat-label {
+    display: block;
+    font-size: 0.55rem;
+    color: var(--text-muted);
+    margin-bottom: 0.05rem;
+    font-weight: 500;
+    line-height: 1.1;
+  }
+
+  .pub-stat-value {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--brand-blue);
+    line-height: 1.2;
+  }
+
+  .pub-stat-sublabel {
+    display: block;
+    font-size: 0.5rem;
+    color: var(--text-muted);
+    margin-top: 0.03rem;
   }
 }

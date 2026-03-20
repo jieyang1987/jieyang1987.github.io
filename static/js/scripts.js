@@ -144,3 +144,78 @@ if (document.readyState === 'loading') {
 } else {
     loadSharedHomeSubtitle();
 }
+
+// ────────────────────────────────────────────────────────
+// 移动端展开/折叠功能
+// ────────────────────────────────────────────────────────
+
+// 等待页面完全加载后执行
+window.addEventListener('load', function() {
+    // 检测是否为移动端
+    function isMobile() {
+        return window.innerWidth <= 768;
+    }
+
+    // 初始化展开按钮
+    function initExpandToggle(contentId, btnId) {
+        const content = document.getElementById(contentId);
+        const btn = document.getElementById(btnId);
+
+        if (!content || !btn) {
+            console.log('Element not found:', contentId, btnId);
+            return;
+        }
+
+        console.log('Initializing expand toggle for:', contentId, 'isMobile:', isMobile());
+
+        // 只在移动端显示按钮
+        if (isMobile()) {
+            btn.style.display = 'block';
+
+            // 切换展开/折叠状态
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const isExpanded = content.classList.contains('expanded');
+
+                console.log('Button clicked for:', contentId, 'isExpanded:', isExpanded);
+
+                if (isExpanded) {
+                    // 折叠
+                    content.classList.remove('expanded');
+                    btn.classList.remove('expanded');
+                    btn.innerHTML = '展开更多 <span>▼</span>';
+                    console.log('Collapsed:', contentId);
+                } else {
+                    // 展开
+                    content.classList.add('expanded');
+                    btn.classList.add('expanded');
+                    btn.innerHTML = '收起内容 <span>▲</span>';
+                    console.log('Expanded:', contentId);
+                }
+            });
+        } else {
+            // 桌面端隐藏按钮
+            btn.style.display = 'none';
+            // 确保内容完整显示
+            content.classList.add('expanded');
+        }
+    }
+
+    // 等待一小段时间确保内容已经渲染
+    setTimeout(function() {
+        // 初始化所有展开按钮
+        initExpandToggle('about-content', 'about-expand-btn');
+        initExpandToggle('teaching-content', 'teaching-expand-btn');
+    }, 200);
+
+    // 窗口大小改变时重新检查
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            location.reload(); // 简单处理：重新加载页面以应用正确的样式
+        }, 250);
+    });
+});

@@ -12,7 +12,7 @@
       "year": 2026,
       "items": [
         {
-          "authors": "C. Zhang, Y. Zhang, J. YU, <strong>J. Yang*</strong>, M. Sawan*",
+          "authors": "C. Zhang, Y. Zhang, J. Yu, <strong>J. Yang*</strong>, M. Sawan*",
           "title": "Event-Fused Hybrid ANN-SNN Architecture for Low-Latency Object Detection in Automotive Vision",
           "venue": "IEEE Robotics and Automation Letters",
           "venueHighlight": false,
@@ -21,7 +21,7 @@
           "topics": ["neuromorphic"]
         },
         {
-          "authors": "C. Wang, D. Wu, Y. Liao, W. Zheng, Z. Zeng, X. Gao, H. Wu, Z. Zhu, <strong>J. Yang</strong>, L. Zhong, W. Cheng, Yun-Hsuan Chen, M. Sawan",
+          "authors": "C. Wang, D. Wu, Y. Liao, W. Zheng, Z. Zeng, X. Gao, H. Wu, Z. Zhu, <strong>J. Yang</strong>, L. Zhong, W. Cheng, Y-H. Chen, M. Sawan",
           "title": "NeuroCLIP: A Multimodal Contrastive Learning Method for rTMS-treated Methamphetamine Addiction Analysis",
           "venue": "IEEE Journal of Biomedical and Health Informatics",
           "venueHighlight": false,
@@ -53,7 +53,7 @@
           "topics": ["neuromodulation"]
         },
         {
-          "authors": "Z. Zeng, Y. Chen, X. Gao, W. Zheng, H. Wu, Z. Zhu, <strong>J. Yang</strong>, C. Wang, L. Zhong, W. Cheng, M. Sawan",
+          "authors": "Z. Zeng, Y-H. Chen, X. Gao, W. Zheng, H. Wu, Z. Zhu, <strong>J. Yang</strong>, C. Wang, L. Zhong, W. Cheng, M. Sawan",
           "title": "Repetitive TMS-based Identification of Methamphetamine-Dependent Individuals Using EEG Spectra",
           "venue": "IEEE Sensors Journal",
           "venueHighlight": false,
@@ -125,7 +125,7 @@
           "topics": ["bci", "decoding"]
         },
         {
-          "authors": "X. Gao, Yun-Hsuan Chen, Z. Zeng, W. Zheng, C. Chai, H. Wu, Z. Zhu, <strong>J. Yang</strong>, L. Zhong, H. Shen, M. Sawan",
+          "authors": "X. Gao, Y-H. Chen, Z. Zeng, W. Zheng, C. Chai, H. Wu, Z. Zhu, <strong>J. Yang</strong>, L. Zhong, H. Shen, M. Sawan",
           "title": "Specific endophenotypes in EEG microstates for methamphetamine use disorder",
           "venue": "Frontiers in Psychiatry",
           "venueHighlight": false,
@@ -166,7 +166,7 @@
           "topics": ["neuromorphic"]
         },
         {
-          "authors": "F. Tian, J. Chen, J. Zheng, H. Wu, J. He, X. Wang, C. Fang, Y. Yao, <strong>J. Yang</strong>, M. Sawan, Chi-Ying Tsui, Kwang-Ting Tim Cheng",
+          "authors": "F. Tian, J. Chen, J. Zheng, H. Wu, J. He, X. Wang, C. Fang, Y. Yao, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui, Kwang-Ting Tim Cheng",
           "title": "BioPI: An Energy Efficient and Low-Latency Neuromorphic Pipelined System with Joint Design Optimizations of Sensor-Algorithm-Processor for Wearable Healthcare",
           "venue": "IEEE Transactions on Circuits and Systems for Artificial Intelligence",
           "venueHighlight": false,
@@ -331,7 +331,7 @@
       "year": 2022,
       "items": [
         {
-          "authors": "S. Sun, <strong>J. Yang*</strong>, Y. Chen, J. Miao, M. Sawan",
+          "authors": "S. Sun, <strong>J. Yang*</strong>, Y-H. Chen, J. Miao, M. Sawan",
           "title": "EEG Signals Based Internet Addiction Diagnosis Using Convolutional Neural Networks",
           "venue": "MDPI Applied Sciences",
           "venueHighlight": false,
@@ -349,7 +349,7 @@
           "topics": ["neuromodulation", "decoding"]
         },
         {
-          "authors": "J. Wang, Y. Chen, <strong>J. Yang</strong>, M. Sawan",
+          "authors": "J. Wang, Y-H. Chen, <strong>J. Yang</strong>, M. Sawan",
           "title": "Intelligent Classification Technique of Hand Motor Imagery Using EEG Beta Rebound Follow-Up Pattern",
           "venue": "MDPI Biosensors",
           "venueHighlight": false,
@@ -601,7 +601,7 @@
       "year": 2026,
       "items": [
         {
-          "authors": "H. Wu, F. Tian, J. Chen, Z. Liao, H. Zhang, X. Liu, W. Zou, S. Cheng, Z. Zhang, J. Xu, C-Y. Tsui, K-T. T. Cheng, <strong>J. Yang*</strong>, M. Sawan*",
+          "authors": "H. Wu, F. Tian, J. Chen, Z. Liao, H. Zhang, X. Liu, W. Zou, S. Cheng, Z. Zhang, J. Xu, C-Y. Tsui, K-T. Cheng, <strong>J. Yang*</strong>, M. Sawan*",
           "title": "Sparsity-Aware Neural Interface with CIM-Based Predictive Focused Sampling for Hotspot Spike Tracking",
           "venue": "2026 IEEE International Solid-State Circuits Conference (ISSCC)",
           "venueHighlight": true,
@@ -633,7 +633,7 @@
           "topics": ["neuromorphic"]
         },
         {
-          "authors": "F. Tian, K. Shao, J. Zheng, Z. Liu, H. Wu, Z. Liao, J. He, X. Guan, P. Dong, C. Fang, Z. Shen, S. Zhao, <strong>J. Yang</strong>, M. Sawan, C.Tsui, K. Tim Cheng",
+          "authors": "F. Tian, K. Shao, J. Zheng, Z. Liu, H. Wu, Z. Liao, J. He, X. Guan, P. Dong, C. Fang, Z. Shen, S. Zhao, <strong>J. Yang</strong>, M. Sawan, C.Tsui, K-T. Cheng",
           "title": "Lemem: A 179.8TFLOPS/W, 24.21TFLOPS Learning-In-Memory Processor with Layer-Fused Forward/Backward Pipeline for Edge DNN/SNN Training/Inference",
           "venue": "2025 IEEE Asian Solid-State Circuits Conference (A-SSCC)",
           "venueHighlight": false,
@@ -642,7 +642,7 @@
           "topics": ["neuromorphic"]
         },
         {
-          "authors": "Z. Liao, K. Shao, J. Yu, L. Zhao, K-T. Cheng, C-Y Tsui, <strong>J. Yang*</strong>, M. Sawan*",
+          "authors": "Z. Liao, K. Shao, J. Yu, L. Zhao, K-T. Cheng, C-Y. Tsui, <strong>J. Yang*</strong>, M. Sawan*",
           "title": "A Memory-Efficient Retrieval Architecture for RAG-Enabled Wearable Medical LLMs-Agents",
           "venue": "2025 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
           "venueHighlight": false,
@@ -698,7 +698,7 @@
           "topics": ["neuromorphic"]
         },
         {
-          "authors": "F. Tian, J. Chen, K. Shao, Z. Liu, J. Zheng, H. Wu, C. Fang, X. Meng, Z. Shen, P. Dong, Y. Yao, X. Wang, <strong>J. Yang</strong>, M. Sawan, Chi-Ying Tsui, Tim Kwang-Ting Cheng",
+          "authors": "F. Tian, J. Chen, K. Shao, Z. Liu, J. Zheng, H. Wu, C. Fang, X. Meng, Z. Shen, P. Dong, Y. Yao, X. Wang, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui, K-T. Cheng",
           "title": "E-NPU: A 34~126nJ/Class Event-Driven Adaptive Neural SoC with Signal-Dynamics-Aware Feature Clustering and Multi-Model In-Memory Inference/Training for Personalized Medical Wearables",
           "venue": "2025 IEEE Custom Integrated Circuits Conference (CICC)",
           "venueHighlight": false,
@@ -734,7 +734,7 @@
           "topics": ["bci"]
         },
         {
-          "authors": "J. Zheng, F. Tian, J. Chen, C. Fang, Y. Yao, <strong>J. Yang</strong>, M. Sawan, K.T Cheng, C-Y Tsui",
+          "authors": "J. Zheng, F. Tian, J. Chen, C. Fang, Y. Yao, <strong>J. Yang</strong>, M. Sawan, K.T Cheng, C-Y. Tsui",
           "title": "NeuroEye: A 54.59 mW, 12200FPS Event-Driven Near-Sensor Eye-Tracking Processor with Pipelined Spatial-Temporal Spike-Streaming",
           "venue": "2025 IEEE International Symposium on Circuits and Systems (ISCAS)",
           "venueHighlight": false,
@@ -752,7 +752,7 @@
           "topics": ["bci"]
         },
         {
-          "authors": "K. Shao, F. Tian, X. Wang, J. Zheng, J. Chen, J. He, H. Wu, J. Chen, X. Guan, Y. Deng, F. Tu, <strong>J. Yang</strong>, M. Sawan, Tim Kwang-Ting Cheng, Chi-Ying Tsui",
+          "authors": "K. Shao, F. Tian, X. Wang, J. Zheng, J. Chen, J. He, H. Wu, J. Chen, X. Guan, Y. Deng, F. Tu, <strong>J. Yang</strong>, M. Sawan, K-T. Cheng, C-Y. Tsui",
           "title": "SynDCIM: A Performance-Aware Digital Computing-in-Memory Compiler with Multi-Spec-Oriented Subcircuit Synthesis",
           "venue": "2025 28th Design, Automation & Test in Europe Conference & Exhibition (DATE)",
           "venueHighlight": false,
@@ -793,7 +793,7 @@
           "topics": ["bci", "neuromorphic"]
         },
         {
-          "authors": "Y. Xu, J. Wang, Y. Chen, <strong>J. Yang</strong>, W. Ming, S. Wang, M. Sawan",
+          "authors": "Y. Xu, J. Wang, Y-H. Chen, <strong>J. Yang</strong>, W. Ming, S. Wang, M. Sawan",
           "title": "VSViG: Real-Time Video-Based Seizure Detection via Skeleton-Based Spatiotemporal ViG",
           "venue": "2024 European Conference on Computer Vision (ECCV)",
           "venueHighlight": true,
@@ -847,7 +847,7 @@
           "topics": ["neuromorphic"]
         },
         {
-          "authors": "F. Tian, J. Zheng, J. He, J. Chen, X. Wang, C. Fang, <strong>J. Yang</strong>, M. Sawan, C. Tsui, K. Cheng",
+          "authors": "F. Tian, J. Zheng, J. He, J. Chen, X. Wang, C. Fang, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui, K-T. Cheng",
           "title": "BOLS: A Bionic Sensor-direct On-chip Learning System with Direct-Feedback-Through-Time for Personalized Wearable Health Monitoring",
           "venue": "2024 IEEE International Symposium on Circuits and Systems (ISCAS)",
           "venueHighlight": false,
@@ -888,7 +888,7 @@
           "topics": ["decoding"]
         },
         {
-          "authors": "F. Tian, S. Zhao, J. He, J. Chen, X. Wang, <strong>J. Yang</strong>, M. Sawan, C. Tsui, K. Tim",
+          "authors": "F. Tian, S. Zhao, J. He, J. Chen, X. Wang, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui, K-T. Cheng",
           "title": "NOLS: A Near-sensor On-chip Learning System with Direct Feedback Alignment for Personalized Wearable Heart Health Monitoring",
           "venue": "2023 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
           "venueHighlight": false,
@@ -942,7 +942,7 @@
           "topics": ["neuromodulation"]
         },
         {
-          "authors": "F. Tian, X. Wang, J. Chen, J. Zheng, H. Wu, X. Liu, F. Tu, <strong>J. Yang</strong>, M. Sawan, C. Tsui",
+          "authors": "F. Tian, X. Wang, J. Chen, J. Zheng, H. Wu, X. Liu, F. Tu, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui",
           "title": "BIOS: A 40nm Bionic Sensor-defined 0.47 pJ/SOP, 268.7 TSOPs/W Configurable Spiking Neuron-in-Memory Processor for Wearable Healthcare",
           "venue": "ESSCIRC 2023 - IEEE 49th European Solid State Circuits Conference (ESSCIRC)",
           "venueHighlight": false,
@@ -987,7 +987,7 @@
           "topics": ["bci"]
         },
         {
-          "authors": "F. Tian, X. Wang, J. Chen, <strong>J. Yang</strong>, M. Sawan, C. Tsui",
+          "authors": "F. Tian, X. Wang, J. Chen, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui",
           "title": "Binary is All You Need: Ultra-Efficient Arrhythmia Detection with a Binary-Only Compressive System",
           "venue": "2023 IEEE 5th International Conference on Artificial Intelligence Circuits and Systems (AICAS)",
           "venueHighlight": false,
@@ -997,7 +997,7 @@
           "topics": ["other"]
         },
         {
-          "authors": "J. He, Z. Shen, F. Tian, J. Chen, <strong>J. Yang</strong>, M. Sawan, T. Cheng, P. Bogdan, C. Tsui",
+          "authors": "J. He, Z. Shen, F. Tian, J. Chen, <strong>J. Yang</strong>, M. Sawan, T. Cheng, P. Bogdan, C-Y. Tsui",
           "title": "SNNOpt: An Application-Specific Design Framework for Spiking Neural Networks",
           "venue": "2023 IEEE 5th International Conference on Artificial Intelligence Circuits and Systems (AICAS)",
           "venueHighlight": false,
@@ -1083,7 +1083,7 @@
           "topics": ["neuromodulation"]
         },
         {
-          "authors": "<strong>J. Yang</strong>, N. Li, Y. Chen, M. Sawan",
+          "authors": "<strong>J. Yang</strong>, N. Li, Y-H. Chen, M. Sawan",
           "title": "Towards Intelligent Noninvasive Closed-loop Neuromodulation Systems",
           "venue": "2022 IEEE 4th International Conference on Artificial Intelligence Circuits and Systems (AICAS)",
           "venueHighlight": false,
