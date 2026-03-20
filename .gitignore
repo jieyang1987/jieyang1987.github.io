@@ -27,10 +27,15 @@ generate_research_images_new.py
 # 无关目录
 done/
 echo/
+.workbuddy/
+
+# Python 脚本
+*.py
 
 # PDF 文件（如需包含论文文件，请删除此行）
 # papers/
 
 # 数据文件（如需包含原始数据，请删除此行）
 # data/
+
 
