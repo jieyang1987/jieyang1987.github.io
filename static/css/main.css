@@ -1209,6 +1209,66 @@ section.bg-gradient-primary-to-secondary-gray header h2 {
   .research-index a { line-height: 1.5; margin-bottom: 0.25rem; }
   .research-index { margin-bottom: 0.5rem !important; }
 
+  /* 桌面端研究方向索引卡片布局 */
+  @media screen and (min-width: 769px) {
+    .research-index {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      padding: 0;
+      margin: 0 !important;
+    }
+    
+    .research-index li {
+      list-style: none;
+      margin: 0;
+    }
+    
+    .research-index-card {
+      background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+      border: 1px solid rgba(57, 72, 210, 0.15);
+      border-radius: 0.5rem;
+      transition: all 0.25s ease;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    
+    .research-index-card:hover {
+      border-color: rgba(57, 72, 210, 0.4);
+      box-shadow: 0 3px 8px rgba(57, 72, 210, 0.12);
+      transform: translateY(-2px);
+    }
+    
+    .research-index-card a {
+      display: flex;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .research-index-card .index-card-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1.75rem;
+      height: 1.75rem;
+      background: var(--brand-blue);
+      color: white;
+      border-radius: 50%;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-right: 0.75rem;
+      flex-shrink: 0;
+    }
+    
+    .research-index-card .index-card-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      line-height: 1.4;
+      color: #333;
+    }
+  }
+
   /* --- 书籍/教学横向滚动 --- */
   #awards .row.text-center,
   .container .row.text-center.awards-row {

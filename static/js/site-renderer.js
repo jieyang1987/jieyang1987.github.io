@@ -508,11 +508,16 @@
     const indexTitle = document.getElementById('research-index-title');
     if (indexTitle) indexTitle.textContent = resData.indexTitle[lang];
 
-    // 研究方向索引列表
+    // 研究方向索引列表 - 桌面端卡片布局，移动端保持列表
     const indexList = document.getElementById('research-index-list');
     if (indexList) {
       indexList.innerHTML = resData.directions.map(d => `
-        <li><a href="#${d.id}">${d.title[lang]}</a></li>
+        <li class="research-index-card">
+          <a href="#${d.id}">
+            <span class="index-card-number">${resData.directions.indexOf(d) + 1}</span>
+            <span class="index-card-title">${d.title[lang]}</span>
+          </a>
+        </li>
       `).join('');
     }
 
