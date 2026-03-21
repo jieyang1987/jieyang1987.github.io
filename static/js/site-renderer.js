@@ -508,14 +508,18 @@
     const indexTitle = document.getElementById('research-index-title');
     if (indexTitle) indexTitle.textContent = resData.indexTitle[lang];
 
-    // 研究方向索引列表 - 桌面端卡片布局，移动端保持列表
+    // 研究方向索引列表 - 横向标签云布局
     const indexList = document.getElementById('research-index-list');
     if (indexList) {
+      indexList.style.display = 'flex';
+      indexList.style.flexWrap = 'wrap';
+      indexList.style.gap = '0.5rem';
+      indexList.style.padding = '0';
       indexList.innerHTML = resData.directions.map((d, i) => `
-        <li class="research-index-card">
-          <a href="#${d.id}">
-            <span class="index-card-number">${i + 1}</span>
-            <span class="index-card-title">${d.title[lang]}</span>
+        <li style="list-style: none; margin: 0;">
+          <a href="#${d.id}" style="display: inline-flex; align-items: center; padding: 0.4rem 0.85rem; background: #f8f9fa; border: 1px solid rgba(57, 72, 210, 0.25); border-radius: 2rem; text-decoration: none; color: #333; font-size: 0.9rem; font-weight: 500; transition: all 0.2s ease; white-space: nowrap;">
+            <span style="display: inline-flex; align-items: center; justify-content: center; width: 1.4rem; height: 1.4rem; background: var(--brand-blue); color: white; border-radius: 50%; font-size: 0.7rem; font-weight: 600; margin-right: 0.5rem; flex-shrink: 0;">${i + 1}</span>
+            ${d.title[lang]}
           </a>
         </li>
       `).join('');
