@@ -54,9 +54,30 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup CloudBase Config
+      - name: Create CloudBase Config
         run: |
-          sed -i 's/{{ENV_ID}}/${{ secrets.CLOUDBASE_ENV_ID }}/g' cloudbaserc.json
+          cat > cloudbaserc.json << 'EOF'
+          {
+            "version": "2.0",
+            "envId": "${{ secrets.CLOUDBASE_ENV_ID }}",
+            "framework": {
+              "name": "static",
+              "config": {
+                "outputPath": ".",
+                "cloudPath": "/",
+                "ignore": [
+                  ".git",
+                  ".github",
+                  "node_modules",
+                  "cloudbaserc.json",
+                  "*.ps1",
+                  "*.bat",
+                  "done"
+                ]
+              }
+            }
+          }
+          EOF
 
       - name: Deploy to CloudBase
         uses: TencentCloudBase/cloudbase-action@v2
