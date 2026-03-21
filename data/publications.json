@@ -25,7 +25,7 @@
           "title": "NeuroCLIP: A Multimodal Contrastive Learning Method for rTMS-treated Methamphetamine Addiction Analysis",
           "venue": "IEEE Journal of Biomedical and Health Informatics",
           "venueHighlight": false,
-          "url": "",
+          "url": "https://ieeexplore.ieee.org/abstract/document/11392762",
           "pdf": "",
           "topics": ["bci"]
         }
@@ -605,7 +605,7 @@
           "title": "Sparsity-Aware Neural Interface with CIM-Based Predictive Focused Sampling for Hotspot Spike Tracking",
           "venue": "2026 IEEE International Solid-State Circuits Conference (ISSCC)",
           "venueHighlight": true,
-          "url": "",
+          "url": "https://ieeexplore.ieee.org/abstract/document/11409079",
           "pdf": "",
           "topics": ["bci"]
         },
@@ -614,7 +614,7 @@
           "title": "A 0.65-to-1V-Vdd 10.5-to-11.85GHz Fractional-N Sampling PLL Achieving 71.47fs Integrated Jitter and <-60dBc Near-Integer Fractional Spur in 40nm CMOS",
           "venue": "2026 IEEE International Solid-State Circuits Conference (ISSCC)",
           "venueHighlight": true,
-          "url": "",
+          "url": "https://ieeexplore.ieee.org/abstract/document/11408963",
           "pdf": "",
           "topics": ["other"]
         }
