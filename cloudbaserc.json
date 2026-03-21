@@ -1,0 +1,20 @@
+{
+  "version": "2.0",
+  "envId": "academic-4gpadgfs73617168",
+  "framework": {
+    "name": "static",
+    "config": {
+      "outputPath": ".",
+      "cloudPath": "/",
+      "ignore": [
+        ".git",
+        ".github",
+        "node_modules",
+        "cloudbaserc.json",
+        "*.ps1",
+        "*.bat",
+        "done"
+      ]
+    }
+  }
+}
