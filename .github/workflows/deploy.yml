@@ -6,6 +6,10 @@ on:
       - master
   workflow_dispatch:   # 允许手动触发
 
+# 强制使用 Node.js 24（避免弃用警告）
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 # GitHub Pages 需要这个权限
 permissions:
   contents: read
