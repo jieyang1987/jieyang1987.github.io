@@ -511,10 +511,10 @@
     // 研究方向索引列表 - 桌面端卡片布局，移动端保持列表
     const indexList = document.getElementById('research-index-list');
     if (indexList) {
-      indexList.innerHTML = resData.directions.map(d => `
+      indexList.innerHTML = resData.directions.map((d, i) => `
         <li class="research-index-card">
           <a href="#${d.id}">
-            <span class="index-card-number">${resData.directions.indexOf(d) + 1}</span>
+            <span class="index-card-number">${i + 1}</span>
             <span class="index-card-title">${d.title[lang]}</span>
           </a>
         </li>
