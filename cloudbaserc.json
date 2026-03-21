@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "envId": "academic-4gpadgfs73617168",
+  "envId": "{{ENV_ID}}",
   "framework": {
     "name": "static",
     "config": {
