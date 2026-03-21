@@ -54,6 +54,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup CloudBase Config
+        run: |
+          sed -i 's/{{ENV_ID}}/${{ secrets.CLOUDBASE_ENV_ID }}/g' cloudbaserc.json
+
       - name: Deploy to CloudBase
         uses: TencentCloudBase/cloudbase-action@v2
         with:
