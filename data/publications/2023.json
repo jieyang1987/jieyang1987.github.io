@@ -1,0 +1,325 @@
+{
+  "journals": [
+    {
+      "year": 2023,
+      "items": [
+        {
+          "authors": "F. Xia, H. Li, Y. Li, X. Liu, Y. Xu, C. Fang, Q. Hou, S. Lin, Z. Zhang, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "Minimally Invasive Hypoglossal Nerve Stimulator Enabled by ECG Sensor and WPT to Manage Obstructive Sleep Apnea",
+          "venue": "MDPI Sensors",
+          "venueHighlight": false,
+          "url": "https://www.mdpi.com/1424-8220/23/21/8882",
+          "pdf": "",
+          "topics": [
+            "neuromodulation"
+          ]
+        },
+        {
+          "authors": "D. Wu, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "Transfer Learning on Electromyography (EMG) Tasks: Approaches and Beyond",
+          "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/10184170",
+          "pdf": "",
+          "topics": [
+            "bci",
+            "decoding"
+          ]
+        },
+        {
+          "authors": "H. Wu, J. Chen, X. Liu, W. Zou, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "An Energy-Efficient Small-Area Configurable Analog Front-End Interface for Diverse Biosignals Recording",
+          "venue": "IEEE Transactions on Biomedical Circuits and Systems",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/10177203",
+          "pdf": "",
+          "topics": [
+            "bci"
+          ]
+        },
+        {
+          "authors": "C. Wang, C. Fang, Y. Zou, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "SpikeSEE: An energy-efficient dynamic scenes processing framework for retinal prostheses",
+          "venue": "Neural Networks",
+          "venueHighlight": false,
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/S0893608023002332",
+          "pdf": "",
+          "topics": [
+            "bci",
+            "neuromorphic"
+          ]
+        },
+        {
+          "authors": "C. Fang, C. Wang, S. Zhao, F. Tian, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "A 510μW 0.738-mm² 6.2-pJ/SOP Online Learning Multi-Topology SNN Processor with Unified Computation Engine in 40-nm CMOS",
+          "venue": "IEEE Transactions on Biomedical Circuits and Systems",
+          "venueHighlight": false,
+          "award": "TBioCAS Best Neuromorphic Paper of 2023",
+          "url": "https://ieeexplore.ieee.org/abstract/document/10132492",
+          "pdf": "papers/2023_TBioCAS_A_510_muW_0.738-mm2_6.2-pJ_SOP_Online_Learning_Multi-Topology_SNN_Processor_With_Unified_Computation_Engine_in_40-nm_CMOS.pdf",
+          "topics": [
+            "neuromorphic"
+          ],
+          "abstract": "Implementing neural networks (NN) on edge devices enables AI to be applied in many daily scenarios. The stringent area and power budget on edge devices impose challenges on conventional NNs with massive energy-consuming Multiply Accumulation (MAC) operations and offer an opportunity for Spiking Neural Networks (SNN), which can be implemented within sub-mW power budget. However, mainstream SNN topologies varies from Spiking Feedforward Neural Network (SFNN), Spiking Recurrent Neural Network (SRNN), to Spiking Convolutional Neural Network (SCNN), and it is challenging for the edge SNN processor to adapt to different topologies. Besides, online learning ability is critical for edge devices to adapt to local environments but comes with dedicated learning modules, further increasing area and power consumption burdens. To alleviate these problems, this work proposed RAINE, a reconfigurable neuromorphic engine supporting multiple SNN topologies and a dedicated trace-based rewarded spike-timing-dependent plasticity (TR-STDP) learning algorithm. Sixteen Unified-Dynamics Learning-Engines (UDLEs) are implemented in RAINE to realize a compact and reconfigurable implementation of different SNN operations. Three topology-aware data reuse strategies are proposed and analyzed to optimize the mapping of different SNNs on RAINE. A 40-nm prototype chip is fabricated, achieving energy-per-synaptic-operation (SOP) of 6.2 pJ/SOP at 0.51 V, and power consumption of 510 µW at 0.45 V. Finally, three examples with different SNN topologies, including SRNN-based ECG arrhythmia detection, SCNN-based 2D image classification, and end-to-end on-chip learning for MNIST digit recognition, are demonstrated on RAINE with ultra-low energy consumption of 97.7nJ/step, 6.28 µJ/sample, and 42.98 µJ/sample respectively. These results show the feasibility of obtaining high-performance SNN processing within stringent edge constraints."
+        },
+        {
+          "authors": "S. Zhao, <strong>J. Yang*</strong>, J. Wang, C. Fang, T. Liu, S. Zhang, M. Sawan",
+          "title": "A 0.99-to-4.38 μJ/class Event-Driven Hybrid Neural Network Processor for Full-Spectrum Neural Signal Analyses",
+          "venue": "IEEE Transactions on Biomedical Circuits and Systems",
+          "venueHighlight": false,
+          "award": "TBioCAS Best Neuromorphic Paper of 2023",
+          "url": "https://ieeexplore.ieee.org/document/10105432",
+          "pdf": "papers/2023_TBioCAS_A_0.99-to-4.38_uJ_class_Event-Driven_Hybrid_Neural_Network_Processor_for_Full-Spectrum_Neural_Signal_Analyses.pdf",
+          "topics": [
+            "neuromorphic",
+            "bci"
+          ],
+          "abstract": "Versatile and energy-efficient neural signal processors are in high demand in brain-machine interfaces and closed-loop neuromodulation applications. In this paper, we propose an energy-efficient processor for neural signal analyses. The proposed processor utilizes three key techniques to efficiently improve versatility and energy efficiency. 1) Hybrid neural network design: The processor supports artificial neural network (ANN)- and spiking neural network (SNN)-based neuromorphic processing where ANN is used to support the processing of ExG signals and SNN is used for handling neural spike signals. 2) Event-driven processing: The processor can perform always-on binary neural network (BNN)-based event detection with low-energy consumption, and it only switches to the high-accuracy convolutional neural network (CNN)-based recognition mode when events are detected. 3) Reconfigurable architecture: By exploiting the computational similarity of different neural networks, the processor supports critical BNN, CNN, and SNN operations with the same processing elements, achieving significant area reduction and energy efficiency improvement over those of a naive implementation. It achieves 90.05% accuracy and 4.38 uJ/class in a center-out reaching task with an SNN and 99.4% sensitivity, 98.6% specificity, and 1.93 uJ/class in an EEG-based seizure prediction task with dual neural network-based event-driven processing. Moreover, it achieves high accuracy and low energy consumption across multiple neural signal analysis tasks."
+        },
+        {
+          "authors": "Y. Chen, <strong>J. Yang</strong>, H. Wu, K. Beier, M. Sawan",
+          "title": "Challenges and future trends in wearable closed-loop neuromodulation to efficiently treat methamphetamine addiction",
+          "venue": "Frontiers in Psychiatry",
+          "venueHighlight": false,
+          "url": "https://www.frontiersin.org/articles/10.3389/fpsyt.2023.1085036/full",
+          "pdf": "",
+          "topics": [
+            "neuromodulation"
+          ]
+        },
+        {
+          "authors": "D. Wu, S. Zhao, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "Software-Hardware Co-Design for Energy-Efficient Continuous Health Monitoring Via Task-Aware Compression",
+          "venue": "IEEE Transactions on Biomedical Circuits and Systems",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/10024315/",
+          "pdf": "",
+          "topics": [
+            "bci",
+            "decoding"
+          ]
+        },
+        {
+          "authors": "F. Tian, <strong>J. Yang*</strong>, S. Zhao, M. Sawan",
+          "title": "NeuroCARE: A generic neuromorphic edge computing framework for healthcare applications",
+          "venue": "Frontiers in Neuroscience",
+          "venueHighlight": false,
+          "url": "https://www.frontiersin.org/articles/10.3389/fnins.2023.1093865/full",
+          "pdf": "",
+          "topics": [
+            "neuromorphic",
+            "neuromodulation"
+          ]
+        },
+        {
+          "authors": "C. Wang, C. Fang, Y. Zou, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "Artificial intelligence techniques for retinal prostheses: A comprehensive review and future direction",
+          "venue": "Journal of Neural Engineering",
+          "venueHighlight": false,
+          "url": "https://iopscience.iop.org/article/10.1088/1741-2552/acb295",
+          "pdf": "",
+          "topics": [
+            "bci"
+          ]
+        },
+        {
+          "authors": "D. Wu, Y. Shi, Z. Wang, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "C²SP-Net: joint compression and classification network for epilepsy seizure prediction",
+          "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/10012381",
+          "pdf": "",
+          "topics": [
+            "neuromodulation"
+          ]
+        },
+        {
+          "authors": "J. Chen, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "Emerging trends of integrated-mixed-signal chips in ISSCC 2023",
+          "venue": "Journal of Semiconductors",
+          "venueHighlight": false,
+          "url": "https://iopscience.iop.org/article/10.1088/1674-4926/44/5/050204",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        }
+      ]
+    }
+  ],
+  "conferences": [
+    {
+      "year": 2023,
+      "items": [
+        {
+          "authors": "D. Wu, <strong>J. Yang*</strong>, M. Sawan*",
+          "title": "Task-aware Compression for Wearable Sensor Data",
+          "venue": "2023 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/10389127",
+          "pdf": "",
+          "topics": [
+            "decoding"
+          ]
+        },
+        {
+          "authors": "F. Tian, S. Zhao, J. He, J. Chen, X. Wang, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui, K-T. Cheng",
+          "title": "NOLS: A Near-sensor On-chip Learning System with Direct Feedback Alignment for Personalized Wearable Heart Health Monitoring",
+          "venue": "2023 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/10388760/",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "H. Li, F. Tian, <strong>J. Yang</strong>, M. Sawan, N. El-Atab",
+          "title": "NMBNN: Noise-Adaptive Memristive Bayesian Neural Network for Energy-Efficient Edge Health Care",
+          "venue": "2023 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/10388528",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "J. Chen, X. Liu, H. Wu, F. Tian, W. Zou, M. Katebi, R. Eskandari, <strong>J. Yang*</strong>, M. Sawan*",
+          "title": "A Clockless Robust Bionic Spike Detector for Implantable Brain-Computer Interfaces",
+          "venue": "2023 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/10388732/",
+          "pdf": "",
+          "topics": [
+            "bci"
+          ]
+        },
+        {
+          "authors": "T. Li, <strong>J. Yang</strong>, T. Liu, S. Dong, W. Chen, S. Zhang",
+          "title": "A Sparsity-Adapted Hardware Implementation of SNN for Cortical Spike Trains Decoding",
+          "venue": "2023 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/10389111",
+          "pdf": "",
+          "topics": [
+            "neuromorphic",
+            "bci"
+          ]
+        },
+        {
+          "authors": "W. Zou, R. Eskandari, X. Liu, J. Chen, <strong>J. Yang*</strong>, M. Sawan*",
+          "title": "Wireless Data Transceivers for Brain-machine Interfaces",
+          "venue": "2023 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/10388570",
+          "pdf": "",
+          "topics": [
+            "bci"
+          ]
+        },
+        {
+          "authors": "J. Wang, S. Zhao, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "An Event-driven Neural Signal Processor for Closed-loop Seizure Prediction",
+          "venue": "2023 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/10388818",
+          "pdf": "",
+          "topics": [
+            "neuromodulation"
+          ]
+        },
+        {
+          "authors": "F. Tian, X. Wang, J. Chen, J. Zheng, H. Wu, X. Liu, F. Tu, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui",
+          "title": "BIOS: A 40nm Bionic Sensor-defined 0.47 pJ/SOP, 268.7 TSOPs/W Configurable Spiking Neuron-in-Memory Processor for Wearable Healthcare",
+          "venue": "ESSCIRC 2023 - IEEE 49th European Solid State Circuits Conference (ESSCIRC)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/10268765",
+          "pdf": "",
+          "topics": [
+            "neuromorphic",
+            "other"
+          ]
+        },
+        {
+          "authors": "J. Wang, S. Zhao, C. Fang, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "Live Demonstration: Real-time Analyses of Biosignals based on a Dedicated CMOS Configurable Deep Learning Engine",
+          "venue": "2023 IEEE 5th International Conference on Artificial Intelligence Circuits and Systems (AICAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/10168631",
+          "pdf": "",
+          "topics": [
+            "neuromodulation"
+          ]
+        },
+        {
+          "authors": "H. Li, A. Lone, F. Tian, <strong>J. Yang</strong>, M. Sawan, N. El-Atab",
+          "title": "Novel Knowledge Distillation to Improve Training Accuracy of Spin-based SNN",
+          "venue": "2023 IEEE 5th International Conference on Artificial Intelligence Circuits and Systems (AICAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/10168575",
+          "pdf": "",
+          "topics": [
+            "neuromorphic"
+          ]
+        },
+        {
+          "authors": "Z. Shen, C. Fang, F. Tian, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "PN-TMS: Pruned Node-fusion Tree-based Multicast Scheme for Efficient Neuromorphic Systems",
+          "venue": "2023 IEEE 5th International Conference on Artificial Intelligence Circuits and Systems (AICAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/10168590",
+          "pdf": "",
+          "topics": [
+            "neuromorphic"
+          ]
+        },
+        {
+          "authors": "J. Chen, H. Wu, X. Liu, R. Eskandari, F. Tian, W. Zou, C. Fang, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "NeuroBMI: A New Neuromorphic Implantable Wireless Brain Machine Interface with A 0.48 µW Event-Driven Noise-Tolerant Spike Detector",
+          "venue": "2023 IEEE 5th International Conference on Artificial Intelligence Circuits and Systems (AICAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/10168619",
+          "pdf": "",
+          "topics": [
+            "bci"
+          ]
+        },
+        {
+          "authors": "F. Tian, X. Wang, J. Chen, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui",
+          "title": "Binary is All You Need: Ultra-Efficient Arrhythmia Detection with a Binary-Only Compressive System",
+          "venue": "2023 IEEE 5th International Conference on Artificial Intelligence Circuits and Systems (AICAS)",
+          "venueHighlight": false,
+          "award": "Best Paper Award",
+          "url": "https://ieeexplore.ieee.org/document/10168576",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "J. He, Z. Shen, F. Tian, J. Chen, <strong>J. Yang</strong>, M. Sawan, T. Cheng, P. Bogdan, C-Y. Tsui",
+          "title": "SNNOpt: An Application-Specific Design Framework for Spiking Neural Networks",
+          "venue": "2023 IEEE 5th International Conference on Artificial Intelligence Circuits and Systems (AICAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/10168605",
+          "pdf": "",
+          "topics": [
+            "neuromorphic"
+          ]
+        },
+        {
+          "authors": "Z. Shen, F. Tian, J. Jiang, C. Fang, X. Xue, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "NBSSN: A Neuromorphic Binary Single-Spike Neural Network for Efficient Edge Intelligence",
+          "venue": "2023 IEEE International Symposium on Circuits and Systems (ISCAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/10181850",
+          "pdf": "",
+          "topics": [
+            "neuromorphic"
+          ]
+        }
+      ]
+    }
+  ]
+}

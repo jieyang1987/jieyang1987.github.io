@@ -1,0 +1,218 @@
+{
+  "journals": [
+    {
+      "year": 2024,
+      "items": [
+        {
+          "authors": "C. Fang, Z. Shen, Z. Wang, C. Wang, S. Zhao, F. Tian, <strong>J. Yang*</strong>, M. Sawan*",
+          "title": "An Energy-Efficient Unstructured Sparsity-Aware Deep SNN Accelerator With 3-D Computation Array",
+          "venue": "IEEE Journal of Solid-State Circuits",
+          "venueHighlight": true,
+          "url": "https://ieeexplore.ieee.org/abstract/document/10777513/",
+          "pdf": "papers/2025_JSSC_An_Energy-Efficient_Unstructured_Sparsity-Aware_Deep_SNN_Accelerator_With_3-D_Computation_Array.pdf",
+          "topics": [
+            "neuromorphic"
+          ],
+          "abstract": "Deep spiking neural networks (DSNNs), such as spiking transformers, have demonstrated comparable perfor- mance to artificial neural networks (ANNs). With higher spike input sparsity and the utilization of accumulation (AC)-only operations, DSNNs have great potential for achieving high energy efficiency. Many researchers have proposed neuromorphic processors to accelerate spiking neural networks (SNNs) with dedicated architectures. However, three problems still exist when processing DSNNs, including redundant memory access among timesteps, inefficiency in exploiting unstructured sparsity in spikes, and the lack of optimizations for new operators involved in DSNNs. In this work, an accelerator for deep and sparse SNNs is proposed with three design features: a 3-D computation array that allows parallel computation of multiple timesteps to maximize weight data reuse and reduce external memory access; a parallel non-zero data fetcher that efficiently searches non-zero spike positions and fetches corresponding weights to reduce com- putation latency; and a multimode unified computation scheduler that can be configured to maximize energy efficiency for spiking convolution (SCONV), spiking Q,K,andVmatrix generation, and spiking self-attention (SSA). The accelerator is implemented and fabricated using 40-nm CMOS technology."
+        },
+        {
+          "authors": "F. Tian, J. Chen, J. Zheng, H. Wu, J. He, X. Wang, C. Fang, Y. Yao, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui, Kwang-Ting Tim Cheng",
+          "title": "BioPI: An Energy Efficient and Low-Latency Neuromorphic Pipelined System with Joint Design Optimizations of Sensor-Algorithm-Processor for Wearable Healthcare",
+          "venue": "IEEE Transactions on Circuits and Systems for Artificial Intelligence",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/10762792/",
+          "pdf": "",
+          "topics": [
+            "neuromorphic"
+          ]
+        },
+        {
+          "authors": "D. Wu, S. Li, <strong>J. Yang*</strong>, M. Sawan*",
+          "title": "Neuro-BERT: Rethinking Masked Autoencoding for Self-Supervised Neurological Pretraining",
+          "venue": "IEEE Journal of Biomedical and Health Informatics",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/10561479",
+          "pdf": "",
+          "topics": [
+            "decoding",
+            "bci"
+          ]
+        },
+        {
+          "authors": "S. Zhao, C. Wang, C. Fang, F. Tian, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "HybMED: A Hybrid Neural Network Training Processor with Multi-Sparsity Exploitation for Internet of Medical Things",
+          "venue": "IEEE Transactions on Biomedical Circuits and Systems",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/10504647/",
+          "pdf": "",
+          "topics": [
+            "neuromorphic"
+          ]
+        },
+        {
+          "authors": "<strong>J. Yang</strong>, S. Zhao, J. Wang, S. Lin, Q. Hou, M. Sawan",
+          "title": "Precise and low-power closed-loop neuromodulation through algorithm-integrated circuit co-design",
+          "venue": "Frontiers in Neuroscience",
+          "venueHighlight": false,
+          "url": "https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2024.1340164/full",
+          "pdf": "",
+          "topics": [
+            "neuromodulation"
+          ]
+        },
+        {
+          "authors": "Y. Xu, <strong>J. Yang</strong>, W. Ming, S. Wang, M. Sawan",
+          "title": "Shorter latency of real-time epileptic seizure detection via probabilistic prediction",
+          "venue": "Expert Systems with Applications",
+          "venueHighlight": false,
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/S0957417423018614",
+          "pdf": "",
+          "topics": [
+            "neuromodulation"
+          ]
+        }
+      ]
+    }
+  ],
+  "conferences": [
+    {
+      "year": 2024,
+      "items": [
+        {
+          "authors": "J. Chen, H. Wu, R. Eskandari, X. Liu, S. Lin, Q. Hou, F. Tian, W. Zou, <strong>J. Yang*</strong>, M. Sawan*",
+          "title": "A Neuron-Inspired 0.0032mm²−1.38μW/Ch Wireless Implantable Neural Interface with Direct Multiplexing Front-End and Event-Driven Spike Detection and Transmission",
+          "venue": "2024 IEEE Custom Integrated Circuits Conference (CICC)",
+          "venueHighlight": true,
+          "url": "https://ieeexplore.ieee.org/abstract/document/10529097",
+          "pdf": "",
+          "topics": [
+            "bci"
+          ]
+        },
+        {
+          "authors": "C. Fang, Z. Yang, S. Zhao, C. Wang, F. Tian, <strong>J. Yang*</strong>, M. Sawan*",
+          "title": "A 0.078 pJ/SOP Unstructured Sparsity-Aware Spiking Attention/Convolution Processor with 3D Compute Array",
+          "venue": "2024 IEEE Custom Integrated Circuits Conference (CICC)",
+          "venueHighlight": true,
+          "url": "https://ieeexplore.ieee.org/abstract/document/10529019",
+          "pdf": "",
+          "topics": [
+            "neuromorphic"
+          ]
+        },
+        {
+          "authors": "C. Wang, D. Wu, C. Fang, <strong>J. Yang*</strong>, M. Sawan*",
+          "title": "Exploring Effective Stimulus Encoding via Vision System Modeling for Visual Prostheses",
+          "venue": "2024 The Twelfth International Conference on Learning Representations (ICLR)",
+          "venueHighlight": true,
+          "url": "https://openreview.net/forum?id=cKAUvMePUN",
+          "pdf": "",
+          "topics": [
+            "bci",
+            "neuromorphic"
+          ]
+        },
+        {
+          "authors": "Y. Xu, J. Wang, Y-H. Chen, <strong>J. Yang</strong>, W. Ming, S. Wang, M. Sawan",
+          "title": "VSViG: Real-Time Video-Based Seizure Detection via Skeleton-Based Spatiotemporal ViG",
+          "venue": "2024 European Conference on Computer Vision (ECCV)",
+          "venueHighlight": true,
+          "url": "https://link.springer.com/chapter/10.1007/978-3-031-73007-8_14",
+          "pdf": "",
+          "topics": [
+            "neuromodulation"
+          ]
+        },
+        {
+          "authors": "Xu. Liang, X. Kuang, <strong>J. Yang</strong>, L. Wang",
+          "title": "A Fast Transient Response Output-capacitorless LDO With Low Quiescent Power",
+          "venue": "2024 3rd International Conference on Electronics and Information Technology (EIT)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/10762683/",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "J. Wang, C. Fang, Z. Shen, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "Live Demonstration: Low-energy Unstructured Sparsity-aware Spiking Attention and Convolution SNN Accelerator",
+          "venue": "2024 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/10798227",
+          "pdf": "",
+          "topics": [
+            "neuromorphic"
+          ]
+        },
+        {
+          "authors": "W. Zou, R. Eskandari, X. Liu, J. Chen, Y. Ye, H. Wu, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "A 34 μW and 3.4 pJ/b IR-UWB Transmitter Featuring Spectrum Tunability for Brain-Machine Interfaces",
+          "venue": "2024 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/10798161",
+          "pdf": "",
+          "topics": [
+            "bci"
+          ]
+        },
+        {
+          "authors": "X. Liu, W. Zou, H. Wu, J. Chen, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "A Reconfigurable RF Energy Harvesting Front-end Interface for Biomedical Applications",
+          "venue": "2024 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/10798305",
+          "pdf": "",
+          "topics": [
+            "bci"
+          ]
+        },
+        {
+          "authors": "Z. Shen, X. Xie, C. Fang, F. Tian, S. Ma, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "NeuroSORT: A Neuromorphic Accelerator for Spike-based Online and Real-time Tracking",
+          "venue": "2024 IEEE 6th International Conference on AI Circuits and Systems (AICAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/10595908/",
+          "pdf": "",
+          "topics": [
+            "neuromorphic"
+          ]
+        },
+        {
+          "authors": "F. Tian, J. Zheng, J. He, J. Chen, X. Wang, C. Fang, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui, K-T. Cheng",
+          "title": "BOLS: A Bionic Sensor-direct On-chip Learning System with Direct-Feedback-Through-Time for Personalized Wearable Health Monitoring",
+          "venue": "2024 IEEE International Symposium on Circuits and Systems (ISCAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/10558462",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "J. Chen, H. Wu, F. Tian, Q. Hou, S. Lin, <strong>J. Yang*</strong>, M. Sawan*",
+          "title": "A Low-Power Level-Crossing Analog-to-Spike Converter Intended for Neuromorphic Biomedical Applications",
+          "venue": "2024 IEEE International Symposium on Circuits and Systems (ISCAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/10558258",
+          "pdf": "",
+          "topics": [
+            "neuromorphic",
+            "bci"
+          ]
+        },
+        {
+          "authors": "C. Fang, F. Tian, <strong>J. Yang*</strong>, M. Sawan*",
+          "title": "Accelerating BPTT-Based SNN Training with Sparsity-Aware and Pipelined Architecture",
+          "venue": "2024 IEEE International Symposium on Circuits and Systems (ISCAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/10558101",
+          "pdf": "",
+          "topics": [
+            "neuromorphic"
+          ]
+        }
+      ]
+    }
+  ]
+}

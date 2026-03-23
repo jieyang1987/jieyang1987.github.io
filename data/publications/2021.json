@@ -1,0 +1,61 @@
+{
+  "journals": [
+    {
+      "year": 2021,
+      "items": [
+        {
+          "authors": "Z. Wang, <strong>J. Yang*</strong>, H. Wu, J. Zhu, M. Sawan",
+          "title": "Power efficient refined seizure prediction algorithm based on an enhanced benchmarking",
+          "venue": "Scientific Reports",
+          "venueHighlight": false,
+          "url": "https://www.nature.com/articles/s41598-021-02798-8",
+          "pdf": "",
+          "topics": [
+            "neuromodulation"
+          ]
+        },
+        {
+          "authors": "S. Zhao, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "Energy-efficient neural network for epileptic seizure prediction",
+          "venue": "IEEE Transactions on Biomedical Engineering",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/9479737",
+          "pdf": "",
+          "topics": [
+            "neuromodulation"
+          ]
+        }
+      ]
+    }
+  ],
+  "conferences": [
+    {
+      "year": 2021,
+      "items": [
+        {
+          "authors": "Z. Wang, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "A Novel Multi-scale Dilated 3D CNN for Epileptic Seizure Prediction",
+          "venue": "2021 IEEE 3rd International Conference on Artificial Intelligence Circuits and Systems (AICAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/9458571/",
+          "pdf": "",
+          "topics": [
+            "neuromodulation"
+          ]
+        },
+        {
+          "authors": "F. Tian, <strong>J. Yang*</strong>, S. Zhao, M. Sawan",
+          "title": "A New Neuromorphic Computing Approach for Epileptic Seizure Prediction",
+          "venue": "2021 IEEE International Symposium on Circuits and Systems (ISCAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/9401560",
+          "pdf": "",
+          "topics": [
+            "neuromodulation",
+            "neuromorphic"
+          ]
+        }
+      ]
+    }
+  ]
+}

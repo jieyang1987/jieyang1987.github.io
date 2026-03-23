@@ -1,0 +1,381 @@
+{
+  "journals": [
+    {
+      "year": 2020,
+      "label": "2020及以前",
+      "items": [
+        {
+          "authors": "<strong>J. Yang</strong>, M. Sawan",
+          "title": "From Seizure Detection to Smart and Fully Embedded Seizure Prediction Engine: A Review",
+          "venue": "IEEE Transactions on Biomedical Circuits and Systems",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/9173735",
+          "pdf": "",
+          "topics": [
+            "neuromodulation"
+          ]
+        },
+        {
+          "authors": "李鸿龙, <strong>杨杰</strong>, 张忠星, 罗迁, 于双铭, 刘力源, 吴南健",
+          "title": "用于实时目标检测的高速可编程视觉芯片",
+          "venue": "红外与激光工程",
+          "venueHighlight": false,
+          "url": "http://www.irla.cn/en/article/doi/10.3788/IRLA20190553",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "<strong>J. Yang</strong>, U. Shahnovich, O. Yadid-Pecht",
+          "title": "Mantissa-Exponent-Based Tone Mapping for Wide Dynamic Range Image Sensors",
+          "venue": "IEEE Transactions on Circuits and Systems II: Express Briefs",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/8660478",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "<strong>杨杰</strong>, Orly Yadid-Pecht",
+          "title": "用于高动态图像色调映射的算法和硬件",
+          "venue": "微纳电子与智能制造",
+          "venueHighlight": false,
+          "url": "https://wndz.cbpt.cnki.net/WKD/WebPublication/wkTextContent.aspx?colType=4&yt=2019&st=03",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "<strong>J. Yang</strong>, A. Hore, O. Yadid-Pecht",
+          "title": "Local tone mapping algorithm and hardware implementation",
+          "venue": "Electronics Letters",
+          "venueHighlight": false,
+          "url": "https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/el.2017.3227",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "<strong>J. Yang</strong>, Y. Yang, Z. Chen, L. Liu, J. Liu, N. Wu",
+          "title": "A Heterogeneous Parallel Processor for High-Speed Vision Chip",
+          "venue": "IEEE Transactions on Circuits and Systems for Video Technology",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/7593227",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "Z. Liu, L. Liu, <strong>J. Yang</strong>, N. Wu",
+          "title": "A CMOS fully integrated 860-GHz terahertz sensor",
+          "venue": "IEEE Transactions on Terahertz Science and Technology",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/7926419",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "Y. Yang, <strong>J. Yang</strong>, Z. Zhang, L. Liu, N. Wu",
+          "title": "High-speed visual target tracking with mixed rotation invariant description and skipping searching",
+          "venue": "Science China Information Science",
+          "venueHighlight": false,
+          "url": "https://link.springer.com/article/10.1007/s11432-016-0037-0",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "V. Nshunguyimfura, <strong>J. Yang</strong>, L. Liu, N. Wu",
+          "title": "Property-driven functional verification technique for high-speed vision system-on-chip processor",
+          "venue": "Japanese Journal of Applied Physics",
+          "venueHighlight": false,
+          "url": "https://iopscience.iop.org/article/10.7567/JJAP.56.04CF15",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "Z. Chen, <strong>J. Yang</strong>, C. Shi, Q. Qin, L. Liu, N. Wu",
+          "title": "High speed vision processor with reconfigurable processing element array based on full-custom distributed memory",
+          "venue": "Japanese Journal of Applied Physics",
+          "venueHighlight": false,
+          "url": "https://iopscience.iop.org/article/10.7567/JJAP.55.04EF08/meta",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "Y. Yang, <strong>J. Yang</strong>, Z. Zhang, L. Liu, N. Wu",
+          "title": "High-speed visual tracking with mixed rotation invariant description",
+          "venue": "Electronics Letters",
+          "venueHighlight": false,
+          "url": "https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/el.2015.3071",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "Y. Yang, <strong>J. Yang</strong>, L. Liu, N. Wu",
+          "title": "High-Speed Target Tracking System Based on a Hierarchical Parallel Vision Processor and Gray-Level LBP Algorithm",
+          "venue": "IEEE Transactions on Systems, Man, and Cybernetics: Systems",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/7414458",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "<strong>J. Yang</strong>, C. Shi, L. Liu, J. Liu, N. Wu",
+          "title": "Pixel-parallel feature detection on vision chip",
+          "venue": "Electronics Letters",
+          "venueHighlight": false,
+          "url": "https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/el.2014.1787",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "C. Shi, <strong>J. Yang</strong>, L. Liu, N. Wu, Z. Wang",
+          "title": "A massively parallel keypoint detection and description (MP-KDD) algorithm for high-speed vision chip",
+          "venue": "Science China Information Science",
+          "venueHighlight": false,
+          "url": "https://link.springer.com/article/10.1007/s11432-014-5174-9",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "C. Shi, <strong>J. Yang</strong>, Y. Han, Z. Cao, Q. Qin, L. Liu, N. Wu, Z. Wang",
+          "title": "A 1000 fps Vision Chip Based on a Dynamically Reconfigurable Hybrid Architecture Comprising a PE Array Processor and Self-Organizing Map Neural Network",
+          "venue": "IEEE Journal of Solid-State Circuits",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/6853420",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "S. Cong, C. Zhe, <strong>Y. Jie</strong>, W. Nanjian, W. Zhihua",
+          "title": "A compact PE memory for vision chips",
+          "venue": "Journal of Semiconductors",
+          "venueHighlight": false,
+          "url": "https://iopscience.iop.org/article/10.1088/1674-4926/35/9/095002",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "C. Shi, <strong>J. Yang</strong>, N. Wu, Z. Wang",
+          "title": "A high speed multi-level-parallel array processor for vision chips",
+          "venue": "Science China Information Sciences",
+          "venueHighlight": false,
+          "url": "https://link.springer.com/article/10.1007/s11432-013-4969-4",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "<strong>J. Yang</strong>, C. Shi, L. Liu, N. Wu",
+          "title": "Heterogeneous vision chip and LBP-based algorithm for high-speed tracking",
+          "venue": "Electronics Letters",
+          "venueHighlight": false,
+          "url": "https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/el.2014.0033",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        }
+      ]
+    }
+  ],
+  "conferences": [
+    {
+      "year": 2020,
+      "label": "2020及以前",
+      "items": [
+        {
+          "authors": "S. Zhao, <strong>J. Yang*</strong>, Y. Xu, M. Sawan",
+          "title": "Binary Single-Dimensional Convolutional Neural Network for Seizure Prediction",
+          "venue": "2020 IEEE International Symposium on Circuits and Systems (ISCAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/9180430",
+          "pdf": "",
+          "topics": [
+            "neuromodulation"
+          ]
+        },
+        {
+          "authors": "Y. Xu, <strong>J. Yang*</strong>, S. Zhao, H. Wu, M. Sawan",
+          "title": "An End-to-End Deep Learning Approach for Epileptic Seizure Prediction",
+          "venue": "2020 2nd IEEE International Conference on Artificial Intelligence Circuits and Systems (AICAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/9073988",
+          "pdf": "",
+          "topics": [
+            "neuromodulation"
+          ]
+        },
+        {
+          "authors": "M. Lin, <strong>J. Yang</strong>, O. Yadid-Pecht",
+          "title": "Deep Single Image Enhancer",
+          "venue": "2019 16th IEEE International Conference on Advanced Video and Signal Based Surveillance (AVSS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/8909891",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "<strong>J. Yang</strong>, A. Horé, U. Shahnovich, K. Lai, S. Yanushkevich, O. Yadid-Pecht",
+          "title": "Multi-Scale histogram tone mapping algorithm enables better object detection in wide dynamic range images",
+          "venue": "Advanced Video and Signal Based Surveillance (AVSS), 2017 14th IEEE International Conference on",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/8078533",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "H. Zheng, <strong>J. Yang</strong>, J. Chen",
+          "title": "A performance evaluation method for infrared tracker",
+          "venue": "2017 International Conference on Image and Vision Computing New Zealand (IVCNZ)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/8402462",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "<strong>J. Yang</strong>, A. Hore, U. Shahnovich, O. Yadid-Pecht",
+          "title": "Multi-Scale histogram tone mapping algorithm for display of wide dynamic range images",
+          "venue": "2017 IEEE 7th International Workshop on Computational Advances in Multi-Sensor Adaptive Processing (CAMSAP)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/8313070",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "Z. Liu, L. Liu, <strong>J. Yang</strong>, N. Wu",
+          "title": "A fully-integrated 860-GHz CMOS terahertz sensor",
+          "venue": "2015 IEEE Asian Solid-State Circuits Conference (A-SSCC)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/7387437",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "Z. Zhang, <strong>J. Yang</strong>, H. Li, L. Liu, J. Liu, N. Wu",
+          "title": "High-speed object detection based on a hierarchical parallel vision chip",
+          "venue": "2015 IEEE 11th International Conference on ASIC (ASICON)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/7516876",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "V. Nshunguyimfura, <strong>J. Yang</strong>, L. Liu, N. Wu",
+          "title": "An efficient layered ABV methodology for vision system on chip based on heterogeneous parallel processors",
+          "venue": "2015 IEEE 11th International Conference on ASIC (ASICON)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/7517029",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "H. Li, Z. Zhang, <strong>J. Yang</strong>, L. Liu, N. Wu",
+          "title": "A novel vision chip architecture for image recognition based on convolutional neural network",
+          "venue": "2015 IEEE 11th International Conference on ASIC (ASICON)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/7516878",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "Z. Chen, <strong>J. Yang</strong>, L. Liu, N. Wu",
+          "title": "Enhanced memory architecture for massively parallel vision chip",
+          "venue": "Selected Papers from Conferences of the Photoelectronic Technology Committee of the Chinese Society of Astronautics 2014, Part II",
+          "venueHighlight": false,
+          "url": "https://www.spiedigitallibrary.org/conference-proceedings-of-spie/9522/95220U/Enhanced-memory-architecture-for-massively-parallel-vision-chip/10.1117/12.2179447.short",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "B. Li, <strong>J. Yang</strong>, Y. Yang, N. Wu",
+          "title": "A high speed vision processor for chip package visual inspection",
+          "venue": "2014 12th IEEE International Conference on Solid-State and Integrated Circuit Technology (ICSICT)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/7021569",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "C. Shi, <strong>J. Yang</strong>, Y. Han, Z. Cao, Q. Qin, L. Liu, N. Wu, Z. Wang",
+          "title": "7.3 A 1000fps vision chip based on a dynamically reconfigurable hybrid architecture comprising a PE array and self-organizing map neural network",
+          "venue": "2014 IEEE International Solid-State Circuits Conference (ISSCC)",
+          "venueHighlight": true,
+          "url": "https://ieeexplore.ieee.org/document/6757367",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "<strong>J. Yang</strong>, C. Shi, Z. Cao, Y. Han, L. Liu, N. Wu",
+          "title": "Smart image sensing system",
+          "venue": "2013 IEEE Sensors Conference",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/6688261",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        },
+        {
+          "authors": "Z. Chen, <strong>J. Yang</strong>, C. Shi, N. Wu",
+          "title": "A novel architecture of local memory for programmable SIMD vision chip",
+          "venue": "2013 IEEE 10th International Conference on ASIC",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/6811989",
+          "pdf": "",
+          "topics": [
+            "other"
+          ]
+        }
+      ]
+    }
+  ]
+}

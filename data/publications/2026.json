@@ -1,0 +1,63 @@
+{
+  "journals": [
+    {
+      "year": 2026,
+      "items": [
+        {
+          "authors": "C. Zhang, Y. Zhang, J. Yu, <strong>J. Yang*</strong>, M. Sawan*",
+          "title": "Event-Fused Hybrid ANN-SNN Architecture for Low-Latency Object Detection in Automotive Vision",
+          "venue": "IEEE Robotics and Automation Letters",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/11386767",
+          "pdf": "papers/2026_IEEE_RAL_Event-Fused_Hybrid_ANN-SNN_Architecture_for_Low-Latency_Object_Detection_in_Automotive_Vision.pdf",
+          "topics": [
+            "neuromorphic"
+          ],
+          "abstract": "—In advanced driver-assistance systems, current com- puter vision algorithms predominantly rely on frame-based RGB cameras, which suffer from high latency in high-speed or sudden- scenario applications due to ﬁxed frame rates. In response to this challenge, event-based cameras have gained attention as a viable substitute, providing markedly higher temporal resolution and greatly diminished latency. However, the asynchronous and sparse nature of event data poses challenges in achieving accu- racy comparable to frame-based algorithms. Leveraging the event- driven nature of Spiking Neural Networks (SNNs), we propose an Event-Fused Hybrid (EFH) architecture for automotive vision. EFH combines Artiﬁcial Neural Networks (ANNs) for static feature extraction from RGB frames with SNNs that dynamically update these features using event streams. This approach enables high- efﬁciency, high-frame-rate object detection with minimal latency. Our method achieves state-of-the-art performance in inter-frame object detection by effectively fusing event data, while the SNN branch signiﬁcantly reduces power consumption during event- stream processing. Furthermore, we deploy the system on a vehicle platform, achieving real-time object detection at 60 FPS using a 15-FPS RGB camera paired with an event camera."
+        },
+        {
+          "authors": "C. Wang, D. Wu, Y. Liao, W. Zheng, Z. Zeng, X. Gao, H. Wu, Z. Zhu, <strong>J. Yang</strong>, L. Zhong, W. Cheng, Y-H. Chen, M. Sawan",
+          "title": "NeuroCLIP: A Multimodal Contrastive Learning Method for rTMS-treated Methamphetamine Addiction Analysis",
+          "venue": "IEEE Journal of Biomedical and Health Informatics",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/11392762",
+          "pdf": "",
+          "topics": [
+            "bci"
+          ]
+        }
+      ]
+    }
+  ],
+  "conferences": [
+    {
+      "year": 2026,
+      "items": [
+        {
+          "authors": "H. Wu, F. Tian, J. Chen, Z. Liao, H. Zhang, X. Liu, W. Zou, S. Cheng, Z. Zhang, J. Xu, C-Y. Tsui, K-T. Cheng, <strong>J. Yang*</strong>, M. Sawan*",
+          "title": "Sparsity-Aware Neural Interface with CIM-Based Predictive Focused Sampling for Hotspot Spike Tracking",
+          "venue": "2026 IEEE International Solid-State Circuits Conference (ISSCC)",
+          "venueHighlight": true,
+          "url": "https://ieeexplore.ieee.org/abstract/document/11409079",
+          "pdf": "papers/2026_ISSCC_A_Sparsity-Aware_Neural_Interface_with_CIM-Based_Predictive_Focused_Sampling_for_Hotspot_Spike_Tracking.pdf",
+          "topics": [
+            "bci"
+          ],
+          "abstract": "The pursuit of high-density neural interfaces is fundamentally limited by strict implant  power, area, and bandwidth budgets, a constraint exacerbated by the disparity between  uniformly distributed hardware and the sparse, non-uniform nature of neural activity [1-6]. Conventional dedicated-per-channel readouts scale poorly in power and area [7-9], while uniform multiplexed scanning wastes critical resources on non-spike signals [10-14]. Some  approaches attempt to mitigate this by sub-sampling large electrode arrays with a limited  set of readout channels [15-21]. However, these methods often rely on static or slowly  adapting techniques such as manual electrode selection [15,16], indirect activity indicators  [17,18], or ofﬂine training to identify active regions [19,20]. These solutions still face  challenges, including frequent recalibration due to chronic electrode drift. While the event- based spatially zooming architecture [22] offers exceptional power efﬁciency, its scalability  is limited by a large silicon footprint"
+        },
+        {
+          "authors": "Y. Li, J. Chen, X. Shen, J. Yang, J. Liu, N. Wu, Z. Zhang, L. Liu",
+          "title": "A 0.65-to-1V-Vdd 10.5-to-11.85GHz Fractional-N Sampling PLL Achieving 71.47fs Integrated Jitter and <-60dBc Near-Integer Fractional Spur in 40nm CMOS",
+          "venue": "2026 IEEE International Solid-State Circuits Conference (ISSCC)",
+          "venueHighlight": true,
+          "url": "https://ieeexplore.ieee.org/abstract/document/11408963",
+          "pdf": "papers/2026_ISSCC_A_0.65-to-1V-VDD_10.5-to-11.85GHz_Fractional-N_Sampling_PLL_Achieving_71.47fs_Integrated_Jitter_and_lt-60dBc_Near-Integer_Fractional_Spur_in_40nm_CMOS.pdf",
+          "topics": [
+            "other"
+          ],
+          "abstract": "This paper presents a 0.65-to-1V, 10.5-to-11.85GHz wide-VDD-range (WV) fractional-N sampling PLL. The QE-reduction WV SPD, high-linearity 2-stage DTC, and DCC-aided QE dithering method are proposed to address the issue of poor phase noise at low-V<sub>DD</sub>, reliability at regular VDD, nonlinearity, and convergence issues at small fractional FCWs. The 40nm prototype achieves 71.47fs jitter, –251.8dB FoM, and <–60dBc near-integer spur."
+        }
+      ]
+    }
+  ]
+}

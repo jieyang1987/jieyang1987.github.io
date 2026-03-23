@@ -255,7 +255,42 @@
   // 论文页面渲染
   // ─────────────────────────────────────────────
 
-  function renderPublicationsPage(pubData) {
+  async function renderPublicationsPage(pubData) {
+    // 如果是新格式（有 yearlyFiles），加载所有年份文件
+    if (pubData.yearlyFiles) {
+      const allData = {
+        filterTopics: pubData.filterTopics,
+        journals: [],
+        conferences: []
+      };
+
+      // 按年份降序排序（字符串年份"2020 and earlier"排在最后）
+      const sortedFiles = [...pubData.yearlyFiles].sort((a, b) => {
+        const yearA = typeof a.year === 'number' ? a.year : 0;
+        const yearB = typeof b.year === 'number' ? b.year : 0;
+        return yearB - yearA;
+      });
+
+      // 按排序后的顺序加载所有文件
+      for (const fileInfo of sortedFiles) {
+        try {
+          const response = await fetch(fileInfo.file);
+          const yearData = await response.json();
+
+          if (yearData.journals) {
+            allData.journals.push(...yearData.journals);
+          }
+          if (yearData.conferences) {
+            allData.conferences.push(...yearData.conferences);
+          }
+        } catch (error) {
+          console.error(`Failed to load ${fileInfo.file}:`, error);
+        }
+      }
+
+      pubData = allData;
+    }
+
     // 渲染筛选按钮
     const filterContainer = document.getElementById('topic-filters');
     if (filterContainer) {
@@ -292,7 +327,7 @@
       const journalCount = pubData.journals.reduce((sum, g) => sum + (g.items ? g.items.length : 0), 0);
       const conferenceCount = pubData.conferences.reduce((sum, g) => sum + (g.items ? g.items.length : 0), 0);
       const totalCount = journalCount + conferenceCount;
-      
+
       mobilePubStats.innerHTML = `
         <a href="#journal" class="pub-stat-item" style="text-decoration: none; color: inherit;">
           <span class="pub-stat-label">期刊论文</span>
@@ -334,6 +369,9 @@
     // 绑定筛选按钮事件
     bindTopicFilter();
 
+    // 绑定摘要按钮事件
+    bindAbstractButtons();
+
     // 渲染论文统计徽章
     renderPublicationStats();
   }
@@ -342,10 +380,12 @@
     let html = '<ol class="publications-list" reversed>';
     // 计算 li 数量用于 reversed
     const liCount = items.filter(i => i.type === 'item').length;
+    let itemIndex = 0;
     items.forEach(item => {
       if (item.type === 'heading') {
         html += `<h3 id="${item.id}">${item.label}</h3>`;
       } else {
+        itemIndex++;
         const topicsStr = Array.isArray(item.topics) ? item.topics.join(' ') : (item.topics || '');
         const venueHtml = item.venueHighlight
           ? `<strong style="color:blue;">${item.venue}</strong>`
@@ -358,9 +398,13 @@
         const pdfBadge = item.pdf
           ? ` <a href="${item.pdf}" class="pdf-badge" target="_blank" rel="noopener noreferrer">[PDF]</a>`
           : '';
+        // 摘要按钮 - 只有存在摘要时才显示
+        const abstractBtn = item.abstract
+          ? ` <button class="abstract-btn" data-index="${itemIndex}" title="查看摘要">Abstract</button>`
+          : '';
 
-        html += `<li class="publication-item" data-topic="${topicsStr}">
-          ${linkStart}${item.authors}, "${item.title}", ${venueHtml}.${awardHtml}${linkEnd}${pdfBadge}
+        html += `<li class="publication-item" data-topic="${topicsStr}" data-index="${itemIndex}" data-title="${item.title.replace(/"/g, '&quot;')}" data-abstract="${(item.abstract || '').replace(/"/g, '&quot;')}">
+          ${linkStart}${item.authors}, "${item.title}", ${venueHtml}.${awardHtml}${linkEnd}${pdfBadge}${abstractBtn}
         </li>`;
       }
     });
@@ -394,6 +438,89 @@
           }
           h3.style.display = hasVisible ? '' : 'none';
         });
+      });
+    });
+  }
+
+  // ─────────────────────────────────────────────
+  // 摘要模态框
+  // ─────────────────────────────────────────────
+
+  let abstractModal = null;
+  let pubDataCache = null;
+
+  function createAbstractModal() {
+    if (abstractModal) return;
+    
+    const modal = document.createElement('div');
+    modal.id = 'abstract-modal';
+    modal.className = 'abstract-modal';
+    modal.innerHTML = `
+      <div class="abstract-modal-content">
+        <div class="abstract-modal-header">
+          <h4>Abstract</h4>
+          <button class="abstract-modal-close" title="关闭">&times;</button>
+        </div>
+        <div class="abstract-modal-body">
+          <p id="abstract-text"></p>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+    
+    // 关闭按钮事件
+    modal.querySelector('.abstract-modal-close').addEventListener('click', hideAbstractModal);
+    
+    // 点击背景关闭
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) hideAbstractModal();
+    });
+    
+    // ESC键关闭
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.style.display === 'block') {
+        hideAbstractModal();
+      }
+    });
+    
+    abstractModal = modal;
+  }
+
+  function showAbstractModal(abstract, title) {
+    if (!abstractModal) createAbstractModal();
+    
+    const textEl = document.getElementById('abstract-text');
+    const titleEl = abstractModal.querySelector('h4');
+    
+    textEl.innerHTML = abstract;  // 使用innerHTML以支持HTML标签（如<sub>, <sup>）
+    titleEl.textContent = title || 'Abstract';
+    
+    abstractModal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // 防止背景滚动
+  }
+
+  function hideAbstractModal() {
+    if (abstractModal) {
+      abstractModal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  }
+
+  function bindAbstractButtons() {
+    // 为每个论文项添加摘要数据
+    document.querySelectorAll('.abstract-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        // 从父元素 li 获取数据
+        const li = this.closest('.publication-item');
+        const abstract = li.dataset.abstract;
+        const title = li.dataset.title;
+
+        if (abstract) {
+          showAbstractModal(abstract, title);
+        }
       });
     });
   }
