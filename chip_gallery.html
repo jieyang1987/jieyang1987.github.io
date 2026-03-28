@@ -52,38 +52,26 @@
     <style>
         .paper-link {
             color: #2B5BA9;
-            /* 蓝紫色 */
             text-decoration: none;
-            /* 默认没有下划线 */
             font-weight: bold;
-            /* 加粗 */
         }
 
         .paper-link:hover {
             color: #1d3f7a;
-            /* 悬停时颜色稍深（可选） */
             text-decoration: underline;
-            /* 悬停出现下划线 */
         }
-    </style>
 
-
-    <style>
         #top-section-bg-text {
             font-size: clamp(2.5rem, 6vw, 4.5rem);
-            /* 适配不同设备 */
             font-weight: 400;
             font-family: 'AlibabaPuHuiTi-Regular', sans-serif;
         }
-    </style>
 
-    <style>
         .rounded.shadow:hover {
             transform: scale(1.02);
             transition: transform 0.3s ease;
         }
     </style>
-
 </head>
 
 <body id="page-top" data-page="chip_gallery">
@@ -120,285 +108,16 @@
     </div>
 
     <!-- 芯片展示 -->
-    <section class="container bg-gradient-primary-to-secondary-light mt-5 pt-3" id="chip-gallery">
-        <header>
-            <h2><i class="bi bi-cpu-fill"></i>芯片展示</h2>
-        </header>
-        <!-- 筛选按钮 -->
-        <div class="text-center mb-2">
-            <button class="btn btn-outline-primary btn-sm filter-btn active" data-filter="all"
-                style="font-size: 1.1rem;">全部</button>
-            <button class="btn btn-outline-primary btn-sm filter-btn" data-filter="neuromodulation"
-                style="font-size: 1.1rem;">神经调控芯片</button>
-            <button class="btn btn-outline-primary btn-sm filter-btn" data-filter="bci"
-                style="font-size: 1.1rem;">脑机接口芯片</button>
-            <button class="btn btn-outline-primary btn-sm filter-btn" data-filter="neuromorphic"
-                style="font-size: 1.1rem;">类脑计算芯片</button>
-            <!-- <button class="btn btn-outline-primary btn-sm filter-btn " data-filter="other" style="font-size: 1.1rem;">其他芯片</button> -->
-        </div>
+    <section class="bg-gradient-primary-to-secondary-light mt-5 pt-3" id="chip-gallery">
+        <div class="container px-5">
+            <header>
+                <h2><i class="bi bi-cpu-fill"></i>芯片展示</h2>
+            </header>
+            <!-- 筛选按钮（由 site-renderer.js 动态渲染） -->
+            <div class="text-center mb-2" id="chip-filter-buttons"></div>
 
-
-        
-        <div class="row gx-3 gy-4">
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12 gallery-item" data-aos="fade-up" data-aos-duration="800"
-                data-category="neuromodulation">
-                <img alt="1024通道稀疏感知聚焦采样神经接口芯片" class="img-fluid mb-2 border chip-image" src="images/ISSCC2026.jpg" />
-                <h5 class="fw-bold">1024通道稀疏感知聚焦采样神经接口芯片</h5>
-                <ul class="small text-muted ps-3 mb-1" style="line-height: 1.5;">
-                    <li>集成 CIM 存算一体的热点预测引擎，自动定位神经活动热点</li>
-                    <li>支持 8-bit 全景监控与 11-bit 高精度跟踪动态切换，在保证采样质量的同时实现数据压缩</li>
-                    <li>实现0.000222mm<sup>2</sup>/通道、0.34μW/通道的极致面积、功耗效率</li>
-                </ul>
-                <p class="small">
-                    <a class="paper-link" href="">
-                        ISSCC: Sparsity-Aware Neural Interface with CIM-Based Predictive Focused Sampling for Hotspot Spike Tracking
-                    </a>
-                </p>
-            </div>
-
-
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12 gallery-item" data-aos="fade-up" data-aos-duration="800"
-                data-category="neuromodulation">
-                <img alt="闭环神经调控神经信号处理芯片" class="img-fluid mb-2 border chip-image" src="images/CODEV1.jpg" />
-                <h5 class="fw-bold">事件驱动的混合神经网络处理器</h5>
-                <ul class="small text-muted ps-3 mb-1" style="line-height: 1.5;">
-                    <li>支持 EEG/ECG/EMG/LFP 等神经信号分析</li>
-                    <li>融合 ANN 与 SNN，可重构架构灵活切换</li>
-                    <li>采用 BNN 常开 + CNN 事件触发，功耗低至 0.99 μJ/class</li>
-                </ul>
-                <p class="small">
-                    <a class="paper-link" href="https://ieeexplore.ieee.org/abstract/document/10105432/">
-                        TBioCAS: A 0.99-to-4.38 μJ/class Event-Driven Hybrid Neural Network Processor for Full-Spectrum
-                        Neural Signal Analyses
-                    </a>
-                </p>
-            </div>
-
-
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12 gallery-item" data-aos="fade-up" data-aos-duration="800"
-                data-category="neuromorphic">
-                <img alt="闭环神经调控神经信号处理芯片" class="img-fluid mb-2 border chip-image" src="images/RAINE_V1.jpg" />
-                <h5 class="fw-bold">多拓扑在线学习SNN处理器</h5>
-                <ul class="small text-muted ps-3 mb-1" style="line-height: 1.5;">
-                    <li>可重构电路设计，适配脉冲全连接/循环/卷积神经网络</li>
-                    <li>支持基于TR-STDP的在线学习算法</li>
-                    <li>可完成ECG 异常检测、图像分类、MNIST 识别等在线学习任务</li>
-                </ul>
-                <p class="small">
-                    <a class="paper-link" href="https://ieeexplore.ieee.org/abstract/document/10132492">
-                        TBioCAS: A 510 μW 0.738-mm2 6.2-pJ/SOP Online Learning Multi-Topology SNN Processor With Unified
-                        Computation Engine in 40-nm CMOS
-                    </a>
-                </p>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12 gallery-item" data-aos="fade-up" data-aos-duration="800"
-                data-category="neuromorphic">
-                <img alt="类脑计算芯片" class="img-fluid mb-2 border chip-image" src="images/RAINE_V2.jpg" />
-                <h5 class="fw-bold">非结构稀疏感知深度SNN处理器</h5>
-                <ul class="small text-muted ps-3 mb-1" style="line-height: 1.5;">
-                    <li>基于3D加法树的时间步并行计算</li>
-                    <li>非结构稀疏数据并行执行</li>
-                    <li>支持 spike-Q/K/V 与自注意力机制（Spike-SSA）</li>
-                </ul>
-                <p class="small">
-                    <a class="paper-link" href="https://ieeexplore.ieee.org/abstract/document/10777513">
-                        JSSC: An Energy-Efficient Unstructured Sparsity-Aware Deep SNN Accelerator With 3-D Computation
-                        Array
-                    </a>
-                </p>
-            </div>
-
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12 gallery-item" data-aos="fade-up" data-aos-duration="800"
-                data-category="neuromorphic">
-                <img alt="类脑计算芯片" class="img-fluid mb-2 border chip-image" src="images/RAINE_V3.png" />
-                <h5 class="fw-bold">Spiking Vision Transformer 加速器</h5>
-                <ul class="small text-muted ps-3 mb-1" style="line-height: 1.5;">
-                    <li>双路径稀疏计算核</li>
-                    <li>EMA-free脉冲自注意力引擎</li>
-                    <li>1位/8位加法-树（adder-tree）结构阵列</li>
-                </ul>
-                <p class="small">
-                    <a class="paper-link" href="https://ieeexplore.ieee.org/abstract/document/11124571">
-                        TCASAI: A 28nm Spiking Vision Transformer Accelerator with Dual-Path Sparse Compute Core and
-                        EMA-free Self-Attention Engine for Embodied Intelligence
-                    </a>
-                </p>
-            </div>
-
-
-
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12 gallery-item" data-aos="fade-up" data-aos-duration="800"
-                data-category="neuromorphic">
-                <img alt="HybMED" class="img-fluid mb-2 border chip-image" src="images/CODEV2.png" />
-                <h5 class="fw-bold">多稀疏性挖掘的混合神经网络片上训练处理器</h5>
-                <ul class="small text-muted ps-3 mb-1" style="line-height: 1.5;">
-                    <li>融合Feedback Alignment机制进行在线学习</li>
-                    <li>通过利用不同粒度的稀疏性来提高计算效率</li>
-                    <li>混合ANN/SNN结构，支持在线训练与本地化适配</li>
-                </ul>
-                <p class="small">
-                    <a class="paper-link" href="https://ieeexplore.ieee.org/abstract/document/10504647">
-                        TBioCAS: HybMED: A Hybrid Neural Network Training Processor With Multi-Sparsity Exploitation for
-                        Internet of Medical Things
-                    </a>
-                </p>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12 gallery-item" data-aos="fade-up" data-aos-duration="800"
-                data-category="bci">
-                <img alt="UWB Transceiver" class="img-fluid mb-2 border chip-image" src="images/BCI_1.jpg" />
-                <h5 class="fw-bold">生物神经元启发的无线脑机接口系统芯片</h5>
-                <ul class="small text-muted ps-3 mb-1" style="line-height: 1.5;">
-                    <li>支持32通道事件驱动神经脉冲检测与无线传输</li>
-                    <li>Direct Multiplexing前端 + Spike Folding电路，提升面积效率</li>
-                    <li>功耗仅1.38μW/ch，面积仅0.0032mm²/ch，压缩率超500×</li>
-                </ul>
-                <p class="small">
-                    <a class="paper-link" href="https://ieeexplore.ieee.org/abstract/document/10529097">
-                        CICC: A Neuron-Inspired 0.0032mm2-1.38μW/Ch Wireless Implantable Neural Interface with Direct
-                        Multiplexing Front-End and Event-Driven Spike Detection and Transmission
-                    </a>
-                </p>
-            </div>
-
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12 gallery-item" data-aos="fade-up" data-aos-duration="800"
-                data-category="neuromorphic bci">
-                <img alt="SpikeSEE 视网膜假体芯片" class="img-fluid mb-2 border chip-image" src="images/spike_see.jpg" />
-                <h5 class="fw-bold">用于视网膜假体的仿生视觉信号处理芯片</h5>
-                <ul class="small text-muted ps-3 mb-1" style="line-height: 1.5;">
-                    <li>支持32通道事件驱动神经脉冲检测与无线传输</li>
-                    <li>Direct Multiplexing前端 + Spike Folding电路，提升面积效率</li>
-                    <li>功耗仅1.38μW/ch，面积仅0.0032mm²/ch，压缩率超500×</li>
-                </ul>
-                <p class="small">
-                    <a class="paper-link" href="https://ieeexplore.ieee.org/abstract/document/10529097">
-                        JBHI: A Neuron-Inspired 0.0032mm2-1.38μW/Ch Wireless Implantable Neural Interface with Direct
-                        Multiplexing Front-End and Event-Driven Spike Detection and Transmission
-                    </a>
-                </p>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12 gallery-item" data-aos="fade-up" data-aos-duration="800"
-                data-category="bci">
-                <img alt="UWB Transceiver" class="img-fluid mb-2 border chip-image" src="images/bci_amp.jpg" />
-                <h5 class="fw-bold">小面积、低功耗、可配置的生物电信号模拟前端芯片</h5>
-                <ul class="small text-muted ps-3 mb-1" style="line-height: 1.5;">
-                    <li>引入自稳定斩波放大结构和伪源伺服拓扑，降低 1/f 噪声</li>
-                    <li>集成可调主动伪电阻实现灵活的高通滤波器</li>
-                    <li>输入参考噪声1.7 µV<sub>rms</sub>，支持各种ExG,适用于植入式与可穿戴式多模态神经接口系统</li>
-                </ul>
-                <p class="small">
-                    <a class="paper-link" href="https://ieeexplore.ieee.org/document/10177203/">
-                        TBioCAS: An Energy-Efficient Small-Area Configurable Analog Front-End Interface for Diverse
-                        Biosignals Recording
-                    </a>
-                </p>
-            </div>
-
-
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12 gallery-item" data-aos="fade-up" data-aos-duration="800"
-                data-category="bci">
-                <img alt="UWB Transceiver" class="img-fluid mb-2 border chip-image"
-                    src="images/energy-harvest-front-end.jpg" />
-                <h5 class="fw-bold">射频能量收集的可重构前端芯片</h5>
-                <ul class="small text-muted ps-3 mb-1" style="line-height: 1.5;">
-                    <li>在 -22.5 dBm 到 -3 dBm 的输入范围内保持 1.3V-1.8V 稳定输出，无需额外的 DC-DC 转换器</li>
-                    <li>峰值效率达 42.8%，灵敏度低至 -23.6 dBm</li>
-                    <li>适用于自供电物联网传感器、无线植入式医疗器件等超低功耗系统</li>
-                </ul>
-                <p class="small">
-                    <a class="paper-link" href="https://ieeexplore.ieee.org/abstract/document/11010">
-                        TCAS-II: An On-Chip Reconfigurable Front-End for Ultra-Low-Power RF Energy Harvesting
-                    </a>
-                </p>
-            </div>
-
-
-
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12 gallery-item" data-aos="fade-up" data-aos-duration="800"
-                data-category="bci">
-                <img alt="UWB Transceiver" class="img-fluid mb-2 border chip-image"
-                    src="images/bci-amp-A-PR.jpg" />
-                <h5 class="fw-bold">毫秒级恢复自适应神经信号采集前端芯片</h5>
-                <ul class="small text-muted ps-3 mb-1" style="line-height: 1.5;">
-                    <li>缩短刺激伪影恢复时间缩短至 3 ms 以内</li>
-                    <li>具备可调高通截止频率（0.1-15 Hz），支持高保真 LFP 与 Spike 记录</li>
-                    <li>下一代高分辨率闭环神经调控接口、癫痫与帕金森病治疗设备</li>
-                </ul>
-                <p class="small">
-                    <a class="paper-link" href="https://ieeexplore.ieee.org/abstract/document/11010">
-                        TBioCAS: Self-Adaptive Pseudo-Resistors Enabling Millisecond-Level Artifact Recovery and High-Linearity for Neural Recording Front-Ends
-                    </a>
-                </p>
-            </div>
-
-
-
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12 gallery-item" data-aos="fade-up" data-aos-duration="800"
-                data-category="neuromorphic">
-                <img alt="UWB Transceiver" class="img-fluid mb-2 border chip-image"
-                    src="images/Heterogeneous processor die.jpg" />
-                <h5 class="fw-bold">高速可编程视觉芯片</h5>
-                <ul class="small text-muted ps-3 mb-1" style="line-height: 1.5;">
-                    <li>高效支持卷积神经网络和深度学习算法</li>
-                    <li>峰值性能 413 GOPS@8bit，可实现从图像预处理到目标分类的完整视觉处理流水线</li>
-                    <li>芯片面积4mm × 6mm, 200MHz系统时钟下运算性能208GOPS，能耗效率194GOPS/W</li>
-                </ul>
-                <p class="small">
-                    <a class="paper-link" href="https://ieeexplore.ieee.org/abstract/document/7593227">
-                        TCSVT: A Heterogeneous Parallel Processor for High-Speed Vision Chip
-                    </a> &amp;
-                    <a class="paper-link" href="http://www.irla.cn/en/article/doi/10.3788/IRLA20190553">
-                        A High Speed Programmable Vision Chip for Real-Time Object Detection
-                    </a>
-                </p>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-12 gallery-item" data-aos="fade-up" data-aos-duration="800"
-                data-category="neuromorphic">
-                <img alt="UWB Transceiver" class="img-fluid mb-2 border chip-image" src="images/vision_chip.png" />
-                <h5 class="fw-bold">融合SOM神经网络的混合可重构千帧视觉芯片</h5>
-                <ul class="small text-muted ps-3 mb-1" style="line-height: 1.5;">
-                    <li>像素级并行PE阵列 + 可重构RP处理器 + 双核MPU</li>
-                    <li>融合生物启发的 SOM（Self-Organizing Map）神经网络</li>
-                    <li>集成高帧率CMOS图像传感器，实现 &gt;1000 fps 的实时视觉处理</li>
-                </ul>
-                <p class="small">
-                    <a class="paper-link" href="https://ieeexplore.ieee.org/abstract/document/6853420/">
-                        JSSC: A 1000 fps Vision Chip Based on a Dynamically Reconfigurable Hybrid Architecture
-                        Comprising a PE Array Processor and Self-Organizing Map Neural Network
-                    </a>
-                </p>
-            </div>
-
-                        <div class="col-lg-4 col-md-4 col-sm-6 col-12 gallery-item" data-aos="fade-up" data-aos-duration="800"
-                data-category="bci">
-                <img alt="UWB Transceiver" class="img-fluid mb-2 border chip-image" src="images/32-channel-afe.jpg" />
-                <h5 class="fw-bold">32通道集成神经信号放大芯片</h5>
-                <ul class="small text-muted ps-3 mb-1" style="line-height: 1.5;">
-                    <li>芯片面积仅2.8mm &times 1.9mm，单通道功耗约3μW，显著优于同类产品</li>
-                    <li>输入参考噪声低于2μVrms，支持高保真神经信号采集</li>
-                    <li>已在动物实验中验证，性能可媲美商用系统</li>
-                </ul>
-            </div>
-
-                        <div class="col-lg-4 col-md-4 col-sm-6 col-12 gallery-item" data-aos="fade-up" data-aos-duration="800"
-                data-category="bci">
-                <img alt="UWB Transceiver" class="img-fluid mb-2 border chip-image" src="images/64-channel-afe.jpg" />
-                <h5 class="fw-bold">64通道神经信号采集SoC芯片</h5>
-                <ul class="small text-muted ps-3 mb-1" style="line-height: 1.5;">
-                    <li>支持64通道神经信号同时采集，每通道功耗仅 10.7 µW</li>
-                    <li>噪声3.2 µVrms（@5–1kHz），100–500倍增益可调，采样率 62.5 kHz/ch</li>
-                    <li>适用于大规模神经记录、脑机接口、动物实验平台、微创神经调控系统等场景</li>
-                </ul>
-                <p class="small">
-                </p>
-            </div>
-
-            <!-- <div class="col-lg-4 col-md-4 col-sm-6 col-12 gallery-item" data-aos="fade-up" data-aos-duration="800" data-category="bci">
-<img alt="UWB Transceiver" class="img-fluid mb-2 border chip-image" src="images/asc_converter.png"/>
-<h5 class="fw-bold">UWB 无线通讯芯片</h5>
-<p class="text-justify small">
-                针对植入式脑机接口系统开发，支持 3.4 pJ/b 数据传输，频谱可调，适用于深部神经记录远距离通信场景。
-            </p>
-</div> -->
+            <!-- 芯片卡片（由 site-renderer.js 动态渲染） -->
+            <div class="row gx-3 gy-4" id="chip-gallery-row"></div>
         </div>
     </section>
     <!-- Back to top button -->
@@ -414,26 +133,6 @@
     </footer>
 
     <script src="static/js/site-renderer.js"></script>
-    <script>
-        // 芯片展示筛选按钮交互
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('.filter-btn').forEach(function (btn) {
-                btn.addEventListener('click', function () {
-                    document.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
-                    this.classList.add('active');
-                    var filter = this.dataset.filter;
-                    document.querySelectorAll('.gallery-item').forEach(function (item) {
-                        if (filter === 'all') {
-                            item.style.display = '';
-                        } else {
-                            var cats = (item.dataset.category || '').split(' ');
-                            item.style.display = cats.includes(filter) ? '' : 'none';
-                        }
-                    });
-                });
-            });
-        });
-    </script>
 </body>
 
 </html>

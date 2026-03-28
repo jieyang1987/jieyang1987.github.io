@@ -1,0 +1,408 @@
+{
+  "filters": [
+    { "id": "all", "zh": "全部", "en": "All" },
+    { "id": "neuromodulation", "zh": "神经调控芯片", "en": "Neuromodulation" },
+    { "id": "bci", "zh": "脑机接口芯片", "en": "BCI" },
+    { "id": "neuromorphic", "zh": "类脑计算芯片", "en": "Neuromorphic" }
+  ],
+  "chips": [
+    {
+      "image": "images/ISSCC2026.jpg",
+      "category": "neuromodulation",
+      "title": {
+        "zh": "1024通道稀疏感知聚焦采样神经接口芯片",
+        "en": "1024-Channel Sparsity-Aware Focused-Sampling Neural Interface"
+      },
+      "features": {
+        "zh": [
+          "集成 CIM 存算一体的热点预测引擎，自动定位神经活动热点",
+          "支持 8-bit 全景监控与 11-bit 高精度跟踪动态切换，在保证采样质量的同时实现数据压缩",
+          "实现0.000222mm<sup>2</sup>/通道、0.34μW/通道的极致面积、功耗效率"
+        ],
+        "en": [
+          "CIM-based hotspot prediction engine for automatic neural activity localization",
+          "Supports dynamic switching between 8-bit panoramic monitoring and 11-bit precision tracking",
+          "Achieves 0.000222 mm<sup>2</sup>/ch area and 0.34 μW/ch power efficiency"
+        ]
+      },
+      "papers": [
+        {
+          "zh": "ISSCC: Sparsity-Aware Neural Interface with CIM-Based Predictive Focused Sampling for Hotspot Spike Tracking",
+          "en": "ISSCC: Sparsity-Aware Neural Interface with CIM-Based Predictive Focused Sampling for Hotspot Spike Tracking",
+          "url": "https://ieeexplore.ieee.org/abstract/document/11409079/"
+        }
+      ]
+    },
+    {
+      "image": "images/CODEV1.jpg",
+      "category": "neuromodulation",
+      "title": {
+        "zh": "事件驱动的混合神经网络处理器",
+        "en": "Event-Driven Hybrid ANN-SNN Neural Signal Processor"
+      },
+      "features": {
+        "zh": [
+          "支持 EEG/ECG/EMG/LFP 等神经信号分析",
+          "融合 ANN 与 SNN，可重构架构灵活切换",
+          "采用 BNN 常开 + CNN 事件触发，功耗低至 0.99 μJ/class"
+        ],
+        "en": [
+          "Supports EEG/ECG/EMG/LFP multi-modal neural signal analysis",
+          "Reconfigurable ANN+SNN hybrid architecture",
+          "Always-on BNN + event-triggered CNN; as low as 0.99 μJ/class"
+        ]
+      },
+      "papers": [
+        {
+          "zh": "TBioCAS: A 0.99-to-4.38 μJ/class Event-Driven Hybrid Neural Network Processor for Full-Spectrum Neural Signal Analyses",
+          "en": "TBioCAS: A 0.99-to-4.38 μJ/class Event-Driven Hybrid Neural Network Processor for Full-Spectrum Neural Signal Analyses",
+          "url": "https://ieeexplore.ieee.org/abstract/document/10105432/"
+        }
+      ]
+    },
+    {
+      "image": "images/RAINE_V1.jpg",
+      "category": "neuromorphic",
+      "title": {
+        "zh": "多拓扑在线学习SNN处理器",
+        "en": "Multi-Topology Online-Learning SNN Processor"
+      },
+      "features": {
+        "zh": [
+          "可重构电路设计，适配脉冲全连接/循环/卷积神经网络",
+          "支持基于TR-STDP的在线学习算法",
+          "可完成ECG 异常检测、图像分类、MNIST 识别等在线学习任务"
+        ],
+        "en": [
+          "Reconfigurable for FC / recurrent / convolutional spiking networks",
+          "Supports TR-STDP online learning",
+          "Demonstrated on ECG anomaly detection, image classification, and MNIST"
+        ]
+      },
+      "papers": [
+        {
+          "zh": "TBioCAS: A 510 μW 0.738-mm² 6.2-pJ/SOP Online Learning Multi-Topology SNN Processor With Unified Computation Engine in 40-nm CMOS",
+          "en": "TBioCAS: A 510 μW 0.738-mm² 6.2-pJ/SOP Online Learning Multi-Topology SNN Processor With Unified Computation Engine in 40-nm CMOS",
+          "url": "https://ieeexplore.ieee.org/abstract/document/10132492"
+        }
+      ]
+    },
+    {
+      "image": "images/RAINE_V2.jpg",
+      "category": "neuromorphic",
+      "title": {
+        "zh": "非结构稀疏感知深度SNN处理器",
+        "en": "Unstructured Sparsity-Aware Deep SNN Accelerator"
+      },
+      "features": {
+        "zh": [
+          "基于3D加法树的时间步并行计算",
+          "非结构稀疏数据并行执行",
+          "支持 spike-Q/K/V 与自注意力机制（Spike-SSA）"
+        ],
+        "en": [
+          "3D adder-tree for parallel temporal-step computation",
+          "Unstructured sparse data parallel execution",
+          "Supports spike Q/K/V and self-attention (Spike-SSA)"
+        ]
+      },
+      "papers": [
+        {
+          "zh": "JSSC: An Energy-Efficient Unstructured Sparsity-Aware Deep SNN Accelerator With 3-D Computation Array",
+          "en": "JSSC: An Energy-Efficient Unstructured Sparsity-Aware Deep SNN Accelerator With 3-D Computation Array",
+          "url": "https://ieeexplore.ieee.org/abstract/document/10777513"
+        }
+      ]
+    },
+    {
+      "image": "images/RAINE_V3.png",
+      "category": "neuromorphic",
+      "title": {
+        "zh": "Spiking Vision Transformer 加速器",
+        "en": "Spiking Vision Transformer (28 nm) Accelerator"
+      },
+      "features": {
+        "zh": [
+          "双路径稀疏计算核",
+          "EMA-free脉冲自注意力引擎",
+          "1位/8位加法-树（adder-tree）结构阵列"
+        ],
+        "en": [
+          "Dual-path sparse compute core",
+          "EMA-free spiking self-attention engine",
+          "1-bit / 8-bit adder-tree array"
+        ]
+      },
+      "papers": [
+        {
+          "zh": "TCASAI: A 28nm Spiking Vision Transformer Accelerator with Dual-Path Sparse Compute Core and EMA-free Self-Attention Engine for Embodied Intelligence",
+          "en": "TCASAI: A 28nm Spiking Vision Transformer Accelerator with Dual-Path Sparse Compute Core and EMA-free Self-Attention Engine for Embodied Intelligence",
+          "url": "https://ieeexplore.ieee.org/abstract/document/11124571"
+        }
+      ]
+    },
+    {
+      "image": "images/CODEV2.png",
+      "category": "neuromorphic",
+      "title": {
+        "zh": "多稀疏性挖掘的混合神经网络片上训练处理器",
+        "en": "Multi-Sparsity Hybrid Neural Network On-Chip Training Processor"
+      },
+      "features": {
+        "zh": [
+          "融合Feedback Alignment机制进行在线学习",
+          "通过利用不同粒度的稀疏性来提高计算效率",
+          "混合ANN/SNN结构，支持在线训练与本地化适配"
+        ],
+        "en": [
+          "Feedback Alignment-based online learning",
+          "Multi-granularity sparsity exploitation for efficiency",
+          "Hybrid ANN/SNN structure for local adaptation"
+        ]
+      },
+      "papers": [
+        {
+          "zh": "TBioCAS: HybMED: A Hybrid Neural Network Training Processor With Multi-Sparsity Exploitation for Internet of Medical Things",
+          "en": "TBioCAS: HybMED: A Hybrid Neural Network Training Processor With Multi-Sparsity Exploitation for Internet of Medical Things",
+          "url": "https://ieeexplore.ieee.org/abstract/document/10504647"
+        }
+      ]
+    },
+    {
+      "image": "images/BCI_1.jpg",
+      "category": "bci",
+      "title": {
+        "zh": "生物神经元启发的无线脑机接口系统芯片",
+        "en": "Neuron-Inspired Wireless Implantable Neural Interface SoC"
+      },
+      "features": {
+        "zh": [
+          "支持32通道事件驱动神经脉冲检测与无线传输",
+          "Direct Multiplexing前端 + Spike Folding电路，提升面积效率",
+          "功耗仅1.38μW/ch，面积仅0.0032mm²/ch，压缩率超500×"
+        ],
+        "en": [
+          "32-channel event-driven spike detection with wireless transmission",
+          "Direct Multiplexing front-end + Spike Folding for area efficiency",
+          "1.38 μW/ch power, 0.0032 mm²/ch area, &gt;500× compression"
+        ]
+      },
+      "papers": [
+        {
+          "zh": "CICC: A Neuron-Inspired 0.0032mm²–1.38μW/Ch Wireless Implantable Neural Interface with Direct Multiplexing Front-End and Event-Driven Spike Detection and Transmission",
+          "en": "CICC: A Neuron-Inspired 0.0032mm²–1.38μW/Ch Wireless Implantable Neural Interface with Direct Multiplexing Front-End and Event-Driven Spike Detection and Transmission",
+          "url": "https://ieeexplore.ieee.org/abstract/document/10529097"
+        }
+      ]
+    },
+    {
+      "image": "images/spike_see.jpg",
+      "category": ["neuromorphic", "bci"],
+      "title": {
+        "zh": "用于视网膜假体的仿生视觉信号处理芯片",
+        "en": "Neuromorphic Visual Processor for Retinal Prostheses (SpikeSEE)"
+      },
+      "features": {
+        "zh": [
+          "事件驱动的动态场景处理，适用于视网膜假体",
+          "基于脉冲的高效视觉编码管线",
+          "在真实世界假体视觉仿真任务上验证"
+        ],
+        "en": [
+          "Event-driven dynamic scene processing for retinal prostheses",
+          "Energy-efficient spike-based visual encoding pipeline",
+          "Evaluated on real-world prosthetic vision simulation tasks"
+        ]
+      },
+      "papers": [
+        {
+          "zh": "Neural Networks: SpikeSEE: An energy-efficient dynamic scenes processing framework for retinal prostheses",
+          "en": "Neural Networks: SpikeSEE: An energy-efficient dynamic scenes processing framework for retinal prostheses",
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/S0893608023002332"
+        }
+      ]
+    },
+    {
+      "image": "images/bci_amp.jpg",
+      "category": "bci",
+      "title": {
+        "zh": "小面积、低功耗、可配置的生物电信号模拟前端芯片",
+        "en": "Low-Power Configurable Analog Front-End for Multi-Modal Biosignal Recording"
+      },
+      "features": {
+        "zh": [
+          "引入自稳定斩波放大结构和伪源伺服拓扑，降低 1/f 噪声",
+          "集成可调主动伪电阻实现灵活的高通滤波器",
+          "输入参考噪声1.7 µV<sub>rms</sub>，支持各种ExG,适用于植入式与可穿戴式多模态神经接口系统"
+        ],
+        "en": [
+          "Auto-zeroed chopper amplifier + pseudo source-follower for low 1/f noise",
+          "Tunable active pseudo-resistor for flexible high-pass filtering",
+          "1.7 µV<sub>rms</sub> input-referred noise; suitable for implantable and wearable ExG interfaces"
+        ]
+      },
+      "papers": [
+        {
+          "zh": "TBioCAS: An Energy-Efficient Small-Area Configurable Analog Front-End Interface for Diverse Biosignals Recording",
+          "en": "TBioCAS: An Energy-Efficient Small-Area Configurable Analog Front-End Interface for Diverse Biosignals Recording",
+          "url": "https://ieeexplore.ieee.org/document/10177203/"
+        }
+      ]
+    },
+    {
+      "image": "images/energy-harvest-front-end.jpg",
+      "category": "bci",
+      "title": {
+        "zh": "射频能量收集的可重构前端芯片",
+        "en": "Reconfigurable RF Energy Harvesting Front-End"
+      },
+      "features": {
+        "zh": [
+          "在 -22.5 dBm 到 -3 dBm 的输入范围内保持 1.3V-1.8V 稳定输出，无需额外的 DC-DC 转换器",
+          "峰值效率达 42.8%，灵敏度低至 -23.6 dBm",
+          "适用于自供电物联网传感器、无线植入式医疗器件等超低功耗系统"
+        ],
+        "en": [
+          "Stable 1.3–1.8 V output across –22.5 to –3 dBm input range, no DC-DC converter required",
+          "Peak efficiency 42.8%, sensitivity down to –23.6 dBm",
+          "Suitable for self-powered IoT sensors and wireless implantable medical devices"
+        ]
+      },
+      "papers": [
+        {
+          "zh": "TCAS-II: An On-Chip Reconfigurable Front-End for Ultra-Low-Power RF Energy Harvesting",
+          "en": "TCAS-II: An On-Chip Reconfigurable Front-End for Ultra-Low-Power RF Energy Harvesting",
+          "url": "https://ieeexplore.ieee.org/abstract/document/11010"
+        }
+      ]
+    },
+    {
+      "image": "images/bci-amp-A-PR.jpg",
+      "category": "bci",
+      "title": {
+        "zh": "毫秒级恢复自适应神经信号采集前端芯片",
+        "en": "Self-Adaptive Neural Recording Front-End with Millisecond Artifact Recovery"
+      },
+      "features": {
+        "zh": [
+          "缩短刺激伪影恢复时间缩短至 3 ms 以内",
+          "具备可调高通截止频率（0.1-15 Hz），支持高保真 LFP 与 Spike 记录",
+          "下一代高分辨率闭环神经调控接口、癫痫与帕金森病治疗设备"
+        ],
+        "en": [
+          "Stimulation artifact recovery within 3 ms",
+          "Tunable high-pass cutoff (0.1–15 Hz) for simultaneous LFP and Spike recording",
+          "Targets next-generation closed-loop neural interfaces for epilepsy and Parkinson's therapy"
+        ]
+      },
+      "papers": [
+        {
+          "zh": "TBioCAS: Self-Adaptive Pseudo-Resistors Enabling Millisecond-Level Artifact Recovery and High-Linearity for Neural Recording Front-Ends",
+          "en": "TBioCAS: Self-Adaptive Pseudo-Resistors Enabling Millisecond-Level Artifact Recovery and High-Linearity for Neural Recording Front-Ends",
+          "url": "https://ieeexplore.ieee.org/abstract/document/11010"
+        }
+      ]
+    },
+    {
+      "image": "images/Heterogeneous processor die.jpg",
+      "category": "neuromorphic",
+      "title": {
+        "zh": "高速可编程视觉芯片",
+        "en": "High-Speed Programmable Vision Chip"
+      },
+      "features": {
+        "zh": [
+          "高效支持卷积神经网络和深度学习算法",
+          "峰值性能 413 GOPS@8bit，可实现从图像预处理到目标分类的完整视觉处理流水线",
+          "芯片面积4mm × 6mm, 200MHz系统时钟下运算性能208GOPS，能耗效率194GOPS/W"
+        ],
+        "en": [
+          "Peak performance 413 GOPS@8-bit; end-to-end vision processing pipeline",
+          "4 mm × 6 mm die; 208 GOPS at 200 MHz, 194 GOPS/W energy efficiency",
+          "Supports CNN and deep learning workloads"
+        ]
+      },
+      "papers": [
+        {
+          "zh": "TCSVT: A Heterogeneous Parallel Processor for High-Speed Vision Chip",
+          "en": "TCSVT: A Heterogeneous Parallel Processor for High-Speed Vision Chip",
+          "url": "https://ieeexplore.ieee.org/abstract/document/7593227"
+        },
+        {
+          "zh": "A High Speed Programmable Vision Chip for Real-Time Object Detection",
+          "en": "A High Speed Programmable Vision Chip for Real-Time Object Detection",
+          "url": "http://www.irla.cn/en/article/doi/10.3788/IRLA20190553"
+        }
+      ]
+    },
+    {
+      "image": "images/vision_chip.png",
+      "category": "neuromorphic",
+      "title": {
+        "zh": "融合SOM神经网络的混合可重构千帧视觉芯片",
+        "en": "1000-fps Hybrid Reconfigurable Vision Chip with SOM Neural Network"
+      },
+      "features": {
+        "zh": [
+          "像素级并行PE阵列 + 可重构RP处理器 + 双核MPU",
+          "融合生物启发的 SOM（Self-Organizing Map）神经网络",
+          "集成高帧率CMOS图像传感器，实现 &gt;1000 fps 的实时视觉处理"
+        ],
+        "en": [
+          "Pixel-parallel PE array + reconfigurable RP + dual-core MPU",
+          "Integrated bio-inspired Self-Organizing Map (SOM) neural network",
+          "On-chip CMOS image sensor; real-time processing at &gt;1000 fps"
+        ]
+      },
+      "papers": [
+        {
+          "zh": "JSSC: A 1000 fps Vision Chip Based on a Dynamically Reconfigurable Hybrid Architecture Comprising a PE Array Processor and Self-Organizing Map Neural Network",
+          "en": "JSSC: A 1000 fps Vision Chip Based on a Dynamically Reconfigurable Hybrid Architecture Comprising a PE Array Processor and Self-Organizing Map Neural Network",
+          "url": "https://ieeexplore.ieee.org/abstract/document/6853420/"
+        }
+      ]
+    },
+    {
+      "image": "images/32-channel-afe.jpg",
+      "category": "bci",
+      "title": {
+        "zh": "32通道集成神经信号放大芯片",
+        "en": "32-Channel Integrated Neural Signal Amplifier"
+      },
+      "features": {
+        "zh": [
+          "芯片面积仅2.8mm × 1.9mm，单通道功耗约3μW，显著优于同类产品",
+          "输入参考噪声低于2μVrms，支持高保真神经信号采集",
+          "已在动物实验中验证，性能可媲美商用系统"
+        ],
+        "en": [
+          "Die size only 2.8 mm × 1.9 mm; ~3 μW per channel",
+          "Input-referred noise &lt; 2 μV<sub>rms</sub> for high-fidelity neural acquisition",
+          "Validated in animal experiments; performance on par with commercial systems"
+        ]
+      },
+      "papers": []
+    },
+    {
+      "image": "images/64-channel-afe.jpg",
+      "category": "bci",
+      "title": {
+        "zh": "64通道神经信号采集SoC芯片",
+        "en": "64-Channel Neural Recording SoC"
+      },
+      "features": {
+        "zh": [
+          "支持64通道神经信号同时采集，每通道功耗仅 10.7 µW",
+          "噪声3.2 µVrms（@5–1kHz），100–500倍增益可调，采样率 62.5 kHz/ch",
+          "适用于大规模神经记录、脑机接口、动物实验平台、微创神经调控系统等场景"
+        ],
+        "en": [
+          "64 simultaneous channels; 10.7 µW per channel",
+          "3.2 µV<sub>rms</sub> noise (@5–1 kHz), 100–500× programmable gain, 62.5 kHz/ch",
+          "Suited for large-scale neural recording, BCI, and animal experiment platforms"
+        ]
+      },
+      "papers": []
+    }
+  ]
+}

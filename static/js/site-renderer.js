@@ -756,6 +756,71 @@
   }
 
   // ─────────────────────────────────────────────
+  // 芯片展示页渲染
+  // ─────────────────────────────────────────────
+
+  function renderChipGalleryPage(chipData) {
+    const container = document.getElementById('chip-gallery-row');
+    const filterContainer = document.getElementById('chip-filter-buttons');
+    if (!container) return;
+
+    const L = lang;
+
+    // 渲染筛选按钮
+    if (filterContainer && chipData.filters) {
+      filterContainer.innerHTML = chipData.filters.map(f =>
+        `<button class="btn btn-outline-primary btn-sm filter-btn me-2 mb-2${f.id === 'all' ? ' active' : ''}" data-filter="${f.id}" style="font-size: 1.1rem;">${f[L]}</button>`
+      ).join('');
+    }
+
+    // 渲染芯片卡片
+    let html = '';
+    chipData.chips.forEach(function (chip) {
+      const categories = Array.isArray(chip.category) ? chip.category.join(' ') : chip.category;
+      const features = chip.features[L] || chip.features.zh || [];
+      const title = chip.title[L] || chip.title.zh || '';
+
+      let paperHtml = '';
+      if (chip.papers && chip.papers.length > 0) {
+        paperHtml = chip.papers.map(function (p, i) {
+          const label = p[L] || p.zh || '';
+          const sep = (L === 'zh' && i > 0) ? ' &amp; ' : ((L === 'en' && i > 0) ? ' &amp; ' : '');
+          return sep + `<a class="paper-link" href="${p.url}">${label}</a>`;
+        }).join('');
+        paperHtml = `<p class="small">${paperHtml}</p>`;
+      }
+
+      html += `<div class="col-lg-4 col-md-4 col-sm-6 col-12 gallery-item" data-aos="fade-up" data-aos-duration="800" data-category="${categories}">
+        <img alt="${title}" class="img-fluid mb-2 border chip-image" src="${chip.image}" />
+        <h5 class="fw-bold">${title}</h5>
+        <ul class="small text-muted ps-3 mb-1" style="line-height: 1.5;">
+          ${features.map(f => '<li>' + f + '</li>').join('')}
+        </ul>
+        ${paperHtml}
+      </div>`;
+    });
+
+    container.innerHTML = html;
+
+    // 筛选按钮交互
+    document.querySelectorAll('.filter-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
+        this.classList.add('active');
+        var filter = this.dataset.filter;
+        document.querySelectorAll('.gallery-item').forEach(function (item) {
+          if (filter === 'all') {
+            item.style.display = '';
+          } else {
+            var cats = (item.dataset.category || '').split(' ');
+            item.style.display = cats.includes(filter) ? '' : 'none';
+          }
+        });
+      });
+    });
+  }
+
+  // ─────────────────────────────────────────────
   // 主入口
   // ─────────────────────────────────────────────
 
@@ -788,6 +853,12 @@
     fetchJSON('coverage.json').then(coverageData => {
       renderCoveragePage(coverageData);
     }).catch(err => console.error('coverage.json load error:', err));
+  }
+
+  if (pageName === 'chip_gallery') {
+    fetchJSON('chips.json').then(chipData => {
+      renderChipGalleryPage(chipData);
+    }).catch(err => console.error('chips.json load error:', err));
   }
 
   // 返回顶部按钮
