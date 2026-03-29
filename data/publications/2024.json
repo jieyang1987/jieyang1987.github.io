@@ -32,11 +32,12 @@
           "venue": "IEEE Journal of Biomedical and Health Informatics",
           "venueHighlight": false,
           "url": "https://ieeexplore.ieee.org/document/10561479",
-          "pdf": "",
+          "pdf": "papers/2024_JBHI_Neuro-BERT_Rethinking_Masked_Autoencoding_for_Self-Supervised_Neurological_Pretraining.pdf",
           "topics": [
             "decoding",
             "bci"
-          ]
+          ],
+          "abstract": "Deep learning associated with neurological signals is poised to drive major advancements in diverse fields such as medical diagnostics, neurorehabilitation, and brain-computer interfaces. The challenge in harnessing the full potential of these signals lies in the dependency on extensive, high-quality annotated data, which is often scarce and expensive to acquire, requiring specialized infrastructure and domain expertise. To address the appetite for data in deep learning, we present Neuro-BERT, a self-supervised pre-training framework of neurological signals based on masked autoencoding in the Fourier domain. The intuition behind our approach is simple: frequency and phase distribution of neurological signals can reveal intricate neurological activities. We propose a novel pre-training task dubbed Fourier Inversion Prediction (FIP), which randomly masks out a portion of the input signal and then predicts the missing information using the Fourier inversion theorem. Pretrained models can be potentially used for various downstream tasks such as sleep stage classification and gesture recognition. Unlike contrastive-based methods, which strongly rely on carefully hand-crafted augmentations and siamese structure, our approach works reasonably well with a simple transformer encoder with no augmentation requirements. By evaluating our method on several benchmark datasets, we show that Neuro-BERT improves downstream neurological-related tasks by a large margin."
         },
         {
           "authors": "S. Zhao, C. Wang, C. Fang, F. Tian, <strong>J. Yang*</strong>, M. Sawan",
@@ -44,10 +45,11 @@
           "venue": "IEEE Transactions on Biomedical Circuits and Systems",
           "venueHighlight": false,
           "url": "https://ieeexplore.ieee.org/abstract/document/10504647/",
-          "pdf": "",
+          "pdf": "papers/2024_TBioCAS_HybMED_A_Hybrid_Neural_Network_Training_Processor_With_Multi-Sparsity_Exploitation_for_Internet_of_Medical_Things.pdf",
           "topics": [
             "neuromorphic"
-          ]
+          ],
+          "abstract": "Cloud-based training and edge-based inference modes for Artificial Intelligence of Medical Things (AIoMT) applications suffer from accuracy degradation due to physiological signal variations among patients. On-chip learning can overcome this issue by online adaptation of neural network parameters for user-specific tasks. However, existing on-chip learning processors have limitations in terms of versatility, resource utilization, and energy efficiency. We propose HybMED, which is a novel neural signal processor that supports onchip hybrid neural network training using a composite direct feedback alignment-based paradigm. HybMED is suitable for general-purpose health monitoring AIoMT devices. It improves resource utilization and area efficiency by the reconfigurable homogeneous core with heterogeneous data flow and enhances energy efficiency by exploiting sparsity at different granularities. The chip was fabricated by TSMC 40nm process and tested in multiple physiological signal processing tasks, demonstrating an average improvement in accuracy of 41.16% following online fewshot learning. The chip demonstrates an area efficiency of 1.17 GOPS/mm2 and an energy efficiency of 1.58 TOPS/W. Compared to the previous state-of-the-art physiological signal processors with on-chip learning, the chip achieves a 65× improvement in area efficiency and 1.48× improvement in energy efficiency, respectively."
         },
         {
           "authors": "<strong>J. Yang</strong>, S. Zhao, J. Wang, S. Lin, Q. Hou, M. Sawan",
