@@ -36,6 +36,27 @@
   }
 
   // ─────────────────────────────────────────────
+  // WebP 图片支持：自动选择最优格式
+  // ─────────────────────────────────────────────
+  function createPictureTag(src, alt, className, loading = 'lazy') {
+    // 如果已经是WebP、SVG或没有扩展名，直接返回img
+    if (!src || src.endsWith('.webp') || src.endsWith('.svg') || !src.match(/\.(png|jpe?g)$/i)) {
+      return `<img src="${src}" alt="${alt}" class="${className}" loading="${loading}">`;
+    }
+    
+    // 获取WebP路径
+    const webpSrc = src.replace(/\.(png|jpe?g)$/i, '.webp');
+    
+    // 使用picture标签提供WebP和原格式fallback
+    // 注意：picture标签本身不需要class，样式应用于内部img
+    return `<picture>
+      <source srcset="${webpSrc}" type="image/webp">
+      <source srcset="${src}" type="image/jpeg">
+      <img src="${src}" alt="${alt}" class="${className}" loading="${loading}">
+    </picture>`;
+  }
+
+  // ─────────────────────────────────────────────
   // 导航栏渲染
   // ─────────────────────────────────────────────
 
@@ -140,6 +161,9 @@
   function renderBanner(profile) {
     const bannerSection = document.getElementById('site-banner');
     if (bannerSection) {
+      // 预加载Banner图片
+      const bannerImg = new Image();
+      bannerImg.src = profile.banner;
       bannerSection.style.backgroundImage = `url('${profile.banner}')`;
     }
     const nameEl = document.getElementById('banner-name');
@@ -161,6 +185,7 @@
     if (avatarImg) {
       avatarImg.src = profile.photo;
       avatarImg.alt = profile.name[lang];
+      avatarImg.loading = 'eager'; // 首屏头像优先加载
     }
     const contact = profile.contact;
     const contactEl = document.getElementById('avatar-contact');
@@ -235,8 +260,7 @@
       booksGrid.innerHTML = profile.teaching.books.map(book => `
         <div class="col-12 col-md-4 mb-4">
           <a href="${book[lang === 'zh' ? 'linkZh' : 'linkEn']}">
-            <img src="${book.image}" alt="${book[lang === 'zh' ? 'titleZh' : 'titleEn']}"
-              class="img-fluid rounded shadow" loading="lazy">
+            ${createPictureTag(book.image, book[lang === 'zh' ? 'titleZh' : 'titleEn'], 'img-fluid rounded shadow', 'lazy')}
             <div class="mt-2 fw-semibold book-title">${book[lang === 'zh' ? 'titleZh' : 'titleEn']}</div>
           </a>
         </div>
@@ -674,8 +698,7 @@
             <div class="research-card-image">
               ${d.images && d.images.length > 0 ? `
                 <a href="${d.images[0].src}" data-lightbox="${d.group || d.id}" data-title="${d.images[0].caption[lang]}">
-                  <img src="${d.images[0].src}" alt="${d.title[lang]}"
-                    class="research-main-image" style="cursor: zoom-in;">
+                  ${createPictureTag(d.images[0].src, d.title[lang], 'research-main-image', 'lazy')}
                 </a>
               ` : ''}
             </div>
@@ -704,7 +727,7 @@
                 ${d.images.slice(1).map((img, idx) => `
                   <div class="gallery-item">
                     <a href="${img.src}" data-lightbox="${d.group || d.id}" data-title="${img.caption[lang]}">
-                      <img src="${img.src}" alt="${img.caption[lang]}" class="gallery-thumbnail">
+                      ${createPictureTag(img.src, img.caption[lang], 'gallery-thumbnail', 'lazy')}
                     </a>
                     <p class="gallery-caption">${img.caption[lang]}</p>
                   </div>
@@ -790,8 +813,8 @@
         paperHtml = `<p class="small">${paperHtml}</p>`;
       }
 
-      html += `<div class="col-lg-4 col-md-4 col-sm-6 col-12 gallery-item" data-aos="fade-up" data-aos-duration="800" data-category="${categories}">
-        <img alt="${title}" class="img-fluid mb-2 border chip-image" src="${chip.image}" />
+      html += `<div class="col-lg-4 col-md-4 col-sm-6 col-12 gallery-item" data-category="${categories}">
+        ${createPictureTag(chip.image, title, 'img-fluid mb-2 border chip-image', 'lazy')}
         <h5 class="fw-bold">${title}</h5>
         <ul class="small text-muted ps-3 mb-1" style="line-height: 1.5;">
           ${features.map(f => '<li>' + f + '</li>').join('')}

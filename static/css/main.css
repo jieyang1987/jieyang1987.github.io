@@ -17,14 +17,34 @@
   display: block;
 }
 
-/* ── 英文字体：Inter + Lato（jsDelivr CDN，国内可访问）──────── */
-@import url('https://cdn.jsdelivr.net/npm/@fontsource/inter@5/index.css');
-@import url('https://cdn.jsdelivr.net/npm/@fontsource/lato@5/index.css');
+/* ══════════════════════════════════════════════
+   字体配置：系统字体栈（零下载，即时渲染）
+   优先级：系统 UI 字体 → 微软雅黑/苹方 → 通用无衬线
+══════════════════════════════════════════════ */
 
-/* ── 中文宋体：Noto Serif SC（jsDelivr CDN，国内可访问）───────
-   只加载 Regular(400) 和 Bold(700) 两个字重，按需分片加载     */
-@import url('https://cdn.jsdelivr.net/gh/jfcherng/Noto-Serif-SC-CSS@master/noto_serif_sc_regular.css');
-@import url('https://cdn.jsdelivr.net/gh/jfcherng/Noto-Serif-SC-CSS@master/noto_serif_sc_bold.css');
+/* 定义字体变量 */
+:root {
+  /* 中文系统字体栈 - 覆盖主流操作系统 */
+  --font-zh: 
+    /* Windows 最新 */
+    "Microsoft YaHei", "Microsoft YaHei UI",
+    /* macOS/iOS */
+    "PingFang SC", "Hiragino Sans GB",
+    /* 旧版 Windows */
+    "SimHei", "SimSun",
+    /* 通用回退 */
+    system-ui, -apple-system, "Segoe UI", sans-serif;
+  
+  /* 英文系统字体栈 */
+  --font-en: 
+    "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", "Liberation Sans", sans-serif;
+  
+  /* 组合字体栈 */
+  --font-body: var(--font-zh), var(--font-en);
+  --font-heading: var(--font-zh), var(--font-en);
+  --font-light: var(--font-zh), var(--font-en);
+}
 
 /* ══════════════════════════════════════════════
    CSS 变量 & 全局主题色
@@ -44,43 +64,22 @@
   --transition:    0.25s ease;
 }
 
-/* ══════════════════════════════════════════════
-   字体声明
-══════════════════════════════════════════════ */
-@font-face {
-  font-family: 'AlibabaPuHuiTi-Thin';
-  src: url('../font/AlibabaPuHuiTi-3-35-Thin.woff2') format('woff2');
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'AlibabaPuHuiTi-Light';
-  src: url('../font/AlibabaPuHuiTi-3-45-Light.woff2') format('woff2');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'AlibabaPuHuiTi-Regular';
-  src: url('../font/AlibabaPuHuiTi-3-55-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
+/* 
+ * 已移除本地字体文件引用（原 AlibabaPuHuiTi，总计15.6MB）
+ * 现使用系统字体栈，实现零下载时间
+ */
 
 /* ══════════════════════════════════════════════
    全局排版
 ══════════════════════════════════════════════ */
 body {
-  font-family: 'AlibabaPuHuiTi-Regular', system-ui, -apple-system, BlinkMacSystemFont,
-               "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-body);
   color: var(--text-primary);
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   background-color: var(--section-light);
+  text-rendering: optimizeLegibility;
 }
 
 /* 桌面端默认显示完整内容 */
@@ -91,7 +90,7 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: 'AlibabaPuHuiTi-Regular', sans-serif;
+  font-family: var(--font-heading);
   font-weight: 700;
   letter-spacing: -0.01em;
 }
@@ -102,13 +101,13 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.5rem); color: #333; }
 
 h5 {
   font-size: 1.1rem;
-  font-weight: 350;
-  font-family: 'AlibabaPuHuiTi-Light', sans-serif;
+  font-weight: 400;
+  font-family: var(--font-heading);
   margin-bottom: 0.5rem;
 }
 
 p {
-  font-family: 'AlibabaPuHuiTi-Regular', sans-serif;
+  font-family: var(--font-body);
   font-weight: 400;
   line-height: 1.75;
   margin-bottom: 0.75rem;
@@ -118,19 +117,19 @@ a { color: var(--link-color); }
 a:hover { color: var(--brand-blue); }
 
 main, .main-body, .content, #home, #interests, #awards {
-  font-family: 'AlibabaPuHuiTi-Regular', sans-serif;
+  font-family: var(--font-body);
   font-size: clamp(16px, 1.1vw + 14px, 20px);
 }
 
 #publication-content, .publication-list, .publication-item {
-  font-family: 'AlibabaPuHuiTi-Light', sans-serif;
-  font-weight: 300;
+  font-family: var(--font-body);
+  font-weight: 400;
   font-size: clamp(14px, 0.9vw + 13px, 17px);
   line-height: 1.75;
 }
 
 h4 {
-  font-family: 'AlibabaPuHuiTi-Regular', sans-serif;
+  font-family: var(--font-heading);
   font-size: clamp(1rem, 1.5vw, 1.25rem);
   font-weight: 600;
   color: #2a50b8;
@@ -2269,5 +2268,6 @@ section.bg-gradient-primary-to-secondary-gray header h2 {
     margin-top: 0.03rem;
   }
 }
- 
+
+ 
  

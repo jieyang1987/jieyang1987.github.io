@@ -10931,7 +10931,7 @@ footer a:hover, footer a:active, footer a:focus {
 
 /* 让菜单链接使用较粗字体 */
 .navbar-nav .nav-link {
-    font-family: 'AlibabaPuHuiTi-Regular', sans-serif;
+    font-family: var(--font-heading), "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
     font-weight: 500;
 }
 
