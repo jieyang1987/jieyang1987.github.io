@@ -4,6 +4,18 @@
       "year": 2026,
       "items": [
         {
+          "authors": "S. Zhao, Z. Wang, H. Sun, S. Wang, Z. Chen, C. Fu, <strong>J. Yang</strong>, M. Sawan",
+          "title": "HAQ-ViT: A hardware-aware post-training quantization for efficient vision transformer inference",
+          "venue": "Knowledge-Based Systems",
+          "venueHighlight": false,
+          "url": "https://www.sciencedirect.com/science/article/pii/S0950705126005563",
+          "pdf": "papers/2026_HAQ-ViT_A_hardware-aware_post-training_quantization_for_efficient_vision_transformer_inference.pdf",
+          "topics": [
+            "neuromorphic"
+          ],
+          "abstract": "In recent years, Vision Transformers (ViTs) have demonstrated outstanding performance in the field of computervision. However, the quadratic complexity of their self-attention mechanism results in a significant increase inmodel storage requirements and computational overhead, which has become a critical bottleneck hindering theirwidespread adoption. Consequently, compressing ViTs has emerged as a major area of research focus, with ViTsquantization being a prominent direction within this domain. This paper systematically analyzes and identifiesthree key optimization opportunities in existing INT8 quantized ViTs models: 1) The numerical distribution ofthe query-key vectors in the attention matrix exhibits a 40.66% occurrence of consecutive identical values spanning 3 bits; 2) The activation sparsity across different network layers displays significant heterogeneity; and3) Shallow features can already provide reliable classification confidence. Based on these findings, we proposeHAQ-ViT, a hardware aware post-training quantization acceleration framework. First, we introduce a hybridquantization scheme grounded in the improved Booth algorithm. By designing a hardware-friendly bit sequenceskipping strategy, we enable the omission of multiplication operations involving consecutive identical bit patterns, building upon standard 8-bit quantization. Secondly, we propose a dynamic layer sparsification strategy.By analyzing the inter-layer differences in activation distribution, we construct an adaptive threshold selectionfunction, thereby reducing the sparsification decision complexity from 𝑂(𝑛2) to 𝑂(𝑘𝑛2), where 𝑘 ∈ (0, 1) is a predefined scaling factor. Finally, we introduce a global quantization adaptive early exit mechanism, where multiplelightweight classification heads are strategically inserted to monitor confidence entropy in real-time. When theentropy exceeds a defined threshold, the computations are terminated early. Experimental results demonstratethat the HAQ-ViT framework, evaluated on the ImageNet dataset, maintains inference accuracy at a sparsityrate of 76% (with a 0.068% improvement over the baseline model). With the integration of early exit heads, theaccuracy experiences a marginal decrease of only 0.004%, and at a sparsity rate of 94%, the energy consumptionfor a single inference is significantly reduced from 64.6 mJ to 10.91 mJ."
+        },
+        {
           "authors": "C. Zhang, Y. Zhang, J. Yu, <strong>J. Yang*</strong>, M. Sawan*",
           "title": "Event-Fused Hybrid ANN-SNN Architecture for Low-Latency Object Detection in Automotive Vision",
           "venue": "IEEE Robotics and Automation Letters",
