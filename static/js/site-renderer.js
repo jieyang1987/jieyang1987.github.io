@@ -25,6 +25,49 @@
       .then(r => { if (!r.ok) throw new Error('Failed: ' + file); return r.json(); });
   }
 
+  /**
+   * 在页面顶部显示一条可关闭的错误横幅（每次只显示一条）
+   * @param {string} msgZh  中文错误说明
+   */
+  function showFetchError(msgZh) {
+    if (document.getElementById('site-fetch-error-banner')) return; // 已有横幅则不重复
+
+    const banner = document.createElement('div');
+    banner.id = 'site-fetch-error-banner';
+    banner.setAttribute('role', 'alert');
+    banner.style.cssText = [
+      'position:fixed', 'top:0', 'left:0', 'right:0', 'z-index:99999',
+      'background:#dc3545', 'color:#fff', 'text-align:center',
+      'padding:10px 48px 10px 16px', 'font-size:14px', 'line-height:1.5',
+      'box-shadow:0 2px 8px rgba(0,0,0,.25)'
+    ].join(';');
+
+    banner.innerHTML =
+      `⚠️ ${msgZh}&ensp;` +
+      `<a href="javascript:location.reload()" ` +
+      `style="color:#fff;font-weight:700;text-decoration:underline;">刷新重试</a>` +
+      `<button onclick="this.parentElement.remove()" title="关闭" ` +
+      `style="position:absolute;right:12px;top:50%;transform:translateY(-50%);` +
+      `background:none;border:none;color:#fff;font-size:18px;cursor:pointer;line-height:1;">✕</button>`;
+
+    document.body.prepend(banner);
+  }
+
+  /**
+   * 在指定容器内显示内联错误提示（用于非关键数据块）
+   * @param {string} containerId  容器元素 id
+   * @param {string} msgZh        中文错误说明
+   */
+  function showInlineError(containerId, msgZh) {
+    const el = document.getElementById(containerId);
+    if (!el) return;
+    el.innerHTML =
+      `<div style="padding:1.5rem;color:#721c24;background:#f8d7da;border:1px solid #f5c6cb;` +
+      `border-radius:.375rem;margin:1rem 0;">` +
+      `⚠️ ${msgZh}&ensp;<a href="javascript:location.reload()" style="color:#491217;font-weight:700;">刷新重试</a>` +
+      `</div>`;
+  }
+
   function setText(id, html) {
     const el = document.getElementById(id);
     if (el) el.innerHTML = html;
@@ -858,30 +901,46 @@
     if (pageName === 'home') {
       renderHomePage(profile);
     }
-  }).catch(err => console.error('profile.json load error:', err));
+  }).catch(err => {
+    console.error('profile.json load error:', err);
+    showFetchError('页面核心数据加载失败，请检查网络连接后');
+  });
 
   if (pageName === 'publications') {
     fetchJSON('publications.json').then(pubData => {
       renderPublicationsPage(pubData);
-    }).catch(err => console.error('publications.json load error:', err));
+    }).catch(err => {
+      console.error('publications.json load error:', err);
+      showInlineError('journal-list', '论文数据加载失败，请检查网络连接后');
+      showInlineError('conference-list', '论文数据加载失败，请检查网络连接后');
+    });
   }
 
   if (pageName === 'research') {
     fetchJSON('research.json').then(resData => {
       renderResearchPage(resData);
-    }).catch(err => console.error('research.json load error:', err));
+    }).catch(err => {
+      console.error('research.json load error:', err);
+      showInlineError('research-details', '研究方向数据加载失败，请检查网络连接后');
+    });
   }
 
   if (pageName === 'coverage') {
     fetchJSON('coverage.json').then(coverageData => {
       renderCoveragePage(coverageData);
-    }).catch(err => console.error('coverage.json load error:', err));
+    }).catch(err => {
+      console.error('coverage.json load error:', err);
+      showInlineError('coverage-list', '活动记录数据加载失败，请检查网络连接后');
+    });
   }
 
   if (pageName === 'chip_gallery') {
     fetchJSON('chips.json').then(chipData => {
       renderChipGalleryPage(chipData);
-    }).catch(err => console.error('chips.json load error:', err));
+    }).catch(err => {
+      console.error('chips.json load error:', err);
+      showInlineError('chip-gallery-row', '芯片展示数据加载失败，请检查网络连接后');
+    });
   }
 
   // 返回顶部按钮

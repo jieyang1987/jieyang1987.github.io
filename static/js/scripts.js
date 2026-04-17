@@ -1,6 +1,5 @@
 
 
-const content_dir = 'contents/'
 const config_file = 'config.yml'
 const section_names = ['home', 'publications', 'awards']
 
@@ -210,12 +209,28 @@ window.addEventListener('load', function() {
         initExpandToggle('teaching-content', 'teaching-expand-btn');
     }, 200);
 
-    // 窗口大小改变时重新检查
+    // 窗口大小改变时重新检查（不刷新页面，直接更新按钮和展开状态）
     let resizeTimer;
     window.addEventListener('resize', function() {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(function() {
-            location.reload(); // 简单处理：重新加载页面以应用正确的样式
+            var pairs = [
+                { contentId: 'about-content',   btnId: 'about-expand-btn' },
+                { contentId: 'teaching-content', btnId: 'teaching-expand-btn' }
+            ];
+            pairs.forEach(function(pair) {
+                var content = document.getElementById(pair.contentId);
+                var btn     = document.getElementById(pair.btnId);
+                if (!content || !btn) return;
+                if (window.innerWidth <= 768) {
+                    // 移动端：显示按钮，默认折叠（若当前未展开则保持折叠）
+                    btn.style.display = 'block';
+                } else {
+                    // 桌面端：隐藏按钮，强制展开内容
+                    btn.style.display = 'none';
+                    content.classList.add('expanded');
+                }
+            });
         }, 250);
     });
 });
