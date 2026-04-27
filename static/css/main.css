@@ -1328,14 +1328,15 @@ section.bg-gradient-primary-to-secondary-gray header h2 {
    引言：Mulish — 轻盈优雅（已由 HTML 引入）
 ══════════════════════════════════════════════ */
 :root {
-  --font-en-body:    'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-en-heading: 'Lato', 'Inter', 'Segoe UI', sans-serif;
-  --font-en-accent:  'Mulish', 'Inter', sans-serif;
+  --font-en-body:    'Inter Variable', 'Inter', 'Segoe UI', Roboto, sans-serif;
+  --font-en-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-en-accent:  'Playfair Display', Georgia, serif;
 }
 
 [lang="en"] body {
   font-family: var(--font-en-body);
-  letter-spacing: -0.01em;
+  letter-spacing: 0em;
+  font-feature-settings: "kern" 1, "liga" 1;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -1346,7 +1347,8 @@ section.bg-gradient-primary-to-secondary-gray header h2 {
 [lang="en"] h3,
 [lang="en"] h4 {
   font-family: var(--font-en-heading);
-  letter-spacing: -0.02em;
+  letter-spacing: 0.01em;
+  font-weight: 700;
 }
 
 [lang="en"] h2 {
