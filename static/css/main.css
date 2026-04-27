@@ -1386,9 +1386,7 @@ section.bg-gradient-primary-to-secondary-gray header h2 {
   font-weight: 400;
   line-height: 1.65;
   letter-spacing: -0.003em;
-  text-align: justify;
-  hyphens: manual;
-  -webkit-hyphens: manual;
+  text-align: left;
   overflow-wrap: break-word;
 }
 
@@ -2277,3 +2275,49 @@ section.bg-gradient-primary-to-secondary-gray header h2 {
 
  
  
+
+/* ══════════════════════════════════════════════
+   ■ 英文版视觉重构（减法风格）
+   全部在 [lang="en"] 作用域内，不影响中文版
+══════════════════════════════════════════════ */
+
+/* 1. sections 背景统一白色，靠间距分区而非色块切割 */
+[lang="en"] section.bg-gradient-primary-to-secondary-light,
+[lang="en"] section.bg-gradient-primary-to-secondary-gray {
+  background-color: #ffffff !important;
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+}
+
+/* 保留首页与头像区的安全间距 */
+[lang="en"] #home.bg-gradient-primary-to-secondary-light {
+  padding-top: 7rem !important;
+}
+
+/* 2. 移除 section header 左侧蓝色竖线 */
+[lang="en"] section header {
+  border-left: none !important;
+  padding-left: 0 !important;
+}
+
+/* 3. h2 重塑：深色文字 + 灰色底线，靠字号/字重建立层次 */
+[lang="en"] h2 {
+  color: #111827;
+  font-size: clamp(1.5rem, 2vw, 1.9rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  padding-bottom: 0.55rem;
+  border-bottom: 1.5px solid #e5e7eb;
+  margin-bottom: 1.5rem;
+}
+
+/* 4. 链接色降噪：沉稳深蓝，替代高饱和亮蓝 */
+[lang="en"] a:not(.nav-link):not(.btn):not(.nav-lang-link) {
+  color: #1d4ed8;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+[lang="en"] a:not(.nav-link):not(.btn):not(.nav-lang-link):hover {
+  color: #1e3a8a;
+  text-decoration: underline;
+}
