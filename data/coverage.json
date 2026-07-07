@@ -5,23 +5,32 @@
   },
   "items": [
 
+
     {
-      "date": "2026.6.8",
-      "title": "附属医院脑机接口病房建设项目启动会",
-      "url": "",
+      "date": "2026.7.2",
+      "title": "西湖大学附属杭州市第一人民医院医工一体化病房揭牌仪式",
+      "url": "https://mp.weixin.qq.com/s/NH1KKUpNrZ0t8FYrLZnoHw",
       "images": [
-        { "src": "images/coverage/sample-1.svg", "caption": "项目启动会现场（示例图）" }
+        { "src": "images/coverage/医工一体化病房揭牌.webp", "caption": "医工一体化病房揭牌" }
       ]
     },
 
+        {
+      "date": "2026.6.10",
+      "title": "重庆市技术创新与应用发展专项-项目启动会",
+      "url": "https://mp.weixin.qq.com/s/9LSgcE4dJqFdJ9fqmSlytQ",
+      "images": [
+        { "src": "images/coverage/项目开题与年度汇报.webp", "caption": "项目开题合影" }
+      ]
+    },
+
+
     {
       "date": "2026.6.2",
-      "title": "与美国代表团交流：脑机接口技术的国际合作与发展",
+      "title": "与Neuralink Cofounder等一行交流：脑机接口技术的国际合作与发展",
       "url": "",
       "images": [
-        { "src": "images/coverage/sample-2.svg", "caption": "代表团交流合影（示例图）" },
-        { "src": "images/coverage/sample-3.svg", "caption": "实验室参观（示例图）" },
-        { "src": "images/coverage/sample-4.svg", "caption": "技术研讨（示例图）" }
+        { "src": "images/coverage/us delegation visit.webp", "caption": "代表团交流合影" }
       ]
     },
 
@@ -29,17 +38,29 @@
     {
       "date": "2026.4.18",
       "title": "6th International Workshop on Translation of Neurotechnologies：《Surviving the Cycle: Practices and Lessons Learned from Developing Speech Neuroprostheses》",
-      "url": "https://neurotechinstitute.net/translation-of-neurotechnologies/"
+      "url": "https://neurotechinstitute.net/translation-of-neurotechnologies/",
+      "images": [
+        { "src": "images/coverage/神经技术转化国际研讨会-1.webp", "caption": "6th International Workshop on Translation of Neurotechnologies" },
+        { "src": "images/coverage/神经技术转化国际研讨会-2.webp", "caption": "6th International Workshop on Translation of Neurotechnologies" }
+      ]
     },
     {
       "date": "2026.3.25",
       "title": "华人芯片设计技术研讨会 2026：《A 0.00022mm<sup>2</sup>/electrode 1024 channel Sparity-Aware Neural Interface with CIM-Based Predictive Foucused Sampling for Hotspot Spike tracking》",
-      "url": "https://icacworkshop.cn/"
+      "url": "https://icacworkshop.cn/",
+      "images": [
+        { "src": "images/coverage/ICAC2026-1.webp", "caption": "华人芯片设计技术研讨会 2026" },
+        { "src": "images/coverage/ICAC2026-2.webp", "caption": "华人芯片设计技术研讨会 2026" }
+      ]
     },
     {
       "date": "2026.2.3",
       "title": "荣获中国脑-机接口华瑙奖-杰出青年奖",
-      "url": "https://mp.weixin.qq.com/s/fedbC1ge9CRuKQ6NGG7WGQ"
+      "url": "https://mp.weixin.qq.com/s/fedbC1ge9CRuKQ6NGG7WGQ",
+      "images": [
+        { "src": "images/coverage/华瑙奖-1.webp", "caption": "中国脑-机接口华瑙奖-杰出青年奖" },
+        { "src": "images/coverage/华瑙奖-2.webp", "caption": "中国脑-机接口华瑙奖-杰出青年奖" }
+      ]
     },
     {
       "date": "2026.1.22",
@@ -59,12 +80,19 @@
     {
       "date": "2025.12.5",
       "title": "2025脑机接口大会: 入选脑机接口产业联盟「青百荟」",
-      "url": "https://mp.weixin.qq.com/s/A5AAT5bdNJJ6hhxA7o8Rvw"
+      "url": "https://mp.weixin.qq.com/s/A5AAT5bdNJJ6hhxA7o8Rvw",
+      "images": [
+        { "src": "images/coverage/脑机接口“青百荟”青年专家合影.webp", "caption": "2025脑机接口大会" }
+      ]
     },
     {
       "date": "2025.11.29",
       "title": "中国医疗器械行业协会产教融合发展大会:《语言神经假肢：从高集成芯片到汉语神经解码》",
-      "url": "https://mp.weixin.qq.com/s/o66iV2QdUnSkuqqQCDNbAA"
+      "url": "https://mp.weixin.qq.com/s/o66iV2QdUnSkuqqQCDNbAA",
+      "images": [
+        { "src": "images/coverage/中国医疗器械行业协会产教融合发展大会-1.webp", "caption": "中国医疗器械行业协会产教融合发展大会" },
+        { "src": "images/coverage/中国医疗器械行业协会产教融合发展大会-2.webp", "caption": "中国医疗器械行业协会产教融合发展大会" }
+      ]
     },
     {
       "date": "2025.11.23",
@@ -74,12 +102,18 @@
     {
       "date": "2025.11.11",
       "title": "第四届南渡江论坛圆桌讨论:《脑机接口的发展机遇与挑战》",
-      "url": "https://www.bilibili.com/video/BV1yuCvBLEZB?spm_id_from=333.788.videopod.sections&vd_source=15b3f7b70265110e16e17eace0ba089a"
+      "url": "https://www.bilibili.com/video/BV1yuCvBLEZB?spm_id_from=333.788.videopod.sections&vd_source=15b3f7b70265110e16e17eace0ba089a",
+      "images": [
+        { "src": "images/coverage/南渡江-2.webp", "caption": "第四届南渡江论坛圆桌讨论" }
+      ]
     },
     {
       "date": "2025.11.11",
       "title": "第四届南渡江论坛：报告主题:《脑机接口底层技术：从高集成芯片到汉语神经解码》",
-      "url": "https://www.bilibili.com/video/BV1yuCvBLEvp?spm_id_from=333.788.videopod.sections&vd_source=15b3f7b70265110e16e17eace0ba089a"
+      "url": "https://www.bilibili.com/video/BV1yuCvBLEvp?spm_id_from=333.788.videopod.sections&vd_source=15b3f7b70265110e16e17eace0ba089a",
+      "images": [
+        { "src": "images/coverage/南渡江-1.webp", "caption": "第四届南渡江论坛" }
+      ]  
     },
     {
       "date": "2025.11.05",
@@ -89,12 +123,20 @@
     {
       "date": "2025.11.02",
       "title": "CCF DAC：报告主题:《类脑计算芯片、算法的协同设计及应用探索》",
-      "url": "https://mp.weixin.qq.com/s/D32tBL9RzhnaWKOmI6O08g"
+      "url": "https://mp.weixin.qq.com/s/D32tBL9RzhnaWKOmI6O08g",
+      "images": [
+        { "src": "images/coverage/CCF-DAC-1.webp", "caption": "CCF DAC" },
+        { "src": "images/coverage/CCF-DAC-2.webp", "caption": "CCF DAC" }
+      ]
     },
     {
       "date": "2025.11.01",
-      "title": "MIND：Poster Session:《NeuroPlat: An FPGA-based Neuromorphic ... & Spiking Decision-Making System Based on ...》",
-      "url": "https://www.ic-mind.org/"
+      "title": "MIND：Poster Session:《NeuroPlat: An FPGA-Based Neuromorphic Computing Platform with Optimized Toolchain for Efficient SNN Deployment》",
+      "url": "https://www.ic-mind.org/",
+      "images": [
+        { "src": "images/coverage/MIND-1.webp", "caption": "MIND" },
+        { "src": "images/coverage/MIND-2.webp", "caption": "MIND" }
+      ]
     },
     {
       "date": "2025.10.14",
@@ -119,7 +161,10 @@
     {
       "date": "2025.5.17",
       "title": "天津大学: 重点研发项目《面向动态记忆处理的超精细解码与增强技术》启动会",
-      "url": "https://mp.weixin.qq.com/s/FwbNywTmv173_Q2Ma0J2Wg"
+      "url": "https://mp.weixin.qq.com/s/FwbNywTmv173_Q2Ma0J2Wg",
+      "images": [
+        { "src": "images/coverage/天津大学重点研发启动会.webp", "caption": "天津大学重点研发项目启动会" }
+      ]
     },
     {
       "date": "2025.3.31",
@@ -129,7 +174,11 @@
     {
       "date": "2025.3.28",
       "title": "第七届华人芯片设计技术研讨会（ICAC 2025）: 报告主题：《An Energy-Efficient Unstructured Sparsity-Aware Deep SNN Accelerator with 3D Compute Array》",
-      "url": "https://icacworkshop.cn/"
+      "url": "https://icacworkshop.cn/",
+      "images": [
+        { "src": "images/coverage/ICAC2025-1.webp", "caption": "第七届华人芯片设计技术研讨会（ICAC 2025）" },
+        { "src": "images/coverage/ICAC2025-2.webp", "caption": "第七届华人芯片设计技术研讨会（ICAC 2025）" }
+      ]
     },
     {
       "date": "2024.12.12",
@@ -144,7 +193,11 @@
     {
       "date": "2024.10.24",
       "title": "IEEE 17th ICSICT Conference：报告主题：《侵入式脑机接口的系统级芯片：挑战与机遇》",
-      "url": "https://www.icsict.com/Data/List/FinalProgram"
+      "url": "https://www.icsict.com/Data/List/FinalProgram",
+      "images": [
+        { "src": "images/coverage/ICSICT2024-1.webp", "caption": "IEEE 17th ICSICT Conference" },
+        { "src": "images/coverage/ICSICT2024-2.webp", "caption": "IEEE 17th ICSICT Conference" }
+      ]
     },
     {
       "date": "2024.10.18",
@@ -159,17 +212,28 @@
     {
       "date": "2024.08.03",
       "title": "昆山杜克大学神经科学专题研讨会：报告主题：《High-throughput brain-computer interface chip design and language decoding application》",
-      "url": "https://news.dukekunshan.edu.cn/zh-hans/campus-news/1st-dku-neuroscience-symposium/"
+      "url": "https://news.dukekunshan.edu.cn/zh-hans/campus-news/1st-dku-neuroscience-symposium/",
+      "images": [
+        { "src": "images/coverage/DKU-1.webp", "caption": "昆山杜克大学神经科学专题研讨会" }
+      ]
     },
     {
       "date": "2024.07.19",
       "title": "中国计算机学会芯片大会：报告主题：《High-throughput BCI —— Recording and Decoding》",
-      "url": "https://ccf.org.cn/chip2024/general_1054"
+      "url": "https://ccf.org.cn/chip2024/general_1054",
+      "images": [
+        { "src": "images/coverage/CCF-Chip2024-1.webp", "caption": "中国计算机学会芯片大会" },
+        { "src": "images/coverage/CCF-Chip2024-2.webp", "caption": "中国计算机学会芯片大会" }
+      ]
     },
     {
       "date": "2024.05.18",
       "title": "九三学社：九三学社中央第四十次科学座谈会，发言内容：《学科交叉与产业投资双驱动——加速脑机接口技术由点到链的发展》",
-      "url": "https://www.93.gov.cn/xwjc-snyw/779013.html"
+      "url": "https://www.93.gov.cn/xwjc-snyw/779013.html",
+      "images": [
+        { "src": "images/coverage/九三学社科学座谈会.webp", "caption": "九三学社中央第四十次科学座谈会" }
+      ]
+
     },
     {
       "date": "2024.05.14",
@@ -179,7 +243,10 @@
     {
       "date": "2024.04.20",
       "title": "2024片上脑机接口国际会议：报告题目《全植入脑机接口芯片与脑-汉语神经解码》",
-      "url": "https://mp.weixin.qq.com/s/jQcTmt7yyR5itbgronXmeA"
+      "url": "https://mp.weixin.qq.com/s/jQcTmt7yyR5itbgronXmeA",
+      "images": [
+        { "src": "images/coverage/片上脑机接口2024.webp", "caption": "2024片上脑机接口国际会议" }
+      ]
     },
     {
       "date": "2023.12.18",
@@ -199,7 +266,10 @@
     {
       "date": "2023.11.24",
       "title": "浙大求是高等研究院：「脑机接口与神经工程前沿交叉」研讨会",
-      "url": "http://www.qaas.zju.edu.cn/news.asp?id=169"
+      "url": "http://www.qaas.zju.edu.cn/news.asp?id=169",
+      "images": [
+        { "src": "images/coverage/求是高等研究院2023.webp", "caption": "浙大求是高等研究院研讨会" }
+      ]
     },
     {
       "date": "2023.09.11",

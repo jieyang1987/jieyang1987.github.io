@@ -948,7 +948,7 @@ section.bg-gradient-primary-to-secondary-gray header h2 {
   text-decoration: underline;
 }
 
-/* 活动条目缩略图 */
+/* 活动条目缩略图（一排多张） */
 .news-item.has-thumb {
   align-items: center;
 }
@@ -957,11 +957,21 @@ section.bg-gradient-primary-to-secondary-gray header h2 {
   flex: 1;
 }
 
+/* 缩略图容器：横向排列，可换行 */
+.news-thumbs {
+  flex-shrink: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  max-width: 320px;
+  justify-content: flex-end;
+}
+
 .news-thumb {
   position: relative;
   flex-shrink: 0;
-  width: 140px;
-  height: 94px;
+  width: 100px;
+  height: 67px;
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
@@ -981,23 +991,10 @@ section.bg-gradient-primary-to-secondary-gray header h2 {
   opacity: 0.88;
 }
 
-/* 多图角标 "+N" */
-.news-thumb-count {
-  position: absolute;
-  right: 0.3rem;
-  bottom: 0.3rem;
-  background: rgba(17,24,39,0.78);
-  color: #fff;
-  font-size: 0.72rem;
-  font-weight: 600;
-  line-height: 1;
-  padding: 0.2rem 0.4rem;
-  border-radius: 0.3rem;
-}
-
-/* 隐藏的附加图片链接（仅供 lightbox 翻看，不占布局） */
-.news-thumb-hidden {
-  display: none;
+/* Lightbox 大图圆角（尺寸交给 lightbox 的 fitImagesInViewport + maxWidth 选项控制，
+   见 coverage.html 里的 lightbox.option 初始化，避免 CSS 与其内部计算冲突产生白边） */
+.lightbox .lb-image {
+  border-radius: var(--radius);
 }
 
 /* ══════════════════════════════════════════════
@@ -1467,11 +1464,15 @@ section.bg-gradient-primary-to-secondary-gray header h2 {
   }
   .news-time { font-size: 0.85rem; }
   .news-title { font-size: 0.95rem; word-break: break-word; }
-  /* 移动端缩略图放在条目下方，稍大一点便于点按 */
+  /* 移动端缩略图移到条目下方，整排靠左、可换行 */
+  .news-thumbs {
+    max-width: 100%;
+    justify-content: flex-start;
+    margin-top: 0.4rem;
+  }
   .news-thumb {
-    width: 160px;
-    height: 107px;
-    margin-top: 0.35rem;
+    width: 96px;
+    height: 64px;
   }
 
   /* --- 论文页 --- */

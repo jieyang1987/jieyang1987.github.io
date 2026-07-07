@@ -873,21 +873,18 @@
         ? `<a href="${item.url}" target="_blank" rel="noopener">${item.title}</a>`
         : item.title;
 
-      // 缩略图（可选）：取第一张作为列表缩略图；多图时叠加 "+N" 角标，
-      // 其余图片以隐藏的 lightbox 链接挂在后面，点缩略图即可左右翻看全部照片。
+      // 缩略图（可选）：把该活动的所有照片平铺成一排小缩略图，
+      // 每张都可点开，且共用同一个 lightbox 相册（点任意一张都能左右翻看全部）。
+      // 直接用 <img> 加载（不走"优先WebP"的 picture 机制），
+      // 这样活动照片只需上传一张 jpg/png 即可，无需再准备同名 webp。
       let thumbHtml = '';
       if (Array.isArray(item.images) && item.images.length > 0) {
-        const imgs = item.images;
         const group = `coverage-${idx}`;
-        const extra = imgs.length > 1
-          ? `<span class="news-thumb-count">+${imgs.length - 1}</span>` : '';
-        const hidden = imgs.slice(1).map(img =>
-          `<a href="${img.src}" data-lightbox="${group}" data-title="${img.caption || item.title}" class="news-thumb-hidden" aria-hidden="true"></a>`
-        ).join('');
-        thumbHtml = `<a class="news-thumb" href="${imgs[0].src}" data-lightbox="${group}" data-title="${imgs[0].caption || item.title}">
-          ${createPictureTag(imgs[0].src, imgs[0].caption || item.title, 'news-thumb-img', 'lazy')}
-          ${extra}
-        </a>${hidden}`;
+        thumbHtml = `<div class="news-thumbs">` + item.images.map(img =>
+          `<a class="news-thumb" href="${img.src}" data-lightbox="${group}" data-title="${img.caption || item.title}">
+            <img src="${img.src}" alt="${img.caption || item.title}" class="news-thumb-img" loading="lazy">
+          </a>`
+        ).join('') + `</div>`;
       }
 
       return `<li class="news-item${thumbHtml ? ' has-thumb' : ''}">

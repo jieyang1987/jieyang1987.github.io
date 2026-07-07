@@ -23,6 +23,20 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox.min.js" defer></script>
+  <script>
+    // Fit images in viewport and cap max size to avoid full-screen images or white gaps
+    window.addEventListener('load', function () {
+      if (window.lightbox) {
+        lightbox.option({
+          fitImagesInViewport: true,
+          maxWidth: 900,
+          maxHeight: 680,
+          wrapAround: true,
+          albumLabel: 'Image %1 of %2'
+        });
+      }
+    });
+  </script>
 
   <script src="static/js/bootstrap.bundle.min.js"></script>
 </head>
