@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>第{'一二三四五'[i]}章 无线能量传输与通讯电路设计 - 侵入式脑机接口芯片设计</title>
+  <style>
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+        line-height: 1.8;
+        color: #333;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem;
+        background: #fff;
+    }
+    h1 {
+        font-size: 1.8rem;
+        color: #1a1a1a;
+        border-bottom: 2px solid #3948d4;
+        padding-bottom: 0.5rem;
+        margin-top: 2rem;
+    }
+    h2 {
+        font-size: 1.4rem;
+        color: #1a1a1a;
+        margin-top: 2rem;
+        padding-left: 0.5rem;
+        border-left: 4px solid #3948d4;
+    }
+    h3 {
+        font-size: 1.1rem;
+        color: #1a1a1a;
+        margin-top: 1.5rem;
+    }
+    p {
+        margin: 1rem 0;
+        text-align: justify;
+    }
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+        display: block;
+        margin: 1rem auto;
+    }
+    .figure {
+        background: #f8f9fa;
+        padding: 1rem;
+        margin: 1.5rem 0;
+        border-radius: 8px;
+    }
+    .math {
+        overflow-x: auto;
+    }
+    a {
+        color: #3948d4;
+    }
+    ol {
+        padding-left: 1.5rem;
+    }
+    li {
+        margin: 0.5rem 0;
+    }
+    .chapter-nav {
+        margin: 2rem 0;
+        padding: 1rem;
+        background: #f0f4ff;
+        border-radius: 8px;
+    }
+    .nav-link {
+        display: inline-block;
+        margin: 0.25rem 0.25rem 0.25rem 0;
+        padding: 0.5rem 1rem;
+        background: #3948d4;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        font-size: 0.9rem;
+    }
+    .nav-link:hover {
+        background: #2936a8;
+    }
+    @media (max-width: 768px) {
+        body {
+            padding: 1rem;
+            font-size: 0.95rem;
+        }
+        h1 { font-size: 1.5rem; }
+        h2 { font-size: 1.2rem; }
+    }
+  </style>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="chapter-nav">
+  <a href="chapter_1.html" class="nav-link">第一章</a>
+  <a href="chapter_2.html" class="nav-link">第二章</a>
+  <a href="chapter_3.html" class="nav-link">第三章</a>
+  <a href="chapter_4.html" class="nav-link">第四章</a>
+  <a href="chapter_5.html" class="nav-link">第五章</a>
+</nav>
+
+<h1>第{'一二三四五'[i]}章 无线能量传输与通讯电路设计</h1>
+
+<header id="title-block-header">
+<h1 class="title">侵入式脑机接口芯片设计</h1>
+</header>
+<section>
+<ol>
+<li><p><strong>无线能量传输与通讯电路设计</strong></p></li>
+</ol>
+<p>无线能量传输和无线通信电路是植入式芯片中的两个关键电路。无线能量传输电路的主要功能是将能量从外部传输到植入式芯片，以实现芯片的供电或电池充电。通过无线电频率的电磁场耦合或电磁感应方式，外部的能量发射器或充电设备可以将能量传输到植入式芯片上的能量接收器。</p>
+<p>常见的无线能量传输方式包括感性耦合、电磁波辐射、超声波和近红外光等[75]。在脑机接口芯片中，感性耦合是最常用的传输方式[76]。它利用线圈之间的电磁感应原理，通过磁场传输能量。其他方式如电磁波辐射、超声波和近红外光在脑机接口应用中也被使用[77]。图8-24给出了一个典型的无线能量传输电路结构。元件在功率放大器驱动下，将电能转换为时变的电磁场或超声波等，这些能量穿透人体组织后向侵入式的芯片传递。植入式芯片接收到的交流电载波信号经过片上电源管理模块整流和稳压调节处理后，再传递给负载。电源管理模块中的整流器用于将输入交流信号转换为未调节的直流信号，稳压电路进一步抑制电源纹波，以实现对负载的稳定供电。</p>
+<p><img src="media/image25.png"
+style="width:5.09024in;height:1.53913in" /></p>
+<p>图 8-24用于植入式芯片的无线能量传输电路框图</p>
+<ol>
+<li><p><strong>整流电路与稳压电路</strong></p></li>
+</ol>
+<p>图8-25（a）所示为最简单的半波镇流器，由二极管和滤波电容组成。当输入交流电压Vin处于正向阶段且Vin高于输出电压Vrec时，二极管D<sub>1</sub>导通。在另外半个周期，二极管反向偏置。图8-25（b）所示为植入式芯片中常见的全波桥式整流器，该电路由四个二极管组成一个桥式电路和滤波电容构成。在输入交流电压Vin的正向阶段且两端电压高于Vrec时，D1，D2开启。在交流电压Vin的另外半个周期且两端压差高于Vrec时，D3，D4开启。在全波整流器的每个周期中，Crec被充电两次，因此纹波较半波整流更小。同时由于在每个输入周期内，都能够利用两个二极管进行整流，有效地利用了输入信号的能量，效率更高。在整流电路中，除了使用二极管，还可以使用二极管连接的晶体管，但无论是二极管还是晶体管，它们都会受到正向偏置压降的影响。PN结二极管的压降约为0.7V，而MOS二极管连接压降等于阈值电压。因此，对全波整理电路，输出将降低两倍二极管压降或晶体管阈值电压。</p>
+<p><img src="media/image26.png"
+style="width:4.65217in;height:2.72954in" /></p>
+<p>图 8-25 半波整流与全波整流电路</p>
+<p>图8-26（a）中展示了栅极交叉耦合的整流电路[78]。它由两个NMOS晶体管和两个PMOS晶体管组成，其中，NMOS晶体管的栅极连接到对向晶体管的漏极。每个周期内，其中一个NMOS
+晶体管处于线性区域，其阈值效应可以忽略不计，从而将正向压降降低为单个阈值电压。采用8-26（b）所示的比较器控制的主动整流器可以进一步抑制晶体管在开-关转换期间的反向漏电流导通，从而进一步提到电路效率。</p>
+<p><img src="media/image27.wmf"
+style="width:4.53387in;height:1.88679in" /></p>
+<p>(a) (b)</p>
+<p>图 8-26交叉耦合以及采用比较器的整流电路</p>
+<ol start="2">
+<li><p><strong>稳压电路</strong></p></li>
+</ol>
+<p>整流电路的输出通常包含了大量纹波。尽管可以通过增大电容来有效降低波纹，但在植入芯片中，由于内外线圈之间的距离、错位等因素，导致内部线圈获得的交流电压本身就存在显著波动，因此需要进一步对输出电压进行稳压。植入式芯片中往往采用低压差稳压器（low
+dropout regulator,
+LDO），来减小功率损耗。LDO属于线性稳压器的一种，它利用一个高增益放大器来控制BJT或者MOSFET传输管的电阻，使得该电阻和负载电阻组成的电阻分压器始终保持所需比例，进而产生预期的输出电压，图8-27给出了典型的LDO电路结构，主要包含了误差放大器（EA）以及其控制的传输管M<sub>p1</sub>。很显然，LDO的功率损耗和Vrec-Vout成线性关系，由于Vrec和Vout之差只在数百毫伏之间，因此LDO仍可以保证较高的转换效率。事实上，由于LDO结构相对简单，面积小且噪声较低，在大多数低功耗应用中，线性调节器都采用低压差（LDO）调节器。</p>
+<p><img src="media/image28.png"
+style="width:2.56647in;height:1.80184in" /></p>
+<p>图 8-27 低压差稳压器基本结构</p>
+<ol start="3">
+<li><p><strong>低频无线数据传输</strong></p></li>
+</ol>
+<p>采用无线数据传输可以实现侵入式脑机接口芯片与其他设备之间的实时数据交换，同时避免有线传输造成的手术创伤和感染等问题，是当前脑机接口系统的发展趋势[79]。因此将数字信号传输到身体外部接收设备，是脑机接口芯片设计中一个非常重要的考虑因素。目前脑机接口芯片中所采用的无线通信技术主要分为窄带通信和超宽带通信两类[80]。图8-28为典型的窄带发射机电路结构框图，主要包含了基带信号处理电路、数模转换器、上变频器以及通信天线四个部分。基带信号信号在压缩、编码等处理后由模数转换器转换为低频模拟信号。上变频器将低频模拟信号与本地振荡器提供的高频载波进行混合后，生成射频调制信号。最后，射频信号通过天线辐射到空间中进行传输。</p>
+<p><img src="media/image29.png"
+style="width:3.09565in;height:1.20228in" /></p>
+<p>图 8-28 典型的窄带发射机电路结构</p>
+<p><img src="media/image30.png" style="width:3.26267in;height:2.19751in"
+alt="图表 描述已自动生成" /></p>
+<p>图 8-29 常用无线通信技术的频带分布</p>
+<p>窄带通讯技术包括医疗领域专门制定的WMTS（Wireless Medical Telemetry
+Service）、MICS（Medical Implant Communication
+Service）和蓝牙、WiFi、ZigBee、近场通信等通用通讯标准。WMTS的频段通常在608-614
+MHz、1395-1400 MHz和1427-1432
+MHz，可用于患者心电图、血氧、血糖等生命体征的数据传输，具有稳定、可靠的特点，但是带宽一般较低。MICS是专门为医疗植入设备而设计，频段一般在402-405
+MHz、413-419 MHz和426-432
+MHz的通信方式，在植入式传感器、心脏起搏器、神经刺激器等植入式医疗设备中均有应用，其特点是低功耗和高可靠性，其带宽同样较低[81]。ISM（Industrial
+Scientific
+Medical）频段中的13.56MHz也常被用于侵入式芯片的近场数据通讯（near field
+communication），其特点是功率传输可一同在相同的载波频率上实现，但是数据传输率仍然有限[82,
+83]。表8-4对上述通讯方式的数据率、传输距离和功耗等方式进行了总结，图8-29为频带分布图。</p>
+<p>表8-4 常用于侵入式脑机接口的窄带通讯方式比较</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 22%" />
+<col style="width: 14%" />
+<col style="width: 22%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>窄带通讯技术</th>
+<th style="text-align: left;">频段</th>
+<th>通讯范围</th>
+<th>数据率</th>
+<th>功耗</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>WMTS</th>
+<td style="text-align: left;">608-614 MHz, 1395-1400 MHz, 1427-1432
+MHz</td>
+<td>&lt; 10 m</td>
+<td>&lt;2 Mbps</td>
+<td>中：几十mW-1W</td>
+</tr>
+<tr>
+<th>MICS</th>
+<td style="text-align: left;">402-405 MHz, 413-419 MHz, 426-432 MHz</td>
+<td>&lt; 1m</td>
+<td>&lt;2 Mbps</td>
+<td>较低：几mW到数百mW</td>
+</tr>
+<tr>
+<th>NFC</th>
+<td style="text-align: left;">13.56 MHz,</td>
+<td>&lt; 10 cm</td>
+<td>&lt; 10 Mbps</td>
+<td>极低：几毫瓦到几十mW</td>
+</tr>
+<tr>
+<th>Bluetooth</th>
+<td style="text-align: left;">2.4 GHz</td>
+<td>&lt; 10 m</td>
+<td>&lt; 10 Mbps</td>
+<td>低：几mW到几十mW</td>
+</tr>
+<tr>
+<th>WiFi</th>
+<td style="text-align: left;">0.9 GHz, 2.4 GHz, 5 GHz</td>
+<td>&lt; 100 m</td>
+<td>10Mbps – 1Gbps</td>
+<td>高：几百mW到数W</td>
+</tr>
+<tr>
+<th>ZigBee</th>
+<td style="text-align: left;">2.4 GHz</td>
+<td>&lt; 100 m</td>
+<td>&lt;250 kbps</td>
+<td>较低：几十mW到数百mW</td>
+</tr>
+</tbody>
+</table>
+<p>随着侵入式脑机接口系统不断向着高通量方向发展，脑机接口芯片需要在极低的功耗下提供更高的数据带宽。与上述窄带技术不同，带宽是载波频率的0.2倍或者绝对带宽大于500MHz
+的信号定义为超宽带（ultra-wideband, UWB）信号[84]，其中0~960
+MHz和3.1~10.6
+GHz两个频段可用于超宽带通信且要求信号辐射功率谱密度小于-41.3dBm/MHz（图8-29）。超宽带信道容量大，能够实现高通量数据的无线传输，且其固有的低功率辐射要求缓解了功率放大器功耗较高的问题，在最新的脑机接口芯片中得到了广泛应用[85-87]。从超宽带的频谱要求出发，一般在时域中使用的主要是高斯包络、三角包络、半余弦和矩形四种波形，可采用不同的电路设计方法产生上述波形。图8-30分别展示了侵入式脑机接口芯片中采用的典型UWB电路结构，可分为无载波和有载波型[88-90]。图8-30（a）中的无载波UWB发射器在利用多个延迟单元和组合逻辑产生高阶高斯脉冲波形，最后通过功率放大器驱动天线。该电路结构简单，主要以数字电路为主，不需要混频器和本地振荡器，功率损耗较低，但是多路精准的亚纳秒级数字延迟单元在电路与版图上实现较为困难，容易受到噪声和失配的影响。图8-30（b）中所示的基于载波的结构，包括一个脉冲发生器、压控振荡器、一个脉冲整形器以及功率放大器。该电路首先根据数字信号产生窄脉冲控制信号，该控制信号随后触发压控振荡器产生多周期的脉冲包络信号，最后经过脉冲整形之后输出满足要求的信号。由于其工作于触发状态，功耗较低，但是需要振荡器能够快速开启和关闭以避免额外频率的引入。</p>
+<p><img src="media/image31.png"
+style="width:2.95283in;height:0.97627in" /></p>
+<p>(a)</p>
+<p><img src="media/image32.wmf"
+style="width:2.90566in;height:1.11952in" /></p>
+<p>(b)</p>
+<p>图 8-30 无载波与有载波UWB电路结构</p>
+<p><strong><br />
+</strong></p>
+<ol start="5">
+
+</ol>
+</section>
+
+<nav class="chapter-nav">
+  <a href="chapter_1.html" class="nav-link">第一章</a>
+  <a href="chapter_2.html" class="nav-link">第二章</a>
+  <a href="chapter_3.html" class="nav-link">第三章</a>
+  <a href="chapter_4.html" class="nav-link">第四章</a>
+  <a href="chapter_5.html" class="nav-link">第五章</a>
+</nav>
+</body>
+</html>

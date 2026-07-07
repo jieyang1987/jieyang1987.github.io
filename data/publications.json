@@ -1,0 +1,64 @@
+{
+  "filterTopics": [
+    {
+      "id": "all",
+      "labelZh": "全部",
+      "labelEn": "All"
+    },
+    {
+      "id": "bci",
+      "labelZh": "脑机接口",
+      "labelEn": "BCI"
+    },
+    {
+      "id": "decoding",
+      "labelZh": "神经解码",
+      "labelEn": "Decoding"
+    },
+    {
+      "id": "neuromodulation",
+      "labelZh": "神经调控",
+      "labelEn": "Neuromodulation"
+    },
+    {
+      "id": "neuromorphic",
+      "labelZh": "类脑计算",
+      "labelEn": "Neuromorphic"
+    },
+    {
+      "id": "other",
+      "labelZh": "其他",
+      "labelEn": "Other"
+    }
+  ],
+  "yearlyFiles": [
+    {
+      "year": 2026,
+      "file": "data/publications/2026.json"
+    },
+    {
+      "year": 2025,
+      "file": "data/publications/2025.json"
+    },
+    {
+      "year": 2024,
+      "file": "data/publications/2024.json"
+    },
+    {
+      "year": 2023,
+      "file": "data/publications/2023.json"
+    },
+    {
+      "year": 2022,
+      "file": "data/publications/2022.json"
+    },
+    {
+      "year": 2021,
+      "file": "data/publications/2021.json"
+    },
+    {
+      "year": "2020 and earlier",
+      "file": "data/publications/early.json"
+    }
+  ]
+}

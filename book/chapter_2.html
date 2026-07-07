@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>第{'一二三四五'[i]}章 神经信号读出电路设计 - 侵入式脑机接口芯片设计</title>
+  <style>
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+        line-height: 1.8;
+        color: #333;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem;
+        background: #fff;
+    }
+    h1 {
+        font-size: 1.8rem;
+        color: #1a1a1a;
+        border-bottom: 2px solid #3948d4;
+        padding-bottom: 0.5rem;
+        margin-top: 2rem;
+    }
+    h2 {
+        font-size: 1.4rem;
+        color: #1a1a1a;
+        margin-top: 2rem;
+        padding-left: 0.5rem;
+        border-left: 4px solid #3948d4;
+    }
+    h3 {
+        font-size: 1.1rem;
+        color: #1a1a1a;
+        margin-top: 1.5rem;
+    }
+    p {
+        margin: 1rem 0;
+        text-align: justify;
+    }
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+        display: block;
+        margin: 1rem auto;
+    }
+    .figure {
+        background: #f8f9fa;
+        padding: 1rem;
+        margin: 1.5rem 0;
+        border-radius: 8px;
+    }
+    .math {
+        overflow-x: auto;
+    }
+    a {
+        color: #3948d4;
+    }
+    ol {
+        padding-left: 1.5rem;
+    }
+    li {
+        margin: 0.5rem 0;
+    }
+    .chapter-nav {
+        margin: 2rem 0;
+        padding: 1rem;
+        background: #f0f4ff;
+        border-radius: 8px;
+    }
+    .nav-link {
+        display: inline-block;
+        margin: 0.25rem 0.25rem 0.25rem 0;
+        padding: 0.5rem 1rem;
+        background: #3948d4;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        font-size: 0.9rem;
+    }
+    .nav-link:hover {
+        background: #2936a8;
+    }
+    @media (max-width: 768px) {
+        body {
+            padding: 1rem;
+            font-size: 0.95rem;
+        }
+        h1 { font-size: 1.5rem; }
+        h2 { font-size: 1.2rem; }
+    }
+  </style>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav class="chapter-nav">
+  <a href="chapter_1.html" class="nav-link">第一章</a>
+  <a href="chapter_2.html" class="nav-link">第二章</a>
+  <a href="chapter_3.html" class="nav-link">第三章</a>
+  <a href="chapter_4.html" class="nav-link">第四章</a>
+  <a href="chapter_5.html" class="nav-link">第五章</a>
+</nav>
+
+<h1>第{'一二三四五'[i]}章 神经信号读出电路设计</h1>
+
+<header id="title-block-header">
+<h1 class="title">侵入式脑机接口芯片设计</h1>
+</header>
+<section>
+<ol>
+<li><p><strong>神经信号读出电路设计</strong></p></li>
+</ol>
+<ol>
+<li><p><strong>主要噪声来源</strong></p></li>
+</ol>
+<p>侵入式脑机接口系统工作时除了探测LFP、AP等信号外，还受到大量无关信号的干扰。如图8-4所示，主要的干扰信号包括电极直流失调（electrode
+dc offset，EDO），闪烁噪声（flicker
+noise，1/f噪声），热噪声以及电力线干扰[9]。直流失调来源于电极通道上电极-组织界面处的电化学反应，不同的通道之间的直流失调电压可达1
+mV 到50
+mV不等。由于直流失调电压远高于信号强度，很容易导致放大器饱和。闪烁噪声主要分布在低频部分，具有功率谱密度与频率成反比的特征，所以也被称为1/f噪声。热噪声则与1/f噪声不同，它在所有频谱中以相同的形态分布，对信号的影响相对有限。电力线干扰是包括EEG、ECG等多种电生理信号中都存在的一种常见噪声源，是50Hz或60Hz市电对放大器输入端之间形成的共模干扰。植入式脑机接口芯片的一个重要工作是在较低面积和功耗开销下，放大感兴趣的信号，降低噪声影响，提高信号品质。</p>
+<p><img src="media/image4.png"
+style="width:3.84793in;height:2.7967in" /></p>
+<p>图8-4 神经信号与噪声的关系</p>
+<p>表8-1 神经信号读出电路一般性指标</p>
+<table>
+<colgroup>
+<col style="width: 57%" />
+<col style="width: 42%" />
+</colgroup>
+<thead>
+<tr>
+<th>输入阻抗</th>
+<th>&gt;100MΩ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>噪声</th>
+<td>&lt;5-10μV<sub>rms</sub></td>
+</tr>
+<tr>
+<th>带宽</th>
+<td>1Hz-10kHz</td>
+</tr>
+<tr>
+<th>增益</th>
+<td>&gt; 40 dB</td>
+</tr>
+<tr>
+<th>共模抑制比</th>
+<td>&gt;60dB</td>
+</tr>
+<tr>
+<th>电源抑制比</th>
+<td>&gt;60dB</td>
+</tr>
+<tr>
+<th>直流失调抑制</th>
+<td>50mV</td>
+</tr>
+<tr>
+<th>平均每通道功耗</th>
+<td>&lt;10μW</td>
+</tr>
+<tr>
+<th>平均每通道面积</th>
+<td>&lt;0.04mm<sup>2</sup></td>
+</tr>
+</tbody>
+</table>
+<p>在保证所采集的神经信号质量的前提下，为了解决上述问题，需要模拟前端电路满足一些要求。表8-1概括了神经信号读出电路的一般性指标。例如，为了避免芯片发热导致的组织升温，平均每个通道的功耗需尽量保持小于10μW。放大器的带宽需覆盖LFP、AP等所需信号的带宽以满足完整的信号探测要求，等效输入噪声在信号带宽内积分后的均方根应小于神经信号幅度，否则神经信号将淹没在噪声中。为了消除市电以及电源波动的干扰，需要保持较高的共模抑制比和电源抑制比，为了避免放大器饱和，需要具备一定的失调抑制能力。根据不同的脑机接口应用，芯片要求通常会高于上述通用标准。</p>
+<ol start="2">
+<li><p><strong>直流失调抑制</strong></p></li>
+</ol>
+<p>在侵入式脑机接口芯片中，电极直流失调信号远高于神经信号本身，极易导致放大器饱和。因此，消除直流失调是神经信号读出电路设计的重要问题之一[10]。最为常用且直接的方法是采用高通滤波，通过设置一个Hz以下高通截止频率，可以对神经信号正常放大，而对低频直流信号抑制，从而避免放大器饱和的问题。</p>
+<p>图8-5展示了通过电容耦合方式实现高通滤波的经典电路[11]，其中反馈环路中伪电阻R<sub>f</sub>和电容C<sub>2</sub>共同引入了截止频率为1/(2πR<sub>f</sub>C<sub>2</sub>)的高通极点，而中频增益则为电容C<sub>1</sub>和C<sub>2</sub>之比。尽管该电路在植入式脑机接口芯片中广泛采用，但是其在使用过程中存在芯片面积较大的问题。例如，为了将截止频率降低至1Hz以下且实现较高增益，即使将C<sub>2</sub>电容的大小选择为约200fF的最小电容，C<sub>1</sub>电容的大小仍需在10pF以上。这样会占用较大的芯片面积，限制了芯片的集成度和扩展性。此外，该电路所用的伪电阻阻值对工艺敏感，不易精确控制，这会影响放大器截止频率。</p>
+<p><img src="media/image5.png"
+style="width:2.4211in;height:2.34783in" /></p>
+<p>图8-5经典的交流耦合神经信号放大器</p>
+<p>另一种消除直流失调的方法是对输出端信号进行低通滤波，并将滤波后的低频信号通过负反馈回传到输入端，在传递函数中引入一个高通极点，实现高通滤波的功能[12]。这种方法能够自动对失调电压信号进行跟踪，并借助驱动放大器的反相输入来抵消它，达到抑制直流失调的效果。如图8-6所示，假设放大器的直流增益为A，反馈回路的直流增益为B，那么输入电压Vin与输出电压Vout的关系为：</p>
+<p><span class="math inline">\(V_{out} = \frac{1}{\frac{1}{A} +
+B}V_{in}\)</span> (8-1)</p>
+<p>由于放大倍数A远大于1，因此可认为<span class="math inline">\(V_{out}
+\approx V_{in}/B\)</span>。</p>
+<p><img src="media/image6.png" style="width:4.53452in;height:1.64in"
+alt="形状 中度可信度描述已自动生成" /><br />
+图8-6 通过在反馈回路中使用低通滤波器实现直流失调抑制</p>
+<p>图8-7（a）中电路通过反馈回路中的模拟积分器实现低通滤波，来去除输入信号中的低频部分。这种设计需要放大器在反馈环路中消耗较多功率，并且其单端配置不适于对低噪声、共模抑制比和电源抑制比要求较高的场景[13]。图8-7（b）中电路的低频和直流信号被反馈至差动差分放大器的第二个差分对，从而消除了信号的低频和直流成分[14]。电路中利用了一个R-C滤波器作为模拟低通滤波器，为了实现较小的高通极点频率，仍需要较大的电阻电容值。</p>
+<p><img src="media/image7.wmf"
+style="width:3.96522in;height:1.8337in" /></p>
+<p>图8-7基于模拟的直流伺服环路</p>
+<p>近年来，基于数字直流伺服环路的方式被广泛应用于直流失调抑制[15]。图8-8（a）的电路设计利用反馈中的数字低通滤波器来降低功耗，并使用附加的模拟低通滤波器来降低经过数字路径的直流信号的动态范围，从而放宽DAC分辨率的要求。图8-8（b）利用数字电路实现低通滤波，消除了大电容或者放大器的使用，有效的降低了面积和功耗，且可实现较为精确的极点控制。利用数字反馈的典型直流失调抑制范围约在±50mV左右。</p>
+<p><img src="media/image8.png"
+style="width:3.66956in;height:1.67718in" /></p>
+<p>图8-8基于数字的直流伺服环路</p>
+<ol start="3">
+<li><p><strong>斩波技术</strong></p></li>
+</ol>
+<p>为了消除放大器中的低频噪声，可以采用多种方法，包括自调零技术、相关双采样技术和斩波技术等[16]。在低噪声和低功耗的要求下，斩波技术是一种在侵入式脑机接口芯片设计中较为普遍的选择[17-19]。</p>
+<p>斩波技术的主要原理是利用周期性方波的交流调制信号，将失调电压以及闪烁噪声等低频信号调制至高频，然后通过低通滤波器来消除这些噪声。其具体工作原理如图8-9所示[16]。输入为V<sub>in</sub>的脑电信号在方波信号m<sub>1</sub>(t)控制的开关切换下完成两个信号在时域内的相乘。由于方波信号本身的频率特性，输入信号将被调制到斩波频率的奇次谐波频率处。经过本次调制后，神经信号、直流失调、低频噪声以及热噪声都将被放大器A放大。输出信号V<sub>A</sub>即为神经信号和噪声的简单叠加和倍增。V<sub>A</sub>信号再次在m<sub>1</sub>(t)控制的开关切换下完成两个信号在时域内的相乘。此时，闪烁和低频噪声如同V<sub>in</sub>第一次被调制一样，被调制到了斩波频率的奇次谐波频率处。然而输入信号V<sub>in</sub>由于经历了两次调制，其基频处作为二次谐波信号强度最高，最后通过滤波器将高于带宽的干扰信号和谐波分量进行滤波即可获得经过放大的神经信号。</p>
+<p><img src="media/image9.png"
+style="width:5.53403in;height:2.34514in" /></p>
+<p>图8-9斩波放大器原理</p>
+<p>图8-10所示为最简单的斩波器设计，通过对反向开关<span
+class="math inline">\(\phi_{1}\)</span>和<span
+class="math inline">\(\overline{\phi_{1}}\)</span>的控制，实现了信号的极性反转，该操作相当于对原始信号乘以+1和-1，等效于在时域实现两个信号的乘积。</p>
+<p><img src="media/image10.png"
+style="width:3.70149in;height:1.75808in" /></p>
+<p>图8-10斩波器电路</p>
+<ol start="4">
+<li><p><strong>OTA设计</strong></p></li>
+</ol>
+<p>跨导放大器是低噪声神经放大器中的核心电路[20]。图8-11（a）中电流镜OTA的主极点位于第二级，不需要补偿电容来保持稳定，但是其增益有限，噪声和相位裕度之间也需要折衷。图8-11（b）为带米勒补偿电容的两级运算放大器。图8-11（c）为折叠共源共栅OTA，虽然功耗较高，但可以单级即可提供较高增益。图8-11（d）所示的套筒式OTA可实现较高增益，但是输入范围和电压摆动受到限制。表8-2总结了图8-11中不同
+OTA 拓扑的增益和输入参考噪声[21]。</p>
+<p>表8-2 常用OTA设计总结</p>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 34%" />
+<col style="width: 35%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: center;">OTA</th>
+<th style="text-align: center;">增益</th>
+<th style="text-align: center;">噪声</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>电流镜</th>
+<td>g<sub>m1</sub>(g<sub>m9</sub>r<sub>o9</sub>r<sub>o8</sub>||
+g<sub>m10</sub>r<sub>o10</sub>r<sub>o6</sub>)</td>
+<td style="text-align: left;">(g<sub>m1</sub>+2g<sub>m3+</sub>
+g<sub>m7</sub>)16kT/3(g<sub>m1</sub>)<sup>2</sup></td>
+</tr>
+<tr>
+<th>米勒</th>
+<td>g<sub>m1</sub>(r<sub>o2</sub>||r<sub>o4</sub>)
+g<sub>m7</sub>r<sub>o7</sub></td>
+<td
+style="text-align: left;">(g<sub>m1</sub>+g<sub>m3</sub>)16kT/3g<sub>m1</sub></td>
+</tr>
+<tr>
+<th>折叠式共源共栅</th>
+<td
+style="text-align: left;"><p>g<sub>m1</sub>α[(g<sub>m10</sub>r<sub>o10</sub>g<sub>m12</sub>r<sub>o12</sub>R)</p>
+<p>|| (g<sub>m8</sub>r<sub>o8</sub>r<sub>o6</sub>)]</p></td>
+<td
+style="text-align: left;">(g<sub>m1</sub>+g<sub>m6</sub>+2/R)16kT/3g<sub>m1</sub></td>
+</tr>
+<tr>
+<th>套筒式共源共栅</th>
+<td>g<sub>m1</sub>(g<sub>m4</sub>r<sub>o3</sub>r<sub>o4</sub>||
+g<sub>m6</sub>r<sub>o6</sub>r<sub>o8</sub>)</td>
+<td
+style="text-align: left;">(g<sub>m1</sub>+g<sub>m8</sub>)16kT/3g<sub>m1</sub></td>
+</tr>
+</tbody>
+</table>
+<p><img src="media/image11.png"
+style="width:5.04271in;height:4.94755in" /></p>
+<p>图8-11 常用低噪声OTA电路结构</p>
+<ol start="5">
+<li><p><strong>模数转换器</strong></p></li>
+</ol>
+<p>根据图8-4对脑电信号的分析，可以得知，要完整采集AP及10kHz频率以下的神经信号，单个通道的采样率超过20kHz即可。此外，植入式脑电信号的动态范围通常在10μV至10mV之间，相应的动态范围约为1000。因此，对于信号的数字化，使用10位比特数已经足够。如图8-12所示，模数转换器（analog
+to digital converter,
+ADC）主要有四种架构，不同的架构适用于不同的场景。根据上述对采样率和比特数的分析，逐次逼近寄存器模数转换器（successive
+approximation register analog-to-digital converter，SAR
+ADC）和Delta-Sigma ADC一般被认为更加适用于侵入式脑机接口芯片中[22,
+23]。</p>
+<p>大部分脑机接口芯片采用的模数转换器结构是SAR。图8-13展示了采样保持电路、电容阵列、比较器以及逻辑电路等SAR
+ADC的主要组成部分。首先当采样时钟电平为高时，采样保持电路跟随模拟信号，当采样时钟电平为低时，模拟信号被存储在电容阵列中。比较时钟上升沿时，比较器对两端电压进行比较并根据结果输出“1”或者“0”。逻辑电路根据输出结果控制电容阵列开关实现二值搜索，进而使得最终的SAR
+ADC的数字输出结果逼近采样电压。SAR
+ADC不需要高增益和高带宽的运算放大器来保持高精度和线性度。逻辑主要由数字电路组成，其速度和功耗可以随着深亚微米CMOS技术的发展而下降。在一般使用电容DAC的情况下，不消耗静态功率，因此功耗与采样率成比例下降。</p>
+<p><img src="media/image12.png" style="width:4.47382in;height:2.47826in"
+alt="图形用户界面, 图示 描述已自动生成" /></p>
+<p>图8-13 SAR ADC组成和工作原理</p>
+<p><img src="media/image13.wmf"
+style="width:4.24306in;height:2.77986in" /></p>
+<p>图8-12常用于神经信号模数转化的ADC架构</p>
+<p>近年来Delta-Sigma
+ADC逐渐在脑机接口芯片中得到重视[24]。如图8-14所示，它采用了Σ-Δ调制技术，对模拟输入信号进行高频率的过采样并通过模拟积分和差分运算来实现对噪声的滤波和抑制[25]。Σ-Δ调制器的输出是一个高速的1位位流（bitstream）信号，代表了模拟输入信号的模数转换结果。输入模拟量越高，输出的“1”的数量就越多。Σ-Δ调制器的输出位流信号随后会经过数字信号处理模块。该模块通常包括数字滤波器和抽取滤波器。数字滤波器对高速的位流信号进行低通滤波，并将其转换为高精度的多比特信号，同时去除高频噪声和滤除残余的量化噪声。数字滤波器的输出速率与采样率相同，仍然包含了过采样中的大量冗余样本，抽取滤波器对这些样本进行抽取，使其降低至信号原本的频率，并没有导致任何信息的丢失。</p>
+<p><img src="media/image14.png" style="width:5.51894in;height:1.88806in"
+alt="图示 中度可信度描述已自动生成" /></p>
+<p>图8-14 SAR ADC组成和工作原理</p>
+<ol start="6">
+<li><p><strong>读出架构设计</strong></p></li>
+</ol>
+<p>随着脑机接口技术的发展，与更多通道读出的需求，出现了不同的多通道架构[26,
+27]。经典的结构如图8-15（a）所示，每个通道独占一个模拟前端，多个通道的信号通过模拟多路复用器时分多路复用传输到ADC进行数字化。由于多个通道时分复用，ADC的采样率需随着通道数增加而增加，提高了ADC设计复杂度。一些多通道采样芯片中都采用16或者20个通道时分复用一组ADC的设计，将ADC的采样率控制在320K或者200K左右[28-30]。此外，多通道模拟信号容易受到模拟多路复用器中串扰噪声的影响，因此需要额外的设计策略来提高噪声容限。采用这种架构设计的芯片，电路面积随着通道数的增加几乎线性增长。</p>
+<p>为了实现更加高通量的神经信号记录，近年来图8-15（b）所示的快速时分复用技术逐渐受到更多的关注[31-34]。该电路通过前置的模拟多路选择器实现对模拟前端放大电路的时分复用。虽然该电路结构通过减少放大器和ADC的数量以降低芯片面积，但是每个通道都有其自己独立的、随时间变化的等效输入直流失调。除此之外，噪声混叠也是一个具有挑战的问题。</p>
+<p><img src="media/image15.png"
+style="width:4.09371in;height:1.03643in" /></p>
+<p>（a）</p>
+<p><img src="media/image16.png"
+style="width:3.81739in;height:0.78355in" /></p>
+<p>(b)</p>
+<p>图8-15多通道读出架构</p>
+<p>近年来，直接采用低功耗高动态范围的ADC对神经信号进行数字化也在侵入式脑机接口芯片中得到实践。这种方法取消了低噪放大器，可以更大程度地减少芯片功耗和面积开销，并通过具有较高采样率ADC所固有的噪声整形能力，实现系统低噪声性能[35,
+36]。</p>
+<ol start="3">
+
+</ol>
+</section>
+
+<nav class="chapter-nav">
+  <a href="chapter_1.html" class="nav-link">第一章</a>
+  <a href="chapter_2.html" class="nav-link">第二章</a>
+  <a href="chapter_3.html" class="nav-link">第三章</a>
+  <a href="chapter_4.html" class="nav-link">第四章</a>
+  <a href="chapter_5.html" class="nav-link">第五章</a>
+</nav>
+</body>
+</html>

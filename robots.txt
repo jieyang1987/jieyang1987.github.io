@@ -1,0 +1,23 @@
+# Google 爬虫
+User-agent: Googlebot
+Allow: /
+Disallow: /done/
+Disallow: /echo/
+
+# Bing 爬虫
+User-agent: Bingbot
+Allow: /
+Disallow: /done/
+Disallow: /echo/
+
+# 其他所有爬虫
+User-agent: *
+Allow: /
+Disallow: /done/
+Disallow: /echo/
+
+# 指向 Sitemap
+Sitemap: https://yangjie.ac.cn/sitemap.xml
+
+# 抓取延迟（单位：秒）
+Crawl-delay: 1

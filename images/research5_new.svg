@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f0fafc;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bg-grad)"/>
+  
+  <!-- 左上眼睛装饰 -->
+  <g id="eye-left" opacity="0.8">
+    <ellipse cx="90" cy="90" rx="50" ry="60" fill="#CFFAFE" stroke="#0891B2" stroke-width="2"/>
+    <circle cx="90" cy="90" r="30" fill="#06B6D4" opacity="0.7"/>
+    <circle cx="85" cy="85" r="12" fill="white"/>
+    <circle cx="87" cy="83" r="8" fill="#0891B2"/>
+  </g>
+  
+  <!-- 右下眼睛装饰 -->
+  <g id="eye-right" opacity="0.6">
+    <ellipse cx="750" cy="490" rx="50" ry="60" fill="#CFFAFE" stroke="#0891B2" stroke-width="2"/>
+    <circle cx="750" cy="490" r="30" fill="#06B6D4" opacity="0.5"/>
+  </g>
+  
+  <!-- 中央视网膜结构 -->
+  <g id="retinal-structure">
+    <!-- 外圆 -->
+    <circle cx="400" cy="300" r="110" fill="none" stroke="#0891B2" stroke-width="3" opacity="0.8"/>
+    
+    <!-- 内圆 -->
+    <circle cx="400" cy="300" r="80" fill="#CFFAFE" stroke="#06B6D4" stroke-width="2" opacity="0.7"/>
+    
+    <!-- 中央盘 -->
+    <circle cx="400" cy="300" r="50" fill="#06B6D4" opacity="0.6"/>
+    
+    <!-- 内核 -->
+    <circle cx="400" cy="300" r="25" fill="#0891B2"/>
+    
+    <!-- 脉冲神经网络点 -->
+    <g id="neural-points" fill="#0891B2" opacity="0.8">
+      <circle cx="400" cy="180" r="6"/>
+      <circle cx="460" cy="220" r="6"/>
+      <circle cx="480" cy="290" r="6"/>
+      <circle cx="460" cy="360" r="6"/>
+      <circle cx="400" cy="400" r="6"/>
+      <circle cx="340" cy="360" r="6"/>
+      <circle cx="320" cy="290" r="6"/>
+      <circle cx="340" cy="220" r="6"/>
+    </g>
+  </g>
+  
+  <!-- 光刺激箭头 -->
+  <g stroke="#06B6D4" stroke-width="2" fill="none" opacity="0.6">
+    <path d="M 150 200 Q 250 150 350 200" stroke-linecap="round" marker-end="url(#arrowhead)"/>
+    <path d="M 650 200 Q 550 150 450 200" stroke-linecap="round" marker-end="url(#arrowhead)"/>
+  </g>
+  
+  <!-- 神经脉冲输出 -->
+  <g stroke="#0891B2" stroke-width="2" fill="none" opacity="0.5">
+    <path d="M 300 420 Q 350 450 400 430 T 500 420" stroke-linecap="round"/>
+    <circle cx="300" cy="420" r="3" fill="#0891B2"/>
+    <circle cx="400" cy="430" r="3" fill="#0891B2"/>
+    <circle cx="500" cy="420" r="3" fill="#0891B2"/>
+  </g>
+  
+  <!-- 箭头定义 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#06B6D4" />
+    </marker>
+  </defs>
+  
+  <!-- 信息标签 -->
+  <text x="200" y="160" font-size="14" fill="#0891B2" opacity="0.7" font-family="Arial, sans-serif">Light Input</text>
+  <text x="580" y="160" font-size="14" fill="#0891B2" opacity="0.7" font-family="Arial, sans-serif">Light Input</text>
+  <text x="350" y="450" font-size="14" fill="#0891B2" opacity="0.7" font-family="Arial, sans-serif">Neural Spikes</text>
+  
+  <!-- 标题 -->
+  <text x="400" y="510" font-size="48" font-weight="bold" text-anchor="middle" fill="#0891B2" font-family="SimHei, sans-serif">
+    视网膜假体
+  </text>
+  
+  <!-- 副标题 -->
+  <text x="400" y="560" font-size="24" text-anchor="middle" fill="#06B6D4" font-family="Arial, sans-serif">
+    Retinal Prosthetics
+  </text>
+</svg>

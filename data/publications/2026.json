@@ -1,0 +1,141 @@
+{
+  "journals": [
+    {
+      "year": 2026,
+      "items": [
+
+        {
+          "authors": "W. Zou, <strong>J. Yang*</strong>, M. Sawan*",
+          "title": "A Duty-Cycled PLL and Fractal Antenna Co-Design Architecture for a Low-Power IR-UWB Transmitter in Neural Implants",
+          "venue": "Sensors",
+          "venueHighlight": false,
+          "url": "",
+          "pdf": "",
+          "topics": [
+            "bci"
+          ],
+          "abstract": "Implantable multi-channel neural interfaces are essential for high-resolution, long-term brain-machine interface applications, yet conventional designs are constrained by power consumption, data bandwidth, and silicon area. We present NeuroSEED, a 32-channel neuromorphic scalable neural interface inspired by biological neuron signaling. This system introduces four key innovations to address the bottlenecks of scalability and efficiency: (1) an area-efficient time-division multiplexed analog front-end (0.0032 mm2/channel) with a dedicated digital-servo electrode DC offset cancellation loop; (2) an analog-to-spike converter (ASC) that employs adaptive event-driven sampling; (3) a clockless spike detector utilizing valley-to-peak detection for robust spike identification; and (4) an event-triggered impulse-radio ultra-wideband (IR-UWB) transmitter for energy-efficient wireless spike telemetry. Fabricated in 40-nm CMOS, NeuroSEED achieves 1.38 μW per recording channel and 4.6 μW transmitter power, with more than 500× data reduction compared to Nyquistrate sampling. Experimental results, validated with in-vivo neural datasets, confirm low noise, compact area, and robust system-level operation, positioning NeuroSEED as a highly efficient SoC for high-density neural recording."
+        },
+
+
+        {
+          "authors": "H. Wu, J. Chen, R. Eskandari, Y. Han, X. Liu, W. Zou, F. Tian, Q. Hou, <strong>J. Yang*</strong>, M. Sawan*",
+          "title": "NeuroSEED: A Neuromorphic Scalable Event-Driven SoC with Direct Multiplexing for Spike Detection and Wireless Telemetry",
+          "venue": "IEEE Journal on Emerging and Selected Topics in Circuits and Systems",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/11571815/",
+          "pdf": "",
+          "topics": [
+            "bci"
+          ],
+          "abstract": "Implantable multi-channel neural interfaces are essential for high-resolution, long-term brain-machine interface applications, yet conventional designs are constrained by power consumption, data bandwidth, and silicon area. We present NeuroSEED, a 32-channel neuromorphic scalable neural interface inspired by biological neuron signaling. This system introduces four key innovations to address the bottlenecks of scalability and efficiency: (1) an area-efficient time-division multiplexed analog front-end (0.0032 mm2/channel) with a dedicated digital-servo electrode DC offset cancellation loop; (2) an analog-to-spike converter (ASC) that employs adaptive event-driven sampling; (3) a clockless spike detector utilizing valley-to-peak detection for robust spike identification; and (4) an event-triggered impulse-radio ultra-wideband (IR-UWB) transmitter for energy-efficient wireless spike telemetry. Fabricated in 40-nm CMOS, NeuroSEED achieves 1.38 μW per recording channel and 4.6 μW transmitter power, with more than 500× data reduction compared to Nyquistrate sampling. Experimental results, validated with in-vivo neural datasets, confirm low noise, compact area, and robust system-level operation, positioning NeuroSEED as a highly efficient SoC for high-density neural recording."
+        },
+
+
+
+        {
+          "authors": "S. Zhao, Z. Wang, H. Sun, S. Wang, Z. Chen, C. Fu, <strong>J. Yang</strong>, M. Sawan",
+          "title": "HAQ-ViT: A hardware-aware post-training quantization for efficient vision transformer inference",
+          "venue": "Knowledge-Based Systems",
+          "venueHighlight": false,
+          "url": "https://www.sciencedirect.com/science/article/pii/S0950705126005563",
+          "pdf": "papers/2026_HAQ-ViT_A_hardware-aware_post-training_quantization_for_efficient_vision_transformer_inference.pdf",
+          "topics": [
+            "neuromorphic"
+          ],
+          "abstract": "In recent years, Vision Transformers (ViTs) have demonstrated outstanding performance in the field of computervision. However, the quadratic complexity of their self-attention mechanism results in a significant increase inmodel storage requirements and computational overhead, which has become a critical bottleneck hindering theirwidespread adoption. Consequently, compressing ViTs has emerged as a major area of research focus, with ViTsquantization being a prominent direction within this domain. This paper systematically analyzes and identifiesthree key optimization opportunities in existing INT8 quantized ViTs models: 1) The numerical distribution ofthe query-key vectors in the attention matrix exhibits a 40.66% occurrence of consecutive identical values spanning 3 bits; 2) The activation sparsity across different network layers displays significant heterogeneity; and3) Shallow features can already provide reliable classification confidence. Based on these findings, we proposeHAQ-ViT, a hardware aware post-training quantization acceleration framework. First, we introduce a hybridquantization scheme grounded in the improved Booth algorithm. By designing a hardware-friendly bit sequenceskipping strategy, we enable the omission of multiplication operations involving consecutive identical bit patterns, building upon standard 8-bit quantization. Secondly, we propose a dynamic layer sparsification strategy.By analyzing the inter-layer differences in activation distribution, we construct an adaptive threshold selectionfunction, thereby reducing the sparsification decision complexity from 𝑂(𝑛2) to 𝑂(𝑘𝑛2), where 𝑘 ∈ (0, 1) is a predefined scaling factor. Finally, we introduce a global quantization adaptive early exit mechanism, where multiplelightweight classification heads are strategically inserted to monitor confidence entropy in real-time. When theentropy exceeds a defined threshold, the computations are terminated early. Experimental results demonstratethat the HAQ-ViT framework, evaluated on the ImageNet dataset, maintains inference accuracy at a sparsityrate of 76% (with a 0.068% improvement over the baseline model). With the integration of early exit heads, theaccuracy experiences a marginal decrease of only 0.004%, and at a sparsity rate of 94%, the energy consumptionfor a single inference is significantly reduced from 64.6 mJ to 10.91 mJ."
+        },
+        {
+          "authors": "C. Zhang, Y. Zhang, J. Yu, <strong>J. Yang*</strong>, M. Sawan*",
+          "title": "Event-Fused Hybrid ANN-SNN Architecture for Low-Latency Object Detection in Automotive Vision",
+          "venue": "IEEE Robotics and Automation Letters",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/11386767",
+          "pdf": "papers/2026_IEEE_RAL_Event-Fused_Hybrid_ANN-SNN_Architecture_for_Low-Latency_Object_Detection_in_Automotive_Vision.pdf",
+          "topics": [
+            "neuromorphic"
+          ],
+          "abstract": "—In advanced driver-assistance systems, current com- puter vision algorithms predominantly rely on frame-based RGB cameras, which suffer from high latency in high-speed or sudden- scenario applications due to ﬁxed frame rates. In response to this challenge, event-based cameras have gained attention as a viable substitute, providing markedly higher temporal resolution and greatly diminished latency. However, the asynchronous and sparse nature of event data poses challenges in achieving accu- racy comparable to frame-based algorithms. Leveraging the event- driven nature of Spiking Neural Networks (SNNs), we propose an Event-Fused Hybrid (EFH) architecture for automotive vision. EFH combines Artiﬁcial Neural Networks (ANNs) for static feature extraction from RGB frames with SNNs that dynamically update these features using event streams. This approach enables high- efﬁciency, high-frame-rate object detection with minimal latency. Our method achieves state-of-the-art performance in inter-frame object detection by effectively fusing event data, while the SNN branch signiﬁcantly reduces power consumption during event- stream processing. Furthermore, we deploy the system on a vehicle platform, achieving real-time object detection at 60 FPS using a 15-FPS RGB camera paired with an event camera."
+        },
+        {
+          "authors": "C. Wang, D. Wu, Y. Liao, W. Zheng, Z. Zeng, X. Gao, H. Wu, Z. Zhu, <strong>J. Yang</strong>, L. Zhong, W. Cheng, Y-H. Chen, M. Sawan",
+          "title": "NeuroCLIP: A Multimodal Contrastive Learning Method for rTMS-treated Methamphetamine Addiction Analysis",
+          "venue": "IEEE Journal of Biomedical and Health Informatics",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/11392762",
+          "pdf": "",
+          "topics": [
+            "bci"
+          ]
+        }
+      ]
+    }
+  ],
+  "conferences": [
+    {
+      "year": 2026,
+      "items": [
+        {
+          "authors": "Z. Shen， Z. Liao, S. Shen, C. Fang, F. Tian, <strong>J. Yang*</strong>, M. Sawan*",
+          "title": "A Heterogeneous Decision Spiking Transformer Accelerator with Locality-dependent KV Product Cache and Compute Pattern Reconfigurable Engine",
+          "venue": "2026 IEEE International Symposium on Circuits and Systems (ISCAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/11562936/",
+          "pdf": "",
+          "topics": [
+            "bci"
+          ],
+          "abstract": "Deep neural network (DNN)-based methodologies have shown impressive performance and robustness in the detection of abnormalities and decoding of multi-modal biosignals. While the use of DNNs provides promising classification and decoding capabilities, it also introduces significant design and cost challenges for the implementation of biomedical System on Chips (SoC). To address the increasing demand for advanced and efficient DNN-based healthcare solutions at the edge, we propose BioSeek, an agile design generation framework enhanced by cutting-edge large-language models (LLM). BioSeek offers a comprehensive solution to the design challenges associated with biosignal processors. The effectiveness of BioSeek is evaluated through the design generation of both application-specific and versatile biosignal processors, demonstrating performance that is competitive with existing solutions."
+        },
+        {
+          "authors": "F. Tian， J.Zheng, H. Wu, Z. Liu, J. Chen, S. Zhao, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui, K-T. Cheng",
+          "title": "BioSeek: A Design Generation Framework of Biosignal Processors with Large-Language Models for Edge Healthcare Applications",
+          "venue": "2026 IEEE International Symposium on Circuits and Systems (ISCAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/11562790",
+          "pdf": "",
+          "topics": [
+            "bci"
+          ],
+          "abstract": "Deep neural network (DNN)-based methodologies have shown impressive performance and robustness in the detection of abnormalities and decoding of multi-modal biosignals. While the use of DNNs provides promising classification and decoding capabilities, it also introduces significant design and cost challenges for the implementation of biomedical System on Chips (SoC). To address the increasing demand for advanced and efficient DNN-based healthcare solutions at the edge, we propose BioSeek, an agile design generation framework enhanced by cutting-edge large-language models (LLM). BioSeek offers a comprehensive solution to the design challenges associated with biosignal processors. The effectiveness of BioSeek is evaluated through the design generation of both application-specific and versatile biosignal processors, demonstrating performance that is competitive with existing solutions."
+        },
+        {
+          "authors": "Y. Liao <strong>J. Yang*</strong>, M. Sawan*",
+          "title": "TF-MV SwAV++: Subject-Invariant Time–Frequency Prototype Learning for Cross-Subject sEEG Seizure Detection",
+          "venue": "2026 IEEE International Symposium on Circuits and Systems (ISCAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/11562257/",
+          "pdf": "",
+          "topics": [
+            "bci"
+          ],
+          "abstract": "Cross-subject sEEG seizure detection often degrades on unseen subjects due to inter-subject heterogeneity and electrode-layout disparities. We introduce TF-MV SwAV++ (Time–Frequency Multi-View SwAV++), a purely algorithmic, prototype-consistent self-supervised framework that learns subject-invariant seizure representations by coupling (i) multiview, multi-scale consistency across temporal and time–frequency domains, (ii) a lightweight dual-branch backbone, and (iii) three prototype-level mechanisms—adversarial de-identification, prototype uniformity, and cross-modal prototype alignment. On a de-identified hospital sEEG cohort with 33 two-hour recordings (two 10s ictal episodes per recording) from 20 patients (12 male, 8 female), under strict LOSO our method attains AUROC=0.88, AUPRC=0.64, and Balanced Accuracy=0.80, outperforming vanilla SwAV by +8.2/+9.1/+6.4 percentage points and a supervised 1D-TCN by +11.6/+12.7/+8.0. Cross-center zero-shot AUROC reaches 0.84 and improves to 0.86 with light test-time adaptation. Event-level performance achieves Sensitivity=90.7% at 0.18 FP/h. These results indicate that prototype-consistent self-supervision and time–frequency multi-view learning effectively reduce subject bias and significantly improve cross-subject generalization for sEEG seizure detection."
+        },
+        {
+          "authors": "H. Wu, F. Tian, J. Chen, Z. Liao, H. Zhang, X. Liu, W. Zou, S. Cheng, Z. Zhang, J. Xu, C-Y. Tsui, K-T. Cheng, <strong>J. Yang*</strong>, M. Sawan*",
+          "title": "Sparsity-Aware Neural Interface with CIM-Based Predictive Focused Sampling for Hotspot Spike Tracking",
+          "venue": "2026 IEEE International Solid-State Circuits Conference (ISSCC)",
+          "venueHighlight": true,
+          "url": "https://ieeexplore.ieee.org/abstract/document/11409079",
+          "pdf": "papers/2026_ISSCC_A_Sparsity-Aware_Neural_Interface_with_CIM-Based_Predictive_Focused_Sampling_for_Hotspot_Spike_Tracking.pdf",
+          "topics": [
+            "bci"
+          ],
+          "abstract": "The pursuit of high-density neural interfaces is fundamentally limited by strict implant  power, area, and bandwidth budgets, a constraint exacerbated by the disparity between  uniformly distributed hardware and the sparse, non-uniform nature of neural activity [1-6]. Conventional dedicated-per-channel readouts scale poorly in power and area [7-9], while uniform multiplexed scanning wastes critical resources on non-spike signals [10-14]. Some  approaches attempt to mitigate this by sub-sampling large electrode arrays with a limited  set of readout channels [15-21]. However, these methods often rely on static or slowly  adapting techniques such as manual electrode selection [15,16], indirect activity indicators  [17,18], or ofﬂine training to identify active regions [19,20]. These solutions still face  challenges, including frequent recalibration due to chronic electrode drift. While the event- based spatially zooming architecture [22] offers exceptional power efﬁciency, its scalability  is limited by a large silicon footprint"
+        },
+        {
+          "authors": "Y. Li, J. Chen, X. Shen, J. Yang, J. Liu, N. Wu, Z. Zhang, L. Liu",
+          "title": "A 0.65-to-1V-Vdd 10.5-to-11.85GHz Fractional-N Sampling PLL Achieving 71.47fs Integrated Jitter and <-60dBc Near-Integer Fractional Spur in 40nm CMOS",
+          "venue": "2026 IEEE International Solid-State Circuits Conference (ISSCC)",
+          "venueHighlight": true,
+          "url": "https://ieeexplore.ieee.org/abstract/document/11408963",
+          "pdf": "papers/2026_ISSCC_A_0.65-to-1V-VDD_10.5-to-11.85GHz_Fractional-N_Sampling_PLL_Achieving_71.47fs_Integrated_Jitter_and_lt-60dBc_Near-Integer_Fractional_Spur_in_40nm_CMOS.pdf",
+          "topics": [
+            "other"
+          ],
+          "abstract": "This paper presents a 0.65-to-1V, 10.5-to-11.85GHz wide-VDD-range (WV) fractional-N sampling PLL. The QE-reduction WV SPD, high-linearity 2-stage DTC, and DCC-aided QE dithering method are proposed to address the issue of poor phase noise at low-V<sub>DD</sub>, reliability at regular VDD, nonlinearity, and convergence issues at small fractional FCWs. The 40nm prototype achieves 71.47fs jitter, –251.8dB FoM, and <–60dBc near-integer spur."
+        }
+      ]
+    }
+  ]
+}

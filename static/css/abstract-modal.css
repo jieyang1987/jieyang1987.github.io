@@ -1,0 +1,161 @@
+/* ══════════════════════════════════════════════
+   论文摘要模态框样式
+══════════════════════════════════════════════ */
+
+/* 摘要按钮 - 与PDF标签类似的红色边框样式 */
+.abstract-btn {
+  display: inline-block;
+  background-color: transparent;
+  color: #dc3545;
+  border: 1px solid #dc3545;
+  border-radius: 0.25rem;
+  padding: 0.2em 0.4em;
+  font-size: 0.75em;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  cursor: pointer;
+  margin-left: 0.3rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.abstract-btn:hover {
+  background-color: #dc3545;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* 模态框背景 */
+.abstract-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.2s ease;
+}
+
+/* 模态框内容 */
+.abstract-modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 0;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 700px;
+  max-height: 80vh;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.3s ease;
+}
+
+/* 模态框头部 */
+.abstract-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.abstract-modal-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 600;
+  line-height: 1.4;
+  padding-right: 1rem;
+}
+
+/* 关闭按钮 */
+.abstract-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #666;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.abstract-modal-close:hover {
+  color: #333;
+  background-color: #e9ecef;
+}
+
+/* 模态框主体 */
+.abstract-modal-body {
+  padding: 1.5rem;
+  overflow-y: auto;
+  max-height: calc(80vh - 70px);
+}
+
+.abstract-modal-body p {
+  margin: 0;
+  line-height: 1.8;
+  color: #444;
+  font-size: 0.95rem;
+  text-align: justify;
+}
+
+/* 动画 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 移动端适配 */
+@media screen and (max-width: 768px) {
+  .abstract-modal-content {
+    width: 95%;
+    margin: 10% auto;
+    max-height: 85vh;
+  }
+  
+  .abstract-modal-header {
+    padding: 0.75rem 1rem;
+  }
+  
+  .abstract-modal-header h4 {
+    font-size: 0.95rem;
+  }
+  
+  .abstract-modal-body {
+    padding: 1rem;
+    max-height: calc(85vh - 60px);
+  }
+  
+  .abstract-modal-body p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+  
+  .abstract-btn {
+    font-size: 0.8em;
+  }
+}

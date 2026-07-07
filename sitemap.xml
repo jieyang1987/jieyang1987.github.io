@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+
+  <!-- 中文主页 -->
+  <url>
+    <loc>https://yangjie.ac.cn/index.html</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- 英文主页 -->
+  <url>
+    <loc>https://yangjie.ac.cn/index_en.html</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- 研究方向（中文） -->
+  <url>
+    <loc>https://yangjie.ac.cn/research.html</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 研究方向（英文） -->
+  <url>
+    <loc>https://yangjie.ac.cn/research_en.html</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 论文发表（中文） -->
+  <url>
+    <loc>https://yangjie.ac.cn/publications.html</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- 论文发表（英文） -->
+  <url>
+    <loc>https://yangjie.ac.cn/publications_en.html</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- 芯片展示（中文） -->
+  <url>
+    <loc>https://yangjie.ac.cn/chip_gallery.html</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 芯片展示（英文） -->
+  <url>
+    <loc>https://yangjie.ac.cn/chip_gallery_en.html</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 书籍展示 - BCI 芯片（中文） -->
+  <url>
+    <loc>https://yangjie.ac.cn/book-item-bci.html</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 书籍展示 - BCI 芯片（英文） -->
+  <url>
+    <loc>https://yangjie.ac.cn/book-item-bci_en.html</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 活动记事（中文） -->
+  <url>
+    <loc>https://yangjie.ac.cn/coverage.html</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 活动记事（英文） -->
+  <url>
+    <loc>https://yangjie.ac.cn/coverage_en.html</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

@@ -1,0 +1,240 @@
+{
+  "journals": [
+    {
+      "year": 2022,
+      "items": [
+        {
+          "authors": "S. Sun, <strong>J. Yang*</strong>, Y-H. Chen, J. Miao, M. Sawan",
+          "title": "EEG Signals Based Internet Addiction Diagnosis Using Convolutional Neural Networks",
+          "venue": "MDPI Applied Sciences",
+          "venueHighlight": false,
+          "url": "https://www.mdpi.com/2076-3417/12/13/6297",
+          "pdf": "",
+          "topics": [
+            "bci",
+            "decoding"
+          ]
+        },
+        {
+          "authors": "D. Wu, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "Bridging the gap between patient-specific and patient-independent seizure prediction via knowledge distillation",
+          "venue": "Journal of Neural Engineering",
+          "venueHighlight": false,
+          "url": "https://iopscience.iop.org/article/10.1088/1741-2552/ac73b3",
+          "pdf": "",
+          "topics": [
+            "neuromodulation",
+            "decoding"
+          ]
+        },
+        {
+          "authors": "J. Wang, Y-H. Chen, <strong>J. Yang</strong>, M. Sawan",
+          "title": "Intelligent Classification Technique of Hand Motor Imagery Using EEG Beta Rebound Follow-Up Pattern",
+          "venue": "MDPI Biosensors",
+          "venueHighlight": false,
+          "url": "https://www.mdpi.com/2079-6374/12/6/384",
+          "pdf": "",
+          "topics": [
+            "bci"
+          ]
+        },
+        {
+          "authors": "Y. Xu, <strong>J. Yang</strong>, M. Sawan",
+          "title": "Trends and challenges of processing measurements from wearable devices intended for epileptic seizure prediction",
+          "venue": "Journal of Signal Processing Systems",
+          "venueHighlight": false,
+          "url": "https://link.springer.com/article/10.1007/s11265-021-01659-x",
+          "pdf": "",
+          "topics": [
+            "neuromodulation"
+          ]
+        },
+        {
+          "authors": "C. Wang, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "NeuroSEE: A Neuromorphic Energy-Efficient Processing Framework for Visual Prostheses",
+          "venue": "IEEE Journal of Biomedical and Health Informatics",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/9767670",
+          "pdf": "",
+          "topics": [
+            "neuromorphic",
+            "bci"
+          ]
+        },
+        {
+          "authors": "Y. Xu, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "Multichannel synthetic preictal eeg signals to enhance the prediction of epileptic seizures",
+          "venue": "IEEE Transactions on Biomedical Engineering",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/9767764/",
+          "pdf": "",
+          "topics": [
+            "neuromodulation"
+          ]
+        },
+        {
+          "authors": "J. Chen, M. Tarkhan, H. Wu, F. Noshahr, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "Recent trends and future prospects of neural recording circuits and systems: A tutorial brief",
+          "venue": "IEEE Transactions on Circuits and Systems II: Express Briefs",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/9766042",
+          "pdf": "",
+          "topics": [
+            "bci"
+          ]
+        },
+        {
+          "authors": "S. Zhao, C. Fang, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "Emerging energy-efficient biosignal-dedicated circuit techniques: A tutorial brief",
+          "venue": "IEEE Transactions on Circuits and Systems II: Express Briefs",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/9760507",
+          "pdf": "",
+          "topics": [
+            "bci"
+          ]
+        }
+      ]
+    }
+  ],
+  "conferences": [
+    {
+      "year": 2022,
+      "items": [
+        {
+          "authors": "C. Fang, C. Wang, S. Zhao, F. Tian, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "An Online-Learning Multi-topology Spiking Neural Network Processor",
+          "venue": "2022 IEEE Asia South Pacific Design Automation Conference (A-SSCC)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/9980727",
+          "pdf": "",
+          "topics": [
+            "neuromorphic"
+          ]
+        },
+        {
+          "authors": "F. Xia, Z. Zhang, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "Compact Power Front-end Management for Wireless Supply of Multi-voltages to Neuromodulators",
+          "venue": "2022 IEEE Asia Pacific Conference on Circuits and Systems (APCCAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/10090263",
+          "pdf": "",
+          "topics": [
+            "neuromodulation"
+          ]
+        },
+        {
+          "authors": "J. Chen, H. Wu, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "A 97 fJ/Conversion Neuron-ADC with Reconfigurable Sampling and Static Power Reduction",
+          "venue": "2022 IEEE Asia Pacific Conference on Circuits and Systems (APCCAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/10090325",
+          "pdf": "",
+          "topics": [
+            "bci"
+          ]
+        },
+        {
+          "authors": "H. Wu, J. Chen, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "A Low-Power Low-Pass Filter for Noise Suppression in Chopped Bioamplifiers",
+          "venue": "2022 IEEE 16th International Conference on Solid-State Integrated Circuit Technology (ICSICT)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/9963463",
+          "pdf": "",
+          "topics": [
+            "bci"
+          ]
+        },
+        {
+          "authors": "S. Zhao, D. Wu, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "A Resource-Efficient and Data-Restricted Training Method Towards Neurological Symptoms Prediction",
+          "venue": "2022 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/9948669",
+          "pdf": "",
+          "topics": [
+            "neuromodulation"
+          ]
+        },
+        {
+          "authors": "H. Wu, X. Liu, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "A Power-Efficient Source-Follower Based Tunable Pseudo-RC Low-Pass Filter for Wearable Biomedical Applications",
+          "venue": "2022 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/9948655",
+          "pdf": "",
+          "topics": [
+            "bci"
+          ]
+        },
+        {
+          "authors": "N. Li, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "Compact Closed-loop EEG/fNIRS Recording and TMS Neuromodulation System",
+          "venue": "2022 20th IEEE Interregional NEWCAS Conference (NEWCAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/9842210",
+          "pdf": "",
+          "topics": [
+            "neuromodulation"
+          ]
+        },
+        {
+          "authors": "<strong>J. Yang</strong>, N. Li, Y-H. Chen, M. Sawan",
+          "title": "Towards Intelligent Noninvasive Closed-loop Neuromodulation Systems",
+          "venue": "2022 IEEE 4th International Conference on Artificial Intelligence Circuits and Systems (AICAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/9870022",
+          "pdf": "",
+          "topics": [
+            "neuromodulation"
+          ]
+        },
+        {
+          "authors": "H. Li, J. Wang, S. Zhao, F. Tian, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "Real-time Biosignal Recording and Machine-Learning Analysis System",
+          "venue": "2022 IEEE 4th International Conference on Artificial Intelligence Circuits and Systems (AICAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/9869982",
+          "pdf": "",
+          "topics": [
+            "neuromodulation",
+            "other"
+          ]
+        },
+        {
+          "authors": "D. Wu, <strong>J. Yang</strong>, M. Sawan",
+          "title": "Towards Task-aware Signal Compression for Efficient Continuous Health Monitoring",
+          "venue": "2022 IEEE International Symposium on Circuits and Systems (ISCAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/9937415",
+          "pdf": "",
+          "topics": [
+            "decoding"
+          ]
+        },
+        {
+          "authors": "C. Fang, Z. Shen, F. Tian, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "A Compact Online-Learning Spiking Neuromorphic Biosignal Processor",
+          "venue": "2022 IEEE International Symposium on Circuits and Systems (ISCAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/9937459",
+          "pdf": "",
+          "topics": [
+            "neuromorphic"
+          ]
+        },
+        {
+          "authors": "J. Chen, F. Tian, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "An event-driven compressive neuromorphic system for cardiac arrhythmia detection",
+          "venue": "2022 IEEE International Symposium on Circuits and Systems (ISCAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/9937756",
+          "pdf": "",
+          "topics": [
+            "bci"
+          ]
+        }
+      ]
+    }
+  ]
+}

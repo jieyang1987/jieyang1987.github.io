@@ -1,0 +1,1065 @@
+/**
+ * site-renderer.js
+ * 统一的 JSON → HTML 渲染引擎
+ * 使用方式：在页面中设置 data-page 属性，并引入此脚本
+ * 
+ * 以后更新网站内容只需修改 data/ 目录下的 JSON 文件
+ */
+
+(function () {
+  'use strict';
+
+  // 判断当前语言
+  const lang = document.documentElement.lang === 'en' ? 'en' : 'zh';
+
+  // 数据文件路径（自动适配 book/ 子目录）
+  const isSubDir = window.location.pathname.includes('/book/');
+  const dataBase = isSubDir ? '../data/' : 'data/';
+
+  // ─────────────────────────────────────────────
+  // 工具函数
+  // ─────────────────────────────────────────────
+
+  function fetchJSON(file) {
+    return fetch(dataBase + file)
+      .then(r => { if (!r.ok) throw new Error('Failed: ' + file); return r.json(); });
+  }
+
+  /**
+   * 在页面顶部显示一条可关闭的错误横幅（每次只显示一条）
+   * @param {string} msgZh  中文错误说明
+   */
+  function showFetchError(msgZh) {
+    if (document.getElementById('site-fetch-error-banner')) return; // 已有横幅则不重复
+
+    const banner = document.createElement('div');
+    banner.id = 'site-fetch-error-banner';
+    banner.setAttribute('role', 'alert');
+    banner.style.cssText = [
+      'position:fixed', 'top:0', 'left:0', 'right:0', 'z-index:99999',
+      'background:#dc3545', 'color:#fff', 'text-align:center',
+      'padding:10px 48px 10px 16px', 'font-size:14px', 'line-height:1.5',
+      'box-shadow:0 2px 8px rgba(0,0,0,.25)'
+    ].join(';');
+
+    banner.innerHTML =
+      `⚠️ ${msgZh}&ensp;` +
+      `<a href="javascript:location.reload()" ` +
+      `style="color:#fff;font-weight:700;text-decoration:underline;">刷新重试</a>` +
+      `<button onclick="this.parentElement.remove()" title="关闭" ` +
+      `style="position:absolute;right:12px;top:50%;transform:translateY(-50%);` +
+      `background:none;border:none;color:#fff;font-size:18px;cursor:pointer;line-height:1;">✕</button>`;
+
+    document.body.prepend(banner);
+  }
+
+  /**
+   * 在指定容器内显示内联错误提示（用于非关键数据块）
+   * @param {string} containerId  容器元素 id
+   * @param {string} msgZh        中文错误说明
+   */
+  function showInlineError(containerId, msgZh) {
+    const el = document.getElementById(containerId);
+    if (!el) return;
+    el.innerHTML =
+      `<div style="padding:1.5rem;color:#721c24;background:#f8d7da;border:1px solid #f5c6cb;` +
+      `border-radius:.375rem;margin:1rem 0;">` +
+      `⚠️ ${msgZh}&ensp;<a href="javascript:location.reload()" style="color:#491217;font-weight:700;">刷新重试</a>` +
+      `</div>`;
+  }
+
+  function setText(id, html) {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = html;
+  }
+
+  function setAttr(id, attr, val) {
+    const el = document.getElementById(id);
+    if (el) el.setAttribute(attr, val);
+  }
+
+  // ─────────────────────────────────────────────
+  // WebP 图片支持：自动选择最优格式
+  // ─────────────────────────────────────────────
+  function createPictureTag(src, alt, className, loading = 'lazy') {
+    // 如果已经是WebP、SVG或没有扩展名，直接返回img
+    if (!src || src.endsWith('.webp') || src.endsWith('.svg') || !src.match(/\.(png|jpe?g)$/i)) {
+      return `<img src="${src}" alt="${alt}" class="${className}" loading="${loading}">`;
+    }
+    
+    // 获取WebP路径
+    const webpSrc = src.replace(/\.(png|jpe?g)$/i, '.webp');
+    
+    // 使用picture标签提供WebP和原格式fallback
+    // 注意：picture标签本身不需要class，样式应用于内部img
+    return `<picture>
+      <source srcset="${webpSrc}" type="image/webp">
+      <source srcset="${src}" type="image/jpeg">
+      <img src="${src}" alt="${alt}" class="${className}" loading="${loading}">
+    </picture>`;
+  }
+
+  // ─────────────────────────────────────────────
+  // 导航栏渲染
+  // ─────────────────────────────────────────────
+
+  function renderNav(profile) {
+    const navContainer = document.getElementById('nav-links');
+    if (!navContainer) return;
+
+    const items = profile.nav[lang];
+    const currentHref = window.location.pathname.split('/').pop() || 'index.html';
+
+    // 图标映射（已更新到 Font Awesome 6 的图标名称）
+    const iconMap = {
+      'index.html': 'fa-house',
+      'index_en.html': 'fa-house',
+      'research.html': 'fa-microscope',
+      'research_en.html': 'fa-microscope',
+      'chip_gallery.html': 'fa-microchip',
+      'chip_gallery_en.html': 'fa-microchip',
+      'publications.html': 'fa-file-lines',
+      'publications_en.html': 'fa-file-lines',
+      'coverage.html': 'fa-calendar-days',
+      'coverage_en.html': 'fa-calendar-days',
+      'book-item-bci.html': 'fa-book',
+      'book-item-bci_en.html': 'fa-book'
+    };
+
+    let html = '';
+    items.forEach(item => {
+      if (item.dropdown) {
+        html += `<div class="nav-item dropdown me-lg-3">
+          <a href="#" class="nav-link dropdown-toggle fw-normal text-dark" data-bs-toggle="dropdown">
+            <i class="fa-solid ${iconMap[item.href] || 'fa-book'} me-1"></i>${item.label}
+          </a>
+          <div class="dropdown-menu rounded">
+            ${item.dropdown.map(d => `<a href="${d.href}" class="dropdown-item"><i class="fa-solid ${iconMap[d.href] || 'fa-file'} me-1"></i>${d.label}</a>`).join('')}
+          </div>
+        </div>`;
+      } else {
+        const isActive = currentHref === item.href ? ' active fw-semibold' : '';
+        html += `<a href="${item.href}" class="nav-item nav-link me-lg-3 text-dark${isActive}">
+          <i class="fa-solid ${iconMap[item.href] || 'fa-file'} me-1"></i>${item.label}
+        </a>`;
+      }
+    });
+
+    navContainer.innerHTML = html;
+    
+    // 单独渲染语言切换按钮
+    renderLangSwitch(profile, currentHref);
+  }
+
+  function renderLangSwitch(profile, currentHref) {
+    const langSwitchContainer = document.getElementById('lang-switch');
+    if (!langSwitchContainer) return;
+
+    // 页面映射表：定义所有中英文页面对
+    const pageMap = {
+      'index.html': 'index_en.html',
+      'research.html': 'research_en.html',
+      'chip_gallery.html': 'chip_gallery_en.html',
+      'publications.html': 'publications_en.html',
+      'coverage.html': 'coverage_en.html',
+      'book-item-bci.html': 'book-item-bci_en.html'
+    };
+
+    // 反向映射：英文到中文
+    const reversePageMap = {};
+    Object.entries(pageMap).forEach(([zh, en]) => {
+      reversePageMap[en] = zh;
+    });
+
+    // 确定目标页面链接
+    let zhLink, enLink;
+    
+    if (lang === 'zh') {
+      // 当前在中文页面
+      zhLink = currentHref;
+      enLink = pageMap[currentHref] || 'index_en.html';
+    } else {
+      // 当前在英文页面
+      enLink = currentHref;
+      zhLink = reversePageMap[currentHref] || 'index.html';
+    }
+    
+    const zhActive = lang === 'zh' ? ' active' : '';
+    const enActive = lang === 'en' ? ' active' : '';
+
+    langSwitchContainer.innerHTML = `
+      <a href="${zhLink}" class="nav-lang-link${zhActive}" title="切换到中文">
+        <span class="lang-icon">CN</span>
+      </a>
+      <a href="${enLink}" class="nav-lang-link${enActive}" title="Switch to English">
+        <span class="lang-icon">EN</span>
+      </a>
+    `;
+  }
+
+  // ─────────────────────────────────────────────
+  // Banner 区域渲染
+  // ─────────────────────────────────────────────
+
+  function renderBanner(profile) {
+    const bannerSection = document.getElementById('site-banner');
+    if (bannerSection) {
+      // 预加载Banner图片
+      const bannerImg = new Image();
+      bannerImg.src = profile.banner;
+      bannerSection.style.backgroundImage = `url('${profile.banner}')`;
+    }
+    const nameEl = document.getElementById('banner-name');
+    if (nameEl) {
+      nameEl.textContent = lang === 'zh'
+        ? `${profile.name.zh} ${profile.title.zh} ${profile.name.en}, ${profile.title.en}`
+        : `${profile.name.en}, ${profile.title.en}`;
+    }
+    const subEl = document.getElementById('banner-subtitle');
+    if (subEl) subEl.textContent = profile.subtitle[lang];
+  }
+
+  // ─────────────────────────────────────────────
+  // 头像 / 联系方式区域渲染
+  // ─────────────────────────────────────────────
+
+  function renderAvatar(profile) {
+    const avatarImg = document.getElementById('avatar-img');
+    if (avatarImg) {
+      avatarImg.src = profile.photo;
+      avatarImg.alt = profile.name[lang];
+      avatarImg.loading = 'eager'; // 首屏头像优先加载
+    }
+    const contact = profile.contact;
+    const contactEl = document.getElementById('avatar-contact');
+    if (contactEl) {
+      contactEl.innerHTML = `
+        <p class="mt-0 mb-0 text-end contact-line">
+          <i class="fa-solid fa-phone-alt me-1"></i>
+          <i class="fa-brands fa-weixin me-1"></i>
+          ${contact.phone}
+        </p>
+        <p class="mt-0 mb-0 text-end contact-line">
+          <i class="fa-solid fa-envelope me-1"></i>
+          <a href="mailto:${contact.email}" style="text-decoration:none;color:inherit;">${contact.email}</a>
+        </p>
+        <p class="mt-0 mb-1 text-end contact-line">
+          <i class="fa-solid fa-graduation-cap me-1"></i>
+          <a href="${contact.googleScholar}" target="_blank" style="text-decoration:none;color:inherit;">Google Scholar</a>
+        </p>
+      `;
+    }
+  }
+
+  // ─────────────────────────────────────────────
+  // 主页内容渲染
+  // ─────────────────────────────────────────────
+
+  function renderHomePage(profile) {
+    // 填充移动端快速信息卡片
+    const mobilePosition = document.getElementById('mobile-position');
+    if (mobilePosition) mobilePosition.textContent = lang === 'zh' ? '研究员' : 'Researcher';
+    
+    const mobileExpertise = document.getElementById('mobile-expertise');
+    if (mobileExpertise) mobileExpertise.textContent = lang === 'zh' ? '脑机接口\n类脑芯片' : 'BCI & AI\nChips';
+    
+    // 个人简介
+    const intro = document.getElementById('about-content');
+    if (intro) intro.innerHTML = profile.about[lang];
+
+    // 研究兴趣
+    const ri = profile.researchInterests[lang];
+    const interestSummary = document.getElementById('interest-summary');
+    if (interestSummary) interestSummary.innerHTML = ri.summary;
+
+    const interestItems = document.getElementById('interest-items');
+    if (interestItems && ri.items) {
+      // 渲染为紧凑的横向标签列表
+      interestItems.innerHTML = `
+        <div class="research-interests-list">
+          ${ri.items.map((item, idx) => `
+            <div class="research-interest-item">
+              <div class="interest-header">
+                <span class="interest-number">${String(idx + 1).padStart(2, '0')}</span>
+                <span class="interest-title">${item.title}</span>
+              </div>
+              <div class="interest-content">${item.content}</div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    // 隐藏旧的静态图片占位（如页面中仍存在）
+    const overviewImg = document.getElementById('research-overview-img');
+    if (overviewImg) overviewImg.style.display = 'none';
+
+    // 教学与书籍
+    const teachingContent = document.getElementById('teaching-content');
+    if (teachingContent) teachingContent.innerHTML = profile.teaching[lang];
+
+    const booksGrid = document.getElementById('books-grid');
+    if (booksGrid && profile.teaching.books) {
+      booksGrid.innerHTML = profile.teaching.books.map(book => `
+        <div class="col-12 col-md-4 mb-4">
+          <a href="${book[lang === 'zh' ? 'linkZh' : 'linkEn']}">
+            ${createPictureTag(book.image, book[lang === 'zh' ? 'titleZh' : 'titleEn'], 'img-fluid rounded shadow', 'lazy')}
+            <div class="mt-2 fw-semibold book-title">${book[lang === 'zh' ? 'titleZh' : 'titleEn']}</div>
+          </a>
+        </div>
+      `).join('');
+    }
+
+    // Footer ICP
+    const icp = document.getElementById('icp-link');
+    if (icp) {
+      icp.href = profile.icp.url;
+      icp.textContent = profile.icp.number;
+    }
+  }
+
+  // ─────────────────────────────────────────────
+  // 精选演示（B站视频）渲染
+  // 在 profile.json 的 demos 数组中填写 bvid（B站BV号）即可显示；
+  // bvid 留空的条目不渲染。researchId 用于关联研究方向卡片。
+  // ─────────────────────────────────────────────
+
+  function demoTitle(d) {
+    return lang === 'en' ? (d.titleEn || d.titleZh) : d.titleZh;
+  }
+
+  function demoIframeHtml(d, autoplay) {
+    return `<iframe src="//player.bilibili.com/player.html?bvid=${d.bvid}&page=1&autoplay=${autoplay ? 1 : 0}&danmaku=0&high_quality=1"
+      loading="lazy" scrolling="no" frameborder="no" allow="autoplay; fullscreen" allowfullscreen title="${demoTitle(d)}"></iframe>`;
+  }
+
+  function demoPlayerHtml(d) {
+    return `<div class="demo-player">${demoIframeHtml(d, false)}</div>`;
+  }
+
+  // 首页"精选演示"：主播放器 + 选集卡片列表，点击卡片切换视频
+  function renderDemos(profile) {
+    const grid = document.getElementById('demo-grid');
+    if (!grid || !Array.isArray(profile.demos)) return;
+
+    const demos = profile.demos.filter(d => d.bvid);
+    if (demos.length === 0) return;
+
+    const researchPage = lang === 'en' ? 'research_en.html' : 'research.html';
+
+    grid.innerHTML = `
+      <div class="demo-showcase">
+        <div class="demo-main">
+          <div class="demo-player" id="demo-player-main">${demoIframeHtml(demos[0], false)}</div>
+          <p class="demo-caption" id="demo-caption-main"></p>
+        </div>
+        <div class="demo-playlist">
+          ${demos.map((d, i) => `
+            <button type="button" class="demo-card${i === 0 ? ' active' : ''}" data-index="${i}">
+              <span class="demo-card-num">${String(i + 1).padStart(2, '0')}</span>
+              <span class="demo-card-title">${demoTitle(d)}</span>
+              <span class="demo-card-play"><i class="fa-solid fa-circle-play"></i></span>
+            </button>
+          `).join('')}
+        </div>
+      </div>`;
+
+    const playerEl = document.getElementById('demo-player-main');
+    const captionEl = document.getElementById('demo-caption-main');
+
+    function setCaption(d) {
+      captionEl.innerHTML = `${demoTitle(d)}${d.researchId ? ` · <a href="${researchPage}#${d.researchId}">${lang === 'en' ? 'Learn more' : '了解更多'}</a>` : ''}`;
+    }
+    setCaption(demos[0]);
+
+    grid.querySelectorAll('.demo-card').forEach(btn => {
+      btn.addEventListener('click', function () {
+        const idx = parseInt(this.dataset.index, 10);
+        if (isNaN(idx) || !demos[idx]) return;
+        grid.querySelectorAll('.demo-card').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        playerEl.innerHTML = demoIframeHtml(demos[idx], true); // 用户主动选择，切换后自动播放
+        setCaption(demos[idx]);
+      });
+    });
+
+    // 有视频时才显示整个区块
+    const section = document.getElementById('demos');
+    if (section) section.style.display = '';
+  }
+
+  // ─────────────────────────────────────────────
+  // 论文页面渲染
+  // ─────────────────────────────────────────────
+
+  async function renderPublicationsPage(pubData) {
+    // 如果是新格式（有 yearlyFiles），加载所有年份文件
+    if (pubData.yearlyFiles) {
+      const allData = {
+        filterTopics: pubData.filterTopics,
+        journals: [],
+        conferences: []
+      };
+
+      // 按年份降序排序（字符串年份"2020 and earlier"排在最后）
+      const sortedFiles = [...pubData.yearlyFiles].sort((a, b) => {
+        const yearA = typeof a.year === 'number' ? a.year : 0;
+        const yearB = typeof b.year === 'number' ? b.year : 0;
+        return yearB - yearA;
+      });
+
+      // 按排序后的顺序加载所有文件
+      for (const fileInfo of sortedFiles) {
+        try {
+          const response = await fetch(fileInfo.file);
+          const yearData = await response.json();
+
+          if (yearData.journals) {
+            allData.journals.push(...yearData.journals);
+          }
+          if (yearData.conferences) {
+            allData.conferences.push(...yearData.conferences);
+          }
+        } catch (error) {
+          console.error(`Failed to load ${fileInfo.file}:`, error);
+        }
+      }
+
+      pubData = allData;
+    }
+
+    // 渲染筛选按钮
+    const filterContainer = document.getElementById('topic-filters');
+    if (filterContainer) {
+      filterContainer.innerHTML = pubData.filterTopics.map((t, i) => `
+        <button class="btn btn-outline-success btn-sm topic-btn${i === 0 ? ' active' : ''}"
+          style="font-size: 1.1rem;"
+          data-topic="${t.id}">${t[lang === 'zh' ? 'labelZh' : 'labelEn']}</button>
+      `).join('');
+    }
+
+    // 渲染年份快速导航
+    const journalYears = pubData.journals.map(g => g.year);
+    const confYears = pubData.conferences.map(g => g.year);
+
+    const journalNav = document.getElementById('journal-year-nav');
+    if (journalNav) {
+      journalNav.innerHTML = journalYears.map(y => {
+        const label = pubData.journals.find(g => g.year === y)?.label || y;
+        return `<a class="year-link" href="#journal-${y}">${label}</a>`;
+      }).join('');
+    }
+
+    const confNav = document.getElementById('conf-year-nav');
+    if (confNav) {
+      confNav.innerHTML = confYears.map(y => {
+        const label = pubData.conferences.find(g => g.year === y)?.label || y;
+        return `<a class="year-link" href="#conference-${y}">${label}</a>`;
+      }).join('');
+    }
+
+    // 渲染移动端统计卡片
+    const mobilePubStats = document.getElementById('mobile-pub-stats');
+    if (mobilePubStats) {
+      const journalCount = pubData.journals.reduce((sum, g) => sum + (g.items ? g.items.length : 0), 0);
+      const conferenceCount = pubData.conferences.reduce((sum, g) => sum + (g.items ? g.items.length : 0), 0);
+      const totalCount = journalCount + conferenceCount;
+
+      mobilePubStats.innerHTML = `
+        <a href="#journal" class="pub-stat-item" style="text-decoration: none; color: inherit;">
+          <span class="pub-stat-label">期刊论文</span>
+          <span class="pub-stat-value">${journalCount}</span>
+          <span class="pub-stat-sublabel">篇</span>
+        </a>
+        <a href="#conference" class="pub-stat-item" style="text-decoration: none; color: inherit;">
+          <span class="pub-stat-label">会议论文</span>
+          <span class="pub-stat-value">${conferenceCount}</span>
+          <span class="pub-stat-sublabel">篇</span>
+        </a>
+      `;
+    }
+
+    // 渲染期刊论文
+    const journalContent = document.getElementById('journal-list');
+    if (journalContent) {
+      let allItems = [];
+      pubData.journals.forEach(group => {
+        allItems.push({ type: 'heading', year: group.year, label: group.label || group.year, id: `journal-${group.year}` });
+        group.items.forEach(item => allItems.push({ type: 'item', ...item }));
+      });
+
+      journalContent.innerHTML = renderPublicationList(allItems);
+    }
+
+    // 渲染会议论文
+    const confContent = document.getElementById('conference-list');
+    if (confContent) {
+      let allItems = [];
+      pubData.conferences.forEach(group => {
+        allItems.push({ type: 'heading', year: group.year, label: group.label || group.year, id: `conference-${group.year}` });
+        group.items.forEach(item => allItems.push({ type: 'item', ...item }));
+      });
+
+      confContent.innerHTML = renderPublicationList(allItems);
+    }
+
+    // 绑定筛选按钮事件
+    bindTopicFilter();
+
+    // 绑定摘要按钮事件
+    bindAbstractButtons();
+
+    // 渲染论文统计徽章
+    renderPublicationStats();
+  }
+
+  function renderPublicationList(items) {
+    let html = '<ol class="publications-list" reversed>';
+    // 计算 li 数量用于 reversed
+    const liCount = items.filter(i => i.type === 'item').length;
+    let itemIndex = 0;
+    items.forEach(item => {
+      if (item.type === 'heading') {
+        html += `<h3 id="${item.id}">${item.label}</h3>`;
+      } else {
+        itemIndex++;
+        const topicsStr = Array.isArray(item.topics) ? item.topics.join(' ') : (item.topics || '');
+        const venueHtml = item.venueHighlight
+          ? `<strong style="color:var(--brand-blue);">${item.venue}</strong>`
+          : `<strong>${item.venue}</strong>`;
+        const awardHtml = item.award
+          ? ` <strong style="color:var(--brand-blue);">(${item.award})</strong>`
+          : '';
+        const linkStart = item.url ? `<a href="${item.url}" style="color:inherit;text-decoration:none;">` : '<span>';
+        const linkEnd = item.url ? '</a>' : '</span>';
+        const pdfBadge = item.pdf
+          ? ` <a href="${item.pdf}" class="pdf-badge" target="_blank" rel="noopener noreferrer">[PDF]</a>`
+          : '';
+        // 摘要按钮 - 只有存在摘要时才显示
+        const abstractBtn = item.abstract
+          ? ` <button class="abstract-btn" data-index="${itemIndex}" title="查看摘要">Abstract</button>`
+          : '';
+
+        html += `<li class="publication-item" data-topic="${topicsStr}" data-index="${itemIndex}" data-title="${item.title.replace(/"/g, '&quot;')}" data-abstract="${(item.abstract || '').replace(/"/g, '&quot;')}">
+          ${linkStart}${item.authors}, "${item.title}", ${venueHtml}.${awardHtml}${linkEnd}${pdfBadge}${abstractBtn}
+        </li>`;
+      }
+    });
+    html += '</ol>';
+    return html;
+  }
+
+  function bindTopicFilter() {
+    document.querySelectorAll('.topic-btn').forEach(btn => {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.topic-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const topic = this.dataset.topic;
+
+        document.querySelectorAll('.publication-item').forEach(item => {
+          if (topic === 'all') {
+            item.style.display = '';
+          } else {
+            const itemTopics = (item.dataset.topic || '').split(' ');
+            item.style.display = itemTopics.includes(topic) ? '' : 'none';
+          }
+        });
+
+        // 隐藏空的年份标题
+        document.querySelectorAll('.publications-list h3').forEach(h3 => {
+          let sibling = h3.nextElementSibling;
+          let hasVisible = false;
+          while (sibling && sibling.tagName !== 'H3') {
+            if (sibling.style.display !== 'none') { hasVisible = true; break; }
+            sibling = sibling.nextElementSibling;
+          }
+          h3.style.display = hasVisible ? '' : 'none';
+        });
+      });
+    });
+  }
+
+  // ─────────────────────────────────────────────
+  // 摘要模态框
+  // ─────────────────────────────────────────────
+
+  let abstractModal = null;
+  let pubDataCache = null;
+
+  function createAbstractModal() {
+    if (abstractModal) return;
+    
+    const modal = document.createElement('div');
+    modal.id = 'abstract-modal';
+    modal.className = 'abstract-modal';
+    modal.innerHTML = `
+      <div class="abstract-modal-content">
+        <div class="abstract-modal-header">
+          <h4>Abstract</h4>
+          <button class="abstract-modal-close" title="关闭">&times;</button>
+        </div>
+        <div class="abstract-modal-body">
+          <p id="abstract-text"></p>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+    
+    // 关闭按钮事件
+    modal.querySelector('.abstract-modal-close').addEventListener('click', hideAbstractModal);
+    
+    // 点击背景关闭
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) hideAbstractModal();
+    });
+    
+    // ESC键关闭
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.style.display === 'block') {
+        hideAbstractModal();
+      }
+    });
+    
+    abstractModal = modal;
+  }
+
+  function showAbstractModal(abstract, title) {
+    if (!abstractModal) createAbstractModal();
+    
+    const textEl = document.getElementById('abstract-text');
+    const titleEl = abstractModal.querySelector('h4');
+    
+    textEl.innerHTML = abstract;  // 使用innerHTML以支持HTML标签（如<sub>, <sup>）
+    titleEl.textContent = title || 'Abstract';
+    
+    abstractModal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // 防止背景滚动
+  }
+
+  function hideAbstractModal() {
+    if (abstractModal) {
+      abstractModal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  }
+
+  function bindAbstractButtons() {
+    // 为每个论文项添加摘要数据
+    document.querySelectorAll('.abstract-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        // 从父元素 li 获取数据
+        const li = this.closest('.publication-item');
+        const abstract = li.dataset.abstract;
+        const title = li.dataset.title;
+
+        if (abstract) {
+          showAbstractModal(abstract, title);
+        }
+      });
+    });
+  }
+
+  // ─────────────────────────────────────────────
+  // 论文统计徽章渲染
+  // ─────────────────────────────────────────────
+
+  function renderPublicationStats() {
+    // ── 期刊统计 ──
+    const exactJournalMapping = {
+      'IEEE Journal of Solid-State Circuits': 'JSSC',
+      'IEEE Journal of Biomedical and Health Informatics': 'JBHI',
+      'IEEE Transactions on Biomedical Circuits and Systems': 'TBioCAS',
+      'Journal of Neural Engineering': 'JNE',
+      'IEEE Transactions on Biomedical Engineering': 'TBME',
+      'IEEE Transactions on Neural Systems and Rehabilitation Engineering': 'TNSRE',
+      'IEEE Transactions on Circuits and Systems II': 'TCAS-II',
+      'IEEE Transactions on Circuits and Systems for Video Technology': 'TCSVT',
+      'IEEE Transactions on Circuits and Systems for Artificial Intelligence': 'TCASAI',
+      'IEEE Transactions on Circuits and Systems I: Regular Papers': 'TCAS-I',
+    };
+
+    const journalCount = {};
+    document.querySelectorAll('#journal-list li.publication-item').forEach(item => {
+      const text = item.textContent;
+      for (const fullName in exactJournalMapping) {
+        if (text.includes(fullName)) {
+          const short = exactJournalMapping[fullName];
+          journalCount[short] = (journalCount[short] || 0) + 1;
+          break;
+        }
+      }
+    });
+
+    let journalBadges = '';
+    for (const fullName in exactJournalMapping) {
+      const short = exactJournalMapping[fullName];
+      if (journalCount[short]) {
+        journalBadges += `<span class="badge bg-primary m-1 p-2" style="font-size:1rem;">${short} × ${journalCount[short]}</span>`;
+      }
+    }
+
+    // ── 会议统计 ──
+    const conferenceMapping = {
+      'ISSCC':  ['IEEE International Solid-State Circuits Conference'],
+      'CICC':   ['Custom Integrated Circuits Conference', 'CICC'],
+      'ICLR':   ['International Conference on Learning Representations', 'ICLR'],
+      'ECCV':   ['European Conference on Computer Vision', 'ECCV'],
+      'DATE':   ['Design, Automation & Test in Europe', 'DATE'],
+      'ESSERC': ['European Solid State Circuits Conference', 'ESSCIRC', 'European Solid-State Electronics Research Conference', 'ESSERC'],
+      'A-SSCC': ['Asian Solid-State Circuits Conference', 'A-SSCC'],
+      'BioCAS': ['Biomedical Circuits and Systems Conference', 'BioCAS'],
+      'ISCAS':  ['International Symposium on Circuits and Systems', 'ISCAS'],
+      'AICAS':  ['Artificial Intelligence Circuits and Systems', 'AICAS']
+    };
+
+    const confCount = {};
+    document.querySelectorAll('#conference-list li.publication-item').forEach(li => {
+      const text = li.textContent;
+      for (const short in conferenceMapping) {
+        for (const keyword of conferenceMapping[short]) {
+          if (text.includes(keyword)) {
+            confCount[short] = (confCount[short] || 0) + 1;
+            return;
+          }
+        }
+      }
+    });
+
+    let confBadges = '';
+    for (const short in conferenceMapping) {
+      if (confCount[short]) {
+        confBadges += `<span class="badge bg-success m-1 p-2" style="font-size:1rem;">${short} × ${confCount[short]}</span>`;
+      }
+    }
+
+    // ── 注入到 topic-filters 之后 ──
+    const anchor = document.getElementById('topic-filters');
+    if (!anchor) return;
+
+    // 防止重复注入
+    const existingStats = document.getElementById('pub-stats-block');
+    if (existingStats) existingStats.remove();
+
+    const statsBlock = document.createElement('div');
+    statsBlock.id = 'pub-stats-block';
+
+    if (journalBadges) {
+      const jRow = document.createElement('div');
+      jRow.className = 'd-flex align-items-center flex-wrap gap-1 my-2';
+      jRow.innerHTML = `<span class="fw-bold" style="font-size:1.2rem;">期刊发表统计：</span><div class="journal-summary">${journalBadges}</div>`;
+      statsBlock.appendChild(jRow);
+    }
+
+    if (confBadges) {
+      const cRow = document.createElement('div');
+      cRow.className = 'd-flex align-items-center flex-wrap gap-1 my-2';
+      cRow.innerHTML = `<span class="fw-bold" style="font-size:1.2rem;">会议发表统计：</span><div class="journal-summary">${confBadges}</div>`;
+      statsBlock.appendChild(cRow);
+    }
+
+    anchor.after(statsBlock);
+  }
+
+  // ─────────────────────────────────────────────
+  // 研究页面渲染
+  // ─────────────────────────────────────────────
+
+  function renderResearchPage(resData) {
+    // 索引标题
+    const indexTitle = document.getElementById('research-index-title');
+    if (indexTitle) indexTitle.textContent = resData.indexTitle[lang];
+
+    // 研究方向索引列表 - 横向标签云布局
+    const indexList = document.getElementById('research-index-list');
+    if (indexList) {
+      indexList.style.display = 'flex';
+      indexList.style.flexWrap = 'wrap';
+      indexList.style.gap = '0.5rem';
+      indexList.style.padding = '0';
+      indexList.innerHTML = resData.directions.map((d, i) => `
+        <li style="list-style: none; margin: 0;">
+          <a href="#${d.id}" style="display: inline-flex; align-items: center; padding: 0.4rem 0.85rem; background: #f8f9fa; border: 1px solid rgba(29, 78, 216, 0.25); border-radius: 2rem; text-decoration: none; color: #333; font-size: 0.9rem; font-weight: 500; transition: all 0.2s ease; white-space: nowrap;">
+            <span style="display: inline-flex; align-items: center; justify-content: center; width: 1.4rem; height: 1.4rem; background: var(--brand-blue); color: white; border-radius: 50%; font-size: 0.7rem; font-weight: 600; margin-right: 0.5rem; flex-shrink: 0;">${i + 1}</span>
+            ${d.title[lang]}
+          </a>
+        </li>
+      `).join('');
+    }
+
+    // 研究详情 - 改进的卡片设计
+    const details = document.getElementById('research-details');
+    if (details) {
+      // 生成移动端快速导航卡片
+      const mobileHighlight = `
+        <div class="mobile-research-highlight">
+          ${resData.directions.slice(0, 4).map(d => `
+            <a href="#${d.id}" class="highlight-card">
+              <div class="highlight-title">${d.title[lang]}</div>
+              <div class="highlight-desc">${d.summary ? d.summary[lang].substring(0, 40) + '...' : ''}</div>
+            </a>
+          `).join('')}
+        </div>
+      `;
+      
+      details.innerHTML = mobileHighlight + resData.directions.map(d => `
+        <div class="research-direction research-card" id="${d.id}">
+          <div class="research-card-container">
+            <!-- 主图区域 -->
+            <div class="research-card-image">
+              ${d.images && d.images.length > 0 ? `
+                <a href="${d.images[0].src}" data-lightbox="${d.group || d.id}" data-title="${d.images[0].caption[lang]}">
+                  ${createPictureTag(d.images[0].src, d.title[lang], 'research-main-image', 'lazy')}
+                </a>
+              ` : ''}
+            </div>
+            
+            <!-- 内容区域 -->
+            <div class="research-card-content">
+              <!-- 标题 -->
+              <h3 class="research-card-title">${d.title[lang]}</h3>
+              
+              <!-- 摘要 -->
+              ${d.summary ? `
+                <div class="research-card-summary">
+                  ${d.summary[lang]}
+                </div>
+              ` : ''}
+              
+              <!-- 正文 -->
+              <div class="research-card-text">
+                ${d.content[lang]}
+              </div>
+            </div>
+            
+            <!-- 附加图片展览 -->
+            ${d.images && d.images.length > 1 ? `
+              <div class="research-gallery">
+                ${d.images.slice(1).map((img, idx) => `
+                  <div class="gallery-item">
+                    <a href="${img.src}" data-lightbox="${d.group || d.id}" data-title="${img.caption[lang]}">
+                      ${createPictureTag(img.src, img.caption[lang], 'gallery-thumbnail', 'lazy')}
+                    </a>
+                    <p class="gallery-caption">${img.caption[lang]}</p>
+                  </div>
+                `).join('')}
+              </div>
+            ` : ''}
+          </div>
+        </div>
+      `).join('') + `<div class="research-footer"><a href="#home" class="back-link">${lang === 'zh' ? '↑ 回到顶部' : '↑ Back to top'}</a></div>`;
+    }
+  }
+
+  // ─────────────────────────────────────────────
+  // 活动记事页面渲染
+  // ─────────────────────────────────────────────
+
+  function renderCoveragePage(coverageData) {
+    // 页面标题
+    const pageTitle = document.getElementById('coverage-page-title');
+    if (pageTitle && coverageData.pageTitle) {
+      pageTitle.textContent = coverageData.pageTitle[lang] || coverageData.pageTitle.zh;
+    }
+
+    // 渲染列表
+    const list = document.getElementById('coverage-list');
+    if (!list || !coverageData.items) return;
+
+    list.innerHTML = coverageData.items.map((item, idx) => {
+      const inner = item.url
+        ? `<a href="${item.url}" target="_blank" rel="noopener">${item.title}</a>`
+        : item.title;
+
+      // 缩略图（可选）：取第一张作为列表缩略图；多图时叠加 "+N" 角标，
+      // 其余图片以隐藏的 lightbox 链接挂在后面，点缩略图即可左右翻看全部照片。
+      let thumbHtml = '';
+      if (Array.isArray(item.images) && item.images.length > 0) {
+        const imgs = item.images;
+        const group = `coverage-${idx}`;
+        const extra = imgs.length > 1
+          ? `<span class="news-thumb-count">+${imgs.length - 1}</span>` : '';
+        const hidden = imgs.slice(1).map(img =>
+          `<a href="${img.src}" data-lightbox="${group}" data-title="${img.caption || item.title}" class="news-thumb-hidden" aria-hidden="true"></a>`
+        ).join('');
+        thumbHtml = `<a class="news-thumb" href="${imgs[0].src}" data-lightbox="${group}" data-title="${imgs[0].caption || item.title}">
+          ${createPictureTag(imgs[0].src, imgs[0].caption || item.title, 'news-thumb-img', 'lazy')}
+          ${extra}
+        </a>${hidden}`;
+      }
+
+      return `<li class="news-item${thumbHtml ? ' has-thumb' : ''}">
+        <span class="news-time">${item.date}</span>
+        <p class="news-title">${inner}</p>
+        ${thumbHtml}
+      </li>`;
+    }).join('');
+  }
+
+  // ─────────────────────────────────────────────
+  // 页脚渲染
+  // ─────────────────────────────────────────────
+
+  function renderFooter(profile) {
+    const icp = document.getElementById('icp-link');
+    if (icp) {
+      icp.href = profile.icp.url;
+      icp.textContent = profile.icp.number;
+    }
+  }
+
+  // ─────────────────────────────────────────────
+  // 芯片展示页渲染
+  // ─────────────────────────────────────────────
+
+  function renderChipGalleryPage(chipData) {
+    const container = document.getElementById('chip-gallery-row');
+    const filterContainer = document.getElementById('chip-filter-buttons');
+    if (!container) return;
+
+    const L = lang;
+
+    // 渲染筛选按钮
+    if (filterContainer && chipData.filters) {
+      filterContainer.innerHTML = chipData.filters.map(f =>
+        `<button class="btn btn-outline-primary btn-sm filter-btn me-2 mb-2${f.id === 'all' ? ' active' : ''}" data-filter="${f.id}" style="font-size: 1.1rem;">${f[L]}</button>`
+      ).join('');
+    }
+
+    // 渲染芯片卡片
+    let html = '';
+    chipData.chips.forEach(function (chip) {
+      const categories = Array.isArray(chip.category) ? chip.category.join(' ') : chip.category;
+      const features = chip.features[L] || chip.features.zh || [];
+      const title = chip.title[L] || chip.title.zh || '';
+
+      let paperHtml = '';
+      if (chip.papers && chip.papers.length > 0) {
+        paperHtml = chip.papers.map(function (p, i) {
+          const label = p[L] || p.zh || '';
+          const sep = (L === 'zh' && i > 0) ? ' &amp; ' : ((L === 'en' && i > 0) ? ' &amp; ' : '');
+          return sep + `<a class="paper-link" href="${p.url}">${label}</a>`;
+        }).join('');
+        paperHtml = `<p class="small">${paperHtml}</p>`;
+      }
+
+      html += `<div class="col-lg-4 col-md-4 col-sm-6 col-12 gallery-item" data-category="${categories}">
+        ${createPictureTag(chip.image, title, 'img-fluid mb-2 border chip-image', 'lazy')}
+        <h5 class="fw-bold">${title}</h5>
+        <ul class="small text-muted ps-3 mb-1" style="line-height: 1.5;">
+          ${features.map(f => '<li>' + f + '</li>').join('')}
+        </ul>
+        ${paperHtml}
+      </div>`;
+    });
+
+    container.innerHTML = html;
+
+    // 筛选按钮交互
+    document.querySelectorAll('.filter-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
+        this.classList.add('active');
+        var filter = this.dataset.filter;
+        document.querySelectorAll('.gallery-item').forEach(function (item) {
+          if (filter === 'all') {
+            item.style.display = '';
+          } else {
+            var cats = (item.dataset.category || '').split(' ');
+            item.style.display = cats.includes(filter) ? '' : 'none';
+          }
+        });
+      });
+    });
+  }
+
+  // ─────────────────────────────────────────────
+  // 主入口
+  // ─────────────────────────────────────────────
+
+  const pageName = document.body.dataset.page || '';
+
+  fetchJSON('profile.json').then(profile => {
+    renderNav(profile);
+    renderBanner(profile);
+    renderAvatar(profile);
+    renderFooter(profile);
+
+    if (pageName === 'home') {
+      renderHomePage(profile);
+      renderDemos(profile);
+    }
+  }).catch(err => {
+    console.error('profile.json load error:', err);
+    showFetchError('页面核心数据加载失败，请检查网络连接后');
+  });
+
+  if (pageName === 'publications') {
+    fetchJSON('publications.json').then(pubData => {
+      renderPublicationsPage(pubData);
+    }).catch(err => {
+      console.error('publications.json load error:', err);
+      showInlineError('journal-list', '论文数据加载失败，请检查网络连接后');
+      showInlineError('conference-list', '论文数据加载失败，请检查网络连接后');
+    });
+  }
+
+  if (pageName === 'research') {
+    fetchJSON('research.json').then(resData => {
+      renderResearchPage(resData);
+    }).catch(err => {
+      console.error('research.json load error:', err);
+      showInlineError('research-details', '研究方向数据加载失败，请检查网络连接后');
+    });
+  }
+
+  if (pageName === 'coverage') {
+    fetchJSON('coverage.json').then(coverageData => {
+      renderCoveragePage(coverageData);
+    }).catch(err => {
+      console.error('coverage.json load error:', err);
+      showInlineError('coverage-list', '活动记录数据加载失败，请检查网络连接后');
+    });
+  }
+
+  if (pageName === 'chip_gallery') {
+    fetchJSON('chips.json').then(chipData => {
+      renderChipGalleryPage(chipData);
+    }).catch(err => {
+      console.error('chips.json load error:', err);
+      showInlineError('chip-gallery-row', '芯片展示数据加载失败，请检查网络连接后');
+    });
+  }
+
+  // 返回顶部按钮
+  window.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('backToTop');
+    if (btn) {
+      window.addEventListener('scroll', () => {
+        btn.classList.toggle('show', window.scrollY > 200);
+      });
+      btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
+
+    // ─────────────────────────────────────────────
+    // 菜单栏事件处理 - 简化版本
+    // ─────────────────────────────────────────────
+    
+    const navbarCollapse = document.getElementById('navbarCollapse');
+    if (!navbarCollapse) return;
+
+    // 菜单项点击后自动关闭菜单
+    navbarCollapse.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        // 只在菜单真的打开时才关闭
+        if (navbarCollapse.classList.contains('show')) {
+          const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+          bsCollapse.hide();
+        }
+      });
+    });
+  });
+
+})();

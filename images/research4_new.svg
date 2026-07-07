@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#faf5ff;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bg-grad)"/>
+  
+  <!-- 左上装饰音波 -->
+  <g stroke="#D946EF" stroke-width="3" fill="none" opacity="0.7">
+    <path d="M 60 80 Q 80 60 100 80 T 140 80" stroke-linecap="round"/>
+    <path d="M 60 100 Q 80 75 100 100 T 140 100" stroke-linecap="round"/>
+    <path d="M 60 120 Q 80 90 100 120 T 140 120" stroke-linecap="round"/>
+  </g>
+  
+  <!-- 右下装饰 -->
+  <circle cx="750" cy="480" r="60" fill="#F0D9FF" stroke="#D946EF" stroke-width="2" opacity="0.6"/>
+  <circle cx="750" cy="480" r="35" fill="#C84AFF" opacity="0.5"/>
+  
+  <!-- 中央语言处理 -->
+  <g id="language-processing">
+    <!-- 左脑区 -->
+    <ellipse cx="300" cy="280" rx="50" ry="70" fill="#F0D9FF" stroke="#D946EF" stroke-width="2" opacity="0.9"/>
+    <!-- 右脑区 -->
+    <ellipse cx="500" cy="280" rx="50" ry="70" fill="#F0D9FF" stroke="#D946EF" stroke-width="2" opacity="0.9"/>
+    <!-- 中央连接 -->
+    <ellipse cx="400" cy="280" rx="80" ry="50" fill="#C84AFF" opacity="0.6"/>
+  </g>
+  
+  <!-- 中文汉字符号 -->
+  <g fill="#D946EF" font-size="32" font-family="SimHei, sans-serif" opacity="0.7" text-anchor="middle">
+    <text x="300" y="290">语</text>
+    <text x="500" y="290">音</text>
+  </g>
+  
+  <!-- 解码过程步骤 -->
+  <g>
+    <!-- 步骤1: 声母 -->
+    <circle cx="200" cy="380" r="20" fill="#F0D9FF" stroke="#D946EF" stroke-width="2"/>
+    <text x="200" y="388" font-size="12" text-anchor="middle" fill="#D946EF" font-family="SimHei, sans-serif">声</text>
+    <line x1="220" y1="380" x2="260" y2="380" stroke="#D946EF" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <!-- 步骤2: 韵母 -->
+    <circle cx="300" cy="380" r="20" fill="#F0D9FF" stroke="#D946EF" stroke-width="2"/>
+    <text x="300" y="388" font-size="12" text-anchor="middle" fill="#D946EF" font-family="SimHei, sans-serif">韵</text>
+    <line x1="320" y1="380" x2="360" y2="380" stroke="#D946EF" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <!-- 步骤3: 声调 -->
+    <circle cx="400" cy="380" r="20" fill="#F0D9FF" stroke="#D946EF" stroke-width="2"/>
+    <text x="400" y="388" font-size="12" text-anchor="middle" fill="#D946EF" font-family="SimHei, sans-serif">调</text>
+    <line x1="420" y1="380" x2="460" y2="380" stroke="#D946EF" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <!-- 结果 -->
+    <circle cx="500" cy="380" r="20" fill="#D946EF" stroke="#D946EF" stroke-width="2"/>
+    <text x="500" y="388" font-size="12" text-anchor="middle" fill="white" font-family="SimHei, sans-serif">字</text>
+  </g>
+  
+  <!-- 箭头定义 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#D946EF" />
+    </marker>
+  </defs>
+  
+  <!-- 汉字输出示例 -->
+  <g font-size="28" font-family="SimHei, sans-serif" text-anchor="middle" fill="#D946EF" opacity="0.6">
+    <text x="100" y="450">你好</text>
+    <text x="700" y="450">世界</text>
+  </g>
+  
+  <!-- 标题 -->
+  <text x="400" y="520" font-size="48" font-weight="bold" text-anchor="middle" fill="#D946EF" font-family="SimHei, sans-serif">
+    汉语脑机解码
+  </text>
+  
+  <!-- 副标题 -->
+  <text x="400" y="570" font-size="24" text-anchor="middle" fill="#C84AFF" font-family="Arial, sans-serif">
+    Chinese BCI Decoding
+  </text>
+</svg>

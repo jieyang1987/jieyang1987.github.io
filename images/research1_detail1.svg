@@ -1,0 +1,93 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#5B7DFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3948D2;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="#f8f9fc"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="50" font-size="28" font-weight="bold" text-anchor="middle" fill="#2c3e50">
+    信号处理与神经编码
+  </text>
+  
+  <!-- 左侧：脑信号采集 -->
+  <g filter="url(#shadow)">
+    <circle cx="120" cy="200" r="45" fill="url(#grad1)" opacity="0.9"/>
+    <text x="120" y="210" font-size="24" text-anchor="middle" fill="white">🧠</text>
+  </g>
+  <text x="120" y="280" font-size="14" font-weight="bold" text-anchor="middle" fill="#2c3e50">脑信号</text>
+  <text x="120" y="300" font-size="12" text-anchor="middle" fill="#555">sEEG/LFP</text>
+  
+  <!-- 中间：信号箭头和处理 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#3948D2" />
+    </marker>
+  </defs>
+  
+  <!-- 箭头1 -->
+  <line x1="165" y1="200" x2="260" y2="200" stroke="#3948D2" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- 处理框1 -->
+  <rect x="260" y="165" width="100" height="70" rx="8" fill="#e8eef8" stroke="#3948D2" stroke-width="2"/>
+  <text x="310" y="210" font-size="13" text-anchor="middle" fill="#2c3e50" font-weight="bold">特征</text>
+  <text x="310" y="227" font-size="11" text-anchor="middle" fill="#555">提取</text>
+  
+  <!-- 箭头2 -->
+  <line x1="360" y1="200" x2="455" y2="200" stroke="#3948D2" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- 处理框2 -->
+  <rect x="455" y="165" width="100" height="70" rx="8" fill="#f0e8f8" stroke="#6d28d9" stroke-width="2"/>
+  <text x="505" y="210" font-size="13" text-anchor="middle" fill="#2c3e50" font-weight="bold">AI</text>
+  <text x="505" y="227" font-size="11" text-anchor="middle" fill="#555">分类</text>
+  
+  <!-- 箭头3 -->
+  <line x1="555" y1="200" x2="650" y2="200" stroke="#3948D2" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- 处理框3 -->
+  <rect x="650" y="165" width="100" height="70" rx="8" fill="#e8f5f8" stroke="#0891b2" stroke-width="2"/>
+  <text x="700" y="210" font-size="13" text-anchor="middle" fill="#2c3e50" font-weight="bold">刺激</text>
+  <text x="700" y="227" font-size="11" text-anchor="middle" fill="#555">输出</text>
+  
+  <!-- 反馈箭头 -->
+  <path d="M 650 240 Q 400 360 120 240" stroke="#22c55e" stroke-width="2.5" fill="none" marker-end="url(#arrowhead)" stroke-dasharray="5,5" opacity="0.7"/>
+  <text x="400" y="380" font-size="12" text-anchor="middle" fill="#22c55e" font-weight="bold">闭环反馈</text>
+  
+  <!-- 底部关键指标 -->
+  <g filter="url(#shadow)">
+    <rect x="80" y="420" width="640" height="140" rx="12" fill="white" stroke="#e0e7ff" stroke-width="1.5"/>
+  </g>
+  
+  <text x="400" y="450" font-size="16" font-weight="bold" text-anchor="middle" fill="#2c3e50">关键性能指标</text>
+  
+  <!-- 指标卡片 -->
+  <g>
+    <rect x="100" y="470" width="120" height="70" rx="6" fill="#f0f9ff" stroke="#0284c7" stroke-width="1.5"/>
+    <text x="160" y="495" font-size="13" text-anchor="middle" fill="#2c3e50" font-weight="bold">延迟</text>
+    <text x="160" y="520" font-size="16" text-anchor="middle" fill="#0284c7" font-weight="bold">&lt;50ms</text>
+  </g>
+  
+  <g>
+    <rect x="250" y="470" width="120" height="70" rx="6" fill="#fef3c7" stroke="#ea8f15" stroke-width="1.5"/>
+    <text x="310" y="495" font-size="13" text-anchor="middle" fill="#2c3e50" font-weight="bold">功耗</text>
+    <text x="310" y="520" font-size="16" text-anchor="middle" fill="#ea8f15" font-weight="bold">μW级</text>
+  </g>
+  
+  <g>
+    <rect x="400" y="470" width="120" height="70" rx="6" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="460" y="495" font-size="13" text-anchor="middle" fill="#2c3e50" font-weight="bold">准确率</text>
+    <text x="460" y="520" font-size="16" text-anchor="middle" fill="#22c55e" font-weight="bold">&gt;90%</text>
+  </g>
+  
+  <g>
+    <rect x="550" y="470" width="120" height="70" rx="6" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+    <text x="610" y="495" font-size="13" text-anchor="middle" fill="#2c3e50" font-weight="bold">集成度</text>
+    <text x="610" y="520" font-size="14" text-anchor="middle" fill="#ec4899" font-weight="bold">100KB↓</text>
+  </g>
+</svg>

@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f0f4ff;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bg-grad)"/>
+  
+  <!-- 左上装饰圆 -->
+  <circle cx="100" cy="100" r="70" fill="#A8C5FF" stroke="#3948D2" stroke-width="3" opacity="0.9"/>
+  <circle cx="100" cy="100" r="40" fill="#3948D2" opacity="0.8"/>
+  
+  <!-- 右下装饰方块 -->
+  <rect x="650" y="450" width="100" height="100" fill="#A8C5FF" stroke="#3948D2" stroke-width="2" opacity="0.7"/>
+  <line x1="650" y1="450" x2="750" y2="550" stroke="#3948D2" stroke-width="1" opacity="0.5"/>
+  <line x1="750" y1="450" x2="650" y2="550" stroke="#3948D2" stroke-width="1" opacity="0.5"/>
+  
+  <!-- 中央圆形网格 - 外圆 -->
+  <circle cx="400" cy="300" r="120" fill="none" stroke="#FF6B6B" stroke-width="2" opacity="0.6"/>
+  <circle cx="400" cy="300" r="80" fill="none" stroke="#FF6B6B" stroke-width="1" opacity="0.4"/>
+  <circle cx="400" cy="300" r="40" fill="#A8C5FF" stroke="#3948D2" stroke-width="2"/>
+  
+  <!-- 中央主圆点 -->
+  <circle cx="400" cy="300" r="25" fill="#3948D2"/>
+  
+  <!-- 周围小圆点 (8个) -->
+  <g id="orbital-dots">
+    <!-- 右 -->
+    <circle cx="495" cy="300" r="12" fill="#A8C5FF" stroke="#3948D2" stroke-width="2"/>
+    <circle cx="495" cy="300" r="6" fill="#3948D2"/>
+    
+    <!-- 右上 -->
+    <circle cx="465" cy="215" r="12" fill="#A8C5FF" stroke="#3948D2" stroke-width="2"/>
+    <circle cx="465" cy="215" r="6" fill="#3948D2"/>
+    
+    <!-- 上 -->
+    <circle cx="400" cy="180" r="12" fill="#A8C5FF" stroke="#3948D2" stroke-width="2"/>
+    <circle cx="400" cy="180" r="6" fill="#3948D2"/>
+    
+    <!-- 左上 -->
+    <circle cx="335" cy="215" r="12" fill="#A8C5FF" stroke="#3948D2" stroke-width="2"/>
+    <circle cx="335" cy="215" r="6" fill="#3948D2"/>
+    
+    <!-- 左 -->
+    <circle cx="305" cy="300" r="12" fill="#A8C5FF" stroke="#3948D2" stroke-width="2"/>
+    <circle cx="305" cy="300" r="6" fill="#3948D2"/>
+    
+    <!-- 左下 -->
+    <circle cx="335" cy="385" r="12" fill="#A8C5FF" stroke="#3948D2" stroke-width="2"/>
+    <circle cx="335" cy="385" r="6" fill="#3948D2"/>
+    
+    <!-- 下 -->
+    <circle cx="400" cy="420" r="12" fill="#A8C5FF" stroke="#3948D2" stroke-width="2"/>
+    <circle cx="400" cy="420" r="6" fill="#3948D2"/>
+    
+    <!-- 右下 -->
+    <circle cx="465" cy="385" r="12" fill="#A8C5FF" stroke="#3948D2" stroke-width="2"/>
+    <circle cx="465" cy="385" r="6" fill="#3948D2"/>
+  </g>
+  
+  <!-- 连接线 -->
+  <g stroke="#FF6B6B" stroke-width="1" opacity="0.4">
+    <line x1="400" y1="300" x2="495" y2="300"/>
+    <line x1="400" y1="300" x2="465" y2="215"/>
+    <line x1="400" y1="300" x2="400" y2="180"/>
+    <line x1="400" y1="300" x2="335" y2="215"/>
+    <line x1="400" y1="300" x2="305" y2="300"/>
+    <line x1="400" y1="300" x2="335" y2="385"/>
+    <line x1="400" y1="300" x2="400" y2="420"/>
+    <line x1="400" y1="300" x2="465" y2="385"/>
+  </g>
+  
+  <!-- 标题 -->
+  <text x="400" y="500" font-size="48" font-weight="bold" text-anchor="middle" fill="#3948D2" font-family="SimHei, sans-serif">
+    闭环神经调控
+  </text>
+  
+  <!-- 副标题 -->
+  <text x="400" y="550" font-size="24" text-anchor="middle" fill="#FF6B6B" font-family="Arial, sans-serif">
+    AI-Driven Neuromodulation
+  </text>
+</svg>

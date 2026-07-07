@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="author" content="杨杰, 西湖大学, Jie Yang, Westlake University" />
+    <title>杨杰 Yang Jie – 西湖大学 | 芯片展示：BCI、类脑与神经调控芯片</title>
+    <meta name="description"
+        content="杨杰（Yang Jie）西湖大学芯片展示：30余款自主研制芯片，涵盖侵入式脑机接口SoC、闭环神经调控处理器、SNN类脑加速器与视觉芯片，发表于 ISSCC、JSSC、CICC 等顶级会议。">
+
+    <!-- Icon -->
+    <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5/index.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5/700.css" rel="stylesheet" />
+    <link href="static/css/styles.css" rel="stylesheet" />
+    <link href="static/css/main.css" rel="stylesheet" />
+
+    <!-- Schema.org 结构化数据 - 芯片设计作品集 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "杨杰 - 芯片展示",
+      "url": "https://yangjie.ac.cn/chip_gallery.html",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "杨杰 (Yang Jie)",
+        "url": "https://yangjie.ac.cn",
+        "hasOccupation": [
+          {
+            "@type": "Occupation",
+            "name": "芯片设计师",
+            "occupationLocation": {
+              "@type": "City",
+              "name": "杭州"
+            }
+          }
+        ]
+      },
+      "description": "杨杰博士主持设计的30+款高水平芯片，包括侵入式脑机接口SoC、闭环神经调控处理器、SNN类脑加速器、视觉芯片等，发表于 ISSCC、JSSC、CICC 等国际顶级会议。",
+      "keywords": "芯片设计, 集成电路, 脑机接口芯片, 神经调控, 类脑计算, SNN加速器, ISSCC, JSSC, CICC"
+    }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="static/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .paper-link {
+            color: #2B5BA9;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .paper-link:hover {
+            color: #1d3f7a;
+            text-decoration: underline;
+        }
+
+        #top-section-bg-text {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 400;
+            font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", system-ui, sans-serif;
+        }
+
+        .rounded.shadow:hover {
+            transform: scale(1.02);
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+
+<body id="page-top" data-page="chip_gallery">
+    <!-- 导航栏由 site-renderer.js 动态渲染 -->
+    <nav class="header navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
+        <div class="container px-5">
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto p-4 p-lg-0" id="nav-links"></div>
+                <div class="nav-lang-switch" id="lang-switch"></div>
+            </div>
+        </div>
+    </nav>
+    <!-- Top Section（由 site-renderer 渲染） -->
+    <section class="top-section container-fluid" id="site-banner">
+        <div class="top-section-content">
+            <div class="container px-5">
+                <h2 id="banner-name" class="text-white lh-1 banner-title"></h2>
+                <p id="banner-subtitle" class="text-white lead fw-light banner-sub"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 头像 & 联系方式 -->
+    <div class="container px-5">
+        <div id="avatar">
+            <div class="d-flex flex-row justify-content-end align-items-end">
+                <div id="avatar-contact" class="avatar-contact-block mx-auto d-block float-start px-3"></div>
+                <img id="avatar-img" class="shadow d-block mx-auto avatar-photo" src="" alt="">
+            </div>
+        </div>
+    </div>
+
+    <!-- 芯片展示 -->
+    <section class="bg-gradient-primary-to-secondary-light mt-5 pt-3" id="chip-gallery">
+        <div class="container px-5">
+            <header>
+                <h2>芯片展示</h2>
+            </header>
+            <!-- 筛选按钮（由 site-renderer.js 动态渲染） -->
+            <div class="text-center mb-2" id="chip-filter-buttons"></div>
+
+            <!-- 芯片卡片（由 site-renderer.js 动态渲染） -->
+            <div class="row gx-3 gy-4" id="chip-gallery-row"></div>
+        </div>
+    </section>
+    <!-- Back to top button -->
+    <button type="button" id="backToTop" class="btn btn-primary back-to-top">↑</button>
+
+    <!-- Footer（由 site-renderer.js 动态渲染） -->
+    <footer class="bg-bottom text-center py-5" id="site-footer">
+        <div class="container px-5">
+            <div class="text-white-50 small">
+                <div class="mb-2" id="copyright-text"></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="static/js/site-renderer.js"></script>
+</body>
+
+</html>

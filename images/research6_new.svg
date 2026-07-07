@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fff7ed;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="url(#bg-grad)"/>
+  
+  <!-- 左上装饰太阳 -->
+  <g id="sun" opacity="0.8">
+    <circle cx="90" cy="80" r="40" fill="#FED7AA" stroke="#EA580C" stroke-width="2"/>
+    <circle cx="90" cy="80" r="25" fill="#EA580C"/>
+    <line x1="90" y1="30" x2="90" y2="10" stroke="#EA580C" stroke-width="3"/>
+    <line x1="90" y1="130" x2="90" y2="150" stroke="#EA580C" stroke-width="3"/>
+    <line x1="40" y1="80" x2="20" y2="80" stroke="#EA580C" stroke-width="3"/>
+    <line x1="140" y1="80" x2="160" y2="80" stroke="#EA580C" stroke-width="3"/>
+  </g>
+  
+  <!-- 右下装饰阴影 -->
+  <rect x="680" y="480" width="100" height="80" fill="#FED7AA" stroke="#EA580C" stroke-width="2" opacity="0.6" rx="5"/>
+  <rect x="690" y="490" width="80" height="60" fill="#FB923C" opacity="0.5" rx="3"/>
+  
+  <!-- 中央图像融合示意 -->
+  <g id="image-fusion">
+    <!-- 顶部：多曝光图像 -->
+    <g id="exposure-images">
+      <!-- 暗曝光 -->
+      <rect x="250" y="120" width="60" height="60" fill="#333333" stroke="#EA580C" stroke-width="2" rx="3"/>
+      <text x="280" y="195" font-size="12" text-anchor="middle" fill="#EA580C" font-family="Arial, sans-serif">Dark</text>
+      
+      <!-- 中等曝光 -->
+      <rect x="370" y="120" width="60" height="60" fill="#888888" stroke="#EA580C" stroke-width="2" rx="3"/>
+      <text x="400" y="195" font-size="12" text-anchor="middle" fill="#EA580C" font-family="Arial, sans-serif">Medium</text>
+      
+      <!-- 亮曝光 -->
+      <rect x="490" y="120" width="60" height="60" fill="#EEEEEE" stroke="#EA580C" stroke-width="2" rx="3"/>
+      <text x="520" y="195" font-size="12" text-anchor="middle" fill="#EA580C" font-family="Arial, sans-serif">Bright</text>
+    </g>
+    
+    <!-- 融合箭头 -->
+    <g stroke="#FB923C" stroke-width="2" fill="none">
+      <path d="M 280 180 L 280 240" marker-end="url(#arrowhead)"/>
+      <path d="M 400 180 L 400 240" marker-end="url(#arrowhead)"/>
+      <path d="M 520 180 L 520 240" marker-end="url(#arrowhead)"/>
+    </g>
+    
+    <!-- 中央融合 -->
+    <circle cx="400" cy="280" r="30" fill="#FED7AA" stroke="#EA580C" stroke-width="2"/>
+    <text x="400" y="288" font-size="14" text-anchor="middle" fill="#EA580C" font-weight="bold">Fuse</text>
+    
+    <!-- 输出高动态图像 -->
+    <g id="hdr-output">
+      <!-- 背景渐变矩形代表HDR -->
+      <defs>
+        <linearGradient id="hdr-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#222222" />
+          <stop offset="50%" style="stop-color:#DDDDDD" />
+          <stop offset="100%" style="stop-color:#111111" />
+        </linearGradient>
+      </defs>
+      <rect x="330" y="360" width="140" height="100" fill="url(#hdr-grad)" stroke="#EA580C" stroke-width="3" rx="5"/>
+      <text x="400" y="420" font-size="18" text-anchor="middle" fill="#FED7AA" font-weight="bold">HDR</text>
+    </g>
+  </g>
+  
+  <!-- 性能指标 -->
+  <g font-size="13" fill="#EA580C" opacity="0.7" font-family="Arial, sans-serif">
+    <text x="150" y="500">120 dB Range</text>
+    <text x="600" y="500">GPU Optimized</text>
+    <text x="300" y="530">Multi-Scale Fusion</text>
+    <text x="500" y="530">Real-time Processing</text>
+  </g>
+  
+  <!-- 箭头定义 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#FB923C" />
+    </marker>
+  </defs>
+  
+  <!-- 标题 -->
+  <text x="400" y="550" font-size="48" font-weight="bold" text-anchor="middle" fill="#EA580C" font-family="SimHei, sans-serif">
+    高动态图像处理
+  </text>
+  
+  <!-- 副标题 -->
+  <text x="400" y="595" font-size="24" text-anchor="middle" fill="#FB923C" font-family="Arial, sans-serif">
+    HDR Image Processing
+  </text>
+</svg>
