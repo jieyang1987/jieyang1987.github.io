@@ -76,7 +76,7 @@
       "year": 2026,
       "items": [
         {
-          "authors": "Z. Shen， Z. Liao, S. Shen, C. Fang, F. Tian, <strong>J. Yang*</strong>, M. Sawan*",
+          "authors": "Z. Shen, Z. Liao, S. Shen, C. Fang, F. Tian, <strong>J. Yang*</strong>, M. Sawan*",
           "title": "A Heterogeneous Decision Spiking Transformer Accelerator with Locality-dependent KV Product Cache and Compute Pattern Reconfigurable Engine",
           "venue": "2026 IEEE International Symposium on Circuits and Systems (ISCAS)",
           "venueHighlight": false,
@@ -88,7 +88,7 @@
           "abstract": "Deep neural network (DNN)-based methodologies have shown impressive performance and robustness in the detection of abnormalities and decoding of multi-modal biosignals. While the use of DNNs provides promising classification and decoding capabilities, it also introduces significant design and cost challenges for the implementation of biomedical System on Chips (SoC). To address the increasing demand for advanced and efficient DNN-based healthcare solutions at the edge, we propose BioSeek, an agile design generation framework enhanced by cutting-edge large-language models (LLM). BioSeek offers a comprehensive solution to the design challenges associated with biosignal processors. The effectiveness of BioSeek is evaluated through the design generation of both application-specific and versatile biosignal processors, demonstrating performance that is competitive with existing solutions."
         },
         {
-          "authors": "F. Tian， J.Zheng, H. Wu, Z. Liu, J. Chen, S. Zhao, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui, K-T. Cheng",
+          "authors": "F. Tian, J. Zheng, H. Wu, Z. Liu, J. Chen, S. Zhao, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui, K-T. Cheng",
           "title": "BioSeek: A Design Generation Framework of Biosignal Processors with Large-Language Models for Edge Healthcare Applications",
           "venue": "2026 IEEE International Symposium on Circuits and Systems (ISCAS)",
           "venueHighlight": false,
