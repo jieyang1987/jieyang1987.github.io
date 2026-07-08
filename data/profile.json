@@ -106,6 +106,10 @@
       }
     ]
   },
+  "join": {
+    "zh": "<p>我们长期欢迎对<strong>脑机接口、类脑计算与神经解码</strong>充满热情的同仁加入。在这里，你不仅能参与最前沿的科学研究，还能接触第一线的产业技术与行业信息，在从芯片、算法到临床应用的交叉方向上学以致用。</p><p><strong>博士后：</strong>诚聘在集成电路设计、神经信号处理、机器学习等方向有扎实基础的博士后研究人员，提供有竞争力的待遇与经费支持。<br><strong>博士生：</strong>欢迎电子、微电子、计算机、自动化、生物医学工程等背景、有志深造的同学联系我。课题组平台优越、科研经费充足，期待与你一起探索前沿方向。<br><strong>联合培养：</strong>欢迎已在其他高校或科研院所就读的博士生，以联合培养或访问研究的形式加入课题组开展研究。<br><strong>RA / 实习生：</strong>欢迎希望提前接触科研、参与真实芯片与系统项目的本科生与访问学生加入；亦长期招聘全职科研助理，共同推进课题研究。<br><strong>公司 / 工程师：</strong>西湖灵犀科技等产业方向长期招募芯片设计、嵌入式、算法与系统工程师，欢迎有意投身脑机接口产业化的工程与研发人才加入。</p><p>无论你是寻求深造还是工作机会，都欢迎带上简历与感兴趣的方向来信交流：<a href='mailto:yangjie@westlake.edu.cn'>yangjie@westlake.edu.cn</a>。</p>",
+    "en": "<p>I warmly welcome motivated people who are passionate about <strong>brain-computer interfaces, neuromorphic computing, and neural decoding</strong> to join us. Here you will not only take part in cutting-edge scientific research, but also gain first-hand exposure to frontline industrial technology and insights, applying what you learn across the spectrum from chips and algorithms to clinical applications.</p><p><strong>Postdoctoral researchers:</strong> We are recruiting postdocs with a solid foundation in integrated circuit design, neural signal processing, or machine learning, offering competitive compensation and funding support.<br><strong>Ph.D. students:</strong> Students with backgrounds in electronics, microelectronics, computer science, automation, or biomedical engineering who aspire to pursue advanced study are welcome to contact me. The group offers an outstanding platform and ample research funding — I look forward to exploring frontier directions together.<br><strong>Joint-training Ph.D. students:</strong> Ph.D. students enrolled at other universities or institutes are welcome to join the group for joint training or visiting research.<br><strong>RAs / interns:</strong> Undergraduates and visiting students eager to get early hands-on experience with real chip and system projects are welcome; we also hire full-time research assistants on an ongoing basis.<br><strong>Company / engineers:</strong> Westlake Lingxi Technology and related ventures are continually hiring chip design, embedded, algorithm, and system engineers — talents eager to work on the industrialization of brain-computer interfaces are welcome.</p><p>Whether you are seeking further study or a career opportunity, feel free to reach out with your CV and research interests: <a href='mailto:yangjie@westlake.edu.cn'>yangjie@westlake.edu.cn</a>.</p>"
+  },
   "demos": [
     {
       "bvid": "BV1yuCvBLEvp",
@@ -133,7 +137,8 @@
           { "label": "类脑计算芯片（建设中）", "href": "#" }
         ]
       },
-      { "label": "活动记事", "href": "coverage.html" }
+      { "label": "活动记事", "href": "coverage.html" },
+      { "label": "加入我们", "href": "index.html#join" }
     ],
     "en": [
       { "label": "Home", "href": "index_en.html" },
@@ -147,7 +152,8 @@
           { "label": "Neuromorphic Chip (Coming)", "href": "#" }
         ]
       },
-      { "label": "Activities", "href": "coverage_en.html" }
+      { "label": "Activities", "href": "coverage_en.html" },
+      { "label": "Join Us", "href": "index_en.html#join" }
     ]
   }
 }

@@ -123,7 +123,9 @@
       'coverage.html': 'fa-calendar-days',
       'coverage_en.html': 'fa-calendar-days',
       'book-item-bci.html': 'fa-book',
-      'book-item-bci_en.html': 'fa-book'
+      'book-item-bci_en.html': 'fa-book',
+      'index.html#join': 'fa-user-plus',
+      'index_en.html#join': 'fa-user-plus'
     };
 
     let html = '';
@@ -293,6 +295,10 @@
     // 隐藏旧的静态图片占位（如页面中仍存在）
     const overviewImg = document.getElementById('research-overview-img');
     if (overviewImg) overviewImg.style.display = 'none';
+
+    // 加入我们（招募信息）
+    const joinContent = document.getElementById('join-content');
+    if (joinContent && profile.join) joinContent.innerHTML = profile.join[lang];
 
     // 教学与书籍
     const teachingContent = document.getElementById('teaching-content');
