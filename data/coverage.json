@@ -30,7 +30,7 @@
       "title": "与Neuralink Cofounder等一行交流：脑机接口技术的国际合作与发展",
       "url": "",
       "images": [
-        { "src": "images/coverage/us delegation visit.webp", "caption": "代表团交流合影" }
+        { "src": "images/coverage/us_delegation_visit.webp", "caption": "代表团交流合影" }
       ]
     },
 
@@ -134,8 +134,8 @@
       "title": "MIND：Poster Session:《NeuroPlat: An FPGA-Based Neuromorphic Computing Platform with Optimized Toolchain for Efficient SNN Deployment》",
       "url": "https://www.ic-mind.org/",
       "images": [
-        { "src": "images/coverage/MIND-1.webp", "caption": "MIND" },
-        { "src": "images/coverage/MIND-2.webp", "caption": "MIND" }
+        { "src": "images/coverage/Mind-1.webp", "caption": "MIND" },
+        { "src": "images/coverage/Mind-2.webp", "caption": "MIND" }
       ]
     },
     {
