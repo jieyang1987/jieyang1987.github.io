@@ -1,9 +1,5 @@
 
 
-const config_file = 'config.yml'
-const section_names = ['home', 'publications', 'awards']
-
-
 window.addEventListener('DOMContentLoaded', event => {
 
     // Activate Bootstrap scrollspy on the main nav element
@@ -31,42 +27,10 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
 
-    // Yaml
-    fetch(content_dir + config_file)
-        .then(response => response.text())
-        .then(text => {
-            const yml = jsyaml.load(text);
-            Object.keys(yml).forEach(key => {
-                try {
-                    document.getElementById(key).innerHTML = yml[key];
-                } catch {
-                    console.log("Unknown id and value: " + key + "," + yml[key].toString())
-                }
+    // Yaml + Marked 数据加载逻辑已移除：原逻辑依赖未定义的 content_dir
+    // 且目标文件 (config.yml / *.md) 已不存在，属于 New Age 主题遗留死代码。
+    // 网站内容现直接写在 HTML 中，不再需要运行时 fetch。
 
-            })
-        })
-        .catch(error => console.log(error));
-
-
-    // Marked
-    marked.use({ mangle: false, headerIds: false })
-    section_names.forEach((name, idx) => {
-        fetch(content_dir + name + '.md')
-            .then(response => response.text())
-            .then(markdown => {
-                const html = marked.parse(markdown);
-                const host = document.getElementById(name + '-md');
-                if (host) {
-                    host.innerHTML = html;
-                }
-            }).then(() => {
-                // MathJax
-                if (window.MathJax && typeof MathJax.typeset === 'function') {
-                    MathJax.typeset();
-                }
-            })
-            .catch(error => console.log(error));
-    })
 
     // Back-to-top button logic
     const backToTopBtn = document.getElementById('backToTop');
