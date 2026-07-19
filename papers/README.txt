@@ -6,10 +6,12 @@
       2025_TBioCAS_Self-Adaptive_Pseudo-Resistors.pdf
 
 添加新论文的最简方式:
-  1. 把 PDF 放到本目录
+  1. 把 PDF 放到本目录 (文件名随意, 脚本会自动规范化)
   2. 在仓库根目录运行: node scripts/add-paper.js
   3. 脚本自动从 PDF 提取标题/DOI/摘要, 交互确认后写入对应年份的 JSON
-  4. 查看本地预览确认效果, 然后 git push
+  4. 确认后脚本会根据论文 Title 自动重命名 PDF 为规范文件名,
+     并同步更新 JSON 中的 pdf 字段 (可选择跳过)
+  5. 查看本地预览确认效果, 然后 git push
 
 其他命令:
   node scripts/add-paper.js --list    查看各年份论文统计

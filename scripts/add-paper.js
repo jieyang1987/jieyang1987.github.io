@@ -359,6 +359,92 @@ function writeEntry(entry) {
   return yearFile;
 }
 
+/** 从 venue 全称反查缩写 (用于生成规范文件名) */
+function findVenueAbbrev(venueName) {
+  if (!venueName) return null;
+  for (const [abbrev, info] of Object.entries(VENUE_MAP)) {
+    if (info.name === venueName) return abbrev;
+  }
+  return null;
+}
+
+/** 清理标题为合法文件名片段
+ *  - 去掉 Windows 非法字符 \ / : * ? " < > |
+ *  - 空格 → 下划线 (与现有命名风格一致)
+ *  - 限制长度, 避免 Windows 260 字符路径限制
+ */
+function sanitizeTitleForFilename(title) {
+  const cleaned = title
+    .replace(/[\\/:*?"<>|]/g, '')
+    .replace(/\s+/g, '_')
+    .replace(/_+/g, '_')
+    .replace(/^_|_$/g, '')
+    .substring(0, 120);
+  return cleaned || 'untitled';
+}
+
+/** 生成规范文件名: {year}_{venue}_{title}.pdf */
+function buildCanonicalFilename(year, venueAbbrev, title) {
+  const safeTitle = sanitizeTitleForFilename(title) || 'untitled';
+  const safeVenue = venueAbbrev || 'paper';
+  return `${year}_${safeVenue}_${safeTitle}.pdf`;
+}
+
+/** 重命名 PDF 文件并同步更新 JSON 中刚写入条目的 pdf 字段
+ *  返回 { renamed, newPdfRelPath, newFilename }
+ */
+function renamePdfAndUpdateJson(oldPdfRelPath, newFilename, year, type) {
+  const oldAbs = path.join(ROOT, oldPdfRelPath);
+  let finalFilename = newFilename;
+  let finalAbs = path.join(PAPERS_DIR, newFilename);
+
+  // 新旧相同, 无需操作
+  if (path.normalize(oldAbs) === path.normalize(finalAbs)) {
+    return { renamed: false, newPdfRelPath: oldPdfRelPath, newFilename: finalFilename };
+  }
+
+  // 目标已存在且不是当前文件 → 加序号避免覆盖
+  if (fs.existsSync(finalAbs) && path.normalize(oldAbs) !== path.normalize(finalAbs)) {
+    const ext = path.extname(newFilename);
+    const base = path.basename(newFilename, ext);
+    let i = 2;
+    while (fs.existsSync(path.join(PAPERS_DIR, `${base}_${i}${ext}`))) i++;
+    finalFilename = `${base}_${i}${ext}`;
+    finalAbs = path.join(PAPERS_DIR, finalFilename);
+  }
+
+  // 重命名文件
+  if (fs.existsSync(oldAbs)) {
+    fs.renameSync(oldAbs, finalAbs);
+  }
+
+  // 同步更新 JSON 中刚写入条目的 pdf 字段
+  const yearFile = path.join(PUB_DIR, `${year}.json`);
+  if (fs.existsSync(yearFile)) {
+    const data = JSON.parse(fs.readFileSync(yearFile, 'utf8'));
+    const section = type === 'conference' ? 'conferences' : 'journals';
+    let updated = false;
+    if (data[section]) {
+      for (const group of data[section]) {
+        if (!group.items) continue;
+        for (const item of group.items) {
+          if (item.pdf === oldPdfRelPath) {
+            item.pdf = 'papers/' + finalFilename;
+            updated = true;
+            break;
+          }
+        }
+        if (updated) break;
+      }
+    }
+    if (updated) {
+      fs.writeFileSync(yearFile, JSON.stringify(data, null, 2) + '\n', 'utf8');
+    }
+  }
+
+  return { renamed: true, newPdfRelPath: 'papers/' + finalFilename, newFilename: finalFilename };
+}
+
 /** 列出所有已录入论文的统计 */
 function listAllPapers() {
   console.log('═══════════════════════════════════════════');
@@ -500,6 +586,31 @@ async function processPaper(rl, pdf) {
   const written = writeEntry(entry);
   console.log(`✓ 已写入: ${path.relative(ROOT, written)}`);
   console.log(`  PDF 路径已记录: ${entry.pdf}`);
+
+  // 根据确认后的 title 规范化 PDF 文件名
+  // venue 缩写: 优先用 venue 全称反查标准缩写, 回退到文件名解析的缩写
+  const finalVenueAbbrev = findVenueAbbrev(entry.venue) || venueAbbrev;
+  const canonicalName = buildCanonicalFilename(entry.year, finalVenueAbbrev, entry.title);
+
+  if (canonicalName !== pdf.filename) {
+    console.log('');
+    console.log('  建议将 PDF 重命名为规范文件名:');
+    console.log(`    旧: ${pdf.filename}`);
+    console.log(`    新: ${canonicalName}`);
+    const doRename = await askYesNo(rl, '  是否重命名? (JSON 中 pdf 字段会同步更新)', true);
+    if (doRename) {
+      const result = renamePdfAndUpdateJson(entry.pdf, canonicalName, entry.year, entry.type);
+      if (result.renamed) {
+        console.log(`✓ PDF 已重命名: ${result.newFilename}`);
+        console.log('  JSON 中 pdf 字段已同步更新');
+        entry.pdf = result.newPdfRelPath;
+      } else {
+        console.log('  文件名已符合规范, 无需重命名。');
+      }
+    } else {
+      console.log('  已跳过重命名, 保留原文件名。');
+    }
+  }
   return true;
 }
 
@@ -578,7 +689,7 @@ async function main() {
 }
 
 // 导出函数供测试或外部调用
-module.exports = { extractPdfInfo, parseFilename, scanPapers, loadReferencedPdfs, highlightSelfAuthor, listAllPapers };
+module.exports = { extractPdfInfo, parseFilename, scanPapers, loadReferencedPdfs, highlightSelfAuthor, listAllPapers, findVenueAbbrev, sanitizeTitleForFilename, buildCanonicalFilename, renamePdfAndUpdateJson };
 
 // 仅在直接运行时执行主流程
 if (require.main === module) {
