@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>论文管理面板 · Yang Jie</title>
+<style>
+  :root {
+    --bg: #f5f6f8;
+    --panel: #ffffff;
+    --border: #e4e6eb;
+    --text: #1a1d23;
+    --text-muted: #6b7280;
+    --text-light: #9ca3af;
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --primary-light: #eff6ff;
+    --success: #059669;
+    --success-light: #ecfdf5;
+    --warning: #d97706;
+    --warning-light: #fffbeb;
+    --danger: #dc2626;
+    --danger-light: #fef2f2;
+    --highlight: #fbbf24;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08);
+    --shadow-lg: 0 4px 12px rgba(0,0,0,0.1);
+    --radius: 6px;
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    --mono: "SF Mono", "Cascadia Code", Consolas, "Courier New", monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.5;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  /* ═══ 顶部栏 ═══ */
+  .topbar {
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: var(--shadow);
+    z-index: 10;
+  }
+  .topbar h1 {
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .topbar .stats {
+    color: var(--text-muted);
+    font-size: 13px;
+    display: flex;
+    gap: 16px;
+  }
+  .topbar .stats span { white-space: nowrap; }
+  .topbar .stats b { color: var(--text); font-weight: 600; }
+  .search-box {
+    flex: 1;
+    max-width: 360px;
+    position: relative;
+  }
+  .search-box input {
+    width: 100%;
+    padding: 6px 12px 6px 32px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .search-box input:focus { border-color: var(--primary); }
+  .search-box::before {
+    content: "🔍";
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    opacity: 0.5;
+  }
+  .btn-reload {
+    padding: 6px 14px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.15s;
+  }
+  .btn-reload:hover { background: var(--bg); }
+
+  /* ═══ 主布局 ═══ */
+  .layout {
+    display: flex;
+    height: calc(100vh - 53px);
+  }
+
+  /* ── 左侧栏 ── */
+  .sidebar {
+    width: 220px;
+    background: var(--panel);
+    border-right: 1px solid var(--border);
+    padding: 16px 0;
+    overflow-y: auto;
+    flex-shrink: 0;
+  }
+  .filter-group {
+    padding: 0 16px 16px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 12px;
+  }
+  .filter-group:last-child { border-bottom: none; }
+  .filter-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  .filter-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    margin-bottom: 2px;
+    transition: background 0.1s;
+  }
+  .filter-item:hover { background: var(--bg); }
+  .filter-item.active {
+    background: var(--primary-light);
+    color: var(--primary);
+    font-weight: 500;
+  }
+  .filter-item .count {
+    color: var(--text-light);
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+  }
+  .filter-item.active .count { color: var(--primary); opacity: 0.7; }
+
+  /* ── 中间列表 ── */
+  .paper-list {
+    width: 380px;
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    background: var(--panel);
+    flex-shrink: 0;
+  }
+  .list-header {
+    position: sticky;
+    top: 0;
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 16px;
+    z-index: 5;
+  }
+  .list-header .title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    display: flex;
+    justify-content: space-between;
+  }
+  .paper-card {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: background 0.1s;
+    border-left: 3px solid transparent;
+  }
+  .paper-card:hover { background: var(--bg); }
+  .paper-card.active {
+    background: var(--primary-light);
+    border-left-color: var(--primary);
+  }
+  .paper-card .pc-title {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1.4;
+    margin-bottom: 4px;
+    color: var(--text);
+  }
+  .paper-card .pc-meta {
+    font-size: 12px;
+    color: var(--text-muted);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .paper-card .pc-venue {
+    color: var(--primary);
+    font-weight: 500;
+  }
+  .badge {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  .badge-type-j { background: #e0e7ff; color: #4338ca; }
+  .badge-type-c { background: #fce7f3; color: #9d174d; }
+  .badge-highlight { background: var(--highlight); color: #78350f; }
+  .badge-missing {
+    background: var(--danger-light);
+    color: var(--danger);
+  }
+  .badge-warn {
+    background: var(--warning-light);
+    color: var(--warning);
+  }
+  .badge-ok {
+    background: var(--success-light);
+    color: var(--success);
+  }
+
+  /* ── 右侧详情 ── */
+  .detail {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px 32px;
+  }
+  .detail-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--text-light);
+    font-size: 14px;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .detail-empty .icon { font-size: 40px; opacity: 0.3; }
+
+  .detail-header {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .detail-header .year-type {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .detail-header h2 {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+  .detail-header .venue-line {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .detail-header .venue-line .venue-name { color: var(--primary); font-weight: 500; }
+
+  /* 表单 */
+  .form-section {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .form-section h3 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+    align-items: start;
+  }
+  .form-row label {
+    font-size: 13px;
+    color: var(--text-muted);
+    padding-top: 7px;
+    text-align: right;
+  }
+  .form-row label .required { color: var(--danger); }
+  .form-control {
+    width: 100%;
+    padding: 6px 10px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: var(--font);
+    outline: none;
+    transition: border-color 0.15s;
+    background: var(--panel);
+    color: var(--text);
+  }
+  .form-control:focus { border-color: var(--primary); }
+  textarea.form-control {
+    resize: vertical;
+    min-height: 60px;
+    line-height: 1.5;
+    font-family: var(--font);
+  }
+  .form-control.code {
+    font-family: var(--mono);
+    font-size: 12px;
+  }
+  .form-control.muted { color: var(--text-muted); }
+  .field-meta {
+    font-size: 11px;
+    color: var(--text-light);
+    margin-top: 2px;
+    padding-left: 2px;
+  }
+  .field-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+  }
+  .topics-input {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 4px 8px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    min-height: 32px;
+    align-items: center;
+  }
+  .topic-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    background: var(--primary-light);
+    color: var(--primary);
+    border-radius: 10px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  .topic-chip::after { content: "×"; font-size: 14px; line-height: 1; }
+  .topic-add {
+    border: none;
+    background: transparent;
+    color: var(--text-light);
+    cursor: pointer;
+    font-size: 12px;
+    padding: 2px 6px;
+  }
+  .topic-add:hover { color: var(--primary); }
+
+  /* 操作按钮 */
+  .actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .btn {
+    padding: 8px 18px;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.15s;
+    font-family: var(--font);
+  }
+  .btn-primary {
+    background: var(--primary);
+    color: white;
+  }
+  .btn-primary:hover { background: var(--primary-hover); }
+  .btn-primary:disabled {
+    background: var(--text-light);
+    cursor: not-allowed;
+  }
+  .btn-secondary {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+  .btn-secondary:hover { background: var(--bg); }
+  .btn-danger {
+    background: var(--panel);
+    border: 1px solid var(--danger);
+    color: var(--danger);
+  }
+  .btn-danger:hover { background: var(--danger-light); }
+
+  /* Toast 提示 */
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    padding: 12px 20px;
+    border-radius: var(--radius);
+    color: white;
+    font-size: 13px;
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s;
+    pointer-events: none;
+  }
+  .toast.show { opacity: 1; transform: translateY(0); }
+  .toast.success { background: var(--success); }
+  .toast.error { background: var(--danger); }
+  .toast.info { background: var(--primary); }
+
+  /* 未引用 PDF 提示条 */
+  .unreferenced-bar {
+    background: var(--warning-light);
+    border-bottom: 1px solid #fde68a;
+    padding: 8px 16px;
+    font-size: 12px;
+    color: var(--warning);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .unreferenced-bar .file-list {
+    color: var(--text-muted);
+    font-family: var(--mono);
+    font-size: 11px;
+  }
+  .unreferenced-bar .btn-link {
+    margin-left: auto;
+    color: var(--warning);
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 12px;
+  }
+
+  /* PDF 预览链接 */
+  .pdf-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--danger);
+    text-decoration: none;
+    font-size: 12px;
+  }
+  .pdf-link:hover { text-decoration: underline; }
+
+  /* 滚动条 */
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
+</style>
+</head>
+<body>
+
+<!-- 顶部栏 -->
+<div class="topbar">
+  <h1>论文管理面板</h1>
+  <div class="stats" id="stats"></div>
+  <div class="search-box">
+    <input type="text" id="search" placeholder="搜索标题、作者、venue..." />
+  </div>
+  <button class="btn-reload" onclick="loadData()">↻ 刷新</button>
+</div>
+
+<!-- 未引用 PDF 提示 -->
+<div class="unreferenced-bar" id="unref-bar" style="display:none">
+  <span>📄 发现 <b id="unref-count">0</b> 个未录入的 PDF:</span>
+  <span class="file-list" id="unref-files"></span>
+  <button class="btn-link" onclick="showAddHelp()">如何录入 →</button>
+</div>
+
+<div class="layout">
+  <!-- 左侧筛选 -->
+  <div class="sidebar">
+    <div class="filter-group">
+      <div class="filter-title">类型</div>
+      <div class="filter-item active" data-filter="type" data-value="all" onclick="setFilter('type','all')">
+        <span>全部</span><span class="count" id="count-type-all">0</span>
+      </div>
+      <div class="filter-item" data-filter="type" data-value="journals" onclick="setFilter('type','journals')">
+        <span>期刊</span><span class="count" id="count-type-journals">0</span>
+      </div>
+      <div class="filter-item" data-filter="type" data-value="conferences" onclick="setFilter('type','conferences')">
+        <span>会议</span><span class="count" id="count-type-conferences">0</span>
+      </div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-title">年份</div>
+      <div id="year-filters"></div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-title">主题</div>
+      <div id="topic-filters"></div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-title">数据状态</div>
+      <div class="filter-item" data-filter="status" data-value="all" onclick="setFilter('status','all')">
+        <span>全部</span>
+      </div>
+      <div class="filter-item" data-filter="status" data-value="missing" onclick="setFilter('status','missing')">
+        <span>缺失字段</span>
+      </div>
+      <div class="filter-item" data-filter="status" data-value="complete" onclick="setFilter('status','complete')">
+        <span>数据完整</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 中间列表 -->
+  <div class="paper-list">
+    <div class="list-header">
+      <div class="title">
+        <span id="list-title">所有论文</span>
+        <span id="list-count" style="color:var(--text-light)">0</span>
+      </div>
+    </div>
+    <div id="paper-list-body"></div>
+  </div>
+
+  <!-- 右侧详情 -->
+  <div class="detail" id="detail">
+    <div class="detail-empty">
+      <div class="icon">📝</div>
+      <div>从左侧选择一篇论文查看详情</div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ═══════════════════════════════════════════════
+//  状态
+// ═══════════════════════════════════════════════
+let allPapers = [];
+let filterTopics = [];
+let yearlyFiles = [];
+let unreferencedPdfs = [];
+let filters = { type: 'all', year: 'all', topic: 'all', status: 'all' };
+let searchQuery = '';
+let selectedId = null;
+
+// ═══════════════════════════════════════════════
+//  数据加载
+// ═══════════════════════════════════════════════
+async function loadData() {
+  try {
+    const res = await fetch('/api/papers');
+    const data = await res.json();
+    allPapers = data.papers;
+    filterTopics = data.filterTopics || [];
+    yearlyFiles = data.yearlyFiles || [];
+    unreferencedPdfs = data.unreferencedPdfs || [];
+
+    renderStats();
+    renderYearFilters();
+    renderTopicFilters();
+    renderUnreferencedBar();
+    renderList();
+  } catch (err) {
+    showToast('加载数据失败: ' + err.message, 'error');
+  }
+}
+
+// ═══════════════════════════════════════════════
+//  渲染: 统计
+// ═══════════════════════════════════════════════
+function renderStats() {
+  const journals = allPapers.filter(p => p.section === 'journals').length;
+  const conferences = allPapers.filter(p => p.section === 'conferences').length;
+  const missing = allPapers.filter(p => hasMissingFields(p)).length;
+  document.getElementById('stats').innerHTML =
+    `<span>合计 <b>${allPapers.length}</b></span>` +
+    `<span>期刊 <b>${journals}</b></span>` +
+    `<span>会议 <b>${conferences}</b></span>` +
+    `<span>缺失字段 <b style="color:${missing > 0 ? 'var(--danger)' : 'var(--text)'}">${missing}</b></span>`;
+
+  document.getElementById('count-type-all').textContent = allPapers.length;
+  document.getElementById('count-type-journals').textContent = journals;
+  document.getElementById('count-type-conferences').textContent = conferences;
+}
+
+function hasMissingFields(p) {
+  return !p.url || !p.pdf || !p.abstract || !p.authors || p.authors.length < 5;
+}
+
+// ═══════════════════════════════════════════════
+//  渲染: 年份/主题筛选
+// ═══════════════════════════════════════════════
+function renderYearFilters() {
+  const container = document.getElementById('year-filters');
+  const years = [...new Set(allPapers.map(p => p.year))].sort((a, b) => {
+    const ya = typeof a === 'number' ? a : 0;
+    const yb = typeof b === 'number' ? b : 0;
+    return yb - ya;
+  });
+  let html = `<div class="filter-item ${filters.year === 'all' ? 'active' : ''}" onclick="setFilter('year','all')">
+    <span>全部</span><span class="count">${allPapers.length}</span></div>`;
+  for (const y of years) {
+    const count = allPapers.filter(p => p.year === y).length;
+    const label = typeof y === 'number' ? y : y;
+    html += `<div class="filter-item ${filters.year === y ? 'active' : ''}" onclick="setFilter('year',${typeof y === 'number' ? y : `'${y}'`})">
+      <span>${label}</span><span class="count">${count}</span></div>`;
+  }
+  container.innerHTML = html;
+}
+
+function renderTopicFilters() {
+  const container = document.getElementById('topic-filters');
+  let html = `<div class="filter-item ${filters.topic === 'all' ? 'active' : ''}" onclick="setFilter('topic','all')">
+    <span>全部</span><span class="count">${allPapers.length}</span></div>`;
+  for (const t of filterTopics) {
+    if (t.id === 'all') continue;
+    const count = allPapers.filter(p => p.topics && p.topics.includes(t.id)).length;
+    html += `<div class="filter-item ${filters.topic === t.id ? 'active' : ''}" onclick="setFilter('topic','${t.id}')">
+      <span>${t.labelZh}</span><span class="count">${count}</span></div>`;
+  }
+  container.innerHTML = html;
+}
+
+function renderUnreferencedBar() {
+  const bar = document.getElementById('unref-bar');
+  if (unreferencedPdfs.length === 0) {
+    bar.style.display = 'none';
+    return;
+  }
+  bar.style.display = 'flex';
+  document.getElementById('unref-count').textContent = unreferencedPdfs.length;
+  document.getElementById('unref-files').textContent =
+    unreferencedPdfs.map(p => p.filename).slice(0, 3).join(', ') +
+    (unreferencedPdfs.length > 3 ? ` 等 ${unreferencedPdfs.length} 个` : '');
+}
+
+function showAddHelp() {
+  showToast('在命令行运行: node scripts/add-paper.js 可交互式录入新 PDF', 'info', 5000);
+}
+
+// ═══════════════════════════════════════════════
+//  筛选
+// ═══════════════════════════════════════════════
+function setFilter(type, value) {
+  filters[type] = value;
+  // 更新 active 状态
+  document.querySelectorAll(`.filter-item[data-filter="${type}"]`).forEach(el => {
+    el.classList.toggle('active', el.dataset.value === String(value));
+  });
+  // 年份和主题的 active 需要重新渲染 (因为动态生成)
+  if (type === 'year') renderYearFilters();
+  if (type === 'topic') renderTopicFilters();
+  renderList();
+}
+
+function getFilteredPapers() {
+  let list = allPapers;
+  if (filters.type !== 'all') list = list.filter(p => p.section === filters.type);
+  if (filters.year !== 'all') list = list.filter(p => p.year === filters.year);
+  if (filters.topic !== 'all') list = list.filter(p => p.topics && p.topics.includes(filters.topic));
+  if (filters.status === 'missing') list = list.filter(p => hasMissingFields(p));
+  if (filters.status === 'complete') list = list.filter(p => !hasMissingFields(p));
+  if (searchQuery) {
+    const q = searchQuery.toLowerCase();
+    list = list.filter(p =>
+      (p.title || '').toLowerCase().includes(q) ||
+      (p.authors || '').toLowerCase().includes(q) ||
+      (p.venue || '').toLowerCase().includes(q) ||
+      (p.abstract || '').toLowerCase().includes(q)
+    );
+  }
+  return list;
+}
+
+// ═══════════════════════════════════════════════
+//  渲染: 列表
+// ═══════════════════════════════════════════════
+function renderList() {
+  const list = getFilteredPapers();
+  const body = document.getElementById('paper-list-body');
+  document.getElementById('list-count').textContent = list.length;
+
+  const filterLabel = filters.type === 'journals' ? '期刊' : filters.type === 'conferences' ? '会议' : '论文';
+  document.getElementById('list-title').textContent =
+    (filters.year !== 'all' ? filters.year + ' · ' : '') + filterLabel;
+
+  if (list.length === 0) {
+    body.innerHTML = '<div style="padding:40px 20px;text-align:center;color:var(--text-light);font-size:13px">没有符合条件的论文</div>';
+    return;
+  }
+
+  body.innerHTML = list.map(p => {
+    const missing = hasMissingFields(p);
+    const badges = [];
+    badges.push(p.section === 'journals'
+      ? '<span class="badge badge-type-j">期刊</span>'
+      : '<span class="badge badge-type-c">会议</span>');
+    if (p.venueHighlight) badges.push('<span class="badge badge-highlight">★ 顶</span>');
+    if (missing) badges.push('<span class="badge badge-missing">缺字段</span>');
+
+    // 简短作者: 取前 2 个
+    let shortAuthors = (p.authors || '').replace(/<[^>]+>/g, '');
+    if (shortAuthors.length > 30) shortAuthors = shortAuthors.substring(0, 30) + '...';
+
+    return `<div class="paper-card ${p.id === selectedId ? 'active' : ''}" onclick="selectPaper('${p.id}')">
+      <div class="pc-title">${escapeHtml(p.title || '(无标题)')}</div>
+      <div class="pc-meta">
+        ${badges.join('')}
+        <span>${escapeHtml(shortAuthors)}</span>
+        <span class="pc-venue">${escapeHtml(p.venue || '')}</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function escapeHtml(s) {
+  return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+// ═══════════════════════════════════════════════
+//  选中论文, 渲染详情
+// ═══════════════════════════════════════════════
+function selectPaper(id) {
+  selectedId = id;
+  const p = allPapers.find(x => x.id === id);
+  if (!p) return;
+  renderList();
+  renderDetail(p);
+}
+
+function renderDetail(p) {
+  const detail = document.getElementById('detail');
+  const missing = hasMissingFields(p);
+  const missingFields = [];
+  if (!p.url) missingFields.push('URL');
+  if (!p.pdf) missingFields.push('PDF');
+  if (!p.abstract) missingFields.push('摘要');
+  if (!p.authors || p.authors.length < 5) missingFields.push('作者');
+
+  detail.innerHTML = `
+    <div class="detail-header">
+      <div class="year-type">
+        <span class="badge ${p.section === 'journals' ? 'badge-type-j' : 'badge-type-c'}">${p.section === 'journals' ? '期刊论文' : '会议论文'}</span>
+        <span style="color:var(--text-muted);font-size:13px">${p.year}</span>
+        ${p.venueHighlight ? '<span class="badge badge-highlight">★ 顶会/顶刊</span>' : ''}
+        ${missing ? `<span class="badge badge-missing">缺失: ${missingFields.join(', ')}</span>` : '<span class="badge badge-ok">✓ 完整</span>'}
+      </div>
+      <h2>${escapeHtml(p.title || '(无标题)')}</h2>
+      <div class="venue-line">
+        <span class="venue-name">${escapeHtml(p.venue || '')}</span>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h3>基本信息 <span style="font-weight:400;text-transform:none;color:var(--text-light)">ID: ${p.id}</span></h3>
+
+      <div class="form-row">
+        <label>标题 <span class="required">*</span></label>
+        <div>
+          <input type="text" class="form-control" id="f-title" value="${escapeAttr(p.title)}" />
+          <div class="field-meta">${(p.title || '').length} 字符</div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label>作者 <span class="required">*</span></label>
+        <div>
+          <input type="text" class="form-control" id="f-authors" value="${escapeAttr(p.authors)}" />
+          <div class="field-meta">本人用 &lt;strong&gt;J. Yang&lt;/strong&gt; 高亮, 通讯作者加 *</div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label>期刊/会议 <span class="required">*</span></label>
+        <input type="text" class="form-control" id="f-venue" value="${escapeAttr(p.venue)}" />
+      </div>
+
+      <div class="form-row">
+        <label>年份</label>
+        <div>
+          <input type="number" class="form-control" id="f-groupYear" value="${p.groupYear}" style="width:120px" />
+          <div class="field-meta">论文实际发表年份 (文件年份: ${p.fileYear})</div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label>高亮</label>
+        <label style="text-align:left;padding-top:7px;font-weight:normal;display:flex;align-items:center;gap:6px">
+          <input type="checkbox" id="f-venueHighlight" ${p.venueHighlight ? 'checked' : ''} />
+          标记为顶会/顶刊 (列表中显示 ★)
+        </label>
+      </div>
+
+      <div class="form-row">
+        <label>主题</label>
+        <div class="topics-input" id="f-topics">
+          ${(p.topics || []).map(t => `<span class="topic-chip" onclick="removeTopic(this,'${t}')">${t}</span>`).join('')}
+          <button class="topic-add" onclick="addTopic()">+ 添加</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h3>链接与文件</h3>
+
+      <div class="form-row">
+        <label>URL</label>
+        <div>
+          <input type="text" class="form-control code" id="f-url" value="${escapeAttr(p.url)}" placeholder="IEEE / DOI / 期刊链接" />
+          <div class="field-meta">${p.url ? `<a href="${escapeAttr(p.url)}" target="_blank" style="color:var(--primary)">↗ 打开链接</a>` : '<span style="color:var(--danger)">⚠ 未填写</span>'}</div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label>PDF</label>
+        <div>
+          <input type="text" class="form-control code" id="f-pdf" value="${escapeAttr(p.pdf)}" placeholder="papers/xxx.pdf 或外部 URL" />
+          <div class="field-meta">
+            ${p.pdf
+              ? (p.pdf.startsWith('http')
+                  ? `<a href="${escapeAttr(p.pdf)}" target="_blank" class="pdf-link">↗ 外部 PDF</a>`
+                  : `<a href="${escapeAttr(p.pdf)}" target="_blank" class="pdf-link">📄 查看本地 PDF</a> · <span style="color:var(--text-light)">${p.pdf}</span>`)
+              : '<span style="color:var(--danger)">⚠ 未关联 PDF</span>'}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h3>摘要 <span style="font-weight:400;text-transform:none;color:var(--text-light)">${(p.abstract || '').length} 字符</span></h3>
+      <textarea class="form-control" id="f-abstract" rows="8" placeholder="论文摘要...">${escapeHtml(p.abstract || '')}</textarea>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-primary" onclick="savePaper('${p.id}')" id="btn-save">💾 保存</button>
+      <button class="btn btn-secondary" onclick="selectPaper('${p.id}')">↺ 重置</button>
+      <button class="btn btn-secondary" onclick="renamePdf('${p.id}')" ${!p.pdf || !p.pdf.startsWith('papers/') ? 'disabled style="opacity:0.4;cursor:not-allowed"' : ''}>✏ 重命名 PDF</button>
+      <button class="btn btn-danger" onclick="deletePaper('${p.id}')" style="margin-left:auto">🗑 删除</button>
+    </div>
+  `;
+}
+
+function escapeAttr(s) {
+  return String(s || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+// ═══════════════════════════════════════════════
+//  主题编辑
+// ═══════════════════════════════════════════════
+function removeTopic(chip, topic) {
+  chip.remove();
+}
+function addTopic() {
+  const container = document.getElementById('f-topics');
+  const existing = Array.from(container.querySelectorAll('.topic-chip')).map(c => c.textContent.replace('×', '').trim());
+  const available = filterTopics.filter(t => t.id !== 'all' && !existing.includes(t.id));
+  if (available.length === 0) { showToast('所有主题已添加', 'info'); return; }
+  // 简单循环选择
+  const choice = prompt('选择主题 (输入 id):\n' + available.map(t => `${t.id} = ${t.labelZh}`).join('\n'));
+  if (!choice) return;
+  const topic = choice.trim();
+  if (!available.find(t => t.id === topic)) { showToast('无效主题: ' + topic, 'error'); return; }
+  const addBtn = container.querySelector('.topic-add');
+  const chip = document.createElement('span');
+  chip.className = 'topic-chip';
+  chip.textContent = topic;
+  chip.onclick = () => chip.remove();
+  container.insertBefore(chip, addBtn);
+}
+function getTopics() {
+  return Array.from(document.querySelectorAll('#f-topics .topic-chip'))
+    .map(c => c.textContent.replace('×', '').trim())
+    .filter(Boolean);
+}
+
+// ═══════════════════════════════════════════════
+//  保存
+// ═══════════════════════════════════════════════
+async function savePaper(id) {
+  const p = allPapers.find(x => x.id === id);
+  if (!p) return;
+
+  const payload = {
+    id: p.id,
+    groupYear: parseInt(document.getElementById('f-groupYear').value, 10) || p.groupYear,
+    authors: document.getElementById('f-authors').value,
+    title: document.getElementById('f-title').value,
+    venue: document.getElementById('f-venue').value,
+    venueHighlight: document.getElementById('f-venueHighlight').checked,
+    url: document.getElementById('f-url').value.trim(),
+    pdf: document.getElementById('f-pdf').value.trim(),
+    topics: getTopics(),
+    abstract: document.getElementById('f-abstract').value,
+  };
+
+  // 基本校验
+  if (!payload.title.trim()) { showToast('标题不能为空', 'error'); return; }
+  if (!payload.authors.trim()) { showToast('作者不能为空', 'error'); return; }
+  if (!payload.venue.trim()) { showToast('期刊/会议不能为空', 'error'); return; }
+
+  const btn = document.getElementById('btn-save');
+  btn.disabled = true;
+  btn.textContent = '保存中...';
+
+  try {
+    const res = await fetch('/api/paper', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const result = await res.json();
+    if (result.ok) {
+      showToast('✓ 已保存到 ' + p.file, 'success');
+      // 刷新数据并保持选中
+      await loadData();
+      selectedId = id;
+      renderList();
+      // 重新渲染详情 (用更新后的数据)
+      const updated = allPapers.find(x => x.id === id);
+      if (updated) renderDetail(updated);
+    } else {
+      showToast('保存失败: ' + result.error, 'error');
+    }
+  } catch (err) {
+    showToast('保存失败: ' + err.message, 'error');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '💾 保存';
+  }
+}
+
+// ═══════════════════════════════════════════════
+//  删除
+// ═══════════════════════════════════════════════
+async function deletePaper(id) {
+  const p = allPapers.find(x => x.id === id);
+  if (!p) return;
+  if (!confirm(`确定删除这篇论文?\n\n《${p.title}》\n\n此操作不可撤销, 但 PDF 文件不会被删除。`)) return;
+  try {
+    const res = await fetch('/api/paper/' + encodeURIComponent(id), { method: 'DELETE' });
+    const result = await res.json();
+    if (result.ok) {
+      showToast('已删除', 'success');
+      selectedId = null;
+      document.getElementById('detail').innerHTML = '<div class="detail-empty"><div class="icon">📝</div><div>从左侧选择一篇论文查看详情</div></div>';
+      await loadData();
+    } else {
+      showToast('删除失败: ' + result.error, 'error');
+    }
+  } catch (err) {
+    showToast('删除失败: ' + err.message, 'error');
+  }
+}
+
+// ═══════════════════════════════════════════════
+//  重命名 PDF
+// ═══════════════════════════════════════════════
+async function renamePdf(id) {
+  const p = allPapers.find(x => x.id === id);
+  if (!p || !p.pdf || !p.pdf.startsWith('papers/')) return;
+
+  const title = document.getElementById('f-title').value;
+  const year = parseInt(document.getElementById('f-groupYear').value, 10) || p.year;
+
+  // 先保存当前编辑 (避免重命名后表单数据丢失)
+  const venueAbbrev = prompt('输入 venue 缩写 (用于文件名, 如 ISSCC / TBioCAS):\n留空则用原文件名部分', guessVenueAbbrev(p));
+  if (venueAbbrev === null) return;
+
+  // 生成规范文件名
+  const safeTitle = title.replace(/[\\/:*?"<>|]/g, '').replace(/\s+/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, '').substring(0, 120);
+  const newFilename = `${year}_${venueAbbrev || 'paper'}_${safeTitle}.pdf`;
+
+  if (!confirm(`重命名 PDF:\n  旧: ${p.pdf.replace('papers/', '')}\n  新: ${newFilename}\n\nJSON 中 pdf 字段会同步更新。`)) return;
+
+  try {
+    const res = await fetch('/api/rename-pdf', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ oldRelPath: p.pdf, newFilename }),
+    });
+    const result = await res.json();
+    if (result.ok) {
+      // 更新 pdf 字段
+      document.getElementById('f-pdf').value = result.newPdfRelPath;
+      showToast(result.renamed ? `✓ 已重命名为 ${result.newFilename}` : '文件名未变化', 'success');
+      // 自动保存 pdf 字段
+      await savePaper(id);
+    } else {
+      showToast('重命名失败: ' + result.error, 'error');
+    }
+  } catch (err) {
+    showToast('重命名失败: ' + err.message, 'error');
+  }
+}
+
+function guessVenueAbbrev(p) {
+  const map = {
+    'IEEE Journal of Solid-State Circuits': 'JSSC',
+    'IEEE International Solid-State Circuits Conference (ISSCC)': 'ISSCC',
+    'IEEE Transactions on Biomedical Circuits and Systems': 'TBioCAS',
+    'IEEE Robotics and Automation Letters': 'IEEE_RAL',
+    'Sensors': 'Sensors',
+    'Knowledge-Based Systems': 'KBS',
+  };
+  return map[p.venue] || '';
+}
+
+// ═══════════════════════════════════════════════
+//  搜索
+// ═══════════════════════════════════════════════
+document.getElementById('search').addEventListener('input', (e) => {
+  searchQuery = e.target.value.trim();
+  renderList();
+});
+
+// ═══════════════════════════════════════════════
+//  Toast
+// ═══════════════════════════════════════════════
+let toastTimer = null;
+function showToast(msg, type = 'success', duration = 2500) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.className = 'toast ' + type + ' show';
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), duration);
+}
+
+// ═══════════════════════════════════════════════
+//  启动
+// ═══════════════════════════════════════════════
+loadData();
+</script>
+</body>
+</html>

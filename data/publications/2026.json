@@ -3,21 +3,18 @@
     {
       "year": 2026,
       "items": [
-
         {
           "authors": "W. Zou, <strong>J. Yang*</strong>, M. Sawan*",
           "title": "A Duty-Cycled PLL and Fractal Antenna Co-Design Architecture for a Low-Power IR-UWB Transmitter in Neural Implants",
           "venue": "Sensors",
           "venueHighlight": false,
-          "url": "",
-          "pdf": "",
+          "url": "https://www.mdpi.com/1424-8220/26/14/4485",
+          "pdf": "papers/2026_MDPI Sensors_A_Duty-Cycled_PLL_and_Fractal_Antenna_Co-Design_Ar.pdf",
           "topics": [
             "bci"
           ],
-          "abstract": "Implantable multi-channel neural interfaces are essential for high-resolution, long-term brain-machine interface applications, yet conventional designs are constrained by power consumption, data bandwidth, and silicon area. We present NeuroSEED, a 32-channel neuromorphic scalable neural interface inspired by biological neuron signaling. This system introduces four key innovations to address the bottlenecks of scalability and efficiency: (1) an area-efficient time-division multiplexed analog front-end (0.0032 mm2/channel) with a dedicated digital-servo electrode DC offset cancellation loop; (2) an analog-to-spike converter (ASC) that employs adaptive event-driven sampling; (3) a clockless spike detector utilizing valley-to-peak detection for robust spike identification; and (4) an event-triggered impulse-radio ultra-wideband (IR-UWB) transmitter for energy-efficient wireless spike telemetry. Fabricated in 40-nm CMOS, NeuroSEED achieves 1.38 μW per recording channel and 4.6 μW transmitter power, with more than 500× data reduction compared to Nyquistrate sampling. Experimental results, validated with in-vivo neural datasets, confirm low noise, compact area, and robust system-level operation, positioning NeuroSEED as a highly efficient SoC for high-density neural recording."
+          "abstract": "We present in this paper a low-power impulse-radio ultra-wideband (IR-UWB) transmitter architecture for neural implants. It features a duty-cycled phase-locked loop (PLL) and a co-designed compact fractal antenna. To suppress the carrier frequency drift inherent in open-loop ring oscillators while maintaining ultra-low power consumption, a hybrid PLL-oscillator upconversion scheme integrated with a switch-controlled voltage-holding module is proposed. Operating at a 10% duty cycle, the PLL consumes merely 90μW and achieves a locking frequency of 4.25 GHz with a peak-to-peak jitter of 2.14 ps. Furthermore, to eliminate the bulky output matching network, an 8 mm×10 mm coplanar-waveguide-fed fractal antenna is co-designed to present the conjugate impedance required by the power amplifier output, significantly advancing the miniaturization and energy efficiency of the neural implant. The complete transmitter was fabricated in TSMC 40 nm CMOS, with a supply voltage of 1.0 V, and in vitro wireless experiments through 18 mm of porcine tissue validated the design with a total power consumption of 0.58 mW."
         },
-
-
         {
           "authors": "H. Wu, J. Chen, R. Eskandari, Y. Han, X. Liu, W. Zou, F. Tian, Q. Hou, <strong>J. Yang*</strong>, M. Sawan*",
           "title": "NeuroSEED: A Neuromorphic Scalable Event-Driven SoC with Direct Multiplexing for Spike Detection and Wireless Telemetry",
@@ -30,9 +27,6 @@
           ],
           "abstract": "Implantable multi-channel neural interfaces are essential for high-resolution, long-term brain-machine interface applications, yet conventional designs are constrained by power consumption, data bandwidth, and silicon area. We present NeuroSEED, a 32-channel neuromorphic scalable neural interface inspired by biological neuron signaling. This system introduces four key innovations to address the bottlenecks of scalability and efficiency: (1) an area-efficient time-division multiplexed analog front-end (0.0032 mm2/channel) with a dedicated digital-servo electrode DC offset cancellation loop; (2) an analog-to-spike converter (ASC) that employs adaptive event-driven sampling; (3) a clockless spike detector utilizing valley-to-peak detection for robust spike identification; and (4) an event-triggered impulse-radio ultra-wideband (IR-UWB) transmitter for energy-efficient wireless spike telemetry. Fabricated in 40-nm CMOS, NeuroSEED achieves 1.38 μW per recording channel and 4.6 μW transmitter power, with more than 500× data reduction compared to Nyquistrate sampling. Experimental results, validated with in-vivo neural datasets, confirm low noise, compact area, and robust system-level operation, positioning NeuroSEED as a highly efficient SoC for high-density neural recording."
         },
-
-
-
         {
           "authors": "S. Zhao, Z. Wang, H. Sun, S. Wang, Z. Chen, C. Fu, <strong>J. Yang</strong>, M. Sawan",
           "title": "HAQ-ViT: A hardware-aware post-training quantization for efficient vision transformer inference",

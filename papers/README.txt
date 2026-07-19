@@ -17,6 +17,15 @@
   node scripts/add-paper.js --list    查看各年份论文统计
   node scripts/add-paper.js --file papers/xxx.pdf   指定单个 PDF
 
+可视化管理面板 (推荐):
+  npm run manage
+  或: node scripts/paper-manager.js
+  启动后浏览器访问 http://localhost:8002
+  - 浏览所有论文 (按年份/类型/主题/数据状态筛选)
+  - 可视化编辑任意字段, 点保存直接写回 JSON
+  - 标记缺失字段 (缺 URL/PDF/摘要的论文高亮提示)
+  - PDF 重命名、删除论文
+
 手动添加 (旧方式, 不推荐):
   在 data/publications/{年份}.json 中对应论文条目填写:
     "pdf": "papers/2026_ISSCC_xxx.pdf"

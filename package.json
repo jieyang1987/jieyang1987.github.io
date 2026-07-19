@@ -5,7 +5,8 @@
   "description": "个人学术网站 - 论文管理工具",
   "scripts": {
     "add-paper": "node scripts/add-paper.js",
-    "list-papers": "node scripts/add-paper.js --list"
+    "list-papers": "node scripts/add-paper.js --list",
+    "manage": "node scripts/paper-manager.js"
   },
   "devDependencies": {
     "pdf-parse": "^1.1.1"
