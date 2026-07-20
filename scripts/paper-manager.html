@@ -567,6 +567,7 @@ let unreferencedPdfs = [];
 let filters = { type: 'all', year: 'all', topic: 'all', status: 'all' };
 let searchQuery = '';
 let selectedId = null;
+let currentDetailId = null;  // 当前详情页显示的论文 ID (供 onclick 安全引用)
 
 // ═══════════════════════════════════════════════
 //  数据加载
@@ -727,7 +728,8 @@ function renderList() {
     let shortAuthors = (p.authors || '').replace(/<[^>]+>/g, '');
     if (shortAuthors.length > 30) shortAuthors = shortAuthors.substring(0, 30) + '...';
 
-    return `<div class="paper-card ${p.id === selectedId ? 'active' : ''}" onclick="selectPaper('${p.id}')">
+    const safeId = p.id.replace(/'/g, '&#39;');
+    return `<div class="paper-card ${p.id === selectedId ? 'active' : ''}" data-id="${safeId}" onclick="selectPaper(this.getAttribute('data-id'))">
       <div class="pc-title">${escapeHtml(p.title || '(无标题)')}</div>
       <div class="pc-meta">
         ${badges.join('')}
@@ -747,6 +749,7 @@ function escapeHtml(s) {
 // ═══════════════════════════════════════════════
 function selectPaper(id) {
   selectedId = id;
+  currentDetailId = id;
   const p = allPapers.find(x => x.id === id);
   if (!p) return;
   renderList();
@@ -777,7 +780,7 @@ function renderDetail(p) {
     </div>
 
     <div class="form-section">
-      <h3>基本信息 <span style="font-weight:400;text-transform:none;color:var(--text-light)">ID: ${p.id}</span></h3>
+      <h3>基本信息 <span style="font-weight:400;text-transform:none;color:var(--text-light)">ID: ${escapeHtml(p.id)}</span></h3>
 
       <div class="form-row">
         <label>标题 <span class="required">*</span></label>
@@ -857,10 +860,10 @@ function renderDetail(p) {
     </div>
 
     <div class="actions">
-      <button class="btn btn-primary" onclick="savePaper('${p.id}')" id="btn-save">💾 保存</button>
-      <button class="btn btn-secondary" onclick="selectPaper('${p.id}')">↺ 重置</button>
-      <button class="btn btn-secondary" onclick="renamePdf('${p.id}')" ${!p.pdf || !p.pdf.startsWith('papers/') ? 'disabled style="opacity:0.4;cursor:not-allowed"' : ''}>✏ 重命名 PDF</button>
-      <button class="btn btn-danger" onclick="deletePaper('${p.id}')" style="margin-left:auto">🗑 删除</button>
+      <button class="btn btn-primary" onclick="savePaper(currentDetailId)" id="btn-save">💾 保存</button>
+      <button class="btn btn-secondary" onclick="selectPaper(currentDetailId)">↺ 重置</button>
+      <button class="btn btn-secondary" onclick="renamePdf(currentDetailId)" ${!p.pdf || !p.pdf.startsWith('papers/') ? 'disabled style="opacity:0.4;cursor:not-allowed"' : ''}>✏ 重命名 PDF</button>
+      <button class="btn btn-danger" onclick="deletePaper(currentDetailId)" style="margin-left:auto">🗑 删除</button>
     </div>
   `;
 }
