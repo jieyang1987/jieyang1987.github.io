@@ -595,16 +595,18 @@ async function loadData() {
 //  渲染: 统计
 // ═══════════════════════════════════════════════
 function renderStats() {
-  const journals = allPapers.filter(p => p.section === 'journals').length;
-  const conferences = allPapers.filter(p => p.section === 'conferences').length;
-  const missing = allPapers.filter(p => hasMissingFields(p)).length;
+  // 类型计数: 排除 type 维度, 反映其他筛选下的期刊/会议分布
+  const base = getFilteredPapersExcept('type');
+  const journals = base.filter(p => p.section === 'journals').length;
+  const conferences = base.filter(p => p.section === 'conferences').length;
+  const missing = getFilteredPapersExcept('status').filter(p => hasMissingFields(p)).length;
   document.getElementById('stats').innerHTML =
-    `<span>合计 <b>${allPapers.length}</b></span>` +
+    `<span>合计 <b>${base.length}</b></span>` +
     `<span>期刊 <b>${journals}</b></span>` +
     `<span>会议 <b>${conferences}</b></span>` +
     `<span>缺失字段 <b style="color:${missing > 0 ? 'var(--danger)' : 'var(--text)'}">${missing}</b></span>`;
 
-  document.getElementById('count-type-all').textContent = allPapers.length;
+  document.getElementById('count-type-all').textContent = base.length;
   document.getElementById('count-type-journals').textContent = journals;
   document.getElementById('count-type-conferences').textContent = conferences;
 }
@@ -618,15 +620,17 @@ function hasMissingFields(p) {
 // ═══════════════════════════════════════════════
 function renderYearFilters() {
   const container = document.getElementById('year-filters');
-  const years = [...new Set(allPapers.map(p => p.year))].sort((a, b) => {
+  // 年份计数: 排除 year 维度, 反映其他筛选下的年份分布
+  const base = getFilteredPapersExcept('year');
+  const years = [...new Set(base.map(p => p.year))].sort((a, b) => {
     const ya = typeof a === 'number' ? a : 0;
     const yb = typeof b === 'number' ? b : 0;
     return yb - ya;
   });
   let html = `<div class="filter-item ${filters.year === 'all' ? 'active' : ''}" onclick="setFilter('year','all')">
-    <span>全部</span><span class="count">${allPapers.length}</span></div>`;
+    <span>全部</span><span class="count">${base.length}</span></div>`;
   for (const y of years) {
-    const count = allPapers.filter(p => p.year === y).length;
+    const count = base.filter(p => p.year === y).length;
     const label = typeof y === 'number' ? y : y;
     html += `<div class="filter-item ${filters.year === y ? 'active' : ''}" onclick="setFilter('year',${typeof y === 'number' ? y : `'${y}'`})">
       <span>${label}</span><span class="count">${count}</span></div>`;
@@ -636,11 +640,13 @@ function renderYearFilters() {
 
 function renderTopicFilters() {
   const container = document.getElementById('topic-filters');
+  // 主题计数: 排除 topic 维度, 反映其他筛选下的主题分布
+  const base = getFilteredPapersExcept('topic');
   let html = `<div class="filter-item ${filters.topic === 'all' ? 'active' : ''}" onclick="setFilter('topic','all')">
-    <span>全部</span><span class="count">${allPapers.length}</span></div>`;
+    <span>全部</span><span class="count">${base.length}</span></div>`;
   for (const t of filterTopics) {
     if (t.id === 'all') continue;
-    const count = allPapers.filter(p => p.topics && p.topics.includes(t.id)).length;
+    const count = base.filter(p => p.topics && p.topics.includes(t.id)).length;
     html += `<div class="filter-item ${filters.topic === t.id ? 'active' : ''}" onclick="setFilter('topic','${t.id}')">
       <span>${t.labelZh}</span><span class="count">${count}</span></div>`;
   }
@@ -673,20 +679,22 @@ function setFilter(type, value) {
   document.querySelectorAll(`.filter-item[data-filter="${type}"]`).forEach(el => {
     el.classList.toggle('active', el.dataset.value === String(value));
   });
-  // 年份和主题的 active 需要重新渲染 (因为动态生成)
-  if (type === 'year') renderYearFilters();
-  if (type === 'topic') renderTopicFilters();
+  // 所有计数都需重新渲染 (因为联合筛选会影响其他维度的计数)
+  renderStats();
+  renderYearFilters();
+  renderTopicFilters();
   renderList();
 }
 
-function getFilteredPapers() {
+/** 按当前筛选条件过滤, 可排除某一个维度 (用于计算其他维度的计数) */
+function getFilteredPapersExcept(excludeType) {
   let list = allPapers;
-  if (filters.type !== 'all') list = list.filter(p => p.section === filters.type);
-  if (filters.year !== 'all') list = list.filter(p => p.year === filters.year);
-  if (filters.topic !== 'all') list = list.filter(p => p.topics && p.topics.includes(filters.topic));
-  if (filters.status === 'missing') list = list.filter(p => hasMissingFields(p));
-  if (filters.status === 'complete') list = list.filter(p => !hasMissingFields(p));
-  if (searchQuery) {
+  if (excludeType !== 'type' && filters.type !== 'all') list = list.filter(p => p.section === filters.type);
+  if (excludeType !== 'year' && filters.year !== 'all') list = list.filter(p => p.year === filters.year);
+  if (excludeType !== 'topic' && filters.topic !== 'all') list = list.filter(p => p.topics && p.topics.includes(filters.topic));
+  if (excludeType !== 'status' && filters.status === 'missing') list = list.filter(p => hasMissingFields(p));
+  if (excludeType !== 'status' && filters.status === 'complete') list = list.filter(p => !hasMissingFields(p));
+  if (excludeType !== 'search' && searchQuery) {
     const q = searchQuery.toLowerCase();
     list = list.filter(p =>
       (p.title || '').toLowerCase().includes(q) ||
@@ -696,6 +704,10 @@ function getFilteredPapers() {
     );
   }
   return list;
+}
+
+function getFilteredPapers() {
+  return getFilteredPapersExcept(null);
 }
 
 // ═══════════════════════════════════════════════
@@ -1038,6 +1050,9 @@ function guessVenueAbbrev(p) {
 // ═══════════════════════════════════════════════
 document.getElementById('search').addEventListener('input', (e) => {
   searchQuery = e.target.value.trim();
+  renderStats();
+  renderYearFilters();
+  renderTopicFilters();
   renderList();
 });
 
