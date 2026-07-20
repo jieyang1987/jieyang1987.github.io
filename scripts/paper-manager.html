@@ -600,6 +600,222 @@
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 4px; }
   ::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
+
+  /* ═══ 新功能: URL 补全 / PDF 选择 / 待审核 ═══ */
+
+  /* 小型操作按钮 (字段旁) */
+  .btn-mini {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    background: var(--primary-light);
+    color: var(--primary);
+    border: 1px solid #bfdbfe;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-family: var(--font);
+    transition: all 0.15s;
+    margin-top: 4px;
+  }
+  .btn-mini:hover { background: var(--primary); color: white; border-color: var(--primary); }
+  .btn-mini:disabled { opacity: 0.5; cursor: not-allowed; }
+  .btn-mini.btn-mini-warn {
+    background: var(--warning-light);
+    color: var(--warning);
+    border-color: #fde68a;
+  }
+  .btn-mini.btn-mini-warn:hover { background: var(--warning); color: white; border-color: var(--warning); }
+  .btn-mini.btn-mini-success {
+    background: var(--success-light);
+    color: var(--success);
+    border-color: #a7f3d0;
+  }
+  .btn-mini.btn-mini-success:hover { background: var(--success); color: white; border-color: var(--success); }
+
+  /* 字段行内的按钮组 */
+  .field-actions {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+
+  /* URL 补全预览面板 */
+  .autofill-panel {
+    margin-top: 12px;
+    border: 1px solid #bfdbfe;
+    border-radius: var(--radius);
+    background: #f8faff;
+    overflow: hidden;
+  }
+  .autofill-panel-header {
+    padding: 8px 12px;
+    background: var(--primary-light);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #bfdbfe;
+  }
+  .autofill-panel-body {
+    padding: 12px;
+    font-size: 12px;
+  }
+  .autofill-diff-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 8px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eef2ff;
+    align-items: start;
+  }
+  .autofill-diff-row:last-child { border-bottom: none; }
+  .autofill-diff-label {
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+  .autofill-diff-value {
+    color: var(--text);
+    word-break: break-word;
+  }
+  .autofill-diff-value.changed { color: var(--success); }
+  .autofill-diff-value.empty { color: var(--text-light); font-style: italic; }
+  .autofill-diff-old {
+    font-size: 11px;
+    color: var(--text-light);
+    text-decoration: line-through;
+    margin-top: 2px;
+  }
+  .autofill-panel-footer {
+    padding: 8px 12px;
+    background: #f8faff;
+    border-top: 1px solid #bfdbfe;
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+  }
+
+  /* PDF 选择器下拉 */
+  .pdf-picker {
+    margin-top: 8px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--panel);
+    max-height: 280px;
+    display: flex;
+    flex-direction: column;
+  }
+  .pdf-picker-search {
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .pdf-picker-search input {
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 12px;
+    outline: none;
+  }
+  .pdf-picker-list {
+    overflow-y: auto;
+    flex: 1;
+  }
+  .pdf-picker-item {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--bg);
+    cursor: pointer;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.1s;
+  }
+  .pdf-picker-item:hover { background: var(--primary-light); }
+  .pdf-picker-item .pp-name {
+    font-family: var(--mono);
+    font-size: 11px;
+    word-break: break-all;
+  }
+  .pdf-picker-item .pp-status {
+    font-size: 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* 待审核标记 */
+  .review-banner {
+    background: linear-gradient(90deg, #fffbeb 0%, #fef3c7 100%);
+    border: 1px solid #f59e0b;
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+  }
+  .review-banner .review-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .review-banner .review-title {
+    font-weight: 600;
+    color: #92400e;
+    margin-bottom: 2px;
+  }
+  .review-banner .review-desc {
+    color: var(--text-muted);
+    font-size: 12px;
+  }
+
+  /* 未引用 PDF 可点击列表 */
+  .unref-pdf-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 2px 8px;
+    background: white;
+    border: 1px solid #fde68a;
+    border-radius: 10px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--warning);
+    cursor: pointer;
+    transition: all 0.15s;
+    margin: 2px;
+  }
+  .unref-pdf-chip:hover {
+    background: var(--warning);
+    color: white;
+    border-color: var(--warning);
+  }
+  .unref-pdf-chip::before { content: "📄 "; font-family: var(--font); }
+
+  /* 加载中状态 */
+  .loading-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-muted);
+    font-size: 12px;
+  }
+  .loading-inline .spinner {
+    width: 12px;
+    height: 12px;
+    border: 2px solid var(--border);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
 </style>
 </head>
 <body>
@@ -616,9 +832,9 @@
 
 <!-- 未引用 PDF 提示 -->
 <div class="unreferenced-bar" id="unref-bar" style="display:none">
-  <span>📄 发现 <b id="unref-count">0</b> 个未录入的 PDF:</span>
+  <span>📄 发现 <b id="unref-count">0</b> 个未录入的 PDF (点击文件名自动提取信息):</span>
   <span class="file-list" id="unref-files"></span>
-  <button class="btn-link" onclick="showAddHelp()">如何录入 →</button>
+  <button class="btn-link" onclick="showAddHelp()">命令行录入 →</button>
 </div>
 
 <div class="layout">
@@ -827,9 +1043,13 @@ function renderUnreferencedBar() {
   }
   bar.style.display = 'flex';
   document.getElementById('unref-count').textContent = unreferencedPdfs.length;
-  document.getElementById('unref-files').textContent =
-    unreferencedPdfs.map(p => p.filename).slice(0, 3).join(', ') +
-    (unreferencedPdfs.length > 3 ? ` 等 ${unreferencedPdfs.length} 个` : '');
+  // 渲染可点击的 PDF chip (点击后自动提取信息并预填新论文表单)
+  const files = document.getElementById('unref-files');
+  files.innerHTML = unreferencedPdfs.map(p => {
+    const safePath = escapeAttr(p.path);
+    const safeName = escapeHtml(p.filename);
+    return `<span class="unref-pdf-chip" onclick="extractNewPdf('${safePath}','${safeName}')">${safeName}</span>`;
+  }).join('');
 }
 
 function showAddHelp() {
@@ -1098,6 +1318,10 @@ function renderDetail(p) {
         <div>
           <input type="text" class="form-control code" id="f-url" value="${escapeAttr(p.url)}" placeholder="IEEE / DOI / 期刊链接" />
           <div class="field-meta">${p.url ? `<a href="${escapeAttr(p.url)}" target="_blank" style="color:var(--primary)">↗ 打开链接</a>` : '<span style="color:var(--danger)">⚠ 未填写</span>'}</div>
+          <div class="field-actions">
+            <button class="btn-mini" onclick="autoFillFromUrl(currentDetailId)" id="btn-autofill">🔍 从 URL 自动补全字段</button>
+          </div>
+          <div id="autofill-panel"></div>
         </div>
       </div>
 
@@ -1112,6 +1336,10 @@ function renderDetail(p) {
                   : `<a href="${escapeAttr(p.pdf)}" target="_blank" class="pdf-link">📄 查看本地 PDF</a> · <span style="color:var(--text-light)">${p.pdf}</span>`)
               : '<span style="color:var(--danger)">⚠ 未关联 PDF</span>'}
           </div>
+          <div class="field-actions">
+            <button class="btn-mini btn-mini-success" onclick="showPdfPicker(currentDetailId)" id="btn-pick-pdf">📂 从文件夹选择 PDF</button>
+          </div>
+          <div id="pdf-picker"></div>
         </div>
       </div>
     </div>
@@ -1293,6 +1521,434 @@ function guessVenueAbbrev(p) {
     'Knowledge-Based Systems': 'KBS',
   };
   return map[p.venue] || '';
+}
+
+// ═══════════════════════════════════════════════
+//  功能 1: URL 自动补全
+// ═══════════════════════════════════════════════
+let pendingAutoFillMeta = null;
+
+async function autoFillFromUrl(id) {
+  const p = allPapers.find(x => x.id === id);
+  if (!p) return;
+  const urlInput = document.getElementById('f-url');
+  const url = urlInput.value.trim();
+  if (!url) {
+    showToast('请先填写 URL (IEEE / DOI / 期刊链接)', 'error');
+    urlInput.focus();
+    return;
+  }
+
+  const btn = document.getElementById('btn-autofill');
+  const panel = document.getElementById('autofill-panel');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="loading-inline"><span class="spinner"></span>抓取中...</span>';
+  panel.innerHTML = '';
+
+  try {
+    const res = await fetch('/api/fetch-url', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ url }),
+    });
+    const result = await res.json();
+    if (!result.ok) {
+      panel.innerHTML = `<div style="padding:12px;color:var(--danger);font-size:12px">⚠ 抓取失败: ${escapeHtml(result.error || '未知错误')}<br><span style="color:var(--text-light)">提示: 可尝试直接填写 DOI 链接 (https://doi.org/10.xxx/xxx)</span></div>`;
+      return;
+    }
+    renderAutoFillPreview(result.metadata);
+  } catch (err) {
+    panel.innerHTML = `<div style="padding:12px;color:var(--danger);font-size:12px">⚠ 请求失败: ${escapeHtml(err.message)}</div>`;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '🔍 从 URL 自动补全字段';
+  }
+}
+
+function renderAutoFillPreview(meta) {
+  pendingAutoFillMeta = meta;
+  const panel = document.getElementById('autofill-panel');
+
+  const current = {
+    title: document.getElementById('f-title').value,
+    authors: document.getElementById('f-authors').value,
+    venue: document.getElementById('f-venue').value,
+    abstract: document.getElementById('f-abstract').value,
+  };
+
+  const fields = [
+    { key: 'title', label: '标题', newVal: meta.title },
+    { key: 'authors', label: '作者', newVal: meta.authors },
+    { key: 'venue', label: 'Venue', newVal: meta.venue },
+    { key: 'abstract', label: '摘要', newVal: meta.abstract },
+  ];
+
+  let rows = '';
+  for (const f of fields) {
+    const oldVal = (current[f.key] || '').trim();
+    const newVal = (f.newVal || '').trim();
+    const hasNew = newVal.length > 0;
+    const changed = hasNew && oldVal !== newVal;
+    const willOverwrite = changed && oldVal.length > 0;
+
+    rows += `<div class="autofill-diff-row">
+      <div class="autofill-diff-label">${f.label}</div>
+      <div>
+        ${hasNew
+          ? `<div class="autofill-diff-value ${changed ? 'changed' : ''}">${escapeHtml(truncate(newVal, 300))}</div>`
+          : '<div class="autofill-diff-value empty">(未抓取到)</div>'}
+        ${willOverwrite ? `<div class="autofill-diff-old">${escapeHtml(truncate(oldVal, 150))}</div>` : ''}
+      </div>
+    </div>`;
+  }
+
+  const extraInfo = [];
+  if (meta.doi) extraInfo.push(`DOI: ${escapeHtml(meta.doi)}`);
+  if (meta.year) extraInfo.push(`年份: ${meta.year}`);
+  if (meta.source) extraInfo.push(`来源: ${escapeHtml(meta.source)}`);
+
+  panel.innerHTML = `
+    <div class="autofill-panel">
+      <div class="autofill-panel-header">
+        <span>📋 抓取结果预览</span>
+        <span style="font-weight:400;font-size:11px;color:var(--text-muted)">${extraInfo.join(' · ')}</span>
+      </div>
+      <div class="autofill-panel-body">${rows}</div>
+      <div class="autofill-panel-footer">
+        <button class="btn-mini" onclick="document.getElementById('autofill-panel').innerHTML='';pendingAutoFillMeta=null" style="background:var(--bg);color:var(--text-muted);border-color:var(--border)">取消</button>
+        <button class="btn-mini btn-mini-success" onclick="applyAutoFill()">✓ 填充到表单</button>
+      </div>
+    </div>
+  `;
+}
+
+function applyAutoFill() {
+  const meta = pendingAutoFillMeta;
+  if (!meta) return;
+  let filled = 0;
+  if (meta.title) { document.getElementById('f-title').value = meta.title; filled++; }
+  if (meta.authors) { document.getElementById('f-authors').value = meta.authors; filled++; }
+  if (meta.venue) { document.getElementById('f-venue').value = meta.venue; filled++; }
+  if (meta.abstract) { document.getElementById('f-abstract').value = meta.abstract; filled++; }
+  document.getElementById('autofill-panel').innerHTML = '';
+  pendingAutoFillMeta = null;
+  showToast(`✓ 已填充 ${filled} 个字段, 请检查后保存`, 'success');
+}
+
+function truncate(s, n) {
+  s = String(s || '');
+  return s.length > n ? s.substring(0, n) + '...' : s;
+}
+
+// ═══════════════════════════════════════════════
+//  功能 2: 从文件夹选择 PDF
+// ═══════════════════════════════════════════════
+let pdfPickerPdfs = [];
+
+async function showPdfPicker(id) {
+  const p = allPapers.find(x => x.id === id);
+  if (!p) return;
+  const picker = document.getElementById('pdf-picker');
+  const btn = document.getElementById('btn-pick-pdf');
+
+  // 如果已经打开, 点击则关闭
+  if (picker.dataset.open === '1') {
+    picker.innerHTML = '';
+    picker.dataset.open = '';
+    btn.textContent = '📂 从文件夹选择 PDF';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = '📂 加载中...';
+
+  try {
+    const res = await fetch('/api/list-pdfs');
+    const data = await res.json();
+    if (!data.ok) { showToast('加载 PDF 列表失败', 'error'); return; }
+
+    pdfPickerPdfs = data.pdfs || [];
+    picker.dataset.open = '1';
+    renderPdfPickerList();
+  } catch (err) {
+    showToast('加载失败: ' + err.message, 'error');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '📂 从文件夹选择 PDF';
+  }
+}
+
+function renderPdfPickerList() {
+  const picker = document.getElementById('pdf-picker');
+  const currentPdf = document.getElementById('f-pdf').value.trim();
+  const currentFilename = currentPdf.replace('papers/', '');
+
+  let html = `<div class="pdf-picker">
+    <div class="pdf-picker-search">
+      <input type="text" id="pdf-search-input" placeholder="搜索文件名..." oninput="filterPdfPicker()" />
+    </div>
+    <div class="pdf-picker-list" id="pdf-picker-list">`;
+
+  if (pdfPickerPdfs.length === 0) {
+    html += '<div style="padding:16px;text-align:center;color:var(--text-light);font-size:12px">papers/ 文件夹中没有 PDF</div>';
+  } else {
+    html += pdfPickerPdfs.map(pdf => {
+      const isCurrent = pdf.filename === currentFilename;
+      const statusHtml = isCurrent
+        ? '<span class="pp-status" style="color:var(--success)">✓ 当前</span>'
+        : (pdf.referenced
+            ? '<span class="pp-status" style="color:var(--text-light)">已关联其他</span>'
+            : '<span class="pp-status" style="color:var(--success)">可用</span>');
+      const safePath = escapeAttr(pdf.path);
+      return `<div class="pdf-picker-item" data-name="${escapeAttr(pdf.filename.toLowerCase())}" onclick="selectPdf('${safePath}')">
+        <span class="pp-name">${escapeHtml(pdf.filename)}</span>
+        ${statusHtml}
+      </div>`;
+    }).join('');
+  }
+
+  html += `</div></div>`;
+  picker.innerHTML = html;
+}
+
+function filterPdfPicker() {
+  const q = (document.getElementById('pdf-search-input').value || '').toLowerCase();
+  document.querySelectorAll('#pdf-picker-list .pdf-picker-item').forEach(item => {
+    item.style.display = item.dataset.name.includes(q) ? '' : 'none';
+  });
+}
+
+function selectPdf(pdfPath) {
+  document.getElementById('f-pdf').value = pdfPath;
+  const picker = document.getElementById('pdf-picker');
+  picker.innerHTML = '';
+  picker.dataset.open = '';
+  showToast('✓ 已选择 ' + pdfPath.replace('papers/', '') + ', 请保存', 'success');
+}
+
+// ═══════════════════════════════════════════════
+//  功能 3: 从未引用 PDF 提取信息, 预填新论文表单 (标注待审核)
+// ═══════════════════════════════════════════════
+async function extractNewPdf(pdfPath, filename) {
+  const detail = document.getElementById('detail');
+  // 取消左侧选中状态
+  selectedId = null;
+  currentDetailId = null;
+  renderList();
+
+  detail.innerHTML = `
+    <div class="detail-header">
+      <div class="year-type">
+        <span class="badge badge-warn">⚠ 待审核 · 新论文</span>
+      </div>
+      <h2>从 PDF 提取信息</h2>
+      <div class="venue-line">
+        <span class="venue-name" style="font-family:var(--mono);font-size:12px">${escapeHtml(filename)}</span>
+      </div>
+    </div>
+    <div class="review-banner">
+      <span class="review-icon">⚠️</span>
+      <div>
+        <div class="review-title">此论文信息由 PDF 自动提取, 需要人工审核</div>
+        <div class="review-desc">以下字段从 PDF 元数据和内容中提取, 可能有误。请仔细核对标题、作者、venue、年份等关键信息后, 再保存到对应年份文件。保存后可在列表中找到并继续编辑。</div>
+      </div>
+    </div>
+    <div id="extract-loading" style="padding:40px;text-align:center">
+      <div class="loading-inline" style="font-size:14px;justify-content:center">
+        <span class="spinner" style="width:16px;height:16px"></span>
+        正在提取 PDF 信息...
+      </div>
+    </div>
+    <div id="extract-form" style="display:none"></div>
+  `;
+
+  try {
+    const res = await fetch('/api/extract-pdf', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ pdfPath }),
+    });
+    const result = await res.json();
+    if (!result.ok) {
+      document.getElementById('extract-loading').innerHTML =
+        `<div style="padding:20px;color:var(--danger);text-align:center">⚠ 提取失败: ${escapeHtml(result.error)}</div>`;
+      return;
+    }
+    renderNewPaperForm(result.extracted, result.filenameInfo, pdfPath, filename);
+  } catch (err) {
+    document.getElementById('extract-loading').innerHTML =
+      `<div style="padding:20px;color:var(--danger);text-align:center">⚠ 请求失败: ${escapeHtml(err.message)}</div>`;
+  }
+}
+
+function renderNewPaperForm(extracted, filenameInfo, pdfPath, filename) {
+  document.getElementById('extract-loading').style.display = 'none';
+  const form = document.getElementById('extract-form');
+  form.style.display = 'block';
+
+  // extracted 可能包含: title, authors, abstract, doi, url, error
+  // filenameInfo 包含: { year, venueAbbrev, venueInfo: { name, type } }
+  const extractFailed = extracted && extracted.error;
+  const title = (extracted && !extractFailed && extracted.title) || '';
+  const authors = (extracted && !extractFailed && extracted.authors) || '';
+  const abstract = (extracted && !extractFailed && extracted.abstract) || '';
+  const year = (filenameInfo && filenameInfo.year) || new Date().getFullYear();
+  const venue = (filenameInfo && filenameInfo.venueInfo && filenameInfo.venueInfo.name) || '';
+  const doi = (extracted && !extractFailed && extracted.doi) || '';
+  // 根据文件名解析的类型推断 section
+  const defaultSection = (filenameInfo && filenameInfo.venueInfo && filenameInfo.venueInfo.type === 'conference')
+    ? 'conferences' : 'journals';
+
+  const extractWarn = extractFailed
+    ? `<div style="padding:8px 12px;background:var(--danger-light);color:var(--danger);border-radius:4px;font-size:12px;margin-bottom:12px">⚠ PDF 自动提取失败 (${escapeHtml(extracted.error)}), 请手动填写以下字段</div>`
+    : '';
+
+  form.innerHTML = `
+    <div class="form-section">
+      <h3>基本信息 <span style="font-weight:400;text-transform:none;color:var(--warning)">⚠ 需人工核对</span></h3>
+      ${extractWarn}
+
+      <div class="form-row">
+        <label>标题 <span class="required">*</span></label>
+        <div>
+          <input type="text" class="form-control" id="f-title" value="${escapeAttr(title)}" />
+          <div class="field-meta">${title ? '从 PDF 元数据提取' : '<span style="color:var(--danger)">未能提取, 请手动填写</span>'}</div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label>作者 <span class="required">*</span></label>
+        <div>
+          <input type="text" class="form-control" id="f-authors" value="${escapeAttr(authors)}" />
+          <div class="field-meta">${authors ? '从 PDF 元数据提取 (本人请用 &lt;strong&gt;J. Yang&lt;/strong&gt; 高亮)' : '<span style="color:var(--danger)">未能提取, 请手动填写</span>'}</div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label>期刊/会议 <span class="required">*</span></label>
+        <div>
+          <input type="text" class="form-control" id="f-venue" value="${escapeAttr(venue)}" placeholder="请填写或核对" />
+          ${filenameInfo && filenameInfo.venueInfo ? `<div class="field-meta">从文件名推断: ${escapeHtml(filenameInfo.venueAbbrev)} → ${escapeHtml(filenameInfo.venueInfo.name)}</div>` : '<div class="field-meta">文件名未包含 venue 信息, 请手动填写</div>'}
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label>年份</label>
+        <div>
+          <input type="number" class="form-control" id="f-groupYear" value="${year}" style="width:120px" />
+          <div class="field-meta">保存时会写入对应年份文件</div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label>类型</label>
+        <div>
+          <select class="form-control" id="f-section" style="width:160px">
+            <option value="journals" ${defaultSection === 'journals' ? 'selected' : ''}>期刊</option>
+            <option value="conferences" ${defaultSection === 'conferences' ? 'selected' : ''}>会议</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label>高亮</label>
+        <label style="text-align:left;padding-top:7px;font-weight:normal;display:flex;align-items:center;gap:6px">
+          <input type="checkbox" id="f-venueHighlight" />
+          标记为顶会/顶刊
+        </label>
+      </div>
+
+      <div class="form-row">
+        <label>主题</label>
+        <div class="topics-input" id="f-topics">
+          <button class="topic-add" onclick="addTopic()">+ 添加</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h3>链接与文件</h3>
+
+      <div class="form-row">
+        <label>URL</label>
+        <div>
+          <input type="text" class="form-control code" id="f-url" value="${escapeAttr(doi ? 'https://doi.org/' + doi : '')}" placeholder="可稍后填写" />
+          ${doi ? `<div class="field-meta">DOI: ${escapeHtml(doi)}</div>` : ''}
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label>PDF</label>
+        <div>
+          <input type="text" class="form-control code" id="f-pdf" value="${escapeAttr(pdfPath)}" />
+          <div class="field-meta">
+            <a href="${escapeAttr(pdfPath)}" target="_blank" class="pdf-link">📄 查看本地 PDF</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h3>摘要 <span style="font-weight:400;text-transform:none;color:var(--text-light)">${abstract.length} 字符</span></h3>
+      <textarea class="form-control" id="f-abstract" rows="8" placeholder="论文摘要...">${escapeHtml(abstract)}</textarea>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-primary" onclick="saveNewPaper()" id="btn-save">💾 保存为新论文</button>
+      <button class="btn btn-secondary" onclick="extractNewPdf('${escapeAttr(pdfPath)}','${escapeAttr(filename)}')">↺ 重新提取</button>
+    </div>
+  `;
+}
+
+async function saveNewPaper() {
+  const payload = {
+    title: document.getElementById('f-title').value,
+    authors: document.getElementById('f-authors').value,
+    venue: document.getElementById('f-venue').value,
+    year: parseInt(document.getElementById('f-groupYear').value, 10) || new Date().getFullYear(),
+    section: document.getElementById('f-section').value,
+    venueHighlight: document.getElementById('f-venueHighlight').checked,
+    url: document.getElementById('f-url').value.trim(),
+    pdf: document.getElementById('f-pdf').value.trim(),
+    topics: getTopics(),
+    abstract: document.getElementById('f-abstract').value,
+  };
+
+  if (!payload.title.trim()) { showToast('标题不能为空', 'error'); return; }
+  if (!payload.authors.trim()) { showToast('作者不能为空', 'error'); return; }
+  if (!payload.venue.trim()) { showToast('期刊/会议不能为空', 'error'); return; }
+
+  const btn = document.getElementById('btn-save');
+  btn.disabled = true;
+  btn.textContent = '保存中...';
+
+  try {
+    const res = await fetch('/api/paper/create', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const result = await res.json();
+    if (result.ok) {
+      showToast(`✓ 已保存为新论文 (${result.file})`, 'success', 4000);
+      await loadData();
+      // 选中新创建的论文
+      if (result.id) {
+        selectedId = result.id;
+        currentDetailId = result.id;
+        renderList();
+        const newPaper = allPapers.find(x => x.id === result.id);
+        if (newPaper) renderDetail(newPaper);
+      }
+    } else {
+      showToast('保存失败: ' + result.error, 'error');
+    }
+  } catch (err) {
+    showToast('保存失败: ' + err.message, 'error');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '💾 保存为新论文';
+  }
 }
 
 // ═══════════════════════════════════════════════
