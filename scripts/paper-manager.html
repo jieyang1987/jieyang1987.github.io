@@ -108,43 +108,162 @@
 
   /* ── 左侧栏 ── */
   .sidebar {
-    width: 220px;
+    width: 240px;
     background: var(--panel);
     border-right: 1px solid var(--border);
-    padding: 16px 0;
     overflow-y: auto;
     flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
   }
-  .filter-group {
-    padding: 0 16px 16px;
+
+  /* 已选筛选条件条 */
+  .active-filters {
+    padding: 10px 14px;
     border-bottom: 1px solid var(--border);
-    margin-bottom: 12px;
+    background: #fafbfc;
+    min-height: 44px;
   }
-  .filter-group:last-child { border-bottom: none; }
-  .filter-title {
+  .active-filters-label {
     font-size: 11px;
     font-weight: 600;
     color: var(--text-light);
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
+  .active-filters-label .clear-all {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--primary);
+    cursor: pointer;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  .active-filters-label .clear-all:hover { text-decoration: underline; }
+  .active-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .active-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 8px;
+    background: var(--primary);
+    color: white;
+    border-radius: 10px;
+    font-size: 11px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s;
+  }
+  .active-chip:hover { background: var(--primary-hover); }
+  .active-chip .chip-x {
+    font-size: 13px;
+    line-height: 1;
+    opacity: 0.8;
+  }
+  .active-chip:hover .chip-x { opacity: 1; }
+  .active-filters-empty {
+    font-size: 12px;
+    color: var(--text-light);
+    font-style: italic;
+  }
+
+  /* 筛选组容器 (可滚动区域) */
+  .filter-groups {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px 0;
+  }
+
+  .filter-group {
+    border-bottom: 1px solid var(--border);
+  }
+  .filter-group:last-child { border-bottom: none; }
+  .filter-group-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 14px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.1s;
+  }
+  .filter-group-header:hover { background: var(--bg); }
+  .filter-group-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .filter-group-title .arrow {
+    font-size: 10px;
+    transition: transform 0.2s;
+    color: var(--text-light);
+  }
+  .filter-group.collapsed .filter-group-title .arrow {
+    transform: rotate(-90deg);
+  }
+  .filter-group.has-active .filter-group-title {
+    color: var(--primary);
+  }
+  .filter-group.has-active .filter-group-title::after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--primary);
+  }
+  .filter-group-clear {
+    font-size: 11px;
+    color: var(--text-light);
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 3px;
+    transition: all 0.1s;
+  }
+  .filter-group-clear:hover {
+    color: var(--primary);
+    background: var(--primary-light);
+  }
+  .filter-group-clear.disabled {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .filter-group-body {
+    padding: 0 14px 10px;
+  }
+  .filter-group.collapsed .filter-group-body {
+    display: none;
+  }
+
   .filter-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 4px 8px;
+    padding: 5px 10px;
     border-radius: 4px;
     cursor: pointer;
     font-size: 13px;
-    margin-bottom: 2px;
-    transition: background 0.1s;
+    margin-bottom: 1px;
+    transition: all 0.1s;
+    border-left: 3px solid transparent;
+    padding-left: 7px;
   }
   .filter-item:hover { background: var(--bg); }
   .filter-item.active {
     background: var(--primary-light);
     color: var(--primary);
     font-weight: 500;
+    border-left-color: var(--primary);
   }
   .filter-item .count {
     color: var(--text-light);
@@ -152,6 +271,11 @@
     font-variant-numeric: tabular-nums;
   }
   .filter-item.active .count { color: var(--primary); opacity: 0.7; }
+  .filter-item .item-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
   /* ── 中间列表 ── */
   .paper-list {
@@ -500,36 +624,77 @@
 <div class="layout">
   <!-- 左侧筛选 -->
   <div class="sidebar">
-    <div class="filter-group">
-      <div class="filter-title">类型</div>
-      <div class="filter-item active" data-filter="type" data-value="all" onclick="setFilter('type','all')">
-        <span>全部</span><span class="count" id="count-type-all">0</span>
+    <!-- 已选筛选条件条 -->
+    <div class="active-filters">
+      <div class="active-filters-label">
+        <span>当前筛选</span>
+        <span class="clear-all" id="clear-all" onclick="clearAllFilters()" style="display:none">清除全部</span>
       </div>
-      <div class="filter-item" data-filter="type" data-value="journals" onclick="setFilter('type','journals')">
-        <span>期刊</span><span class="count" id="count-type-journals">0</span>
-      </div>
-      <div class="filter-item" data-filter="type" data-value="conferences" onclick="setFilter('type','conferences')">
-        <span>会议</span><span class="count" id="count-type-conferences">0</span>
+      <div class="active-chips" id="active-chips">
+        <span class="active-filters-empty">无筛选条件</span>
       </div>
     </div>
-    <div class="filter-group">
-      <div class="filter-title">年份</div>
-      <div id="year-filters"></div>
-    </div>
-    <div class="filter-group">
-      <div class="filter-title">主题</div>
-      <div id="topic-filters"></div>
-    </div>
-    <div class="filter-group">
-      <div class="filter-title">数据状态</div>
-      <div class="filter-item" data-filter="status" data-value="all" onclick="setFilter('status','all')">
-        <span>全部</span>
+
+    <!-- 筛选组 -->
+    <div class="filter-groups">
+      <!-- 类型 -->
+      <div class="filter-group" id="group-type">
+        <div class="filter-group-header" onclick="toggleGroup('type')">
+          <span class="filter-group-title"><span class="arrow">▼</span>类型</span>
+          <span class="filter-group-clear" onclick="event.stopPropagation();setFilter('type','all')">清除</span>
+        </div>
+        <div class="filter-group-body">
+          <div class="filter-item" data-filter="type" data-value="all" onclick="setFilter('type','all')">
+            <span class="item-label">全部</span><span class="count" id="count-type-all">0</span>
+          </div>
+          <div class="filter-item" data-filter="type" data-value="journals" onclick="setFilter('type','journals')">
+            <span class="item-label">期刊</span><span class="count" id="count-type-journals">0</span>
+          </div>
+          <div class="filter-item" data-filter="type" data-value="conferences" onclick="setFilter('type','conferences')">
+            <span class="item-label">会议</span><span class="count" id="count-type-conferences">0</span>
+          </div>
+        </div>
       </div>
-      <div class="filter-item" data-filter="status" data-value="missing" onclick="setFilter('status','missing')">
-        <span>缺失字段</span>
+
+      <!-- 年份 -->
+      <div class="filter-group" id="group-year">
+        <div class="filter-group-header" onclick="toggleGroup('year')">
+          <span class="filter-group-title"><span class="arrow">▼</span>年份</span>
+          <span class="filter-group-clear" onclick="event.stopPropagation();setFilter('year','all')">清除</span>
+        </div>
+        <div class="filter-group-body">
+          <div id="year-filters"></div>
+        </div>
       </div>
-      <div class="filter-item" data-filter="status" data-value="complete" onclick="setFilter('status','complete')">
-        <span>数据完整</span>
+
+      <!-- 主题 -->
+      <div class="filter-group" id="group-topic">
+        <div class="filter-group-header" onclick="toggleGroup('topic')">
+          <span class="filter-group-title"><span class="arrow">▼</span>主题</span>
+          <span class="filter-group-clear" onclick="event.stopPropagation();setFilter('topic','all')">清除</span>
+        </div>
+        <div class="filter-group-body">
+          <div id="topic-filters"></div>
+        </div>
+      </div>
+
+      <!-- 数据状态 -->
+      <div class="filter-group" id="group-status">
+        <div class="filter-group-header" onclick="toggleGroup('status')">
+          <span class="filter-group-title"><span class="arrow">▼</span>数据状态</span>
+          <span class="filter-group-clear" onclick="event.stopPropagation();setFilter('status','all')">清除</span>
+        </div>
+        <div class="filter-group-body">
+          <div class="filter-item" data-filter="status" data-value="all" onclick="setFilter('status','all')">
+            <span class="item-label">全部</span>
+          </div>
+          <div class="filter-item" data-filter="status" data-value="missing" onclick="setFilter('status','missing')">
+            <span class="item-label">缺失字段</span>
+          </div>
+          <div class="filter-item" data-filter="status" data-value="complete" onclick="setFilter('status','complete')">
+            <span class="item-label">数据完整</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -585,6 +750,7 @@ async function loadData() {
     renderYearFilters();
     renderTopicFilters();
     renderUnreferencedBar();
+    renderActiveFilters();
     renderList();
   } catch (err) {
     showToast('加载数据失败: ' + err.message, 'error');
@@ -683,6 +849,90 @@ function setFilter(type, value) {
   renderStats();
   renderYearFilters();
   renderTopicFilters();
+  renderActiveFilters();
+  renderList();
+}
+
+/** 折叠/展开筛选组 */
+function toggleGroup(groupName) {
+  document.getElementById('group-' + groupName).classList.toggle('collapsed');
+}
+
+/** 清除所有筛选条件 */
+function clearAllFilters() {
+  filters = { type: 'all', year: 'all', topic: 'all', status: 'all' };
+  searchQuery = '';
+  document.getElementById('search').value = '';
+  document.querySelectorAll('.filter-item').forEach(el => {
+    el.classList.toggle('active', el.dataset.value === 'all');
+  });
+  renderStats();
+  renderYearFilters();
+  renderTopicFilters();
+  renderActiveFilters();
+  renderList();
+}
+
+/** 渲染顶部"已选筛选条件"标签条 */
+function renderActiveFilters() {
+  const container = document.getElementById('active-chips');
+  const clearAllBtn = document.getElementById('clear-all');
+  const chips = [];
+
+  // 类型
+  if (filters.type !== 'all') {
+    const label = filters.type === 'journals' ? '期刊' : '会议';
+    chips.push({ type: 'type', value: 'all', label: '类型: ' + label });
+  }
+  // 年份
+  if (filters.year !== 'all') {
+    chips.push({ type: 'year', value: 'all', label: '年份: ' + filters.year });
+  }
+  // 主题
+  if (filters.topic !== 'all') {
+    const topic = filterTopics.find(t => t.id === filters.topic);
+    chips.push({ type: 'topic', value: 'all', label: '主题: ' + (topic ? topic.labelZh : filters.topic) });
+  }
+  // 状态
+  if (filters.status !== 'all') {
+    const label = filters.status === 'missing' ? '缺失字段' : '数据完整';
+    chips.push({ type: 'status', value: 'all', label: '状态: ' + label });
+  }
+  // 搜索
+  if (searchQuery) {
+    chips.push({ type: 'search', value: '', label: '搜索: ' + (searchQuery.length > 12 ? searchQuery.substring(0, 12) + '...' : searchQuery) });
+  }
+
+  if (chips.length === 0) {
+    container.innerHTML = '<span class="active-filters-empty">无筛选条件, 显示全部论文</span>';
+    clearAllBtn.style.display = 'none';
+  } else {
+    container.innerHTML = chips.map(c =>
+      `<span class="active-chip" onclick="removeFilter('${c.type}')">${escapeHtml(c.label)} <span class="chip-x">×</span></span>`
+    ).join('');
+    clearAllBtn.style.display = 'inline';
+  }
+
+  // 更新筛选组的 has-active 状态 (标题旁显示蓝点)
+  ['type', 'year', 'topic', 'status'].forEach(g => {
+    const group = document.getElementById('group-' + g);
+    if (group) group.classList.toggle('has-active', filters[g] !== 'all');
+  });
+}
+
+/** 移除单个筛选条件 */
+function removeFilter(type) {
+  if (type === 'search') {
+    searchQuery = '';
+    document.getElementById('search').value = '';
+  } else {
+    setFilter(type, 'all');
+    return; // setFilter 已触发渲染
+  }
+  renderStats();
+  renderYearFilters();
+  renderTopicFilters();
+  renderActiveFilters();
   renderList();
 }
 
@@ -1053,6 +1303,7 @@ document.getElementById('search').addEventListener('input', (e) => {
   renderStats();
   renderYearFilters();
   renderTopicFilters();
+  renderActiveFilters();
   renderList();
 });
 
