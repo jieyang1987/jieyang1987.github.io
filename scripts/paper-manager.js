@@ -237,17 +237,61 @@ function renamePdf(oldRelPath, newFilename) {
   return { ok: true, renamed: true, newPdfRelPath: 'papers/' + finalFilename, newFilename: finalFilename };
 }
 
-/** 扫描 papers/ 目录, 返回未被 JSON 引用的 PDF (新论文) */
+/** 扫描 papers/ 目录, 返回未被 JSON 引用的 PDF
+ *  对每个未引用 PDF 做标题模糊匹配, 标注可能对应的已有论文
+ */
 function scanUnreferencedPdfs() {
   const referenced = new Set();
   const papers = readAllPapers();
   papers.forEach(p => { if (p.pdf) referenced.add(p.pdf); });
 
   if (!fs.existsSync(PAPERS_DIR)) return [];
-  return fs.readdirSync(PAPERS_DIR)
+  const unref = fs.readdirSync(PAPERS_DIR)
     .filter(f => f.toLowerCase().endsWith('.pdf'))
     .filter(f => !referenced.has('papers/' + f))
     .map(f => ({ filename: f, path: 'papers/' + f }));
+
+  // 对每个未引用 PDF, 尝试和已有论文标题匹配
+  for (const pdf of unref) {
+    pdf.possibleMatch = findPossibleMatch(pdf.filename, papers);
+  }
+  return unref;
+}
+
+/** 从 PDF 文件名提取标题, 和论文标题做模糊匹配
+ *  返回 { paperId, title, score } 或 null
+ */
+function findPossibleMatch(filename, papers) {
+  // 从文件名提取标题: 去掉 "年份_VENUE_" 前缀, 去掉扩展名
+  const base = filename.replace(/\.pdf$/i, '');
+  let titlePart = base.replace(/^\d{4}_[^_]+_/, '').replace(/_/g, ' ');
+  // 去掉前导编号如 "7.3 "
+  titlePart = titlePart.replace(/^[\d.]+\s+/, '').trim().toLowerCase();
+  if (!titlePart || titlePart.length < 5) return null;
+
+  const words1 = new Set(titlePart.split(/\s+/).filter(w => w.length > 2));
+
+  let bestMatch = null, bestScore = 0;
+  for (const p of papers) {
+    const pTitle = (p.title || '').toLowerCase();
+    if (!pTitle) continue;
+    const words2 = new Set(pTitle.split(/\s+/).filter(w => w.length > 2));
+    if (words2.size === 0) continue;
+    let common = 0;
+    for (const w of words1) if (words2.has(w)) common++;
+    const score = common / Math.max(words1.size, words2.size);
+    if (score > bestScore) { bestScore = score; bestMatch = p; }
+  }
+
+  // 阈值 0.4 以上认为可能匹配
+  if (bestMatch && bestScore >= 0.4) {
+    return {
+      paperId: bestMatch.id,
+      title: bestMatch.title,
+      score: Math.round(bestScore * 100),
+    };
+  }
+  return null;
 }
 
 /** 列出 papers/ 目录所有 PDF (供关联选择), 标注是否已被引用 */
