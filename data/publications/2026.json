@@ -23,7 +23,8 @@
           "url": "https://ieeexplore.ieee.org/abstract/document/11571815/",
           "pdf": "",
           "topics": [
-            "bci"
+            "bci",
+            "neuromorphic"
           ],
           "abstract": "Implantable multi-channel neural interfaces are essential for high-resolution, long-term brain-machine interface applications, yet conventional designs are constrained by power consumption, data bandwidth, and silicon area. We present NeuroSEED, a 32-channel neuromorphic scalable neural interface inspired by biological neuron signaling. This system introduces four key innovations to address the bottlenecks of scalability and efficiency: (1) an area-efficient time-division multiplexed analog front-end (0.0032 mm2/channel) with a dedicated digital-servo electrode DC offset cancellation loop; (2) an analog-to-spike converter (ASC) that employs adaptive event-driven sampling; (3) a clockless spike detector utilizing valley-to-peak detection for robust spike identification; and (4) an event-triggered impulse-radio ultra-wideband (IR-UWB) transmitter for energy-efficient wireless spike telemetry. Fabricated in 40-nm CMOS, NeuroSEED achieves 1.38 μW per recording channel and 4.6 μW transmitter power, with more than 500× data reduction compared to Nyquistrate sampling. Experimental results, validated with in-vivo neural datasets, confirm low noise, compact area, and robust system-level operation, positioning NeuroSEED as a highly efficient SoC for high-density neural recording."
         },
@@ -33,7 +34,7 @@
           "venue": "Knowledge-Based Systems",
           "venueHighlight": false,
           "url": "https://www.sciencedirect.com/science/article/pii/S0950705126005563",
-          "pdf": "papers/2026_HAQ-ViT_A_hardware-aware_post-training_quantization_for_efficient_vision_transformer_inference.pdf",
+          "pdf": "papers/2026_HAQ-ViT_A hardware-aware post-training quantization for efficient visiontransformer inference.pdf",
           "topics": [
             "neuromorphic"
           ],
@@ -59,8 +60,19 @@
           "url": "https://ieeexplore.ieee.org/abstract/document/11392762",
           "pdf": "",
           "topics": [
-            "bci"
-          ]
+            "neuromodulation"
+          ],
+          "abstract": "Methamphetamine dependence poses a significant global health challenge, yet its assessment and the evaluation of treatments like repetitive transcranial magnetic stimulation (rTMS) frequently depend on subjective self-reports, which may introduce uncertainties. While objective neuroimaging modalities such as electroencephalography (EEG) and functional near-infrared spectroscopy (fNIRS) offer alternatives, their individual limitations and the reliance on conventional, often hand-crafted, feature extraction can compromise the reliability of derived biomarkers. To overcome these limitations, we propose NeuroCLIP, a novel deep learning framework integrating simultaneously recorded EEG and fNIRS data through a progressive learning strategy. This approach offers a robust and trustworthy data-driven biomarker for methamphetamine addiction. Validation experiments show that NeuroCLIP significantly improves discriminative capabilities among the methamphetamine-dependent individuals and healthy controls compared to models using either EEG or only fNIRS alone. Furthermore, the proposed framework facilitates objective, brain-based evaluation of rTMS treatment efficacy, demonstrating measurable shifts in neural patterns towards healthy control profiles after treatment. Critically, we establish the trustworthiness of the multimodal data-driven biomarker by showing its strong correlation with psychometrically validated craving scores. These findings suggest that biomarker derived from EEG-fNIRS data via NeuroCLIP offers enhanced robustness and reliability over single-modality approaches, providing a valuable tool for addiction neuroscience research and potentially improving clinical assessments."
+        },
+        {
+          "authors": "Wenjun Zou, Razieh Eskandari, <strong>J. Yang*</strong>, Mohamad Sawan*",
+          "title": "A High-Energy-Efficiency, Tunable-Bandwidth, and OOK IR-UWB Transmitter for Implantable Brain–Computer Interfaces",
+          "venue": "Electronics",
+          "venueHighlight": false,
+          "url": "https://www.researchgate.net/publication/408501244_A_High-Energy-Efficiency_Tunable-Bandwidth_and_OOK_IR-UWB_Transmitter_for_Implantable_Brain-Computer_Interfaces",
+          "pdf": "papers/2026_MDPI Electronics_A_High-Energy-Efficiency_Tunable-Bandwidth_and_OOK IR-UWB Transmitter.pdf",
+          "topics": [],
+          "abstract": "We present in this paper an ultra-low-power impulse radio ultra-wideband (IR-UWB) transmitter intended for short-range, highly energy-efficient, and compact silicon-area applications, such as implantable brain–computer interfaces (iBCIs). The proposed trans- mitter features effective spectrum tunability, enabling independent adjustments to both the center frequency and−10dB bandwidth. Fabricated in TSMC 40 nm CMOS technology, the chip occupies a core area of just 0.001 mm 2 . Experimental results demonstrate an energy efficiency of 2.45 pJ/b across a data rate range of 10 to 200 Mbps. The peak-to-peak output voltage amplitude is approximately 310 mV when driving a 50Ωload. Furthermore, in vitro wireless measurements demonstrate reliable through-tissue transmission at an implantation depth of 18 mm and achieve a distance range exceeding 0.8 m."
         }
       ]
     }
@@ -119,7 +131,7 @@
         },
         {
           "authors": "Y. Li, J. Chen, X. Shen, J. Yang, J. Liu, N. Wu, Z. Zhang, L. Liu",
-          "title": "A 0.65-to-1V-Vdd 10.5-to-11.85GHz Fractional-N Sampling PLL Achieving 71.47fs Integrated Jitter and <-60dBc Near-Integer Fractional Spur in 40nm CMOS",
+          "title": "A 0.65-to-1V-VDD 10.5-to-11.85GHz Fractional-N Sampling PLL Achieving 71.47fs Integrated Jitter and <-60dBc Near-Integer Fractional Spur in 40nm CMOS",
           "venue": "2026 IEEE International Solid-State Circuits Conference (ISSCC)",
           "venueHighlight": true,
           "url": "https://ieeexplore.ieee.org/abstract/document/11408963",
@@ -127,7 +139,7 @@
           "topics": [
             "other"
           ],
-          "abstract": "This paper presents a 0.65-to-1V, 10.5-to-11.85GHz wide-VDD-range (WV) fractional-N sampling PLL. The QE-reduction WV SPD, high-linearity 2-stage DTC, and DCC-aided QE dithering method are proposed to address the issue of poor phase noise at low-V<sub>DD</sub>, reliability at regular VDD, nonlinearity, and convergence issues at small fractional FCWs. The 40nm prototype achieves 71.47fs jitter, –251.8dB FoM, and <–60dBc near-integer spur."
+          "abstract": "This paper presents a 0.65-to-1V,10.5-to-11.85 GHz wide-VDD-range (WV) fractional-N sampling PLL. The QE-reduction WV SPD, high-linearity 2-stage DTC, and DCC-aided QE dithering method are proposed to address the issue of poor phase noise at low VDD, reliability at regular VDD, nonlinearity, and convergence issues at small fractional FCWs. The 40 nm prototype achieves 71.47fs jitter, −251.8 dB FoM, and <−60dBc near-integer spur."
         }
       ]
     }
