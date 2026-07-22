@@ -134,6 +134,35 @@ function deletePaper(id) {
   return { ok: false, error: '未找到对应论文' };
 }
 
+/** 上移/下移论文 (在同一年份分组内交换位置)
+ *  direction: 'up' | 'down'
+ */
+function movePaper(id, direction) {
+  const [fileYear, section, idxStr] = id.split('/');
+  const idx = parseInt(idxStr, 10);
+  const yearFile = path.join(ROOT, findFileByYear(fileYear));
+  if (!fs.existsSync(yearFile)) return { ok: false, error: '年份文件不存在' };
+
+  const data = JSON.parse(fs.readFileSync(yearFile, 'utf8'));
+  if (!data[section]) return { ok: false, error: '无效的 section' };
+
+  // 找到包含该索引的分组
+  for (const group of data[section]) {
+    if (!group.items || idx >= group.items.length) continue;
+    const targetIdx = direction === 'up' ? idx - 1 : idx + 1;
+    if (targetIdx < 0 || targetIdx >= group.items.length) {
+      return { ok: false, error: direction === 'up' ? '已在顶部' : '已在底部' };
+    }
+    // 交换
+    [group.items[idx], group.items[targetIdx]] = [group.items[targetIdx], group.items[idx]];
+    fs.writeFileSync(yearFile, JSON.stringify(data, null, 2) + '\n', 'utf8');
+    // 返回新的 id (索引变了)
+    const newId = `${fileYear}/${section}/${targetIdx}`;
+    return { ok: true, newId };
+  }
+  return { ok: false, error: '未找到对应论文' };
+}
+
 /** 创建一篇新论文
  *  payload: { year, section, authors, title, venue, venueHighlight, url, pdf, topics, abstract }
  *  year: 论文实际发表年份 (数字)
@@ -856,6 +885,14 @@ const server = http.createServer(async (req, res) => {
     if (pathname.startsWith('/api/paper/') && method === 'DELETE') {
       const id = decodeURIComponent(pathname.slice('/api/paper/'.length));
       const result = deletePaper(id);
+      return sendJson(res, result.ok ? 200 : 400, result);
+    }
+
+    // 上移/下移论文
+    if (pathname === '/api/paper/move' && method === 'POST') {
+      const body = await readBody(req);
+      if (!body.id || !body.direction) return sendJson(res, 400, { ok: false, error: '缺少 id 或 direction 参数' });
+      const result = movePaper(body.id, body.direction);
       return sendJson(res, result.ok ? 200 : 400, result);
     }
 

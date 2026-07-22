@@ -331,6 +331,36 @@
     color: var(--primary);
     font-weight: 500;
   }
+  .pc-move {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+    gap: 2px;
+  }
+  .paper-card { position: relative; }
+  .paper-card:hover .pc-move { display: flex; }
+  .pc-move-btn {
+    width: 22px;
+    height: 22px;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 10px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    line-height: 1;
+  }
+  .pc-move-btn:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+  }
   .badge {
     display: inline-block;
     padding: 1px 6px;
@@ -1383,12 +1413,17 @@ function renderList() {
     if (shortAuthors.length > 30) shortAuthors = shortAuthors.substring(0, 30) + '...';
 
     const safeId = p.id.replace(/'/g, '&#39;');
+    const safeIdAttr = escapeAttr(p.id);
     return `<div class="paper-card ${p.id === selectedId ? 'active' : ''}" data-id="${safeId}" onclick="selectPaper(this.getAttribute('data-id'))">
       <div class="pc-title">${escapeHtml(p.title || '(无标题)')}</div>
       <div class="pc-meta">
         ${badges.join('')}
         <span>${escapeHtml(shortAuthors)}</span>
         <span class="pc-venue">${escapeHtml(p.venue || '')}</span>
+      </div>
+      <div class="pc-move" onclick="event.stopPropagation()">
+        <button class="pc-move-btn" onclick="movePaperUp('${safeIdAttr}')" title="上移">▲</button>
+        <button class="pc-move-btn" onclick="movePaperDown('${safeIdAttr}')" title="下移">▼</button>
       </div>
     </div>`;
   }).join('');
@@ -1408,6 +1443,42 @@ function selectPaper(id) {
   if (!p) return;
   renderList();
   renderDetail(p);
+}
+
+// 上移/下移论文
+async function movePaperUp(id) {
+  await doMovePaper(id, 'up');
+}
+async function movePaperDown(id) {
+  await doMovePaper(id, 'down');
+}
+async function doMovePaper(id, direction) {
+  try {
+    const res = await fetch('/api/paper/move', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id, direction }),
+    });
+    const result = await res.json();
+    if (result.ok) {
+      await loadData();
+      // 选中移动后的论文 (id 变了)
+      selectedId = result.newId;
+      currentDetailId = result.newId;
+      renderList();
+      const p = allPapers.find(x => x.id === result.newId);
+      if (p) renderDetail(p);
+      // 滚动到选中项
+      const card = document.querySelector(`.paper-card[data-id="${CSS.escape(result.newId)}"]`);
+      if (card) card.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    } else {
+      if (result.error && !result.error.includes('已在')) {
+        showToast(result.error, 'error');
+      }
+    }
+  } catch (err) {
+    showToast('移动失败: ' + err.message, 'error');
+  }
 }
 
 function renderDetail(p) {
