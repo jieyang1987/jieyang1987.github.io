@@ -16,6 +16,16 @@
           "abstract": "We present in this paper a low-power impulse-radio ultra-wideband (IR-UWB) transmitter architecture for neural implants. It features a duty-cycled phase-locked loop (PLL) and a co-designed compact fractal antenna. To suppress the carrier frequency drift inherent in open-loop ring oscillators while maintaining ultra-low power consumption, a hybrid PLL-oscillator upconversion scheme integrated with a switch-controlled voltage-holding module is proposed. Operating at a 10% duty cycle, the PLL consumes merely 90μW and achieves a locking frequency of 4.25 GHz with a peak-to-peak jitter of 2.14 ps. Furthermore, to eliminate the bulky output matching network, an 8 mm×10 mm coplanar-waveguide-fed fractal antenna is co-designed to present the conjugate impedance required by the power amplifier output, significantly advancing the miniaturization and energy efficiency of the neural implant. The complete transmitter was fabricated in TSMC 40 nm CMOS, with a supply voltage of 1.0 V, and in vitro wireless experiments through 18 mm of porcine tissue validated the design with a total power consumption of 0.58 mW."
         },
         {
+          "authors": "Wenjun Zou, Razieh Eskandari, <strong>J. Yang*</strong>, Mohamad Sawan*",
+          "title": "A High-Energy-Efficiency, Tunable-Bandwidth, and OOK IR-UWB Transmitter for Implantable Brain–Computer Interfaces",
+          "venue": "Electronics",
+          "venueHighlight": false,
+          "url": "https://www.researchgate.net/publication/408501244_A_High-Energy-Efficiency_Tunable-Bandwidth_and_OOK_IR-UWB_Transmitter_for_Implantable_Brain-Computer_Interfaces",
+          "pdf": "papers/2026_MDPI Electronics_A_High-Energy-Efficiency_Tunable-Bandwidth_and_OOK IR-UWB Transmitter.pdf",
+          "topics": [],
+          "abstract": "We present in this paper an ultra-low-power impulse radio ultra-wideband (IR-UWB) transmitter intended for short-range, highly energy-efficient, and compact silicon-area applications, such as implantable brain–computer interfaces (iBCIs). The proposed trans- mitter features effective spectrum tunability, enabling independent adjustments to both the center frequency and−10dB bandwidth. Fabricated in TSMC 40 nm CMOS technology, the chip occupies a core area of just 0.001 mm 2 . Experimental results demonstrate an energy efficiency of 2.45 pJ/b across a data rate range of 10 to 200 Mbps. The peak-to-peak output voltage amplitude is approximately 310 mV when driving a 50Ωload. Furthermore, in vitro wireless measurements demonstrate reliable through-tissue transmission at an implantation depth of 18 mm and achieve a distance range exceeding 0.8 m."
+        },
+        {
           "authors": "H. Wu, J. Chen, R. Eskandari, Y. Han, X. Liu, W. Zou, F. Tian, Q. Hou, <strong>J. Yang*</strong>, M. Sawan*",
           "title": "NeuroSEED: A Neuromorphic Scalable Event-Driven SoC with Direct Multiplexing for Spike Detection and Wireless Telemetry",
           "venue": "IEEE Journal on Emerging and Selected Topics in Circuits and Systems",
@@ -63,16 +73,6 @@
             "neuromodulation"
           ],
           "abstract": "Methamphetamine dependence poses a significant global health challenge, yet its assessment and the evaluation of treatments like repetitive transcranial magnetic stimulation (rTMS) frequently depend on subjective self-reports, which may introduce uncertainties. While objective neuroimaging modalities such as electroencephalography (EEG) and functional near-infrared spectroscopy (fNIRS) offer alternatives, their individual limitations and the reliance on conventional, often hand-crafted, feature extraction can compromise the reliability of derived biomarkers. To overcome these limitations, we propose NeuroCLIP, a novel deep learning framework integrating simultaneously recorded EEG and fNIRS data through a progressive learning strategy. This approach offers a robust and trustworthy data-driven biomarker for methamphetamine addiction. Validation experiments show that NeuroCLIP significantly improves discriminative capabilities among the methamphetamine-dependent individuals and healthy controls compared to models using either EEG or only fNIRS alone. Furthermore, the proposed framework facilitates objective, brain-based evaluation of rTMS treatment efficacy, demonstrating measurable shifts in neural patterns towards healthy control profiles after treatment. Critically, we establish the trustworthiness of the multimodal data-driven biomarker by showing its strong correlation with psychometrically validated craving scores. These findings suggest that biomarker derived from EEG-fNIRS data via NeuroCLIP offers enhanced robustness and reliability over single-modality approaches, providing a valuable tool for addiction neuroscience research and potentially improving clinical assessments."
-        },
-        {
-          "authors": "Wenjun Zou, Razieh Eskandari, <strong>J. Yang*</strong>, Mohamad Sawan*",
-          "title": "A High-Energy-Efficiency, Tunable-Bandwidth, and OOK IR-UWB Transmitter for Implantable Brain–Computer Interfaces",
-          "venue": "Electronics",
-          "venueHighlight": false,
-          "url": "https://www.researchgate.net/publication/408501244_A_High-Energy-Efficiency_Tunable-Bandwidth_and_OOK_IR-UWB_Transmitter_for_Implantable_Brain-Computer_Interfaces",
-          "pdf": "papers/2026_MDPI Electronics_A_High-Energy-Efficiency_Tunable-Bandwidth_and_OOK IR-UWB Transmitter.pdf",
-          "topics": [],
-          "abstract": "We present in this paper an ultra-low-power impulse radio ultra-wideband (IR-UWB) transmitter intended for short-range, highly energy-efficient, and compact silicon-area applications, such as implantable brain–computer interfaces (iBCIs). The proposed trans- mitter features effective spectrum tunability, enabling independent adjustments to both the center frequency and−10dB bandwidth. Fabricated in TSMC 40 nm CMOS technology, the chip occupies a core area of just 0.001 mm 2 . Experimental results demonstrate an energy efficiency of 2.45 pJ/b across a data rate range of 10 to 200 Mbps. The peak-to-peak output voltage amplitude is approximately 310 mV when driving a 50Ωload. Furthermore, in vitro wireless measurements demonstrate reliable through-tissue transmission at an implantation depth of 18 mm and achieve a distance range exceeding 0.8 m."
         }
       ]
     }
@@ -139,7 +139,7 @@
           "topics": [
             "other"
           ],
-          "abstract": "This paper presents a 0.65-to-1V,10.5-to-11.85 GHz wide-VDD-range (WV) fractional-N sampling PLL. The QE-reduction WV SPD, high-linearity 2-stage DTC, and DCC-aided QE dithering method are proposed to address the issue of poor phase noise at low VDD, reliability at regular VDD, nonlinearity, and convergence issues at small fractional FCWs. The 40 nm prototype achieves 71.47fs jitter, −251.8 dB FoM, and <−60dBc near-integer spur."
+          "abstract": "This paper presents a 0.65-to-$1 \\mathrm{V}, 10.5$-to-11.85 GHz wide-$\\mathrm{V}_{\\text{DD}}$-range (WV) fractional-N sampling PLL. The QE-reduction WV SPD, high-linearity 2-stage DTC, and DCC-aided QE dithering method are proposed to address the issue of poor phase noise at low $\\mathrm{V}_{\\text{DD}}$, reliability at regular $\\mathrm{V}_{\\text{DD}}$, nonlinearity, and convergence issues at small fractional FCWs. The 40 nm prototype achieves 71.47fs jitter, −251.8 dB FoM, and $ near-integer spur."
         }
       ]
     }

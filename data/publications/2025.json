@@ -151,7 +151,8 @@
           "pdf": "",
           "topics": [
             "other"
-          ]
+          ],
+          "abstract": "This paper presents a compact ultra-low-power phase-locked loop (PLL) based binary phase-shift keying (BPSK) demodulator. The loop-filter-less (LPF-less) PLL is proposed to make phase of PLL output carrier signal track the phase of BPSK signal in real time. Thus, the maximum date rate can be significantly extended to the half of the carrier frequency (f carrier) with a very compact size compared to prior PLL-based BPSK demodulators. Furthermore, eliminating all the static power in our LPF-less PLL, the energy efficiency is obviously improved. Fabricated in a 40-nm CMOS process, our prototype occupies 0.0012-mm2 core active area, and achieves the maximum data rate of 6.78 Mb/s (f carrier/2) at f carrier of 13.56 MHz. The power consumption and energy efficiency is 4.47 μW and 0.66 pJ/bit at 6.78-Mb/s data rate, respectively."
         }
       ]
     }
