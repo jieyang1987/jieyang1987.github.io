@@ -413,12 +413,18 @@ function parseCrossrefMessage(msg, doi) {
     result.title = cleanText(msg.title[0]);
   }
 
-  // 作者
+  // 作者 — 转为缩写格式: "Jie Yang" → "J. Yang"
   if (Array.isArray(msg.author) && msg.author.length > 0) {
     const names = msg.author.map(a => {
-      if (a.name) return a.name;  // 组织作者
-      const parts = [a.given, a.family].filter(Boolean);
-      return parts.join(' ');
+      if (a.name) return a.name;  // 组织作者, 保持原样
+      if (!a.family) return a.given || '';
+      // given 可能是 "Jie" 或 "Jie Wei", 取每个 given name 的首字母
+      const initials = (a.given || '')
+        .split(/\s+/)
+        .filter(Boolean)
+        .map(n => n.charAt(0).toUpperCase() + '.')
+        .join(' ');
+      return (initials + ' ' + a.family).trim();
     }).filter(Boolean);
     if (names.length > 0) result.authors = names.join(', ');
   }

@@ -1753,10 +1753,10 @@ function renderAutoFillPreview(meta) {
   };
 
   const fields = [
-    { key: 'title', label: '标题', newVal: meta.title },
-    { key: 'authors', label: '作者', newVal: meta.authors },
-    { key: 'venue', label: 'Venue', newVal: meta.venue },
-    { key: 'abstract', label: '摘要', newVal: meta.abstract },
+    { key: 'title', label: '标题', newVal: meta.title || '', multiline: false },
+    { key: 'authors', label: '作者', newVal: meta.authors || '', multiline: false },
+    { key: 'venue', label: 'Venue', newVal: meta.venue || '', multiline: false },
+    { key: 'abstract', label: '摘要', newVal: meta.abstract || '', multiline: true },
   ];
 
   let rows = '';
@@ -1767,13 +1767,15 @@ function renderAutoFillPreview(meta) {
     const changed = hasNew && oldVal !== newVal;
     const willOverwrite = changed && oldVal.length > 0;
 
+    const inputHtml = f.multiline
+      ? `<textarea class="form-control autofill-edit" id="autofill-edit-${f.key}" rows="4" style="font-size:12px">${escapeHtml(newVal)}</textarea>`
+      : `<input type="text" class="form-control autofill-edit" id="autofill-edit-${f.key}" value="${escapeAttr(newVal)}" style="font-size:12px" />`;
+
     rows += `<div class="autofill-diff-row">
-      <div class="autofill-diff-label">${f.label}</div>
+      <div class="autofill-diff-label">${f.label}${hasNew ? (changed ? ' <span style="color:var(--success)">●</span>' : '') : ' <span style="color:var(--text-light)">○</span>'}</div>
       <div>
-        ${hasNew
-          ? `<div class="autofill-diff-value ${changed ? 'changed' : ''}">${escapeHtml(truncate(newVal, 300))}</div>`
-          : '<div class="autofill-diff-value empty">(未抓取到)</div>'}
-        ${willOverwrite ? `<div class="autofill-diff-old">${escapeHtml(truncate(oldVal, 150))}</div>` : ''}
+        ${hasNew ? inputHtml : '<div class="autofill-diff-value empty">(未抓取到)</div>'}
+        ${willOverwrite ? `<div class="autofill-diff-old">原值: ${escapeHtml(truncate(oldVal, 120))}</div>` : ''}
       </div>
     </div>`;
   }
@@ -1786,7 +1788,7 @@ function renderAutoFillPreview(meta) {
   panel.innerHTML = `
     <div class="autofill-panel">
       <div class="autofill-panel-header">
-        <span>📋 抓取结果预览</span>
+        <span>📋 抓取结果预览 (可直接编辑后再填充)</span>
         <span style="font-weight:400;font-size:11px;color:var(--text-muted)">${extraInfo.join(' · ')}</span>
       </div>
       <div class="autofill-panel-body">${rows}</div>
@@ -1802,13 +1804,21 @@ function applyAutoFill() {
   const meta = pendingAutoFillMeta;
   if (!meta) return;
   let filled = 0;
-  if (meta.title) { document.getElementById('f-title').value = meta.title; filled++; }
-  if (meta.authors) { document.getElementById('f-authors').value = meta.authors; filled++; }
-  if (meta.venue) { document.getElementById('f-venue').value = meta.venue; filled++; }
-  if (meta.abstract) { document.getElementById('f-abstract').value = meta.abstract; filled++; }
+  // 从可编辑的输入框读取用户可能修改过的值
+  const fields = ['title', 'authors', 'venue', 'abstract'];
+  for (const key of fields) {
+    const el = document.getElementById('autofill-edit-' + key);
+    if (el) {
+      const val = el.value.trim();
+      if (val) {
+        document.getElementById('f-' + key).value = val;
+        filled++;
+      }
+    }
+  }
   document.getElementById('autofill-panel').innerHTML = '';
   pendingAutoFillMeta = null;
-  showToast(`✓ 已填充 ${filled} 个字段, 请检查后保存`, 'success');
+  showToast(`✓ 已填充 ${filled} 个字段, 可在上方表单中继续修改`, 'success');
 }
 
 function truncate(s, n) {
