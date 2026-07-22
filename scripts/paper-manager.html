@@ -856,6 +856,33 @@
     animation: spin 0.8s linear infinite;
   }
   @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* 批量下载列表 */
+  .batch-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--bg);
+    gap: 12px;
+  }
+  .batch-item:last-child { border-bottom: none; }
+  .batch-item-info { flex: 1; min-width: 0; }
+  .batch-item-title {
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .batch-item-meta {
+    font-size: 11px;
+    color: var(--text-muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 </style>
 </head>
 <body>
@@ -868,6 +895,7 @@
     <input type="text" id="search" placeholder="搜索标题、作者、venue..." />
   </div>
   <button class="btn-reload" onclick="loadData()">↻ 刷新</button>
+  <button class="btn-reload" onclick="showBatchDownload()" id="btn-batch-download" style="color:var(--warning);border-color:#fde68a">⬇ 批量下载 PDF</button>
 </div>
 
 <!-- 未引用 PDF 提示 -->
@@ -1487,8 +1515,10 @@ function renderDetail(p) {
           </div>
           <div class="field-actions">
             <button class="btn-mini btn-mini-success" onclick="showPdfPicker(currentDetailId)" id="btn-pick-pdf">📂 从文件夹选择 PDF</button>
+            ${!p.pdf ? `<button class="btn-mini btn-mini-warn" onclick="autoDownloadPdf(currentDetailId)" id="btn-download-pdf">⬇ 自动下载 PDF</button>` : ''}
           </div>
           <div id="pdf-picker"></div>
+          <div id="download-status"></div>
         </div>
       </div>
     </div>
@@ -2134,6 +2164,201 @@ async function saveNewPaper() {
   } finally {
     btn.disabled = false;
     btn.textContent = '💾 保存为新论文';
+  }
+}
+
+// ═══════════════════════════════════════════════
+//  功能 4: PDF 自动下载 (单篇 + 批量)
+// ═══════════════════════════════════════════════
+
+/** 单篇论文自动下载 PDF */
+async function autoDownloadPdf(id) {
+  const p = allPapers.find(x => x.id === id);
+  if (!p) return;
+  if (!p.url) { showToast('该论文没有 URL, 无法下载', 'error'); return; }
+
+  const btn = document.getElementById('btn-download-pdf');
+  const status = document.getElementById('download-status');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="loading-inline"><span class="spinner"></span>下载中...</span>';
+  status.innerHTML = '<div class="loading-inline" style="margin-top:6px"><span class="spinner"></span>正在查找开放获取 PDF (Unpaywall)...</div>';
+
+  try {
+    const res = await fetch('/api/download-pdf', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ url: p.url, title: p.title, paperId: p.id }),
+    });
+    const result = await res.json();
+    if (result.ok) {
+      const sizeKb = Math.round(result.size / 1024);
+      status.innerHTML = `<div style="margin-top:6px;color:var(--success);font-size:12px">✓ 下载成功: ${escapeHtml(result.filename)} (${sizeKb} KB) · 来源: ${escapeHtml(result.source)} · 已自动关联</div>`;
+      showToast('✓ PDF 下载成功并已关联', 'success', 4000);
+      await loadData();
+      selectedId = id;
+      currentDetailId = id;
+      renderList();
+      const updated = allPapers.find(x => x.id === id);
+      if (updated) renderDetail(updated);
+    } else {
+      status.innerHTML = `<div style="margin-top:6px;color:var(--danger);font-size:12px">⚠ 下载失败: ${escapeHtml(result.error || '未知错误')}<br><span style="color:var(--text-light)">提示: 大部分 IEEE/ScienceDirect 论文需要订阅, 可手动上传 PDF 后用「从文件夹选择」关联</span></div>`;
+    }
+  } catch (err) {
+    status.innerHTML = `<div style="margin-top:6px;color:var(--danger);font-size:12px">⚠ 请求失败: ${escapeHtml(err.message)}</div>`;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '⬇ 自动下载 PDF';
+  }
+}
+
+/** 批量下载: 先检查哪些可下载, 再逐个下载 */
+async function showBatchDownload() {
+  const detail = document.getElementById('detail');
+  selectedId = null;
+  currentDetailId = null;
+  renderList();
+
+  detail.innerHTML = `
+    <div class="detail-header">
+      <h2>⬇ 批量下载 PDF</h2>
+      <div class="venue-line">查找所有有 URL 但没有 PDF 的论文, 通过 Unpaywall API 检查开放获取状态</div>
+    </div>
+    <div id="batch-checking" style="padding:40px;text-align:center">
+      <div class="loading-inline" style="font-size:14px;justify-content:center">
+        <span class="spinner" style="width:16px;height:16px"></span>
+        正在检查 ${allPapers.filter(p => p.url && !p.pdf).length} 篇论文的开放获取状态...
+      </div>
+    </div>
+    <div id="batch-results" style="display:none"></div>
+  `;
+
+  try {
+    const res = await fetch('/api/download-pdf-check', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: '{}',
+    });
+    const data = await res.json();
+    if (!data.ok) { showToast('检查失败', 'error'); return; }
+
+    const candidates = data.candidates || [];
+    const downloadable = candidates.filter(c => c.downloadable);
+    const notDownloadable = candidates.filter(c => !c.downloadable);
+
+    document.getElementById('batch-checking').style.display = 'none';
+    document.getElementById('batch-results').style.display = 'block';
+
+    document.getElementById('batch-results').innerHTML = `
+      <div class="review-banner" style="background:linear-gradient(90deg,#eff6ff 0%,#dbeafe 100%);border-color:#3b82f6">
+        <span class="review-icon">📊</span>
+        <div>
+          <div class="review-title" style="color:#1e40af">检查结果</div>
+          <div class="review-desc">共 ${candidates.length} 篇论文有 URL 但没有 PDF · 其中 <b style="color:var(--success)">${downloadable.length} 篇</b> 可下载 (开放获取) · <b style="color:var(--text-muted)">${notDownloadable.length} 篇</b> 需订阅</div>
+        </div>
+      </div>
+
+      ${downloadable.length > 0 ? `
+        <div class="form-section">
+          <h3>可下载 (${downloadable.length}) <button class="btn-mini btn-mini-success" onclick="batchDownloadAll()" id="btn-download-all" style="margin-left:auto">⬇ 全部下载</button></h3>
+          <div id="downloadable-list">
+            ${downloadable.map((c, i) => `
+              <div class="batch-item" id="batch-item-${i}" data-idx="${i}">
+                <div class="batch-item-info">
+                  <div class="batch-item-title">${escapeHtml(truncate(c.title, 80))}</div>
+                  <div class="batch-item-meta">来源: ${escapeHtml(c.source)} ${c.doi ? '· DOI: ' + escapeHtml(c.doi) : ''}</div>
+                </div>
+                <button class="btn-mini btn-mini-success" onclick="batchDownloadOne(${i})" id="batch-btn-${i}">⬇ 下载</button>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      ` : ''}
+
+      ${notDownloadable.length > 0 ? `
+        <div class="form-section">
+          <h3>需订阅, 无法自动下载 (${notDownloadable.length})</h3>
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:8px">这些论文的 PDF 需要机构订阅权限, 请手动下载后用「从文件夹选择 PDF」关联</div>
+          ${notDownloadable.slice(0, 20).map(c => `
+            <div class="batch-item" style="opacity:0.6">
+              <div class="batch-item-info">
+                <div class="batch-item-title">${escapeHtml(truncate(c.title, 60))}</div>
+                <div class="batch-item-meta">${escapeHtml(truncate(c.url, 60))}</div>
+              </div>
+            </div>
+          `).join('')}
+          ${notDownloadable.length > 20 ? `<div style="font-size:12px;color:var(--text-light);text-align:center;padding:8px">... 还有 ${notDownloadable.length - 20} 篇</div>` : ''}
+        </div>
+      ` : ''}
+    `;
+
+    // 存储可下载列表供批量使用
+    window._batchDownloadable = downloadable;
+  } catch (err) {
+    document.getElementById('batch-checking').innerHTML =
+      `<div style="padding:20px;color:var(--danger);text-align:center">⚠ 检查失败: ${escapeHtml(err.message)}</div>`;
+  }
+}
+
+/** 批量下载单个 */
+async function batchDownloadOne(idx) {
+  const item = window._batchDownloadable[idx];
+  if (!item) return;
+  const btn = document.getElementById('batch-btn-' + idx);
+  const itemDiv = document.getElementById('batch-item-' + idx);
+  btn.disabled = true;
+  btn.innerHTML = '<span class="loading-inline"><span class="spinner"></span>下载中</span>';
+
+  try {
+    const res = await fetch('/api/download-pdf', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ url: item.url, title: item.title, paperId: item.id }),
+    });
+    const result = await res.json();
+    if (result.ok) {
+      const sizeKb = Math.round(result.size / 1024);
+      itemDiv.style.background = 'var(--success-light)';
+      itemDiv.style.opacity = '0.7';
+      btn.innerHTML = `✓ ${sizeKb}KB`;
+      btn.className = 'btn-mini btn-mini-success';
+      btn.disabled = true;
+    } else {
+      btn.innerHTML = '✗ 失败';
+      btn.className = 'btn-mini';
+      btn.style.color = 'var(--danger)';
+      btn.style.borderColor = 'var(--danger)';
+      btn.disabled = true;
+      itemDiv.title = result.error;
+    }
+  } catch (err) {
+    btn.innerHTML = '✗ 错误';
+    btn.disabled = true;
+  }
+}
+
+/** 全部下载 */
+async function batchDownloadAll() {
+  const list = window._batchDownloadable || [];
+  const btn = document.getElementById('btn-download-all');
+  btn.disabled = true;
+  btn.textContent = '下载中...';
+
+  let success = 0, fail = 0;
+  for (let i = 0; i < list.length; i++) {
+    btn.textContent = `下载中 (${i + 1}/${list.length})`;
+    await batchDownloadOne(i);
+    const itemBtn = document.getElementById('batch-btn-' + i);
+    if (itemBtn && itemBtn.textContent.startsWith('✓')) success++;
+    else fail++;
+    // 间隔 1 秒避免限流
+    if (i < list.length - 1) await new Promise(r => setTimeout(r, 1000));
+  }
+
+  btn.textContent = `完成: ${success} 成功, ${fail} 失败`;
+  if (success > 0) {
+    showToast(`✓ 批量下载完成: ${success} 篇成功`, 'success', 4000);
+    await loadData();
+    renderList();
   }
 }
 

@@ -604,6 +604,195 @@ function cleanText(s) {
 
 
 // ═══════════════════════════════════════════════
+//  PDF 自动下载 (Unpaywall API + 直接下载)
+// ═══════════════════════════════════════════════
+
+/** 从论文 URL 提取 DOI */
+function extractDoiFromUrlString(url) {
+  let m = url.match(/doi\.org\/(10\.\d{4,}\/[^\s;&'"#?]+)/i);
+  if (m) return decodeURIComponent(m[1].replace(/[.,;]$/, ''));
+  m = url.match(/(10\.\d{4,}\/[^\s;&'"#?]+)/);
+  if (m) return decodeURIComponent(m[1].replace(/[.,;]$/, ''));
+  return null;
+}
+
+/** 调用 Unpaywall API 查找开放获取 PDF 链接
+ *  返回 { pdfUrl, source, hostType } 或 null
+ */
+function findOaPdfViaUnpaywall(doi) {
+  const https = require('https');
+  const apiUrl = `https://api.unpaywall.org/v2/${encodeURIComponent(doi)}?email=papermanager@gmail.com`;
+
+  return new Promise((resolve) => {
+    const req = https.get(apiUrl, {
+      headers: { 'User-Agent': 'PaperManager/1.0', 'Accept': 'application/json' },
+      timeout: 15000,
+    }, (res) => {
+      if (res.statusCode !== 200) { res.resume(); return resolve(null); }
+      let body = '';
+      res.on('data', chunk => body += chunk);
+      res.on('end', () => {
+        try {
+          const data = JSON.parse(body);
+          const bestOa = data.best_oa_location;
+          if (bestOa && bestOa.url_for_pdf) {
+            resolve({ pdfUrl: bestOa.url_for_pdf, source: 'Unpaywall', hostType: bestOa.host_type });
+          } else if (bestOa && bestOa.url) {
+            resolve({ pdfUrl: bestOa.url, source: 'Unpaywall (landing page)', hostType: bestOa.host_type });
+          } else {
+            resolve(null);
+          }
+        } catch (e) { resolve(null); }
+      });
+    });
+    req.on('error', () => resolve(null));
+    req.on('timeout', () => { req.destroy(); resolve(null); });
+  });
+}
+
+/** 从论文 URL 直接推断 PDF 下载链接 (MDPI / arXiv / Frontiers 等) */
+function guessDirectPdfUrl(url) {
+  // arXiv: https://arxiv.org/abs/2410.12866 → https://arxiv.org/pdf/2410.12866
+  let m = url.match(/arxiv\.org\/abs\/([0-9.]+)/);
+  if (m) return `https://arxiv.org/pdf/${m[1]}.pdf`;
+
+  // MDPI: https://www.mdpi.com/1424-8220/23/21/8882 → https://www.mdpi.com/1424-8220/23/21/8882/pdf
+  m = url.match(/mdpi\.com\/(\d+-\d+\/\d+\/\d+\/\d+)/);
+  if (m) return `https://www.mdpi.com/${m[1]}/pdf`;
+
+  // Frontiers: 通常 Unpaywall 能找到, 不直接推断
+  return null;
+}
+
+/** 下载 PDF 到 papers/ 目录, 返回保存路径
+ *  options: { url, filename, paperTitle }
+ */
+async function downloadPdf(url, filename) {
+  const https = require('https');
+  const http = require('http');
+
+  // 生成安全文件名
+  let safeName = (filename || 'downloaded').replace(/[<>:"/\\|?*]/g, '_').replace(/\s+/g, '_');
+  if (!safeName.endsWith('.pdf')) safeName += '.pdf';
+  let finalPath = path.join(PAPERS_DIR, safeName);
+  // 冲突加序号
+  if (fs.existsSync(finalPath)) {
+    const base = path.basename(safeName, '.pdf');
+    let i = 2;
+    while (fs.existsSync(path.join(PAPERS_DIR, `${base}_${i}.pdf`))) i++;
+    safeName = `${base}_${i}.pdf`;
+    finalPath = path.join(PAPERS_DIR, safeName);
+  }
+
+  return new Promise((resolve, reject) => {
+    const client = url.startsWith('https') ? https : http;
+    const req = client.get(url, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept': 'application/pdf,*/*',
+      },
+      timeout: 60000,
+    }, (res) => {
+      // 跟随重定向
+      if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+        const newUrl = res.headers.location.startsWith('http')
+          ? res.headers.location
+          : new URL(res.headers.location, url).href;
+        return resolve(downloadPdf(newUrl, filename));
+      }
+      if (res.statusCode !== 200) {
+        res.resume();
+        return reject(new Error('HTTP ' + res.statusCode));
+      }
+      // 验证是 PDF (content-type 或前几字节)
+      const contentType = res.headers['content-type'] || '';
+      if (!contentType.includes('pdf') && !contentType.includes('octet-stream')) {
+        res.resume();
+        return reject(new Error('返回的不是 PDF (content-type: ' + contentType + ')'));
+      }
+      const chunks = [];
+      res.on('data', chunk => chunks.push(chunk));
+      res.on('end', () => {
+        const buf = Buffer.concat(chunks);
+        if (buf.length < 1000) {
+          return reject(new Error('文件太小, 可能不是有效 PDF (' + buf.length + ' bytes)'));
+        }
+        // 检查 PDF 魔数
+        if (buf.substring(0, 4) !== '%PDF') {
+          return reject(new Error('文件不是有效 PDF (缺少 %PDF 头)'));
+        }
+        fs.writeFileSync(finalPath, buf);
+        resolve({ savedPath: 'papers/' + safeName, filename: safeName, size: buf.length });
+      });
+    });
+    req.on('error', reject);
+    req.on('timeout', () => { req.destroy(); reject(new Error('下载超时')); });
+  });
+}
+
+/** 自动下载论文 PDF
+ *  策略: 0) 从 URL 提取 DOI → 失败则抓取页面提取 DOI
+ *        1) Unpaywall 查 OA PDF → 下载
+ *        2) 直接推断 PDF URL (arXiv/MDPI) → 下载
+ *        3) 都失败则返回错误
+ */
+async function autoDownloadPaperPdf(paperUrl, paperTitle) {
+  // 生成文件名
+  let filename = 'downloaded.pdf';
+  if (paperTitle) {
+    filename = paperTitle.substring(0, 80).replace(/[<>:"/\\|?*]/g, '').replace(/\s+/g, '_') + '.pdf';
+  }
+
+  // 策略 0: 提取 DOI (URL 直接提取 → 抓取页面提取)
+  let doi = extractDoiFromUrlString(paperUrl);
+  if (!doi) {
+    // 抓取页面 HTML, 从 meta tags 提取 DOI
+    try {
+      const html = await fetchHtml(paperUrl);
+      const metaDoi = html.match(/<meta[^>]*name=["']citation_doi["'][^>]*content=["']([^"']+)["']/i);
+      if (metaDoi) {
+        doi = metaDoi[1].trim();
+      } else {
+        // 正则搜 DOI
+        const regexDoi = html.match(/10\.\d{4,}\/[^\s"'<;]+/);
+        if (regexDoi) doi = regexDoi[0].replace(/[.,;]$/, '');
+      }
+    } catch (e) { /* 页面抓取失败, 继续 */ }
+  }
+
+  // 策略 1: Unpaywall (通过 DOI)
+  if (doi) {
+    const oaResult = await findOaPdfViaUnpaywall(doi);
+    if (oaResult && oaResult.pdfUrl) {
+      try {
+        const result = await downloadPdf(oaResult.pdfUrl, filename);
+        return { ...result, doi, source: oaResult.source };
+      } catch (e) {
+        // Unpaywall 找到了链接但下载失败, 继续尝试其他策略
+      }
+    }
+  }
+
+  // 策略 2: 直接推断 PDF URL (arXiv / MDPI)
+  const directUrl = guessDirectPdfUrl(paperUrl);
+  if (directUrl) {
+    try {
+      const result = await downloadPdf(directUrl, filename);
+      return { ...result, source: 'direct URL', doi: doi || '' };
+    } catch (e) {
+      // 继续报错
+    }
+  }
+
+  // 都失败
+  const reason = doi
+    ? `DOI: ${doi}, 但 Unpaywall 未找到开放获取版本 (可能需要订阅)`
+    : '无法从 URL 提取 DOI, 且无法直接推断 PDF 链接';
+  return { error: reason };
+}
+
+
+// ═══════════════════════════════════════════════
 //  HTTP 服务
 // ═══════════════════════════════════════════════
 
@@ -714,6 +903,58 @@ const server = http.createServer(async (req, res) => {
       } catch (err) {
         return sendJson(res, 500, { ok: false, error: err.message });
       }
+    }
+
+    // 自动下载论文 PDF (单篇)
+    if (pathname === '/api/download-pdf' && method === 'POST') {
+      const body = await readBody(req);
+      if (!body.url) return sendJson(res, 400, { ok: false, error: '缺少 url 参数' });
+      try {
+        const result = await autoDownloadPaperPdf(body.url, body.title);
+        if (result.error) {
+          return sendJson(res, 200, { ok: false, error: result.error });
+        }
+        // 如果指定了 paperId, 自动更新 pdf 字段
+        if (body.paperId) {
+          const p = readAllPapers().find(x => x.id === body.paperId);
+          if (p) {
+            updatePaper({
+              id: p.id, groupYear: p.groupYear,
+              authors: p.authors, title: p.title, venue: p.venue,
+              venueHighlight: p.venueHighlight, url: p.url,
+              pdf: result.savedPath, topics: p.topics || [],
+              ...(p.abstract ? { abstract: p.abstract } : {}),
+            });
+          }
+        }
+        return sendJson(res, 200, { ok: true, ...result });
+      } catch (err) {
+        return sendJson(res, 500, { ok: false, error: err.message });
+      }
+    }
+
+    // 批量下载 PDF (返回可下载列表, 前端逐个调用)
+    if (pathname === '/api/download-pdf-check' && method === 'POST') {
+      const papers = readAllPapers();
+      const candidates = papers.filter(p => p.url && !p.pdf);
+      const results = [];
+      for (const p of candidates) {
+        const doi = extractDoiFromUrlString(p.url);
+        const directUrl = guessDirectPdfUrl(p.url);
+        let downloadable = false, source = '';
+        // 有 DOI 的标记为 "可能可下载" (Unpaywall 检查留给实际下载时)
+        // 有直接 URL 的标记为 "可下载"
+        if (directUrl) {
+          downloadable = true; source = 'direct URL';
+        } else if (doi) {
+          downloadable = true; source = 'Unpaywall (待检查)';
+        }
+        results.push({
+          id: p.id, title: p.title, url: p.url,
+          doi: doi || '', downloadable, source,
+        });
+      }
+      return sendJson(res, 200, { ok: true, candidates: results });
     }
 
     // 访问 papers/ 下的 PDF (预览用)
