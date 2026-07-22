@@ -487,6 +487,36 @@
     cursor: pointer;
   }
   .topic-chip::after { content: "×"; font-size: 14px; line-height: 1; }
+  .topic-chip .topic-chip-label-en {
+    font-size: 10px;
+    opacity: 0.6;
+    font-family: var(--font);
+  }
+  .topic-picker-menu {
+    position: absolute;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    z-index: 100;
+    min-width: 180px;
+    margin-top: 4px;
+    overflow: hidden;
+  }
+  .topic-picker-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    transition: background 0.1s;
+  }
+  .topic-picker-item:hover { background: var(--primary-light); }
+  .topic-picker-item .tpi-label { font-weight: 500; }
+  .topic-picker-item .tpi-label-en { font-size: 11px; color: var(--text-light); }
+  .topics-input { position: relative; }
   .topic-add {
     border: none;
     background: transparent;
@@ -1418,7 +1448,12 @@ function renderDetail(p) {
       <div class="form-row">
         <label>主题</label>
         <div class="topics-input" id="f-topics">
-          ${(p.topics || []).map(t => `<span class="topic-chip" onclick="removeTopic(this,'${t}')">${t}</span>`).join('')}
+          ${(p.topics || []).map(t => {
+            const ft = filterTopics.find(f => f.id === t);
+            const zh = ft ? ft.labelZh : t;
+            const en = ft ? ft.labelEn : '';
+            return `<span class="topic-chip" data-topic="${escapeAttr(t)}" onclick="this.remove()">${escapeHtml(zh)}${en ? ` <span class="topic-chip-label-en">${escapeHtml(en)}</span>` : ''}</span>`;
+          }).join('')}
           <button class="topic-add" onclick="addTopic()">+ 添加</button>
         </div>
       </div>
@@ -1484,24 +1519,51 @@ function removeTopic(chip, topic) {
 }
 function addTopic() {
   const container = document.getElementById('f-topics');
-  const existing = Array.from(container.querySelectorAll('.topic-chip')).map(c => c.textContent.replace('×', '').trim());
+  const existing = Array.from(container.querySelectorAll('.topic-chip')).map(c => c.dataset.topic);
   const available = filterTopics.filter(t => t.id !== 'all' && !existing.includes(t.id));
   if (available.length === 0) { showToast('所有主题已添加', 'info'); return; }
-  // 简单循环选择
-  const choice = prompt('选择主题 (输入 id):\n' + available.map(t => `${t.id} = ${t.labelZh}`).join('\n'));
-  if (!choice) return;
-  const topic = choice.trim();
-  if (!available.find(t => t.id === topic)) { showToast('无效主题: ' + topic, 'error'); return; }
+
+  // 如果已有打开的菜单, 先关闭
+  const oldMenu = document.getElementById('topic-picker-menu');
+  if (oldMenu) { oldMenu.remove(); return; }
+
   const addBtn = container.querySelector('.topic-add');
+  const menu = document.createElement('div');
+  menu.id = 'topic-picker-menu';
+  menu.className = 'topic-picker-menu';
+  menu.innerHTML = available.map(t => `
+    <div class="topic-picker-item" onclick="pickTopic('${t.id}')">
+      <span class="tpi-label">${escapeHtml(t.labelZh)}</span>
+      <span class="tpi-label-en">${escapeHtml(t.labelEn)}</span>
+    </div>
+  `).join('');
+  container.appendChild(menu);
+
+  // 点击外部关闭
+  setTimeout(() => {
+    document.addEventListener('click', closeTopicMenu, { once: true });
+  }, 0);
+}
+function closeTopicMenu(e) {
+  const menu = document.getElementById('topic-picker-menu');
+  if (menu && (!e || !menu.contains(e.target))) menu.remove();
+}
+function pickTopic(topicId) {
+  const container = document.getElementById('f-topics');
+  const addBtn = container.querySelector('.topic-add');
+  const t = filterTopics.find(x => x.id === topicId);
+  if (!t) return;
   const chip = document.createElement('span');
   chip.className = 'topic-chip';
-  chip.textContent = topic;
+  chip.dataset.topic = topicId;
+  chip.innerHTML = `${escapeHtml(t.labelZh)} <span class="topic-chip-label-en">${escapeHtml(t.labelEn)}</span>`;
   chip.onclick = () => chip.remove();
   container.insertBefore(chip, addBtn);
+  document.getElementById('topic-picker-menu')?.remove();
 }
 function getTopics() {
   return Array.from(document.querySelectorAll('#f-topics .topic-chip'))
-    .map(c => c.textContent.replace('×', '').trim())
+    .map(c => c.dataset.topic)
     .filter(Boolean);
 }
 
