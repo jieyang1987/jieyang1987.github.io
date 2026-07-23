@@ -442,20 +442,14 @@ function parseCrossrefMessage(msg, doi) {
     result.title = cleanText(msg.title[0]);
   }
 
-  // 作者 — 转为缩写格式: "Jie Yang" → "J. Yang"
+  // 作者 — 转为缩写格式 + J. Yang 加粗标 *
   if (Array.isArray(msg.author) && msg.author.length > 0) {
     const names = msg.author.map(a => {
       if (a.name) return a.name;  // 组织作者, 保持原样
       if (!a.family) return a.given || '';
-      // given 可能是 "Jie" 或 "Jie Wei", 取每个 given name 的首字母
-      const initials = (a.given || '')
-        .split(/\s+/)
-        .filter(Boolean)
-        .map(n => n.charAt(0).toUpperCase() + '.')
-        .join(' ');
-      return (initials + ' ' + a.family).trim();
+      return ((a.given || '') + ' ' + a.family).trim();
     }).filter(Boolean);
-    if (names.length > 0) result.authors = names.join(', ');
+    if (names.length > 0) result.authors = formatAuthors(names);
   }
 
   // 摘要 (Crossref 的 abstract 常带 <jats:p> 标签, 需清理)
@@ -559,8 +553,8 @@ function parseMetadataFromHtml(html, sourceUrl) {
           }
           if (item['author']) {
             const authors = Array.isArray(item['author']) ? item['author'] : [item['author']];
-            const names = authors.map(a => typeof a === 'string' ? a : (a.name || a.givenName + ' ' + a.familyName)).filter(Boolean);
-            if (names.length > 0 && !result.authors) result.authors = names.join(', ');
+            const names = authors.map(a => typeof a === 'string' ? a : (a.name || [a.givenName, a.familyName].filter(Boolean).join(' '))).filter(Boolean);
+            if (names.length > 0 && !result.authors) result.authors = formatAuthors(names);
           }
           if (item['identifier'] && Array.isArray(item['identifier'])) {
             const doi = item['identifier'].find(id => id.propertyID && id.propertyID.includes('doi'));
@@ -592,7 +586,7 @@ function parseMetadataFromHtml(html, sourceUrl) {
         const contentMatch = m.match(/content=["']([^"']*)["']/i);
         return contentMatch ? cleanText(contentMatch[1]) : '';
       }).filter(Boolean);
-      if (authors.length > 0) result.authors = authors.join(', ');
+      if (authors.length > 0) result.authors = formatAuthors(authors);
     }
   }
 
@@ -619,6 +613,29 @@ function parseMetadataFromHtml(html, sourceUrl) {
 }
 
 /** 清理 HTML 实体和多余空白 */
+/** 格式化作者名: 全名→缩写 + J. Yang 加粗标 *
+ *  输入: ["Jie Yang", "Wei Zou", ...] 或 ["J. Yang", "W. Zou", ...]
+ *  输出: "<strong>J. Yang*</strong>, W. Zou, ..."
+ */
+function formatAuthors(names) {
+  const formatted = names.map(n => {
+    // 已经是缩写格式 (如 "J. Yang") 直接用
+    if (/^[A-Z]\.\s/.test(n)) return n;
+    // 全名转缩写: "Jie Yang" → "J. Yang", "Jie Wei Yang" → "J. W. Yang"
+    const parts = n.trim().split(/\s+/);
+    if (parts.length < 2) return n;  // 无法拆分
+    const family = parts[parts.length - 1];
+    const givenParts = parts.slice(0, -1);
+    const initials = givenParts.map(p => p.charAt(0).toUpperCase() + '.').join(' ');
+    return (initials + ' ' + family).trim();
+  });
+  // 加粗 J. Yang + 标 *
+  return formatted.map(n => {
+    if (/^J\.\s*Yang$/i.test(n)) return '<strong>J. Yang*</strong>';
+    return n;
+  }).join(', ');
+}
+
 function cleanText(s) {
   return String(s || '')
     .replace(/&amp;/g, '&')
