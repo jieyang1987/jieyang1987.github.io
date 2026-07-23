@@ -92,8 +92,11 @@ function updatePaper(payload) {
 
   // 更新字段 (保留原有字段, 只覆盖提交的)
   const old = group.items[idx];
+  // 作者字段: 自动重新格式化 (缩写 + 姓名顺序 + J.Yang 加粗)
+  let authorsValue = payload.authors ?? old.authors;
+  if (authorsValue) authorsValue = reformatAuthorsString(authorsValue);
   group.items[idx] = {
-    authors: payload.authors ?? old.authors,
+    authors: authorsValue,
     title: payload.title ?? old.title,
     venue: payload.venue ?? old.venue,
     venueHighlight: payload.venueHighlight ?? old.venueHighlight ?? false,
@@ -215,7 +218,7 @@ function createPaper(payload) {
 
   // 构建新论文对象
   const newPaper = {
-    authors: payload.authors || '',
+    authors: reformatAuthorsString(payload.authors || ''),
     title: payload.title || '',
     venue: payload.venue || '',
     venueHighlight: payload.venueHighlight || false,
@@ -612,21 +615,70 @@ function parseMetadataFromHtml(html, sourceUrl) {
   return result;
 }
 
-/** 清理 HTML 实体和多余空白 */
+/** 修正姓名顺序, 统一为 "Given Family" (名 姓) 西方顺序
+ *  处理三种输入:
+ *  1) "Family, Given" (逗号格式, 如 arxiv citation_author "Shao, Kunming") → "Kunming Shao"
+ *  2) "Yang Jie" (中文姓在前) → "Jie Yang"  (仅当首词是常见姓氏且次词不是)
+ *  3) "Jie Yang" (已是西方顺序) → 不变
+ */
+function normalizeNameOrder(name) {
+  let n = name.trim();
+  // 1) 逗号格式 "Family, Given" → "Given Family"
+  //    (单个作者名内的逗号一定是 "姓, 名" 格式, 如 arxiv "Shao, Kunming")
+  if (n.includes(',')) {
+    const commaParts = n.split(',').map(s => s.trim()).filter(Boolean);
+    if (commaParts.length === 2) {
+      n = commaParts[1] + ' ' + commaParts[0];
+    }
+  }
+  const parts = n.trim().split(/\s+/);
+  if (parts.length < 2) return n;
+  // 常见中文姓氏 (拼音), 不区分大小写
+  // 注: xiao/ming 等更多用作名字的词已移除, 避免误判
+  const surnames = new Set([
+    'yang','wang','li','zhang','liu','chen','wu','zhao','huang','zhou','xu','sun',
+    'hu','zhu','gao','lin','he','guo','ma','luo','song','shen','zheng','liang',
+    'xie','han','tang','feng','deng','cao','peng','zeng','tian','dong',
+    'yuan','pan','yu','jiang','cai','du','ye','cheng','su','wei','lu','ding',
+    'ren','yao','cui','zhong','tan','fang','shi','fu','zou','wen','hou',
+    'bai','qiu','qin','gu','zhan','yan','mo','cui','dai','xia',
+  ]);
+  // 2) 首词是姓氏 且 次词不是姓氏 → 姓在前, 翻转
+  //    (两个都是姓氏时无法判断, 默认 "名 姓" 不翻转, 如 "Wei Zou")
+  if (surnames.has(parts[0].toLowerCase()) && !surnames.has(parts[1].toLowerCase())) {
+    const family = parts[0];
+    const givenParts = parts.slice(1);
+    return givenParts.join(' ') + ' ' + family;
+  }
+  return n;
+}
+
+/** 名字部分 → 首字母缩写, 支持连字符
+ *  "Jie" → "J.", "Chi-Ying" → "C-Y.", "Kwang-Ting" → "K-T."
+ */
+function givenInitial(p) {
+  if (p.includes('-')) {
+    return p.split('-').map(seg => seg.charAt(0).toUpperCase()).join('-') + '.';
+  }
+  return p.charAt(0).toUpperCase() + '.';
+}
+
 /** 格式化作者名: 全名→缩写 + J. Yang 加粗标 *
- *  输入: ["Jie Yang", "Wei Zou", ...] 或 ["J. Yang", "W. Zou", ...]
+ *  输入: ["Jie Yang", "Wei Zou", "Yang Jie", "Shao, Kunming", ...] 或 ["J. Yang", "W. Zou", ...]
  *  输出: "<strong>J. Yang*</strong>, W. Zou, ..."
  */
 function formatAuthors(names) {
   const formatted = names.map(n => {
-    // 已经是缩写格式 (如 "J. Yang") 直接用
-    if (/^[A-Z]\.\s/.test(n)) return n;
-    // 全名转缩写: "Jie Yang" → "J. Yang", "Jie Wei Yang" → "J. W. Yang"
-    const parts = n.trim().split(/\s+/);
+    // 已经是缩写格式 (如 "J. Yang", "Y-H. Chen", "K-T. Cheng") 直接用
+    if (/^[A-Z](-[A-Z])?\.\s/.test(n)) return n;
+    // 先修正姓名顺序 (逗号格式 / 中文姓在前)
+    const normalized = normalizeNameOrder(n);
+    // 全名转缩写: "Jie Yang" → "J. Yang", "Chi-Ying Tsui" → "C-Y. Tsui"
+    const parts = normalized.trim().split(/\s+/);
     if (parts.length < 2) return n;  // 无法拆分
     const family = parts[parts.length - 1];
     const givenParts = parts.slice(0, -1);
-    const initials = givenParts.map(p => p.charAt(0).toUpperCase() + '.').join(' ');
+    const initials = givenParts.map(givenInitial).join(' ');
     return (initials + ' ' + family).trim();
   });
   // 加粗 J. Yang + 标 *
@@ -636,6 +688,125 @@ function formatAuthors(names) {
   }).join(', ');
 }
 
+/** 将逗号分隔的作者字符串重新格式化:
+ *  - 去HTML标签, 保留非 J.Yang 作者的星号 (共同通讯标记)
+ *  - 未缩写的全名 → normalizeNameOrder + 缩写
+ *  - "Yang Jie" → "Jie Yang" → "J. Yang" → <strong>J. Yang*</strong>
+ *  - 已缩写的 (如 "W. Zou", "Y-H. Chen") 保持不变
+ *  输入: "Yang Jie, W. Zou, <strong>J. Yang*</strong>, M. Sawan*"
+ *  输出: "<strong>J. Yang*</strong>, W. Zou, M. Sawan*"
+ */
+function reformatAuthorsString(authorsStr) {
+  if (!authorsStr || !authorsStr.trim()) return authorsStr || '';
+
+  // 按逗号拆分
+  const rawParts = authorsStr.split(/,\s*/);
+
+  // ── 检测 "Family, Given" 逗号格式 (citation_author 标签常见) ──
+  // 例如: "Shao, Kunming, Tian, Fengshi, Yang, Jie"
+  // 拆分后得到 ["Shao", "Kunming", "Tian", "Fengshi", "Yang", "Jie"]
+  // 需要两两配对: ("Shao","Kunming") ("Tian","Fengshi") ("Yang","Jie")
+  //
+  // 判定条件:
+  // 1) 没有任何部分是已缩写格式 (不以 "X." 或 "X-Y." 开头)
+  // 2) 不是所有部分都含 2+ 单词 (排除 "Given Family, Given Family" 格式)
+  // 3) 偶数下标部分都是单词 (姓氏), 奇数下标可以是多词 (名字)
+  // 4) 总数 ≥ 2 且为偶数
+  const cleanedForCheck = rawParts.map(p => p.replace(/<[^>]+>/g, '').replace(/\*/g, '').trim());
+  const hasAbbreviated = cleanedForCheck.some(p => /^[A-Z](-[A-Z])?\.\s/.test(p));
+  const allMultiWord = cleanedForCheck.every(p => p.split(/\s+/).length >= 2);
+  const evenIndexSingleWord = cleanedForCheck.every((p, i) =>
+    i % 2 === 0 ? p.split(/\s+/).length === 1 : true
+  );
+
+  let names;
+  if (!hasAbbreviated && !allMultiWord && evenIndexSingleWord &&
+      cleanedForCheck.length >= 2 && cleanedForCheck.length % 2 === 0) {
+    // "Family, Given" 配对合并 → "Given Family"
+    names = [];
+    for (let i = 0; i < rawParts.length; i += 2) {
+      const family = rawParts[i].replace(/<[^>]+>/g, '').replace(/\*/g, '').trim();
+      const given = rawParts[i + 1].replace(/<[^>]+>/g, '').replace(/\*/g, '').trim();
+      names.push(given + ' ' + family);
+    }
+  } else {
+    names = rawParts;
+  }
+
+  const formatted = names.map(raw => {
+    // 去HTML标签, 检查是否有星号
+    const cleaned = raw.replace(/<[^>]+>/g, '').trim();
+    const hasStar = /\*$/.test(cleaned);
+
+    // 纯名字 (去星号)
+    let name = cleaned.replace(/\*/g, '').trim();
+    if (!name) return raw; // 空的保留原样
+
+    // 已经是缩写格式 (如 "J. Yang", "Y-H. Chen", "K-T. Cheng") → 直接用
+    if (/^[A-Z](-[A-Z])?\.\s/.test(name)) return name + (hasStar ? '*' : '');
+
+    // 修正姓名顺序 (逗号格式 / 中文姓在前)
+    const normalized = normalizeNameOrder(name);
+
+    // 全名转缩写: "Jie Yang" → "J. Yang", "Chi-Ying Tsui" → "C-Y. Tsui"
+    const parts = normalized.trim().split(/\s+/);
+    if (parts.length < 2) return name + (hasStar ? '*' : ''); // 无法拆分
+    const family = parts[parts.length - 1];
+    const givenParts = parts.slice(0, -1);
+    const initials = givenParts.map(givenInitial).join(' ');
+    return (initials + ' ' + family).trim() + (hasStar ? '*' : '');
+  });
+
+  // J. Yang 加粗标 * (覆盖原有星号)
+  return formatted.map(n => {
+    if (/^J\.\s*Yang\*?$/i.test(n)) return '<strong>J. Yang*</strong>';
+    return n;
+  }).join(', ');
+}
+
+/** 批量重新格式化所有论文的作者字段
+ *  返回 { ok, total, changed, details }
+ */
+function reformatAllAuthors() {
+  const config = readConfig();
+  let total = 0, changed = 0;
+  const details = [];
+
+  for (const f of config.yearlyFiles) {
+    const fp = path.join(ROOT, f.file);
+    if (!fs.existsSync(fp)) continue;
+    let data;
+    try { data = JSON.parse(fs.readFileSync(fp, 'utf8')); } catch (e) { continue; }
+
+    let fileChanged = false;
+    for (const section of ['journals', 'conferences']) {
+      if (!data[section]) continue;
+      for (const group of data[section]) {
+        if (!group.items) continue;
+        for (const item of group.items) {
+          if (!item.authors) continue;
+          total++;
+          const before = item.authors;
+          const after = reformatAuthorsString(before);
+          if (before !== after) {
+            item.authors = after;
+            changed++;
+            details.push({ file: f.file, title: (item.title || '').substring(0, 60), before, after });
+            fileChanged = true;
+          }
+        }
+      }
+    }
+
+    if (fileChanged) {
+      fs.writeFileSync(fp, JSON.stringify(data, null, 2) + '\n', 'utf8');
+    }
+  }
+
+  return { ok: true, total, changed, details: details.slice(0, 20) }; // 最多返回前20条
+}
+
+/** 清理 HTML 实体和多余空白 */
 function cleanText(s) {
   return String(s || '')
     .replace(/&amp;/g, '&')
@@ -930,6 +1101,12 @@ const server = http.createServer(async (req, res) => {
       } catch (err) {
         return sendJson(res, 200, { ok: false, error: err.message });
       }
+    }
+
+    // 批量重新格式化所有论文的作者字段
+    if (pathname === '/api/reformat-authors' && method === 'POST') {
+      const result = reformatAllAuthors();
+      return sendJson(res, 200, result);
     }
 
     // 列出 papers/ 目录所有 PDF (供关联选择)

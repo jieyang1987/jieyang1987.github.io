@@ -28,7 +28,7 @@
           ]
         },
         {
-          "authors": "J. Wang, Y-H. Chen, <strong>J. Yang</strong>, M. Sawan",
+          "authors": "J. Wang, Y-H. Chen, <strong>J. Yang*</strong>, M. Sawan",
           "title": "Intelligent Classification Technique of Hand Motor Imagery Using EEG Beta Rebound Follow-Up Pattern",
           "venue": "MDPI Biosensors",
           "venueHighlight": false,
@@ -39,7 +39,7 @@
           ]
         },
         {
-          "authors": "Y. Xu, <strong>J. Yang</strong>, M. Sawan",
+          "authors": "Y. Xu, <strong>J. Yang*</strong>, M. Sawan",
           "title": "Trends and challenges of processing measurements from wearable devices intended for epileptic seizure prediction",
           "venue": "Journal of Signal Processing Systems",
           "venueHighlight": false,
@@ -179,7 +179,7 @@
           ]
         },
         {
-          "authors": "<strong>J. Yang</strong>, N. Li, Y-H. Chen, M. Sawan",
+          "authors": "<strong>J. Yang*</strong>, N. Li, Y-H. Chen, M. Sawan",
           "title": "Towards Intelligent Noninvasive Closed-loop Neuromodulation Systems",
           "venue": "2022 IEEE 4th International Conference on Artificial Intelligence Circuits and Systems (AICAS)",
           "venueHighlight": false,
@@ -202,7 +202,7 @@
           ]
         },
         {
-          "authors": "D. Wu, <strong>J. Yang</strong>, M. Sawan",
+          "authors": "D. Wu, <strong>J. Yang*</strong>, M. Sawan",
           "title": "Towards Task-aware Signal Compression for Efficient Continuous Health Monitoring",
           "venue": "2022 IEEE International Symposium on Circuits and Systems (ISCAS)",
           "venueHighlight": false,

@@ -78,7 +78,7 @@
           "abstract": "Versatile and energy-efficient neural signal processors are in high demand in brain-machine interfaces and closed-loop neuromodulation applications. In this paper, we propose an energy-efficient processor for neural signal analyses. The proposed processor utilizes three key techniques to efficiently improve versatility and energy efficiency. 1) Hybrid neural network design: The processor supports artificial neural network (ANN)- and spiking neural network (SNN)-based neuromorphic processing where ANN is used to support the processing of ExG signals and SNN is used for handling neural spike signals. 2) Event-driven processing: The processor can perform always-on binary neural network (BNN)-based event detection with low-energy consumption, and it only switches to the high-accuracy convolutional neural network (CNN)-based recognition mode when events are detected. 3) Reconfigurable architecture: By exploiting the computational similarity of different neural networks, the processor supports critical BNN, CNN, and SNN operations with the same processing elements, achieving significant area reduction and energy efficiency improvement over those of a naive implementation. It achieves 90.05% accuracy and 4.38 uJ/class in a center-out reaching task with an SNN and 99.4% sensitivity, 98.6% specificity, and 1.93 uJ/class in an EEG-based seizure prediction task with dual neural network-based event-driven processing. Moreover, it achieves high accuracy and low energy consumption across multiple neural signal analysis tasks."
         },
         {
-          "authors": "Y. Chen, <strong>J. Yang</strong>, H. Wu, K. Beier, M. Sawan",
+          "authors": "Y. Chen, <strong>J. Yang*</strong>, H. Wu, K. Beier, M. Sawan",
           "title": "Challenges and future trends in wearable closed-loop neuromodulation to efficiently treat methamphetamine addiction",
           "venue": "Frontiers in Psychiatry",
           "venueHighlight": false,
@@ -164,7 +164,7 @@
           ]
         },
         {
-          "authors": "F. Tian, S. Zhao, J. He, J. Chen, X. Wang, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui, K-T. Cheng",
+          "authors": "F. Tian, S. Zhao, J. He, J. Chen, X. Wang, <strong>J. Yang*</strong>, M. Sawan, C-Y. Tsui, K-T. Cheng",
           "title": "NOLS: A Near-sensor On-chip Learning System with Direct Feedback Alignment for Personalized Wearable Heart Health Monitoring",
           "venue": "2023 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
           "venueHighlight": false,
@@ -175,7 +175,7 @@
           ]
         },
         {
-          "authors": "H. Li, F. Tian, <strong>J. Yang</strong>, M. Sawan, N. El-Atab",
+          "authors": "H. Li, F. Tian, <strong>J. Yang*</strong>, M. Sawan, N. El-Atab",
           "title": "NMBNN: Noise-Adaptive Memristive Bayesian Neural Network for Energy-Efficient Edge Health Care",
           "venue": "2023 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
           "venueHighlight": false,
@@ -197,7 +197,7 @@
           ]
         },
         {
-          "authors": "T. Li, <strong>J. Yang</strong>, T. Liu, S. Dong, W. Chen, S. Zhang",
+          "authors": "T. Li, <strong>J. Yang*</strong>, T. Liu, S. Dong, W. Chen, S. Zhang",
           "title": "A Sparsity-Adapted Hardware Implementation of SNN for Cortical Spike Trains Decoding",
           "venue": "2023 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
           "venueHighlight": false,
@@ -231,7 +231,7 @@
           ]
         },
         {
-          "authors": "F. Tian, X. Wang, J. Chen, J. Zheng, H. Wu, X. Liu, F. Tu, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui",
+          "authors": "F. Tian, X. Wang, J. Chen, J. Zheng, H. Wu, X. Liu, F. Tu, <strong>J. Yang*</strong>, M. Sawan, C-Y. Tsui",
           "title": "BIOS: A 40nm Bionic Sensor-defined 0.47 pJ/SOP, 268.7 TSOPs/W Configurable Spiking Neuron-in-Memory Processor for Wearable Healthcare",
           "venue": "ESSCIRC 2023 - IEEE 49th European Solid State Circuits Conference (ESSCIRC)",
           "venueHighlight": false,
@@ -254,7 +254,7 @@
           ]
         },
         {
-          "authors": "H. Li, A. Lone, F. Tian, <strong>J. Yang</strong>, M. Sawan, N. El-Atab",
+          "authors": "H. Li, A. Lone, F. Tian, <strong>J. Yang*</strong>, M. Sawan, N. El-Atab",
           "title": "Novel Knowledge Distillation to Improve Training Accuracy of Spin-based SNN",
           "venue": "2023 IEEE 5th International Conference on Artificial Intelligence Circuits and Systems (AICAS)",
           "venueHighlight": false,
@@ -287,7 +287,7 @@
           ]
         },
         {
-          "authors": "F. Tian, X. Wang, J. Chen, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui",
+          "authors": "F. Tian, X. Wang, J. Chen, <strong>J. Yang*</strong>, M. Sawan, C-Y. Tsui",
           "title": "Binary is All You Need: Ultra-Efficient Arrhythmia Detection with a Binary-Only Compressive System",
           "venue": "2023 IEEE 5th International Conference on Artificial Intelligence Circuits and Systems (AICAS)",
           "venueHighlight": false,
@@ -299,7 +299,7 @@
           ]
         },
         {
-          "authors": "J. He, Z. Shen, F. Tian, J. Chen, <strong>J. Yang</strong>, M. Sawan, T. Cheng, P. Bogdan, C-Y. Tsui",
+          "authors": "J. He, Z. Shen, F. Tian, J. Chen, <strong>J. Yang*</strong>, M. Sawan, T. Cheng, P. Bogdan, C-Y. Tsui",
           "title": "SNNOpt: An Application-Specific Design Framework for Spiking Neural Networks",
           "venue": "2023 IEEE 5th International Conference on Artificial Intelligence Circuits and Systems (AICAS)",
           "venueHighlight": false,

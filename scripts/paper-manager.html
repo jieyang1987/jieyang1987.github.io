@@ -1002,6 +1002,7 @@
   </div>
   <button class="btn-reload" onclick="loadData()">↻ 刷新</button>
   <button class="btn-reload" onclick="showBatchDownload()" id="btn-batch-download" style="color:var(--warning);border-color:#fde68a">⬇ 批量下载 PDF</button>
+  <button class="btn-reload" onclick="reformatAllAuthors()" id="btn-reformat-authors" style="color:var(--primary);border-color:#c7d2fe">✦ 批量格式化作者</button>
 </div>
 
 <!-- 未引用 PDF 提示 -->
@@ -1144,6 +1145,44 @@ async function loadData() {
     renderList();
   } catch (err) {
     showToast('加载数据失败: ' + err.message, 'error');
+  }
+}
+
+// ═══════════════════════════════════════════════
+//  批量格式化作者
+// ═══════════════════════════════════════════════
+async function reformatAllAuthors() {
+  if (!confirm('将自动格式化所有论文的作者字段:\n  • 全名→缩写 (Jie Yang → J. Yang)\n  • 中文姓在前→翻转 (Yang Jie → J. Yang)\n  • J. Yang 自动加粗标 *\n\n已格式化的不受影响。确认执行?')) return;
+
+  const btn = document.getElementById('btn-reformat-authors');
+  if (btn) { btn.disabled = true; btn.textContent = '✦ 格式化中...'; }
+
+  try {
+    const res = await fetch('/api/reformat-authors', { method: 'POST' });
+    const data = await res.json();
+
+    if (data.ok) {
+      showToast(`✓ 完成! 共 ${data.total} 篇, 修改 ${data.changed} 篇`, 'success');
+      // 如果有修改, 显示详情
+      if (data.changed > 0 && data.details && data.details.length > 0) {
+        console.log('格式化修改详情:', data.details);
+        let msg = `修改了 ${data.changed} 篇论文的作者格式:\n\n`;
+        for (const d of data.details) {
+          msg += `【${d.title}】\n  之前: ${d.before}\n  之后: ${d.after}\n\n`;
+        }
+        if (data.changed > data.details.length) {
+          msg += `...(还有 ${data.changed - data.details.length} 篇未显示, 详见控制台)`;
+        }
+        alert(msg);
+      }
+      await loadData(); // 刷新列表
+    } else {
+      showToast('格式化失败: ' + (data.error || '未知错误'), 'error');
+    }
+  } catch (err) {
+    showToast('请求失败: ' + err.message, 'error');
+  } finally {
+    if (btn) { btn.disabled = false; btn.textContent = '✦ 批量格式化作者'; }
   }
 }
 

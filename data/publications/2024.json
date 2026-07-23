@@ -16,7 +16,7 @@
           "abstract": "Deep spiking neural networks (DSNNs), such as spiking transformers, have demonstrated comparable perfor- mance to artificial neural networks (ANNs). With higher spike input sparsity and the utilization of accumulation (AC)-only operations, DSNNs have great potential for achieving high energy efficiency. Many researchers have proposed neuromorphic processors to accelerate spiking neural networks (SNNs) with dedicated architectures. However, three problems still exist when processing DSNNs, including redundant memory access among timesteps, inefficiency in exploiting unstructured sparsity in spikes, and the lack of optimizations for new operators involved in DSNNs. In this work, an accelerator for deep and sparse SNNs is proposed with three design features: a 3-D computation array that allows parallel computation of multiple timesteps to maximize weight data reuse and reduce external memory access; a parallel non-zero data fetcher that efficiently searches non-zero spike positions and fetches corresponding weights to reduce com- putation latency; and a multimode unified computation scheduler that can be configured to maximize energy efficiency for spiking convolution (SCONV), spiking Q,K,andVmatrix generation, and spiking self-attention (SSA). The accelerator is implemented and fabricated using 40-nm CMOS technology."
         },
         {
-          "authors": "F. Tian, J. Chen, J. Zheng, H. Wu, J. He, X. Wang, C. Fang, Y. Yao, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui, Kwang-Ting Tim Cheng",
+          "authors": "F. Tian, J. Chen, J. Zheng, H. Wu, J. He, X. Wang, C. Fang, Y. Yao, <strong>J. Yang*</strong>, M. Sawan, C-Y. Tsui, K-T. T. Cheng",
           "title": "BioPI: An Energy Efficient and Low-Latency Neuromorphic Pipelined System with Joint Design Optimizations of Sensor-Algorithm-Processor for Wearable Healthcare",
           "venue": "IEEE Transactions on Circuits and Systems for Artificial Intelligence",
           "venueHighlight": false,
@@ -52,7 +52,7 @@
           "abstract": "Cloud-based training and edge-based inference modes for Artificial Intelligence of Medical Things (AIoMT) applications suffer from accuracy degradation due to physiological signal variations among patients. On-chip learning can overcome this issue by online adaptation of neural network parameters for user-specific tasks. However, existing on-chip learning processors have limitations in terms of versatility, resource utilization, and energy efficiency. We propose HybMED, which is a novel neural signal processor that supports onchip hybrid neural network training using a composite direct feedback alignment-based paradigm. HybMED is suitable for general-purpose health monitoring AIoMT devices. It improves resource utilization and area efficiency by the reconfigurable homogeneous core with heterogeneous data flow and enhances energy efficiency by exploiting sparsity at different granularities. The chip was fabricated by TSMC 40nm process and tested in multiple physiological signal processing tasks, demonstrating an average improvement in accuracy of 41.16% following online fewshot learning. The chip demonstrates an area efficiency of 1.17 GOPS/mm2 and an energy efficiency of 1.58 TOPS/W. Compared to the previous state-of-the-art physiological signal processors with on-chip learning, the chip achieves a 65× improvement in area efficiency and 1.48× improvement in energy efficiency, respectively."
         },
         {
-          "authors": "<strong>J. Yang</strong>, S. Zhao, J. Wang, S. Lin, Q. Hou, M. Sawan",
+          "authors": "<strong>J. Yang*</strong>, S. Zhao, J. Wang, S. Lin, Q. Hou, M. Sawan",
           "title": "Precise and low-power closed-loop neuromodulation through algorithm-integrated circuit co-design",
           "venue": "Frontiers in Neuroscience",
           "venueHighlight": false,
@@ -63,7 +63,7 @@
           ]
         },
         {
-          "authors": "Y. Xu, <strong>J. Yang</strong>, W. Ming, S. Wang, M. Sawan",
+          "authors": "Y. Xu, <strong>J. Yang*</strong>, W. Ming, S. Wang, M. Sawan",
           "title": "Shorter latency of real-time epileptic seizure detection via probabilistic prediction",
           "venue": "Expert Systems with Applications",
           "venueHighlight": false,
@@ -115,7 +115,7 @@
           ]
         },
         {
-          "authors": "Y. Xu, J. Wang, Y-H. Chen, <strong>J. Yang</strong>, W. Ming, S. Wang, M. Sawan",
+          "authors": "Y. Xu, J. Wang, Y-H. Chen, <strong>J. Yang*</strong>, W. Ming, S. Wang, M. Sawan",
           "title": "VSViG: Real-Time Video-Based Seizure Detection via Skeleton-Based Spatiotemporal ViG",
           "venue": "2024 European Conference on Computer Vision (ECCV)",
           "venueHighlight": true,
@@ -126,7 +126,7 @@
           ]
         },
         {
-          "authors": "Xu. Liang, X. Kuang, <strong>J. Yang</strong>, L. Wang",
+          "authors": "X. Liang, X. Kuang, <strong>J. Yang*</strong>, L. Wang",
           "title": "A Fast Transient Response Output-capacitorless LDO With Low Quiescent Power",
           "venue": "2024 3rd International Conference on Electronics and Information Technology (EIT)",
           "venueHighlight": false,
@@ -181,7 +181,7 @@
           ]
         },
         {
-          "authors": "F. Tian, J. Zheng, J. He, J. Chen, X. Wang, C. Fang, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui, K-T. Cheng",
+          "authors": "F. Tian, J. Zheng, J. He, J. Chen, X. Wang, C. Fang, <strong>J. Yang*</strong>, M. Sawan, C-Y. Tsui, K-T. Cheng",
           "title": "BOLS: A Bionic Sensor-direct On-chip Learning System with Direct-Feedback-Through-Time for Personalized Wearable Health Monitoring",
           "venue": "2024 IEEE International Symposium on Circuits and Systems (ISCAS)",
           "venueHighlight": false,

@@ -39,7 +39,7 @@
           "abstract": "Implantable multi-channel neural interfaces are essential for high-resolution, long-term brain-machine interface applications, yet conventional designs are constrained by power consumption, data bandwidth, and silicon area. We present NeuroSEED, a 32-channel neuromorphic scalable neural interface inspired by biological neuron signaling. This system introduces four key innovations to address the bottlenecks of scalability and efficiency: (1) an area-efficient time-division multiplexed analog front-end (0.0032 mm2/channel) with a dedicated digital-servo electrode DC offset cancellation loop; (2) an analog-to-spike converter (ASC) that employs adaptive event-driven sampling; (3) a clockless spike detector utilizing valley-to-peak detection for robust spike identification; and (4) an event-triggered impulse-radio ultra-wideband (IR-UWB) transmitter for energy-efficient wireless spike telemetry. Fabricated in 40-nm CMOS, NeuroSEED achieves 1.38 μW per recording channel and 4.6 μW transmitter power, with more than 500× data reduction compared to Nyquistrate sampling. Experimental results, validated with in-vivo neural datasets, confirm low noise, compact area, and robust system-level operation, positioning NeuroSEED as a highly efficient SoC for high-density neural recording."
         },
         {
-          "authors": "S. Zhao, Z. Wang, H. Sun, S. Wang, Z. Chen, C. Fu, <strong>J. Yang</strong>, M. Sawan",
+          "authors": "S. Zhao, Z. Wang, H. Sun, S. Wang, Z. Chen, C. Fu, <strong>J. Yang*</strong>, M. Sawan",
           "title": "HAQ-ViT: A hardware-aware post-training quantization for efficient vision transformer inference",
           "venue": "Knowledge-Based Systems",
           "venueHighlight": false,
@@ -63,7 +63,7 @@
           "abstract": "—In advanced driver-assistance systems, current com- puter vision algorithms predominantly rely on frame-based RGB cameras, which suffer from high latency in high-speed or sudden- scenario applications due to ﬁxed frame rates. In response to this challenge, event-based cameras have gained attention as a viable substitute, providing markedly higher temporal resolution and greatly diminished latency. However, the asynchronous and sparse nature of event data poses challenges in achieving accu- racy comparable to frame-based algorithms. Leveraging the event- driven nature of Spiking Neural Networks (SNNs), we propose an Event-Fused Hybrid (EFH) architecture for automotive vision. EFH combines Artiﬁcial Neural Networks (ANNs) for static feature extraction from RGB frames with SNNs that dynamically update these features using event streams. This approach enables high- efﬁciency, high-frame-rate object detection with minimal latency. Our method achieves state-of-the-art performance in inter-frame object detection by effectively fusing event data, while the SNN branch signiﬁcantly reduces power consumption during event- stream processing. Furthermore, we deploy the system on a vehicle platform, achieving real-time object detection at 60 FPS using a 15-FPS RGB camera paired with an event camera."
         },
         {
-          "authors": "C. Wang, D. Wu, Y. Liao, W. Zheng, Z. Zeng, X. Gao, H. Wu, Z. Zhu, <strong>J. Yang</strong>, L. Zhong, W. Cheng, Y-H. Chen, M. Sawan",
+          "authors": "C. Wang, D. Wu, Y. Liao, W. Zheng, Z. Zeng, X. Gao, H. Wu, Z. Zhu, <strong>J. Yang*</strong>, L. Zhong, W. Cheng, Y-H. Chen, M. Sawan",
           "title": "NeuroCLIP: A Multimodal Contrastive Learning Method for rTMS-treated Methamphetamine Addiction Analysis",
           "venue": "IEEE Journal of Biomedical and Health Informatics",
           "venueHighlight": false,
@@ -94,7 +94,7 @@
           "abstract": "Deep neural network (DNN)-based methodologies have shown impressive performance and robustness in the detection of abnormalities and decoding of multi-modal biosignals. While the use of DNNs provides promising classification and decoding capabilities, it also introduces significant design and cost challenges for the implementation of biomedical System on Chips (SoC). To address the increasing demand for advanced and efficient DNN-based healthcare solutions at the edge, we propose BioSeek, an agile design generation framework enhanced by cutting-edge large-language models (LLM). BioSeek offers a comprehensive solution to the design challenges associated with biosignal processors. The effectiveness of BioSeek is evaluated through the design generation of both application-specific and versatile biosignal processors, demonstrating performance that is competitive with existing solutions."
         },
         {
-          "authors": "F. Tian, J. Zheng, H. Wu, Z. Liu, J. Chen, S. Zhao, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui, K-T. Cheng",
+          "authors": "F. Tian, J. Zheng, H. Wu, Z. Liu, J. Chen, S. Zhao, <strong>J. Yang*</strong>, M. Sawan, C-Y. Tsui, K-T. Cheng",
           "title": "BioSeek: A Design Generation Framework of Biosignal Processors with Large-Language Models for Edge Healthcare Applications",
           "venue": "2026 IEEE International Symposium on Circuits and Systems (ISCAS)",
           "venueHighlight": false,
@@ -106,7 +106,7 @@
           "abstract": "Deep neural network (DNN)-based methodologies have shown impressive performance and robustness in the detection of abnormalities and decoding of multi-modal biosignals. While the use of DNNs provides promising classification and decoding capabilities, it also introduces significant design and cost challenges for the implementation of biomedical System on Chips (SoC). To address the increasing demand for advanced and efficient DNN-based healthcare solutions at the edge, we propose BioSeek, an agile design generation framework enhanced by cutting-edge large-language models (LLM). BioSeek offers a comprehensive solution to the design challenges associated with biosignal processors. The effectiveness of BioSeek is evaluated through the design generation of both application-specific and versatile biosignal processors, demonstrating performance that is competitive with existing solutions."
         },
         {
-          "authors": "Y. Liao <strong>J. Yang*</strong>, M. Sawan*",
+          "authors": "Y. Liao, <strong>J. Yang*</strong>, M. Sawan*",
           "title": "TF-MV SwAV++: Subject-Invariant Time–Frequency Prototype Learning for Cross-Subject sEEG Seizure Detection",
           "venue": "2026 IEEE International Symposium on Circuits and Systems (ISCAS)",
           "venueHighlight": false,
@@ -130,7 +130,7 @@
           "abstract": "The pursuit of high-density neural interfaces is fundamentally limited by strict implant  power, area, and bandwidth budgets, a constraint exacerbated by the disparity between  uniformly distributed hardware and the sparse, non-uniform nature of neural activity [1-6]. Conventional dedicated-per-channel readouts scale poorly in power and area [7-9], while uniform multiplexed scanning wastes critical resources on non-spike signals [10-14]. Some  approaches attempt to mitigate this by sub-sampling large electrode arrays with a limited  set of readout channels [15-21]. However, these methods often rely on static or slowly  adapting techniques such as manual electrode selection [15,16], indirect activity indicators  [17,18], or ofﬂine training to identify active regions [19,20]. These solutions still face  challenges, including frequent recalibration due to chronic electrode drift. While the event- based spatially zooming architecture [22] offers exceptional power efﬁciency, its scalability  is limited by a large silicon footprint"
         },
         {
-          "authors": "Y. Li, J. Chen, X. Shen, J. Yang, J. Liu, N. Wu, Z. Zhang, L. Liu",
+          "authors": "Y. Li, J. Chen, X. Shen, <strong>J. Yang*</strong>, J. Liu, N. Wu, Z. Zhang, L. Liu",
           "title": "A 0.65-to-1V-VDD 10.5-to-11.85GHz Fractional-N Sampling PLL Achieving 71.47fs Integrated Jitter and <-60dBc Near-Integer Fractional Spur in 40nm CMOS",
           "venue": "2026 IEEE International Solid-State Circuits Conference (ISSCC)",
           "venueHighlight": true,
