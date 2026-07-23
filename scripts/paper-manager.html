@@ -618,6 +618,82 @@
   .toast.error { background: var(--danger); }
   .toast.info { background: var(--primary); }
 
+  /* 重命名 PDF 模态框 */
+  .rename-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+  }
+  .rename-modal-backdrop.show { display: flex; }
+  .rename-modal {
+    background: var(--panel);
+    border-radius: 10px;
+    box-shadow: var(--shadow-lg);
+    width: 560px;
+    max-width: 92vw;
+    overflow: hidden;
+  }
+  .rename-modal-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .rename-modal-body { padding: 20px; }
+  .rename-field { margin-bottom: 16px; }
+  .rename-field label {
+    display: block;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  .rename-field .old-name {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-muted);
+    background: var(--bg);
+    padding: 8px 10px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    word-break: break-all;
+  }
+  .rename-field input[type="text"] {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-family: var(--mono);
+    font-size: 13px;
+    background: var(--panel);
+    color: var(--text);
+  }
+  .rename-field input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-light);
+  }
+  .rename-suggestion {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-top: 6px;
+  }
+  .rename-modal-footer {
+    padding: 14px 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    background: var(--bg);
+  }
+
   /* 未引用 PDF 提示条 */
   .unreferenced-bar {
     background: var(--warning-light);
@@ -1595,7 +1671,9 @@ function renderDetail(p) {
     </div>
 
     <div class="form-section">
-      <h3>摘要 <span style="font-weight:400;text-transform:none;color:var(--text-light)">${(p.abstract || '').length} 字符</span></h3>
+      <h3>摘要 <span style="font-weight:400;text-transform:none;color:var(--text-light)">${(p.abstract || '').length} 字符</span>
+        <button class="btn btn-secondary" style="float:right;padding:4px 10px;font-size:12px" onclick="extractAbstractFromPdf(currentDetailId)" ${!p.pdf || !p.pdf.startsWith('papers/') ? 'disabled style="float:right;padding:4px 10px;font-size:12px;opacity:0.4;cursor:not-allowed"' : ''} title="从关联的 PDF 中提取摘要填入下方">📄 从 PDF 提取</button>
+      </h3>
       <textarea class="form-control" id="f-abstract" rows="8" placeholder="论文摘要...">${escapeHtml(p.abstract || '')}</textarea>
     </div>
 
@@ -1748,25 +1826,48 @@ async function deletePaper(id) {
 }
 
 // ═══════════════════════════════════════════════
-//  重命名 PDF
+//  重命名 PDF (模态框: 自动生成建议文件名, 可编辑确认)
 // ═══════════════════════════════════════════════
-async function renamePdf(id) {
+function renamePdf(id) {
   const p = allPapers.find(x => x.id === id);
   if (!p || !p.pdf || !p.pdf.startsWith('papers/')) return;
 
-  const title = document.getElementById('f-title').value;
+  const title = document.getElementById('f-title').value.trim() || p.title || 'paper';
   const year = parseInt(document.getElementById('f-groupYear').value, 10) || p.year;
+  const venueAbbrev = guessVenueAbbrev(p);
 
-  // 先保存当前编辑 (避免重命名后表单数据丢失)
-  const venueAbbrev = prompt('输入 venue 缩写 (用于文件名, 如 ISSCC / TBioCAS):\n留空则用原文件名部分', guessVenueAbbrev(p));
-  if (venueAbbrev === null) return;
-
-  // 生成规范文件名
+  // 生成建议文件名: 年份_venue缩写_标题
   const safeTitle = title.replace(/[\\/:*?"<>|]/g, '').replace(/\s+/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, '').substring(0, 120);
-  const newFilename = `${year}_${venueAbbrev || 'paper'}_${safeTitle}.pdf`;
+  const suggested = `${year}_${venueAbbrev || 'paper'}_${safeTitle}.pdf`;
+  const oldName = p.pdf.replace('papers/', '');
 
-  if (!confirm(`重命名 PDF:\n  旧: ${p.pdf.replace('papers/', '')}\n  新: ${newFilename}\n\nJSON 中 pdf 字段会同步更新。`)) return;
+  const backdrop = document.getElementById('rename-modal-backdrop');
+  document.getElementById('rename-old-name').textContent = oldName;
+  const input = document.getElementById('rename-new-input');
+  input.value = suggested;
+  input.dataset.paperId = id;
+  backdrop.classList.add('show');
+  // 选中文件名主体(不含 .pdf), 方便直接覆盖输入
+  setTimeout(() => { input.focus(); input.setSelectionRange(0, suggested.length - 4); }, 50);
+}
 
+function closeRenameModal() {
+  document.getElementById('rename-modal-backdrop').classList.remove('show');
+}
+
+async function confirmRenamePdf() {
+  const input = document.getElementById('rename-new-input');
+  const id = input.dataset.paperId;
+  const p = allPapers.find(x => x.id === id);
+  if (!p) { closeRenameModal(); return; }
+
+  let newFilename = input.value.trim();
+  if (!newFilename) { showToast('文件名不能为空', 'error'); return; }
+  // 去掉路径分隔符, 确保只是文件名
+  newFilename = newFilename.replace(/[\\/]/g, '');
+  if (!/\.pdf$/i.test(newFilename)) newFilename += '.pdf';
+
+  closeRenameModal();
   try {
     const res = await fetch('/api/rename-pdf', {
       method: 'POST',
@@ -1775,7 +1876,6 @@ async function renamePdf(id) {
     });
     const result = await res.json();
     if (result.ok) {
-      // 更新 pdf 字段
       document.getElementById('f-pdf').value = result.newPdfRelPath;
       showToast(result.renamed ? `✓ 已重命名为 ${result.newFilename}` : '文件名未变化', 'success');
       // 自动保存 pdf 字段
@@ -1788,16 +1888,83 @@ async function renamePdf(id) {
   }
 }
 
+// ═══════════════════════════════════════════════
+//  从 PDF 提取摘要
+// ═══════════════════════════════════════════════
+async function extractAbstractFromPdf(id) {
+  const p = allPapers.find(x => x.id === id);
+  if (!p || !p.pdf || !p.pdf.startsWith('papers/')) { showToast('该论文未关联本地 PDF', 'error'); return; }
+
+  const abstractBox = document.getElementById('f-abstract');
+  const hasExisting = abstractBox.value.trim().length > 0;
+  if (hasExisting && !confirm('摘要框已有内容，提取后将覆盖。继续吗？')) return;
+
+  showToast('正在从 PDF 提取摘要…', 'info');
+  try {
+    const res = await fetch('/api/extract-pdf', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ pdfPath: p.pdf }),
+    });
+    const result = await res.json();
+    if (!result.ok) { showToast('提取失败: ' + (result.error || '未知错误'), 'error'); return; }
+    const abstract = (result.extracted && result.extracted.abstract || '').trim();
+    if (!abstract) { showToast('未能从该 PDF 提取到摘要（可能是扫描版或格式特殊）', 'error'); return; }
+    abstractBox.value = abstract;
+    showToast(`✓ 已提取摘要 (${abstract.length} 字符)，请检查后保存`, 'success');
+  } catch (err) {
+    showToast('提取失败: ' + err.message, 'error');
+  }
+}
+
 function guessVenueAbbrev(p) {
+  const v = (p.venue || '').trim();
+  // 精确映射
   const map = {
     'IEEE Journal of Solid-State Circuits': 'JSSC',
     'IEEE International Solid-State Circuits Conference (ISSCC)': 'ISSCC',
     'IEEE Transactions on Biomedical Circuits and Systems': 'TBioCAS',
-    'IEEE Robotics and Automation Letters': 'IEEE_RAL',
+    'IEEE Robotics and Automation Letters': 'RAL',
     'Sensors': 'Sensors',
+    'MDPI Sensors': 'Sensors',
     'Knowledge-Based Systems': 'KBS',
+    'Electronics': 'Electronics',
+    'Electronics Letters': 'EL',
+    'Neural Networks': 'NeuralNet',
+    'Neuroelectronics': 'Neuroelectronics',
+    'Scientific Reports': 'SciRep',
+    'Frontiers in Psychiatry': 'FrontPsychiatry',
+    'Frontiers in Neuroscience': 'FrontNeurosci',
+    'Journal of Neural Engineering': 'JNE',
+    'Journal of Semiconductors': 'JOS',
+    'IEEE Sensors Journal': 'IEEE_SensJ',
+    'IEEE Journal of Biomedical and Health Informatics': 'JBHI',
+    'IEEE Journal on Emerging and Selected Topics in Circuits and Systems': 'JETCAS',
+    'IEEE Transactions on Neural Systems and Rehabilitation Engineering': 'TNSRE',
+    'IEEE Transactions on Biomedical Engineering': 'TBME',
+    'IEEE Transactions on Circuits and Systems I: Regular Papers': 'TCAS-I',
+    'IEEE Transactions on Circuits and Systems II: Express Briefs': 'TCAS-II',
+    'IEEE Transactions on Circuits and Systems for Video Technology': 'TCSVT',
+    'IEEE Transactions on Circuits and Systems for Artificial Intelligence': 'TCAS-AI',
+    'IEEE Transactions on Instrumentation and Measurement': 'TIM',
+    'IEEE Transactions on Terahertz Science and Technology': 'TTHz',
+    'IEEE Transactions on Systems, Man, and Cybernetics: Systems': 'TSMC',
+    'Cyborg and Bionic Systems': 'CBS',
+    'Science China Information Sciences': 'SCIS',
+    'Science China Information Science': 'SCIS',
+    'Japanese Journal of Applied Physics': 'JJAP',
+    'Academia Engineering': 'AcadEng',
+    'Sensors and Actuators B: Chemical': 'SensActB',
   };
-  return map[p.venue] || '';
+  if (map[v]) return map[v];
+  // 括号内缩写提取: 取最后一个括号内的内容 (含年份前缀时去掉)
+  const m = v.match(/\(([^()]+)\)\s*$/);
+  if (m) {
+    let ab = m[1].replace(/^\d+\s*/, ''); // 去掉开头年份
+    if (ab && /^[A-Za-z0-9&+\- ]+$/.test(ab) && ab.length <= 30) return ab.replace(/\s+/g, '');
+  }
+  // 无任何匹配则返回空, 由调用方用 'paper' 兜底
+  return '';
 }
 
 // ═══════════════════════════════════════════════
@@ -1970,22 +2137,23 @@ function renderPdfPickerList() {
   const currentPdf = document.getElementById('f-pdf').value.trim();
   const currentFilename = currentPdf.replace('papers/', '');
 
+  // 只列出未关联的 PDF（当前已选的除外，方便保持显示）
+  const unlinked = pdfPickerPdfs.filter(pdf => !pdf.referenced || pdf.filename === currentFilename);
+
   let html = `<div class="pdf-picker">
     <div class="pdf-picker-search">
       <input type="text" id="pdf-search-input" placeholder="搜索文件名..." oninput="filterPdfPicker()" />
     </div>
     <div class="pdf-picker-list" id="pdf-picker-list">`;
 
-  if (pdfPickerPdfs.length === 0) {
-    html += '<div style="padding:16px;text-align:center;color:var(--text-light);font-size:12px">papers/ 文件夹中没有 PDF</div>';
+  if (unlinked.length === 0) {
+    html += '<div style="padding:16px;text-align:center;color:var(--text-light);font-size:12px">papers/ 中没有未关联的 PDF</div>';
   } else {
-    html += pdfPickerPdfs.map(pdf => {
+    html += unlinked.map(pdf => {
       const isCurrent = pdf.filename === currentFilename;
       const statusHtml = isCurrent
         ? '<span class="pp-status" style="color:var(--success)">✓ 当前</span>'
-        : (pdf.referenced
-            ? '<span class="pp-status" style="color:var(--text-light)">已关联其他</span>'
-            : '<span class="pp-status" style="color:var(--success)">可用</span>');
+        : '<span class="pp-status" style="color:var(--success)">可用</span>';
       const safePath = escapeAttr(pdf.path);
       return `<div class="pdf-picker-item" data-name="${escapeAttr(pdf.filename.toLowerCase())}" onclick="selectPdf('${safePath}')">
         <span class="pp-name">${escapeHtml(pdf.filename)}</span>
@@ -2462,5 +2630,28 @@ function showToast(msg, type = 'success', duration = 2500) {
 // ═══════════════════════════════════════════════
 loadData();
 </script>
+
+<!-- 重命名 PDF 模态框 -->
+<div class="rename-modal-backdrop" id="rename-modal-backdrop" onclick="if(event.target===this)closeRenameModal()">
+  <div class="rename-modal">
+    <div class="rename-modal-header">✏ 重命名 PDF</div>
+    <div class="rename-modal-body">
+      <div class="rename-field">
+        <label>当前文件名</label>
+        <div class="old-name" id="rename-old-name"></div>
+      </div>
+      <div class="rename-field" style="margin-bottom:0">
+        <label>新文件名（可编辑）</label>
+        <input type="text" id="rename-new-input" spellcheck="false" />
+        <div class="rename-suggestion">格式：年份_期刊缩写_标题.pdf，已根据论文信息自动填充，可自由修改</div>
+      </div>
+    </div>
+    <div class="rename-modal-footer">
+      <button class="btn btn-secondary" onclick="closeRenameModal()">取消</button>
+      <button class="btn btn-primary" onclick="confirmRenamePdf()">✓ 确认重命名</button>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>

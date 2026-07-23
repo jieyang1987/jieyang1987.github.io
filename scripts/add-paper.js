@@ -173,12 +173,18 @@ async function extractPdfInfo(pdfPath) {
   let pdfData;
   try {
     const buf = fs.readFileSync(pdfPath);
-    pdfData = await pdfParse(buf, { max: 3 }); // 只读前 3 页, 提速
+    pdfData = await pdfParse(buf, { max: 5 }); // 读前 5 页, 避免摘要跨页被截断
   } catch (err) {
     return { error: err.message };
   }
 
-  const text = pdfData.text || '';
+  const rawText = pdfData.text || '';
+  // 修复 PDF 换行断词: "crav-\ning" / "crav- ing" → "craving"
+  // 规则: 字母 + 连字符 + (换行或空格) + 小写字母 → 去掉连字符与空白, 合并为完整单词
+  const dehyphenate = s => s
+    .replace(/([A-Za-z])[-\u2010\u2011]\s*\r?\n\s*([a-z])/g, '$1$2') // 行尾断词换行
+    .replace(/([A-Za-z])[-\u2010\u2011]\s+([a-z]{2,})/g, '$1$2');    // 连字符后带空格的残断词
+  const text = dehyphenate(rawText);
   const lines = text.split(/\r?\n/).map(l => l.trim()).filter(l => l.length > 0);
   const meta = pdfData.info || {};
   const skipPattern = /^(ieee\s|vol\.|volume|issue|no\.|doi|https?:|©|\(c\)|received|accepted|published|pp\.|\d{4}\s*$|\s*\d+\s*$|corresponding author|isscc|\d{4}\s+ieee|9[78]\d-|isbn|session\s)/i;
@@ -209,25 +215,102 @@ async function extractPdfInfo(pdfPath) {
   let url = doi ? 'https://doi.org/' + doi : '';
 
   // ── 提取摘要 ──
+  // 终止词: 摘要正文到这些标志为止(覆盖 Index Terms / Keywords / Introduction / 作者单位 / 邮箱 / 分类号)
+  const ABSTRACT_END = /(?:index\s+terms|keywords|key\s+words|introduction|i\.\s*introduction|1\.\s*introduction|©|\bI\.?\s*Introduction|acm\s+reference|ccs\s+concepts|j\.?\s*classification|pacs\b)/i;
+  // 混入摘要的作者/单位/邮箱/署名/基金脚注行特征
+  const AFFIL_LINE = /@|e-?mail|univ(?:ersit|\.)|institut|department|dept\.|school of|college of|laborator|member,?\s*ieee|senior member|fellow,?\s*ieee|corresponding author|orcid|manuscript received|this work was supported|supported\s+(in\s+part\s+)?by|foundation|national\s+(key|natural)|\bgrant\b|science\s+center|\bchina\b/i;
+  // 页眉/页脚/页码碎片行(如 "2026 IEEE International Solid-State Circuits Conference (ISSCC) | 979-8-3503-..." / "| 2026 IEEE ... |" / 纯数字页码 / *脚注行)
+  const HEADER_LINE = /^(\d{4}\s+ieee|\||\d+\s*\||ieee\s+international|978?-\d|979-8|\d{1,3}\s*$|session\s+\d+|[*†‡])/i;
+  // 纯单位行(短行且含机构词, 正文起始点的分隔标志; 兼容 "Tsinghua University..." 这类机构名在行中的情况)
+  const AFFIL_ONLY = l => l.length < 90 && /universit|institut|academ|college|hospital|laborator/i.test(l);
+  // 正文起始句特征(摘要常以这些开头)
+  const BODY_START = /^(this\s+(paper|work|article|study)|we\s+(present|propose|report|describe|demonstrate|introduce|develop)|a\s+\w|an\s+\w|the\s+\w|in\s+this)/i;
+
+  // 统一清洗一段摘要文本
+  function cleanAbstractText(s) {
+    return s
+      .replace(/\s+/g, ' ')
+      // 切除署名/收稿信息尾巴(如 "The corresponding authors are X (x@y.edu)")
+      .replace(/\s+(the\s+corresponding\s+authors?\b.*|manuscript\s+received\b.*)$/i, '')
+      // 去掉 IEEE 页脚穿插的 DOI / 彩图声明
+      .replace(/\s*digital object identifier\s+\S+/gi, ' ')
+      .replace(/\s*(available at\s+)?https?:\/\/doi\.org\/\S+/gi, ' ')
+      .replace(/\s*color versions of one or more figures in this article (are|is)( available)?/gi, ' ')
+      // 切除混入的机构署名句(机构词 + 中国地名的整句)
+      .replace(/[^.!?]*\b(?:universit\w*|institut\w*|school of|college of|academy of|laborator\w*|neurotech)\b[^.!?]*\b(?:china|beijing|hangzhou|shanghai|shenyang|zhejiang|anhui|tianjin)\b[^.!?]*[.!?]/gi, ' ')
+      // 清除残留的机构短语碎片
+      .replace(/\b\w{0,10}school of engineering\b,?/gi, ' ')
+      .replace(/(\d)([×xX])(?=[A-Za-z])/g, '$1 $2 ') // "65×improvement" → "65× improvement"
+      .replace(/—\s*/g, '— ')
+      .replace(/\s{2,}/g, ' ')
+      .trim();
+  }
+
+  // 摘要可信度校验: 排除误抓到的标题/作者列表
+  function isPlausibleAbstract(s) {
+    if (!s || s.length < 100) return false;
+    const head = s.substring(0, 300);
+    // 作者列表特征: ≥4 个 "Xxx Yyy" 姓名对, 或含上标单位标记 "1,2"
+    const namePairs = head.match(/\b[A-Z][a-z]{2,}\s+[A-Z][a-z]{2,}\b/g) || [];
+    if (namePairs.length >= 4) return false;
+    if (/\b\d{1,2}\s*,\s*\d{1,2}\b/.test(head) && namePairs.length >= 2) return false;
+    return true;
+  }
+
   let abstract = '';
-  const absMatch = text.match(/abstract\s*[:：—\-\s]*([\s\S]+?)(?:index terms|keywords|introduction|i\.\s*introduction|1\.\s*introduction|©|\bI\.?\s*Introduction)/i);
-  if (absMatch) {
-    abstract = absMatch[1].trim()
-      .replace(/\s+/g, ' ')          // 压缩空白
-      .replace(/—\s*/g, '— ')        // 修正破折号间距
-      .substring(0, 3000);            // 限制长度
-  } else {
-    // fallback (ISSCC 等无 Abstract 关键词的会议论文): 取正文前几段
-    const bodyStart = lines.findIndex((l, i) => i > 2 && l.length > 80 && !skipPattern.test(l));
-    if (bodyStart >= 0) {
-      let bodyText = '';
-      for (let i = bodyStart; i < Math.min(bodyStart + 15, lines.length); i++) {
-        if (/^(figure|fig\.|table|TABLE|reference)/i.test(lines[i])) break;
-        bodyText += lines[i] + ' ';
-        if (bodyText.length > 1500) break;
+  // 先定位 "Abstract" 关键词位置, 从其后开始
+  const absStartM = text.match(/abstract\s*[:：—\-\s]/i);
+  if (absStartM) {
+    const afterAbs = text.substring(absStartM.index + absStartM[0].length);
+    // 找到终止词位置
+    const endM = afterAbs.match(ABSTRACT_END);
+    let body = endM ? afterAbs.substring(0, endM.index) : afterAbs.substring(0, 4000);
+    // 按行处理, 剔除页眉/页码碎片 与 作者/单位/邮箱等混入行
+    const bodyLines = body.split(/\r?\n/)
+      .map(l => l.trim())
+      .filter(l => l.length > 0)
+      .filter(l => !HEADER_LINE.test(l));
+    // 从前往后去掉开头可能的单位/作者署名段(直到遇到正常句子)
+    let startIdx = 0;
+    for (let i = 0; i < Math.min(6, bodyLines.length); i++) {
+      if (AFFIL_LINE.test(bodyLines[i]) && bodyLines[i].length < 160) {
+        startIdx = i + 1;
+      } else {
+        break;
       }
-      abstract = bodyText.trim().replace(/\s+/g, ' ').substring(0, 3000);
     }
+    const kept = bodyLines.slice(startIdx)
+      .filter(l => !AFFIL_LINE.test(l) || l.length > 200) // 长句即使含单位词也保留(可能是正文)
+      .join(' ');
+    abstract = cleanAbstractText(kept).substring(0, 3000);
+  }
+
+  // 关键词分支结果不可信(如误匹配页脚 "Abstract" 标签 / 抓到作者列表) → 降级 fallback
+  if (!isPlausibleAbstract(abstract)) {
+    // 策略: 全文找最后一个单位行, 其后的连续文本即为摘要候选区
+    // 注意: pdf-parse 页序可能错乱(第 2 页在前), 故全文扫描, 不限前 N 行
+    let lastAffil = -1;
+    const affilScanLimit = Math.ceil(lines.length * 0.6); // 只在前 60% 找单位行, 避开参考文献
+    for (let i = 0; i < affilScanLimit; i++) {
+      if (AFFIL_ONLY(lines[i])) lastAffil = i;
+    }
+    const searchFrom = lastAffil >= 0 ? lastAffil + 1 : 2;
+    // 拼接候选区(先按行过滤页眉/署名/单位, 再连成整段, 天然免疫 PDF 换行拆句)
+    const regionLines = [];
+    for (let i = searchFrom; i < lines.length; i++) {
+      const l = lines[i];
+      if (/^(figure|fig\.|table|TABLE|reference|abstract\b)/i.test(l)) break; // 到正文标签/页脚 Abstract 为止
+      if (HEADER_LINE.test(l) || skipPattern.test(l)) continue;
+      if (AFFIL_LINE.test(l) && l.length < 200) continue; // 单位/邮箱残行
+      regionLines.push(l);
+      if (regionLines.join(' ').length > 2600) break;
+    }
+    let region = regionLines.join(' ');
+    // 定位正文起始句(This paper presents / We propose ...), 砍掉前面残留
+    const sm = region.match(/(this\s+(paper|work|article|study)\s+(presents?|proposes?|describes?|reports?|demonstrates?|introduces?)|we\s+(present|propose|report|describe|demonstrate|introduce|develop))/i);
+    if (sm && sm.index < region.length * 0.3) region = region.substring(sm.index);
+    const fbAbstract = cleanAbstractText(region).substring(0, 3000);
+    if (isPlausibleAbstract(fbAbstract) && fbAbstract.length > abstract.length) abstract = fbAbstract;
   }
 
   // ── 提取作者 ──
@@ -266,10 +349,8 @@ async function extractPdfInfo(pdfPath) {
     if (authors.length < 5 || authors.length > 300) authors = '';
   }
 
-  // 摘要校验: 如果太短或含页眉特征, 置空
-  if (abstract && (abstract.length < 100 || /9[78]\d-|ISBN|IEEE International|Solid-State Circuits Conference/i.test(abstract.substring(0, 120)))) {
-    abstract = '';
-  }
+  // 摘要校验: 太短/不可信(作者列表/页眉碎片) 则置空
+  if (!isPlausibleAbstract(abstract)) abstract = '';
 
   return {
     title,

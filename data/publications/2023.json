@@ -20,11 +20,12 @@
           "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
           "venueHighlight": false,
           "url": "https://ieeexplore.ieee.org/abstract/document/10184170",
-          "pdf": "",
+          "pdf": "papers/2023_TNSRE_Transfer_Learning_on_Electromyography_(EMG)_Tasks_Approaches_and_Beyond.pdf",
           "topics": [
             "bci",
             "decoding"
-          ]
+          ],
+          "abstract": "Machine learning on electromyography (EMG) has recently achieved remarkable success on various tasks, while such success relies heavily on the assumption that the training and future data must be of the same data distribution. However, this assumption may not hold in many real-world applications. Model calibration is required via data re-collection and label annotation, which is generally very expensive and time-consuming. To address this issue, transfer learning (TL), which aims to improve target learners’ performance by transferring knowledge from related source domains, is emerging as a new paradigm to reduce the amount of calibration effort. This survey assesses the eligibility of more than fifty published peer-reviewed representative transfer learning approaches for EMG applications. Unlike previous surveys on purely transfer learning or EMG-based machine learning, this analysis. Specifically, we first introduce the muscles’ physiological structure, the EMG generating mechanism, and the recording of EMG to provide biological insights behind existing transfer learning approaches. Further, we categorize existing research endeavors into data based, model based, training scheme based, and adversarial based. This survey systematically summarizes and categorizes existing transfer learning approaches for EMG related machine learning applications. In addition, we discuss possible drawbacks of existing works and point out the future direction of better EMG transfer learning algorithms to enhance practicality for real-world applications. IndexTerms— Transferlearning,electromyography (EMG),machinelearning,metalearning,domainadversarial neural networks (DANN), random forest, model ensemble, fine-tuning, gesture recognition, force regression."
         },
         {
           "authors": "H. Wu, J. Chen, X. Liu, W. Zou, <strong>J. Yang*</strong>, M. Sawan",

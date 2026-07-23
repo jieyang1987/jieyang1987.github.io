@@ -31,7 +31,7 @@
           "venue": "IEEE Journal on Emerging and Selected Topics in Circuits and Systems",
           "venueHighlight": false,
           "url": "https://ieeexplore.ieee.org/abstract/document/11571815/",
-          "pdf": "",
+          "pdf": "papers/2026_JETCAS_NeuroSEED_A_Neuromorphic_Scalable_Event-Driven_SoC_with_Direct_Multiplexing_for_Spike_Detection_and_Wireless_Telemetry.pdf",
           "topics": [
             "bci",
             "neuromorphic"
@@ -68,7 +68,7 @@
           "venue": "IEEE Journal of Biomedical and Health Informatics",
           "venueHighlight": false,
           "url": "https://ieeexplore.ieee.org/abstract/document/11392762",
-          "pdf": "",
+          "pdf": "papers/2026_JBHI_NeuroCLIP_A_Multimodal_Contrastive_Learning_Method_for_rTMS-treated_Methamphetamine_Addiction_Analysis.pdf",
           "topics": [
             "neuromodulation"
           ],
@@ -87,9 +87,9 @@
           "venue": "2026 IEEE International Symposium on Circuits and Systems (ISCAS)",
           "venueHighlight": false,
           "url": "https://ieeexplore.ieee.org/abstract/document/11562936/",
-          "pdf": "",
+          "pdf": "papers/2026_ISCAS_A_Heterogeneous_Decision_Spiking_Transformer_Accelerator_with_Locality-dependent_KV_Product_Cache_and_Compute_Pattern_Re.pdf",
           "topics": [
-            "bci"
+            "neuromorphic"
           ],
           "abstract": "Deep neural network (DNN)-based methodologies have shown impressive performance and robustness in the detection of abnormalities and decoding of multi-modal biosignals. While the use of DNNs provides promising classification and decoding capabilities, it also introduces significant design and cost challenges for the implementation of biomedical System on Chips (SoC). To address the increasing demand for advanced and efficient DNN-based healthcare solutions at the edge, we propose BioSeek, an agile design generation framework enhanced by cutting-edge large-language models (LLM). BioSeek offers a comprehensive solution to the design challenges associated with biosignal processors. The effectiveness of BioSeek is evaluated through the design generation of both application-specific and versatile biosignal processors, demonstrating performance that is competitive with existing solutions."
         },
@@ -99,7 +99,7 @@
           "venue": "2026 IEEE International Symposium on Circuits and Systems (ISCAS)",
           "venueHighlight": false,
           "url": "https://ieeexplore.ieee.org/abstract/document/11562790",
-          "pdf": "",
+          "pdf": "papers/2026_ISCAS_BioSeek_A_Design_Generation_Framework_of_Biosignal_Processors_with_Large-Language_Models_for_Edge_Healthcare_Application.pdf",
           "topics": [
             "bci"
           ],
@@ -111,7 +111,7 @@
           "venue": "2026 IEEE International Symposium on Circuits and Systems (ISCAS)",
           "venueHighlight": false,
           "url": "https://ieeexplore.ieee.org/abstract/document/11562257/",
-          "pdf": "",
+          "pdf": "papers/2026_ISCAS_TF-MV_SwAV++_Subject-Invariant_Time–Frequency_Prototype_Learning_for_Cross-Subject_sEEG_Seizure_Detection.pdf",
           "topics": [
             "bci"
           ],
