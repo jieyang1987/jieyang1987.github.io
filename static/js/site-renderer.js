@@ -529,17 +529,16 @@
         html += `<h3 id="${item.id}">${item.label}</h3>`;
       } else {
         itemIndex++;
+        const pubNum = liCount - itemIndex + 1; // 倒序编号, 最新论文编号最大
         const topicsStr = Array.isArray(item.topics) ? item.topics.join(' ') : (item.topics || '');
-        const venueHtml = item.venueHighlight
-          ? `<strong style="color:var(--brand-blue);">${item.venue}</strong>`
-          : `<strong>${item.venue}</strong>`;
+        const venueHtml = `<span class="pub-venue">${item.venue}</span>`;
         const awardHtml = item.award
-          ? ` <strong style="color:var(--brand-blue);">(${item.award})</strong>`
+          ? ` <span class="pub-award">(${item.award})</span>`
           : '';
         const linkStart = item.url ? `<a href="${item.url}" style="color:inherit;text-decoration:none;">` : '<span>';
         const linkEnd = item.url ? '</a>' : '</span>';
         const pdfBadge = item.pdf
-          ? ` <a href="${item.pdf}" class="pdf-badge" target="_blank" rel="noopener noreferrer">[PDF]</a>`
+          ? ` <a href="${item.pdf}" class="pdf-badge" target="_blank" rel="noopener noreferrer">PDF</a>`
           : '';
         // 摘要按钮 - 只有存在摘要时才显示
         const abstractBtn = item.abstract
@@ -547,7 +546,8 @@
           : '';
 
         html += `<li class="publication-item" data-topic="${topicsStr}" data-index="${itemIndex}" data-title="${item.title.replace(/"/g, '&quot;')}" data-abstract="${(item.abstract || '').replace(/"/g, '&quot;')}">
-          ${linkStart}${item.authors}, "${item.title}", ${venueHtml}.${awardHtml}${linkEnd}${pdfBadge}${abstractBtn}
+          <span class="pub-title"><span class="pub-num">${pubNum}.</span>${linkStart}${item.title}${linkEnd}</span>
+          <span class="pub-meta"><span class="pub-authors">${item.authors}</span>, ${venueHtml}.${awardHtml}${pdfBadge}${abstractBtn}</span>
         </li>`;
       }
     });
