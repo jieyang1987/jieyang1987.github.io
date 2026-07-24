@@ -44,11 +44,6 @@
   --font-body: var(--font-zh), var(--font-en);
   --font-heading: var(--font-zh), var(--font-en);
   --font-light: var(--font-zh), var(--font-en);
-
-  /* 学术衬线字体栈 - 用于论文标题/区块大标题, 提升质感 */
-  --font-serif:
-    "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong",
-    "SimSun", Georgia, "Times New Roman", serif;
 }
 
 /* ══════════════════════════════════════════════

@@ -12,8 +12,9 @@
   <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5/index.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5/700.css" rel="stylesheet" />
+  
+  
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource-variable/inter@5/index.css" rel="stylesheet" />
 
   <link href="static/css/styles.css" rel="stylesheet" />
   <link href="static/css/main.css" rel="stylesheet" />
@@ -25,81 +26,9 @@
     html { scroll-behavior: smooth; }
     .year-link { margin: 0 6px; text-decoration: none; color: var(--link-color); }
     .year-link:hover { text-decoration: underline; }
+    .publication-item { transition: color 0.2s ease; cursor: pointer; font-weight: 350; }
+    .publication-item:hover { color: var(--brand-blue); text-decoration: underline; }
     .topic-btn.active { background-color: var(--brand-blue) !important; color: white !important; border-color: var(--brand-blue) !important; }
-
-    /* ═══ Academic typography: publication list ═══ */
-    .publications-list { padding-left: 0; list-style: none; counter-reset: none; }
-    .publications-list h3 {
-      font-family: var(--font-serif);
-      font-size: 1.15rem; font-weight: 600; letter-spacing: 0.02em;
-      color: var(--heading-color);
-      margin: 1.8rem 0 0.9rem; padding-bottom: 0.4rem;
-      border-bottom: 1px solid #e5e7eb;
-    }
-    .publication-item {
-      position: relative;
-      padding: 0.6rem 0.4rem 0.6rem 0.9rem;
-      margin-bottom: 0.15rem;
-      line-height: 1.8;
-      color: var(--text-primary);
-      font-weight: 400;
-      border-left: 2px solid transparent;
-      transition: border-color 0.2s ease, background-color 0.2s ease;
-    }
-    .publication-item + .publication-item { border-top: 1px dashed #eef1f4; }
-    .publication-item:hover { border-left-color: var(--brand-blue); background: #fafbfd; }
-    .publication-item .pub-num {
-      font-family: var(--font-serif); font-size: 0.88rem;
-      color: #b6bcc7; font-weight: 500; margin-right: 0.5rem;
-    }
-    .publication-item .pub-title {
-      display: block;
-      font-family: var(--font-serif); font-weight: 550;
-      font-size: 1.04rem; color: var(--heading-color); line-height: 1.65;
-    }
-    .publication-item .pub-meta { display: block; margin-top: 0.15rem; padding-left: 0; }
-    .publication-item .pub-authors { color: var(--text-muted); font-size: 0.93rem; }
-    .publication-item .pub-venue {
-      font-family: var(--font-serif); font-style: italic;
-      color: var(--brand-blue); font-weight: 500;
-    }
-    .publication-item .pub-award { color: var(--brand-blue); font-weight: 600; font-size: 0.9rem; }
-
-    /* PDF / Abstract refined buttons */
-    .pdf-badge, .abstract-btn {
-      display: inline-block; margin-left: 0.45rem; padding: 0.05rem 0.5rem;
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em;
-      border-radius: 3px; border: 1px solid; cursor: pointer;
-      text-decoration: none; transition: all 0.2s ease; vertical-align: 1px;
-      font-family: var(--font-body);
-    }
-    .pdf-badge { color: var(--brand-blue); border-color: rgba(29,78,216,0.4); background: transparent; }
-    .pdf-badge:hover { background: var(--brand-blue); color: #fff; border-color: var(--brand-blue); }
-    .abstract-btn { color: var(--text-muted); border-color: #d3d8e0; background: transparent; }
-    .abstract-btn:hover { color: var(--brand-blue); border-color: var(--brand-blue); }
-
-    /* ═══ Statistic badges: restrained outlined style ═══ */
-    .journal-summary { margin-top: 4px; display: inline; }
-    .journal-summary .badge {
-      font-weight: 500; letter-spacing: 0.03em;
-      border-radius: 4px; padding: 0.3rem 0.6rem !important;
-      font-size: 0.85rem !important; margin: 0.2rem !important;
-    }
-    .journal-summary .badge.bg-primary {
-      background-color: #eef2fd !important; color: var(--brand-blue) !important;
-      border: 1px solid rgba(29,78,216,0.28);
-    }
-    .journal-summary .badge.bg-success {
-      background-color: #eaf6ee !important; color: #1e7a3c !important;
-      border: 1px solid rgba(30,122,60,0.28);
-    }
-
-    /* ═══ Section headings: serif + left bar ═══ */
-    #journal header h2, #conference header h2, #home header h2 {
-      font-family: var(--font-serif); font-weight: 600; letter-spacing: 0.02em;
-      color: var(--heading-color); padding-left: 0.9rem;
-      border-left: 4px solid var(--brand-blue);
-    }
   </style>
 </head>
 
@@ -149,19 +78,15 @@
         <!-- Injected by site-renderer.js -->
       </div>
       <!-- Year navigation -->
-      <div class="main-body" style="font-size: 1.2rem;" id="year-nav-desktop">
-        <div class="d-flex align-items-center flex-wrap gap-2 my-1">
+      <div class="main-body" style="font-size: 1.2rem;">
+        <div class="d-flex align-items-center flex-wrap gap-2 my-2">
           <span class="fw-bold">Journal Papers:</span>
           <span id="journal-year-nav"></span>
         </div>
-        <div class="d-flex align-items-center flex-wrap gap-2 my-1">
+        <div class="d-flex align-items-center flex-wrap gap-2 my-2">
           <span class="fw-bold">Conference Papers:</span>
           <span id="conf-year-nav"></span>
         </div>
-      </div>
-      <!-- Mobile stats cards -->
-      <div class="mobile-pub-stats" id="mobile-pub-stats">
-        <!-- Injected by site-renderer.js -->
       </div>
     </div>
   </section>
@@ -208,7 +133,7 @@
     </div>
   </footer>
 
-  <script src="static/js/site-renderer.js?v=2"></script>
+  <script src="static/js/site-renderer.js"></script>
 
 </body>
 
