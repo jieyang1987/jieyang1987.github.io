@@ -269,6 +269,179 @@ function renamePdf(oldRelPath, newFilename) {
   return { ok: true, renamed: true, newPdfRelPath: 'papers/' + finalFilename, newFilename: finalFilename };
 }
 
+/** 生成批量重命名预览计划
+ *  对每篇关联了 PDF 的论文按规范格式 {year}_{venue}_{title}.pdf 计算目标文件名
+ *  venue 缩写: 优先从 venue 全称反查 VENUE_MAP, 查不到则沿用旧文件名中的 venue 段
+ *  返回 [{ id, title, oldFilename, newFilename, changed, missing, note }]
+ */
+function buildRenamePlan() {
+  const addPaper = require('./add-paper.js');
+  const papers = readAllPapers().filter(p => p.pdf && p.pdf.startsWith('papers/'));
+  const plan = [];
+  const usedTargets = new Map(); // 小写文件名 → 论文 id (检测批内目标重名)
+
+  for (const p of papers) {
+    const oldFilename = path.basename(p.pdf);
+    const oldAbs = path.join(ROOT, p.pdf);
+    const notes = [];
+    const fn = addPaper.parseFilename(oldFilename);
+
+    // 年份: 优先条目自身 year, 其次旧文件名年份 (early.json 条目无 year 字段),
+    // 与分组年份不一致时标注供复核
+    let year = (typeof p.year === 'number' && p.year) || null;
+    if (!year && fn.year) {
+      year = fn.year;
+      if (typeof p.groupYear === 'number' && p.groupYear !== fn.year) {
+        notes.push(`年份取自旧文件名 ${fn.year} (分组年份为 ${p.groupYear})`);
+      }
+    }
+    if (!year) year = typeof p.groupYear === 'number' ? p.groupYear : 'paper';
+    // 数据年份与旧文件名年份不一致 → 标注供复核
+    if (fn.year && typeof year === 'number' && fn.year !== year &&
+        !notes.some(n => n.startsWith('年份取自'))) {
+      notes.push(`数据年份 ${year} 与文件名年份 ${fn.year} 不一致`);
+    }
+
+    let venueAbbrev = addPaper.findVenueAbbrev(p.venue);
+    if (!venueAbbrev) {
+      venueAbbrev = fn.venueAbbrev || 'paper';
+      notes.push(fn.venueAbbrev ? 'venue 未收录, 沿用旧文件名片段' : 'venue 无法识别');
+    }
+
+    if (!p.title) {
+      plan.push({ id: p.id, title: '', oldFilename, newFilename: oldFilename,
+        changed: false, missing: !fs.existsSync(oldAbs), note: '缺标题, 跳过' });
+      continue;
+    }
+
+    let newFilename = addPaper.buildCanonicalFilename(year, venueAbbrev, p.title);
+
+    // 批内目标重名 → 自动加序号
+    const key = newFilename.toLowerCase();
+    if (usedTargets.has(key) && usedTargets.get(key) !== p.id) {
+      const ext = path.extname(newFilename);
+      const base = path.basename(newFilename, ext);
+      let i = 2;
+      while (usedTargets.has(`${base}_${i}${ext}`.toLowerCase())) i++;
+      newFilename = `${base}_${i}${ext}`;
+      notes.push('同名冲突, 自动加序号');
+    }
+    usedTargets.set(newFilename.toLowerCase(), p.id);
+
+    // 目标已被盘上的批外文件占用 (大小写不敏感比较, Windows 文件系统不区分大小写,
+    // 仅大小写不同的改名如 Front-End → Front-end 不算占用)
+    const targetAbs = path.join(PAPERS_DIR, newFilename);
+    const isSelf = targetAbs.toLowerCase() === oldAbs.toLowerCase();
+    if (!isSelf && fs.existsSync(targetAbs) &&
+        !papers.some(q => q.id !== p.id && path.basename(q.pdf).toLowerCase() === newFilename.toLowerCase())) {
+      notes.push('⚠ 目标文件名已被未关联文件占用');
+    }
+
+    plan.push({
+      id: p.id, title: p.title, oldFilename, newFilename,
+      changed: oldFilename !== newFilename,
+      missing: !fs.existsSync(oldAbs),
+      note: notes.join('; '),
+    });
+  }
+  return plan;
+}
+
+/** 只更新 JSON 中论文的 pdf 字段 (不动其他字段, 避免覆盖式更新丢字段) */
+function updatePdfField(paper, newRelPath) {
+  const yearFile = path.join(ROOT, paper.file);
+  if (!fs.existsSync(yearFile)) return false;
+  const data = JSON.parse(fs.readFileSync(yearFile, 'utf8'));
+  const groups = data[paper.section] || [];
+  const group = groups.find(g => g.year === paper.groupYear);
+  if (!group || !group.items || !group.items[paper.index]) return false;
+  group.items[paper.index].pdf = newRelPath;
+  fs.writeFileSync(yearFile, JSON.stringify(data, null, 2) + '\n', 'utf8');
+  return true;
+}
+
+/** 执行批量重命名 (用户复核后的清单)
+ *  items: [{ id, newFilename }]
+ *  两阶段重命名 (先全部改为临时名, 再改为目标名), 避免 A→B / B→C 顺序冲突
+ *  返回 { ok, results: [{ id, ok, oldFilename, newFilename, error? }] }
+ */
+function applyRenameBatch(items) {
+  const papers = readAllPapers();
+  const byId = new Map(papers.map(p => [p.id, p]));
+  const results = [];
+  const jobs = [];
+
+  // ── 校验阶段 ──
+  for (const it of items || []) {
+    const p = byId.get(it.id);
+    if (!p || !p.pdf) { results.push({ id: it.id, ok: false, error: '论文不存在或未关联 PDF' }); continue; }
+    const newFilename = path.basename(String(it.newFilename || '').trim());
+    if (!/\.pdf$/i.test(newFilename) || /[\\/:*?"<>|]/.test(newFilename)) {
+      results.push({ id: it.id, ok: false, error: '文件名非法: ' + it.newFilename }); continue;
+    }
+    const oldFilename = path.basename(p.pdf);
+    if (oldFilename === newFilename) { results.push({ id: it.id, ok: true, skipped: true, oldFilename, newFilename }); continue; }
+    if (!fs.existsSync(path.join(ROOT, p.pdf))) {
+      results.push({ id: it.id, ok: false, oldFilename, error: '源文件不存在' }); continue;
+    }
+    jobs.push({ p, oldFilename, newFilename });
+  }
+
+  // 批内目标重名检查
+  const seenTargets = new Set();
+  for (const j of jobs) {
+    const k = j.newFilename.toLowerCase();
+    if (seenTargets.has(k)) j.error = '批量内目标重名';
+    seenTargets.add(k);
+  }
+  // 目标与批外文件冲突检查
+  const batchOldKeys = new Set(jobs.map(j => j.oldFilename.toLowerCase()));
+  for (const j of jobs) {
+    if (j.error) continue;
+    const targetAbs = path.join(PAPERS_DIR, j.newFilename);
+    if (fs.existsSync(targetAbs) &&
+        j.newFilename.toLowerCase() !== j.oldFilename.toLowerCase() &&
+        !batchOldKeys.has(j.newFilename.toLowerCase())) {
+      j.error = '目标文件已存在 (批外文件)';
+    }
+  }
+
+  // ── 执行阶段: 两阶段重命名 ──
+  const runnable = jobs.filter(j => !j.error);
+  const failed = jobs.filter(j => j.error);
+  for (const j of failed) results.push({ id: j.p.id, ok: false, oldFilename: j.oldFilename, newFilename: j.newFilename, error: j.error });
+
+  const renamed = [];
+  // 阶段 1: 全部改为临时名
+  for (let i = 0; i < runnable.length; i++) {
+    const j = runnable[i];
+    const tmpName = `.rename_tmp_${Date.now()}_${i}.pdf`;
+    try {
+      fs.renameSync(path.join(PAPERS_DIR, j.oldFilename), path.join(PAPERS_DIR, tmpName));
+      renamed.push({ j, tmpName });
+    } catch (e) {
+      results.push({ id: j.p.id, ok: false, oldFilename: j.oldFilename, error: '重命名失败: ' + e.message });
+    }
+  }
+  // 阶段 2: 临时名改为目标名 + 更新 JSON
+  for (const { j, tmpName } of renamed) {
+    try {
+      fs.renameSync(path.join(PAPERS_DIR, tmpName), path.join(PAPERS_DIR, j.newFilename));
+      const jsonOk = updatePdfField(j.p, 'papers/' + j.newFilename);
+      results.push({ id: j.p.id, ok: true, oldFilename: j.oldFilename, newFilename: j.newFilename,
+        ...(jsonOk ? {} : { warning: '文件已重命名但 JSON 更新失败' }) });
+    } catch (e) {
+      // 目标名失败 → 尽量恢复原名
+      try { fs.renameSync(path.join(PAPERS_DIR, tmpName), path.join(PAPERS_DIR, j.oldFilename)); } catch (_) {}
+      results.push({ id: j.p.id, ok: false, oldFilename: j.oldFilename, error: '重命名为目标名失败: ' + e.message });
+    }
+  }
+
+  const okCount = results.filter(r => r.ok && !r.skipped).length;
+  const failCount = results.filter(r => !r.ok).length;
+  return { ok: failCount === 0, renamed: okCount, failed: failCount, results };
+}
+
 /** 扫描 papers/ 目录, 返回未被 JSON 引用的 PDF
  *  对每个未引用 PDF 做标题模糊匹配, 标注可能对应的已有论文
  */
@@ -1091,6 +1264,28 @@ const server = http.createServer(async (req, res) => {
       return sendJson(res, result.ok ? 200 : 400, result);
     }
 
+    // 批量重命名: 预览 (按规范格式生成目标文件名, 供用户复核)
+    if (pathname === '/api/rename-preview' && method === 'GET') {
+      try {
+        const plan = buildRenamePlan();
+        return sendJson(res, 200, { ok: true, plan });
+      } catch (err) {
+        return sendJson(res, 500, { ok: false, error: err.message });
+      }
+    }
+
+    // 批量重命名: 执行 (用户复核确认后的清单)
+    if (pathname === '/api/rename-apply' && method === 'POST') {
+      const body = await readBody(req);
+      if (!Array.isArray(body.items)) return sendJson(res, 400, { ok: false, error: '缺少 items 数组' });
+      try {
+        const result = applyRenameBatch(body.items);
+        return sendJson(res, 200, result);
+      } catch (err) {
+        return sendJson(res, 500, { ok: false, error: err.message });
+      }
+    }
+
     // 从 URL 抓取论文元数据
     if (pathname === '/api/fetch-url' && method === 'POST') {
       const body = await readBody(req);
@@ -1124,6 +1319,9 @@ const server = http.createServer(async (req, res) => {
         const pdfAbsPath = path.join(ROOT, body.pdfPath);
         if (!fs.existsSync(pdfAbsPath)) return sendJson(res, 404, { ok: false, error: 'PDF 不存在' });
         const info = await addPaper.extractPdfInfo(pdfAbsPath);
+        // 作者字段按统一标准格式化: 全名→缩写 (Jie Yang → J. Yang),
+        // 中文姓在前自动翻转 (Yang Jie → J. Yang), J. Yang 加粗标通信 *
+        if (info.authors) info.authors = reformatAuthorsString(info.authors);
         // 同时解析文件名
         const fnInfo = addPaper.parseFilename(path.basename(body.pdfPath));
         return sendJson(res, 200, {

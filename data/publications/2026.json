@@ -4,6 +4,16 @@
       "year": 2026,
       "items": [
         {
+          "authors": "S. Zhao, Q. Wang, Z. Shu, X. Yang, M. Fang, <strong>J. Yang*</strong>, A. M. Sawan",
+          "title": "A Bioinspired Spiking Attention Neuromorphic Accelerator for Low-Power Visual Prosthesis",
+          "venue": "IEEE Transactions on Instrumentation and Measurement",
+          "venueHighlight": false,
+          "url": "https://doi.org/10.1109/TIM.2026.3712917",
+          "pdf": "papers/2026_TIM_A_Bioinspired_Spiking_Attention_Neuromorphic_Accelerator_for_Low-Power_Visual_Prosthesis.pdf",
+          "topics": [],
+          "abstract": "Retinal degenerative diseases have led to moderateto-severe vision loss in over 230 million people globally. Visual prostheses aim to restore partial perception by converting external visual stimuli into neural-response patterns that can be delivered to the remaining visual pathway. Spiking neural models are particularly suitable for this task because they represent visual information in an event-driven temporal form that is compatible with neural signaling. However, existing approaches often rely on biologically oversimplified hierarchies and insufficient modeling of retinal-layer interactions and retina-to-cortex dynamics, limiting neural-response fidelity under complex visual stimuli. Meanwhile, implantable visual prostheses impose strict power and area constraints, making algorithmhardware codesign essential. This article presents a bioinspired neuromorphic visual prosthesis framework that tightly couples spiking neural modeling with specialized hardware architecture. The proposed model emulates the hierarchical organization of the human retina through multiscale spiking convolutional layers that simulate photoreceptors, bipolar cells, and ganglion cells. Within this retinal hierarchy, a spiking attention mechanism is incorporated to model bottom-up visual dynamics and adaptive information modulation, enabling efficient spatiotemporal feature selection consistent with biological visual processing. A spiking linear readout layer is further employed to predict primary visual cortex (V1) responses to natural images. On the hardware side, we design a neuromorphic accelerator optimized for visual prosthesis tasks. The architecture integrates a multiside sparsity exploitation strategy with a multistage pipelined parallelism scheme to maximize energy efficiency and minimize area overhead. From an instrumentation perspective, the framework integrates event-driven visual sensing, spike-domain signal processing, and quantitative neural-response evaluation under implantable hardware constraints. Under 8-bit quantization, the proposed framework achieves a Pearson correlation of 0.713 for V1 response prediction. ASIC postsynthesis estimation under the TSMC 40-nm CMOS process reports a power consumption of 199.10 mW and a chip area of 7.89 mm. Under ZCU106 FPGA deployment, the architecture achieves a throughput of 79.7 GOP/s and a peak energy efficiency of 259.2 GOPS/W."
+        },
+        {
           "authors": "W. Zou, <strong>J. Yang*</strong>, M. Sawan*",
           "title": "A Duty-Cycled PLL and Fractal Antenna Co-Design Architecture for a Low-Power IR-UWB Transmitter in Neural Implants",
           "venue": "Sensors",

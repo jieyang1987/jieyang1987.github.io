@@ -1003,6 +1003,7 @@
   <button class="btn-reload" onclick="loadData()">↻ 刷新</button>
   <button class="btn-reload" onclick="showBatchDownload()" id="btn-batch-download" style="color:var(--warning);border-color:#fde68a">⬇ 批量下载 PDF</button>
   <button class="btn-reload" onclick="reformatAllAuthors()" id="btn-reformat-authors" style="color:var(--primary);border-color:#c7d2fe">✦ 批量格式化作者</button>
+  <button class="btn-reload" onclick="showRenamePreview()" id="btn-rename-pdfs" style="color:var(--success);border-color:#bbf7d0">📝 批量重命名 PDF</button>
 </div>
 
 <!-- 未引用 PDF 提示 -->
@@ -1183,6 +1184,181 @@ async function reformatAllAuthors() {
     showToast('请求失败: ' + err.message, 'error');
   } finally {
     if (btn) { btn.disabled = false; btn.textContent = '✦ 批量格式化作者'; }
+  }
+}
+
+// ═══════════════════════════════════════════════
+//  批量重命名 PDF (预览 → 复核 → 执行)
+// ═══════════════════════════════════════════════
+
+/** 拉取重命名预览计划并渲染到详情栏 */
+async function showRenamePreview() {
+  const detail = document.getElementById('detail');
+  selectedId = null;
+  currentDetailId = null;
+  renderList();
+
+  detail.innerHTML = `
+    <div class="detail-header">
+      <h2>📝 批量重命名 PDF</h2>
+      <div class="venue-line">按规范格式 <code>{年份}_{venue}_{标题}.pdf</code> 生成目标文件名, 复核确认后才会执行</div>
+    </div>
+    <div id="rename-loading" style="padding:40px;text-align:center">
+      <div class="loading-inline" style="font-size:14px;justify-content:center">
+        <span class="spinner" style="width:16px;height:16px"></span>
+        正在生成重命名预览...
+      </div>
+    </div>
+    <div id="rename-results" style="display:none"></div>
+  `;
+
+  try {
+    const res = await fetch('/api/rename-preview');
+    const data = await res.json();
+    if (!data.ok) { showToast('预览生成失败: ' + (data.error || ''), 'error'); return; }
+
+    const plan = data.plan || [];
+    const changed = plan.filter(x => x.changed && !x.missing);
+    const problem = plan.filter(x => x.missing);
+    const unchanged = plan.filter(x => !x.changed && !x.missing);
+
+    document.getElementById('rename-loading').style.display = 'none';
+    document.getElementById('rename-results').style.display = 'block';
+
+    if (changed.length === 0) {
+      document.getElementById('rename-results').innerHTML = `
+        <div class="review-banner" style="background:linear-gradient(90deg,#f0fdf4 0%,#dcfce7 100%);border-color:#22c55e">
+          <span class="review-icon">✓</span>
+          <div>
+            <div class="review-title" style="color:#15803d">所有文件名均已符合规范</div>
+            <div class="review-desc">${unchanged.length} 个文件无需修改${problem.length ? ` · ${problem.length} 个文件在磁盘上缺失` : ''}</div>
+          </div>
+        </div>`;
+      return;
+    }
+
+    document.getElementById('rename-results').innerHTML = `
+      <div class="review-banner" style="background:linear-gradient(90deg,#fffbeb 0%,#fef3c7 100%);border-color:#f59e0b">
+        <span class="review-icon">⚠</span>
+        <div>
+          <div class="review-title" style="color:#b45309">请复核以下 ${changed.length} 个新文件名</div>
+          <div class="review-desc">可直接在输入框中修改目标文件名 · 取消勾选则跳过该文件 · ${unchanged.length} 个文件已符合规范无需修改</div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3>待重命名 (${changed.length})
+          <span style="margin-left:auto;display:flex;gap:6px">
+            <button class="btn-mini" onclick="renameToggleAll(true)">全选</button>
+            <button class="btn-mini" onclick="renameToggleAll(false)">全不选</button>
+            <button class="btn-mini btn-mini-success" onclick="applyRenameBatch()" id="btn-rename-apply">✓ 确认重命名选中项</button>
+          </span>
+        </h3>
+        <div id="rename-list">
+          ${changed.map((x, i) => `
+            <div class="batch-item" style="align-items:flex-start;gap:10px" id="rename-item-${i}">
+              <input type="checkbox" id="rename-check-${i}" checked style="margin-top:4px;flex-shrink:0">
+              <div class="batch-item-info" style="flex:1;min-width:0">
+                <div class="batch-item-title" title="${escapeAttr(x.title)}">${escapeHtml(truncate(x.title, 70))}</div>
+                <div style="font-size:11px;color:var(--text-muted);word-break:break-all;margin:2px 0">旧: ${escapeHtml(x.oldFilename)}</div>
+                <input type="text" id="rename-new-${i}" value="${escapeAttr(x.newFilename)}"
+                  style="width:100%;font-size:11px;font-family:monospace;padding:4px 6px;border:1px solid var(--border);border-radius:4px;box-sizing:border-box">
+                ${x.note ? `<div style="font-size:11px;color:var(--warning);margin-top:2px">${escapeHtml(x.note)}</div>` : ''}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+
+      ${problem.length > 0 ? `
+        <div class="form-section">
+          <h3>磁盘上缺失, 已跳过 (${problem.length})</h3>
+          ${problem.map(x => `
+            <div class="batch-item" style="opacity:0.6">
+              <div class="batch-item-info">
+                <div class="batch-item-title">${escapeHtml(truncate(x.title || '', 60))}</div>
+                <div class="batch-item-meta">${escapeHtml(x.oldFilename)}</div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      ` : ''}
+    `;
+
+    // 存储计划供确认时使用
+    window._renamePlan = changed;
+  } catch (err) {
+    document.getElementById('rename-loading').innerHTML =
+      `<div style="padding:20px;color:var(--danger);text-align:center">⚠ 预览失败: ${escapeHtml(err.message)}</div>`;
+  }
+}
+
+/** 全选/全不选 */
+function renameToggleAll(checked) {
+  (window._renamePlan || []).forEach((_, i) => {
+    const cb = document.getElementById('rename-check-' + i);
+    if (cb) cb.checked = checked;
+  });
+}
+
+/** 确认执行: 收集勾选项 (含用户编辑过的新文件名), 提交批量重命名 */
+async function applyRenameBatch() {
+  const plan = window._renamePlan || [];
+  const items = [];
+  for (let i = 0; i < plan.length; i++) {
+    const cb = document.getElementById('rename-check-' + i);
+    const input = document.getElementById('rename-new-' + i);
+    if (cb && cb.checked && input && input.value.trim()) {
+      items.push({ id: plan[i].id, newFilename: input.value.trim() });
+    }
+  }
+  if (items.length === 0) { showToast('没有选中的文件', 'info'); return; }
+  if (!confirm(`确认将 ${items.length} 个 PDF 重命名为复核后的文件名?\nJSON 中的关联路径会同步更新。`)) return;
+
+  const btn = document.getElementById('btn-rename-apply');
+  if (btn) { btn.disabled = true; btn.textContent = '重命名中...'; }
+
+  try {
+    const res = await fetch('/api/rename-apply', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ items }),
+    });
+    const data = await res.json();
+    const results = data.results || [];
+    const failed = results.filter(r => !r.ok);
+
+    // 逐行标注结果
+    for (const r of results) {
+      const idx = plan.findIndex(x => x.id === r.id);
+      if (idx < 0) continue;
+      const row = document.getElementById('rename-item-' + idx);
+      if (!row) continue;
+      if (r.ok) {
+        row.style.opacity = '0.5';
+        row.style.borderLeft = '3px solid var(--success)';
+        const cb = document.getElementById('rename-check-' + idx);
+        const input = document.getElementById('rename-new-' + idx);
+        if (cb) cb.disabled = true;
+        if (input) { input.disabled = true; input.value = r.newFilename || input.value; }
+      } else {
+        row.style.borderLeft = '3px solid var(--danger)';
+        const info = row.querySelector('.batch-item-info');
+        if (info) info.insertAdjacentHTML('beforeend',
+          `<div style="font-size:11px;color:var(--danger);margin-top:2px">✗ ${escapeHtml(r.error || '失败')}</div>`);
+      }
+    }
+
+    if (failed.length === 0) {
+      showToast(`✓ 完成! 重命名 ${data.renamed} 个文件`, 'success', 4000);
+    } else {
+      showToast(`重命名 ${data.renamed} 个, 失败 ${failed.length} 个 (见列表标注)`, 'error', 5000);
+    }
+    await loadData(); // 刷新列表 (pdf 路径已变)
+  } catch (err) {
+    showToast('请求失败: ' + err.message, 'error');
+  } finally {
+    if (btn) { btn.disabled = false; btn.textContent = '✓ 确认重命名选中项'; }
   }
 }
 
@@ -1701,6 +1877,7 @@ function renderDetail(p) {
           </div>
           <div class="field-actions">
             <button class="btn-mini btn-mini-success" onclick="showPdfPicker(currentDetailId)" id="btn-pick-pdf">📂 从文件夹选择 PDF</button>
+            ${p.pdf && p.pdf.startsWith('papers/') ? `<button class="btn-mini" onclick="renamePdf(currentDetailId)" id="btn-rename-pdf">✏ 重命名</button>` : ''}
             ${!p.pdf ? `<button class="btn-mini btn-mini-warn" onclick="autoDownloadPdf(currentDetailId)" id="btn-download-pdf">⬇ 自动下载 PDF</button>` : ''}
           </div>
           <div id="pdf-picker"></div>
@@ -1719,7 +1896,6 @@ function renderDetail(p) {
     <div class="actions">
       <button class="btn btn-primary" onclick="savePaper(currentDetailId)" id="btn-save">💾 保存</button>
       <button class="btn btn-secondary" onclick="selectPaper(currentDetailId)">↺ 重置</button>
-      <button class="btn btn-secondary" onclick="renamePdf(currentDetailId)" ${!p.pdf || !p.pdf.startsWith('papers/') ? 'disabled style="opacity:0.4;cursor:not-allowed"' : ''}>✏ 重命名 PDF</button>
       <button class="btn btn-danger" onclick="deletePaper(currentDetailId)" style="margin-left:auto">🗑 删除</button>
     </div>
   `;
@@ -1875,8 +2051,20 @@ function renamePdf(id) {
   const year = parseInt(document.getElementById('f-groupYear').value, 10) || p.year;
   const venueAbbrev = guessVenueAbbrev(p);
 
-  // 生成建议文件名: 年份_venue缩写_标题
-  const safeTitle = title.replace(/[\\/:*?"<>|]/g, '').replace(/\s+/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, '').substring(0, 120);
+  // 生成建议文件名: 年份_venue缩写_标题 (与服务端 sanitizeTitleForFilename 规则一致)
+  let safeTitle = title
+    .replace(/μ/g, 'u')
+    .replace(/\//g, '_')
+    .replace(/[\\:*?"<>|]/g, '')
+    .replace(/\s+/g, '_')
+    .replace(/_+/g, '_')
+    .replace(/^_|_$/g, '');
+  if (safeTitle.length > 120) {
+    const cut = safeTitle.substring(0, 120);
+    const lastSep = cut.lastIndexOf('_');
+    safeTitle = (lastSep > 60 ? cut.substring(0, lastSep) : cut).replace(/_+$/, '');
+  }
+  if (!safeTitle) safeTitle = 'untitled';
   const suggested = `${year}_${venueAbbrev || 'paper'}_${safeTitle}.pdf`;
   const oldName = p.pdf.replace('papers/', '');
 
@@ -1958,16 +2146,17 @@ async function extractAbstractFromPdf(id) {
 
 function guessVenueAbbrev(p) {
   const v = (p.venue || '').trim();
-  // 精确映射
+  const vNoYear = v.replace(/^\d{4}\s+/, ''); // 容忍 Crossref 带回的年份前缀
+  // 精确映射 (缩写与服务端 VENUE_MAP 保持一致)
   const map = {
     'IEEE Journal of Solid-State Circuits': 'JSSC',
     'IEEE International Solid-State Circuits Conference (ISSCC)': 'ISSCC',
     'IEEE Transactions on Biomedical Circuits and Systems': 'TBioCAS',
-    'IEEE Robotics and Automation Letters': 'RAL',
+    'IEEE Robotics and Automation Letters': 'IEEE_RAL',
     'Sensors': 'Sensors',
     'MDPI Sensors': 'Sensors',
     'Knowledge-Based Systems': 'KBS',
-    'Electronics': 'Electronics',
+    'Electronics': 'MDPI Electronics',
     'Electronics Letters': 'EL',
     'Neural Networks': 'NeuralNet',
     'Neuroelectronics': 'Neuroelectronics',
@@ -1982,9 +2171,10 @@ function guessVenueAbbrev(p) {
     'IEEE Transactions on Neural Systems and Rehabilitation Engineering': 'TNSRE',
     'IEEE Transactions on Biomedical Engineering': 'TBME',
     'IEEE Transactions on Circuits and Systems I: Regular Papers': 'TCAS-I',
-    'IEEE Transactions on Circuits and Systems II: Express Briefs': 'TCAS-II',
+    'IEEE Transactions on Circuits and Systems II': 'TCAS2',
+    'IEEE Transactions on Circuits and Systems II: Express Briefs': 'TCAS2',
     'IEEE Transactions on Circuits and Systems for Video Technology': 'TCSVT',
-    'IEEE Transactions on Circuits and Systems for Artificial Intelligence': 'TCAS-AI',
+    'IEEE Transactions on Circuits and Systems for Artificial Intelligence': 'TCSAI',
     'IEEE Transactions on Instrumentation and Measurement': 'TIM',
     'IEEE Transactions on Terahertz Science and Technology': 'TTHz',
     'IEEE Transactions on Systems, Man, and Cybernetics: Systems': 'TSMC',
@@ -1996,6 +2186,7 @@ function guessVenueAbbrev(p) {
     'Sensors and Actuators B: Chemical': 'SensActB',
   };
   if (map[v]) return map[v];
+  if (map[vNoYear]) return map[vNoYear];
   // 括号内缩写提取: 取最后一个括号内的内容 (含年份前缀时去掉)
   const m = v.match(/\(([^()]+)\)\s*$/);
   if (m) {

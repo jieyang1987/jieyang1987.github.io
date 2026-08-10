@@ -40,7 +40,12 @@ const VENUE_MAP = {
   'JNE':       { name: 'Journal of Neural Engineering', type: 'journal' },
   'TNSRE':     { name: 'IEEE Transactions on Neural Systems and Rehabilitation Engineering', type: 'journal' },
   'IEEE_RAL':  { name: 'IEEE Robotics and Automation Letters', type: 'journal' },
+  'IEEE_SensJ': { name: 'IEEE Sensors Journal', type: 'journal' },
+  'TIM':       { name: 'IEEE Transactions on Instrumentation and Measurement', type: 'journal' },
+  'JETCAS':    { name: 'IEEE Journal on Emerging and Selected Topics in Circuits and Systems', type: 'journal' },
+  'JOS':       { name: 'Journal of Semiconductors', type: 'journal' },
   'Sensors':   { name: 'Sensors', type: 'journal' },
+  'MDPI Electronics': { name: 'Electronics', type: 'journal' },
   'KBS':       { name: 'Knowledge-Based Systems', type: 'journal' },
   'cbsystems': { name: 'Cell Reports Physical Science', type: 'journal' },
   'Neuroelectronics': { name: 'Neuroelectronics', type: 'journal' },
@@ -184,7 +189,9 @@ async function extractPdfInfo(pdfPath) {
   const dehyphenate = s => s
     .replace(/([A-Za-z])[-\u2010\u2011]\s*\r?\n\s*([a-z])/g, '$1$2') // 行尾断词换行
     .replace(/([A-Za-z])[-\u2010\u2011]\s+([a-z]{2,})/g, '$1$2');    // 连字符后带空格的残断词
-  const text = dehyphenate(rawText);
+  // 修复字距拉大的散排单词 (Elsevier 排版: "a b s t r a c t" → "abstract")
+  const despace = s => s.replace(/\b(?:[A-Za-z]\s+){3,}[A-Za-z]\b/g, m => m.replace(/\s+/g, ''));
+  const text = despace(dehyphenate(rawText));
   const lines = text.split(/\r?\n/).map(l => l.trim()).filter(l => l.length > 0);
   const meta = pdfData.info || {};
   const skipPattern = /^(ieee\s|vol\.|volume|issue|no\.|doi|https?:|©|\(c\)|received|accepted|published|pp\.|\d{4}\s*$|\s*\d+\s*$|corresponding author|isscc|\d{4}\s+ieee|9[78]\d-|isbn|session\s)/i;
@@ -223,11 +230,31 @@ async function extractPdfInfo(pdfPath) {
   const HEADER_LINE = /^(\d{4}\s+ieee|\||\d+\s*\||ieee\s+international|978?-\d|979-8|\d{1,3}\s*$|session\s+\d+|[*†‡])/i;
   // 纯单位行(短行且含机构词, 正文起始点的分隔标志; 兼容 "Tsinghua University..." 这类机构名在行中的情况)
   const AFFIL_ONLY = l => l.length < 90 && /universit|institut|academ|college|hospital|laborator/i.test(l);
+  // 作者名列表行: 几乎全由人名 token 组成 (大写开头词/姓名缩写 + 逗号/and/IEEE头衔连接)
+  // 双栏 PDF 文本交错时作者行常混入摘要区, 句子里含 with/for/the 等小写功能词可天然排除误伤
+  const NAME_LIST = l => {
+    if (l.length > 300) return false;
+    if (!/(,|\s+and\s+|member,?\s*ieee)/i.test(l)) return false;
+    const tokens = l.replace(/[,;*†‡\d]/g, ' ').split(/\s+/)
+      .filter(t => t && !/^(and|et|al)$/i.test(t));
+    if (tokens.length < 3) return false;
+    const nameLike = tokens.filter(t => /^[A-Z]\.?$/.test(t) || /^[A-Z][a-zA-Z-]+\.?$/.test(t));
+    return nameLike.length / tokens.length >= 0.85;
+  };
   // 正文起始句特征(摘要常以这些开头)
   const BODY_START = /^(this\s+(paper|work|article|study)|we\s+(present|propose|report|describe|demonstrate|introduce|develop)|a\s+\w|an\s+\w|the\s+\w|in\s+this)/i;
 
   // 统一清洗一段摘要文本
   function cleanAbstractText(s) {
+    // 若开头是作者署名残段(大写词占比高), 定位第一个正文起始句并砍掉前缀
+    const sm = s.match(/(this\s+(paper|work|article|study)\s+(presents?|proposes?|describes?|reports?|demonstrates?|introduces?)|we\s+(present|propose|report|describe|demonstrate|introduce|develop))/i);
+    if (sm && sm.index > 0 && sm.index < s.length * 0.3) {
+      const prefixWords = s.substring(0, sm.index).split(/\s+/).filter(Boolean);
+      const capWords = prefixWords.filter(w => /^[A-Z]/.test(w.replace(/^[^A-Za-z]+/, '')));
+      if (prefixWords.length > 0 && capWords.length / prefixWords.length > 0.6) {
+        s = s.substring(sm.index);
+      }
+    }
     return s
       .replace(/\s+/g, ' ')
       // 切除署名/收稿信息尾巴(如 "The corresponding authors are X (x@y.edu)")
@@ -254,6 +281,9 @@ async function extractPdfInfo(pdfPath) {
     const namePairs = head.match(/\b[A-Z][a-z]{2,}\s+[A-Z][a-z]{2,}\b/g) || [];
     if (namePairs.length >= 4) return false;
     if (/\b\d{1,2}\s*,\s*\d{1,2}\b/.test(head) && namePairs.length >= 2) return false;
+    // 缩写格式作者列表特征: ≥3 个 "X. Yyy" (如 "H. Wu, Z. Tan, X. Liu")
+    const initialPairs = head.match(/(?:^|,\s*)[A-Z]\.\s*[A-Z][a-z]+/g) || [];
+    if (initialPairs.length >= 3) return false;
     return true;
   }
 
@@ -265,11 +295,12 @@ async function extractPdfInfo(pdfPath) {
     // 找到终止词位置
     const endM = afterAbs.match(ABSTRACT_END);
     let body = endM ? afterAbs.substring(0, endM.index) : afterAbs.substring(0, 4000);
-    // 按行处理, 剔除页眉/页码碎片 与 作者/单位/邮箱等混入行
+    // 按行处理, 剔除页眉/页码碎片、作者名列表行 与 作者/单位/邮箱等混入行
     const bodyLines = body.split(/\r?\n/)
       .map(l => l.trim())
       .filter(l => l.length > 0)
-      .filter(l => !HEADER_LINE.test(l));
+      .filter(l => !HEADER_LINE.test(l))
+      .filter(l => !NAME_LIST(l));
     // 从前往后去掉开头可能的单位/作者署名段(直到遇到正常句子)
     let startIdx = 0;
     for (let i = 0; i < Math.min(6, bodyLines.length); i++) {
@@ -287,20 +318,26 @@ async function extractPdfInfo(pdfPath) {
 
   // 关键词分支结果不可信(如误匹配页脚 "Abstract" 标签 / 抓到作者列表) → 降级 fallback
   if (!isPlausibleAbstract(abstract)) {
-    // 策略: 全文找最后一个单位行, 其后的连续文本即为摘要候选区
-    // 注意: pdf-parse 页序可能错乱(第 2 页在前), 故全文扫描, 不限前 N 行
+    // 通讯署名/共同一作声明行 (Cell Press 等无 "Abstract" 标签的排版中, 摘要紧跟其后)
+    const CORR_LINE = /address\s+correspondence|contributed\s+equally|these\s+authors\s+contributed/i;
+    // 引言标题行号 → 无标签摘要的下边界
+    const introIdx = lines.findIndex(l => /^(introduction|i\.?\s+introduction|1\.?\s+introduction)\b/i.test(l));
+    // 策略: 摘要起始点 = 引言之前最后一个单位行/通讯署名行; 找不到引言则全文前 60% 扫描
+    // 注意: pdf-parse 页序可能错乱(第 2 页在前), 故保持全文扫描而非只看开头
     let lastAffil = -1;
-    const affilScanLimit = Math.ceil(lines.length * 0.6); // 只在前 60% 找单位行, 避开参考文献
+    const affilScanLimit = introIdx > 0 ? introIdx : Math.ceil(lines.length * 0.6);
     for (let i = 0; i < affilScanLimit; i++) {
-      if (AFFIL_ONLY(lines[i])) lastAffil = i;
+      if (AFFIL_ONLY(lines[i]) || CORR_LINE.test(lines[i])) lastAffil = i;
     }
     const searchFrom = lastAffil >= 0 ? lastAffil + 1 : 2;
     // 拼接候选区(先按行过滤页眉/署名/单位, 再连成整段, 天然免疫 PDF 换行拆句)
     const regionLines = [];
     for (let i = searchFrom; i < lines.length; i++) {
       const l = lines[i];
-      if (/^(figure|fig\.|table|TABLE|reference|abstract\b)/i.test(l)) break; // 到正文标签/页脚 Abstract 为止
+      if (/^(figure|fig\.|table|TABLE|reference|abstract\b|introduction|i\.?\s+introduction|1\.?\s+introduction)/i.test(l)) break; // 到正文标签/引言/页脚 Abstract 为止
       if (HEADER_LINE.test(l) || skipPattern.test(l)) continue;
+      if (NAME_LIST(l)) continue; // 作者名列表行
+      if (CORR_LINE.test(l)) continue; // 通讯署名行
       if (AFFIL_LINE.test(l) && l.length < 200) continue; // 单位/邮箱残行
       regionLines.push(l);
       if (regionLines.join(' ').length > 2600) break;
@@ -440,28 +477,39 @@ function writeEntry(entry) {
   return yearFile;
 }
 
-/** 从 venue 全称反查缩写 (用于生成规范文件名) */
+/** 从 venue 全称反查缩写 (用于生成规范文件名)
+ *  自动忽略 Crossref 等来源带来的年份前缀 (如 "2026 IEEE ..." → "IEEE ...") */
 function findVenueAbbrev(venueName) {
   if (!venueName) return null;
+  const stripped = venueName.replace(/^\d{4}\s+/, '');
   for (const [abbrev, info] of Object.entries(VENUE_MAP)) {
-    if (info.name === venueName) return abbrev;
+    if (info.name === venueName || info.name === stripped) return abbrev;
   }
   return null;
 }
 
 /** 清理标题为合法文件名片段
- *  - 去掉 Windows 非法字符 \ / : * ? " < > |
+ *  - μ → u (与现有 uJ/uW 命名风格一致)
+ *  - 斜杠 → 下划线 (避免 "μJ/class" 粘连成 "uJclass")
+ *  - 去掉 Windows 非法字符 \ : * ? " < > |
  *  - 空格 → 下划线 (与现有命名风格一致)
- *  - 限制长度, 避免 Windows 260 字符路径限制
+ *  - 限制长度, 避免 Windows 260 字符路径限制; 在词边界截断, 不留半个单词
  */
 function sanitizeTitleForFilename(title) {
   const cleaned = title
+    .replace(/μ/g, 'u')
+    .replace(/\//g, '_')
     .replace(/[\\/:*?"<>|]/g, '')
     .replace(/\s+/g, '_')
     .replace(/_+/g, '_')
-    .replace(/^_|_$/g, '')
-    .substring(0, 120);
-  return cleaned || 'untitled';
+    .replace(/^_|_$/g, '');
+  if (!cleaned) return 'untitled';
+  if (cleaned.length > 120) {
+    const cut = cleaned.substring(0, 120);
+    const lastSep = cut.lastIndexOf('_');
+    return (lastSep > 60 ? cut.substring(0, lastSep) : cut).replace(/_+$/, '');
+  }
+  return cleaned;
 }
 
 /** 生成规范文件名: {year}_{venue}_{title}.pdf */
