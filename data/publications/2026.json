@@ -4,6 +4,26 @@
       "year": 2026,
       "items": [
         {
+          "authors": "Z. Shen, Z. Liao, S. Shen, C. Fang, F. Tian, <strong>J. Yang*</strong>, M. Sawan*",
+          "title": "SHARP: An Energy-Efficient Spike-Based 3-D Recognition Processor With Hierarchical Hybrid Sparsity Awareness on Point Cloud",
+          "venue": "IEEE Transactions on Circuits and Systems I: Regular Papers",
+          "venueHighlight": false,
+          "url": "https://doi.org/10.1109/TCSI.2026.3720571",
+          "topics": [
+            "neuromorphic"
+          ]
+        },
+        {
+          "authors": "H. Liu, S. Zhao, C. Fu, <strong>J. Yang</strong>, M. Sawan",
+          "title": "A Plug-and-Play Hybrid Pruning Framework for Spike-Driven Transformers via Adaptive Spiking Statistical Importance Scoring",
+          "venue": "Neurocomputing",
+          "venueHighlight": false,
+          "url": "https://doi.org/10.1016/j.neucom.2026.134740",
+          "topics": [
+            "neuromorphic"
+          ]
+        },
+        {
           "authors": "S. Zhao, Q. Wang, Z. Shu, X. Yang, M. Fang, <strong>J. Yang*</strong>, A. M. Sawan",
           "title": "A Bioinspired Spiking Attention Neuromorphic Accelerator for Low-Power Visual Prosthesis",
           "venue": "IEEE Transactions on Instrumentation and Measurement",
