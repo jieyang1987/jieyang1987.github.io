@@ -5,6 +5,22 @@
   },
   "items": [
 
+    {
+      "date": "2026.8.25",
+      "title": "全国软物质与生物物质物理学术会议：《高通量侵入式脑机接口系统级芯片：挑战与机遇》",
+      "url": "http://softmat2026.cpsjournals.cn/",
+      "images": [
+        { "src": "images/coverage/软物质大会.webp", "caption": "全国软物质与生物物质物理学术会议" }
+      ]
+    },
+    {
+      "date": "2026.8.15",
+      "title": "脑机接口开发者大会：《脑机接口芯片—脑信号读出与解码》",
+      "url": "https://mp.weixin.qq.com/s/_mevmjOK0BCMCbyL9_HqDw",
+      "images": [
+        { "src": "images/coverage/第三届脑机接口开发者大会.webp", "caption": "第三届脑机接口开发者大会" }
+      ]
+    },
 
     {
       "date": "2026.7.2",
