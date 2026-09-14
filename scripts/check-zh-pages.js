@@ -201,7 +201,7 @@ const decodingRole=recruitment.directions.find(d=>d.id==='join-bci-decoding');
 const systemRole=recruitment.directions.find(d=>d.id==='join-bci-system');
 const industryRole=recruitment.directions.find(d=>d.id==='join-company');
 check(chipRole.category==='academic' && decodingRole.category==='academic','Both research directions are academic');
-check(chipRole.projects.length===2,'Chip recruitment retains the two dedicated chip projects');
+check(chipRole.projects.length===2,'Chip recruitment retains the two chip research priorities');
 check(systemRole?.category==='academic','System and application recruitment is a separate academic role');
 check(recruitment.directions.filter(d=>d.category==='academic').map(d=>d.id).join(',')==='join-bci-chip,join-bci-system,join-bci-decoding','Chip, systems and decoding recruitment remain distinct and ordered');
 check(chipRole.title.zh==='侵入式脑机接口芯片设计'&&systemRole.title.zh==='侵入式脑机接口系统设计与临床应用','Recruitment titles distinguish IC design from systems and applications');
@@ -209,11 +209,13 @@ check(systemRole.background.zh.includes('不要求具备芯片设计或流片经
 check(systemRole.work.some(p=>p.zh.includes('临床团队'))&&systemRole.work.some(p=>p.zh.includes('嵌入式')),'System role includes engineering and clinical research collaboration');
 check(systemRole.projects.length===2&&systemRole.projects[0].zh.includes('微电极阵列')&&systemRole.projects[1].zh.includes('揭榜挂帅'),'System recruitment uses existing microsystem and real-time BCI system projects');
 for(const language of ['zh','en']) check(systemRole.title[language]&&systemRole.background[language]&&systemRole.work.every(p=>p[language])&&systemRole.positions.every(p=>p[language])&&systemRole.projects.every(p=>p[language]),'System recruitment is complete in '+language);
-const expectedChipProjects=[
- '记录-解码-刺激一体化的医用级全闭环侵入式脑机接口芯片 · 国家科技重大专项项目',
- '记录压缩一体化高通量医用级侵入式脑机接口芯片 · 浙江省“尖兵”研发攻关计划'
+const expectedChipPriorities=[
+ '记录、解码与刺激一体化芯片：探索神经信号采集、片上解码与刺激反馈融合的闭环脑机接口芯片架构。',
+ '高通量、低功耗神经接口芯片：研究神经信号采集与片上数据压缩的协同设计，面向植入式脑机接口的通量与功耗需求。'
 ];
-check(chipRole.projects.every((p,i)=>p.zh===expectedChipProjects[i]),'Chip projects: approved titles precede regular-weight funding categories');
+check(chipRole.projects.every((p,i)=>p.zh===expectedChipPriorities[i]),'Unapproved chip projects are described as research priorities');
+check(chipRole.projectLabel.zh==='重点研究方向'&&chipRole.projectLabel.en==='Research priorities','Both languages distinguish priorities from approved funded projects');
+check(chipRole.projects.every(p=>!/(国家科技重大专项|尖兵|National Science and Technology Major Project|Jianbing)/.test(p.zh+' '+p.en)),'Unapproved chip priorities do not claim funding-program support');
 check(decodingRole.projects.length===1 && decodingRole.projects[0].zh==='基于实时汉语语言解码的植入式脑机接口系统 · 工信部“揭榜挂帅”项目','Mandarin decoding: approved title followed by MIIT program');
 check(chipRole.projects.every(p=>p.en) && decodingRole.projects.every(p=>p.en),'Project corrections localized into English');
 check(industryRole.category==='industry','Company roles categorized as industry');

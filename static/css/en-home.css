@@ -183,7 +183,7 @@ body[data-en-page="home"] .portrait-frame img { width: 190px; height: auto; bord
 }
 
 /* Quiet grid background shared by Chinese and English pages.
-   Fine, evenly spaced lines sit behind existing white content surfaces. */
+   Major and minor grid lines sit behind existing white content surfaces. */
 body:is(.zh-unified, [data-en-page]) {
   --depth-shadow: 0 3px 8px rgba(37, 65, 87, .025), 0 16px 38px -18px rgba(37, 65, 87, .19);
   position: relative;
@@ -199,11 +199,14 @@ body:is(.zh-unified, [data-en-page])::before {
   inset: 0;
   z-index: -1;
   pointer-events: none;
+  /* Four minor cells per major cell; a shared origin keeps both scales aligned. */
   background-image:
-    linear-gradient(rgba(83, 112, 138, .065) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(83, 112, 138, .065) 1px, transparent 1px);
-  background-size: 48px 48px;
-  background-position: center top;
+    linear-gradient(rgba(83, 112, 138, .09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(83, 112, 138, .09) 1px, transparent 1px),
+    linear-gradient(rgba(83, 112, 138, .034) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(83, 112, 138, .034) 1px, transparent 1px);
+  background-size: 192px 192px, 192px 192px, 48px 48px, 48px 48px;
+  background-position: 0 0;
   opacity: .85;
 }
 body:is(.zh-unified, [data-en-page]).en-inner::before { opacity: .60; }

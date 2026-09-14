@@ -58,10 +58,13 @@ check(homeHero.includes('href="#honors"'),'Opening link now targets the retained
 check(!/<(?:strong|b)\b|localhost|127\.0\.0\.1/.test(opening),'Opening uses normal-weight text and no preview-only URLs');
 for(const id of ['research3','research4','research2','research1'])check(opening.includes('research_en.html#'+id),'English opening retains research link '+id);
 const gridCss = homeCss.slice(homeCss.indexOf('/* Quiet grid background'), homeCss.indexOf('/* English honors and teaching'));
-check(gridCss.includes('body:is(.zh-unified, [data-en-page])::before') && gridCss.includes('background-size: 48px 48px'), 'Chinese and English pages share the approved 48px grid');
+check(gridCss.includes('body:is(.zh-unified, [data-en-page])::before') && gridCss.includes('background-size: 192px 192px, 192px 192px, 48px 48px, 48px 48px'), 'Chinese and English pages share the approved major/minor grid');
+check(gridCss.includes('rgba(83, 112, 138, .09)') && gridCss.includes('rgba(83, 112, 138, .034)'), 'Minor grid lines are quieter than major lines');
+check(gridCss.includes('background-position: 0 0;'), 'Both grid scales have the same origin');
+for(const page of ['index.html','research.html','publications.html','chip_gallery.html','coverage.html','join.html','book-item-bci.html'])check(read(page).includes('en-home.css?v=19'), page + ': Chinese grid stylesheet cache is refreshed');
 check(gridCss.includes('body:is(.zh-unified, [data-en-page]).en-inner::before { opacity: .60; }'), 'English inner pages use the same muted texture as Chinese');
 check(gridCss.includes('body:is(.zh-unified, [data-en-page])::before { display: none; }') && gridCss.includes('@media print'), 'Grid remains absent on narrow screens and in print');
-for(const page of pages)check(read(page).includes('en-home.css?v=18'), page + ': shared background stylesheet cache is refreshed');
+for(const page of pages)check(read(page).includes('en-home.css?v=19'), page + ': shared background stylesheet cache is refreshed');
 const expectedHonors = json('data/zh-home.json').selectedHonors.filter(h => !h.title.includes('九三学社'));
 const englishHonors = json('data/en-home.json').selectedHonors;
 const approvedHonorTitles = [

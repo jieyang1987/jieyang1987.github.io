@@ -49,6 +49,12 @@ async function main(){
    check(details.includes('<summary>')&&details.includes('en-join-details-open'),lang+': keyboard-accessible disclosure has open and closed labels');
    for(const work of d.work)check(details.includes(work[lang]),lang+': all work descriptions are retained inside details');
    for(const project of d.projects)check(details.includes(project[lang]),lang+': all supporting projects are retained');
+   check(details.includes('<h4>'+esc(d.projectLabel?.[lang]||data.labels.projects[lang])+'</h4>'),lang+': direction-specific section labels override the funded-project default');
+   if(d.id==='join-bci-chip') {
+    check(details.includes(lang==='zh'?'重点研究方向':'Research priorities'),lang+': unapproved chip projects are presented as research priorities');
+    check(!/国家科技重大专项|尖兵|National Science and Technology Major Project|Jianbing|Selected funded projects|项目支持/.test(details),lang+': chip priorities do not imply approved project funding');
+   }
+
    check(details.indexOf(d.work[0][lang])<details.indexOf(d.projects[0][lang]),lang+': work precedes funding information');
    for(const p of d.positions){
     if(group.sharedPositions.some(common=>common[lang]===p[lang]))check(html.includes(esc(p[lang]))&&!details.includes('<li>'+p[lang]+'</li>'),lang+': common positions are shown once at category level');
