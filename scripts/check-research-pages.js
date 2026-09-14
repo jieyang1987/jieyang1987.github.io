@@ -166,7 +166,17 @@ async function main(){
  check(css.includes('.en-research-continuation { margin-top: 6px; }'),'Disclosure starts close to the lead paragraph');
  check(css.includes('.en-research-continuation > .en-details { margin-top: 0; font-size: inherit; }'),'Expanded narrative keeps the lead font size without an extra top margin');
  check(css.includes('.en-research-continuation > .en-details > summary { padding-block: 2px;')&&css.includes('.en-research-continuation > .en-details > div { padding-top: 8px; }'),'Button and expanded content use compact spacing');
- const mobile=css.split('/* Compact Chinese research page: narrow screens only; keep desktop and paper content unchanged. */')[1]?.split('/* Compact Chinese homepage identity row: narrow screens only; desktop rules stay intact. */')[0]||'';
+ // Read exactly the research media block; later homepage/print rules are unrelated.
+ const mobileStart=css.indexOf('/* Compact Chinese research page: narrow screens only; keep desktop and paper content unchanged. */');
+ check(mobileStart>=0,'Chinese compact research style section exists');
+ const mediaStart=css.indexOf('@media',mobileStart),braceStart=css.indexOf('{',mediaStart);
+ let depth=1,mediaEnd=braceStart+1;
+ for(;mediaEnd<css.length&&depth>0;mediaEnd++) {
+  if(css[mediaEnd]==='{')depth++;
+  else if(css[mediaEnd]==='}')depth--;
+ }
+ check(mediaStart>=0&&braceStart>=0&&depth===0,'Research media block is complete');
+ const mobile=css.slice(mediaStart,mediaEnd);
  check(mobile.trim().startsWith('@media screen and (max-width: 760px) {')&&(mobile.match(/@media/g)||[]).length===1,'Text-first research styling applies only to narrow screens');
  const mobileRules=[...mobile.matchAll(/([^{}]+)\{([^{}]*)\}/g)];
  check(mobileRules.length>=30&&mobileRules.every(rule=>rule[1].trim().startsWith('.zh-unified[data-page="research"]')),'All text-first styling is scoped to the Chinese research page');

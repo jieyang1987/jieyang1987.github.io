@@ -41,7 +41,7 @@ en.paperAwards.forEach((a,i)=>{
 const awards=rendered['paper-awards-list'];
 check((awards.split('<details')[0].match(/class="paper-award-item"/g)||[]).length===3,'Three latest English paper honors initially visible');
 check(!awards.split('<details')[0].includes('ISCAS') && awards.split('<details')[1].includes('ISCAS'), 'ISCAS is kept inside the English disclosure');
-check(awards.includes('View more')&&awards.includes('Show fewer')&&!/<details[^>]*\bopen\b/.test(awards),'English disclosure closed initially');
+check(awards.includes('View more')&&awards.includes('View less')&&!/<details[^>]*\bopen\b/.test(awards),'English disclosure closed initially');
 check((rendered['teaching-course-list'].match(/class="teaching-course-item"/g)||[]).length===5,'Five courses');
 check((rendered['teaching-resource-links'].match(/class="teaching-resource-card"/g)||[]).length===3,'Three resource cards');
 for(const course of profile.teaching.courses)check(rendered['teaching-course-list'].includes(course.years)&&rendered['teaching-course-list'].includes(course.institutionEn),'Course dates and institution retained');

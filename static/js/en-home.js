@@ -79,8 +79,8 @@
     const english = document.documentElement?.lang === 'en';
     const visibleCount = english ? 3 : 4;
     const older = items.slice(visibleCount);
-    const showMore = english ? 'View more' : '查看全部 ' + items.length + ' 项';
-    const showLess = english ? 'Show fewer' : '收起其余 ' + older.length + ' 项';
+    const showMore = 'View more';
+    const showLess = 'View less';
     target.innerHTML = list(items.slice(0, visibleCount)) + (older.length
       ? '<details class="paper-awards-more"><summary><span class="paper-awards-show-more">' + showMore + '</span><span class="paper-awards-show-less">' + showLess + '</span></summary>' + list(older) + '</details>' : '');
   }
@@ -250,10 +250,41 @@
     }
   }
 
+  // Static fallback shows the complete biography; only the enhanced mobile view uses a summary.
+  function setupMobileBiography() {
+    if (lang !== 'zh') return;
+    const full = document.getElementById('profile-details-copy');
+    const summary = document.getElementById('profile-summary-copy');
+    const button = document.getElementById('profile-biography-toggle');
+    if (!full || !summary || !button) return;
+    if (button.biographyDisclosure) { button.biographyDisclosure.sync(); return; }
+    const narrow = window.matchMedia('(max-width: 760px)');
+    const state = { expanded: false, sync };
+    function sync() {
+      const showFull = !narrow.matches || state.expanded;
+      full.hidden = !showFull;
+      summary.hidden = showFull;
+      button.hidden = !narrow.matches;
+      button.textContent = showFull ? '收起简介' : '展开完整简介';
+      button.setAttribute('aria-expanded', String(showFull));
+    }
+    button.addEventListener('click', () => {
+      state.expanded = !state.expanded;
+      sync();
+      if (!state.expanded && narrow.matches && button.getBoundingClientRect().top < 0) {
+        button.scrollIntoView({block: 'nearest'});
+      }
+    });
+    narrow.addEventListener('change', sync);
+    button.biographyDisclosure = state;
+    sync();
+  }
+
   function renderChineseExtras(profile) {
     for(const [id,copy] of [['profile-details-copy',profile.about.zh],['join-details-copy',profile.join.zh]]) {
       const target=document.getElementById(id); if(target)target.innerHTML=safeRich(copy);
     }
+    setupMobileBiography();
     renderTeachingCourses(profile);
     renderTeachingCards(profile);
     renderVideoCards(profile);
@@ -293,6 +324,7 @@
     if (lang === 'en') setText('teaching-copy', home.teaching);
     setText('teaching-materials-copy', home.teachingMaterials);
     if (lang === 'zh') setText('research-intro-copy', home.researchIntro);
+    if (lang === 'zh') setText('profile-summary-copy', home.mobileBiography);
     // An unknown year is omitted rather than shown as a placeholder or inferred.
     if (Array.isArray(home.selectedHonors)) {
       document.getElementById('selected-honors').hidden = home.selectedHonors.length === 0;
@@ -345,6 +377,7 @@
     if (!status.hidden) status.innerHTML = t('Some selected publications could not be loaded. <a href="publications_en.html">View all publications</a> or reload this page.', '部分精选论文暂时无法加载，请<a href="publications.html">查看全部论文</a>或刷新重试。');
   }
 
+  setupMobileBiography();
   renderProfile().catch(error => {
     console.warn('Using the static profile fallback.', error);
     if (lang === 'zh') {

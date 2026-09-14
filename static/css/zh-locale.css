@@ -364,6 +364,17 @@ html[lang="zh-CN"] {
   .zh-unified[data-page="research"] .en-research-lead { margin-top: 10px; }
 }
 
+/* Mobile biography summary: keep one visible introduction at a time. */
+.zh-unified[data-page="home"] #profile-summary-copy[hidden],
+.zh-unified[data-page="home"] #profile-details-copy[hidden],
+.zh-unified[data-page="home"] #profile-biography-toggle[hidden] { display: none; }
+.zh-unified[data-page="home"] #profile-biography-toggle { min-height: 44px; margin-top: 4px; font-size: 13px; }
+@media print {
+  .zh-unified[data-page="home"] #profile-details-copy[hidden] { display: block; }
+  .zh-unified[data-page="home"] #profile-summary-copy,
+  .zh-unified[data-page="home"] #profile-biography-toggle { display: none; }
+}
+
 /* Compact Chinese homepage identity row: narrow screens only; desktop rules stay intact. */
 /* The single portrait comes first in source order for floating, but keeps its original desktop grid position. */
 .zh-unified[data-page="home"] .hero > .portrait-frame { order: 1; }

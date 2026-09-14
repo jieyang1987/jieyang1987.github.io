@@ -285,3 +285,19 @@ body[data-en-page="home"] .home-about .academic-roles { margin-top: 20px; color:
 @media (max-width: 360px) {
   body[data-en-page="home"] .teaching-resource-grid { grid-template-columns: 1fr; }
 }
+
+/* Mobile biography disclosure: plain text control, with the original desktop paragraph spacing. */
+.home-biography-toggle { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; margin-top: 8px; padding: 4px 0; border: 0; background: none; color: var(--accent); font: inherit; font-size: 14px; font-weight: 400; cursor: pointer; }
+.home-biography-toggle::after { content: ''; width: 5px; height: 5px; border-right: 1px solid currentColor; border-bottom: 1px solid currentColor; transform: translateY(-2px) rotate(45deg); }
+.home-biography-toggle[aria-expanded="true"]::after { transform: translateY(1px) rotate(225deg); }
+.home-biography-toggle:hover { text-decoration: underline; text-underline-offset: 4px; }
+.home-biography-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+.home-biography-toggle[hidden], .home-biography-more[hidden] { display: none; }
+.hero-biography .home-biography-more > p { margin: 18px 0 0; }
+@media (max-width: 760px) {
+  .hero-biography .home-biography-more > p { margin-top: 12px; }
+}
+@media print {
+  .home-biography-toggle { display: none !important; }
+  .home-biography-more[hidden] { display: block !important; }
+}

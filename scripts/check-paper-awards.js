@@ -41,7 +41,7 @@ check((older.match(/class="paper-award-item"/g)||[]).length===4,'Four older entr
 check(!/<details[^>]*\bopen(?:\s|=|>)/.test(html),'Disclosure starts closed');
 check([...collapsed.matchAll(/<time datetime="(\d+)">/g)].map(match=>match[1]).join(',')==='2026,2025,2025,2025','Initial view contains the newest four years');
 check([...older.matchAll(/<time datetime="(\d+)">/g)].map(match=>match[1]).join(',')==='2023,2023,2023,2022','Older entries remain in descending year order');
-check(html.includes('查看全部 8 项')&&html.includes('收起其余 4 项'),'Expand/collapse labels match the data count');
+check(html.includes('View more')&&html.includes('View less')&&!/查看全部|收起其余/.test(html),'Disclosure uses compact labels without counts');
 check((html.match(/<a class="paper-award-title"/g)||[]).length===home.paperAwards.filter(item=>item.url).length,'Only honors with identified papers become links');
 for(const item of home.paperAwards.filter(item=>item.url)){
  check(item.url.startsWith('publications.html?paper=')&&item.url.endsWith('#publication-results'),'Identified paper links stay within the publication page');
@@ -65,7 +65,7 @@ render({paperAwards:home.paperAwards.slice(0,4)});
 check(!target.innerHTML.includes('<details'),'Four or fewer entries need no disclosure');
 render({paperAwards:[...home.paperAwards,{year:2027,venue:'Test venue',distinction:'Test honor',authorRole:'Test role'}]});
 check(target.innerHTML.indexOf('Test venue')<target.innerHTML.indexOf('半导体学报'),'A newly supplied later year sorts to the front');
-check(target.innerHTML.includes('查看全部 9 项')&&target.innerHTML.includes('收起其余 5 项'),'Disclosure counts update when records are added');
+check(target.innerHTML.includes('View more')&&target.innerHTML.includes('View less')&&!/查看全部|收起其余/.test(target.innerHTML),'Compact disclosure labels remain stable when records are added');
 const linked={paperAwards:[{year:2025,venue:'Test conference',distinction:'Test award',authorRole:'Author',url:'https://example.invalid/paper?a=1&b=2'}]};
 render(linked);
 check(target.innerHTML.includes('href="https://example.invalid/paper?a=1&amp;b=2"')&&target.innerHTML.includes('target="_blank" rel="noopener"'),'A later user-supplied external URL becomes a safe clickable title');

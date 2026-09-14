@@ -83,7 +83,8 @@ check(profile.about.zh.includes('主持国家科技创新2030')&&!profile.about.
 check(profile.about.zh.includes('杨杰博士积极推动脑机接口技术转化'),'User-approved BCI technology transfer wording');
 check(profile.about.zh.includes('累计研发经费超过5000 万元'),'Updated Chinese funding total');
 check(profile.about.en.includes('total funding exceeding 50 million RMB'),'Matching English funding total');
-check(!heroHtml.includes('<details'),'Opening biography is not hidden behind a disclosure');
+check(heroHtml.includes('<div class="hero-biography" id="profile-details-copy">'+profile.about.zh+'</div>'),'Complete biography remains the visible static fallback');
+check(heroHtml.includes('id="profile-summary-copy" hidden') && heroHtml.includes('aria-controls="profile-details-copy"'),'Mobile summary and full biography use a single accessible disclosure');
 check((homeHtml.match(/id="profile-details-copy"/g)||[]).length===1,'One biography container without a duplicate lower-page biography');
 check(!homeHtml.includes('id="profile-contact"')&&!homeHtml.includes('tel:'),'Phone contact removed from Chinese homepage');
 check(!read('static/js/en-home.js').includes('profile.contact.phone')&&!read('static/js/en-home.js').includes('profile-contact'),'Phone is not reinserted into the biography by a fallback renderer');
@@ -140,7 +141,7 @@ const paperAwardsMain=paperAwardsMarkup.split('<details class="paper-awards-more
 check(home.paperAwards.length===8&&(paperAwardsMarkup.match(/class="paper-award-item"/g)||[]).length===8,'All eight user-provided paper honors are retained');
 check((paperAwardsMain.match(/class="paper-award-item"/g)||[]).length===4,'Only four recent paper honors appear before the disclosure');
 check(paperAwardsMarkup.includes('<details class="paper-awards-more">')&&!/<details[^>]*\bopen(?:\s|=|>)/.test(paperAwardsMarkup),'Earlier paper honors are collapsed by default');
-check(paperAwardsMarkup.includes('查看全部 8 项')&&paperAwardsMarkup.includes('收起其余 4 项'),'Disclosure has accurate expand and collapse labels');
+check(paperAwardsMarkup.includes('View more')&&paperAwardsMarkup.includes('View less')&&!/查看全部|收起其余/.test(paperAwardsMarkup),'Disclosure has accurate expand and collapse labels');
 check(!/<(?:strong|b)\b/.test(paperAwardsMarkup),'Paper honors keep regular font weight');
 check(honorsSection.includes('id="honors-list"')&&!honorsSection.includes('id="teaching-course-list"'),'Personal honors no longer share a row with teaching content');
 check(homeHtml.indexOf('id="teaching-course-list"')>teachingStart&&homeHtml.indexOf('id="teaching-resource-links"')>teachingStart,'Courses and textbook cards belong to the independent teaching section');
