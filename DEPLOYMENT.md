@@ -34,3 +34,7 @@ book pages; no manual per-page Tencent upload list is needed.
 The uploader does not delete unrelated existing remote objects. Verify the
 workflow run and both live releases after each push. A successful Git push
 alone does not mean either host has finished deploying.
+
+## Incremental CloudBase transfer
+
+CloudBase now inspects existing public objects before transfer: matching strong COS MD5 ETags and byte lengths skip unchanged files; other objects are checked by downloaded SHA-256. Missing or different files are uploaded from the same validated artifact. Access/network failures stop the release rather than guessing. The homepage is always sent with the entry files last, followed by the full `_release.json` manifest only after upload succeeds. `.cloudbase-upload/` is ephemeral and ignored by Git; it is never published as a directory. No remote objects are pruned.

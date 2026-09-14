@@ -4,7 +4,7 @@ const fs=require('fs'),path=require('path'),assert=require('assert/strict'),cp=r
 const {root,isPublicFile,collect}=require('./build-release');
 let checks=0;
 function check(value,message){assert(value,message);checks++;}
-for(const file of ['.codex_tmp/preview.html','output/test.png','.env','data/.env','data/.env.json','cloudbaserc.json','scripts/build-release.js','AGENTS.md','deploy_all.bat','static/node_modules/x.js','images/private.pem','static/notes.md'])check(!isPublicFile(file),'Forbidden public artifact entry: '+file);
+for(const file of ['.cloudbase-upload/index.html','.codex_tmp/preview.html','output/test.png','.env','data/.env','data/.env.json','cloudbaserc.json','scripts/build-release.js','AGENTS.md','deploy_all.bat','static/node_modules/x.js','images/private.pem','static/notes.md'])check(!isPublicFile(file),'Forbidden public artifact entry: '+file);
 for(const file of ['join.html','join_en.html','book-item-bci_en.html','book-references_en.html','static/js/en-site.js','data/join.json','images/research1_en.svg'])check(isPublicFile(file),'Required public file allowed: '+file);
 const manifest=JSON.parse(fs.readFileSync(path.join(root,'dist/_release.json'),'utf8'));
 const expected=collect();
@@ -35,13 +35,13 @@ for(const file of expected){
   check(published.has(target)||published.has(target+'index.html'),'Missing public reference: '+file+' → '+target);
  }
 }
-const probes=['.codex_tmp/probe.html','output/probe.png','dist/index.html','.env','.env.local','cloudbaserc.json','private.pem'];
+const probes=['.cloudbase-upload/index.html','.codex_tmp/probe.html','output/probe.png','dist/index.html','.env','.env.local','cloudbaserc.json','private.pem'];
 const ignored=cp.execFileSync('git',['check-ignore','--stdin'],{cwd:root,input:probes.join('\n')+'\n',encoding:'utf8'}).trim().split(/\r?\n/);
 check(probes.every(p=>ignored.includes(p)),'Git must ignore scratch output and credential fixtures');
 // Audit files that would be committed (tracked + non-ignored new files).
 const candidates=cp.execFileSync('git',['ls-files','--cached','--others','--exclude-standard','-z'],{cwd:root,encoding:'utf8'}).split('\0').filter(Boolean);
 for(const file of candidates){
- check(!/(^|\/)(?:\.codex_tmp|output|dist|node_modules|\.env(?:\.[^/]*)?|cloudbaserc\.json)(\/|$)/i.test(file),'Local-only file must not enter Git: '+file);
+ check(!/(^|\/)(?:\.codex_tmp|\.cloudbase-upload|output|dist|node_modules|\.env(?:\.[^/]*)?|cloudbaserc\.json)(\/|$)/i.test(file),'Local-only file must not enter Git: '+file);
  const abs=path.join(root,file);if(!fs.existsSync(abs)||!fs.statSync(abs).isFile())continue;
  if(/\.(?:html|js|json|css|svg|txt|xml|md|yml|yaml|bat|ps1)$/.test(file))check(!sensitive.test(fs.readFileSync(abs,'utf8')),'Credential-like content blocked from Git: '+file);
 }

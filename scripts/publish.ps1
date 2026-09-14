@@ -11,7 +11,7 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Staging failed.' }
     $staged = @(& git diff --cached --name-only)
     if ($LASTEXITCODE -ne 0) { throw 'Unable to inspect staged files.' }
-    if ($staged | Where-Object { $_ -match '(^|/)(\.codex_tmp|output|dist|node_modules|\.env(\.[^/]*)?|cloudbaserc\.json)(/|$)' }) { throw 'A local-only file is staged. Remove it from the index before publishing.' }
+    if ($staged | Where-Object { $_ -match '(^|/)(\.codex_tmp|\.cloudbase-upload|output|dist|node_modules|\.env(\.[^/]*)?|cloudbaserc\.json)(/|$)' }) { throw 'A local-only file is staged. Remove it from the index before publishing.' }
     & git diff --cached --stat
     if ($staged.Count -gt 0) {
         if (-not $Message) { $Message = Read-Host 'Commit message' }

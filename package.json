@@ -22,7 +22,8 @@
     "check:activities": "node scripts/check-activity-pages.js",
     "build:release": "node scripts/build-release.js",
     "check:release": "node scripts/check-release.js",
-    "prepare:release": "npm run check && npm run build:release && npm run check:release"
+    "prepare:release": "npm run check && npm run check:cloudbase && npm run build:release && npm run check:release",
+    "check:cloudbase": "node scripts/check-cloudbase-delta.js"
   },
   "devDependencies": {
     "pdf-parse": "^1.1.1"

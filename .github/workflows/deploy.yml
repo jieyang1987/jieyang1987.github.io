@@ -77,7 +77,13 @@ jobs:
           path: dist/
       - name: Install pinned CloudBase CLI
         run: npm install --global @cloudbase/cli@3.8.1 --no-fund --no-audit
-      - name: Authenticate and deploy public files only
+      - name: Select changed CloudBase files
+        timeout-minutes: 10
+        env:
+          SITE_URL: https://academic-4gpadgfs73617168-1258930043.tcloudbaseapp.com/
+        run: node scripts/build-cloudbase-delta.js
+      - name: Authenticate and deploy changed public files
+        timeout-minutes: 15
         env:
           TCB_SECRET_ID: ${{ secrets.TENCENTCLOUD_SECRET_ID }}
           TCB_SECRET_KEY: ${{ secrets.TENCENTCLOUD_SECRET_KEY }}
@@ -85,7 +91,8 @@ jobs:
         run: |
           test -n "$TCB_SECRET_ID" && test -n "$TCB_SECRET_KEY" && test -n "$TCB_ENV_ID"
           tcb login --apiKeyId "$TCB_SECRET_ID" --apiKey "$TCB_SECRET_KEY"
-          tcb hosting deploy ./dist / --env-id "$TCB_ENV_ID"
+          tcb hosting deploy ./.cloudbase-upload / --env-id "$TCB_ENV_ID" --concurrency 8 --retry-count 2
+          tcb hosting deploy ./dist/_release.json /_release.json --env-id "$TCB_ENV_ID"
       - name: Verify published release
         env:
           SITE_URL: https://academic-4gpadgfs73617168-1258930043.tcloudbaseapp.com/
