@@ -24,7 +24,9 @@
           "pdf": "",
           "topics": [
             "other"
-          ]
+          ],
+          "titleEn": "A high-speed programmable vision chip for real-time object detection",
+          "venueEn": "Infrared and Laser Engineering"
         },
         {
           "authors": "<strong>J. Yang*</strong>, U. Shahnovich, O. Yadid-Pecht",
@@ -46,7 +48,9 @@
           "pdf": "",
           "topics": [
             "other"
-          ]
+          ],
+          "titleEn": "Algorithms and hardware for high-dynamic-range image tone mapping",
+          "venueEn": "Micro/Nano Electronics and Intelligent Manufacturing"
         },
         {
           "authors": "<strong>J. Yang*</strong>, A. Hore, O. Yadid-Pecht",

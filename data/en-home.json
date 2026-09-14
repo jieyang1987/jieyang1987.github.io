@@ -1,0 +1,138 @@
+{
+  "teaching": "At Westlake, I have co-taught digital circuits, hardware description languages, and integrated circuit design with Mohamad Sawan. Our online book introduces the key circuit building blocks of invasive brain–computer interfaces.",
+  "research": [
+    {
+      "number": "01",
+      "title": "Neural interfaces",
+      "description": "High-channel-count, low-power chips for recording neural activity, with on-chip processing and wireless communication.",
+      "link": "research_en.html#research3",
+      "label": "Chips & systems"
+    },
+    {
+      "number": "02",
+      "title": "Neural decoding",
+      "description": "Turning intracranial brain signals into Mandarin speech through neural signal processing and machine learning.",
+      "link": "research_en.html#research4",
+      "label": "Brain-to-language decoding"
+    },
+    {
+      "number": "03",
+      "title": "Neuromorphic computing",
+      "description": "Energy-efficient spiking neural processors and intelligent systems for sensing and closed-loop neuromodulation.",
+      "link": "research_en.html#research2",
+      "label": "Brain-inspired computation"
+    }
+  ],
+  "selectedPublications": [
+    {
+      "year": 2026,
+      "urlContains": "11409079",
+      "venueLabel": "ISSCC 2026",
+      "image": "images/ISSCC2026.webp",
+      "imageAlt": "Micrograph of the neural interface chip with labeled analog and digital blocks",
+      "note": "A sparsity-aware neural interface with predictive focused sampling for tracking neural activity."
+    },
+    {
+      "year": 2025,
+      "urlContains": "cbsystems.0257",
+      "venueLabel": "Cyborg and Bionic Systems · 2025",
+      "image": "images/decoding architecture.webp",
+      "imageAlt": "Overview of the Mandarin brain-to-sentence decoding experiment and architecture",
+      "note": "An acoustic-inspired approach to decoding Mandarin sentences from intracranial recordings."
+    },
+    {
+      "year": 2024,
+      "urlContains": "10777513",
+      "venueLabel": "JSSC · 2025",
+      "image": "images/RAINE_V2.webp",
+      "imageAlt": "Micrograph of the sparsity-aware spiking attention and convolution processor",
+      "note": "A sparsity-aware compute architecture for energy-efficient spiking neural networks."
+    }
+  ],
+  "displayName": "Jie Yang",
+  "position": "Researcher, Advanced Neural Chip Center",
+  "selectedHonors": [
+    {
+      "title": "Huanao BCI Award — Outstanding Young Scholar",
+      "titleZh": "中国脑机接口华瑙奖“杰出青年奖”",
+      "year": 2026
+    },
+    {
+      "title": "BCI 100 Young Scholars",
+      "titleZh": "脑机接口青百荟青年专家",
+      "year": 2025
+    },
+    {
+      "title": "Young Talent, Zhejiang Provincial High-Level Talent Development Program",
+      "titleZh": "浙江省高层次人才培养计划青年人才",
+      "year": 2025
+    },
+    {
+      "title": "Overseas High-Level Talent, Xihu Pearl Program, Hangzhou",
+      "titleZh": "杭州市西湖明珠工程海外高层次人才",
+      "year": 2022
+    }
+  ],
+  "paperAwards": [
+    {
+      "year": 2022,
+      "venue": "JBHI",
+      "distinction": "Issue Cover",
+      "authorRole": "Corresponding author",
+      "url": "publications_en.html?paper=9767670#publication-results",
+      "paperTitle": "NeuroSEE: A Neuromorphic Energy-Efficient Processing Framework for Visual Prostheses"
+    },
+    {
+      "year": 2023,
+      "venue": "AICAS",
+      "distinction": "Best Paper Award",
+      "authorRole": "Co-author",
+      "url": "publications_en.html?paper=10168576#publication-results",
+      "paperTitle": "Binary is All You Need: Ultra-Efficient Arrhythmia Detection with a Binary-Only Compressive System"
+    },
+    {
+      "year": 2023,
+      "venue": "TBioCAS",
+      "distinction": "Best Neuromorphic Paper",
+      "authorRole": "Corresponding author",
+      "url": "publications_en.html?paper=10132492#publication-results",
+      "paperTitle": "A 510μW 0.738-mm² 6.2-pJ/SOP Online Learning Multi-Topology SNN Processor with Unified Computation Engine in 40-nm CMOS"
+    },
+    {
+      "year": 2023,
+      "venue": "TBioCAS",
+      "distinction": "Best Neuromorphic Paper",
+      "authorRole": "Corresponding author; co-first author",
+      "url": "publications_en.html?paper=10105432#publication-results",
+      "paperTitle": "A 0.99-to-4.38 μJ/class Event-Driven Hybrid Neural Network Processor for Full-Spectrum Neural Signal Analyses"
+    },
+    {
+      "year": 2025,
+      "venue": "National Conference on Machine Learning and Nature-Inspired Computing",
+      "distinction": "Best Poster Awards",
+      "authorRole": "Corresponding author"
+    },
+    {
+      "year": 2025,
+      "venue": "2nd China Brain–Computer Intelligence Conference",
+      "distinction": "Highlighted Poster",
+      "authorRole": "Corresponding author"
+    },
+    {
+      "year": 2025,
+      "venue": "ISCAS",
+      "distinction": "Best Paper Award for BioCAS Track",
+      "authorRole": "Corresponding author",
+      "url": "publications_en.html?paper=11043802#publication-results",
+      "paperTitle": "Efficient Self-Adaptive Pseudo-Resistor with Rapid Settling and High Linearity for Neurorecording Front-End Circuits"
+    },
+    {
+      "year": 2026,
+      "venue": "Journal of Semiconductors",
+      "distinction": "Issue Cover",
+      "authorRole": "Corresponding author"
+    }
+  ],
+  "teachingMaterials": "I am the author of the online textbook Invasive Brain–Computer Interface Chip Design and co-author, with Prof. Mohamad Sawan, of Emerging Trends of Biomedical Circuits and Systems. These resources support learning and design practice in brain–computer interfaces and biomedical circuits.",
+  "introHtml": "I am a Research Professor at Westlake University, Deputy Director of the <a href=\"https://bci.westlake.edu.cn/\" target=\"_blank\" rel=\"noopener\">Zhejiang Engineering Research Center for Brain–Computer Interface Intelligent Chip Systems</a>, and a co-founder of <a href=\"https://neuralicorn.com/\" target=\"_blank\" rel=\"noopener\">Neuralicorn</a>. I am also a Senior Member of IEEE and an Associate Editor of <a href=\"https://www.elspub.com/journals/Neuroelectronics/editorial/\" target=\"_blank\" rel=\"noopener\">Neuroelectronics</a>. My current research focuses on <a href=\"research_en.html#research3\">high-channel-count brain–computer interface chips</a>, <a href=\"research_en.html#research4\">brain-to-language decoding</a>, <a href=\"research_en.html#research2\">neuromorphic computing chips</a>, and <a href=\"research_en.html#research1\">closed-loop neuromodulation systems</a>, with an emphasis on translating these technologies into practical applications."
+}

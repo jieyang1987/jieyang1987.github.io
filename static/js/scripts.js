@@ -113,88 +113,25 @@ if (document.readyState === 'loading') {
 // ────────────────────────────────────────────────────────
 
 // 等待页面完全加载后执行
-window.addEventListener('load', function() {
-    // 检测是否为移动端
-    function isMobile() {
-        return window.innerWidth <= 768;
-    }
-
-    // 初始化展开按钮
-    function initExpandToggle(contentId, btnId) {
+window.addEventListener('DOMContentLoaded', function () {
+    const mobile = window.matchMedia('(max-width: 768px)');
+    [['about-content', 'about-expand-btn'], ['teaching-content', 'teaching-expand-btn']].forEach(([contentId, buttonId]) => {
         const content = document.getElementById(contentId);
-        const btn = document.getElementById(btnId);
-
-        if (!content || !btn) {
-            console.log('Element not found:', contentId, btnId);
-            return;
+        const button = document.getElementById(buttonId);
+        if (!content || !button) return;
+        button.setAttribute('aria-controls', contentId);
+        function setExpanded(expanded) {
+            content.classList.toggle('expanded', expanded);
+            button.classList.toggle('expanded', expanded);
+            button.setAttribute('aria-expanded', String(expanded));
+            button.innerHTML = expanded ? '收起内容 <span aria-hidden="true">▲</span>' : '展开更多 <span aria-hidden="true">▼</span>';
         }
-
-        console.log('Initializing expand toggle for:', contentId, 'isMobile:', isMobile());
-
-        // 只在移动端显示按钮
-        if (isMobile()) {
-            btn.style.display = 'block';
-
-            // 切换展开/折叠状态
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-
-                const isExpanded = content.classList.contains('expanded');
-
-                console.log('Button clicked for:', contentId, 'isExpanded:', isExpanded);
-
-                if (isExpanded) {
-                    // 折叠
-                    content.classList.remove('expanded');
-                    btn.classList.remove('expanded');
-                    btn.innerHTML = '展开更多 <span>▼</span>';
-                    console.log('Collapsed:', contentId);
-                } else {
-                    // 展开
-                    content.classList.add('expanded');
-                    btn.classList.add('expanded');
-                    btn.innerHTML = '收起内容 <span>▲</span>';
-                    console.log('Expanded:', contentId);
-                }
-            });
-        } else {
-            // 桌面端隐藏按钮
-            btn.style.display = 'none';
-            // 确保内容完整显示
-            content.classList.add('expanded');
+        function syncLayout() {
+            button.style.display = mobile.matches ? 'block' : 'none';
+            setExpanded(!mobile.matches);
         }
-    }
-
-    // 等待一小段时间确保内容已经渲染
-    setTimeout(function() {
-        // 初始化所有展开按钮
-        initExpandToggle('about-content', 'about-expand-btn');
-        initExpandToggle('teaching-content', 'teaching-expand-btn');
-    }, 200);
-
-    // 窗口大小改变时重新检查（不刷新页面，直接更新按钮和展开状态）
-    let resizeTimer;
-    window.addEventListener('resize', function() {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function() {
-            var pairs = [
-                { contentId: 'about-content',   btnId: 'about-expand-btn' },
-                { contentId: 'teaching-content', btnId: 'teaching-expand-btn' }
-            ];
-            pairs.forEach(function(pair) {
-                var content = document.getElementById(pair.contentId);
-                var btn     = document.getElementById(pair.btnId);
-                if (!content || !btn) return;
-                if (window.innerWidth <= 768) {
-                    // 移动端：显示按钮，默认折叠（若当前未展开则保持折叠）
-                    btn.style.display = 'block';
-                } else {
-                    // 桌面端：隐藏按钮，强制展开内容
-                    btn.style.display = 'none';
-                    content.classList.add('expanded');
-                }
-            });
-        }, 250);
+        button.addEventListener('click', () => setExpanded(!content.classList.contains('expanded')));
+        mobile.addEventListener('change', syncLayout);
+        syncLayout();
     });
 });

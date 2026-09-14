@@ -21,7 +21,7 @@
   // ─────────────────────────────────────────────
 
   function fetchJSON(file) {
-    return fetch(dataBase + file)
+    return fetch(dataBase + file, { cache: 'no-cache' })
       .then(r => { if (!r.ok) throw new Error('Failed: ' + file); return r.json(); });
   }
 
@@ -125,7 +125,9 @@
       'book-item-bci.html': 'fa-book',
       'book-item-bci_en.html': 'fa-book',
       'index.html#join': 'fa-user-plus',
-      'index_en.html#join': 'fa-user-plus'
+      'index_en.html#join': 'fa-user-plus',
+      'join.html': 'fa-user-plus',
+      'join_en.html': 'fa-user-plus'
     };
 
     let html = '';
@@ -136,7 +138,7 @@
             <i class="fa-solid ${iconMap[item.href] || 'fa-book'} me-1"></i>${item.label}
           </a>
           <div class="dropdown-menu rounded">
-            ${item.dropdown.map(d => `<a href="${d.href}" class="dropdown-item"><i class="fa-solid ${iconMap[d.href] || 'fa-file'} me-1"></i>${d.label}</a>`).join('')}
+            ${item.dropdown.map(d => d.href === '#' ? `<span class="dropdown-item disabled" aria-disabled="true">${d.label}</span>` : `<a href="${d.href}" class="dropdown-item"><i class="fa-solid ${iconMap[d.href] || 'fa-file'} me-1"></i>${d.label}</a>`).join('')}
           </div>
         </div>`;
       } else {
@@ -164,7 +166,8 @@
       'chip_gallery.html': 'chip_gallery_en.html',
       'publications.html': 'publications_en.html',
       'coverage.html': 'coverage_en.html',
-      'book-item-bci.html': 'book-item-bci_en.html'
+      'book-item-bci.html': 'book-item-bci_en.html',
+      'join.html': 'join_en.html'
     };
 
     // 反向映射：英文到中文
@@ -440,7 +443,7 @@
       filterContainer.innerHTML = pubData.filterTopics.map((t, i) => `
         <button class="btn btn-outline-success btn-sm topic-btn${i === 0 ? ' active' : ''}"
           style="font-size: 1.1rem;"
-          data-topic="${t.id}">${t[lang === 'zh' ? 'labelZh' : 'labelEn']}</button>
+          aria-pressed="${i === 0}" data-topic="${t.id}">${t[lang === 'zh' ? 'labelZh' : 'labelEn']}</button>
       `).join('');
     }
 
@@ -558,8 +561,9 @@
   function bindTopicFilter() {
     document.querySelectorAll('.topic-btn').forEach(btn => {
       btn.addEventListener('click', function () {
-        document.querySelectorAll('.topic-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.topic-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
         this.classList.add('active');
+        this.setAttribute('aria-pressed', 'true');
         const topic = this.dataset.topic;
 
         document.querySelectorAll('.publication-item').forEach(item => {
@@ -703,7 +707,7 @@
     for (const fullName in exactJournalMapping) {
       const short = exactJournalMapping[fullName];
       if (journalCount[short]) {
-        journalBadges += `<span class="badge bg-primary m-1 p-2" style="font-size:1rem;">${short} × ${journalCount[short]}</span>`;
+        journalBadges += `<span class="pub-venue-stat"><span class="pub-venue-name">${short}</span> <strong class="pub-venue-count">× ${journalCount[short]}</strong></span>`;
       }
     }
 
@@ -737,7 +741,7 @@
     let confBadges = '';
     for (const short in conferenceMapping) {
       if (confCount[short]) {
-        confBadges += `<span class="badge bg-success m-1 p-2" style="font-size:1rem;">${short} × ${confCount[short]}</span>`;
+        confBadges += `<span class="pub-venue-stat"><span class="pub-venue-name">${short}</span> <strong class="pub-venue-count">× ${confCount[short]}</strong></span>`;
       }
     }
 
@@ -751,21 +755,27 @@
 
     const statsBlock = document.createElement('div');
     statsBlock.id = 'pub-stats-block';
+    statsBlock.setAttribute('role', 'group');
+    statsBlock.setAttribute('aria-label', '部分期刊与会议的累计发表统计');
 
     if (journalBadges) {
       const jRow = document.createElement('div');
-      jRow.className = 'd-flex align-items-center flex-wrap gap-1 my-2';
-      jRow.innerHTML = `<span class="fw-bold" style="font-size:1.2rem;">期刊发表统计：</span><div class="journal-summary">${journalBadges}</div>`;
+      jRow.className = 'pub-stats-row';
+      jRow.innerHTML = `<span class="pub-stats-label">期刊</span><div class="pub-stats-values">${journalBadges}</div>`;
       statsBlock.appendChild(jRow);
     }
 
     if (confBadges) {
       const cRow = document.createElement('div');
-      cRow.className = 'd-flex align-items-center flex-wrap gap-1 my-2';
-      cRow.innerHTML = `<span class="fw-bold" style="font-size:1.2rem;">会议发表统计：</span><div class="journal-summary">${confBadges}</div>`;
+      cRow.className = 'pub-stats-row';
+      cRow.innerHTML = `<span class="pub-stats-label">会议</span><div class="pub-stats-values">${confBadges}</div>`;
       statsBlock.appendChild(cRow);
     }
 
+    const note = document.createElement('p');
+    note.className = 'pub-stats-note';
+    note.textContent = '所列期刊与会议的累计数量 · 全部年份，不随主题筛选变化';
+    statsBlock.appendChild(note);
     anchor.after(statsBlock);
   }
 
@@ -774,94 +784,27 @@
   // ─────────────────────────────────────────────
 
   function renderResearchPage(resData) {
-    // 索引标题
-    const indexTitle = document.getElementById('research-index-title');
-    if (indexTitle) indexTitle.textContent = resData.indexTitle[lang];
-
-    // 研究方向索引列表 - 横向标签云布局
+    setText('research-index-title', resData.indexTitle[lang]);
     const indexList = document.getElementById('research-index-list');
-    if (indexList) {
-      indexList.style.display = 'flex';
-      indexList.style.flexWrap = 'wrap';
-      indexList.style.gap = '0.5rem';
-      indexList.style.padding = '0';
-      indexList.innerHTML = resData.directions.map((d, i) => `
-        <li style="list-style: none; margin: 0;">
-          <a href="#${d.id}" style="display: inline-flex; align-items: center; padding: 0.4rem 0.85rem; background: #f8f9fa; border: 1px solid rgba(29, 78, 216, 0.25); border-radius: 2rem; text-decoration: none; color: #333; font-size: 0.9rem; font-weight: 500; transition: all 0.2s ease; white-space: nowrap;">
-            <span style="display: inline-flex; align-items: center; justify-content: center; width: 1.4rem; height: 1.4rem; background: var(--brand-blue); color: white; border-radius: 50%; font-size: 0.7rem; font-weight: 600; margin-right: 0.5rem; flex-shrink: 0;">${i + 1}</span>
-            ${d.title[lang]}
-          </a>
-        </li>
-      `).join('');
-    }
-
-    // 研究详情 - 改进的卡片设计
+    if (indexList) indexList.innerHTML = resData.directions.map((d, i) => `<li><a href="#${d.id}"><span class="zh-index-num">${String(i + 1).padStart(2, '0')}</span>${d.title[lang]}</a></li>`).join('');
     const details = document.getElementById('research-details');
-    if (details) {
-      // 生成移动端快速导航卡片
-      const mobileHighlight = `
-        <div class="mobile-research-highlight">
-          ${resData.directions.slice(0, 4).map(d => `
-            <a href="#${d.id}" class="highlight-card">
-              <div class="highlight-title">${d.title[lang]}</div>
-              <div class="highlight-desc">${d.summary ? d.summary[lang].substring(0, 40) + '...' : ''}</div>
-            </a>
-          `).join('')}
-        </div>
-      `;
-      
-      details.innerHTML = mobileHighlight + resData.directions.map(d => `
-        <div class="research-direction research-card" id="${d.id}">
-          <div class="research-card-container">
-            <!-- 主图区域 -->
-            <div class="research-card-image">
-              ${d.images && d.images.length > 0 ? `
-                <a href="${d.images[0].src}" data-lightbox="${d.group || d.id}" data-title="${d.images[0].caption[lang]}">
-                  ${createPictureTag(d.images[0].src, d.title[lang], 'research-main-image', 'lazy')}
-                </a>
-              ` : ''}
-            </div>
-            
-            <!-- 内容区域 -->
-            <div class="research-card-content">
-              <!-- 标题 -->
-              <h3 class="research-card-title">${d.title[lang]}</h3>
-              
-              <!-- 摘要 -->
-              ${d.summary ? `
-                <div class="research-card-summary">
-                  ${d.summary[lang]}
-                </div>
-              ` : ''}
-              
-              <!-- 正文 -->
-              <div class="research-card-text">
-                ${d.content[lang]}
-              </div>
-            </div>
-            
-            <!-- 附加图片展览 -->
-            ${d.images && d.images.length > 1 ? `
-              <div class="research-gallery">
-                ${d.images.slice(1).map((img, idx) => `
-                  <div class="gallery-item">
-                    <a href="${img.src}" data-lightbox="${d.group || d.id}" data-title="${img.caption[lang]}">
-                      ${createPictureTag(img.src, img.caption[lang], 'gallery-thumbnail', 'lazy')}
-                    </a>
-                    <p class="gallery-caption">${img.caption[lang]}</p>
-                  </div>
-                `).join('')}
-              </div>
-            ` : ''}
+    if (!details) return;
+    details.innerHTML = resData.directions.map((d, i) => `
+      <article class="research-direction research-card" id="${d.id}" aria-labelledby="${d.id}-title">
+        <div class="research-card-container">
+          <div class="research-card-image">
+            ${d.images?.length ? `<a href="${d.images[0].src}" data-lightbox="${d.group || d.id}" data-title="${d.images[0].caption[lang]}">${createPictureTag(d.images[0].src, d.title[lang], 'research-main-image', 'lazy')}</a>` : ''}
           </div>
+          <div class="research-card-content">
+            <span class="zh-index-num">${String(i + 1).padStart(2, '0')} / RESEARCH</span>
+            <h2 class="research-card-title" id="${d.id}-title">${d.title[lang]}</h2>
+            ${d.summary ? `<div class="research-card-summary">${d.summary[lang]}</div>` : ''}
+          </div>
+          <div class="research-card-text">${d.content[lang]}</div>
+          ${d.images?.length > 1 ? `<div class="research-gallery">${d.images.slice(1).map(img => `<figure class="gallery-item"><a href="${img.src}" data-lightbox="${d.group || d.id}" data-title="${img.caption[lang]}">${createPictureTag(img.src, img.caption[lang], 'gallery-thumbnail', 'lazy')}</a><figcaption class="gallery-caption">${img.caption[lang]}</figcaption></figure>`).join('')}</div>` : ''}
         </div>
-      `).join('') + `<div class="research-footer"><a href="#home" class="back-link">${lang === 'zh' ? '↑ 回到顶部' : '↑ Back to top'}</a></div>`;
-    }
+      </article>`).join('');
   }
-
-  // ─────────────────────────────────────────────
-  // 活动记事页面渲染
-  // ─────────────────────────────────────────────
 
   function renderCoveragePage(coverageData) {
     // 页面标题
@@ -927,7 +870,7 @@
     // 渲染筛选按钮
     if (filterContainer && chipData.filters) {
       filterContainer.innerHTML = chipData.filters.map(f =>
-        `<button class="btn btn-outline-primary btn-sm filter-btn me-2 mb-2${f.id === 'all' ? ' active' : ''}" data-filter="${f.id}" style="font-size: 1.1rem;">${f[L]}</button>`
+        `<button class="btn btn-outline-primary btn-sm filter-btn me-2 mb-2${f.id === 'all' ? ' active' : ''}" aria-pressed="${f.id === 'all'}" data-filter="${f.id}" style="font-size: 1.1rem;">${f[L]}</button>`
       ).join('');
     }
 
@@ -963,8 +906,9 @@
     // 筛选按钮交互
     document.querySelectorAll('.filter-btn').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        document.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
+        document.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
         this.classList.add('active');
+        this.setAttribute('aria-pressed', 'true');
         var filter = this.dataset.filter;
         document.querySelectorAll('.gallery-item').forEach(function (item) {
           if (filter === 'all') {
@@ -976,6 +920,82 @@
         });
       });
     });
+  }
+
+  // ─────────────────────────────────────────────
+  // 加入我们页面渲染
+  // ─────────────────────────────────────────────
+
+  function renderJoinPage(joinData) {
+    const L = lang;
+    const labels = joinData.labels;
+    const directions = joinData.directions.filter(d => d.enabled !== false);
+
+    setText('join-page-title', joinData.pageTitle[L]);
+    setText('join-index-title', joinData.indexTitle[L]);
+
+    const intro = document.getElementById('join-intro');
+    if (intro) intro.innerHTML = joinData.intro[L];
+
+    // 方向索引（标签云）
+    const indexList = document.getElementById('join-index-list');
+    if (indexList) {
+      indexList.innerHTML = directions.map((d, i) => `
+        <li>
+          <a href="#${d.id}">
+            <span class="join-index-num">${String(i + 1).padStart(2, '0')}</span>
+            ${d.title[L]}
+          </a>
+        </li>
+      `).join('');
+    }
+
+    const container = document.getElementById('join-details');
+    if (!container) return;
+
+    // 研究方向卡片
+    const dirCards = directions.map(d => `
+      <div class="research-card join-card" id="${d.id}">
+        <div class="research-card-content">
+          <h3 class="research-card-title"><i class="fa-solid ${d.icon} me-2" style="color:var(--brand-blue);"></i>${d.title[L]}</h3>
+          ${d.summary ? `<div class="research-card-summary">${d.summary[L]}</div>` : ''}
+          ${(d.projects || []).some(p => p[L]) ? `<div class="join-block">
+            <div class="join-block-label">${labels.projects[L]}</div>
+            <ul class="join-list">${d.projects.filter(p => p[L]).map(p => `<li>${p[L]}</li>`).join('')}</ul>
+          </div>` : ''}
+          <div class="join-block">
+            <div class="join-block-label">${labels.work[L]}</div>
+            <ul class="join-list">${d.work.map(w => `<li>${w[L]}</li>`).join('')}</ul>
+          </div>
+          <div class="join-block">
+            <div class="join-block-label">${labels.positions[L]}</div>
+            <div class="join-positions">${d.positions.map(p => `<span class="join-badge">${p[L]}</span>`).join('')}</div>
+          </div>
+          <div class="join-block">
+            <div class="join-block-label">${labels.background[L]}</div>
+            <p class="join-block-text">${d.background[L]}</p>
+          </div>
+          ${d.researchLink ? `<a class="join-research-link" href="${d.researchLink[L]}"><i class="fa-solid fa-arrow-right me-1"></i>${labels.learnMore[L]}</a>` : ''}
+        </div>
+      </div>
+    `).join('');
+
+    // 待遇与支持 + 申请方式
+    const tailCards = `
+      <div class="research-card join-card" id="join-general">
+        <div class="research-card-content">
+          <h3 class="research-card-title"><i class="fa-solid fa-handshake me-2" style="color:var(--brand-blue);"></i>${joinData.general.title[L]}</h3>
+          <ul class="join-list join-general-list">${joinData.general.items.map(it => `<li>${it[L]}</li>`).join('')}</ul>
+        </div>
+      </div>
+      <div class="research-card join-card" id="join-contact">
+        <div class="research-card-content">
+          <h3 class="research-card-title"><i class="fa-solid fa-envelope me-2" style="color:var(--brand-blue);"></i>${joinData.contact.title[L]}</h3>
+          <p class="join-block-text">${joinData.contact.text[L]}</p>
+        </div>
+      </div>`;
+
+    container.innerHTML = dirCards + tailCards;
   }
 
   // ─────────────────────────────────────────────
@@ -1033,6 +1053,15 @@
     }).catch(err => {
       console.error('chips.json load error:', err);
       showInlineError('chip-gallery-row', '芯片展示数据加载失败，请检查网络连接后');
+    });
+  }
+
+  if (pageName === 'join') {
+    fetchJSON('join.json').then(joinData => {
+      renderJoinPage(joinData);
+    }).catch(err => {
+      console.error('join.json load error:', err);
+      showInlineError('join-details', '招募信息加载失败，请检查网络连接后');
     });
   }
 

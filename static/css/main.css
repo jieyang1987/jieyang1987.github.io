@@ -1542,7 +1542,7 @@ section.bg-gradient-primary-to-secondary-gray header h2 {
 ══════════════════════════════════════════════ */
 :root {
   --font-en-body:    'Inter Variable', 'Inter', 'Segoe UI', Roboto, sans-serif;
-  --font-en-heading: 'Inter Variable', 'Inter', 'Segoe UI', Roboto, sans-serif;
+  --font-en-heading: Georgia, 'Times New Roman', 'Noto Serif', serif;
   --font-en-accent:  'Inter Variable', 'Inter', 'Segoe UI', Roboto, sans-serif;
 }
 
@@ -1561,16 +1561,16 @@ section.bg-gradient-primary-to-secondary-gray header h2 {
 [lang="en"] h4 {
   font-family: var(--font-en-heading);
   letter-spacing: 0.01em;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 [lang="en"] h2 {
-  font-weight: 700;
+  font-weight: 600;
 }
 
 [lang="en"] h4 {
-  font-weight: 700;
-  letter-spacing: -0.015em;
+  font-weight: 600;
+  letter-spacing: 0;
 }
 
 /* 导航 */
@@ -1597,8 +1597,8 @@ section.bg-gradient-primary-to-secondary-gray header h2 {
 [lang="en"] #awards {
   font-family: var(--font-en-body);
   font-weight: 400;
-  line-height: 1.55;
-  letter-spacing: -0.003em;
+  line-height: 1.65;
+  letter-spacing: 0;
   text-align: left;
   overflow-wrap: break-word;
 }
@@ -1608,30 +1608,31 @@ section.bg-gradient-primary-to-secondary-gray header h2 {
 [lang="en"] .publication-list,
 [lang="en"] .publication-item {
   font-family: var(--font-en-body);
-  font-weight: 420;
+  font-weight: 400;
   font-size: clamp(13.5px, 0.85vw + 12.5px, 16.5px);
-  line-height: 1.8;
+  line-height: 1.7;
+  letter-spacing: 0;
 }
 
 /* h5（芯片卡片标题等） */
 [lang="en"] h5 {
   font-family: var(--font-en-body);
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
 }
 
 /* 研究方向卡片 */
 [lang="en"] .research-card-title {
   font-family: var(--font-en-heading);
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-weight: 600;
+  letter-spacing: 0;
 }
 
 [lang="en"] .research-card-body {
   font-family: var(--font-en-body);
-  font-weight: 420;
-  line-height: 1.75;
-  letter-spacing: -0.003em;
+  font-weight: 400;
+  line-height: 1.65;
+  letter-spacing: 0;
 }
 
 /* 联系方式 */
@@ -1655,6 +1656,18 @@ section.bg-gradient-primary-to-secondary-gray header h2 {
 /* section 标题 header 区域内的文字 */
 [lang="en"] section header {
   border-left-color: var(--brand-blue);
+}
+
+/* 英文版卡片：更轻的边框与阴影 */
+[lang="en"] .research-card {
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(15, 35, 70, 0.08);
+  border: 1px solid rgba(29, 78, 216, 0.14);
+  border-left: 3px solid var(--brand-blue);
+}
+
+[lang="en"] .research-card:hover {
+  box-shadow: 0 4px 14px rgba(15, 35, 70, 0.12);
 }
 
 /* ══════════════════════════════════════════════
@@ -2515,11 +2528,23 @@ section.bg-gradient-primary-to-secondary-gray header h2 {
 [lang="en"] h2 {
   color: #111827;
   font-size: clamp(1.5rem, 2vw, 1.9rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-weight: 600;
+  letter-spacing: 0;
   padding-bottom: 0.55rem;
   border-bottom: 1.5px solid #e5e7eb;
   margin-bottom: 1.5rem;
+}
+
+/* Banner 姓名与研究兴趣小标题 */
+[lang="en"] .banner-title {
+  font-family: var(--font-en-heading);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+[lang="en"] .interest-title {
+  font-family: var(--font-en-body);
+  font-weight: 600;
 }
 
 /* 4. 链接色降噪：沉稳深蓝，替代高饱和亮蓝 */
@@ -2533,9 +2558,164 @@ section.bg-gradient-primary-to-secondary-gray header h2 {
   text-decoration: underline;
 }
 
+
 /* Banner 内的 h2（姓名标题）不加底线 */
 .banner-title,
 [lang="en"] .banner-title {
   border-bottom: none !important;
   padding-bottom: 0 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   加入我们页面 (join.html / join_en.html)
+═══════════════════════════════════════════════════════════ */
+.join-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+.join-index li {
+  list-style: none;
+  margin: 0;
+}
+
+.join-index a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.85rem;
+  border: 1px solid rgba(29, 78, 216, 0.3);
+  border-radius: 999px;
+  color: var(--brand-blue);
+  font-size: 0.92rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  background: #fff;
+}
+
+.join-index a:hover {
+  background: var(--brand-blue);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(29, 78, 216, 0.25);
+}
+
+.join-index-num {
+  font-size: 0.75rem;
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+.join-card {
+  scroll-margin-top: 90px;
+}
+
+/* 方向标题放大、摘要弱化，拉开层级 */
+.join-card .research-card-title {
+  font-size: 1.6rem;
+}
+
+.join-card .research-card-summary {
+  font-size: 0.88rem;
+  font-weight: 400;
+}
+
+#join-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+#join-details .join-card {
+  margin-bottom: 0;
+}
+
+.join-block {
+  margin-top: 0.25rem;
+}
+
+.join-block-label {
+  font-weight: 700;
+  color: var(--brand-blue);
+  font-size: 0.92rem;
+  margin-bottom: 0.4rem;
+}
+
+.join-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--text-primary, #333);
+}
+
+.join-list li {
+  margin-bottom: 0.3rem;
+}
+
+.join-general-list li {
+  margin-bottom: 0.6rem;
+}
+
+.join-positions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.join-badge {
+  display: inline-block;
+  background: rgba(29, 78, 216, 0.07);
+  color: var(--brand-blue);
+  border: 1px solid rgba(29, 78, 216, 0.25);
+  border-radius: 999px;
+  padding: 0.25rem 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.join-block-text {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--text-primary, #333);
+}
+
+.join-research-link {
+  display: inline-block;
+  margin-top: 0.25rem;
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--brand-blue);
+  text-decoration: none;
+}
+
+.join-research-link:hover {
+  color: var(--brand-blue-dark);
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+  .join-card {
+    padding: 1.25rem !important;
+  }
+
+  .join-card .research-card-title {
+    font-size: 1.35rem;
+  }
+
+  .join-index a {
+    font-size: 0.85rem;
+    padding: 0.25rem 0.7rem;
+  }
+}
+
+@media screen and (max-width: 991.98px) {
+  #join-details {
+    grid-template-columns: 1fr;
+  }
 }

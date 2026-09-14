@@ -1,0 +1,454 @@
+{
+  "pageTitle": {
+    "zh": "加入我们",
+    "en": "Join Us"
+  },
+  "indexTitle": {
+    "zh": "招聘分类",
+    "en": "Opportunity Categories"
+  },
+  "intro": {
+    "zh": "<p>依托西湖大学先进神经芯片中心与脑机接口智能芯片系统浙江省工程研究中心，我们组建了覆盖「芯片—算法—系统—临床」的跨学科团队，承担多项国家及省部级项目，科研经费充足、实验条件良好。欢迎对<strong>脑机接口芯片设计、系统与应用、汉语神经解码</strong>感兴趣的伙伴加入。</p><p>无论你来自电路设计、人工智能、电子系统，还是生物医学工程与神经科学，都有机会参与从基础研究、芯片与系统验证到临床合作和产业转化的全过程，也可以围绕自己的兴趣与专长深入研究。</p><p>团队开放、充满活力，鼓励跨学科合作与独立探索。我们招收博士后、博士生、科研助理与实习生，欢迎访问学生及联合培养硕士、博士研究生加入，并根据岗位和参与形式提供具有竞争力的待遇与科研支持。</p>",
+    "en": "<p>We develop chips, algorithms, and systems for brain–computer interfaces at Westlake University. We welcome researchers and engineers in integrated circuits, machine learning, biomedical engineering, and neuroscience.</p>"
+  },
+  "labels": {
+    "projects": {
+      "zh": "项目支持",
+      "en": "Selected funded projects"
+    },
+    "work": {
+      "zh": "你将参与的工作",
+      "en": "What you’ll do"
+    },
+    "positions": {
+      "zh": "在招岗位",
+      "en": "Open Positions"
+    },
+    "background": {
+      "zh": "期望背景",
+      "en": "Your background"
+    },
+    "learnMore": {
+      "zh": "了解该方向的研究详情 →",
+      "en": "Research details →"
+    }
+  },
+  "directions": [
+    {
+      "id": "join-bci-chip",
+      "icon": "fa-microchip",
+      "researchLink": {
+        "zh": "research.html#research3",
+        "en": "research_en.html#research3"
+      },
+      "title": {
+        "zh": "侵入式脑机接口芯片设计",
+        "en": "Implantable BCI Chip Design"
+      },
+      "projects": [
+        {
+          "zh": "记录-解码-刺激一体化的医用级全闭环侵入式脑机接口芯片 · 国家科技重大专项项目",
+          "en": "Medical-grade closed-loop chips for recording, decoding, and stimulation — National Science and Technology Major Project."
+        },
+        {
+          "zh": "记录压缩一体化高通量医用级侵入式脑机接口芯片 · 浙江省“尖兵”研发攻关计划",
+          "en": "High-throughput medical-grade chips with integrated recording and compression — Zhejiang “Jianbing” R&D Program."
+        }
+      ],
+      "work": [
+        {
+          "zh": "高通量低噪声模拟前端（AFE）设计：低噪声放大器、可变增益放大器、SAR/增量型 ADC",
+          "en": "Design low-noise, high-channel-count AFEs: LNAs, VGAs, and SAR / incremental ADCs."
+        },
+        {
+          "zh": "片上神经数据压缩与特征提取（压缩感知、事件驱动采样）的电路实现",
+          "en": "Implement on-chip compression and feature extraction using compressed sensing and event-driven sampling."
+        },
+        {
+          "zh": "低功耗供能、无线收发与刺激电路设计，以及芯片集成、流片和测试验证",
+          "en": "Develop low-power supply, wireless, and stimulation circuits; integrate, tape out, and test silicon."
+        }
+      ],
+      "positions": [
+        {
+          "zh": "博士后（模拟/混合信号 IC 设计）",
+          "en": "Postdoc (analog/mixed-signal IC design)"
+        },
+        {
+          "zh": "博士生",
+          "en": "Ph.D. students"
+        },
+        {
+          "zh": "联合培养硕士研究生",
+          "en": "Joint-training master’s students"
+        },
+        {
+          "zh": "联合培养博士研究生",
+          "en": "Joint-training Ph.D. students"
+        },
+        {
+          "zh": "科研助理 / 实习生",
+          "en": "RAs / interns"
+        }
+      ],
+      "background": {
+        "zh": "微电子、集成电路设计相关专业；有低噪声模拟前端或 ADC 设计经验、完整流片经历者优先；也欢迎有神经信号处理背景、希望转向芯片实现的申请者。",
+        "en": "Microelectronics / IC design background; experience with low-noise analog front-ends or ADCs and a full tape-out cycle is a plus. Applicants with neural signal processing backgrounds who want to move toward silicon implementation are also welcome."
+      },
+      "category": "academic",
+      "recruitmentOverview": {
+        "title": {
+          "zh": "芯片设计",
+          "en": "Chip design"
+        },
+        "summary": {
+          "zh": "模拟／混合信号电路、低功耗读出与片上处理",
+          "en": "Analog/mixed-signal circuits, low-power readout, and on-chip processing"
+        }
+      },
+      "backgroundHighlights": {
+        "en": [
+          "Microelectronics or IC design background.",
+          "Low-noise AFE / ADC design and tape-out experience are a plus."
+        ]
+      },
+      "backgroundNote": {
+        "en": "Neural signal processing researchers interested in silicon implementation are also welcome."
+      }
+    },
+    {
+      "id": "join-bci-system",
+      "icon": "fa-cogs",
+      "category": "academic",
+      "researchLink": {
+        "zh": "research.html#research3",
+        "en": "research_en.html#research3"
+      },
+      "title": {
+        "zh": "侵入式脑机接口系统设计与临床应用",
+        "en": "BCI Systems & Clinical Applications"
+      },
+      "projects": [
+        {
+          "zh": "新型高生物兼容微电极阵列与脑机微系统研发 · 浙江省“尖兵”研发攻关计划",
+          "en": "Biocompatible microelectrode arrays and BCI microsystems — Zhejiang “Jianbing” R&D Program."
+        },
+        {
+          "zh": "基于实时汉语语言解码的植入式脑机接口系统 · 工信部“揭榜挂帅”项目",
+          "en": "Implantable BCIs with real-time Mandarin decoding — MIIT “Jiebang Guashuai” Program."
+        }
+      ],
+      "work": [
+        {
+          "zh": "脑机接口系统硬件与嵌入式开发：电极及芯片接口、采集电路板、固件、供能与无线通信模块集成",
+          "en": "Build acquisition hardware, electrode / chip interfaces, firmware, and power / wireless modules."
+        },
+        {
+          "zh": "实时神经数据平台搭建：多通道采集、数据同步与传输、上位机软件及在线解码算法接入",
+          "en": "Develop multichannel data streaming, synchronization, host software, and online decoding integration."
+        },
+        {
+          "zh": "微系统封装与整机测试，评估信号质量、系统延迟、功耗与运行稳定性",
+          "en": "Package and test microsystems for signal quality, latency, power, and stability."
+        },
+        {
+          "zh": "与神经科学及临床团队合作，开展实验系统搭建、神经信号采集、实验流程支持与应用验证",
+          "en": "Work with neuroscience and clinical teams on experiments, neural recordings, and application validation."
+        }
+      ],
+      "positions": [
+        {
+          "zh": "博士后（脑机接口系统 / 生物医学工程）",
+          "en": "Postdoc (BCI systems / biomedical engineering)"
+        },
+        {
+          "zh": "博士生",
+          "en": "Ph.D. students"
+        },
+        {
+          "zh": "联合培养硕士研究生",
+          "en": "Joint-training master’s students"
+        },
+        {
+          "zh": "联合培养博士研究生",
+          "en": "Joint-training Ph.D. students"
+        },
+        {
+          "zh": "科研助理 / 实习生",
+          "en": "RAs / interns"
+        }
+      ],
+      "background": {
+        "zh": "电子信息、自动化、计算机、生物医学工程或神经科学等相关背景；有系统硬件、嵌入式开发、实时数据处理、实验平台搭建或临床科研协作经验者优先。可根据专长参与系统研发或应用研究，不要求具备芯片设计或流片经历。",
+        "en": "Backgrounds in electronics, automation, computer science, biomedical engineering, or neuroscience. Experience in system hardware, embedded development, real-time data processing, experimental platforms, or clinical research collaboration is a plus. Applicants may focus on system development or application research according to their expertise; IC design and tape-out experience are not required."
+      },
+      "recruitmentOverview": {
+        "title": {
+          "zh": "系统与临床应用",
+          "en": "Systems & clinical applications"
+        },
+        "summary": {
+          "zh": "系统硬件、嵌入式开发、实验平台与临床合作",
+          "en": "System hardware, embedded development, experimental platforms, and clinical collaboration"
+        }
+      },
+      "backgroundHighlights": {
+        "en": [
+          "Electronics, automation, computer science, biomedical engineering, or neuroscience.",
+          "Hardware, embedded systems, real-time data, or experimental / clinical research experience is a plus.",
+          "IC design and tape-out experience are not required."
+        ]
+      },
+      "backgroundNote": {
+        "en": "Focus on system development or application research according to your expertise."
+      }
+    },
+    {
+      "id": "join-bci-decoding",
+      "icon": "fa-language",
+      "researchLink": {
+        "zh": "research.html#research4",
+        "en": "research_en.html#research4"
+      },
+      "title": {
+        "zh": "侵入式脑机接口汉语解码",
+        "en": "Mandarin Neural Decoding"
+      },
+      "summary": {
+        "zh": "",
+        "en": "Research on decoding Mandarin speech from intracranial recordings, including models of initials, finals, and tones, real-time decoding systems, and collaboration with clinical teams."
+      },
+      "projects": [
+        {
+          "zh": "基于实时汉语语言解码的植入式脑机接口系统 · 工信部“揭榜挂帅”项目",
+          "en": "Implantable BCIs with real-time Mandarin decoding — MIIT “Jiebang Guashuai” Program."
+        }
+      ],
+      "work": [
+        {
+          "zh": "sEEG 神经信号采集与汉语语音神经数据集构建（与临床团队合作）",
+          "en": "Collect sEEG recordings and build Mandarin speech–neural datasets with clinical partners."
+        },
+        {
+          "zh": "声母/韵母/声调的分支解码与融合算法，端到端序列建模与大模型方法",
+          "en": "Model and fuse initials, finals, and tones; explore end-to-end sequence and large-model approaches."
+        },
+        {
+          "zh": "实时解码系统搭建与患者闭环实验，解码延迟与准确率优化",
+          "en": "Integrate real-time decoders for closed-loop patient experiments; optimize latency and accuracy."
+        }
+      ],
+      "positions": [
+        {
+          "zh": "博士后（机器学习 / 神经信号处理）",
+          "en": "Postdoc (machine learning / neural signal processing)"
+        },
+        {
+          "zh": "博士生",
+          "en": "Ph.D. students"
+        },
+        {
+          "zh": "联合培养硕士研究生",
+          "en": "Joint-training master’s students"
+        },
+        {
+          "zh": "联合培养博士研究生",
+          "en": "Joint-training Ph.D. students"
+        },
+        {
+          "zh": "科研助理（数据采集与标注）",
+          "en": "RA (data collection & annotation)"
+        }
+      ],
+      "background": {
+        "zh": "计算机、人工智能、生物医学工程等背景；熟悉深度学习（Transformer、序列建模）与 PyTorch；有语音处理、神经工程或脑电研究经历者优先。",
+        "en": "Computer science, AI, or biomedical engineering background; proficiency in deep learning (Transformers, sequence modeling) and PyTorch; experience in speech processing, neural engineering, or EEG research is a plus."
+      },
+      "category": "academic",
+      "recruitmentOverview": {
+        "title": {
+          "zh": "汉语神经解码",
+          "en": "Mandarin neural decoding"
+        },
+        "summary": {
+          "zh": "机器学习、语音建模与神经信号处理",
+          "en": "Machine learning, speech modeling, and neural signal processing"
+        }
+      },
+      "backgroundHighlights": {
+        "en": [
+          "Computer science, AI, or biomedical engineering background.",
+          "Deep learning, sequence modeling, and PyTorch skills.",
+          "Speech processing, neural engineering, or EEG experience is a plus."
+        ]
+      }
+    },
+    {
+      "id": "join-company",
+      "icon": "fa-building",
+      "researchLink": null,
+      "title": {
+        "zh": "西湖灵犀科技",
+        "en": "Neuralicorn"
+      },
+      "summary": {
+        "zh": "课题组科研成果转化的产业化平台，聚焦脑机接口芯片与系统，以及侵入式脑机接口汉语解码的工程化与产品化。重点招聘芯片设计、汉语语音／语言解码人才，推动芯片、解码算法与产品系统协同落地。",
+        "en": "Turn lab advances in BCI chips, systems, and Mandarin neural decoding into deployable products."
+      },
+      "projects": [
+        {
+          "zh": "侵入式脑机接口芯片与系统：芯片及整机的工程化开发与产品化",
+          "en": "Neural interface chips and complete BCI devices."
+        },
+        {
+          "zh": "侵入式脑机接口汉语解码：语音／语言解码算法与系统的工程化开发与产品化",
+          "en": "Mandarin speech / language decoding algorithms and systems for implantable BCIs."
+        }
+      ],
+      "work": [
+        {
+          "zh": "模拟/数字芯片设计、验证与量产支持",
+          "en": "Design and verify analog / digital chips, with support through production."
+        },
+        {
+          "zh": "侵入式脑机接口汉语语音／语言解码算法研发、实时推理优化与产品系统集成",
+          "en": "Develop Mandarin neural decoders and optimize real-time inference for implantable BCI products."
+        },
+        {
+          "zh": "嵌入式固件、驱动与低功耗无线协议栈开发",
+          "en": "Build embedded firmware, drivers, and low-power wireless protocols."
+        },
+        {
+          "zh": "神经信号处理算法的工程实现与产品系统集成",
+          "en": "Integrate neural signal processing algorithms into production-ready systems."
+        }
+      ],
+      "positions": [
+        {
+          "zh": "芯片设计工程师",
+          "en": "Chip design engineers"
+        },
+        {
+          "zh": "汉语语音／语言解码算法工程师",
+          "en": "Mandarin speech/language decoding engineers"
+        },
+        {
+          "zh": "嵌入式工程师",
+          "en": "Embedded engineers"
+        },
+        {
+          "zh": "算法工程师",
+          "en": "Algorithm engineers"
+        },
+        {
+          "zh": "系统工程师",
+          "en": "System engineers"
+        }
+      ],
+      "background": {
+        "zh": "相关工程经验即可，学历背景不限；有医疗器械、低功耗无线或消费电子产品经验者优先。 有芯片设计、语音／语言建模或神经信号解码经验者，欢迎应聘对应方向。",
+        "en": "Relevant engineering experience; degree background flexible. Experience with medical devices, low-power wireless, or consumer electronics is a plus. Applicants with chip-design, speech/language-modeling, or neural signal decoding experience are welcome to apply for the corresponding roles."
+      },
+      "category": "industry",
+      "projectLabel": {
+        "zh": "产业化方向",
+        "en": "Product Development Areas"
+      },
+      "backgroundHighlights": {
+        "en": [
+          "Relevant engineering experience; degree background flexible.",
+          "Medical devices, low-power wireless, or consumer electronics experience is a plus."
+        ]
+      },
+      "backgroundNote": {
+        "en": "We welcome applicants in chip design, speech and language modeling, and neural signal decoding."
+      }
+    }
+  ],
+  "general": {
+    "title": {
+      "zh": "待遇与支持",
+      "en": "What We Offer"
+    },
+    "items": [
+      {
+        "zh": "<strong>博士后：</strong>提供有竞争力的年薪与科研经费支持，支持申请国家与浙江省博士后基金、杭州市人才政策，出站优秀者可推荐留任。 具体薪资与岗位支持请来信咨询。",
+        "en": "<strong>Postdocs:</strong> Competitive salary, research funding, and fellowship / talent-program support. Outstanding researchers may be recommended for long-term roles; contact us for details."
+      },
+      {
+        "zh": "<strong>博士生：</strong>充足的科研经费与每人均有的流片机会，课题覆盖电路、算法与临床交叉方向，支持参加 ISSCC 等国际顶级会议。",
+        "en": "<strong>Ph.D. students:</strong> Funded research across circuits, algorithms, and clinical translation, with tape-out opportunities for every student and support for conferences such as ISSCC."
+      },
+      {
+        "zh": "<strong>联合培养与访问学生：</strong>欢迎其他高校/院所在读硕士研究生和博士研究生以联合培养或访问形式加入，参与脑机接口芯片与系统、汉语神经解码等相关科研项目，共享数据、设备与流片资源。",
+        "en": "<strong>Joint-training & visiting students:</strong> Master’s and Ph.D. students from other institutions can join BCI and Mandarin decoding projects, with access to datasets, equipment, and tape-out resources."
+      },
+      {
+        "zh": "<strong>科研助理 / 实习生：</strong>本科生与访问学生可参与真实芯片与系统项目，表现优秀者优先获得深造推荐；全职科研助理待遇面议。",
+        "en": "<strong>RAs / interns:</strong> Hands-on chip and system projects for undergraduates and visiting students; graduate-study recommendations for outstanding participants. Full-time RA pay is negotiable."
+      },
+      {
+        "zh": "<strong>工程师（西湖灵犀科技）：</strong>参与脑机接口产品从研发到落地的完整过程，具体岗位与待遇请来信咨询。",
+        "en": "<strong>Engineers:</strong> BCI product development from R&D to deployment at Neuralicorn. Contact us for role-specific compensation and benefits."
+      }
+    ]
+  },
+  "contact": {
+    "title": {
+      "zh": "申请方式",
+      "en": "How to Apply"
+    },
+    "text": {
+      "zh": "请根据岗位类型，将简历与感兴趣的方向发送至对应邮箱：<br><br><strong>学术岗位（含联合培养）：</strong><br><a href=\"mailto:yangjie@westlake.edu.cn\">yangjie@westlake.edu.cn</a><br><br><strong>产业岗位（西湖灵犀科技）：</strong><br><a href=\"mailto:talent@neuralicorn.com\">talent@neuralicorn.com</a><br><br>邮件标题建议格式：“应聘-方向-岗位-姓名”。我们会在收到邮件后尽快回复，合适的候选人将安排线上或线下交流。",
+      "en": "Send your CV and preferred role / research area to:<br><br><strong>Academic & joint-training roles</strong><br><a href=\"mailto:yangjie@westlake.edu.cn\">yangjie@westlake.edu.cn</a><br><br><strong>Industry roles · Neuralicorn</strong><br><a href=\"mailto:talent@neuralicorn.com\">talent@neuralicorn.com</a><br><br>Subject: “Application – Area – Role – Name”. Shortlisted applicants will be invited to an online or on-site meeting."
+    }
+  },
+  "categories": [
+    {
+      "id": "academic",
+      "anchor": "join-academic",
+      "title": {
+        "zh": "学术类",
+        "en": "Academic Opportunities"
+      },
+      "description": {
+        "zh": "依托国家与浙江省科研项目，招收博士后、博士生、科研助理与实习生，开展脑机接口芯片、系统与汉语神经解码研究。欢迎其他高校在读硕士研究生和博士研究生以联合培养方式参与相关科研项目。",
+        "en": "Join our research on neural interfaces and Mandarin decoding, supported by national and provincial funding. Joint-training and visiting students are also welcome."
+      },
+      "sharedPositions": [
+        {
+          "zh": "博士后",
+          "en": "Postdocs"
+        },
+        {
+          "zh": "博士生",
+          "en": "Ph.D. students"
+        },
+        {
+          "zh": "联合培养硕士研究生",
+          "en": "Joint-training master’s students"
+        },
+        {
+          "zh": "联合培养博士研究生",
+          "en": "Joint-training Ph.D. students"
+        },
+        {
+          "zh": "科研助理 / 实习生",
+          "en": "RAs / interns"
+        }
+      ]
+    },
+    {
+      "id": "industry",
+      "anchor": "join-industry",
+      "title": {
+        "zh": "产业化类",
+        "en": "Industry Opportunities"
+      },
+      "description": {
+        "zh": "依托西湖灵犀科技，推进脑机接口芯片与系统、侵入式脑机接口汉语解码的工程化与产品落地，重点招聘芯片设计和汉语语音／语言解码人才。",
+        "en": "Bring brain–computer interface research into real-world products."
+      }
+    }
+  ]
+}

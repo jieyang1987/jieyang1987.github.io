@@ -153,7 +153,6 @@
           "venue": "2026 IEEE International Solid-State Circuits Conference (ISSCC)",
           "venueHighlight": true,
           "url": "https://ieeexplore.ieee.org/abstract/document/11409079",
-          "pdf": "papers/2026_ISSCC_A_Sparsity-Aware_Neural_Interface_with_CIM-Based_Predictive_Focused_Sampling_for_Hotspot_Spike_Tracking.pdf",
           "topics": [
             "bci"
           ],

@@ -4,333 +4,467 @@
     "en": "Activities & News"
   },
   "items": [
-
     {
       "date": "2026.8.25",
       "title": "全国软物质与生物物质物理学术会议：《高通量侵入式脑机接口系统级芯片：挑战与机遇》",
       "url": "http://softmat2026.cpsjournals.cn/",
       "images": [
-        { "src": "images/coverage/软物质大会.webp", "caption": "全国软物质与生物物质物理学术会议" }
-      ]
+        {
+          "src": "images/coverage/软物质大会.webp",
+          "caption": "全国软物质与生物物质物理学术会议"
+        }
+      ],
+      "titleEn": "National Conference on Soft Matter and Biological Matter Physics: High-Throughput Invasive BCI Systems-on-Chip — Challenges and Opportunities"
     },
     {
       "date": "2026.8.15",
       "title": "脑机接口开发者大会：《脑机接口芯片—脑信号读出与解码》",
       "url": "https://mp.weixin.qq.com/s/_mevmjOK0BCMCbyL9_HqDw",
       "images": [
-        { "src": "images/coverage/第三届脑机接口开发者大会.webp", "caption": "第三届脑机接口开发者大会" }
-      ]
+        {
+          "src": "images/coverage/第三届脑机接口开发者大会.webp",
+          "caption": "第三届脑机接口开发者大会"
+        }
+      ],
+      "titleEn": "BCI Developer Conference: Brain–Computer Interface Chips — Neural Signal Recording and Decoding"
     },
-
     {
       "date": "2026.7.2",
       "title": "西湖大学附属杭州市第一人民医院医工一体化病房揭牌仪式",
       "url": "https://mp.weixin.qq.com/s/NH1KKUpNrZ0t8FYrLZnoHw",
       "images": [
-        { "src": "images/coverage/医工一体化病房揭牌.webp", "caption": "医工一体化病房揭牌" }
-      ]
-    },
-
         {
+          "src": "images/coverage/医工一体化病房揭牌.webp",
+          "caption": "医工一体化病房揭牌"
+        }
+      ],
+      "titleEn": "Opening of the Integrated Medicine–Engineering Ward at Hangzhou First People's Hospital, affiliated with Westlake University"
+    },
+    {
       "date": "2026.6.10",
       "title": "重庆市技术创新与应用发展专项-项目启动会",
       "url": "https://mp.weixin.qq.com/s/9LSgcE4dJqFdJ9fqmSlytQ",
       "images": [
-        { "src": "images/coverage/项目开题与年度汇报.webp", "caption": "项目开题合影" }
-      ]
+        {
+          "src": "images/coverage/项目开题与年度汇报.webp",
+          "caption": "项目开题合影"
+        }
+      ],
+      "titleEn": "Kickoff meeting for a Chongqing Technology Innovation and Application Development project"
     },
-
-
     {
       "date": "2026.6.2",
       "title": "与Neuralink Cofounder等一行交流：脑机接口技术的国际合作与发展",
       "url": "",
       "images": [
-        { "src": "images/coverage/US_delegation_visit.webp", "caption": "代表团交流合影" }
-      ]
+        {
+          "src": "images/coverage/US_delegation_visit.webp",
+          "caption": "代表团交流合影"
+        }
+      ],
+      "titleEn": "Discussion with a Neuralink co-founder and visiting colleagues on international collaboration in BCI technology"
     },
-
-
     {
       "date": "2026.4.18",
       "title": "6th International Workshop on Translation of Neurotechnologies：《Surviving the Cycle: Practices and Lessons Learned from Developing Speech Neuroprostheses》",
       "url": "https://neurotechinstitute.net/translation-of-neurotechnologies/",
       "images": [
-        { "src": "images/coverage/神经技术转化国际研讨会-1.webp", "caption": "6th International Workshop on Translation of Neurotechnologies" },
-        { "src": "images/coverage/神经技术转化国际研讨会-2.webp", "caption": "6th International Workshop on Translation of Neurotechnologies" }
-      ]
+        {
+          "src": "images/coverage/神经技术转化国际研讨会-1.webp",
+          "caption": "6th International Workshop on Translation of Neurotechnologies"
+        },
+        {
+          "src": "images/coverage/神经技术转化国际研讨会-2.webp",
+          "caption": "6th International Workshop on Translation of Neurotechnologies"
+        }
+      ],
+      "titleEn": "6th International Workshop on Translation of Neurotechnologies: Surviving the Cycle — Practices and Lessons Learned from Developing Speech Neuroprostheses"
     },
     {
       "date": "2026.3.25",
       "title": "华人芯片设计技术研讨会 2026：《A 0.00022mm<sup>2</sup>/electrode 1024 channel Sparity-Aware Neural Interface with CIM-Based Predictive Foucused Sampling for Hotspot Spike tracking》",
       "url": "https://icacworkshop.cn/",
       "images": [
-        { "src": "images/coverage/ICAC2026-1.webp", "caption": "华人芯片设计技术研讨会 2026" },
-        { "src": "images/coverage/ICAC2026-2.webp", "caption": "华人芯片设计技术研讨会 2026" }
-      ]
+        {
+          "src": "images/coverage/ICAC2026-1.webp",
+          "caption": "华人芯片设计技术研讨会 2026"
+        },
+        {
+          "src": "images/coverage/ICAC2026-2.webp",
+          "caption": "华人芯片设计技术研讨会 2026"
+        }
+      ],
+      "titleEn": "Chinese IC Design Technology Symposium 2026: A 1024-Channel Sparsity-Aware Neural Interface with CIM-Based Predictive Focused Sampling"
     },
     {
       "date": "2026.2.3",
       "title": "荣获中国脑-机接口华瑙奖-杰出青年奖",
       "url": "https://mp.weixin.qq.com/s/fedbC1ge9CRuKQ6NGG7WGQ",
       "images": [
-        { "src": "images/coverage/华瑙奖-1.webp", "caption": "中国脑-机接口华瑙奖-杰出青年奖" },
-        { "src": "images/coverage/华瑙奖-2.webp", "caption": "中国脑-机接口华瑙奖-杰出青年奖" }
-      ]
+        {
+          "src": "images/coverage/华瑙奖-1.webp",
+          "caption": "中国脑-机接口华瑙奖-杰出青年奖"
+        },
+        {
+          "src": "images/coverage/华瑙奖-2.webp",
+          "caption": "中国脑-机接口华瑙奖-杰出青年奖"
+        }
+      ],
+      "titleEn": "Outstanding Young Researcher recognition at the China BCI Huanao Awards"
     },
     {
       "date": "2026.1.22",
       "title": "北方工业大学集成电路学院名师分享会：从芯片设计到语言解码看脑机接口的技术演进",
-      "url": ""
+      "url": "",
+      "titleEn": "North China University of Technology: The Evolution of BCI Technology, from Chip Design to Language Decoding"
     },
     {
       "date": "2026.1.9",
       "title": "基于实时汉语言解码的植入式脑机接口系统：入围2025年人工智能医疗器械创新任务揭榜挂帅项目",
-      "url": "https://www.miit.gov.cn/zwgk/zcwj/wjfb/tz/art/2026/art_fbd44649a63c4b8d94f5a16a858b879a.html"
+      "url": "https://www.miit.gov.cn/zwgk/zcwj/wjfb/tz/art/2026/art_fbd44649a63c4b8d94f5a16a858b879a.html",
+      "titleEn": "An implantable BCI system for real-time Mandarin decoding selected for the 2025 AI Medical Device Innovation Challenge"
     },
     {
       "date": "2025.12.27",
       "title": "兰州大学物理学院系列报告：从芯片设计到语言解码看脑机接口的技术演进",
-      "url": ""
+      "url": "",
+      "titleEn": "Lanzhou University, School of Physical Science and Technology: From Chip Design to Language Decoding"
     },
     {
       "date": "2025.12.5",
       "title": "2025脑机接口大会: 入选脑机接口产业联盟「青百荟」",
       "url": "https://mp.weixin.qq.com/s/A5AAT5bdNJJ6hhxA7o8Rvw",
       "images": [
-        { "src": "images/coverage/脑机接口“青百荟”青年专家合影.webp", "caption": "2025脑机接口大会" }
-      ]
+        {
+          "src": "images/coverage/脑机接口“青百荟”青年专家合影.webp",
+          "caption": "2025脑机接口大会"
+        }
+      ],
+      "titleEn": "BCI Conference 2025: Selected for the BCI Industry Alliance's Qingbaihui program"
     },
     {
       "date": "2025.11.29",
       "title": "中国医疗器械行业协会产教融合发展大会:《语言神经假肢：从高集成芯片到汉语神经解码》",
       "url": "https://mp.weixin.qq.com/s/o66iV2QdUnSkuqqQCDNbAA",
       "images": [
-        { "src": "images/coverage/中国医疗器械行业协会产教融合发展大会-1.webp", "caption": "中国医疗器械行业协会产教融合发展大会" },
-        { "src": "images/coverage/中国医疗器械行业协会产教融合发展大会-2.webp", "caption": "中国医疗器械行业协会产教融合发展大会" }
-      ]
+        {
+          "src": "images/coverage/中国医疗器械行业协会产教融合发展大会-1.webp",
+          "caption": "中国医疗器械行业协会产教融合发展大会"
+        },
+        {
+          "src": "images/coverage/中国医疗器械行业协会产教融合发展大会-2.webp",
+          "caption": "中国医疗器械行业协会产教融合发展大会"
+        }
+      ],
+      "titleEn": "China Association for Medical Devices Industry conference: Speech Neuroprostheses — From Highly Integrated Chips to Mandarin Neural Decoding"
     },
     {
       "date": "2025.11.23",
       "title": "脑机接口社区:《语言神经假肢：从高通量芯片到汉语神经解码》",
-      "url": "https://mp.weixin.qq.com/s/O-NtQyDt-uvfYm_P6A6SSg"
+      "url": "https://mp.weixin.qq.com/s/O-NtQyDt-uvfYm_P6A6SSg",
+      "titleEn": "BCI Community talk: Speech Neuroprostheses — From High-Throughput Chips to Mandarin Neural Decoding"
     },
     {
       "date": "2025.11.11",
       "title": "第四届南渡江论坛圆桌讨论:《脑机接口的发展机遇与挑战》",
       "url": "https://www.bilibili.com/video/BV1yuCvBLEZB?spm_id_from=333.788.videopod.sections&vd_source=15b3f7b70265110e16e17eace0ba089a",
       "images": [
-        { "src": "images/coverage/南渡江-2.webp", "caption": "第四届南渡江论坛圆桌讨论" }
-      ]
+        {
+          "src": "images/coverage/南渡江-2.webp",
+          "caption": "第四届南渡江论坛圆桌讨论"
+        }
+      ],
+      "titleEn": "4th Nandu River Forum panel: Opportunities and Challenges in Brain–Computer Interfaces"
     },
     {
       "date": "2025.11.11",
       "title": "第四届南渡江论坛：报告主题:《脑机接口底层技术：从高集成芯片到汉语神经解码》",
       "url": "https://www.bilibili.com/video/BV1yuCvBLEvp?spm_id_from=333.788.videopod.sections&vd_source=15b3f7b70265110e16e17eace0ba089a",
       "images": [
-        { "src": "images/coverage/南渡江-1.webp", "caption": "第四届南渡江论坛" }
-      ]  
+        {
+          "src": "images/coverage/南渡江-1.webp",
+          "caption": "第四届南渡江论坛"
+        }
+      ],
+      "titleEn": "4th Nandu River Forum talk: Core BCI Technologies — From Highly Integrated Chips to Mandarin Neural Decoding"
     },
     {
       "date": "2025.11.05",
       "title": "脑机接口语言解码相关研究成果被Science News报道：\"In April, BCI researcher Jie Yang and his colleagues at Westlake University reported results ...\"",
-      "url": "https://www.science.org/content/article/researchers-decode-mandarin-chinese-neural-signals"
+      "url": "https://www.science.org/content/article/researchers-decode-mandarin-chinese-neural-signals",
+      "titleEn": "Science News covers our brain-to-language decoding research"
     },
     {
       "date": "2025.11.02",
       "title": "CCF DAC：报告主题:《类脑计算芯片、算法的协同设计及应用探索》",
       "url": "https://mp.weixin.qq.com/s/D32tBL9RzhnaWKOmI6O08g",
       "images": [
-        { "src": "images/coverage/CCF-DAC-1.webp", "caption": "CCF DAC" },
-        { "src": "images/coverage/CCF-DAC-2.webp", "caption": "CCF DAC" }
-      ]
+        {
+          "src": "images/coverage/CCF-DAC-1.webp",
+          "caption": "CCF DAC"
+        },
+        {
+          "src": "images/coverage/CCF-DAC-2.webp",
+          "caption": "CCF DAC"
+        }
+      ],
+      "titleEn": "CCF DAC: Co-design and Applications of Neuromorphic Chips and Algorithms"
     },
     {
       "date": "2025.11.01",
       "title": "MIND：Poster Session:《NeuroPlat: An FPGA-Based Neuromorphic Computing Platform with Optimized Toolchain for Efficient SNN Deployment》",
       "url": "https://www.ic-mind.org/",
       "images": [
-        { "src": "images/coverage/Mind-1.webp", "caption": "MIND" },
-        { "src": "images/coverage/Mind-2.webp", "caption": "MIND" }
-      ]
+        {
+          "src": "images/coverage/Mind-1.webp",
+          "caption": "MIND"
+        },
+        {
+          "src": "images/coverage/Mind-2.webp",
+          "caption": "MIND"
+        }
+      ],
+      "titleEn": "MIND poster session: NeuroPlat — An FPGA-Based Neuromorphic Computing Platform with an Optimized Toolchain for Efficient SNN Deployment"
     },
     {
       "date": "2025.10.14",
       "title": "APCCAS：报告主题:《A Pipeline-Driven FPGA Accelerator ... & A Reconfigurable 8-Channel Dual-Mode Neural Stimulator ...》",
-      "url": "https://apccas2025.org/program-at-a-glance/"
+      "url": "https://apccas2025.org/program-at-a-glance/",
+      "titleEn": "APCCAS presentations on an FPGA accelerator and a reconfigurable eight-channel dual-mode neural stimulator"
     },
     {
       "date": "2025.7.08",
       "title": "九三学社: 《关于尽快建立全国层面大模型...》，单篇报送全国政协",
-      "url": ""
+      "url": "",
+      "titleEn": "Jiusan Society policy proposal on large language models submitted to the National Committee of the CPPCC"
     },
     {
       "date": "2025.6.22",
       "title": "NEWCAS2025 Special Session: Bridging Brain and AI",
-      "url": "https://www.newcas2025.com/program-glance/"
+      "url": "https://www.newcas2025.com/program-glance/",
+      "titleEn": "NEWCAS 2025 special session: Bridging Brain and AI"
     },
     {
       "date": "2025.5.18",
       "title": "北京天坛医院：全国脑机接口临床评价与应用研讨会",
-      "url": "https://mp.weixin.qq.com/s/HS8-O0HP3o1rzNYUP2mtmA"
+      "url": "https://mp.weixin.qq.com/s/HS8-O0HP3o1rzNYUP2mtmA",
+      "titleEn": "Beijing Tiantan Hospital: National Symposium on Clinical Evaluation and Applications of Brain–Computer Interfaces"
     },
     {
       "date": "2025.5.17",
       "title": "天津大学: 重点研发项目《面向动态记忆处理的超精细解码与增强技术》启动会",
       "url": "https://mp.weixin.qq.com/s/FwbNywTmv173_Q2Ma0J2Wg",
       "images": [
-        { "src": "images/coverage/天津大学重点研发启动会.webp", "caption": "天津大学重点研发项目启动会" }
-      ]
+        {
+          "src": "images/coverage/天津大学重点研发启动会.webp",
+          "caption": "天津大学重点研发项目启动会"
+        }
+      ],
+      "titleEn": "Tianjin University: Kickoff of a Key R&D Project on Fine-Grained Decoding and Enhancement for Dynamic Memory Processing"
     },
     {
       "date": "2025.3.31",
       "title": "中国科学院半导体所学术交流: 《脑机接口与类脑计算研究进展》",
-      "url": ""
+      "url": "",
+      "titleEn": "Institute of Semiconductors, Chinese Academy of Sciences: Advances in BCI and Neuromorphic Computing"
     },
     {
       "date": "2025.3.28",
       "title": "第七届华人芯片设计技术研讨会（ICAC 2025）: 报告主题：《An Energy-Efficient Unstructured Sparsity-Aware Deep SNN Accelerator with 3D Compute Array》",
       "url": "https://icacworkshop.cn/",
       "images": [
-        { "src": "images/coverage/ICAC2025-1.webp", "caption": "第七届华人芯片设计技术研讨会（ICAC 2025）" },
-        { "src": "images/coverage/ICAC2025-2.webp", "caption": "第七届华人芯片设计技术研讨会（ICAC 2025）" }
-      ]
+        {
+          "src": "images/coverage/ICAC2025-1.webp",
+          "caption": "第七届华人芯片设计技术研讨会（ICAC 2025）"
+        },
+        {
+          "src": "images/coverage/ICAC2025-2.webp",
+          "caption": "第七届华人芯片设计技术研讨会（ICAC 2025）"
+        }
+      ],
+      "titleEn": "ICAC 2025: An Energy-Efficient Unstructured Sparsity-Aware Deep SNN Accelerator with a 3D Compute Array"
     },
     {
       "date": "2024.12.12",
       "title": "「十四五」第二批本科和研究生省级教学改革项目《新质生产力下的垂直整合与跨学科集成电路课程》正式启动",
-      "url": "https://jyt.zj.gov.cn/art/2024/12/31/art_1228998760_58943323.html"
+      "url": "https://jyt.zj.gov.cn/art/2024/12/31/art_1228998760_58943323.html",
+      "titleEn": "Launch of a Zhejiang teaching-reform project on vertically integrated and interdisciplinary IC education"
     },
     {
       "date": "2024.11.21",
       "title": "同济大学《微电子学堂》学术讲座：报告主题：《脑机接口——大脑信号读出与解码》",
-      "url": ""
+      "url": "",
+      "titleEn": "Tongji University Microelectronics Lecture Series: Brain–Computer Interfaces — Neural Signal Recording and Decoding"
     },
     {
       "date": "2024.10.24",
       "title": "IEEE 17th ICSICT Conference：报告主题：《侵入式脑机接口的系统级芯片：挑战与机遇》",
       "url": "https://www.icsict.com/Data/List/FinalProgram",
       "images": [
-        { "src": "images/coverage/ICSICT2024-1.webp", "caption": "IEEE 17th ICSICT Conference" },
-        { "src": "images/coverage/ICSICT2024-2.webp", "caption": "IEEE 17th ICSICT Conference" }
-      ]
+        {
+          "src": "images/coverage/ICSICT2024-1.webp",
+          "caption": "IEEE 17th ICSICT Conference"
+        },
+        {
+          "src": "images/coverage/ICSICT2024-2.webp",
+          "caption": "IEEE 17th ICSICT Conference"
+        }
+      ],
+      "titleEn": "IEEE ICSICT 2024: Invasive BCI Systems-on-Chip — Challenges and Opportunities"
     },
     {
       "date": "2024.10.18",
       "title": "华东师范大学 Neuroscience Guest Lecture Series：报告主题：《脑机接口—大脑信号读出与解码》",
-      "url": "https://www.ecnu.edu.cn/info/1034/67618.htm"
+      "url": "https://www.ecnu.edu.cn/info/1034/67618.htm",
+      "titleEn": "East China Normal University Neuroscience Guest Lecture Series: Brain–Computer Interfaces — Neural Signal Recording and Decoding"
     },
     {
       "date": "2024.10.08",
       "title": "省发展改革委：脑机接口智能芯片系统浙江省工程研究中心获批",
-      "url": "https://fzggw.zj.gov.cn/art/2024/10/8/art_1229629046_5381206.html"
+      "url": "https://fzggw.zj.gov.cn/art/2024/10/8/art_1229629046_5381206.html",
+      "titleEn": "Approval of the Zhejiang Provincial Engineering Research Center for BCI Intelligent Chip Systems"
     },
     {
       "date": "2024.08.03",
       "title": "昆山杜克大学神经科学专题研讨会：报告主题：《High-throughput brain-computer interface chip design and language decoding application》",
       "url": "https://news.dukekunshan.edu.cn/zh-hans/campus-news/1st-dku-neuroscience-symposium/",
       "images": [
-        { "src": "images/coverage/DKU-1.webp", "caption": "昆山杜克大学神经科学专题研讨会" }
-      ]
+        {
+          "src": "images/coverage/DKU-1.webp",
+          "caption": "昆山杜克大学神经科学专题研讨会"
+        }
+      ],
+      "titleEn": "Duke Kunshan University Neuroscience Symposium: High-Throughput BCI Chip Design and Language Decoding Applications"
     },
     {
       "date": "2024.07.19",
       "title": "中国计算机学会芯片大会：报告主题：《High-throughput BCI —— Recording and Decoding》",
       "url": "https://ccf.org.cn/chip2024/general_1054",
       "images": [
-        { "src": "images/coverage/CCF-Chip2024-1.webp", "caption": "中国计算机学会芯片大会" },
-        { "src": "images/coverage/CCF-Chip2024-2.webp", "caption": "中国计算机学会芯片大会" }
-      ]
+        {
+          "src": "images/coverage/CCF-Chip2024-1.webp",
+          "caption": "中国计算机学会芯片大会"
+        },
+        {
+          "src": "images/coverage/CCF-Chip2024-2.webp",
+          "caption": "中国计算机学会芯片大会"
+        }
+      ],
+      "titleEn": "CCF Chip Conference: High-Throughput BCI — Recording and Decoding"
     },
     {
       "date": "2024.05.18",
       "title": "九三学社：九三学社中央第四十次科学座谈会，发言内容：《学科交叉与产业投资双驱动——加速脑机接口技术由点到链的发展》",
       "url": "https://www.93.gov.cn/xwjc-snyw/779013.html",
       "images": [
-        { "src": "images/coverage/九三学社科学座谈会.webp", "caption": "九三学社中央第四十次科学座谈会" }
-      ]
-
+        {
+          "src": "images/coverage/九三学社科学座谈会.webp",
+          "caption": "九三学社中央第四十次科学座谈会"
+        }
+      ],
+      "titleEn": "Jiusan Society scientific forum: Interdisciplinary Research and Industrial Investment for BCI Development"
     },
     {
       "date": "2024.05.14",
       "title": "第一财经：数新风丨脑机接口「华山论剑」",
-      "url": "https://yicai.smgbb.cn/live/m/102104240.html"
+      "url": "https://yicai.smgbb.cn/live/m/102104240.html",
+      "titleEn": "Yicai: A discussion on the frontiers of brain–computer interfaces"
     },
     {
       "date": "2024.04.20",
       "title": "2024片上脑机接口国际会议：报告题目《全植入脑机接口芯片与脑-汉语神经解码》",
       "url": "https://mp.weixin.qq.com/s/jQcTmt7yyR5itbgronXmeA",
       "images": [
-        { "src": "images/coverage/片上脑机接口2024.webp", "caption": "2024片上脑机接口国际会议" }
-      ]
+        {
+          "src": "images/coverage/片上脑机接口2024.webp",
+          "caption": "2024片上脑机接口国际会议"
+        }
+      ],
+      "titleEn": "International Conference on Brain–Computer Interfaces on Chip: Fully Implantable BCI Chips and Mandarin Neural Decoding"
     },
     {
       "date": "2023.12.18",
       "title": "浙江省科技厅：2024年度「尖兵」研发攻关计划项目获得立项",
-      "url": "https://kjt.zj.gov.cn/art/2023/12/18/art_1228971387_59010222.html?share_token=9cf7bc57-6c03-4c60-995f-3cc993fbfae4"
+      "url": "https://kjt.zj.gov.cn/art/2023/12/18/art_1228971387_59010222.html?share_token=9cf7bc57-6c03-4c60-995f-3cc993fbfae4",
+      "titleEn": "A BCI project receives support under Zhejiang's 2024 Jianbing R&D program"
     },
     {
       "date": "2023.11.30",
       "title": "新智元：成功实现「全谱汉语解码」：Top 3准确率接近100%",
-      "url": "https://mp.weixin.qq.com/s/-dtpDjljjn-ZEgCav-pKYw"
+      "url": "https://mp.weixin.qq.com/s/-dtpDjljjn-ZEgCav-pKYw",
+      "titleEn": "AI Era reports on full-spectrum Mandarin neural decoding"
     },
     {
       "date": "2023.11.25",
       "title": "九三学社：「之江同心·经济圆桌会议」",
-      "url": "http://www.hzjs.org.cn/proscenium/show/5133"
+      "url": "http://www.hzjs.org.cn/proscenium/show/5133",
+      "titleEn": "Jiusan Society: Zhijiang Economic Roundtable"
     },
     {
       "date": "2023.11.24",
       "title": "浙大求是高等研究院：「脑机接口与神经工程前沿交叉」研讨会",
       "url": "http://www.qaas.zju.edu.cn/news.asp?id=169",
       "images": [
-        { "src": "images/coverage/求是高等研究院2023.webp", "caption": "浙大求是高等研究院研讨会" }
-      ]
+        {
+          "src": "images/coverage/求是高等研究院2023.webp",
+          "caption": "浙大求是高等研究院研讨会"
+        }
+      ],
+      "titleEn": "Zhejiang University Qiushi Academy for Advanced Studies: Frontiers in BCI and Neural Engineering"
     },
     {
       "date": "2023.09.11",
       "title": "第一财经：Neuralink最大的突破在于技术链和产业链的整合",
-      "url": "https://m.yicai.com/video/101863672.html"
+      "url": "https://m.yicai.com/video/101863672.html",
+      "titleEn": "Yicai interview: Integrating the technology and industry chains behind Neuralink"
     },
     {
       "date": "2023.08.27",
       "title": "第一财经：医学科创成果转化亟需医工交叉人才体系支撑",
-      "url": "https://new.qq.com/rain/a/20230827A0787U00"
+      "url": "https://new.qq.com/rain/a/20230827A0787U00",
+      "titleEn": "Yicai interview: Interdisciplinary medical and engineering talent for translating medical innovations"
     },
     {
       "date": "2023.08.25",
       "title": "九三学社：「脑机智能·未来科技创业沙龙」",
-      "url": "http://www.hzjs.org.cn/proscenium/show/4943"
+      "url": "http://www.hzjs.org.cn/proscenium/show/4943",
+      "titleEn": "Jiusan Society: Brain Intelligence and Future Technology Entrepreneurship Salon"
     },
     {
       "date": "2023.08.08",
       "title": "西湖大学工学院：侵入式脑机接口系统项目荣获「大走廊杯」金奖",
-      "url": "https://mp.weixin.qq.com/s/E50Mo8VGc-fgq2qgETHNjw"
+      "url": "https://mp.weixin.qq.com/s/E50Mo8VGc-fgq2qgETHNjw",
+      "titleEn": "An invasive BCI system project wins gold in the Hangzhou West Science and Technology Innovation Corridor entrepreneurship competition"
     },
     {
       "date": "2023.07.15",
       "title": "钱江晚报：神奇的「脑机接口」技术，会带来「超人时代」吗？",
-      "url": "https://baijiahao.baidu.com/s?id=1771462545951775870&wfr=spider&for=pc"
+      "url": "https://baijiahao.baidu.com/s?id=1771462545951775870&wfr=spider&for=pc",
+      "titleEn": "Qianjiang Evening News: Exploring the possibilities of brain–computer interfaces"
     },
     {
       "date": "2023.06.13",
       "title": "科普中国：西湖大学研发出1平方毫米大小神经芯片",
-      "url": "https://www.kepuchina.cn/article/articleinfo?business_type=100&ar_id=418378"
+      "url": "https://www.kepuchina.cn/article/articleinfo?business_type=100&ar_id=418378",
+      "titleEn": "Science Popularization China: A one-square-millimeter neural chip developed at Westlake University"
     },
     {
       "date": "2023.06.11",
       "title": "潮新闻：有请科普人 | 大脑中装芯片，人类治病的新希望？",
-      "url": "https://www.toutiao.com/article/7277856974841315840/"
+      "url": "https://www.toutiao.com/article/7277856974841315840/",
+      "titleEn": "Chao News: Brain implants and new possibilities for treating disease"
     },
     {
       "date": "2022.10.20",
       "title": "NEWCAS2022 Tutorial: Towards Smart and Closed-Loop Neuromodulation",
-      "url": "https://aicas2022.org/?page_id=194"
+      "url": "https://aicas2022.org/?page_id=194",
+      "titleEn": "NEWCAS 2022 tutorial: Towards Smart and Closed-Loop Neuromodulation"
     },
     {
       "date": "2022.06.14",
       "title": "AICAS2022 Special Session: Artificial Intelligence Boosted Circuits and Systems for Brain-Machine Interface",
-      "url": "https://aicas2022.org/?page_id=194"
+      "url": "https://aicas2022.org/?page_id=194",
+      "titleEn": "AICAS 2022 special session: Artificial Intelligence Boosted Circuits and Systems for Brain–Machine Interfaces"
     }
   ]
 }

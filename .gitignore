@@ -43,3 +43,25 @@ node_modules/
 package-lock.json
 
 
+
+# Local AI/editor scratch files, previews and generated release output
+.codex_tmp/
+output/
+dist/
+.codex/
+.claude/
+__pycache__/
+*.pyc
+*.log
+*.tmp
+*.bak
+
+# Runtime credentials and local cloud configuration must never be committed
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+cloudbaserc.json
+cloudbaserc.local.json

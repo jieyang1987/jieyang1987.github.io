@@ -1,0 +1,39 @@
+{
+  "research": {
+    "file": "research.html",
+    "title": "研究方向",
+    "eyebrow": "RESEARCH",
+    "intro": "从芯片、电路到算法与系统，探索记录、解码与模拟大脑的技术路径。"
+  },
+  "publications": {
+    "file": "publications.html",
+    "title": "论文发表",
+    "eyebrow": "JOURNAL AND CONFERENCE PAPERS",
+    "intro": "按年份浏览期刊与会议论文，查看作者、摘要与全文链接。"
+  },
+  "chips": {
+    "file": "chip_gallery.html",
+    "title": "芯片展示",
+    "eyebrow": "CHIPS & SYSTEMS",
+    "intro": "从神经信号读出到片上智能处理，记录芯片设计、流片验证与系统实现。"
+  },
+  "activities": {
+    "file": "coverage.html",
+    "title": "活动记事",
+    "eyebrow": "ACTIVITIES",
+    "intro": "学术交流、会议报告与媒体报道，记录研究工作中的进展与相遇。"
+  },
+  "join": {
+    "file": "join.html",
+    "title": "加入我们",
+    "eyebrow": "JOIN US",
+    "intro": "与我们一起，在芯片、算法与系统的交叉处，探索下一代脑机接口。"
+  },
+  "book": {
+    "file": "book-item-bci.html",
+    "title": "侵入式脑机接口芯片",
+    "eyebrow": "AN ONLINE RESOURCE",
+    "intro": "杨杰、Mohamad Sawan · 西湖大学先进神经芯片中心",
+    "introduction": "人类与数字世界之间的通讯方式经历了不断的更迭和演进，从打孔卡、键盘、鼠标，到触摸屏，再到借助大语言模型实现的自然语言，通讯效率不断提高。这种通讯的本质是人类大脑或神经系统与数字世界的信息交流。因此，建立大脑和数字世界之间的直接通讯成为21世纪人类最终目标之一。如今，侵入式脑机接口技术在建立这种直接通讯方面取得了重要进展，正在逐步向着这一目标迈进。在脑机接口技术中，芯片扮演着重要的角色，通过将关键电路部分或全部集成在平方毫米级别大小、毫瓦甚至更低功耗的半导体芯片上，摆脱了尺寸、功耗、电缆连接等方面的限制，从而使得侵入式脑机接口系统更容易、更安全、更舒适地进行植入人体。本网页旨在梳理侵入式脑机接口芯片中的主要电路模块设计，希望为对此领域感兴趣的读者提供帮助。"
+  }
+}

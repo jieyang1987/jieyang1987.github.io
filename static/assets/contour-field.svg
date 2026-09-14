@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1800" viewBox="0 0 1600 1800" fill="none">
+  <defs>
+    <linearGradient id="edge-fade">
+      <stop stop-color="white"/>
+      <stop offset=".32" stop-color="black"/>
+      <stop offset=".62" stop-color="black"/>
+      <stop offset="1" stop-color="white"/>
+    </linearGradient>
+    <mask id="edges"><path fill="url(#edge-fade)" d="M0 0h1600v1800H0z"/></mask>
+    <!-- Endpoints and tangents match at the tile boundary for a continuous field. -->
+    <path id="right" d="M1260 0C1460 260 1100 380 1190 650C1280 920 1510 950 1440 1230C1370 1510 1060 1540 1260 1800"/>
+    <path id="left" d="M200 0C-40 220 400 410 270 680C140 950-60 970 0 1240C60 1510 440 1580 200 1800"/>
+  </defs>
+  <g mask="url(#edges)" stroke="#7192ad" stroke-width="1" stroke-opacity=".36">
+    <use href="#right" x="-96"/>
+    <use href="#right" x="-48"/>
+    <use href="#right"/>
+    <use href="#right" x="48"/>
+    <use href="#right" x="96"/>
+    <use href="#right" x="144"/>
+    <use href="#right" x="192"/>
+    <g opacity=".65">
+      <use href="#left" x="-184"/>
+      <use href="#left" x="-138"/>
+      <use href="#left" x="-92"/>
+      <use href="#left" x="-46"/>
+      <use href="#left"/>
+    </g>
+  </g>
+</svg>

@@ -2,90 +2,91 @@ name: Deploy to GitHub Pages & CloudBase
 
 on:
   push:
-    branches:
-      - master
-  workflow_dispatch:   # 允许手动触发
+    branches: [master]
+  workflow_dispatch:
 
-# 强制使用 Node.js 24（避免弃用警告）
+permissions:
+  contents: read
+
+concurrency:
+  group: production-site
+  cancel-in-progress: false
+
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
-# GitHub Pages 需要这个权限
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# 同一时间只允许一个部署任务运行
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
-  # ─────────────────────────────────────────
-  # Job 1: 部署到 GitHub Pages
-  # ─────────────────────────────────────────
-  deploy-github-pages:
-    name: Deploy → GitHub Pages
+  prepare:
+    name: Validate and package public files
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      # Checks and packaging use only Node built-ins; no website dependencies to install.
+      - run: npm run prepare:release
+      - uses: actions/upload-artifact@v4
+        with:
+          name: public-site
+          path: dist/
+          if-no-files-found: error
+          retention-days: 7
+
+  deploy-github-pages:
+    name: Deploy GitHub Pages
+    needs: prepare
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
         with:
-          # 整个仓库根目录作为静态站点
-          path: "."
-
-      - name: Deploy to GitHub Pages
+          name: public-site
+          path: dist/
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/
+      - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Verify published release
+        env:
+          SITE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: node scripts/verify-deployment.js
 
-  # ─────────────────────────────────────────
-  # Job 2: 部署到腾讯云 CloudBase 静态托管
-  # ─────────────────────────────────────────
   deploy-cloudbase:
-    name: Deploy → Tencent CloudBase
+    name: Deploy Tencent CloudBase
+    needs: prepare
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Create CloudBase Config
-        run: |
-          cat > cloudbaserc.json << 'EOF'
-          {
-            "version": "2.0",
-            "envId": "${{ secrets.CLOUDBASE_ENV_ID }}",
-            "framework": {
-              "name": "static",
-              "config": {
-                "outputPath": ".",
-                "cloudPath": "/",
-                "ignore": [
-                  ".git",
-                  ".github",
-                  "node_modules",
-                  "cloudbaserc.json",
-                  "*.ps1",
-                  "*.bat",
-                  "done"
-                ]
-              }
-            }
-          }
-          EOF
-
-      - name: Deploy to CloudBase
-        uses: TencentCloudBase/cloudbase-action@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          secretId: ${{ secrets.TENCENTCLOUD_SECRET_ID }}
-          secretKey: ${{ secrets.TENCENTCLOUD_SECRET_KEY }}
-          envId: ${{ secrets.CLOUDBASE_ENV_ID }}
+          node-version: '24'
+      - uses: actions/download-artifact@v4
+        with:
+          name: public-site
+          path: dist/
+      - name: Install pinned CloudBase CLI
+        run: npm install --global @cloudbase/cli@3.8.1 --no-fund --no-audit
+      - name: Authenticate and deploy public files only
+        env:
+          TCB_SECRET_ID: ${{ secrets.TENCENTCLOUD_SECRET_ID }}
+          TCB_SECRET_KEY: ${{ secrets.TENCENTCLOUD_SECRET_KEY }}
+          TCB_ENV_ID: ${{ secrets.CLOUDBASE_ENV_ID }}
+        run: |
+          test -n "$TCB_SECRET_ID" && test -n "$TCB_SECRET_KEY" && test -n "$TCB_ENV_ID"
+          tcb login --apiKeyId "$TCB_SECRET_ID" --apiKey "$TCB_SECRET_KEY"
+          tcb hosting deploy ./dist / --env-id "$TCB_ENV_ID"
+      - name: Verify published release
+        env:
+          SITE_URL: https://academic-4gpadgfs73617168-1258930043.tcloudbaseapp.com/
+        run: node scripts/verify-deployment.js

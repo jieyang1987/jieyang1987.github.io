@@ -1,0 +1,24 @@
+@import url("./design-tokens.css?v=1");
+/* A reading layout, not a marketing-page grid: keep equations and figures intact. */
+body.zh-book { max-width: 1020px; margin: 0 auto; padding: 0 44px 48px; background: var(--site-paper); color: var(--site-ink); font-family: "Inter", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 17px; line-height: 1.95; }
+.zh-book .zh-reader-masthead { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 25px 0; border-bottom: 1px solid var(--site-line); font-size: 14px; }
+.zh-book .zh-reader-masthead a { text-decoration: none; }
+.zh-book .zh-reader-brand { font-family: "Songti SC", "SimSun", serif; color: var(--site-ink); font-size: 25px; font-weight: 700; }
+.zh-reader-brand span { font-family: var(--site-sans); margin-left: 12px; font-size: 12px; font-weight: 400; color: var(--site-muted); }
+.zh-book h1 { font-family: "Songti SC", "SimSun", serif; font-size: 32px; font-weight: 700; line-height: 1.6; color: var(--site-ink); border-bottom: 1px solid var(--site-line); padding-bottom: 24px; margin: 30px 0; }
+.zh-book h2 { font-size: 23px; color: var(--site-ink); border-left: 3px solid var(--site-accent); padding-left: 16px; margin-top: 36px; }
+.zh-book h3 { font-size: 19px; color: var(--site-ink); }
+.zh-book p { text-align: left; overflow-wrap: anywhere; }
+.zh-book a { color: var(--site-accent); text-underline-offset: 4px; }
+.zh-book a:focus-visible { outline: 2px solid var(--site-accent); outline-offset: 4px; }
+.zh-book .chapter-nav { display: flex; flex-wrap: wrap; gap: 9px; padding: 18px 0; margin: 10px 0; background: transparent; border-radius: 0; }
+.zh-book .chapter-nav .nav-link { background: white; color: var(--site-muted); border: 1px solid var(--site-line); border-radius: 4px; margin: 0; padding: 8px 12px; font-size: 14px; }
+.zh-book .chapter-nav .nav-link[aria-current="page"] { background: var(--site-wash); color: var(--site-accent); border-color: var(--site-accent); }
+.zh-book .chapter-nav .nav-link:hover { background: var(--site-wash); }
+.zh-book .figure { background: var(--site-bg); border: 1px solid var(--site-line); border-radius: 6px; }
+.zh-book img { max-width: 100% !important; height: auto !important; }
+.zh-book pre, .zh-book .math.display { overflow-x: auto; max-width: 100%; }
+@media (max-width: 768px) { body.zh-book { padding: 0 22px 30px; font-size: 16px; } .zh-book h1 { font-size: 26px; } .zh-book h2 { font-size: 21px; } .zh-book .chapter-nav { gap: 8px; } }
+/* Some converted chapters mark long equations as inline. Scroll the formula,
+   not the entire page; retain its original typesetting and readable size. */
+.zh-book .math.inline { display: inline-block; max-width: 100%; overflow-x: auto; vertical-align: middle; }
