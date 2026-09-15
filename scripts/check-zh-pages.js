@@ -84,7 +84,7 @@ check(profile.about.zh.includes('杨杰博士积极推动脑机接口技术转�
 check(profile.about.zh.includes('累计研发经费超过5000 万元'),'Updated Chinese funding total');
 check(profile.about.en.includes('total funding exceeding 50 million RMB'),'Matching English funding total');
 check(heroHtml.includes('<div class="hero-biography" id="profile-details-copy">'+profile.about.zh+'</div>'),'Complete biography remains the visible static fallback');
-check(heroHtml.includes('id="profile-summary-copy" hidden') && heroHtml.includes('aria-controls="profile-details-copy"'),'Mobile summary and full biography use a single accessible disclosure');
+check(!heroHtml.includes('profile-summary-copy') && !heroHtml.includes('profile-biography-toggle'),'Mobile biography displays full text with no summary or disclosure');
 check((homeHtml.match(/id="profile-details-copy"/g)||[]).length===1,'One biography container without a duplicate lower-page biography');
 check(!homeHtml.includes('id="profile-contact"')&&!homeHtml.includes('tel:'),'Phone contact removed from Chinese homepage');
 check(!read('static/js/en-home.js').includes('profile.contact.phone')&&!read('static/js/en-home.js').includes('profile-contact'),'Phone is not reinserted into the biography by a fallback renderer');
