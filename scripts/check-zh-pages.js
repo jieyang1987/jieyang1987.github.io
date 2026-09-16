@@ -2,6 +2,8 @@
 'use strict';
 const fs=require('fs'),path=require('path'),assert=require('assert/strict'),cp=require('child_process');
 const root=path.resolve(__dirname,'..');
+require('./check-meta-descriptions').checkAll();
+require('./check-favicons').checkAll();
 const read=f=>fs.readFileSync(path.join(root,f),'utf8');
 const json=f=>JSON.parse(read(f));
 const pages=['index.html','research.html','publications.html','chip_gallery.html','coverage.html','join.html','book-item-bci.html'];

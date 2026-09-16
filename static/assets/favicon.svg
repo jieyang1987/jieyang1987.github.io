@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">YJ — Jie Yang</title>
+  <rect width="64" height="64" rx="14" fill="#172635"/>
+  <g fill="none" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 18 25 32 36 18 M25 32V47" stroke="#ffffff"/>
+    <path d="M48 18V38C48 45 44 49 38 49C35 49 33 48 31 45" stroke="#a7d5f2"/>
+  </g>
+</svg>
