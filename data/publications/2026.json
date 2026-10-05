@@ -4,6 +4,31 @@
       "year": 2026,
       "items": [
         {
+          "authors": "Z. Liao, C. Zhang, C. Fang, Y. Zhang, Z. Shen, <strong>J. Yang*</strong>, M. Sawan",
+          "title": "Neuromorphic computing chips and deployment for edge intelligence",
+          "titleZh": "面向边缘智能的神经形态计算芯片与部署",
+          "venue": "Chinese Journal of Semiconductors",
+          "venueHighlight": false,
+          "url": "https://www.cjos.ac.cn/cn/article/pdf/preview/10.3724/cjos.2025.044.pdf",
+          "topics": [
+            "neuromorphic"
+          ],
+          "doi": "10.3724/cjos.2025.044"
+        },
+        {
+          "authors": "X. Liu, H. Ali, J. Chen, H. Wu, W. Zou, <strong>J. Yang*</strong>, M. Sawan*",
+          "title": "RF Energy Harvesting Integrated Circuits for Low-Power Sensors: A Review",
+          "venue": "IEEE Sensors Journal",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/11672224/",
+          "pdf": "papers/2026_IEEE_SensJ_RF_Energy_Harvesting_Integrated_Circuits_for_Low-Power_Sensors_A_Review.pdf",
+          "topics": [
+            "bci"
+          ],
+          "abstract": "With the rapid proliferation of the Internet of Things (IoT), billions of distributed sensors have been deployed world-wide, creating overwhelming challenges associated with battery replacement and perpetual maintenance. To address these critical energy bottlenecks, Radio Frequency Energy Harvesting (RFEH) has emerged as a transformative solution for enabling battery-less, self-sustaining sensor nodes. In this manuscript, we review the design challenges and recent advances in RFEH front ends tailored for such low-power sensing systems. Specifically, the fundamental limitations imposed by extremely low ambient RF energy density and nonlinear rectifier impedance are analyzed. To establish the circuit-level foundation of RFEH operation, the Cross-Coupled Differential-Drive (CCDD) rectifier is adopted as a representative topology to analyze low-power conduction, cycle-by-cycle charge balance, and reverse-leakage mechanisms. Various threshold-voltage compensation strategies, leakage-suppression techniques, and tunable matching networks are surveyed to highlight trade-offs among sensitivity, efficiency, and area. Building on this rectifier-level foundation, the discussion is extended to system-level RFEH design, including multiband energy aggregation, wide-input-range operation, interactions with power-management units, energy storage and regulation, and load-aware energy delivery for stable long-term sensor operation. Finally, future research directions and a prospective architecture for enhanced RFEH efficiency are presented.",
+          "doi": "10.1109/jsen.2026.3726601"
+        },
+        {
           "authors": "Z. Shen, Z. Liao, S. Shen, C. Fang, F. Tian, <strong>J. Yang*</strong>, M. Sawan*",
           "title": "SHARP: An Energy-Efficient Spike-Based 3-D Recognition Processor With Hierarchical Hybrid Sparsity Awareness on Point Cloud",
           "venue": "IEEE Transactions on Circuits and Systems I: Regular Papers",
@@ -11,17 +36,20 @@
           "url": "https://doi.org/10.1109/TCSI.2026.3720571",
           "topics": [
             "neuromorphic"
-          ]
+          ],
+          "pdf": "papers/2026_TCAS-I_SHARP_An_Energy-Efficient_Spike-Based_3-D_Recognition_Processor_With_Hierarchical_Hybrid_Sparsity_Awareness_on_Point.pdf",
+          "abstract": "LiDAR-based 3D recognition leverages exceptional spatial granularity and broad sensory coverage to achieve highprecision perception in complex outdoor environments. Despite these advantages, the prohibitive computational workload makes real-time deployment on resource-limited edge devices a significant challenge. High-fidelity point cloud processing typically demands deep network structure, thus requiring massive operations and consuming many resource-intensive multipliers in conventional DNN accelerators. Moreover, conventional data representations and computing architectures become suboptimal under the dynamic sparsity among partitioned data tiles. In this paper, we propose SHARP, a novel spiking reconfigurable accelerator featuring hierarchical hybrid sparsity awareness on 3D point cloud based recognition tasks. A hierarchical hybrid sparsity codec is introduced to minimize data volume, significantly reducing external memory access. Moreover, a reconfigurable rulebook-GEMM fused spiking engine with flexible scheduling is developed to bridge the gap between fine-grained rulebook-based indexing and parallel execution, maintaining high performance across diverse sparsity distributions. The spike-based engine also secures low power consumption through discrete 1-bit data transmission and multiplier-free micro-architectural design. Fabricated in 28nm CMOS technology, the prototype chip achieves a peak system-level energy efficiency of 83.2 TOPS/W. Evaluation results show that our approach outperforms state-of-the-art 3D point cloud processors with a 2.16x boost in energy efficiency and the least energy consumption per frame, making it highly suitable for edge intelligence."
         },
         {
           "authors": "H. Liu, S. Zhao, C. Fu, <strong>J. Yang</strong>, M. Sawan",
-          "title": "A Plug-and-Play Hybrid Pruning Framework for Spike-Driven Transformers via Adaptive Spiking Statistical Importance Scoring",
+          "title": "A plug-and-play hybrid pruning framework for spike-driven transformers via adaptive spiking statistical importance scoring",
           "venue": "Neurocomputing",
           "venueHighlight": false,
           "url": "https://doi.org/10.1016/j.neucom.2026.134740",
           "topics": [
             "neuromorphic"
-          ]
+          ],
+          "pdf": ""
         },
         {
           "authors": "S. Zhao, Q. Wang, Z. Shu, X. Yang, M. Fang, <strong>J. Yang*</strong>, A. M. Sawan",
@@ -111,6 +139,30 @@
     {
       "year": 2026,
       "items": [
+        {
+          "authors": "W. Zou, H. Wu, X. Liu, J. Chen, Y. Ye, <strong>J. Yang*</strong>, M. Sawan*",
+          "title": "A Duty-Cycled PLL Architecture for a Low-Power IR-UWB Transmitter in Neural Implants",
+          "venue": "2026 24nd IEEE Interregional NEWCAS Conference (NEWCAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/11673969",
+          "pdf": "papers/2026_paper_A_Duty-Cycled_PLL_Architecture_for_a_Low-Power_IR-UWB_Transmitter_in_Neural_Implants.pdf",
+          "topics": [
+            "bci"
+          ],
+          "abstract": "We present in this paper a low-power phase-locked loop (PLL) architecture with tunable duty-cycle operation for data transmission from implantable neural recording devices. By integrating a switch-controlled voltage holding (SCVH) module, the architecture enables periodic calibration, while ensuring the voltage drop during silent phases is negligible. Implemented in TSMC 40 nm CMOS process technology, the core area is 0.0035 $\\mathrm{mm}^{2}$, and the post-layout simulation reveals that the proposed PLL achieves a locking frequency of 4.25 GHz in $0.5 \\mu \\mathrm{~s}$ and a faster relocking in subsequent calibration cycles. The average power consumption is $90 \\mu \\mathrm{~W}$, reduced by $89 \\%$ compared to the design without the proposed SCVH module, and the peak-to-peak jitter is 2.14 ps.",
+          "doi": "10.1109/newcas64543.2026.11673969"
+        },
+        {
+          "authors": "X. Liu, H. Wu, J. Chen, W. Zou, Y. Ye, <strong>J. Yang*</strong>, M. Sawan*",
+          "title": "A High-Sensitivity Surge-Mode RF Energy Harvester for Self-Powered Devices",
+          "venue": "2026 24nd IEEE Interregional NEWCAS Conference (NEWCAS)",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/abstract/document/11674044/",
+          "pdf": "papers/2026_paper_A_High-Sensitivity_Surge-Mode_RF_Energy_Harvester_for_Self-Powered_Devices.pdf",
+          "topics": [],
+          "abstract": "We present in this paper a high-sensitivity surgemode radio-frequency energy harvesting front-end for selfpowered devices. The proposed architecture integrates an eightstage cross-coupled differential-drive rectifier, a nanowatt-level voltage monitor, and an ultra-low-power power management unit featuring a CMOS voltage reference and adaptive flipped-voltage-follower LDO. By enabling intermittent surge-mode operation, the system effectively transforms the rectifier’s load-dependent behavior into an ultra-light-load condition, achieving efficient energy accumulation under weak RF inputs. Implemented in a 40-nm CMOS process, the proposed front-end achieves a sensitivity of -22 dBm and a peak power conversion efficiency of 42.25% at 915 MHz, providing a stable and adaptive power supply for long-term maintenance-free IoT and biomedical applications.",
+          "doi": "10.1109/newcas64543.2026.11674044"
+        },
         {
           "authors": "Z. Shen, Z. Liao, S. Shen, C. Fang, F. Tian, <strong>J. Yang*</strong>, M. Sawan*",
           "title": "A Heterogeneous Decision Spiking Transformer Accelerator with Locality-dependent KV Product Cache and Compute Pattern Reconfigurable Engine",

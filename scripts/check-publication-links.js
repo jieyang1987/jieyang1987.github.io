@@ -49,8 +49,8 @@ async function main(){
  check(pageHeading.includes('<h1>论文发表</h1>')&&!pageHeading.includes('en-page-intro'),'Chinese publication heading no longer displays the redundant introduction');
  const removed=/publication-controls|paper-search|paper-topic|paper-year|paper-type|pub-filter|pub-advanced|pub-clear|<input|<select|<form/;
  check(!removed.test(renderer),'Publication search/filter UI and control dependencies are removed rather than hidden');
- const awards=home.paperAwards.filter(item=>item.url);
- check(awards.length===5,'Five unambiguous honors retain their paper links');
+ const awards=home.paperAwards.filter(item=>item.url?.startsWith('publications.html?paper='));
+ check(awards.length===6,'Six identified honors link to their corresponding papers');
  const milestones=data('data/research.json').directions.flatMap(d=>d.progressHighlights||[]).filter(item=>item.href.startsWith('publications.html'));
  const incoming=[...awards.map(item=>({url:item.url,title:item.paperTitle})),...milestones.map(item=>({url:item.href,title:item.paperTitle}))];
  for(const reference of incoming){
@@ -152,7 +152,7 @@ async function main(){
  const missing=await render('?paper=10132492','zh','data/publications/2023.json');
  check(missing.content.innerHTML.includes('部分年份数据加载失败')&&missing.content.innerHTML.includes('暂未找到所链接的论文'),'Partial data failures keep clear notices');
  check(count(missing.node('publication-results').innerHTML)>0,'Available records remain visible after a yearly-file failure');
- check(home.paperAwards.filter(item=>!item.url).length===3,'Unresolved honors are not assigned guessed links');
+ check(home.paperAwards.filter(item=>!item.url).length===2,'Unresolved honors are not assigned guessed links');
  check(!/publication-controls|pub-filter-|pub-advanced-filters|pub-clear-filters/.test(read('static/css/zh-locale.css')),'Obsolete publication filter CSS is removed');
  check(!/关键词|主题/.test(data('data/zh-pages.json').publications.intro),'Publication introduction no longer advertises removed filtering features');
  const journalsTotal=typed.filter(p=>p.type==='journals').length,conferencesTotal=typed.filter(p=>p.type==='conferences').length;

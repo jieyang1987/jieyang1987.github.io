@@ -5,6 +5,24 @@
   },
   "items": [
     {
+      "date": "2026.9.20",
+      "title": "ICCS 2026 邀请报告：《Integrated Circuits for Brain-Computer Interface From Lab to Clinic》",
+      "url": "https://www.iccs.org/index.html",
+      "images": [
+        {
+          "src": "images/coverage/ICCS2026-talk.jpg",
+          "caption": "ICCS 2026 报告现场"
+        }
+      ],
+      "titleEn": "ICCS 2026 invited talk: Integrated Circuits for Brain-Computer Interface From Lab to Clinic"
+    },
+    {
+      "date": "2026.9.18",
+      "title": "首届光电融合脑机接口与神经智能临床转化大会：“神经信号高通量检测与智能芯片”专题主席",
+      "url": "https://b2b.csoe.org.cn/meeting/NBC2026.html",
+      "titleEn": "Track Chair for ‘High-Throughput Neural Signal Detection and Intelligent Chips’ at the First Conference on Optoelectronic-Integrated BCI and Clinical Translation of Neural Intelligence"
+    },
+    {
       "date": "2026.8.25",
       "title": "全国软物质与生物物质物理学术会议：《高通量侵入式脑机接口系统级芯片：挑战与机遇》",
       "url": "http://softmat2026.cpsjournals.cn/",

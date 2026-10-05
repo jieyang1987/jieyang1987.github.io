@@ -35,15 +35,44 @@ const normalizeLinks=value=>value.replace(/href="([^"]*)"/g,(_,href)=>'href="'+e
 check(normalizeLinks(html)===normalizeLinks(staticRender(home)),'Static and dynamic rendering agree for the supplied records');
 const collapsed=html.split('<details class="paper-awards-more">')[0];
 const older=html.match(/<details class="paper-awards-more">([\s\S]*?)<\/details>/)?.[1]||'';
-check((html.match(/class="paper-award-item"/g)||[]).length===8,'All eight supplied entries are retained');
+check((html.match(/class="paper-award-item"/g)||[]).length===10,'All ten research-honor entries are retained');
 check((collapsed.match(/class="paper-award-item"/g)||[]).length===4,'Only four entries appear outside the disclosure');
-check((older.match(/class="paper-award-item"/g)||[]).length===4,'Four older entries are inside the disclosure');
+check((older.match(/class="paper-award-item"/g)||[]).length===6,'Six older entries are inside the disclosure');
 check(!/<details[^>]*\bopen(?:\s|=|>)/.test(html),'Disclosure starts closed');
-check([...collapsed.matchAll(/<time datetime="(\d+)">/g)].map(match=>match[1]).join(',')==='2026,2025,2025,2025','Initial view contains the newest four years');
-check([...older.matchAll(/<time datetime="(\d+)">/g)].map(match=>match[1]).join(',')==='2023,2023,2023,2022','Older entries remain in descending year order');
+check([...collapsed.matchAll(/<time datetime="(\d+)">/g)].map(match=>match[1]).join(',')==='2026,2026,2026,2025','Initial view contains the newest four years');
+check([...older.matchAll(/<time datetime="(\d+)">/g)].map(match=>match[1]).join(',')==='2025,2025,2023,2023,2023,2022','Older entries remain in descending year order');
 check(html.includes('View more')&&html.includes('View less')&&!/查看全部|收起其余/.test(html),'Disclosure uses compact labels without counts');
-check((html.match(/<a class="paper-award-title"/g)||[]).length===home.paperAwards.filter(item=>item.url).length,'Only honors with identified papers become links');
-for(const item of home.paperAwards.filter(item=>item.url)){
+check((html.match(/<a class="paper-award-title"/g)||[]).length===home.paperAwards.filter(item=>item.url).length,'Only honors with supplied destinations become links');
+check(html.includes('src="images/coverage/cjos-2026-cover.webp"')&&html.includes('loading="lazy"'),'The issue cover appears as a small lazy-loaded thumbnail');
+const coverAwards=home.paperAwards.filter(item=>item.distinction==='当期封面');
+check(coverAwards.length===2&&coverAwards.every(item=>/^images\/coverage\/[\w-]+\.webp$/.test(item.cover)),'Both journal cover honors have WebP thumbnails');
+for(const item of coverAwards){
+ check(html.includes('src="'+escape(item.cover)+'"')&&html.includes('data-cover-src="'+escape(item.cover)+'"')&&!html.includes('href="'+escape(item.cover)+'"'),'Cover thumbnail uses in-page preview, not image navigation');
+ check(fs.existsSync(path.join(root,item.cover))&&fs.statSync(path.join(root,item.cover)).size<120000,'Cover image exists and stays under 120 KB');
+}
+check((html.match(/<button type="button" class="paper-award-cover"/g)||[]).length===2,'Both covers use keyboard-accessible buttons');
+check((html.match(/aria-haspopup="dialog" aria-controls="home-cover-dialog"/g)||[]).length===2,'Both covers identify their shared preview dialog');
+check(!/<a[^>]*class="paper-award-cover"/.test(html),'Cover images never open a separate tab');
+for(const page of ['index.html','index_en.html']) {
+ const markup=read(page);
+ check((markup.match(/<button type="button" class="paper-award-cover"/g)||[]).length===2,page+': static cover buttons match runtime behavior');
+ check(!/<a[^>]*class="paper-award-cover"/.test(markup),page+': no legacy direct-image link remains');
+}
+const englishTarget={innerHTML:''};
+const englishRender=vm.runInNewContext('('+source.slice(begin,end).trim()+')',{...context,document:{documentElement:{lang:'en'},getElementById:id=>id==='paper-awards-list'?englishTarget:null}});
+englishRender(JSON.parse(read('data/en-home.json')));
+check((englishTarget.innerHTML.match(/aria-label="Enlarge cover: /g)||[]).length===2,'English covers have localized preview labels');
+const previewBegin=source.indexOf('  function initCoverPreview() {');
+const previewSource=source.slice(previewBegin,begin);
+check(previewBegin>=0&&previewSource.includes('dialog.showModal()'),'Cover preview uses the native modal dialog');
+check(previewSource.includes("dialog.addEventListener('close'")&&previewSource.includes("image.removeAttribute('src')"),'All close paths release the image');
+check(previewSource.includes('opener.focus({ preventScroll: true })'),'Closing restores keyboard focus without moving the page');
+check(read('static/css/en-home.css').includes('html.home-cover-open { overflow: hidden; }'),'Background scrolling is locked only while previewing');
+const competition=home.paperAwards.filter(item=>item.venue==='全球脑机接口×医保创新场景大赛');
+check(competition.length===2&&competition.every(item=>item.year===2026&&item.url==='https://mp.weixin.qq.com/s/U6nk5SAFlJItqQIBELpG7w'),'Both competition distinctions link to the supplied report');
+check(competition[0].distinction==='创新创业奖'&&competition[0].awardee==='西湖灵犀'&&competition[1].distinction==='前沿技术突破奖'&&competition[1].awardee.includes('杭州市第一人民医院'),'Each award preserves its distinct recipient');
+check(competition.every(item=>collapsed.includes(escape(item.venue+' · '+item.distinction))&&collapsed.includes(escape(item.project))),'Event name and full project are visible before the disclosure');
+for(const item of home.paperAwards.filter(item=>item.url?.startsWith('publications.html?paper='))){
  check(item.url.startsWith('publications.html?paper=')&&item.url.endsWith('#publication-results'),'Identified paper links stay within the publication page');
  check(!!item.paperTitle&&html.includes(escape(item.paperTitle)),'Linked paper title is available in the hover text');
 }
@@ -52,7 +81,9 @@ check(JSON.stringify(home.paperAwards)===before,'Sorting does not mutate the sou
 for(const item of home.paperAwards){
  check(html.includes(escape(item.venue+' · '+item.distinction)),'Full venue and distinction remain available in the title attribute');
  check(html.includes('datetime="'+item.year+'"'),'Year is preserved');
- check(html.includes('<p class="paper-award-role">'+escape(item.authorRole)+'</p>'),'Author role is preserved');
+ if(item.authorRole) check(html.includes('<p class="paper-award-role">'+escape(item.authorRole)+'</p>'),'Author role is preserved');
+ if(item.awardee) check(html.includes('<p class="paper-award-role">'+escape(item.awardee)+'</p>'),'Awarded organization is shown');
+ if(item.project) check(html.includes('<p class="paper-award-project">'+escape(item.project)+'</p>'),'Project name is shown');
 }
 const tbio=home.paperAwards.filter(item=>item.venue==='TBioCAS'&&item.year===2023);
 check(tbio.length===2,'Both user-provided TBioCAS records remain separate');

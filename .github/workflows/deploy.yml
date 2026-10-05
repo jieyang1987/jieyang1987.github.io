@@ -24,7 +24,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      # Checks and packaging use only Node built-ins; no website dependencies to install.
+      # The PDF import regression tests use pdf-parse; install validation dependencies only.
+      # Lifecycle scripts are disabled, and node_modules never enters the public artifact.
+      - name: Install validation dependencies
+        run: npm install --ignore-scripts --no-audit --no-fund --package-lock=false
       - run: npm run prepare:release
       - uses: actions/upload-artifact@v4
         with:

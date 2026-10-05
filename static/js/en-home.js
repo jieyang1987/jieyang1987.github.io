@@ -58,6 +58,53 @@
     }
     return template.innerHTML;
   }
+  function initCoverPreview() {
+    const container = document.getElementById('paper-awards-list');
+    if (!container) return;
+    const dialog = document.createElement('dialog');
+    dialog.id = 'home-cover-dialog';
+    dialog.className = 'en-dialog home-cover-dialog';
+    dialog.setAttribute('aria-labelledby', 'home-cover-title');
+    dialog.innerHTML = '<div class="dialog-heading"><h2 id="home-cover-title"></h2>' +
+      '<button type="button" class="dialog-close home-cover-close" aria-label="' + t('Close cover preview', '关闭封面预览') + '"><span aria-hidden="true">×</span></button></div>' +
+      '<img class="home-cover-image" alt="">';
+    document.body.appendChild(dialog);
+    const title = dialog.querySelector('#home-cover-title');
+    const image = dialog.querySelector('.home-cover-image');
+    const closeButton = dialog.querySelector('.home-cover-close');
+    let opener = null;
+    let alreadyLocked = false;
+    container.addEventListener('click', event => {
+      const trigger = event.target.closest('button.paper-award-cover[data-cover-src]');
+      if (!trigger || !container.contains(trigger)) return;
+      const src = trigger.dataset.coverSrc || '';
+      // Only our local cover assets can be opened; never navigate or fetch arbitrary URLs.
+      if (!/^images\/[\w/-]+\.webp$/.test(src)) return;
+      opener = trigger;
+      title.textContent = trigger.dataset.coverAlt || t('Journal cover', '期刊封面');
+      image.alt = title.textContent;
+      image.src = src;
+      alreadyLocked = document.documentElement.classList.contains('home-cover-open');
+      document.documentElement.classList.add('home-cover-open');
+      dialog.showModal();
+      closeButton.focus({ preventScroll: true });
+    });
+    closeButton.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', event => {
+      const rect = dialog.getBoundingClientRect();
+      if (event.target === dialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) dialog.close();
+    });
+    // Native dialog handles Escape and focus trapping; all close paths clean up here.
+    dialog.addEventListener('close', () => {
+      image.removeAttribute('src');
+      image.alt = '';
+      title.textContent = '';
+      if (!alreadyLocked) document.documentElement.classList.remove('home-cover-open');
+      if (opener?.isConnected) opener.focus({ preventScroll: true });
+      opener = null;
+    });
+  }
+
   function renderPaperAwards(home) {
     const target = document.getElementById('paper-awards-list');
     if (!target) return;
@@ -72,8 +119,12 @@
       const title = /^https?:/i.test(href)
         ? '<a class="paper-award-title" href="' + escapeHTML(href) + '" title="' + escapeHTML(fullTitle) + '"' + (new URL(href).origin !== location.origin ? ' target="_blank" rel="noopener"' : '') + '>' + escapeHTML(label) + '</a>'
         : '<span class="paper-award-title" title="' + escapeHTML(fullTitle) + '">' + escapeHTML(label) + '</span>';
-      return '<li class="paper-award-item"><div class="paper-award-main">' + title + '<time datetime="' + item.year + '">' + item.year + '</time></div>' +
-        (item.authorRole ? '<p class="paper-award-role">' + escapeHTML(item.authorRole) + '</p>' : '') + '</li>';
+      const cover = /^images\/[\w/-]+\.webp$/.test(item.cover || '')
+        ? '<button type="button" class="paper-award-cover" data-cover-src="' + escapeHTML(item.cover) + '" data-cover-alt="' + escapeHTML(item.coverAlt || label) + '" aria-haspopup="dialog" aria-controls="home-cover-dialog" aria-label="' + (english ? 'Enlarge cover: ' : '放大封面：') + escapeHTML(item.coverAlt || label) + '"><img src="' + escapeHTML(item.cover) + '" alt="' + escapeHTML(item.coverAlt || label) + '" width="42" height="58" loading="lazy"></button>' : '';
+      return '<li class="paper-award-item">' + cover + '<div class="paper-award-main">' + title + '<time datetime="' + item.year + '">' + item.year + '</time></div>' +
+        (item.authorRole ? '<p class="paper-award-role">' + escapeHTML(item.authorRole) + '</p>' : '') +
+        (item.awardee ? '<p class="paper-award-role">' + escapeHTML(item.awardee) + '</p>' : '') +
+        (item.project ? '<p class="paper-award-project">' + escapeHTML(item.project) + '</p>' : '') + '</li>';
     }).join('') + '</ul>';
     if (!items.length) { target.innerHTML = ''; return; }
     const english = document.documentElement?.lang === 'en';
@@ -344,6 +395,8 @@
     status.hidden = found === selected.length && found > 0;
     if (!status.hidden) status.innerHTML = t('Some selected publications could not be loaded. <a href="publications_en.html">View all publications</a> or reload this page.', '部分精选论文暂时无法加载，请<a href="publications.html">查看全部论文</a>或刷新重试。');
   }
+
+  initCoverPreview();
 
   renderProfile().catch(error => {
     console.warn('Using the static profile fallback.', error);

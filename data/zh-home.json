@@ -49,6 +49,11 @@
   ],
   "selectedHonors": [
     {
+      "title": "国际电路与系统会议（ICCS）青年科学家奖",
+      "titleZh": "国际电路与系统会议（ICCS）青年科学家奖",
+      "year": 2026
+    },
+    {
       "title": "中国脑机接口华瑙奖“杰出青年奖”",
       "titleZh": "中国脑机接口华瑙奖“杰出青年奖”",
       "year": 2026
@@ -83,12 +88,30 @@
   "teachingMaterials": "编写《侵入式脑机接口芯片设计》在线教材，并与 Mohamad Sawan 院士合著英文专著《Emerging Trends of Biomedical Circuits and Systems》，为脑机接口与生物医学电路的学习及设计实践提供参考。",
   "paperAwards": [
     {
+      "year": 2026,
+      "venue": "全球脑机接口×医保创新场景大赛",
+      "distinction": "创新创业奖",
+      "awardee": "西湖灵犀",
+      "project": "植入式汉语言脑机通信系统",
+      "url": "https://mp.weixin.qq.com/s/U6nk5SAFlJItqQIBELpG7w"
+    },
+    {
+      "year": 2026,
+      "venue": "全球脑机接口×医保创新场景大赛",
+      "distinction": "前沿技术突破奖",
+      "awardee": "西湖大学医学院附属杭州市第一人民医院“西湖脑机”团队",
+      "project": "基于自研专用解码芯片与 sEEG 颅内电极的 AI 侵入式汉语失语康复闭环系统",
+      "url": "https://mp.weixin.qq.com/s/U6nk5SAFlJItqQIBELpG7w"
+    },
+    {
       "year": 2022,
       "venue": "JBHI",
       "distinction": "当期封面",
       "authorRole": "通讯作者",
       "url": "publications.html?paper=9767670#publication-results",
-      "paperTitle": "NeuroSEE: A Neuromorphic Energy-Efficient Processing Framework for Visual Prostheses"
+      "paperTitle": "NeuroSEE: A Neuromorphic Energy-Efficient Processing Framework for Visual Prostheses",
+      "cover": "images/coverage/jbhi-2022-cover.webp",
+      "coverAlt": "JBHI 2022 年 8 月刊封面"
     },
     {
       "year": 2023,
@@ -139,7 +162,11 @@
       "year": 2026,
       "venue": "半导体学报",
       "distinction": "当期封面",
-      "authorRole": "通讯作者"
+      "authorRole": "通讯作者",
+      "url": "publications.html?paper=https%3A%2F%2Fwww.cjos.ac.cn%2Fcn%2Farticle%2Fpdf%2Fpreview%2F10.3724%2Fcjos.2025.044.pdf#publication-results",
+      "paperTitle": "Neuromorphic computing chips and deployment for edge intelligence",
+      "cover": "images/coverage/cjos-2026-cover.webp",
+      "coverAlt": "半导体学报 2026 年第 2 期封面"
     }
   ],
   "metaDescription": "杨杰的个人学术主页，介绍其在西湖大学与西湖灵犀科技的研究及产业化工作，聚焦脑机接口芯片与系统、类脑计算芯片和脑机接口中文解码，汇集研究论文、芯片成果、在线教材与团队招募信息。",

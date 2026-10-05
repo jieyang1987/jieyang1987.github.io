@@ -22,6 +22,10 @@ const PAPERS_DIR = path.join(ROOT, 'papers');
 const PUB_CONFIG = path.join(ROOT, 'data', 'publications.json');
 const PUB_DIR = path.join(ROOT, 'data', 'publications');
 const HTML_FILE = path.join(__dirname, 'paper-manager.html');
+const urlMetadata = require('./paper-manager/metadata.js');
+const { createChromeBridge } = require('./paper-manager/chrome-bridge.js');
+const { handleChromeHttp, readJson: readSmallJson } = require('./paper-manager/chrome-http.js');
+const { createScholarWatcher } = require('./paper-manager/scholar-watch.js');
 
 // 解析端口
 const args = process.argv.slice(2);
@@ -96,6 +100,8 @@ function updatePaper(payload) {
   let authorsValue = payload.authors ?? old.authors;
   if (authorsValue) authorsValue = reformatAuthorsString(authorsValue);
   group.items[idx] = {
+    // Preserve stored extension fields; only allow the editable fields below from payload.
+    ...old,
     authors: authorsValue,
     title: payload.title ?? old.title,
     venue: payload.venue ?? old.venue,
@@ -166,39 +172,42 @@ function movePaper(id, direction) {
   return { ok: false, error: '未找到对应论文' };
 }
 
-/** 创建一篇新论文
- *  payload: { year, section, authors, title, venue, venueHighlight, url, pdf, topics, abstract }
- *  year: 论文实际发表年份 (数字)
- *  section: 'journals' | 'conferences'
- */
+/** 按 DOI 或规范 URL 查重，不根据近似标题合并论文。 */
+function findDuplicates(url, doi) {
+  const identity = urlMetadata.identityUrl(url);
+  const normalizedDoi = urlMetadata.doiFrom(doi || url);
+  if (!identity && !normalizedDoi) return [];
+  return readAllPapers().filter(p =>
+    (identity && urlMetadata.identityUrl(p.url) === identity) ||
+    (normalizedDoi && urlMetadata.doiFrom(p.doi || p.url) === normalizedDoi)
+  ).map(p => ({ id: p.id, title: p.title, year: p.groupYear }));
+}
+
+function writeJsonAtomic(file, value) {
+  const temporary = file + '.' + process.pid + '.tmp';
+  try { fs.writeFileSync(temporary, JSON.stringify(value, null, 2) + '\n', 'utf8'); fs.renameSync(temporary, file); }
+  finally { if (fs.existsSync(temporary)) fs.unlinkSync(temporary); }
+}
+
 function createPaper(payload) {
+  if (!['journals', 'conferences'].includes(payload.section)) return { ok: false, error: '请选择期刊或会议类型' };
+  if (!Number.isInteger(payload.year) || payload.year < 1900 || payload.year > 2100) return { ok: false, error: '请填写有效的四位发表年份' };
+  for (const field of ['title', 'authors', 'venue']) {
+    if (typeof payload[field] !== 'string' || !payload[field].trim()) return { ok: false, error: '必填字段缺失: ' + field };
+  }
+  if (payload.topics !== undefined && (!Array.isArray(payload.topics) || payload.topics.some(t => typeof t !== 'string'))) return { ok: false, error: '主题格式错误' };
+  if (payload.abstract !== undefined && typeof payload.abstract !== 'string') return { ok: false, error: '摘要必须为文本' };
+  if (payload.url) { try { urlMetadata.inputUrl(payload.url); } catch (e) { return { ok: false, error: e.message }; } }
+  const duplicates = findDuplicates(payload.url, payload.doi);
+  if (duplicates.length) return { ok: false, error: '这篇论文已在网站数据中，请编辑已有条目', duplicates };
   const config = readConfig();
-
-  // 根据 year 找到合适的文件 (精确匹配 > 最早年份文件兜底)
-  let targetFileEntry = null;
-  for (const f of config.yearlyFiles) {
-    if (typeof f.year === 'number' && f.year === payload.year) {
-      targetFileEntry = f;
-      break;
-    }
-  }
-  // 如果没精确匹配, 找最早的数字年份文件 (year < 最小数字年份则归入 early)
-  if (!targetFileEntry) {
-    const numericFiles = config.yearlyFiles.filter(f => typeof f.year === 'number');
-    const minYear = Math.min(...numericFiles.map(f => f.year));
-    if (payload.year < minYear) {
-      targetFileEntry = config.yearlyFiles.find(f => typeof f.year !== 'number');
-    } else {
-      // 年份超出范围, 用最近的文件
-      targetFileEntry = config.yearlyFiles[0];
-    }
-  }
-  if (!targetFileEntry) return { ok: false, error: '找不到合适的年份文件' };
-
+  let targetFileEntry = config.yearlyFiles.find(f => f.year === payload.year);
+  const needsRegistration = !targetFileEntry;
+  if (!targetFileEntry) targetFileEntry = { year: payload.year, file: 'data/publications/' + payload.year + '.json' };
   const yearFile = path.join(ROOT, targetFileEntry.file);
-  if (!fs.existsSync(yearFile)) return { ok: false, error: '年份文件不存在: ' + targetFileEntry.file };
-
-  const data = JSON.parse(fs.readFileSync(yearFile, 'utf8'));
+  const existed = fs.existsSync(yearFile);
+  const previousData = existed ? fs.readFileSync(yearFile, 'utf8') : null;
+  const data = existed ? JSON.parse(previousData) : { journals: [], conferences: [] };
   if (!data[payload.section]) data[payload.section] = [];
 
   // 找到年份匹配的 group, 或创建新的
@@ -230,8 +239,15 @@ function createPaper(payload) {
     newPaper.abstract = payload.abstract.trim();
   }
 
+  if (payload.doi) newPaper.doi = urlMetadata.doiFrom(payload.doi);
   group.items.push(newPaper);
-  fs.writeFileSync(yearFile, JSON.stringify(data, null, 2) + '\n', 'utf8');
+  writeJsonAtomic(yearFile, data);
+  if (needsRegistration) {
+    config.yearlyFiles.push(targetFileEntry);
+    config.yearlyFiles.sort((a, b) => (typeof b.year === 'number' ? b.year : 0) - (typeof a.year === 'number' ? a.year : 0));
+    try { writeJsonAtomic(PUB_CONFIG, config); }
+    catch (error) { if (!existed) fs.unlinkSync(yearFile); else writeJsonAtomic(yearFile, JSON.parse(previousData)); throw error; }
+  }
 
   // 返回新论文的 id
   const newIdx = group.items.length - 1;
@@ -521,150 +537,7 @@ function listAllPdfs() {
  *        2) fallback 到 HTML 页面抓取 (JSON-LD / meta tags)
  */
 async function fetchUrlMetadata(url) {
-  // ── 步骤 1: 先尝试从 URL 提取 DOI, 调用 Crossref API ──
-  const doiFromUrl = extractDoiFromUrl(url);
-  if (doiFromUrl) {
-    try {
-      const crossref = await fetchCrossrefByDoi(doiFromUrl);
-      if (crossref) {
-        crossref.source = 'Crossref API';
-        crossref.url = url;
-        return crossref;
-      }
-    } catch (e) { /* Crossref 失败, 继续走 HTML 抓取 */ }
-  }
-
-  // ── 步骤 2: HTML 抓取 (同时从页面里再找 DOI 调 Crossref) ──
-  const html = await fetchHtml(url);
-  const htmlMeta = parseMetadataFromHtml(html, url);
-
-  // 如果 HTML 抓取拿到了 DOI, 且 Crossref 还没试过, 再试一次 Crossref
-  const doi = htmlMeta.doi || doiFromUrl;
-  if (doi && (!doiFromUrl || doi !== doiFromUrl)) {
-    try {
-      const crossref = await fetchCrossrefByDoi(doi);
-      if (crossref) {
-        // Crossref 数据更权威, 但保留 HTML 抓取的 url
-        crossref.source = 'Crossref API (via HTML DOI)';
-        crossref.url = url;
-        // 只用 Crossref 覆盖 HTML 里空的字段 (HTML 的 url 已设)
-        return mergeMetadata(htmlMeta, crossref);
-      }
-    } catch (e) { /* 忽略, 用 HTML 结果 */ }
-  }
-
-  return htmlMeta;
-}
-
-/** 从 URL 中提取 DOI (支持 doi.org 链接和 URL 内嵌的 DOI) */
-function extractDoiFromUrl(url) {
-  // doi.org/10.xxxx/xxxx
-  let m = url.match(/doi\.org\/(10\.\d{4,}\/[^\s;&'"#?]+)/i);
-  if (m) return decodeURIComponent(m[1].replace(/[.,;]$/, ''));
-  // URL 中直接包含 DOI
-  m = url.match(/(10\.\d{4,}\/[^\s;&'"#?]+)/);
-  if (m) return decodeURIComponent(m[1].replace(/[.,;]$/, ''));
-  return null;
-}
-
-/** 调用 Crossref API 获取论文元数据 (返回 JSON, 不受反爬影响) */
-function fetchCrossrefByDoi(doi) {
-  const https = require('https');
-  const apiUrl = `https://api.crossref.org/works/${encodeURIComponent(doi)}`;
-
-  return new Promise((resolve, reject) => {
-    const req = https.get(apiUrl, {
-      headers: {
-        'User-Agent': 'PaperManager/1.0 (mailto:researcher@example.com)',
-        'Accept': 'application/json',
-      },
-      timeout: 15000,
-    }, (res) => {
-      if (res.statusCode === 404) {
-        res.resume();
-        return resolve(null);  // DOI 在 Crossref 中不存在, 返回 null (不是错误)
-      }
-      if (res.statusCode !== 200) {
-        res.resume();
-        return reject(new Error('Crossref HTTP ' + res.statusCode));
-      }
-      let body = '';
-      res.on('data', chunk => body += chunk);
-      res.on('end', () => {
-        try {
-          const data = JSON.parse(body);
-          const msg = data.message;
-          if (!msg) return resolve(null);
-          resolve(parseCrossrefMessage(msg, doi));
-        } catch (err) {
-          reject(err);
-        }
-      });
-    });
-    req.on('error', reject);
-    req.on('timeout', () => { req.destroy(); reject(new Error('Crossref 请求超时')); });
-  });
-}
-
-/** 解析 Crossref message 为统一元数据结构 */
-function parseCrossrefMessage(msg, doi) {
-  const result = {
-    title: '', authors: '', abstract: '', venue: '',
-    year: null, doi: doi || msg.DOI || '', url: '', source: '',
-  };
-
-  // 标题 (Crossref title 是数组)
-  if (Array.isArray(msg.title) && msg.title.length > 0) {
-    result.title = cleanText(msg.title[0]);
-  }
-
-  // 作者 — 转为缩写格式 + J. Yang 加粗标 *
-  if (Array.isArray(msg.author) && msg.author.length > 0) {
-    const names = msg.author.map(a => {
-      if (a.name) return a.name;  // 组织作者, 保持原样
-      if (!a.family) return a.given || '';
-      return ((a.given || '') + ' ' + a.family).trim();
-    }).filter(Boolean);
-    if (names.length > 0) result.authors = formatAuthors(names);
-  }
-
-  // 摘要 (Crossref 的 abstract 常带 <jats:p> 标签, 需清理)
-  if (msg.abstract) {
-    result.abstract = cleanText(msg.abstract);
-  }
-
-  // venue: container-title (期刊/会议名)
-  if (Array.isArray(msg['container-title']) && msg['container-title'].length > 0) {
-    result.venue = cleanText(msg['container-title'][0]);
-  }
-
-  // 年份: 优先 published-print > published-online > published > issued
-  const dateFields = ['published-print', 'published-online', 'published', 'issued'];
-  for (const f of dateFields) {
-    if (msg[f] && msg[f]['date-parts'] && msg[f]['date-parts'][0]) {
-      const year = msg[f]['date-parts'][0][0];
-      if (year) { result.year = year; break; }
-    }
-  }
-
-  // URL
-  if (msg.URL) result.url = msg.URL;
-
-  return result;
-}
-
-/** 合并两份元数据: base 优先, 用 overlay 填充 base 中空的字段 */
-function mergeMetadata(base, overlay) {
-  return {
-    title: base.title || overlay.title || '',
-    authors: base.authors || overlay.authors || '',
-    abstract: base.abstract || overlay.abstract || '',
-    venue: base.venue || overlay.venue || '',
-    year: base.year || overlay.year || null,
-    doi: base.doi || overlay.doi || '',
-    url: base.url || overlay.url || '',
-    source: base.source + ' + ' + overlay.source,
-  };
+  return urlMetadata.resolveMetadata(url);
 }
 
 /** 抓取 URL 的 HTML 内容 (跟随重定向) */
@@ -699,93 +572,6 @@ function fetchHtml(url) {
     req.on('error', reject);
     req.on('timeout', () => { req.destroy(); reject(new Error('请求超时')); });
   });
-}
-
-/** 从 HTML 解析论文元数据 */
-function parseMetadataFromHtml(html, sourceUrl) {
-  const result = {
-    title: '', authors: '', abstract: '', venue: '',
-    year: null, doi: '', url: sourceUrl, source: '',
-  };
-
-  // ── 1. JSON-LD (最可靠, 学术网站普遍支持) ──
-  const jsonLdMatches = html.match(/<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi) || [];
-  for (const match of jsonLdMatches) {
-    try {
-      const jsonStr = match.replace(/<script[^>]*>/i, '').replace(/<\/script>/i, '');
-      const data = JSON.parse(jsonStr);
-      const items = Array.isArray(data) ? data : [data];
-      for (const item of items) {
-        if (item['@type'] === 'ScholarlyArticle' || item['@type'] === 'Article' ||
-            item['@type'] === 'ResearchArticle' || item['headline']) {
-          if (item['headline'] && !result.title) result.title = cleanText(item['headline']);
-          if (item['description'] && !result.abstract) result.abstract = cleanText(item['description']);
-          if (item['datePublished'] && !result.year) {
-            const yearMatch = String(item['datePublished']).match(/(\d{4})/);
-            if (yearMatch) result.year = parseInt(yearMatch[1], 10);
-          }
-          if (item['isPartOf'] && item['isPartOf']['name'] && !result.venue) {
-            result.venue = cleanText(item['isPartOf']['name']);
-          }
-          if (item['author']) {
-            const authors = Array.isArray(item['author']) ? item['author'] : [item['author']];
-            const names = authors.map(a => typeof a === 'string' ? a : (a.name || [a.givenName, a.familyName].filter(Boolean).join(' '))).filter(Boolean);
-            if (names.length > 0 && !result.authors) result.authors = formatAuthors(names);
-          }
-          if (item['identifier'] && Array.isArray(item['identifier'])) {
-            const doi = item['identifier'].find(id => id.propertyID && id.propertyID.includes('doi'));
-            if (doi && !result.doi) result.doi = doi.value;
-          }
-          result.source = 'JSON-LD';
-        }
-      }
-    } catch (e) { /* 忽略解析错误 */ }
-  }
-
-  // ── 2. og: / meta 标签 (fallback) ──
-  function getMeta(property) {
-    const regex = new RegExp(`<meta[^>]*(?:property|name)=["']${property}["'][^>]*content=["']([^"']*)["']`, 'i');
-    const match = html.match(regex);
-    return match ? cleanText(match[1]) : '';
-  }
-
-  if (!result.title) result.title = getMeta('og:title') || getMeta('dc.Title') || getMeta('citation_title');
-  if (!result.abstract) result.abstract = getMeta('og:description') || getMeta('dc.Description') || getMeta('citation_abstract') || getMeta('description');
-  if (!result.venue) result.venue = getMeta('citation_journal_title') || getMeta('citation_conference_title') || getMeta('prism.publicationName');
-  if (!result.doi) result.doi = getMeta('citation_doi') || getMeta('dc.Identifier') || getMeta('prism.doi');
-
-  // citation_author (多个 meta 标签)
-  if (!result.authors) {
-    const authorMatches = html.match(/<meta[^>]*name=["']citation_author["'][^>]*content=["']([^"']*)["']/gi) || [];
-    if (authorMatches.length > 0) {
-      const authors = authorMatches.map(m => {
-        const contentMatch = m.match(/content=["']([^"']*)["']/i);
-        return contentMatch ? cleanText(contentMatch[1]) : '';
-      }).filter(Boolean);
-      if (authors.length > 0) result.authors = formatAuthors(authors);
-    }
-  }
-
-  // citation_publication_date
-  if (!result.year) {
-    const dateStr = getMeta('citation_publication_date') || getMeta('prism.publicationDate') || getMeta('dc.Date');
-    if (dateStr) {
-      const yearMatch = dateStr.match(/(\d{4})/);
-      if (yearMatch) result.year = parseInt(yearMatch[1], 10);
-    }
-  }
-
-  // ── 3. DOI 从 URL 提取 ──
-  if (!result.doi) {
-    const doiMatch = sourceUrl.match(/10\.\d{4,}\/[^\s;&'"#]+/);
-    if (doiMatch) result.doi = doiMatch[0].replace(/[.,;]$/, '');
-  }
-
-  if (!result.source) result.source = 'meta tags';
-  result.title = result.title.substring(0, 500);
-  result.abstract = result.abstract.substring(0, 5000);
-
-  return result;
 }
 
 /** 修正姓名顺序, 统一为 "Given Family" (名 姓) 西方顺序
@@ -836,35 +622,10 @@ function givenInitial(p) {
   return p.charAt(0).toUpperCase() + '.';
 }
 
-/** 格式化作者名: 全名→缩写 + J. Yang 加粗标 *
- *  输入: ["Jie Yang", "Wei Zou", "Yang Jie", "Shao, Kunming", ...] 或 ["J. Yang", "W. Zou", ...]
- *  输出: "<strong>J. Yang*</strong>, W. Zou, ..."
- */
-function formatAuthors(names) {
-  const formatted = names.map(n => {
-    // 已经是缩写格式 (如 "J. Yang", "Y-H. Chen", "K-T. Cheng") 直接用
-    if (/^[A-Z](-[A-Z])?\.\s/.test(n)) return n;
-    // 先修正姓名顺序 (逗号格式 / 中文姓在前)
-    const normalized = normalizeNameOrder(n);
-    // 全名转缩写: "Jie Yang" → "J. Yang", "Chi-Ying Tsui" → "C-Y. Tsui"
-    const parts = normalized.trim().split(/\s+/);
-    if (parts.length < 2) return n;  // 无法拆分
-    const family = parts[parts.length - 1];
-    const givenParts = parts.slice(0, -1);
-    const initials = givenParts.map(givenInitial).join(' ');
-    return (initials + ' ' + family).trim();
-  });
-  // 加粗 J. Yang + 标 *
-  return formatted.map(n => {
-    if (/^J\.\s*Yang$/i.test(n)) return '<strong>J. Yang*</strong>';
-    return n;
-  }).join(', ');
-}
-
 /** 将逗号分隔的作者字符串重新格式化:
  *  - 去HTML标签, 保留非 J.Yang 作者的星号 (共同通讯标记)
  *  - 未缩写的全名 → normalizeNameOrder + 缩写
- *  - "Yang Jie" → "Jie Yang" → "J. Yang" → <strong>J. Yang*</strong>
+ *  - "Yang Jie" → "Jie Yang" → "J. Yang" → <strong>J. Yang</strong>
  *  - 已缩写的 (如 "W. Zou", "Y-H. Chen") 保持不变
  *  输入: "Yang Jie, W. Zou, <strong>J. Yang*</strong>, M. Sawan*"
  *  输出: "<strong>J. Yang*</strong>, W. Zou, M. Sawan*"
@@ -873,7 +634,7 @@ function reformatAuthorsString(authorsStr) {
   if (!authorsStr || !authorsStr.trim()) return authorsStr || '';
 
   // 按逗号拆分
-  const rawParts = authorsStr.split(/,\s*/);
+  const rawParts = authorsStr.replace(/[;；，\r\n]+|\s+and\s+|\s+&\s+/gi, ',').split(/,\s*/).map(p => p.trim()).filter(Boolean);
 
   // ── 检测 "Family, Given" 逗号格式 (citation_author 标签常见) ──
   // 例如: "Shao, Kunming, Tian, Fengshi, Yang, Jie"
@@ -886,21 +647,23 @@ function reformatAuthorsString(authorsStr) {
   // 3) 偶数下标部分都是单词 (姓氏), 奇数下标可以是多词 (名字)
   // 4) 总数 ≥ 2 且为偶数
   const cleanedForCheck = rawParts.map(p => p.replace(/<[^>]+>/g, '').replace(/\*/g, '').trim());
-  const hasAbbreviated = cleanedForCheck.some(p => /^[A-Z](-[A-Z])?\.\s/.test(p));
+  const hasAbbreviated = cleanedForCheck.some(p => /^[A-Z](?:\.?-[A-Z])?\./.test(p));
+  const hasChineseName = cleanedForCheck.some(p => /\p{Script=Han}/u.test(p));
   const allMultiWord = cleanedForCheck.every(p => p.split(/\s+/).length >= 2);
   const evenIndexSingleWord = cleanedForCheck.every((p, i) =>
     i % 2 === 0 ? p.split(/\s+/).length === 1 : true
   );
 
   let names;
-  if (!hasAbbreviated && !allMultiWord && evenIndexSingleWord &&
+  if (!hasAbbreviated && !hasChineseName && !allMultiWord && evenIndexSingleWord &&
       cleanedForCheck.length >= 2 && cleanedForCheck.length % 2 === 0) {
     // "Family, Given" 配对合并 → "Given Family"
     names = [];
     for (let i = 0; i < rawParts.length; i += 2) {
       const family = rawParts[i].replace(/<[^>]+>/g, '').replace(/\*/g, '').trim();
       const given = rawParts[i + 1].replace(/<[^>]+>/g, '').replace(/\*/g, '').trim();
-      names.push(given + ' ' + family);
+      const hasStar = /\*/.test(rawParts[i] + rawParts[i + 1]);
+      names.push(given + ' ' + family + (hasStar ? '*' : ''));
     }
   } else {
     names = rawParts;
@@ -915,8 +678,14 @@ function reformatAuthorsString(authorsStr) {
     let name = cleaned.replace(/\*/g, '').trim();
     if (!name) return raw; // 空的保留原样
 
-    // 已经是缩写格式 (如 "J. Yang", "Y-H. Chen", "K-T. Cheng") → 直接用
-    if (/^[A-Z](-[A-Z])?\.\s/.test(name)) return name + (hasStar ? '*' : '');
+    if (name === '杨杰') return 'J. Yang' + (hasStar ? '*' : '');
+
+    // Normalize compact initials (J.Yang, Y.H.Chen), preserving multi-part initials.
+    const abbreviated = name.match(/^((?:[A-Z](?:\.?-[A-Z])?\.\s*)+)([\p{L}][\p{L}'’ -]*)$/u);
+    if (abbreviated) {
+      const initials = abbreviated[1].trim().replace(/\.-/g, '-').replace(/\.\s*/g, '. ').trim();
+      return initials + ' ' + abbreviated[2].trim() + (hasStar ? '*' : '');
+    }
 
     // 修正姓名顺序 (逗号格式 / 中文姓在前)
     const normalized = normalizeNameOrder(name);
@@ -930,9 +699,9 @@ function reformatAuthorsString(authorsStr) {
     return (initials + ' ' + family).trim() + (hasStar ? '*' : '');
   });
 
-  // J. Yang 加粗标 * (覆盖原有星号)
+  // J. Yang 加粗，但仅保留输入中已有的通讯星号
   return formatted.map(n => {
-    if (/^J\.\s*Yang\*?$/i.test(n)) return '<strong>J. Yang*</strong>';
+    if (/^J\.\s*Yang\*?$/i.test(n)) return '<strong>J. Yang' + (n.endsWith('*') ? '*' : '') + '</strong>';
     return n;
   }).join(', ');
 }
@@ -978,20 +747,6 @@ function reformatAllAuthors() {
 
   return { ok: true, total, changed, details: details.slice(0, 20) }; // 最多返回前20条
 }
-
-/** 清理 HTML 实体和多余空白 */
-function cleanText(s) {
-  return String(s || '')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/<[^>]+>/g, '')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
 
 // ═══════════════════════════════════════════════
 //  PDF 自动下载 (Unpaywall API + 直接下载)
@@ -1202,19 +957,42 @@ function readBody(req) {
   });
 }
 
+const chromeBridge = createChromeBridge({ root: ROOT, readAllPapers });
+const scholarWatcher = createScholarWatcher({ root: ROOT, readAllPapers, getProfileUrl: () => {
+  try { return JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'profile.json'), 'utf8')).contact?.googleScholar; }
+  catch { return null; }
+} });
+
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://localhost:${PORT}`);
   const pathname = url.pathname;
   const method = req.method;
 
-  // CORS (允许本地任意端口访问)
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  // Local editor only: do not let arbitrary websites invoke write or credential-backed import APIs.
+  const allowedHosts = ['localhost:' + PORT, '127.0.0.1:' + PORT];
+  const allowedOrigins = allowedHosts.map(host => 'http://' + host);
+  if (!allowedHosts.includes(req.headers.host)) return sendJson(res, 403, { ok: false, error: '只允许本机地址访问' });
+  if (pathname.startsWith('/api/chrome/extension/')) return handleChromeHttp(req, res, pathname, chromeBridge, sendJson);
+  if (req.headers.origin && !allowedOrigins.includes(req.headers.origin)) {
+    return sendJson(res, 403, { ok: false, error: '只允许本地管理页面访问' });
+  }
   if (method === 'OPTIONS') { res.writeHead(204); return res.end(); }
 
   try {
     // ── API 路由 ──
+    if (pathname.startsWith('/api/chrome/')) return handleChromeHttp(req, res, pathname, chromeBridge, sendJson);
+    if (pathname.startsWith('/api/scholar/')) {
+      try {
+        if (pathname === '/api/scholar/status' && method === 'GET') return sendJson(res, 200, scholarWatcher.status());
+        if (method !== 'POST') return sendJson(res, 405, { ok: false, error: '不支持的操作' });
+        const body = await readSmallJson(req);
+        if (pathname === '/api/scholar/check') return sendJson(res, 200, await scholarWatcher.check(body.networkRetry === true ? 'network-retry' : 'manual'));
+        if (pathname === '/api/scholar/settings') return sendJson(res, 200, scholarWatcher.configure(body.enabled));
+        if (pathname === '/api/scholar/review') return sendJson(res, 200, scholarWatcher.review(body.id, body.ignored));
+        if (pathname === '/api/scholar/resolve') return sendJson(res, 200, await scholarWatcher.resolve(body.id, body.doi));
+        return sendJson(res, 404, { ok: false, error: '接口不存在' });
+      } catch (error) { return sendJson(res, error.status || 400, { ok: false, error: error.message }); }
+    }
 
     // 获取所有论文
     if (pathname === '/api/papers' && method === 'GET') {
@@ -1287,15 +1065,25 @@ const server = http.createServer(async (req, res) => {
     }
 
     // 从 URL 抓取论文元数据
-    if (pathname === '/api/fetch-url' && method === 'POST') {
+    if ((pathname === '/api/fetch-url' || pathname === '/api/import-url') && method === 'POST') {
       const body = await readBody(req);
       if (!body.url) return sendJson(res, 400, { ok: false, error: '缺少 url 参数' });
       try {
         const metadata = await fetchUrlMetadata(body.url);
-        return sendJson(res, 200, { ok: true, metadata });
+        const duplicates = findDuplicates(metadata.url, metadata.doi);
+        return sendJson(res, 200, { ok: true, metadata, duplicates });
       } catch (err) {
         return sendJson(res, 200, { ok: false, error: err.message });
       }
+    }
+
+    // Format a draft only; unlike the batch endpoint, this never writes paper data.
+    if (pathname === '/api/format-authors' && method === 'POST') {
+      const body = await readBody(req);
+      if (typeof body?.authors !== 'string' || body.authors.length > 20000) {
+        return sendJson(res, 400, { ok: false, error: '作者必须是长度不超过 20000 字符的文本' });
+      }
+      return sendJson(res, 200, { ok: true, authors: reformatAuthorsString(body.authors) });
     }
 
     // 批量重新格式化所有论文的作者字段
@@ -1400,6 +1188,21 @@ const server = http.createServer(async (req, res) => {
       return;
     }
 
+    if (pathname === '/paper-manager-scholar.js' && method === 'GET') {
+      res.writeHead(200, { 'Content-Type': 'text/javascript; charset=utf-8', 'Cache-Control': 'no-store' });
+      return res.end(fs.readFileSync(path.join(__dirname, 'paper-manager', 'scholar-ui.js'), 'utf8'));
+    }
+
+    if (pathname === '/paper-manager-chrome.js' && method === 'GET') {
+      res.writeHead(200, { 'Content-Type': 'text/javascript; charset=utf-8', 'Cache-Control': 'no-store' });
+      return res.end(fs.readFileSync(path.join(__dirname, 'paper-manager', 'chrome-ui.js'), 'utf8'));
+    }
+
+    if (pathname === '/paper-manager-url.js' && method === 'GET') {
+      res.writeHead(200, { 'Content-Type': 'text/javascript; charset=utf-8' });
+      return res.end(fs.readFileSync(path.join(__dirname, 'paper-manager', 'url-import.js'), 'utf8'));
+    }
+
     // ── 静态文件: 主页面 ──
     if (pathname === '/' || pathname === '/index.html') {
       const html = fs.readFileSync(HTML_FILE, 'utf8');
@@ -1414,7 +1217,8 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-server.listen(PORT, () => {
+server.listen(PORT, '127.0.0.1', () => {
+  scholarWatcher.start();
   console.log('═══════════════════════════════════════════');
   console.log('  论文管理面板已启动');
   console.log('═══════════════════════════════════════════');

@@ -170,10 +170,11 @@
           "venue": "2025 37th International Conference on Microelectronics (ICM)",
           "venueHighlight": false,
           "url": "https://ieeexplore.ieee.org/document/11322523",
-          "pdf": "",
+          "pdf": "papers/2025_paper_A_Neuromorphic_FPGA-Based_Architecture_for_Energy-Efficient_Visual_Recognition.pdf",
           "topics": [
             "neuromorphic"
-          ]
+          ],
+          "abstract": "Neuromorphic computing has emerged as a promising paradigm for enabling energy-efficient and real-time machine intelligence on edge platforms. In this work, we present a neuromorphic computing approach for visual recognition by implementing a Spiking-YOLO algorithm on a custom FPGA platform. The conventional YOLO network is converted into a spiking neural network, where event-driven architectures enable efficient feature extraction and bounding box prediction. On FPGA, we design optimized modules for membrane potential integration, spike generation, and parallel convolution, combined with weight quantization and memory-efficient dataflow. This implementation achieves over 50× energy savings compared to digital CNN accelerators, while achieving over 20 FPS realtime object detection performance with minimal accuracy loss. Integrated with vision sensors, the system demonstrates an energyefficient, compact, and adaptive solution for edge AI applications such as robotics, surveillance cameras, and autonomous systems. Our results highlight the potential of neuromorphic chips in advancing scalable and low-power visual perception."
         },
         {
           "authors": "F. Tian, K. Shao, J. Zheng, Z. Liu, H. Wu, Z. Liao, J. He, X. Guan, P. Dong, C. Fang, Z. Shen, S. Zhao, <strong>J. Yang*</strong>, M. Sawan, C-Y. Tsui, K-T. Cheng",
@@ -181,10 +182,11 @@
           "venue": "2025 IEEE Asian Solid-State Circuits Conference (A-SSCC)",
           "venueHighlight": false,
           "url": "https://ieeexplore.ieee.org/abstract/document/11349463/",
-          "pdf": "",
+          "pdf": "papers/2025_A-SSCC_Lemem_A_179.8TFLOPS_W,_24.21TFLOPS_Learning-In-Memory_Processor_with_Layer-Fused_Forward_Backward_Pipeline_for_Edge_DNN.pdf",
           "topics": [
             "neuromorphic"
-          ]
+          ],
+          "abstract": "Deep/Spiking neural networks (DNN/SNN) have shown promising abilities in on-device edge AI applications (e.g. tracking, detection) with multimodal signals from frame/event-based sensors (e.g. image, dynamic vision) [1]. Recent advances demonstrate higher accuracy, processing speed, and energy efficiency by adopting hybrid DNN/SNN network structures [2,3]. Both training and inference of these networks at edge are essential for real-time deployment as environmental changes lead to accuracy drops in pre-trained models [4,5]. To further improve energy efficiency, a paradigm shift towards processing-in-memory (PIM) has been observed in the trainingtargeted accelerators. However, recent training processors [6-9] still face challenges with utilization, throughput, and energy efficiency: 1) Lack of high-utilization DNN/SNN operators with variable precision in PIM macros. 2) Separated forward and backward processing phases during training limit throughput and increase latency. 3) Intensive external memory access (EMA) for deep models leads to significant energy overheads in both training and inference. Bio-plausible direct-error-feedback (DF) algorithms have demonstrated efficacy in training DNN/SNN [10], enabling parallel error propagation across layers, which makes it a promising method for on-chip training. To solve the above issues, we introduce Lemem, a DF-based learning-in-memory processor with 3 key innovations (Fig.1): 1) A dual-mode multi-precision ping-pong PIM macro (D- PIM) that achieves over 97% spatial utilization for both DNN and SNN operations. 2) A pipelined forward-backward processing core (PFBC) that reduces latency by up to 2.83x with activation and weight reuse. 3) Inter/Intra-layer-fusion router (LFR) with virtual core cache fabric cuts external memory access by up to 4.54x."
         },
         {
           "authors": "Z. Liao, K. Shao, J. Yu, L. Zhao, K-T. Cheng, C-Y. Tsui, <strong>J. Yang*</strong>, M. Sawan*",
@@ -192,10 +194,11 @@
           "venue": "2025 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
           "venueHighlight": false,
           "url": "https://ieeexplore.ieee.org/abstract/document/11327513",
-          "pdf": "",
+          "pdf": "papers/2025_BioCAS_A_Memory-Efficient_Retrieval_Architecture_for_RAG-Enabled_Wearable_Medical_LLMs-Agents.pdf",
           "topics": [
             "bci"
-          ]
+          ],
+          "abstract": "With powerful and integrative large language models (LLMs), medical AI agents have demonstrated unique advantages in providing personalized medical consultations, continuous health monitoring, and precise treatment plans. Retrieval- Augmented Generation (RAG) integrates personal medical documents into LLMs by an external retrievable database to address the costly retraining or fine-tuning issues in deploying customized agents. While deploying medical agents in edge devices ensures privacy protection, RAG implementations impose substantial memory access and energy consumption during the retrieval stage. This paper presents a hierarchical retrieval architecture for edge RAG, leveraging a two-stage retrieval scheme that combines approximate retrieval for candidate set generation, followed by high-precision retrieval on pre-selected document embeddings. The proposed architecture significantly reduces energy consumption and external memory access while maintaining retrieval accuracy. Simulation results show that, under TSMC 28 nm technology, the proposed hierarchical retrieval architecture has reduced the overall memory access by nearly 50%and the computation by 75%compared to pure INT8 retrieval, and the total energy consumption for 1 MB data retrieval is 177.76 μJ/query."
         },
         {
           "authors": "H. Wu, X. Liu, J. Chen, W. Zou, Q. Hou, S. Lin, Y. Mao, X. Kuang, <strong>J. Yang*</strong>, M. Sawan",
@@ -204,10 +207,11 @@
           "venueHighlight": false,
           "award": "Best Paper Award for BioCAS Track",
           "url": "https://ieeexplore.ieee.org/abstract/document/11043802",
-          "pdf": "",
+          "pdf": "papers/2025_ISCAS_Efficient_Self-Adaptive_Pseudo-Resistor_with_Rapid_Settling_and_High_Linearity_for_Neurorecording_Front-End_Circuits.pdf",
           "topics": [
             "bci"
-          ]
+          ],
+          "abstract": "In this paper, we present a novel self-adaptive pseudo-resistor (A-PR) designed to enhance the performance of neurorecording front-end circuits in terms of settling time, linearity, and tunability. We validate the effectiveness of the proposed A-PR through the implementation of a capacitivelycoupled instrumentation amplifier (CCIA) recording front-end using TSMC 40-nm process technology. The results demonstrate that the A-PR enables continuous recording with minimal interruptions, enhancing the system’s robustness and enabling more reliable acquisition of neural signals. Notably, the A-PR achieves a significant reduction in settling time, reaching the millisecond level— 1000 times faster than conventional pseudoresistors— while also exhibiting wide linear characteristics and easy tunability."
         },
         {
           "authors": "D. Wu, S. Li, C. Feng, L. Cao, Y. Zhang, <strong>J. Yang*</strong>, M. Sawan",
@@ -227,10 +231,11 @@
           "venue": "2025 IEEE International Symposium on Circuits and Systems (ISCAS)",
           "venueHighlight": false,
           "url": "https://ieeexplore.ieee.org/document/11043979/",
-          "pdf": "",
+          "pdf": "papers/2025_ISCAS_Neuromorphic_Computing_Chips_Challenges_and_Trends.pdf",
           "topics": [
             "neuromorphic"
-          ]
+          ],
+          "abstract": "Over the past decade, artificial intelligence (AI) has made unprecedented advancements in various fields. However, with the emergence of large-scale models in recent years, the energy consumption associated with AI computing has become a critical issue that urgently needs to be addressed. Furthermore, as Moore's Law reaches its limits, increasing computational power has become extremely challenging. The scarcity of energy and computational resources presents significant challenges to the further development and application of current AI technologies. These challenges provide an unprecedented opportunity for the introduction of neuromorphic computing chips which show great potential in addressing the problems currently faced by AI. We present in this article the evolution of brain-inspired neuromorphic computing chips, tracing their evolution from the early artificial retina to advanced designs incorporating millions of artificial neurons. Also, we explore future opportunities in key applications such as brain-computer interfaces, which can facilitate more efficient neural communication; embodied intelligence, which seeks to replicate human cognitive functions; and large-scale models, where these chips' energy-efficient processing capabilities can greatly enhance AI system performance and scalability."
         },
         {
           "authors": "C. Fang, Z. Shen, F. Tian, <strong>J. Yang*</strong>, M. Sawan",
@@ -261,10 +266,11 @@
           "venue": "2025 IEEE Custom Integrated Circuits Conference (CICC)",
           "venueHighlight": false,
           "url": "https://ieeexplore.ieee.org/document/10982760",
-          "pdf": "",
+          "pdf": "papers/2025_CICC_E-NPU_A_34~126nJ_Class_Event-Driven_Adaptive_Neural_SoC_with_Signal-Dynamics-Aware_Feature_Clustering_and_Multi-Model.pdf",
           "topics": [
             "neuromorphic"
-          ]
+          ],
+          "abstract": "Biomedical signal processing systems-on-chip (SoC) have shown significant promise in human-machine interfaces and closed-loop neuromodulation applications [1-5]. Future personalized medical wearables are anticipated to provide long-term monitoring and accurate interpretation while maintaining minimal energy consumption [6-8]. Lightweight neural networks, such as binary, spiking, and convolutional neural networks (BNN/SNN/CNN), are promising for neural signal analysis, with neural architecture search (NAS) techniques enabling the deployment of task-specific models optimized for accuracy and efficiency [9-12]. However, developing an accurate, ultra-energy-efficient medical SoC that seamlessly integrates signal feature extraction and processing with multi-model reconfigurability remains challenging. Furthermore, inter-patient variance adversely affects the accuracy of biosignal classifications in real-world scenarios, thereby limiting the reliability of these devices [13,14]. To address these challenges, we propose an event-driven neural SoC (E-NPU) with three key innovations to enhance energy efficiency and accuracy in personalized medical wearables (Figure 1). 1) Self-Adaptive Processing Architecture: This architecture includes a sparse signal-dynamics-aware analog-to-feature converter and event-driven two-stage processing engines, reducing average energy consumption by over 1.7x in biosignal feature extraction and classification by replacing conventional always-on processing. 2) Multi-Model Multi-Precision CIM Cores: We propose reconfigurable computing-in-memory (CIM) cores that support task-aware NAS-decided BNN/SNN/CNN classification. This approach addresses the memory wall issue and demonstrates prior accuracy (95.6%~99.6%) and runtime energy efficiency (34~126nJ/Class) for multi-task scaling. 3) Direct Error Feedback On-Chip Training: To counteract accuracy degradation from interpatient variance, we design a CIM engine supporting floating-point precision for direct error feedback local training. This engine facilitates long-term patient-specific model updates using layer-wise local error propagation, significantly reducing onchip storage needs compared to traditional backpropagation. Additionally, we propose inter-core operation pipelines to decrease overall inference/training latency by 3.03x and 2.49x, respectively, and external memory access (EMA) by 3.41x."
         },
         {
           "authors": "Q. Luo, Z. Zhang, S. Cai, <strong>J. Yang*</strong>, M. Sawan, Z. Zhang",

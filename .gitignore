@@ -68,3 +68,6 @@ cloudbaserc.local.json
 
 # Ephemeral, public-only incremental CloudBase upload staging
 .cloudbase-upload/
+
+# Private CV source documents and design drafts: publish only with explicit approval
+/CV/

@@ -178,11 +178,16 @@ async function extractPdfInfo(pdfPath) {
   let pdfData;
   try {
     const buf = fs.readFileSync(pdfPath);
-    pdfData = await pdfParse(buf, { max: 5 }); // 读前 5 页, 避免摘要跨页被截断
+    pdfData = await pdfParse(new Uint8Array(buf), { max: 5 }); // 读前 5 页, 避免摘要跨页被截断
   } catch (err) {
     return { error: err.message };
   }
 
+  return extractPdfTextInfo(pdfData);
+}
+
+/** Parse extracted text separately so boundary rules can be regression-tested without a PDF renderer. */
+function extractPdfTextInfo(pdfData) {
   const rawText = pdfData.text || '';
   // 修复 PDF 换行断词: "crav-\ning" / "crav- ing" → "craving"
   // 规则: 字母 + 连字符 + (换行或空格) + 小写字母 → 去掉连字符与空白, 合并为完整单词
@@ -223,11 +228,14 @@ async function extractPdfInfo(pdfPath) {
 
   // ── 提取摘要 ──
   // 终止词: 摘要正文到这些标志为止(覆盖 Index Terms / Keywords / Introduction / 作者单位 / 邮箱 / 分类号)
-  const ABSTRACT_END = /(?:index\s+terms|keywords|key\s+words|introduction|i\.\s*introduction|1\.\s*introduction|©|\bI\.?\s*Introduction|acm\s+reference|ccs\s+concepts|j\.?\s*classification|pacs\b)/i;
+  // Match section headings, never ordinary words such as "the introduction of chips".
+  const ABSTRACT_END = /^[ \t]*(?:(?:(?:[IVXLCDM]+|\d+)[.)]?[ \t]*)?introduction[ \t]*\r?$|(?:index[ \t]*terms|key[ \t]*words|acm[ \t]+reference(?:[ \t]+format)?|ccs[ \t]+concepts|j\.?[ \t]*classification|pacs)[ \t]*(?=[:：—–−-]|\r?$))/im;
+  const abstractWarnings = [];
+  let abstractMethod = 'none';
   // 混入摘要的作者/单位/邮箱/署名/基金脚注行特征
   const AFFIL_LINE = /@|e-?mail|univ(?:ersit|\.)|institut|department|dept\.|school of|college of|laborator|member,?\s*ieee|senior member|fellow,?\s*ieee|corresponding author|orcid|manuscript received|this work was supported|supported\s+(in\s+part\s+)?by|foundation|national\s+(key|natural)|\bgrant\b|science\s+center|\bchina\b/i;
   // 页眉/页脚/页码碎片行(如 "2026 IEEE International Solid-State Circuits Conference (ISSCC) | 979-8-3503-..." / "| 2026 IEEE ... |" / 纯数字页码 / *脚注行)
-  const HEADER_LINE = /^(\d{4}\s+ieee|\||\d+\s*\||ieee\s+international|978?-\d|979-8|\d{1,3}\s*$|session\s+\d+|[*†‡])/i;
+  const HEADER_LINE = /^(©|copyright\b|authorized licensed use limited to:|downloaded (?:on|from)\b|\d{4}\s+ieee|\||\d+\s*\||ieee\s+international|978?-\d|979-8|\d{1,3}\s*$|session\s+\d+|[*†‡])/i;
   // 纯单位行(短行且含机构词, 正文起始点的分隔标志; 兼容 "Tsinghua University..." 这类机构名在行中的情况)
   const AFFIL_ONLY = l => l.length < 90 && /universit|institut|academ|college|hospital|laborator/i.test(l);
   // 作者名列表行: 几乎全由人名 token 组成 (大写开头词/姓名缩写 + 逗号/and/IEEE头衔连接)
@@ -245,7 +253,8 @@ async function extractPdfInfo(pdfPath) {
   const BODY_START = /^(this\s+(paper|work|article|study)|we\s+(present|propose|report|describe|demonstrate|introduce|develop)|a\s+\w|an\s+\w|the\s+\w|in\s+this)/i;
 
   // 统一清洗一段摘要文本
-  function cleanAbstractText(s) {
+  function cleanAbstractText(s, preserveBody = false) {
+    if (preserveBody) return s.replace(/\s+/g, ' ').trim();
     // 若开头是作者署名残段(大写词占比高), 定位第一个正文起始句并砍掉前缀
     const sm = s.match(/(this\s+(paper|work|article|study)\s+(presents?|proposes?|describes?|reports?|demonstrates?|introduces?)|we\s+(present|propose|report|describe|demonstrate|introduce|develop))/i);
     if (sm && sm.index > 0 && sm.index < s.length * 0.3) {
@@ -295,25 +304,32 @@ async function extractPdfInfo(pdfPath) {
     // 找到终止词位置
     const endM = afterAbs.match(ABSTRACT_END);
     let body = endM ? afterAbs.substring(0, endM.index) : afterAbs.substring(0, 4000);
-    // 按行处理, 剔除页眉/页码碎片、作者名列表行 与 作者/单位/邮箱等混入行
+    if (!endM) abstractWarnings.push('未找到明确的摘要结束标题，提取结果需人工核对；无边界时最多保留 4000 字符。');
+    // IEEE content streams sometimes insert the entire first-page footnote block
+    // between the left-column abstract and its right-column continuation. Remove
+    // that explicitly delimited metadata block, not sentences mentioning foundations.
+    body = body.replace(/^[ \t]*(?:manuscript[ \t]+)?received[ \t]+\d{1,2}[ \t]+(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\.?\b[\s\S]*?^[ \t]*digital[ \t]+object[ \t]+identifier[^\r\n]*(?:\r?\n[ \t]*10\.\d{4,9}\/[^\r\n]*)?/gim, '\n');
+    // 按行剔除明确页眉/页脚；正文不再按泛化的单位关键词删除
     const bodyLines = body.split(/\r?\n/)
       .map(l => l.trim())
       .filter(l => l.length > 0)
-      .filter(l => !HEADER_LINE.test(l))
-      .filter(l => !NAME_LIST(l));
+      .filter(l => !HEADER_LINE.test(l));
     // 从前往后去掉开头可能的单位/作者署名段(直到遇到正常句子)
     let startIdx = 0;
     for (let i = 0; i < Math.min(6, bodyLines.length); i++) {
-      if (AFFIL_LINE.test(bodyLines[i]) && bodyLines[i].length < 160) {
+      if (/^(?:e-?mail\b|corresponding authors?\b|manuscript received\b|this work was supported\b)/i.test(bodyLines[i])) {
         startIdx = i + 1;
       } else {
         break;
       }
     }
-    const kept = bodyLines.slice(startIdx)
-      .filter(l => !AFFIL_LINE.test(l) || l.length > 200) // 长句即使含单位词也保留(可能是正文)
-      .join(' ');
-    abstract = cleanAbstractText(kept).substring(0, 3000);
+    // Within an explicitly labelled abstract, scientific words such as foundation,
+    // grant, school and introduction are content, not reasons to delete sentences.
+    const kept = bodyLines.slice(startIdx).join(' ');
+    const startsWithCaption = /^(?:figure|fig\.?|table)[ \t]*\d/i.test(bodyLines[startIdx] || '');
+    abstract = startsWithCaption ? '' : cleanAbstractText(kept, true);
+    abstractMethod = startsWithCaption ? 'none' : 'labeled';
+    if (startsWithCaption) abstractWarnings.push('Abstract 标记后是图注而非摘要，已尝试其他提取方式。');
   }
 
   // 关键词分支结果不可信(如误匹配页脚 "Abstract" 标签 / 抓到作者列表) → 降级 fallback
@@ -347,7 +363,11 @@ async function extractPdfInfo(pdfPath) {
     const sm = region.match(/(this\s+(paper|work|article|study)\s+(presents?|proposes?|describes?|reports?|demonstrates?|introduces?)|we\s+(present|propose|report|describe|demonstrate|introduce|develop))/i);
     if (sm && sm.index < region.length * 0.3) region = region.substring(sm.index);
     const fbAbstract = cleanAbstractText(region).substring(0, 3000);
-    if (isPlausibleAbstract(fbAbstract) && fbAbstract.length > abstract.length) abstract = fbAbstract;
+    if (isPlausibleAbstract(fbAbstract) && fbAbstract.length > abstract.length) {
+      abstract = fbAbstract;
+      abstractMethod = 'heuristic';
+      abstractWarnings.push('摘要没有可靠的起止标记，采用附近正文推测，请核对完整性。');
+    }
   }
 
   // ── 提取作者 ──
@@ -387,7 +407,8 @@ async function extractPdfInfo(pdfPath) {
   }
 
   // 摘要校验: 太短/不可信(作者列表/页眉碎片) 则置空
-  if (!isPlausibleAbstract(abstract)) abstract = '';
+  if (!isPlausibleAbstract(abstract)) { abstract = ''; abstractMethod = 'none'; }
+  if (abstract && !/[.!?。！？][\"'’”\])}]*$/.test(abstract.trim())) abstractWarnings.push('摘要末尾可能不是完整句子，请对照 PDF 核对。');
 
   return {
     title,
@@ -395,6 +416,8 @@ async function extractPdfInfo(pdfPath) {
     abstract,
     doi,
     url,
+    abstractWarnings,
+    abstractMethod,
     metaTitle: meta.Title || '',
     metaAuthor: meta.Author || '',
     textLength: text.length,
@@ -818,7 +841,7 @@ async function main() {
 }
 
 // 导出函数供测试或外部调用
-module.exports = { extractPdfInfo, parseFilename, scanPapers, loadReferencedPdfs, highlightSelfAuthor, listAllPapers, findVenueAbbrev, sanitizeTitleForFilename, buildCanonicalFilename, renamePdfAndUpdateJson };
+module.exports = { extractPdfInfo, extractPdfTextInfo, parseFilename, scanPapers, loadReferencedPdfs, highlightSelfAuthor, listAllPapers, findVenueAbbrev, sanitizeTitleForFilename, buildCanonicalFilename, renamePdfAndUpdateJson };
 
 // 仅在直接运行时执行主流程
 if (require.main === module) {

@@ -7,9 +7,10 @@
     "add-paper": "node scripts/add-paper.js",
     "list-papers": "node scripts/add-paper.js --list",
     "manage": "node scripts/paper-manager.js",
+    "test:paper-manager": "node --test scripts/tests/paper-manager.test.js scripts/tests/paper-metadata.test.js scripts/tests/paper-author-ui.test.js scripts/tests/chrome-bridge.test.js scripts/tests/chrome-extension.test.js scripts/tests/chrome-ui.test.js scripts/tests/chrome-upload-http.test.js scripts/tests/pdf-abstract.test.js scripts/tests/scholar-watch.test.js scripts/tests/scholar-ui.test.js scripts/tests/scholar-network.test.js scripts/tests/pdf-links.test.js scripts/tests/chrome-permissions.test.js",
     "check:zh": "node scripts/check-zh-pages.js",
     "check:en": "node scripts/check-en-pages.js && node scripts/check-en-home-sections.js",
-    "check": "npm run check:zh && npm run check:en && npm run check:chips && npm run check:media && npm run check:carousel && npm run check:teaching && npm run check:awards && npm run check:links && npm run check:research && npm run check:join && npm run check:activities && npm run check:biography",
+    "check": "npm run check:zh && npm run check:en && npm run check:chips && npm run check:media && npm run check:carousel && npm run check:teaching && npm run check:awards && npm run check:links && npm run check:research && npm run check:join && npm run check:activities && npm run check:biography && npm run test:paper-manager && npm run check:insights",
     "build:zh": "node scripts/build-zh-pages.js",
     "check:chips": "node scripts/check-chip-gallery.js",
     "check:media": "node scripts/check-home-media.js",
@@ -24,7 +25,9 @@
     "check:release": "node scripts/check-release.js",
     "prepare:release": "npm run check && npm run check:cloudbase && npm run build:release && npm run check:release",
     "check:cloudbase": "node scripts/check-cloudbase-delta.js",
-    "check:biography": "node scripts/check-mobile-biography.js"
+    "check:biography": "node scripts/check-mobile-biography.js",
+    "build:insights": "node scripts/build-bci-insights.js",
+    "check:insights": "node --test scripts/check-bci-insights.js"
   },
   "devDependencies": {
     "pdf-parse": "^1.1.1"

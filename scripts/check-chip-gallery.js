@@ -38,6 +38,24 @@ async function render(lang, records = data) {
 }
 const cards = html => [...html.matchAll(/<article class="en-chip-card en-surface">([\s\S]*?)<\/article>/g)].map(match => match[1]);
 async function main() {
+  const sharpEntries=data.chips.filter(chip=>chip.title.en.startsWith('SHARP '));
+  check(sharpEntries.length===1,'SHARP appears exactly once');
+  const sharp=sharpEntries[0];
+  check(sharp.category==='neuromorphic','SHARP uses the neuromorphic category');
+  check(sharp.title.zh==='SHARP 三维点云识别处理器'&&sharp.title.en==='SHARP 3D Point-Cloud Recognition Processor','SHARP uses the approved bilingual titles');
+  check(sharp.features.zh.length===3&&sharp.features.en.length===3,'SHARP has three approved features in each language');
+  for(const language of ['zh','en']) {
+    const copy=sharp.features[language].join(' ');
+    for(const value of ['24','rulebook–GEMM','1-bit','28 nm','340 KB','83.24 TOPS/W','0.55 V','25 MHz'])check(copy.includes(value),'SHARP retains verified metric and operating conditions: '+language+' '+value);
+    check(!/system-level|整机|SOTA/.test(copy),'SHARP does not overstate peak chip efficiency as whole-platform performance');
+  }
+  const sharpPaper=JSON.parse(fs.readFileSync(path.join(root,'data/publications/2026.json'),'utf8')).journals.flatMap(group=>group.items).find(paper=>paper.title.startsWith('SHARP:'));
+  check(sharpPaper&&sharp.papers.length===1&&sharp.papers[0].url===sharpPaper.url,'SHARP links to its existing verified publication');
+  for(const chip of data.chips){
+    check(fs.existsSync(path.join(root,chip.image)),'Original chip image exists: '+chip.image);
+    check(fs.existsSync(path.join(root,chip.image.replace(/\.(jpg|jpeg|png)$/i,'.webp'))),'Renderer WebP image exists: '+chip.image);
+  }
+
   for (const lang of ['zh', 'en']) {
     const state = await render(lang);
     const markup = state.nodes['chip-grid'].innerHTML;

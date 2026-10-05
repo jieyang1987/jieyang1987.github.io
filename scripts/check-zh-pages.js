@@ -95,7 +95,7 @@ check(profile.about.zh.includes('href="research.html#research4">脑—语言解�
 for(const match of profile.about.zh.matchAll(/href="research.html#([^"]+)"/g))check(json('data/research.json').directions.some(d=>d.id===match[1]),'Biography research anchor exists: '+match[1]);
 check(profile.about.zh.indexOf('杰出青年奖')<profile.about.zh.indexOf('长期从事'),'Identity and distinctions precede research');
 check(!homeHtml.includes('以芯片与算法，连接大脑与数字世界。'),'Chinese homepage leads with biography instead of slogan');
-for(const [title,year] of [['脑机接口青百荟青年专家',2025],['浙江省高层次人才培养计划青年人才',2025],['杭州市西湖明珠工程海外高层次人才',2022],['九三学社浙江省委员会参政议政先进个人',2023],['九三学社杭州市西湖区优秀社员',2023]]){
+for(const [title,year] of [['国际电路与系统会议（ICCS）青年科学家奖',2026],['脑机接口青百荟青年专家',2025],['浙江省高层次人才培养计划青年人才',2025],['杭州市西湖明珠工程海外高层次人才',2022],['九三学社浙江省委员会参政议政先进个人',2023],['九三学社杭州市西湖区优秀社员',2023]]){
  check(home.selectedHonors.filter(honor=>honor.title===title&&honor.year===year).length===1,'Requested honor and year retained exactly once: '+title);
  check(homeHtml.includes('<span>'+title+'</span><time datetime="'+year+'">'+year+'</time>'),'Requested honor is visible with its year: '+title);
 }
@@ -137,10 +137,10 @@ const teachingStart=homeHtml.indexOf('<section class="content-section home-teach
 check(honorsStart>=0&&teachingStart>honorsStart,'Honors and teaching are separate full-width sections');
 const honorsSection=homeHtml.slice(honorsStart,teachingStart);
 check(honorsSection.includes('<h2 id="about-heading">荣誉与奖励</h2>'),'Honors section uses the new category title');
-check(honorsSection.includes('id="personal-honors-heading">个人荣誉</h3>')&&honorsSection.includes('id="paper-awards-heading">论文与会议荣誉</h3>'),'Personal and paper/conference awards have separate columns');
+check(honorsSection.includes('id="personal-honors-heading">个人荣誉</h3>')&&honorsSection.includes('id="paper-awards-heading">研究成果荣誉</h3>'),'Personal and research achievement honors have separate columns');
 const paperAwardsMarkup=honorsSection.slice(honorsSection.indexOf('<div id="paper-awards-list">'));
 const paperAwardsMain=paperAwardsMarkup.split('<details class="paper-awards-more">')[0];
-check(home.paperAwards.length===8&&(paperAwardsMarkup.match(/class="paper-award-item"/g)||[]).length===8,'All eight user-provided paper honors are retained');
+check(home.paperAwards.length===10&&(paperAwardsMarkup.match(/class="paper-award-item"/g)||[]).length===10,'All ten research achievement honors are retained');
 check((paperAwardsMain.match(/class="paper-award-item"/g)||[]).length===4,'Only four recent paper honors appear before the disclosure');
 check(paperAwardsMarkup.includes('<details class="paper-awards-more">')&&!/<details[^>]*\bopen(?:\s|=|>)/.test(paperAwardsMarkup),'Earlier paper honors are collapsed by default');
 check(paperAwardsMarkup.includes('View more')&&paperAwardsMarkup.includes('View less')&&!/查看全部|收起其余/.test(paperAwardsMarkup),'Disclosure has accurate expand and collapse labels');

@@ -53,6 +53,11 @@
   "position": "Researcher, Advanced Neural Chip Center",
   "selectedHonors": [
     {
+      "title": "Young Scientist Award, International Conference on Circuits and Systems (ICCS)",
+      "titleZh": "国际电路与系统会议（ICCS）青年科学家奖",
+      "year": 2026
+    },
+    {
       "title": "Huanao BCI Award — Outstanding Young Scholar",
       "titleZh": "中国脑机接口华瑙奖“杰出青年奖”",
       "year": 2026
@@ -75,12 +80,30 @@
   ],
   "paperAwards": [
     {
+      "year": 2026,
+      "venue": "Global BCI × Medical Insurance Innovation Scenario Competition",
+      "distinction": "Innovation & Entrepreneurship Award",
+      "awardee": "Neuralicorn",
+      "project": "Implantable Chinese-language brain–computer communication system",
+      "url": "https://mp.weixin.qq.com/s/U6nk5SAFlJItqQIBELpG7w"
+    },
+    {
+      "year": 2026,
+      "venue": "Global BCI × Medical Insurance Innovation Scenario Competition",
+      "distinction": "Frontier Technology Breakthrough Award",
+      "awardee": "“Westlake BCI” team, Hangzhou First People’s Hospital (affiliated with Westlake University School of Medicine)",
+      "project": "AI-enabled invasive closed-loop aphasia rehabilitation system using an in-house decoding chip and sEEG intracranial electrodes",
+      "url": "https://mp.weixin.qq.com/s/U6nk5SAFlJItqQIBELpG7w"
+    },
+    {
       "year": 2022,
       "venue": "JBHI",
       "distinction": "Issue Cover",
       "authorRole": "Corresponding author",
       "url": "publications_en.html?paper=9767670#publication-results",
-      "paperTitle": "NeuroSEE: A Neuromorphic Energy-Efficient Processing Framework for Visual Prostheses"
+      "paperTitle": "NeuroSEE: A Neuromorphic Energy-Efficient Processing Framework for Visual Prostheses",
+      "cover": "images/coverage/jbhi-2022-cover.webp",
+      "coverAlt": "IEEE Journal of Biomedical and Health Informatics, August 2022 cover"
     },
     {
       "year": 2023,
@@ -130,7 +153,11 @@
       "year": 2026,
       "venue": "Journal of Semiconductors",
       "distinction": "Issue Cover",
-      "authorRole": "Corresponding author"
+      "authorRole": "Corresponding author",
+      "url": "publications_en.html?paper=https%3A%2F%2Fwww.cjos.ac.cn%2Fcn%2Farticle%2Fpdf%2Fpreview%2F10.3724%2Fcjos.2025.044.pdf#publication-results",
+      "paperTitle": "Neuromorphic computing chips and deployment for edge intelligence",
+      "cover": "images/coverage/cjos-2026-cover.webp",
+      "coverAlt": "Chinese Journal of Semiconductors, 2026 issue 2 cover"
     }
   ],
   "teachingMaterials": "I am the author of the online textbook Invasive Brain–Computer Interface Chip Design and co-author, with Prof. Mohamad Sawan, of Emerging Trends of Biomedical Circuits and Systems. These resources support learning and design practice in brain–computer interfaces and biomedical circuits.",

@@ -99,4 +99,7 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Personal writings and reflections -->
+  <url><loc>https://yangjie.ac.cn/insights.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://yangjie.ac.cn/insights_en.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
 </urlset>

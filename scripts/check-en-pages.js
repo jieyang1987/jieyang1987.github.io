@@ -61,14 +61,14 @@ const gridCss = homeCss.slice(homeCss.indexOf('/* Quiet grid background'), homeC
 check(gridCss.includes('body:is(.zh-unified, [data-en-page])::before') && gridCss.includes('background-size: 192px 192px, 192px 192px, 48px 48px, 48px 48px'), 'Chinese and English pages share the approved major/minor grid');
 check(gridCss.includes('rgba(83, 112, 138, .09)') && gridCss.includes('rgba(83, 112, 138, .034)'), 'Minor grid lines are quieter than major lines');
 check(gridCss.includes('background-position: 0 0;'), 'Both grid scales have the same origin');
-for(const page of ['index.html','research.html','publications.html','chip_gallery.html','coverage.html','join.html','book-item-bci.html'])check(read(page).includes('en-home.css?v=20'), page + ': Chinese grid stylesheet cache is refreshed');
+for(const page of ['index.html','research.html','publications.html','chip_gallery.html','coverage.html','join.html','book-item-bci.html'])check(read(page).includes('en-home.css?v=23'), page + ': Chinese grid stylesheet cache is refreshed');
 check(gridCss.includes('body:is(.zh-unified, [data-en-page]).en-inner::before { opacity: .60; }'), 'English inner pages use the same muted texture as Chinese');
 check(gridCss.includes('body:is(.zh-unified, [data-en-page])::before { display: none; }') && gridCss.includes('@media print'), 'Grid remains absent on narrow screens and in print');
-for(const page of pages)check(read(page).includes('en-home.css?v=20'), page + ': shared background stylesheet cache is refreshed');
+for(const page of pages)check(read(page).includes('en-home.css?v='+(page==='index_en.html'?23:21)), page + ': shared background stylesheet cache is refreshed');
 const expectedHonors = json('data/zh-home.json').selectedHonors.filter(h => !h.title.includes('九三学社'));
 const englishHonors = json('data/en-home.json').selectedHonors;
 const approvedHonorTitles = [
-  'Huanao BCI Award — Outstanding Young Scholar',
+  'Young Scientist Award, International Conference on Circuits and Systems (ICCS)','Huanao BCI Award — Outstanding Young Scholar',
   'BCI 100 Young Scholars',
   'Young Talent, Zhejiang Provincial High-Level Talent Development Program',
   'Overseas High-Level Talent, Xihu Pearl Program, Hangzhou'

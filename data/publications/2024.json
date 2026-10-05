@@ -21,7 +21,7 @@
           "venue": "IEEE Transactions on Circuits and Systems for Artificial Intelligence",
           "venueHighlight": false,
           "url": "https://ieeexplore.ieee.org/abstract/document/10762792/",
-          "pdf": "",
+          "pdf": "papers/2024_TCSAI_BioPI_An_Energy_Efficient_and_Low-Latency_Neuromorphic_Pipelined_System_with_Joint_Design_Optimizations_of.pdf",
           "topics": [
             "neuromorphic"
           ]
@@ -86,10 +86,11 @@
           "venue": "2024 IEEE Custom Integrated Circuits Conference (CICC)",
           "venueHighlight": true,
           "url": "https://ieeexplore.ieee.org/abstract/document/10529097",
-          "pdf": "",
+          "pdf": "papers/2024_CICC_A_Neuron-Inspired_0.0032mm²−1.38uW_Ch_Wireless_Implantable_Neural_Interface_with_Direct_Multiplexing_Front-End_and.pdf",
           "topics": [
             "bci"
-          ]
+          ],
+          "abstract": "The channel count of implantable neural interfaces has grown rapidly as brain-machine interface applications emerge from basic brain disorder monitoring, motor control, to voice reconstruction. However, limited on-implant power and area budget hinder the development of neural interfaces and multi-channel integration. As shown in Fig. 1, Although time-division multiplexing (TDM) before ADC [1,2] alleviates the area consumption over architecture without TDM [3], the recording front-end still occupies large on-chip area, resulting average channel area of over 0.01mm . Recently, TDM over the entire readout circuits has been adopted to reduce area consumption per channel [4,5]. However, they induce extra overhead to resolve DC offset variations between channels. More importantly, the power consumption issue associated with large volumes of neural signal transmission remains unsolved. Inspired by the energy and area efficient neural data interaction of the biological neurons, this paper proposes a neuromorphic neural interface (NNI) design shown in Fig. 2 to solve the aforementioned challenges. Firstly, the high fan-in nature of biological neurons is realized in the NNI by multiplexing the entire readout circuit. A low area budget of 0.0032 mm per channel is achieved even with the dedicated electrode DC offset (EDO) cancellation method. After multi-channel neural recording, the signal sampling, processing and transmission of the NNI all obey the neuromorphic principle where information is represented and processed as spikes with eventdriven characteristics. Specifically, a digital spike train representing the recorded neural information is generated with an analog-to-spike converter (ASC). It realizes adaptive sampling based on neuron firing rates to avoid unnecessary sampling power consumption. A successive clockless spike detector is triggered by the digital spike output of ASC in an event-based manner to further reduce clocking power, with which the raw neural activities are compressed and represented as digital spikes, achieving more than 500x data reduction. Finally, the highly compressed digital spikes wake up the transmitter for data transmission. With the proposed neuromorphic approach, NNI can effectively deal with a large volume of neural signals, while consuming only 1.38μW per recording channel."
         },
         {
           "authors": "C. Fang, Z. Yang, S. Zhao, C. Wang, F. Tian, <strong>J. Yang*</strong>, M. Sawan*",
@@ -97,10 +98,11 @@
           "venue": "2024 IEEE Custom Integrated Circuits Conference (CICC)",
           "venueHighlight": true,
           "url": "https://ieeexplore.ieee.org/abstract/document/10529019",
-          "pdf": "",
+          "pdf": "papers/2024_CICC_A_0.078_pJ_SOP_Unstructured_Sparsity-Aware_Spiking_Attention_Convolution_Processor_with_3D_Compute_Array.pdf",
           "topics": [
             "neuromorphic"
-          ]
+          ],
+          "abstract": "Large-scale SNNs, which employ advanced network architectures such as Transformers, have shown performance matching that of their ANN counterparts [1]. The inherent high sparsity and the use of accumulation (AC) features in SNNs offer the promise of energyefficient computing. However, the energy efficiency of SNNs is highly dependent on the data sparsity level and can deteriorate, falling even below the efficiency of resource-intensive ANNs when sparsity is low. Previous work [2] mitigates this problem by using heterogeneous SNN and CNN cores but incurs increased area and power consumption due to costly MAC array implementation. Therefore, a spiking-only accelerator with enhanced energy efficiency across all sparsity levels is highly desired. To achieve this goal, three critical challenges need to be addressed as shown in Fig. 1: 1) Redundant memory access of weights and partial sums across different time steps leads to significant power consumption and memory space waste. 2) Throughput degradation when exploiting unstructured spike sparsity. Fetching irregularly distributed non-zero spikes and corresponding weights one by one incurs long latency, compromising the benefits of high sparsity in large-scale SNNs. 3) One-size-fits-all scheduling leads to imbalanced efficiency across different operators. A homogeneous scheduler cannot be applicable to all operators at maximal efficiency because they have distinctive computational characteristics. This work presents an unstructured sparsity-aware spiking attention and convolution accelerator for large-scale SNNs, as shown in Fig. 2. The processor has three key features: 1) A 3D computation array with timestep-paralleled adder trees to maximize computation throughput and on-chip data reuse across different time steps, reducing external memory access (EMA) by 68.3%. 2) A parallel nonzero data fetcher with a priority encoder array to generate addresses for fetching weights stored in multibank memories, corresponding to non-zero spikes. It transmits valid spike-weight pairs into the 3D array, resulting in an average computation latency reduction ranging from 32.3% to 84.7%. 3) A multi-mode unified computation scheduler that includes a sparse attention skipper to predict and skip zero selfattention output, an asynchronous data dispatcher for workload balancing among cores, and a bidirectional compressor for result compression in two directions to facilitate data transpose operations."
         },
         {
           "authors": "C. Wang, D. Wu, C. Fang, <strong>J. Yang*</strong>, M. Sawan*",

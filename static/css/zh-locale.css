@@ -61,6 +61,11 @@ html[lang="zh-CN"] {
 .zh-unified .home-honors .selected-honors { margin-top: 0; }
 .zh-unified .paper-award-list { list-style: none; margin: 0; padding: 0; }
 .zh-unified .paper-award-item + .paper-award-item { margin-top: 10px; }
+.zh-unified .paper-award-item:has(.paper-award-cover) { display: grid; grid-template-columns: 42px minmax(0, 1fr); column-gap: 10px; align-items: start; }
+.zh-unified .paper-award-cover { grid-column: 1; grid-row: 1 / span 2; display: block; width: 42px; height: 58px; overflow: hidden; border-radius: 3px; }
+.zh-unified .paper-award-cover img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.zh-unified .paper-award-item:has(.paper-award-cover) .paper-award-main, .zh-unified .paper-award-item:has(.paper-award-cover) .paper-award-role, .zh-unified .paper-award-item:has(.paper-award-cover) .paper-award-project { grid-column: 2; }
+.zh-unified .paper-award-project { margin: 2px 0 0; color: var(--muted); font-size: 12px; font-weight: 400; line-height: 1.5; overflow-wrap: anywhere; }
 .zh-unified .paper-award-main { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
 .zh-unified .paper-award-title { min-width: 0; color: var(--ink); font-size: 14px; font-weight: 400; line-height: 1.6; overflow-wrap: anywhere; }
 .zh-unified a.paper-award-title { color: var(--accent); text-decoration: none; }

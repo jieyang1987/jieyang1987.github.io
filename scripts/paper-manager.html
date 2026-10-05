@@ -989,6 +989,11 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+/* Keep the expanded toolbar visible without clipping the three-column editor. */
+body { display:flex; flex-direction:column; }
+.topbar { flex-wrap:wrap; flex-shrink:0; }
+.layout { height:auto; flex:1; min-height:0; }
+.unreferenced-bar { flex-shrink:0; }
 </style>
 </head>
 <body>
@@ -1000,7 +1005,11 @@
   <div class="search-box">
     <input type="text" id="search" placeholder="搜索标题、作者、venue..." />
   </div>
+  <button class="btn-reload" onclick="showUrlImport()" style="background:var(--primary);color:white">＋ URL 添加论文</button>
   <button class="btn-reload" onclick="loadData()">↻ 刷新</button>
+  <button class="btn-reload" onclick="checkScholarNow()" id="btn-scholar-check">检查我的新论文</button>
+  <button class="btn-reload" onclick="showScholarInbox()" id="btn-scholar-inbox">待录入论文</button>
+  <button class="btn-reload" onclick="showChromeSetup()" id="btn-chrome-setup">Chrome 下载助手</button>
   <button class="btn-reload" onclick="showBatchDownload()" id="btn-batch-download" style="color:var(--warning);border-color:#fde68a">⬇ 批量下载 PDF</button>
   <button class="btn-reload" onclick="reformatAllAuthors()" id="btn-reformat-authors" style="color:var(--primary);border-color:#c7d2fe">✦ 批量格式化作者</button>
   <button class="btn-reload" onclick="showRenamePreview()" id="btn-rename-pdfs" style="color:var(--success);border-color:#bbf7d0">📝 批量重命名 PDF</button>
@@ -1153,7 +1162,7 @@ async function loadData() {
 //  批量格式化作者
 // ═══════════════════════════════════════════════
 async function reformatAllAuthors() {
-  if (!confirm('将自动格式化所有论文的作者字段:\n  • 全名→缩写 (Jie Yang → J. Yang)\n  • 中文姓在前→翻转 (Yang Jie → J. Yang)\n  • J. Yang 自动加粗标 *\n\n已格式化的不受影响。确认执行?')) return;
+  if (!confirm('将自动格式化所有论文的作者字段:\n  • 全名→缩写 (Jie Yang → J. Yang)\n  • 中文姓在前→翻转 (Yang Jie → J. Yang)\n  • J. Yang 自动加粗，保留原有通讯星号\n\n已格式化的不受影响。确认执行?')) return;
 
   const btn = document.getElementById('btn-reformat-authors');
   if (btn) { btn.disabled = true; btn.textContent = '✦ 格式化中...'; }
@@ -1810,6 +1819,7 @@ function renderDetail(p) {
         <label>作者 <span class="required">*</span></label>
         <div>
           <input type="text" class="form-control" id="f-authors" value="${escapeAttr(p.authors)}" />
+          ${renderAuthorFormatControl('f-authors')}
           <div class="field-meta">本人用 &lt;strong&gt;J. Yang&lt;/strong&gt; 高亮, 通讯作者加 *</div>
         </div>
       </div>
@@ -1879,9 +1889,11 @@ function renderDetail(p) {
             <button class="btn-mini btn-mini-success" onclick="showPdfPicker(currentDetailId)" id="btn-pick-pdf">📂 从文件夹选择 PDF</button>
             ${p.pdf && p.pdf.startsWith('papers/') ? `<button class="btn-mini" onclick="renamePdf(currentDetailId)" id="btn-rename-pdf">✏ 重命名</button>` : ''}
             ${!p.pdf ? `<button class="btn-mini btn-mini-warn" onclick="autoDownloadPdf(currentDetailId)" id="btn-download-pdf">⬇ 自动下载 PDF</button>` : ''}
+            ${p.url && (!p.pdf || !p.pdf.startsWith('papers/')) ? `<button class="btn-mini btn-mini-success" onclick="downloadPdfThroughChrome(currentDetailId)" id="btn-chrome-pdf">⬇ 通过 Chrome 下载并关联</button>` : ''}
           </div>
           <div id="pdf-picker"></div>
           <div id="download-status"></div>
+          <div id="chrome-download-status" class="field-meta" aria-live="polite"></div>
         </div>
       </div>
     </div>
@@ -1899,6 +1911,47 @@ function renderDetail(p) {
       <button class="btn btn-danger" onclick="deletePaper(currentDetailId)" style="margin-left:auto">🗑 删除</button>
     </div>
   `;
+}
+
+// Author formatting operates on the current input, not on the saved paper list.
+function renderAuthorFormatControl(inputId) {
+  return `<div class="field-actions">
+    <button type="button" class="btn-mini" onclick="formatAuthorsField('${inputId}', this)">✦ 格式化作者</button>
+  </div><div class="field-meta author-format-preview" id="${inputId}-formatted-preview" aria-live="polite"></div>`;
+}
+
+async function formatAuthorsField(inputId, button) {
+  const input = document.getElementById(inputId);
+  if (!input) return;
+  const before = input.value;
+  if (!before.trim()) { showToast('请先输入或获取作者信息', 'info'); return; }
+  const label = button.textContent;
+  button.disabled = true;
+  button.textContent = '格式化中…';
+  try {
+    const response = await fetch('/api/format-authors', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ authors: before }), signal: AbortSignal.timeout(5000),
+    });
+    const result = await response.json();
+    if (document.getElementById(inputId) !== input) return;
+    if (!response.ok || !result.ok || typeof result.authors !== 'string') throw new Error(result.error || '格式化失败');
+    if (input.value !== before) { showToast('作者内容已变化，请再次点击格式化', 'info'); return; }
+    input.value = result.authors;
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    const preview = document.getElementById(inputId + '-formatted-preview');
+    if (preview) {
+      // Only our exact self-author strong tag may become HTML; other text stays escaped.
+      preview.innerHTML = '预览：' + escapeHtml(result.authors)
+        .replace(/&lt;strong&gt;(J\. Yang\*?)&lt;\/strong&gt;/g, '<strong>$1</strong>');
+    }
+    showToast(inputId === 'autofill-edit-authors' ? '已格式化，请填充到表单后保存' : '已格式化当前作者，请确认后保存', 'success');
+  } catch (error) {
+    if (document.getElementById(inputId) === input) showToast('格式化失败：' + error.message, 'error');
+  } finally {
+    button.disabled = false;
+    button.textContent = label;
+  }
 }
 
 function escapeAttr(s) {
@@ -2138,7 +2191,8 @@ async function extractAbstractFromPdf(id) {
     const abstract = (result.extracted && result.extracted.abstract || '').trim();
     if (!abstract) { showToast('未能从该 PDF 提取到摘要（可能是扫描版或格式特殊）', 'error'); return; }
     abstractBox.value = abstract;
-    showToast(`✓ 已提取摘要 (${abstract.length} 字符)，请检查后保存`, 'success');
+    const warnings = result.extracted?.abstractWarnings || [];
+    showToast(warnings.length ? `已提取摘要 (${abstract.length} 字符)，需复核：${warnings.join(' ')}` : `✓ 已提取摘要 (${abstract.length} 字符)，请检查后保存`, warnings.length ? 'info' : 'success', warnings.length ? 8000 : 2500);
   } catch (err) {
     showToast('提取失败: ' + err.message, 'error');
   }
@@ -2230,7 +2284,17 @@ async function autoFillFromUrl(id) {
       panel.innerHTML = `<div style="padding:12px;color:var(--danger);font-size:12px">⚠ 抓取失败: ${escapeHtml(result.error || '未知错误')}<br><span style="color:var(--text-light)">提示: 可尝试直接填写 DOI 链接 (https://doi.org/10.xxx/xxx)</span></div>`;
       return;
     }
+    // Discard results if the user changed the paper or its URL during the request.
+    if (currentDetailId !== id || document.getElementById('f-url') !== urlInput || urlInput.value.trim() !== url) return;
+    if (!result.metadata.identified) {
+      panel.textContent = (result.metadata.warnings || []).join(' ');
+      return;
+    }
     renderAutoFillPreview(result.metadata);
+    const note = document.createElement('p');
+    note.className = 'field-meta';
+    note.textContent = '来源：' + result.metadata.source + '。' + (result.metadata.warnings || []).join(' ');
+    panel.prepend(note);
   } catch (err) {
     panel.innerHTML = `<div style="padding:12px;color:var(--danger);font-size:12px">⚠ 请求失败: ${escapeHtml(err.message)}</div>`;
   } finally {
@@ -2273,6 +2337,7 @@ function renderAutoFillPreview(meta) {
       <div class="autofill-diff-label">${f.label}${hasNew ? (changed ? ' <span style="color:var(--success)">●</span>' : '') : ' <span style="color:var(--text-light)">○</span>'}</div>
       <div>
         ${hasNew ? inputHtml : '<div class="autofill-diff-value empty">(未抓取到)</div>'}
+        ${hasNew && f.key === 'authors' ? renderAuthorFormatControl('autofill-edit-authors') : ''}
         ${willOverwrite ? `<div class="autofill-diff-old">原值: ${escapeHtml(truncate(oldVal, 120))}</div>` : ''}
       </div>
     </div>`;
@@ -2505,6 +2570,7 @@ function renderNewPaperForm(extracted, filenameInfo, pdfPath, filename) {
         <label>作者 <span class="required">*</span></label>
         <div>
           <input type="text" class="form-control" id="f-authors" value="${escapeAttr(authors)}" />
+          ${renderAuthorFormatControl('f-authors')}
           <div class="field-meta">${authors ? '从 PDF 元数据提取 (本人请用 &lt;strong&gt;J. Yang&lt;/strong&gt; 高亮)' : '<span style="color:var(--danger)">未能提取, 请手动填写</span>'}</div>
         </div>
       </div>
@@ -2576,6 +2642,7 @@ function renderNewPaperForm(extracted, filenameInfo, pdfPath, filename) {
     <div class="form-section">
       <h3>摘要 <span style="font-weight:400;text-transform:none;color:var(--text-light)">${abstract.length} 字符</span></h3>
       <textarea class="form-control" id="f-abstract" rows="8" placeholder="论文摘要...">${escapeHtml(abstract)}</textarea>
+      ${extracted?.abstractWarnings?.length ? `<div class="field-meta" style="color:var(--warning)">⚠ ${escapeHtml(extracted.abstractWarnings.join(' '))}</div>` : ''}
     </div>
 
     <div class="actions">
@@ -2590,7 +2657,8 @@ async function saveNewPaper() {
     title: document.getElementById('f-title').value,
     authors: document.getElementById('f-authors').value,
     venue: document.getElementById('f-venue').value,
-    year: parseInt(document.getElementById('f-groupYear').value, 10) || new Date().getFullYear(),
+    year: parseInt(document.getElementById('f-groupYear').value, 10),
+    doi: document.getElementById('f-doi')?.value || '',
     section: document.getElementById('f-section').value,
     venueHighlight: document.getElementById('f-venueHighlight').checked,
     url: document.getElementById('f-url').value.trim(),
@@ -2599,6 +2667,8 @@ async function saveNewPaper() {
     abstract: document.getElementById('f-abstract').value,
   };
 
+  if (!Number.isInteger(payload.year) || payload.year < 1900 || payload.year > 2100) { showToast('请确认发表年份', 'error'); return; }
+  if (!['journals', 'conferences'].includes(payload.section)) { showToast('请选择正式发表的论文类型', 'error'); return; }
   if (!payload.title.trim()) { showToast('标题不能为空', 'error'); return; }
   if (!payload.authors.trim()) { showToast('作者不能为空', 'error'); return; }
   if (!payload.venue.trim()) { showToast('期刊/会议不能为空', 'error'); return; }
@@ -2615,7 +2685,7 @@ async function saveNewPaper() {
     });
     const result = await res.json();
     if (result.ok) {
-      showToast(`✓ 已保存为新论文 (${result.file})`, 'success', 4000);
+      showToast(`✓ 已保存本地网站数据 (${result.file})，尚未发布`, 'success', 5000);
       await loadData();
       // 选中新创建的论文
       if (result.id) {
@@ -2883,5 +2953,8 @@ loadData();
   </div>
 </div>
 
+<script src="/paper-manager-url.js"></script>
+<script src="/paper-manager-chrome.js"></script>
+<script src="/paper-manager-scholar.js"></script>
 </body>
 </html>

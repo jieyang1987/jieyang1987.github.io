@@ -1,0 +1,25 @@
+/* Personal writings: uses the site's existing tokens and shared page shell. */
+.insight-main { padding-bottom: 80px; }
+.insight-layout { max-width: 820px; }
+.insight-controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: end; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+.insight-controls label { display: grid; gap: 6px; color: var(--muted); font-size: 13px; }
+.insight-controls label:first-child { flex: 1 1 200px; }
+.insight-controls input, .insight-controls select, .insight-controls button { min-height: 44px; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); padding: 9px 12px; font: inherit; color: var(--ink); max-width: 100%; }
+.insight-controls button { cursor: pointer; font-size: 13px; }
+.insight-controls :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.insight-count { color: var(--muted); font-size: 13px; margin: 0 0 18px; padding-top: 16px; }
+.insight-card { padding: 28px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); margin-bottom: 20px; scroll-margin-top: 28px; overflow-wrap: anywhere; }
+.insight-card:target { border-color: var(--accent); box-shadow: 0 0 0 2px var(--wash); }
+.insight-meta { display: flex; flex-wrap: wrap; gap: 4px 16px; color: var(--muted); font-size: 12px; margin-bottom: 12px; }
+.insight-card h2 { font-family: var(--sans); font-size: 23px; line-height: 1.5; letter-spacing: 0; }
+.insight-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 24px; }
+.insight-tags span { padding: 2px 9px; background: var(--wash); color: var(--accent); border-radius: 4px; font-size: 12px; }
+.insight-card h3 { font-size: 13px; color: var(--muted); margin-bottom: 7px; }
+.insight-card p { white-space: pre-line; line-height: 1.85; }
+.insight-note { margin-top: 20px; padding-left: 16px; border-left: 2px solid var(--line); }
+.insight-links { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; margin-top: 25px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 13px; }
+.insight-empty { padding: 44px 32px; background: rgba(255,255,255,.7); border: 1px solid var(--line); border-radius: 8px; }
+.insight-empty h2 { font-size: 25px; line-height: 1.5; margin: 18px 0 12px; }
+.insight-empty p { color: var(--muted); }
+.insight-main [hidden] { display: none !important; }
+@media (max-width: 520px) { .insight-card, .insight-empty { padding: 24px 20px; } .insight-controls label { width: 100%; } .insight-card h2 { font-size: 21px; } }

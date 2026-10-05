@@ -61,6 +61,33 @@
       ]
     },
     {
+      "image": "images/SHARP.png",
+      "category": "neuromorphic",
+      "title": {
+        "zh": "SHARP 三维点云识别处理器",
+        "en": "SHARP 3D Point-Cloud Recognition Processor"
+      },
+      "features": {
+        "zh": [
+          "分层混合稀疏编码，自适应切换坐标与位图表示，降低点云数据量与片外访存开销",
+          "24 个可重构 rulebook–GEMM 融合脉冲计算核，以 1-bit 脉冲驱动无乘法器运算",
+          "28 nm CMOS，集成 340 KB SRAM；3D 检测任务峰值能效 83.24 TOPS/W（0.55 V，25 MHz）"
+        ],
+        "en": [
+          "Hierarchical hybrid sparsity coding adaptively switches between coordinate and bitmap representations to reduce data volume and external memory accesses",
+          "24-core reconfigurable rulebook–GEMM fused spiking engine with 1-bit spiking activations and multiplier-free computation",
+          "28 nm CMOS with 340 KB SRAM; peak 3D-detection energy efficiency of 83.24 TOPS/W at 0.55 V and 25 MHz"
+        ]
+      },
+      "papers": [
+        {
+          "zh": "TCAS-I: SHARP: An Energy-Efficient Spike-Based 3-D Recognition Processor With Hierarchical Hybrid Sparsity Awareness on Point Cloud",
+          "en": "TCAS-I: SHARP: An Energy-Efficient Spike-Based 3-D Recognition Processor With Hierarchical Hybrid Sparsity Awareness on Point Cloud",
+          "url": "https://doi.org/10.1109/TCSI.2026.3720571"
+        }
+      ]
+    },
+    {
       "image": "images/RAINE_V1.jpg",
       "category": "neuromorphic",
       "title": {

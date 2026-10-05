@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "网站论文 PDF 下载助手",
+  "version": "1.2.0",
+  "description": "尝试从出版社、预印本和开放获取页面获取论文 PDF，按站点授权后直接交给本机管理系统命名保存。",
+  "minimum_chrome_version": "120",
+  "permissions": [
+    "downloads",
+    "storage",
+    "alarms",
+    "scripting"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1/*",
+    "http://localhost/*",
+    "https://ieeexplore.ieee.org/*",
+    "https://doi.org/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "论文 PDF 下载助手"
+  },
+  "optional_host_permissions": [
+    "https://*/*"
+  ],
+  "optional_permissions": [
+    "tabs"
+  ]
+}

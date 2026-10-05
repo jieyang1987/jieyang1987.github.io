@@ -1,0 +1,9 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>论文下载助手</title>
+<style>body{font:14px system-ui,sans-serif;width:340px;margin:0;padding:18px;color:#1f2937}h1{font-size:18px;margin:0 0 12px}label{display:block;margin:12px 0 5px}input{box-sizing:border-box;width:100%;padding:8px;border:1px solid #cbd5e1;border-radius:5px}button{padding:8px 10px;border:0;border-radius:5px;background:#2563eb;color:white;cursor:pointer;margin:10px 5px 0 0}p{line-height:1.55;font-size:12px;color:#64748b}#status{white-space:pre-wrap;color:#334155}button:disabled{opacity:.5}</style>
+<h1>网站论文 PDF 直存助手</h1><p>v1.2：尝试从出版社或预印本页面获取 PDF，直接交给网站后台命名保存。需订阅的论文仍使用你已有的正常访问权限，不读取 Cookie。</p>
+<label for="server">本机管理系统地址</label><input id="server" value="http://127.0.0.1:8002/" autocomplete="off">
+<label for="code">管理面板生成的一次性配对码</label><input id="code" type="password" autocomplete="off" placeholder="不是 IEEE API Key">
+<button id="pair">连接管理系统</button><button id="check">立即检查任务</button><button id="open">打开任务页面</button>
+<p id="permission-info" style="white-space:pre-wrap"></p><button id="grant" hidden>允许所需访问并继续</button>
+<p id="status" role="status">未连接</p><p>遇到登录或验证码请点击“打开任务页面”自行处理。正常连接后约每 30 秒检查一次任务。扩展不会自动发布网站。</p>
+<script src="popup.js"></script></html>

@@ -2,7 +2,7 @@
 'use strict';
 const fs=require('fs'),path=require('path'),crypto=require('crypto'),cp=require('child_process');
 const root=path.resolve(__dirname,'..');
-const pages=['index.html','index_en.html','research.html','research_en.html','publications.html','publications_en.html','chip_gallery.html','chip_gallery_en.html','coverage.html','coverage_en.html','join.html','join_en.html','book-item-bci.html','book-item-bci_en.html','book-references_en.html','bci_book.html'];
+const pages=['insights.html','insights_en.html','index.html','index_en.html','research.html','research_en.html','publications.html','publications_en.html','chip_gallery.html','chip_gallery_en.html','coverage.html','coverage_en.html','join.html','join_en.html','book-item-bci.html','book-item-bci_en.html','book-references_en.html','bci_book.html'];
 const topFiles=[...pages,'robots.txt','sitemap.xml'];
 const assetTypes={static:new Set(['.html','.css','.js','.map','.woff2','.woff','.ttf','.ico','.svg','.png','.jpg','.jpeg','.webp','.gif']),images:new Set(['.svg','.png','.jpg','.jpeg','.webp','.gif','.ico']),book:new Set(['.html','.css','.js','.svg','.png','.jpg','.jpeg','.webp','.gif','.wmf']),papers:new Set(['.pdf']),data:new Set(['.json'])};
 function isPublicFile(file){

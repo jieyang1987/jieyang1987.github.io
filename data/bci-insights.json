@@ -1,0 +1,25 @@
+{
+  "topics": [
+    {
+      "id": "interfaces",
+      "zh": "接口与芯片",
+      "en": "Interfaces & chips"
+    },
+    {
+      "id": "decoding",
+      "zh": "神经解码",
+      "en": "Neural decoding"
+    },
+    {
+      "id": "applications",
+      "zh": "应用进展",
+      "en": "Applications"
+    },
+    {
+      "id": "perspectives",
+      "zh": "思考与观察",
+      "en": "Perspectives"
+    }
+  ],
+  "articles": []
+}
