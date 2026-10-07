@@ -1,71 +1,116 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
-  <defs>
-    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#fff7f0;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-  
-  <!-- 背景 -->
-  <rect width="800" height="600" fill="url(#bg-grad)"/>
-  
-  <!-- 左上装饰 -->
-  <rect x="50" y="50" width="100" height="100" fill="#FFD4A3" stroke="#E8752A" stroke-width="3" opacity="0.8" transform="rotate(45 100 100)"/>
-  <circle cx="100" cy="100" r="35" fill="#E8752A" opacity="0.7"/>
-  
-  <!-- 右下装饰 -->
-  <circle cx="750" cy="500" r="70" fill="#FFD4A3" stroke="#E8752A" stroke-width="2" opacity="0.6"/>
-  <circle cx="750" cy="500" r="40" fill="#FF9800" opacity="0.5"/>
-  
-  <!-- 中央芯片结构 -->
-  <g id="chip-structure">
-    <!-- 外壳 -->
-    <rect x="320" y="200" width="160" height="200" fill="#FFD4A3" stroke="#E8752A" stroke-width="3" rx="10"/>
-    
-    <!-- 内部芯片层 -->
-    <rect x="340" y="220" width="120" height="160" fill="#FF9800" stroke="#E8752A" stroke-width="2" rx="5"/>
-    
-    <!-- 内核 -->
-    <rect x="360" y="240" width="80" height="120" fill="#E8752A" rx="3"/>
-    
-    <!-- 连接点 - 上 -->
-    <circle cx="400" cy="200" r="6" fill="#E8752A"/>
-    <line x1="400" y1="200" x2="400" y2="150" stroke="#E8752A" stroke-width="2"/>
-    
-    <!-- 连接点 - 下 -->
-    <circle cx="400" cy="400" r="6" fill="#E8752A"/>
-    <line x1="400" y1="400" x2="400" y2="450" stroke="#E8752A" stroke-width="2"/>
-    
-    <!-- 连接点 - 左 -->
-    <circle cx="320" cy="300" r="6" fill="#E8752A"/>
-    <line x1="320" y1="300" x2="250" y2="300" stroke="#E8752A" stroke-width="2"/>
-    
-    <!-- 连接点 - 右 -->
-    <circle cx="480" cy="300" r="6" fill="#E8752A"/>
-    <line x1="480" y1="300" x2="550" y2="300" stroke="#E8752A" stroke-width="2"/>
-  </g>
-  
-  <!-- 数据流指示 -->
-  <g fill="#E8752A" opacity="0.6">
-    <circle cx="250" cy="300" r="5"/>
-    <circle cx="550" cy="300" r="5"/>
-    <circle cx="400" cy="150" r="5"/>
-    <circle cx="400" cy="450" r="5"/>
-  </g>
-  
-  <!-- 脉冲信号 -->
-  <g stroke="#FF9800" stroke-width="2" fill="none" opacity="0.5">
-    <path d="M 150 280 L 170 280 L 170 260 L 190 260 L 190 280 L 210 280 L 210 270 L 230 270" stroke-linecap="round"/>
-    <path d="M 570 280 L 590 280 L 590 260 L 610 260 L 610 280 L 630 280 L 630 270 L 650 270" stroke-linecap="round"/>
-  </g>
-  
-  <!-- 标题 -->
-  <text x="400" y="510" font-size="48" font-weight="bold" text-anchor="middle" fill="#E8752A" font-family="SimHei, sans-serif">
-    脑机接口芯片
-  </text>
-  
-  <!-- 副标题 -->
-  <text x="400" y="560" font-size="24" text-anchor="middle" fill="#FF9800" font-family="Arial, sans-serif">
-    BCI Recording Chips
-  </text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="750" viewBox="0 0 1000 750" role="img" aria-labelledby="title desc" lang="zh">
+<title id="title">侵入式脑机接口芯片与系统：神经采集、片上处理与无线传输</title>
+<desc id="desc">概念示意：植入式微电极连接神经记录芯片，芯片完成多通道低噪声采集、事件驱动采样及数据压缩，再将数据无线传输到外部接收与解码平台。模块用于概括研究方向，不代表某一款芯片的实际集成或器件尺寸。</desc>
+<defs>
+ <linearGradient id="cortex" x1="0" y1="0" x2="0.9" y2="1"><stop stop-color="#f4f8fb"/><stop offset="1" stop-color="#cbddeb"/></linearGradient>
+ <linearGradient id="die" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#254d6b"/><stop offset="1" stop-color="#142e43"/></linearGradient>
+ <linearGradient id="board" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f1f7fb"/><stop offset="1" stop-color="#dce9f3"/></linearGradient>
+ <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M1 1L6 4L1 7" fill="none" stroke="#5d86a4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></marker>
+ <filter id="shadow" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="7" stdDeviation="10" flood-color="#244965" flood-opacity=".10"/></filter>
+</defs>
+<rect width="1000" height="750" fill="white"/>
+<g font-family="Inter, Segoe UI, Microsoft YaHei, Arial, sans-serif">
+
+<text x="52" y="58" fill="#536a7d" font-size="20" font-weight="500" text-anchor="start">脑机接口 · 芯片与系统</text>
+<text x="52" y="108" fill="#172635" font-size="35" font-weight="600" text-anchor="start">从神经信号到无线数据</text>
+<path d="M52 134H948" stroke="#dce7ee"/>
+<g stroke-linejoin="round" stroke-linecap="round">
+<ellipse cx="190" cy="430" rx="139" ry="13" fill="#edf3f7"/>
+<path d="M64 340C49 311 65 280 88 270C84 244 111 219 138 224C153 195 186 191 209 207C239 194 268 213 270 237C304 239 323 269 315 293C338 321 324 354 299 363C298 393 264 407 243 397C221 422 188 417 173 402C143 417 112 400 110 381C82 383 56 366 64 340Z" fill="url(#cortex)" stroke="#829fb5" stroke-width="2.7"/>
+<g fill="none" stroke="#8faabd" stroke-width="2.5">
+<path d="M91 271C119 260 127 287 117 306C107 325 130 343 149 331C170 317 162 295 182 291"/>
+<path d="M137 225C125 246 141 264 164 258C185 253 195 268 187 283"/>
+<path d="M209 208C203 230 218 245 236 238C252 231 269 243 263 263"/>
+<path d="M270 265C246 259 236 277 248 293C262 312 246 332 226 325"/>
+<path d="M310 293C285 286 276 311 287 327C298 344 283 359 267 356"/>
+<path d="M78 337C96 328 114 344 106 363"/>
+<path d="M119 381C128 365 144 365 155 378C167 391 184 378 181 362C176 342 192 329 210 338"/>
+<path d="M191 400C208 389 220 389 233 396"/>
+<path d="M229 372C220 352 240 344 250 351"/>
+</g>
+<!-- Fine intracortical shanks descend from an electrode carrier. -->
+<path d="M177 211L188 288M191 208L202 297M205 207L216 289M219 210L230 280" stroke="#b68650" stroke-width="4"/>
+<g fill="#f6e5c9"><circle cx="187" cy="276" r="3"/><circle cx="200" cy="280" r="3"/><circle cx="214" cy="276" r="3"/><circle cx="228" cy="269" r="3"/></g>
+<path d="M168 203L219 194L233 211L181 221Z" fill="#335e7a" stroke="#21465f" stroke-width="2"/>
+<!-- Flexible interconnect is continuous from the array to chip. -->
+<path d="M204 201C253 158 316 167 355 192S415 220 452 237" fill="none" stroke="#e1e9ef" stroke-width="18"/>
+<path d="M204 201C253 158 316 167 355 192S415 220 452 237" fill="none" stroke="#c09968" stroke-width="5"/>
+<path d="M204 201C253 158 316 167 355 192S415 220 452 237" fill="none" stroke="#f7e6cc" stroke-width="1.5"/>
+</g>
+<g filter="url(#shadow)"><rect x="402" y="232" width="228" height="204" rx="15" fill="url(#board)" stroke="#adc3d4" stroke-width="2"/></g>
+<path d="M391 252H403M630 252H641" stroke="#b58c5d" stroke-width="5"/>
+<path d="M391 269H403M630 269H641" stroke="#b58c5d" stroke-width="5"/>
+<path d="M391 286H403M630 286H641" stroke="#b58c5d" stroke-width="5"/>
+<path d="M391 303H403M630 303H641" stroke="#b58c5d" stroke-width="5"/>
+<path d="M391 320H403M630 320H641" stroke="#b58c5d" stroke-width="5"/>
+<path d="M391 337H403M630 337H641" stroke="#b58c5d" stroke-width="5"/>
+<path d="M391 354H403M630 354H641" stroke="#b58c5d" stroke-width="5"/>
+<path d="M391 371H403M630 371H641" stroke="#b58c5d" stroke-width="5"/>
+<path d="M391 388H403M630 388H641" stroke="#b58c5d" stroke-width="5"/>
+<path d="M391 405H403M630 405H641" stroke="#b58c5d" stroke-width="5"/>
+<path d="M391 422H403M630 422H641" stroke="#b58c5d" stroke-width="5"/>
+<path d="M422 222V232M422 436V446" stroke="#b58c5d" stroke-width="5"/>
+<path d="M439 222V232M439 436V446" stroke="#b58c5d" stroke-width="5"/>
+<path d="M456 222V232M456 436V446" stroke="#b58c5d" stroke-width="5"/>
+<path d="M473 222V232M473 436V446" stroke="#b58c5d" stroke-width="5"/>
+<path d="M490 222V232M490 436V446" stroke="#b58c5d" stroke-width="5"/>
+<path d="M507 222V232M507 436V446" stroke="#b58c5d" stroke-width="5"/>
+<path d="M524 222V232M524 436V446" stroke="#b58c5d" stroke-width="5"/>
+<path d="M541 222V232M541 436V446" stroke="#b58c5d" stroke-width="5"/>
+<path d="M558 222V232M558 436V446" stroke="#b58c5d" stroke-width="5"/>
+<path d="M575 222V232M575 436V446" stroke="#b58c5d" stroke-width="5"/>
+<path d="M592 222V232M592 436V446" stroke="#b58c5d" stroke-width="5"/>
+<path d="M609 222V232M609 436V446" stroke="#b58c5d" stroke-width="5"/>
+<rect x="419" y="250" width="194" height="168" rx="6" fill="url(#die)"/>
+<rect x="433" y="267" width="10" height="14" rx="1.5" fill="#94b9ce" opacity="0.62"/>
+<rect x="449" y="267" width="10" height="14" rx="1.5" fill="#94b9ce" opacity="0.7"/>
+<rect x="465" y="267" width="10" height="14" rx="1.5" fill="#94b9ce" opacity="0.78"/>
+<rect x="433" y="288" width="10" height="14" rx="1.5" fill="#94b9ce" opacity="0.62"/>
+<rect x="449" y="288" width="10" height="14" rx="1.5" fill="#94b9ce" opacity="0.7"/>
+<rect x="465" y="288" width="10" height="14" rx="1.5" fill="#94b9ce" opacity="0.78"/>
+<rect x="433" y="309" width="10" height="14" rx="1.5" fill="#94b9ce" opacity="0.62"/>
+<rect x="449" y="309" width="10" height="14" rx="1.5" fill="#94b9ce" opacity="0.7"/>
+<rect x="465" y="309" width="10" height="14" rx="1.5" fill="#94b9ce" opacity="0.78"/>
+<rect x="433" y="330" width="10" height="14" rx="1.5" fill="#94b9ce" opacity="0.62"/>
+<rect x="449" y="330" width="10" height="14" rx="1.5" fill="#94b9ce" opacity="0.7"/>
+<rect x="465" y="330" width="10" height="14" rx="1.5" fill="#94b9ce" opacity="0.78"/>
+<rect x="433" y="351" width="10" height="14" rx="1.5" fill="#94b9ce" opacity="0.62"/>
+<rect x="449" y="351" width="10" height="14" rx="1.5" fill="#94b9ce" opacity="0.7"/>
+<rect x="465" y="351" width="10" height="14" rx="1.5" fill="#94b9ce" opacity="0.78"/>
+<rect x="433" y="372" width="10" height="14" rx="1.5" fill="#94b9ce" opacity="0.62"/>
+<rect x="449" y="372" width="10" height="14" rx="1.5" fill="#94b9ce" opacity="0.7"/>
+<rect x="465" y="372" width="10" height="14" rx="1.5" fill="#94b9ce" opacity="0.78"/>
+<g fill="none" stroke="#c69e69" stroke-width="1.7"><path d="M483 274H497V329H514M483 296H491V338H514M483 359H497V347H514M483 383H505V356H514"/></g>
+<rect x="515" y="277" width="79" height="79" rx="4" fill="#466b86" stroke="#7698ae"/>
+<g fill="#c8dce8"><rect x="530" y="292" width="15" height="15" rx="2"/><rect x="551" y="292" width="15" height="15" rx="2"/><rect x="572" y="292" width="8" height="15" rx="2"/><rect x="530" y="316" width="15" height="24" rx="2"/><rect x="551" y="316" width="29" height="6" rx="2"/><rect x="551" y="330" width="20" height="6" rx="2"/></g>
+<path d="M531 375H539V365H547V389H555V375H570V365H578V375H596" fill="none" stroke="#d5b780" stroke-width="2"/>
+<path d="M325 344H377" fill="none" stroke="#5d86a4" stroke-width="2.8" marker-end="url(#arrow)"/>
+<!-- Low-power wireless link is downstream of the recording chip. -->
+<g fill="none" stroke="#5d86a4" stroke-width="3" stroke-linecap="round"><path d="M651 325Q669 342 651 359"/><path d="M664 312Q696 342 664 372"/><path d="M679 299Q723 342 679 385"/></g>
+<path d="M716 344H747" fill="none" stroke="#5d86a4" stroke-width="2.8" marker-end="url(#arrow)"/>
+<!-- External receiver and workstation. -->
+<rect x="762" y="336" width="28" height="70" rx="5" fill="#e5eef5" stroke="#89a6bb" stroke-width="2"/>
+<path d="M776 336V307" stroke="#527b98" stroke-width="3"/>
+<circle cx="776" cy="361" r="3" fill="#527b98"/>
+<path d="M790 391H813" stroke="#7e9cb1" stroke-width="3"/>
+<rect x="804" y="263" width="140" height="119" rx="7" fill="#e8f0f6" stroke="#708ea4" stroke-width="2.5"/>
+<rect x="815" y="276" width="118" height="91" rx="3" fill="#f9fcfe"/>
+<g stroke="#e1ebf2" stroke-width="1"><path d="M821 293H928M821 317H928M821 341H928M840 283V359M869 283V359M898 283V359"/></g>
+<g fill="none" stroke="#487b9c" stroke-width="2"><path d="M821 297H836L840 286L845 307L850 297H873L878 291L883 300L887 297H928"/><path d="M821 322H851L856 311L861 331L866 322H897L902 315L907 324H928"/><path d="M821 346H834L840 338L845 353L850 346H879L884 335L889 354L894 346H928"/></g>
+<path d="M866 382V402H884V382M846 405H904" fill="none" stroke="#708ea4" stroke-width="4" stroke-linecap="round"/>
+
+<text x="185" y="488" fill="#8ba3b6" font-size="17" font-weight="500" text-anchor="middle">01</text>
+<text x="516" y="488" fill="#8ba3b6" font-size="17" font-weight="500" text-anchor="middle">02</text>
+<text x="851" y="488" fill="#8ba3b6" font-size="17" font-weight="500" text-anchor="middle">03</text>
+<text x="185" y="522" fill="#172635" font-size="25" font-weight="600" text-anchor="middle">植入式神经采集</text>
+<text x="516" y="522" fill="#172635" font-size="25" font-weight="600" text-anchor="middle">芯片内高效处理</text>
+<text x="851" y="522" fill="#172635" font-size="25" font-weight="600" text-anchor="middle">无线传输与解码</text>
+<rect x="52" y="562" width="896" height="126" rx="12" fill="#f3f7fb"/><path d="M353 586V663M650 586V663" stroke="#d8e4ed"/>
+<text x="202" y="610" fill="#285f88" font-size="23" font-weight="600" text-anchor="middle">低噪声 · 高密度</text>
+<text x="202" y="648" fill="#536a7d" font-size="18" font-weight="400" text-anchor="middle">多通道采集 / 时分复用</text>
+<text x="502" y="610" fill="#285f88" font-size="23" font-weight="600" text-anchor="middle">稀疏性 · 事件驱动</text>
+<text x="502" y="648" fill="#536a7d" font-size="18" font-weight="400" text-anchor="middle">片上采样 / 数据压缩</text>
+<text x="802" y="610" fill="#285f88" font-size="23" font-weight="600" text-anchor="middle">低功耗 · 无线互联</text>
+<text x="802" y="648" fill="#536a7d" font-size="18" font-weight="400" text-anchor="middle">高效链路 / 外部数据平台</text>
+<text x="948" y="723" fill="#7890a3" font-size="14" font-weight="400" text-anchor="end">研究概念示意 · 非器件实物或尺寸图</text>
+</g></svg>

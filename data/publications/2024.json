@@ -4,7 +4,7 @@
       "year": 2024,
       "items": [
         {
-          "authors": "C. Fang, Z. Shen, Z. Wang, C. Wang, S. Zhao, F. Tian, <strong>J. Yang*</strong>, M. Sawan*",
+          "authors": "C. Fang, Z. Shen, Z. Wang, C. Wang, S. Zhao, F. Tian, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
           "title": "An Energy-Efficient Unstructured Sparsity-Aware Deep SNN Accelerator With 3-D Computation Array",
           "venue": "IEEE Journal of Solid-State Circuits",
           "venueHighlight": true,
@@ -16,7 +16,7 @@
           "abstract": "Deep spiking neural networks (DSNNs), such as spiking transformers, have demonstrated comparable perfor- mance to artificial neural networks (ANNs). With higher spike input sparsity and the utilization of accumulation (AC)-only operations, DSNNs have great potential for achieving high energy efficiency. Many researchers have proposed neuromorphic processors to accelerate spiking neural networks (SNNs) with dedicated architectures. However, three problems still exist when processing DSNNs, including redundant memory access among timesteps, inefficiency in exploiting unstructured sparsity in spikes, and the lack of optimizations for new operators involved in DSNNs. In this work, an accelerator for deep and sparse SNNs is proposed with three design features: a 3-D computation array that allows parallel computation of multiple timesteps to maximize weight data reuse and reduce external memory access; a parallel non-zero data fetcher that efficiently searches non-zero spike positions and fetches corresponding weights to reduce com- putation latency; and a multimode unified computation scheduler that can be configured to maximize energy efficiency for spiking convolution (SCONV), spiking Q,K,andVmatrix generation, and spiking self-attention (SSA). The accelerator is implemented and fabricated using 40-nm CMOS technology."
         },
         {
-          "authors": "F. Tian, J. Chen, J. Zheng, H. Wu, J. He, X. Wang, C. Fang, Y. Yao, <strong>J. Yang*</strong>, M. Sawan, C-Y. Tsui, K-T. T. Cheng",
+          "authors": "F. Tian, J. Chen, J. Zheng, H. Wu, J. He, X. Wang, C. Fang, Y. Yao, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui, K-T. T. Cheng",
           "title": "BioPI: An Energy Efficient and Low-Latency Neuromorphic Pipelined System with Joint Design Optimizations of Sensor-Algorithm-Processor for Wearable Healthcare",
           "venue": "IEEE Transactions on Circuits and Systems for Artificial Intelligence",
           "venueHighlight": false,
@@ -27,7 +27,7 @@
           ]
         },
         {
-          "authors": "D. Wu, S. Li, <strong>J. Yang*</strong>, M. Sawan*",
+          "authors": "D. Wu, S. Li, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
           "title": "Neuro-BERT: Rethinking Masked Autoencoding for Self-Supervised Neurological Pretraining",
           "venue": "IEEE Journal of Biomedical and Health Informatics",
           "venueHighlight": false,
@@ -40,7 +40,7 @@
           "abstract": "Deep learning associated with neurological signals is poised to drive major advancements in diverse fields such as medical diagnostics, neurorehabilitation, and brain-computer interfaces. The challenge in harnessing the full potential of these signals lies in the dependency on extensive, high-quality annotated data, which is often scarce and expensive to acquire, requiring specialized infrastructure and domain expertise. To address the appetite for data in deep learning, we present Neuro-BERT, a self-supervised pre-training framework of neurological signals based on masked autoencoding in the Fourier domain. The intuition behind our approach is simple: frequency and phase distribution of neurological signals can reveal intricate neurological activities. We propose a novel pre-training task dubbed Fourier Inversion Prediction (FIP), which randomly masks out a portion of the input signal and then predicts the missing information using the Fourier inversion theorem. Pretrained models can be potentially used for various downstream tasks such as sleep stage classification and gesture recognition. Unlike contrastive-based methods, which strongly rely on carefully hand-crafted augmentations and siamese structure, our approach works reasonably well with a simple transformer encoder with no augmentation requirements. By evaluating our method on several benchmark datasets, we show that Neuro-BERT improves downstream neurological-related tasks by a large margin."
         },
         {
-          "authors": "S. Zhao, C. Wang, C. Fang, F. Tian, <strong>J. Yang*</strong>, M. Sawan",
+          "authors": "S. Zhao, C. Wang, C. Fang, F. Tian, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
           "title": "HybMED: A Hybrid Neural Network Training Processor with Multi-Sparsity Exploitation for Internet of Medical Things",
           "venue": "IEEE Transactions on Biomedical Circuits and Systems",
           "venueHighlight": false,
@@ -52,7 +52,7 @@
           "abstract": "Cloud-based training and edge-based inference modes for Artificial Intelligence of Medical Things (AIoMT) applications suffer from accuracy degradation due to physiological signal variations among patients. On-chip learning can overcome this issue by online adaptation of neural network parameters for user-specific tasks. However, existing on-chip learning processors have limitations in terms of versatility, resource utilization, and energy efficiency. We propose HybMED, which is a novel neural signal processor that supports onchip hybrid neural network training using a composite direct feedback alignment-based paradigm. HybMED is suitable for general-purpose health monitoring AIoMT devices. It improves resource utilization and area efficiency by the reconfigurable homogeneous core with heterogeneous data flow and enhances energy efficiency by exploiting sparsity at different granularities. The chip was fabricated by TSMC 40nm process and tested in multiple physiological signal processing tasks, demonstrating an average improvement in accuracy of 41.16% following online fewshot learning. The chip demonstrates an area efficiency of 1.17 GOPS/mm2 and an energy efficiency of 1.58 TOPS/W. Compared to the previous state-of-the-art physiological signal processors with on-chip learning, the chip achieves a 65× improvement in area efficiency and 1.48× improvement in energy efficiency, respectively."
         },
         {
-          "authors": "<strong>J. Yang*</strong>, S. Zhao, J. Wang, S. Lin, Q. Hou, M. Sawan",
+          "authors": "<strong>J. Yang</strong>, S. Zhao, J. Wang, S. Lin, Q. Hou, M. Sawan",
           "title": "Precise and low-power closed-loop neuromodulation through algorithm-integrated circuit co-design",
           "venue": "Frontiers in Neuroscience",
           "venueHighlight": false,
@@ -63,7 +63,7 @@
           ]
         },
         {
-          "authors": "Y. Xu, <strong>J. Yang*</strong>, W. Ming, S. Wang, M. Sawan",
+          "authors": "Y. Xu, <strong>J. Yang</strong>, W. Ming, S. Wang, M. Sawan",
           "title": "Shorter latency of real-time epileptic seizure detection via probabilistic prediction",
           "venue": "Expert Systems with Applications",
           "venueHighlight": false,
@@ -81,7 +81,7 @@
       "year": 2024,
       "items": [
         {
-          "authors": "J. Chen, H. Wu, R. Eskandari, X. Liu, S. Lin, Q. Hou, F. Tian, W. Zou, <strong>J. Yang*</strong>, M. Sawan*",
+          "authors": "J. Chen, H. Wu, R. Eskandari, X. Liu, S. Lin, Q. Hou, F. Tian, W. Zou, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
           "title": "A Neuron-Inspired 0.0032mm²−1.38μW/Ch Wireless Implantable Neural Interface with Direct Multiplexing Front-End and Event-Driven Spike Detection and Transmission",
           "venue": "2024 IEEE Custom Integrated Circuits Conference (CICC)",
           "venueHighlight": true,
@@ -93,7 +93,7 @@
           "abstract": "The channel count of implantable neural interfaces has grown rapidly as brain-machine interface applications emerge from basic brain disorder monitoring, motor control, to voice reconstruction. However, limited on-implant power and area budget hinder the development of neural interfaces and multi-channel integration. As shown in Fig. 1, Although time-division multiplexing (TDM) before ADC [1,2] alleviates the area consumption over architecture without TDM [3], the recording front-end still occupies large on-chip area, resulting average channel area of over 0.01mm . Recently, TDM over the entire readout circuits has been adopted to reduce area consumption per channel [4,5]. However, they induce extra overhead to resolve DC offset variations between channels. More importantly, the power consumption issue associated with large volumes of neural signal transmission remains unsolved. Inspired by the energy and area efficient neural data interaction of the biological neurons, this paper proposes a neuromorphic neural interface (NNI) design shown in Fig. 2 to solve the aforementioned challenges. Firstly, the high fan-in nature of biological neurons is realized in the NNI by multiplexing the entire readout circuit. A low area budget of 0.0032 mm per channel is achieved even with the dedicated electrode DC offset (EDO) cancellation method. After multi-channel neural recording, the signal sampling, processing and transmission of the NNI all obey the neuromorphic principle where information is represented and processed as spikes with eventdriven characteristics. Specifically, a digital spike train representing the recorded neural information is generated with an analog-to-spike converter (ASC). It realizes adaptive sampling based on neuron firing rates to avoid unnecessary sampling power consumption. A successive clockless spike detector is triggered by the digital spike output of ASC in an event-based manner to further reduce clocking power, with which the raw neural activities are compressed and represented as digital spikes, achieving more than 500x data reduction. Finally, the highly compressed digital spikes wake up the transmitter for data transmission. With the proposed neuromorphic approach, NNI can effectively deal with a large volume of neural signals, while consuming only 1.38μW per recording channel."
         },
         {
-          "authors": "C. Fang, Z. Yang, S. Zhao, C. Wang, F. Tian, <strong>J. Yang*</strong>, M. Sawan*",
+          "authors": "C. Fang, Z. Yang, S. Zhao, C. Wang, F. Tian, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
           "title": "A 0.078 pJ/SOP Unstructured Sparsity-Aware Spiking Attention/Convolution Processor with 3D Compute Array",
           "venue": "2024 IEEE Custom Integrated Circuits Conference (CICC)",
           "venueHighlight": true,
@@ -105,7 +105,7 @@
           "abstract": "Large-scale SNNs, which employ advanced network architectures such as Transformers, have shown performance matching that of their ANN counterparts [1]. The inherent high sparsity and the use of accumulation (AC) features in SNNs offer the promise of energyefficient computing. However, the energy efficiency of SNNs is highly dependent on the data sparsity level and can deteriorate, falling even below the efficiency of resource-intensive ANNs when sparsity is low. Previous work [2] mitigates this problem by using heterogeneous SNN and CNN cores but incurs increased area and power consumption due to costly MAC array implementation. Therefore, a spiking-only accelerator with enhanced energy efficiency across all sparsity levels is highly desired. To achieve this goal, three critical challenges need to be addressed as shown in Fig. 1: 1) Redundant memory access of weights and partial sums across different time steps leads to significant power consumption and memory space waste. 2) Throughput degradation when exploiting unstructured spike sparsity. Fetching irregularly distributed non-zero spikes and corresponding weights one by one incurs long latency, compromising the benefits of high sparsity in large-scale SNNs. 3) One-size-fits-all scheduling leads to imbalanced efficiency across different operators. A homogeneous scheduler cannot be applicable to all operators at maximal efficiency because they have distinctive computational characteristics. This work presents an unstructured sparsity-aware spiking attention and convolution accelerator for large-scale SNNs, as shown in Fig. 2. The processor has three key features: 1) A 3D computation array with timestep-paralleled adder trees to maximize computation throughput and on-chip data reuse across different time steps, reducing external memory access (EMA) by 68.3%. 2) A parallel nonzero data fetcher with a priority encoder array to generate addresses for fetching weights stored in multibank memories, corresponding to non-zero spikes. It transmits valid spike-weight pairs into the 3D array, resulting in an average computation latency reduction ranging from 32.3% to 84.7%. 3) A multi-mode unified computation scheduler that includes a sparse attention skipper to predict and skip zero selfattention output, an asynchronous data dispatcher for workload balancing among cores, and a bidirectional compressor for result compression in two directions to facilitate data transpose operations."
         },
         {
-          "authors": "C. Wang, D. Wu, C. Fang, <strong>J. Yang*</strong>, M. Sawan*",
+          "authors": "C. Wang, D. Wu, C. Fang, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
           "title": "Exploring Effective Stimulus Encoding via Vision System Modeling for Visual Prostheses",
           "venue": "2024 The Twelfth International Conference on Learning Representations (ICLR)",
           "venueHighlight": true,
@@ -117,7 +117,7 @@
           ]
         },
         {
-          "authors": "Y. Xu, J. Wang, Y-H. Chen, <strong>J. Yang*</strong>, W. Ming, S. Wang, M. Sawan",
+          "authors": "Y. Xu, J. Wang, Y-H. Chen, <strong>J. Yang</strong>, W. Ming, S. Wang, M. Sawan",
           "title": "VSViG: Real-Time Video-Based Seizure Detection via Skeleton-Based Spatiotemporal ViG",
           "venue": "2024 European Conference on Computer Vision (ECCV)",
           "venueHighlight": true,
@@ -128,7 +128,7 @@
           ]
         },
         {
-          "authors": "X. Liang, X. Kuang, <strong>J. Yang*</strong>, L. Wang",
+          "authors": "X. Liang, X. Kuang, <strong>J. Yang</strong>, L. Wang",
           "title": "A Fast Transient Response Output-capacitorless LDO With Low Quiescent Power",
           "venue": "2024 3rd International Conference on Electronics and Information Technology (EIT)",
           "venueHighlight": false,
@@ -139,7 +139,7 @@
           ]
         },
         {
-          "authors": "J. Wang, C. Fang, Z. Shen, <strong>J. Yang*</strong>, M. Sawan",
+          "authors": "J. Wang, C. Fang, Z. Shen, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
           "title": "Live Demonstration: Low-energy Unstructured Sparsity-aware Spiking Attention and Convolution SNN Accelerator",
           "venue": "2024 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
           "venueHighlight": false,
@@ -150,7 +150,7 @@
           ]
         },
         {
-          "authors": "W. Zou, R. Eskandari, X. Liu, J. Chen, Y. Ye, H. Wu, <strong>J. Yang*</strong>, M. Sawan",
+          "authors": "W. Zou, R. Eskandari, X. Liu, J. Chen, Y. Ye, H. Wu, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
           "title": "A 34 μW and 3.4 pJ/b IR-UWB Transmitter Featuring Spectrum Tunability for Brain-Machine Interfaces",
           "venue": "2024 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
           "venueHighlight": false,
@@ -161,7 +161,7 @@
           ]
         },
         {
-          "authors": "X. Liu, W. Zou, H. Wu, J. Chen, <strong>J. Yang*</strong>, M. Sawan",
+          "authors": "X. Liu, W. Zou, H. Wu, J. Chen, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
           "title": "A Reconfigurable RF Energy Harvesting Front-end Interface for Biomedical Applications",
           "venue": "2024 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
           "venueHighlight": false,
@@ -172,7 +172,7 @@
           ]
         },
         {
-          "authors": "Z. Shen, X. Xie, C. Fang, F. Tian, S. Ma, <strong>J. Yang*</strong>, M. Sawan",
+          "authors": "Z. Shen, X. Xie, C. Fang, F. Tian, S. Ma, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
           "title": "NeuroSORT: A Neuromorphic Accelerator for Spike-based Online and Real-time Tracking",
           "venue": "2024 IEEE 6th International Conference on AI Circuits and Systems (AICAS)",
           "venueHighlight": false,
@@ -183,7 +183,7 @@
           ]
         },
         {
-          "authors": "F. Tian, J. Zheng, J. He, J. Chen, X. Wang, C. Fang, <strong>J. Yang*</strong>, M. Sawan, C-Y. Tsui, K-T. Cheng",
+          "authors": "F. Tian, J. Zheng, J. He, J. Chen, X. Wang, C. Fang, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui, K-T. Cheng",
           "title": "BOLS: A Bionic Sensor-direct On-chip Learning System with Direct-Feedback-Through-Time for Personalized Wearable Health Monitoring",
           "venue": "2024 IEEE International Symposium on Circuits and Systems (ISCAS)",
           "venueHighlight": false,
@@ -194,7 +194,7 @@
           ]
         },
         {
-          "authors": "J. Chen, H. Wu, F. Tian, Q. Hou, S. Lin, <strong>J. Yang*</strong>, M. Sawan*",
+          "authors": "J. Chen, H. Wu, F. Tian, Q. Hou, S. Lin, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
           "title": "A Low-Power Level-Crossing Analog-to-Spike Converter Intended for Neuromorphic Biomedical Applications",
           "venue": "2024 IEEE International Symposium on Circuits and Systems (ISCAS)",
           "venueHighlight": false,
@@ -206,7 +206,7 @@
           ]
         },
         {
-          "authors": "C. Fang, F. Tian, <strong>J. Yang*</strong>, M. Sawan*",
+          "authors": "C. Fang, F. Tian, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
           "title": "Accelerating BPTT-Based SNN Training with Sparsity-Aware and Pipelined Architecture",
           "venue": "2024 IEEE International Symposium on Circuits and Systems (ISCAS)",
           "venueHighlight": false,

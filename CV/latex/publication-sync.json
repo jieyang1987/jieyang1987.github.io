@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "policy": "Preserve legacy citation text and authors; append explicit awards. Website-owned additions follow source updates. Never delete records or infer missing bibliographic fields.",
+  "aliases": {
+    "conferences:ieee:9980727": {
+      "legacy_title": "A 217.8 MSOPs/W FPGA-based Online Learning SNN Processor Using Unified Event-Driven Structure and Topology Aware Data Reuse Strategies",
+      "reason": "网页的 An Online-Learning Multi-topology... 记录链接指向 IEEE 9980727；Crossref 注册元数据和大会 FPGA 展示名单对应原 CV 的 A 217.8 MSOPs/W...。按同一论文合并识别，保留原题目、作者和会议信息，不重复新增。",
+      "evidence": {
+        "doi": "10.1109/A-SSCC56115.2022.9980727",
+        "checked_on": "2026-10-06",
+        "registry": "https://api.crossref.org/works/10.1109/A-SSCC56115.2022.9980727",
+        "conference": "https://www.a-sscc2022.org/fpga-demo"
+      }
+    }
+  },
+  "numbering": "descending"
+}

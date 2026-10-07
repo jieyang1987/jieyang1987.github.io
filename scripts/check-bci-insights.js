@@ -97,3 +97,41 @@ test('Personal essays need no external article and use body text without a readi
  assert(html.includes('<h1>思考与随笔</h1>'));
  assert(render(data,'en').includes('<h1>Writings</h1>'));
 });
+
+
+test('Chip frame is shared by both languages and remains outside the readable content', () => {
+ const data=sample();const original=JSON.stringify(data);
+ for(const lang of ['zh','en']) {
+  const html=render(data,lang);
+  assert(html.includes('class="insight-card chip-frame"'));
+  assert(html.includes('class="chip-decoration" aria-hidden="true"'));
+  assert.equal((html.match(/class="chip-trace chip-trace--/g)||[]).length,2);
+  assert(!html.includes('chip-pins'));
+  assert(!html.includes('chip-header'));
+  assert(!html.includes('chip-package'));
+  assert(html.includes('chip-trace--tl')&&html.includes('chip-trace--br'));
+  assert(html.includes('class="chip-content"><div class="insight-meta">'));
+  assert(!html.includes('<canvas'));
+  const empty=render({topics:[],articles:[]},lang);
+  assert(empty.includes('class="insight-empty chip-frame"'));
+  assert(!empty.includes('class="insight-card chip-frame"'));
+ }
+ assert.equal(JSON.stringify(data),original,'Frame rendering must not mutate author records');
+ const css=fs.readFileSync(path.join(root,'static/css/bci-insights.css'),'utf8');
+ assert(css.includes('pointer-events: none'));
+ assert(css.includes('@media (max-width: 520px)'));
+ assert(css.includes('@media print'));
+});
+
+test('Circuit-frame labels are decoration, not searchable article text', () => {
+ const {cards,elements:e}=browserHarness();
+ for(const card of cards) {
+  const body=card.textContent;
+  card.textContent='YJ FIELD NOTES '+body;
+  card.querySelector=selector=>selector==='.chip-content'?{textContent:body}:null;
+ }
+ e['insight-search'].value='YJ';e['insight-search'].events.input();
+ assert(cards.every(c=>c.hidden));
+ e['insight-search'].value='Alpha';e['insight-search'].events.input();
+ assert.deepEqual(cards.map(c=>c.hidden),[false,true]);
+});

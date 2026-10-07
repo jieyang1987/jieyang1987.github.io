@@ -14,13 +14,15 @@
           "caption": "ICCS 2026 报告现场"
         }
       ],
-      "titleEn": "ICCS 2026 invited talk: Integrated Circuits for Brain-Computer Interface From Lab to Clinic"
+      "titleEn": "ICCS 2026 invited talk: Integrated Circuits for Brain-Computer Interface From Lab to Clinic",
+      "id": "activity-2026-09-20-59c08a2776"
     },
     {
       "date": "2026.9.18",
       "title": "首届光电融合脑机接口与神经智能临床转化大会：“神经信号高通量检测与智能芯片”专题主席",
       "url": "https://b2b.csoe.org.cn/meeting/NBC2026.html",
-      "titleEn": "Track Chair for ‘High-Throughput Neural Signal Detection and Intelligent Chips’ at the First Conference on Optoelectronic-Integrated BCI and Clinical Translation of Neural Intelligence"
+      "titleEn": "Track Chair for ‘High-Throughput Neural Signal Detection and Intelligent Chips’ at the First Conference on Optoelectronic-Integrated BCI and Clinical Translation of Neural Intelligence",
+      "id": "activity-2026-09-18-a6d556ff6c"
     },
     {
       "date": "2026.8.25",
@@ -32,7 +34,8 @@
           "caption": "全国软物质与生物物质物理学术会议"
         }
       ],
-      "titleEn": "National Conference on Soft Matter and Biological Matter Physics: High-Throughput Invasive BCI Systems-on-Chip — Challenges and Opportunities"
+      "titleEn": "National Conference on Soft Matter and Biological Matter Physics: High-Throughput Invasive BCI Systems-on-Chip — Challenges and Opportunities",
+      "id": "activity-2026-08-25-f6c91c2e01"
     },
     {
       "date": "2026.8.15",
@@ -44,7 +47,8 @@
           "caption": "第三届脑机接口开发者大会"
         }
       ],
-      "titleEn": "BCI Developer Conference: Brain–Computer Interface Chips — Neural Signal Recording and Decoding"
+      "titleEn": "BCI Developer Conference: Brain–Computer Interface Chips — Neural Signal Recording and Decoding",
+      "id": "activity-2026-08-15-3db89bd476"
     },
     {
       "date": "2026.7.2",
@@ -56,7 +60,8 @@
           "caption": "医工一体化病房揭牌"
         }
       ],
-      "titleEn": "Opening of the Integrated Medicine–Engineering Ward at Hangzhou First People's Hospital, affiliated with Westlake University"
+      "titleEn": "Opening of the Integrated Medicine–Engineering Ward at Hangzhou First People's Hospital, affiliated with Westlake University",
+      "id": "activity-2026-07-02-73d17d994e"
     },
     {
       "date": "2026.6.10",
@@ -68,7 +73,8 @@
           "caption": "项目开题合影"
         }
       ],
-      "titleEn": "Kickoff meeting for a Chongqing Technology Innovation and Application Development project"
+      "titleEn": "Kickoff meeting for a Chongqing Technology Innovation and Application Development project",
+      "id": "activity-2026-06-10-b5a5081bf2"
     },
     {
       "date": "2026.6.2",
@@ -80,7 +86,8 @@
           "caption": "代表团交流合影"
         }
       ],
-      "titleEn": "Discussion with a Neuralink co-founder and visiting colleagues on international collaboration in BCI technology"
+      "titleEn": "Discussion with a Neuralink co-founder and visiting colleagues on international collaboration in BCI technology",
+      "id": "activity-2026-06-02-15867e9ca3"
     },
     {
       "date": "2026.4.18",
@@ -96,7 +103,8 @@
           "caption": "6th International Workshop on Translation of Neurotechnologies"
         }
       ],
-      "titleEn": "6th International Workshop on Translation of Neurotechnologies: Surviving the Cycle — Practices and Lessons Learned from Developing Speech Neuroprostheses"
+      "titleEn": "6th International Workshop on Translation of Neurotechnologies: Surviving the Cycle — Practices and Lessons Learned from Developing Speech Neuroprostheses",
+      "id": "activity-2026-04-18-12e0e6ac57"
     },
     {
       "date": "2026.3.25",
@@ -112,7 +120,8 @@
           "caption": "华人芯片设计技术研讨会 2026"
         }
       ],
-      "titleEn": "Chinese IC Design Technology Symposium 2026: A 1024-Channel Sparsity-Aware Neural Interface with CIM-Based Predictive Focused Sampling"
+      "titleEn": "Chinese IC Design Technology Symposium 2026: A 1024-Channel Sparsity-Aware Neural Interface with CIM-Based Predictive Focused Sampling",
+      "id": "activity-2026-03-25-ac840acad4"
     },
     {
       "date": "2026.2.3",
@@ -128,25 +137,29 @@
           "caption": "中国脑-机接口华瑙奖-杰出青年奖"
         }
       ],
-      "titleEn": "Outstanding Young Researcher recognition at the China BCI Huanao Awards"
+      "titleEn": "Outstanding Young Researcher recognition at the China BCI Huanao Awards",
+      "id": "activity-2026-02-03-131118b0e1"
     },
     {
       "date": "2026.1.22",
       "title": "北方工业大学集成电路学院名师分享会：从芯片设计到语言解码看脑机接口的技术演进",
       "url": "",
-      "titleEn": "North China University of Technology: The Evolution of BCI Technology, from Chip Design to Language Decoding"
+      "titleEn": "North China University of Technology: The Evolution of BCI Technology, from Chip Design to Language Decoding",
+      "id": "activity-2026-01-22-2ea375fed2"
     },
     {
       "date": "2026.1.9",
       "title": "基于实时汉语言解码的植入式脑机接口系统：入围2025年人工智能医疗器械创新任务揭榜挂帅项目",
       "url": "https://www.miit.gov.cn/zwgk/zcwj/wjfb/tz/art/2026/art_fbd44649a63c4b8d94f5a16a858b879a.html",
-      "titleEn": "An implantable BCI system for real-time Mandarin decoding selected for the 2025 AI Medical Device Innovation Challenge"
+      "titleEn": "An implantable BCI system for real-time Mandarin decoding selected for the 2025 AI Medical Device Innovation Challenge",
+      "id": "activity-2026-01-09-3fc61cc63a"
     },
     {
       "date": "2025.12.27",
       "title": "兰州大学物理学院系列报告：从芯片设计到语言解码看脑机接口的技术演进",
       "url": "",
-      "titleEn": "Lanzhou University, School of Physical Science and Technology: From Chip Design to Language Decoding"
+      "titleEn": "Lanzhou University, School of Physical Science and Technology: From Chip Design to Language Decoding",
+      "id": "activity-2025-12-27-c3e973b5f2"
     },
     {
       "date": "2025.12.5",
@@ -158,7 +171,8 @@
           "caption": "2025脑机接口大会"
         }
       ],
-      "titleEn": "BCI Conference 2025: Selected for the BCI Industry Alliance's Qingbaihui program"
+      "titleEn": "BCI Conference 2025: Selected for the BCI Industry Alliance's Qingbaihui program",
+      "id": "activity-2025-12-05-39b77a0955"
     },
     {
       "date": "2025.11.29",
@@ -174,13 +188,15 @@
           "caption": "中国医疗器械行业协会产教融合发展大会"
         }
       ],
-      "titleEn": "China Association for Medical Devices Industry conference: Speech Neuroprostheses — From Highly Integrated Chips to Mandarin Neural Decoding"
+      "titleEn": "China Association for Medical Devices Industry conference: Speech Neuroprostheses — From Highly Integrated Chips to Mandarin Neural Decoding",
+      "id": "activity-2025-11-29-02ad8d7a1a"
     },
     {
       "date": "2025.11.23",
       "title": "脑机接口社区:《语言神经假肢：从高通量芯片到汉语神经解码》",
       "url": "https://mp.weixin.qq.com/s/O-NtQyDt-uvfYm_P6A6SSg",
-      "titleEn": "BCI Community talk: Speech Neuroprostheses — From High-Throughput Chips to Mandarin Neural Decoding"
+      "titleEn": "BCI Community talk: Speech Neuroprostheses — From High-Throughput Chips to Mandarin Neural Decoding",
+      "id": "activity-2025-11-23-36c9a6c60b"
     },
     {
       "date": "2025.11.11",
@@ -192,7 +208,8 @@
           "caption": "第四届南渡江论坛圆桌讨论"
         }
       ],
-      "titleEn": "4th Nandu River Forum panel: Opportunities and Challenges in Brain–Computer Interfaces"
+      "titleEn": "4th Nandu River Forum panel: Opportunities and Challenges in Brain–Computer Interfaces",
+      "id": "activity-2025-11-11-c6ea26d5df"
     },
     {
       "date": "2025.11.11",
@@ -204,13 +221,15 @@
           "caption": "第四届南渡江论坛"
         }
       ],
-      "titleEn": "4th Nandu River Forum talk: Core BCI Technologies — From Highly Integrated Chips to Mandarin Neural Decoding"
+      "titleEn": "4th Nandu River Forum talk: Core BCI Technologies — From Highly Integrated Chips to Mandarin Neural Decoding",
+      "id": "activity-2025-11-11-8a2f613b5e"
     },
     {
       "date": "2025.11.05",
       "title": "脑机接口语言解码相关研究成果被Science News报道：\"In April, BCI researcher Jie Yang and his colleagues at Westlake University reported results ...\"",
       "url": "https://www.science.org/content/article/researchers-decode-mandarin-chinese-neural-signals",
-      "titleEn": "Science News covers our brain-to-language decoding research"
+      "titleEn": "Science News covers our brain-to-language decoding research",
+      "id": "activity-2025-11-05-e5d3477ca3"
     },
     {
       "date": "2025.11.02",
@@ -226,7 +245,8 @@
           "caption": "CCF DAC"
         }
       ],
-      "titleEn": "CCF DAC: Co-design and Applications of Neuromorphic Chips and Algorithms"
+      "titleEn": "CCF DAC: Co-design and Applications of Neuromorphic Chips and Algorithms",
+      "id": "activity-2025-11-02-e02bafd051"
     },
     {
       "date": "2025.11.01",
@@ -242,31 +262,41 @@
           "caption": "MIND"
         }
       ],
-      "titleEn": "MIND poster session: NeuroPlat — An FPGA-Based Neuromorphic Computing Platform with an Optimized Toolchain for Efficient SNN Deployment"
+      "titleEn": "MIND poster session: NeuroPlat — An FPGA-Based Neuromorphic Computing Platform with an Optimized Toolchain for Efficient SNN Deployment",
+      "id": "activity-2025-11-01-ff08b677ab"
     },
     {
       "date": "2025.10.14",
       "title": "APCCAS：报告主题:《A Pipeline-Driven FPGA Accelerator ... & A Reconfigurable 8-Channel Dual-Mode Neural Stimulator ...》",
       "url": "https://apccas2025.org/program-at-a-glance/",
-      "titleEn": "APCCAS presentations on an FPGA accelerator and a reconfigurable eight-channel dual-mode neural stimulator"
+      "titleEn": "APCCAS presentations on an FPGA accelerator and a reconfigurable eight-channel dual-mode neural stimulator",
+      "id": "activity-2025-10-14-e5516743d4"
     },
     {
       "date": "2025.7.08",
       "title": "九三学社: 《关于尽快建立全国层面大模型...》，单篇报送全国政协",
       "url": "",
-      "titleEn": "Jiusan Society policy proposal on large language models submitted to the National Committee of the CPPCC"
+      "titleEn": "Jiusan Society policy proposal on large language models submitted to the National Committee of the CPPCC",
+      "id": "activity-2025-07-08-85ace99c1e"
     },
     {
       "date": "2025.6.22",
       "title": "NEWCAS2025 Special Session: Bridging Brain and AI",
       "url": "https://www.newcas2025.com/program-glance/",
-      "titleEn": "NEWCAS 2025 special session: Bridging Brain and AI"
+      "titleEn": "NEWCAS 2025 special session: Bridging Brain and AI",
+      "id": "activity-2025-06-22-957b78bfbb"
     },
     {
       "date": "2025.5.18",
-      "title": "北京天坛医院：全国脑机接口临床评价与应用研讨会",
+      "title": "北京天坛医院：全国脑机接口临床评价与应用研讨会（主持人）",
       "url": "https://mp.weixin.qq.com/s/HS8-O0HP3o1rzNYUP2mtmA",
-      "titleEn": "Beijing Tiantan Hospital: National Symposium on Clinical Evaluation and Applications of Brain–Computer Interfaces"
+      "titleEn": "Beijing Tiantan Hospital: National Symposium on Clinical Evaluation and Applications of Brain–Computer Interfaces (moderator)",
+      "id": "activity-2025-05-18-a62d4bd96b",
+      "cv": {
+        "kind": "moderator",
+        "include": false,
+        "confirmedOn": "2026-10-06"
+      }
     },
     {
       "date": "2025.5.17",
@@ -278,13 +308,15 @@
           "caption": "天津大学重点研发项目启动会"
         }
       ],
-      "titleEn": "Tianjin University: Kickoff of a Key R&D Project on Fine-Grained Decoding and Enhancement for Dynamic Memory Processing"
+      "titleEn": "Tianjin University: Kickoff of a Key R&D Project on Fine-Grained Decoding and Enhancement for Dynamic Memory Processing",
+      "id": "activity-2025-05-17-5eddecd69e"
     },
     {
       "date": "2025.3.31",
       "title": "中国科学院半导体所学术交流: 《脑机接口与类脑计算研究进展》",
       "url": "",
-      "titleEn": "Institute of Semiconductors, Chinese Academy of Sciences: Advances in BCI and Neuromorphic Computing"
+      "titleEn": "Institute of Semiconductors, Chinese Academy of Sciences: Advances in BCI and Neuromorphic Computing",
+      "id": "activity-2025-03-31-d5f5714f96"
     },
     {
       "date": "2025.3.28",
@@ -300,19 +332,22 @@
           "caption": "第七届华人芯片设计技术研讨会（ICAC 2025）"
         }
       ],
-      "titleEn": "ICAC 2025: An Energy-Efficient Unstructured Sparsity-Aware Deep SNN Accelerator with a 3D Compute Array"
+      "titleEn": "ICAC 2025: An Energy-Efficient Unstructured Sparsity-Aware Deep SNN Accelerator with a 3D Compute Array",
+      "id": "activity-2025-03-28-66fd8980a5"
     },
     {
       "date": "2024.12.12",
       "title": "「十四五」第二批本科和研究生省级教学改革项目《新质生产力下的垂直整合与跨学科集成电路课程》正式启动",
       "url": "https://jyt.zj.gov.cn/art/2024/12/31/art_1228998760_58943323.html",
-      "titleEn": "Launch of a Zhejiang teaching-reform project on vertically integrated and interdisciplinary IC education"
+      "titleEn": "Launch of a Zhejiang teaching-reform project on vertically integrated and interdisciplinary IC education",
+      "id": "activity-2024-12-12-5f64fe7f04"
     },
     {
       "date": "2024.11.21",
       "title": "同济大学《微电子学堂》学术讲座：报告主题：《脑机接口——大脑信号读出与解码》",
       "url": "",
-      "titleEn": "Tongji University Microelectronics Lecture Series: Brain–Computer Interfaces — Neural Signal Recording and Decoding"
+      "titleEn": "Tongji University Microelectronics Lecture Series: Brain–Computer Interfaces — Neural Signal Recording and Decoding",
+      "id": "activity-2024-11-21-cf3e1b4d94"
     },
     {
       "date": "2024.10.24",
@@ -328,19 +363,22 @@
           "caption": "IEEE 17th ICSICT Conference"
         }
       ],
-      "titleEn": "IEEE ICSICT 2024: Invasive BCI Systems-on-Chip — Challenges and Opportunities"
+      "titleEn": "IEEE ICSICT 2024: Invasive BCI Systems-on-Chip — Challenges and Opportunities",
+      "id": "activity-2024-10-24-502af84ae1"
     },
     {
       "date": "2024.10.18",
       "title": "华东师范大学 Neuroscience Guest Lecture Series：报告主题：《脑机接口—大脑信号读出与解码》",
       "url": "https://www.ecnu.edu.cn/info/1034/67618.htm",
-      "titleEn": "East China Normal University Neuroscience Guest Lecture Series: Brain–Computer Interfaces — Neural Signal Recording and Decoding"
+      "titleEn": "East China Normal University Neuroscience Guest Lecture Series: Brain–Computer Interfaces — Neural Signal Recording and Decoding",
+      "id": "activity-2024-10-18-c5a346155e"
     },
     {
       "date": "2024.10.08",
       "title": "省发展改革委：脑机接口智能芯片系统浙江省工程研究中心获批",
       "url": "https://fzggw.zj.gov.cn/art/2024/10/8/art_1229629046_5381206.html",
-      "titleEn": "Approval of the Zhejiang Provincial Engineering Research Center for BCI Intelligent Chip Systems"
+      "titleEn": "Approval of the Zhejiang Provincial Engineering Research Center for BCI Intelligent Chip Systems",
+      "id": "activity-2024-10-08-6676425f44"
     },
     {
       "date": "2024.08.03",
@@ -352,11 +390,12 @@
           "caption": "昆山杜克大学神经科学专题研讨会"
         }
       ],
-      "titleEn": "Duke Kunshan University Neuroscience Symposium: High-Throughput BCI Chip Design and Language Decoding Applications"
+      "titleEn": "Duke Kunshan University Neuroscience Symposium: High-Throughput BCI Chip Design and Language Decoding Applications",
+      "id": "activity-2024-08-03-81ae5eb675"
     },
     {
       "date": "2024.07.19",
-      "title": "中国计算机学会芯片大会：报告主题：《High-throughput BCI —— Recording and Decoding》",
+      "title": "中国计算机学会芯片大会：报告主题：《Integrated Circuits for High Throughput Neural Recording》",
       "url": "https://ccf.org.cn/chip2024/general_1054",
       "images": [
         {
@@ -368,7 +407,8 @@
           "caption": "中国计算机学会芯片大会"
         }
       ],
-      "titleEn": "CCF Chip Conference: High-Throughput BCI — Recording and Decoding"
+      "titleEn": "CCF Chip Conference: Integrated Circuits for High Throughput Neural Recording",
+      "id": "activity-2024-07-19-02b0981fed"
     },
     {
       "date": "2024.05.18",
@@ -380,13 +420,15 @@
           "caption": "九三学社中央第四十次科学座谈会"
         }
       ],
-      "titleEn": "Jiusan Society scientific forum: Interdisciplinary Research and Industrial Investment for BCI Development"
+      "titleEn": "Jiusan Society scientific forum: Interdisciplinary Research and Industrial Investment for BCI Development",
+      "id": "activity-2024-05-18-7c83ba56a4"
     },
     {
       "date": "2024.05.14",
       "title": "第一财经：数新风丨脑机接口「华山论剑」",
       "url": "https://yicai.smgbb.cn/live/m/102104240.html",
-      "titleEn": "Yicai: A discussion on the frontiers of brain–computer interfaces"
+      "titleEn": "Yicai: A discussion on the frontiers of brain–computer interfaces",
+      "id": "activity-2024-05-14-cc5255b962"
     },
     {
       "date": "2024.04.20",
@@ -398,25 +440,29 @@
           "caption": "2024片上脑机接口国际会议"
         }
       ],
-      "titleEn": "International Conference on Brain–Computer Interfaces on Chip: Fully Implantable BCI Chips and Mandarin Neural Decoding"
+      "titleEn": "International Conference on Brain–Computer Interfaces on Chip: Fully Implantable BCI Chips and Mandarin Neural Decoding",
+      "id": "activity-2024-04-20-da795da285"
     },
     {
       "date": "2023.12.18",
       "title": "浙江省科技厅：2024年度「尖兵」研发攻关计划项目获得立项",
       "url": "https://kjt.zj.gov.cn/art/2023/12/18/art_1228971387_59010222.html?share_token=9cf7bc57-6c03-4c60-995f-3cc993fbfae4",
-      "titleEn": "A BCI project receives support under Zhejiang's 2024 Jianbing R&D program"
+      "titleEn": "A BCI project receives support under Zhejiang's 2024 Jianbing R&D program",
+      "id": "activity-2023-12-18-0aa25c4d09"
     },
     {
       "date": "2023.11.30",
       "title": "新智元：成功实现「全谱汉语解码」：Top 3准确率接近100%",
       "url": "https://mp.weixin.qq.com/s/-dtpDjljjn-ZEgCav-pKYw",
-      "titleEn": "AI Era reports on full-spectrum Mandarin neural decoding"
+      "titleEn": "AI Era reports on full-spectrum Mandarin neural decoding",
+      "id": "activity-2023-11-30-accb1ed222"
     },
     {
       "date": "2023.11.25",
       "title": "九三学社：「之江同心·经济圆桌会议」",
       "url": "http://www.hzjs.org.cn/proscenium/show/5133",
-      "titleEn": "Jiusan Society: Zhijiang Economic Roundtable"
+      "titleEn": "Jiusan Society: Zhijiang Economic Roundtable",
+      "id": "activity-2023-11-25-d8e08b5d6d"
     },
     {
       "date": "2023.11.24",
@@ -428,61 +474,76 @@
           "caption": "浙大求是高等研究院研讨会"
         }
       ],
-      "titleEn": "Zhejiang University Qiushi Academy for Advanced Studies: Frontiers in BCI and Neural Engineering"
+      "titleEn": "Zhejiang University Qiushi Academy for Advanced Studies: Frontiers in BCI and Neural Engineering",
+      "id": "activity-2023-11-24-c7c4077d7b"
     },
     {
       "date": "2023.09.11",
       "title": "第一财经：Neuralink最大的突破在于技术链和产业链的整合",
       "url": "https://m.yicai.com/video/101863672.html",
-      "titleEn": "Yicai interview: Integrating the technology and industry chains behind Neuralink"
+      "titleEn": "Yicai interview: Integrating the technology and industry chains behind Neuralink",
+      "id": "activity-2023-09-11-33a2c894f1"
     },
     {
       "date": "2023.08.27",
       "title": "第一财经：医学科创成果转化亟需医工交叉人才体系支撑",
       "url": "https://new.qq.com/rain/a/20230827A0787U00",
-      "titleEn": "Yicai interview: Interdisciplinary medical and engineering talent for translating medical innovations"
+      "titleEn": "Yicai interview: Interdisciplinary medical and engineering talent for translating medical innovations",
+      "id": "activity-2023-08-27-2f52fb310d"
     },
     {
       "date": "2023.08.25",
       "title": "九三学社：「脑机智能·未来科技创业沙龙」",
       "url": "http://www.hzjs.org.cn/proscenium/show/4943",
-      "titleEn": "Jiusan Society: Brain Intelligence and Future Technology Entrepreneurship Salon"
+      "titleEn": "Jiusan Society: Brain Intelligence and Future Technology Entrepreneurship Salon",
+      "id": "activity-2023-08-25-39c5935fe0"
     },
     {
       "date": "2023.08.08",
       "title": "西湖大学工学院：侵入式脑机接口系统项目荣获「大走廊杯」金奖",
       "url": "https://mp.weixin.qq.com/s/E50Mo8VGc-fgq2qgETHNjw",
-      "titleEn": "An invasive BCI system project wins gold in the Hangzhou West Science and Technology Innovation Corridor entrepreneurship competition"
+      "titleEn": "An invasive BCI system project wins gold in the Hangzhou West Science and Technology Innovation Corridor entrepreneurship competition",
+      "id": "activity-2023-08-08-f71e1d9805"
     },
     {
       "date": "2023.07.15",
       "title": "钱江晚报：神奇的「脑机接口」技术，会带来「超人时代」吗？",
       "url": "https://baijiahao.baidu.com/s?id=1771462545951775870&wfr=spider&for=pc",
-      "titleEn": "Qianjiang Evening News: Exploring the possibilities of brain–computer interfaces"
+      "titleEn": "Qianjiang Evening News: Exploring the possibilities of brain–computer interfaces",
+      "id": "activity-2023-07-15-4947902708"
     },
     {
       "date": "2023.06.13",
       "title": "科普中国：西湖大学研发出1平方毫米大小神经芯片",
       "url": "https://www.kepuchina.cn/article/articleinfo?business_type=100&ar_id=418378",
-      "titleEn": "Science Popularization China: A one-square-millimeter neural chip developed at Westlake University"
+      "titleEn": "Science Popularization China: A one-square-millimeter neural chip developed at Westlake University",
+      "id": "activity-2023-06-13-1bb977ae56"
     },
     {
       "date": "2023.06.11",
       "title": "潮新闻：有请科普人 | 大脑中装芯片，人类治病的新希望？",
       "url": "https://www.toutiao.com/article/7277856974841315840/",
-      "titleEn": "Chao News: Brain implants and new possibilities for treating disease"
+      "titleEn": "Chao News: Brain implants and new possibilities for treating disease",
+      "id": "activity-2023-06-11-681c9f42c2"
     },
     {
-      "date": "2022.10.20",
-      "title": "NEWCAS2022 Tutorial: Towards Smart and Closed-Loop Neuromodulation",
-      "url": "https://aicas2022.org/?page_id=194",
-      "titleEn": "NEWCAS 2022 tutorial: Towards Smart and Closed-Loop Neuromodulation"
+      "date": "2022.06",
+      "title": "NEWCAS 2022 Tutorial: Towards Smart and Closed-Loop Neuromodulation（加拿大魁北克，在线报告）",
+      "url": "",
+      "titleEn": "NEWCAS 2022 tutorial: Towards Smart and Closed-Loop Neuromodulation (Quebec, Canada; online)",
+      "id": "activity-2022-10-20-ea3ba094bd",
+      "cv": {
+        "kind": "tutorial",
+        "confirmedOn": "2026-10-06",
+        "datePrecision": "month"
+      }
     },
     {
       "date": "2022.06.14",
       "title": "AICAS2022 Special Session: Artificial Intelligence Boosted Circuits and Systems for Brain-Machine Interface",
       "url": "https://aicas2022.org/?page_id=194",
-      "titleEn": "AICAS 2022 special session: Artificial Intelligence Boosted Circuits and Systems for Brain–Machine Interfaces"
+      "titleEn": "AICAS 2022 special session: Artificial Intelligence Boosted Circuits and Systems for Brain–Machine Interfaces",
+      "id": "activity-2022-06-14-dbc883ec2e"
     }
   ]
 }

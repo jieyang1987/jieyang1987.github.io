@@ -58,6 +58,214 @@
     }
     return template.innerHTML;
   }
+  function initCvPreview() {
+    const trigger = document.getElementById('link-cv');
+    if (!trigger) return;
+    const pdfUrl = new URL(trigger.getAttribute('href'), window.location.href);
+    const approvedUrl = new URL('static/assets/cv/jie-yang-cv.pdf', window.location.href);
+    if (pdfUrl.origin !== location.origin || pdfUrl.pathname !== approvedUrl.pathname) return;
+    const dialog = document.createElement('dialog');
+    dialog.id = 'home-cv-dialog';
+    dialog.className = 'en-dialog home-cv-dialog';
+    dialog.setAttribute('aria-labelledby', 'home-cv-title');
+    dialog.innerHTML = '<div class="dialog-heading"><h2 id="home-cv-title">' + t('CV preview', '简历预览') + '</h2>' +
+      '<div class="home-cv-actions"><a class="home-cv-download" download="Jie-Yang-CV.pdf">' + t('Download PDF', '下载 PDF') + ' ↓</a>' +
+      '<button type="button" class="dialog-close home-cv-close" aria-label="' + t('Close CV preview', '关闭简历预览') + '"><span aria-hidden="true">×</span></button></div></div>' +
+      '<div class="home-cv-tools"><div class="home-cv-paging"><button type="button" data-cv-page="previous" aria-label="' + t('Previous page', '上一页') + '" disabled>‹</button>' +
+      '<select class="home-cv-page-select" aria-label="' + t('Page', '页码') + '" disabled><option value="1">1</option></select><span class="home-cv-count"></span>' +
+      '<button type="button" data-cv-page="next" aria-label="' + t('Next page', '下一页') + '" disabled>›</button></div><div class="home-cv-zoom-tools"><button type="button" data-cv-zoom="out" aria-label="' + t('Zoom out', '缩小') + '" disabled>−</button>' +
+      '<output class="home-cv-zoom" aria-live="polite">100%</output><button type="button" data-cv-zoom="in" aria-label="' + t('Zoom in', '放大') + '" disabled>+</button>' +
+      '<button type="button" data-cv-zoom="fit" disabled>' + t('Fit width', '适合宽度') + '</button></div></div>' +
+      '<div class="home-cv-viewer" tabindex="0" aria-label="' + t('Scrollable CV preview', '简历阅读区，可滚动') + '"><div class="home-cv-pages"></div><p class="home-cv-status" role="status"></p></div>';
+    document.body.appendChild(dialog);
+    const pages = dialog.querySelector('.home-cv-pages');
+    const viewer = dialog.querySelector('.home-cv-viewer');
+    const status = dialog.querySelector('.home-cv-status');
+    const count = dialog.querySelector('.home-cv-count');
+    const zoomLabel = dialog.querySelector('.home-cv-zoom');
+    const pageSelect = dialog.querySelector('.home-cv-page-select');
+    const pageButtons = [...dialog.querySelectorAll('[data-cv-page]')];
+    const controls = [...dialog.querySelectorAll('[data-cv-zoom]')];
+    const closeButton = dialog.querySelector('.home-cv-close');
+    dialog.querySelector('.home-cv-download').href = pdfUrl.href;
+    let libraryPromise = null;
+    let controller = null;
+    let pdfTask = null;
+    let pdfDocument = null;
+    let renderTask = null;
+    let session = 0;
+    let renderId = 0;
+    let zoom = 1;
+    let currentPage = 1;
+    let resizeTimer = null;
+    let lastWidth = 0;
+    let alreadyLocked = false;
+    function library() {
+      if (!libraryPromise) libraryPromise = import('../vendor/pdfjs/pdf.min.js').then(pdfjs => {
+        pdfjs.GlobalWorkerOptions.workerSrc = new URL('static/vendor/pdfjs/pdf.worker.min.js', window.location.href).href;
+        return pdfjs;
+      }).catch(error => { libraryPromise = null; throw error; });
+      return libraryPromise;
+    }
+    function clearPages() {
+      for (const canvas of pages.querySelectorAll('canvas')) { canvas.width = 0; canvas.height = 0; }
+      pages.replaceChildren();
+    }
+    function errorMessage() {
+      status.hidden = false;
+      status.textContent = t('The preview could not be loaded. Please close and retry, or use Download PDF.', '预览加载失败，请关闭后重试，或使用上方“下载 PDF”。');
+    }
+    function updateControls() {
+      zoomLabel.textContent = Math.round(zoom * 100) + '%';
+      pageSelect.disabled = !pdfDocument;
+      pageSelect.value = String(currentPage);
+      pageButtons.forEach(button => { button.disabled = !pdfDocument || (button.dataset.cvPage === 'previous' && currentPage <= 1) || (button.dataset.cvPage === 'next' && currentPage >= pdfDocument.numPages); });
+      controls.forEach(button => { button.disabled = !pdfDocument || (button.dataset.cvZoom === 'out' && zoom <= .75) || (button.dataset.cvZoom === 'in' && zoom >= 4); });
+    }
+    async function renderCvPage() {
+      if (!dialog.open || !pdfDocument) return;
+      const currentSession = session;
+      const currentRender = ++renderId;
+      const documentToRender = pdfDocument;
+      const fraction = viewer.scrollTop / Math.max(1, viewer.scrollHeight - viewer.clientHeight);
+      const active = () => dialog.open && currentSession === session && currentRender === renderId;
+      renderTask?.cancel();
+      renderTask = null;
+      clearPages();
+      status.hidden = false;
+      status.textContent = t('Rendering CV…', '正在显示简历…');
+      updateControls();
+      try {
+        // Render only the selected page, so even long CVs stay light on mobile memory.
+        {
+          const number = currentPage;
+          const page = await documentToRender.getPage(number);
+          if (!active()) return;
+          const original = page.getViewport({ scale: 1 });
+          const scale = Math.max(120, viewer.clientWidth - 34) / original.width * zoom;
+          const viewport = page.getViewport({ scale });
+          const outputScale = Math.min(window.devicePixelRatio || 1, 2, Math.sqrt(8000000 / (viewport.width * viewport.height)));
+          const sheet = document.createElement('section');
+          const label = t('Page ' + number + ' of ' + documentToRender.numPages, '第 ' + number + ' 页，共 ' + documentToRender.numPages + ' 页');
+          sheet.className = 'home-cv-page';
+          sheet.dataset.page = String(number);
+          sheet.setAttribute('aria-label', label);
+          sheet.style.width = viewport.width + 'px';
+          const canvas = document.createElement('canvas');
+          canvas.setAttribute('aria-hidden', 'true');
+          canvas.width = Math.ceil(viewport.width * outputScale);
+          canvas.height = Math.ceil(viewport.height * outputScale);
+          canvas.style.width = viewport.width + 'px';
+          canvas.style.height = viewport.height + 'px';
+          sheet.appendChild(canvas);
+          pages.appendChild(sheet);
+          renderTask = page.render({ canvasContext: canvas.getContext('2d'), viewport, transform: outputScale === 1 ? null : [outputScale, 0, 0, outputScale, 0, 0] });
+          await renderTask.promise;
+          if (!active()) return;
+          renderTask = null;
+          canvas.dataset.rendered = 'true';
+          // Keep the actual PDF text available to assistive technologies, without a third-party viewer.
+          const text = await page.getTextContent();
+          if (!active()) return;
+          const accessibleText = document.createElement('div');
+          accessibleText.className = 'home-cv-page-text';
+          accessibleText.textContent = text.items.map(item => item.str || '').join(' ');
+          sheet.appendChild(accessibleText);
+        }
+        if (active()) {
+          status.hidden = true;
+          viewer.scrollTop = fraction * Math.max(0, viewer.scrollHeight - viewer.clientHeight);
+        }
+      } catch (error) {
+        if (active() && error.name !== 'RenderingCancelledException') errorMessage();
+      }
+    }
+    controls.forEach(button => button.addEventListener('click', () => {
+      zoom = button.dataset.cvZoom === 'fit' ? 1 : Math.max(.75, Math.min(4, zoom + (button.dataset.cvZoom === 'in' ? .25 : -.25)));
+      renderCvPage();
+    }));
+    function goToPage(number) {
+      if (!pdfDocument || !Number.isInteger(number) || number < 1 || number > pdfDocument.numPages) return;
+      currentPage = number;
+      viewer.scrollTop = 0;
+      renderCvPage();
+    }
+    pageButtons.forEach(button => button.addEventListener('click', () => goToPage(currentPage + (button.dataset.cvPage === 'next' ? 1 : -1))));
+    pageSelect.addEventListener('change', () => goToPage(Number(pageSelect.value)));
+    new ResizeObserver(() => {
+      const width = viewer.clientWidth;
+      if (width > 0 && width !== lastWidth) {
+        lastWidth = width;
+        clearTimeout(resizeTimer);
+        if (pdfDocument && dialog.open) resizeTimer = setTimeout(renderCvPage, 120);
+      }
+    }).observe(viewer);
+    trigger.addEventListener('click', async event => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button > 0) return;
+      event.preventDefault();
+      if (dialog.open) return;
+      const currentSession = ++session;
+      zoom = 1;
+      currentPage = 1;
+      pageSelect.innerHTML = '<option value="1">1</option>';
+      alreadyLocked = document.documentElement.classList.contains('home-cv-open');
+      document.documentElement.classList.add('home-cv-open');
+      status.hidden = false;
+      status.textContent = t('Opening CV…', '正在打开简历…');
+      count.textContent = '';
+      updateControls();
+      dialog.showModal();
+      closeButton.focus({ preventScroll: true });
+      const currentController = new AbortController();
+      controller = currentController;
+      const timer = setTimeout(() => currentController.abort(), 15000);
+      try {
+        const [pdfjs, response] = await Promise.all([library(), fetch(pdfUrl.href, { signal: currentController.signal, cache: 'no-cache' })]);
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        const bytes = new Uint8Array(await response.arrayBuffer());
+        if (bytes.length > 20 * 1024 * 1024 || String.fromCharCode(...bytes.subarray(0, 5)) !== '%PDF-') throw new Error('Invalid CV PDF');
+        if (!dialog.open || currentSession !== session) return;
+        pdfTask = pdfjs.getDocument({ data: bytes, isEvalSupported: false, useSystemFonts: true });
+        const loaded = await pdfTask.promise;
+        if (!dialog.open || currentSession !== session) return;
+        pdfDocument = loaded;
+        count.textContent = '/ ' + loaded.numPages;
+        pageSelect.replaceChildren();
+        for (let number = 1; number <= loaded.numPages; number++) {
+          const option = document.createElement('option'); option.value = String(number); option.textContent = String(number); pageSelect.appendChild(option);
+        }
+        await renderCvPage();
+      } catch (error) {
+        if (dialog.open && currentSession === session) errorMessage();
+      } finally {
+        clearTimeout(timer);
+        if (currentSession === session) controller = null;
+      }
+    });
+    closeButton.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', event => {
+      const box = dialog.getBoundingClientRect();
+      if (event.target === dialog && (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom)) dialog.close();
+    });
+    dialog.addEventListener('close', () => {
+      session++;
+      renderId++;
+      controller?.abort();
+      controller = null;
+      renderTask?.cancel();
+      renderTask = null;
+      clearTimeout(resizeTimer);
+      const task = pdfTask;
+      pdfTask = null;
+      pdfDocument = null;
+      if (task) task.destroy().catch(() => {});
+      clearPages();
+      status.textContent = '';
+      if (!alreadyLocked) document.documentElement.classList.remove('home-cv-open');
+      trigger.focus({ preventScroll: true });
+    });
+  }
+
   function initCoverPreview() {
     const container = document.getElementById('paper-awards-list');
     if (!container) return;
@@ -262,13 +470,14 @@
   function selectRecentActivities(items, limit = 4) {
     return (Array.isArray(items) ? items : []).map((item, index) => {
       if (!item || typeof item.title !== 'string' || !item.title.trim()) return null;
-      const match = /^(\d{4})[.\/-](\d{1,2})[.\/-](\d{1,2})$/.exec(String(item.date || '').trim());
+      const match = /^(\d{4})[.\/-](\d{1,2})(?:[.\/-](\d{1,2}))?$/.exec(String(item.date || '').trim());
       if (!match) return null;
-      const year = Number(match[1]), month = Number(match[2]), day = Number(match[3]);
+      const hasDay = match[3] !== undefined;
+      const year = Number(match[1]), month = Number(match[2]), day = hasDay ? Number(match[3]) : 1;
       const timestamp = Date.UTC(year, month - 1, day);
       const date = new Date(timestamp);
       if (date.getUTCFullYear() !== year || date.getUTCMonth() !== month - 1 || date.getUTCDate() !== day) return null;
-      const iso = String(year) + '-' + String(month).padStart(2, '0') + '-' + String(day).padStart(2, '0');
+      const iso = String(year) + '-' + String(month).padStart(2, '0') + (hasDay ? '-' + String(day).padStart(2, '0') : '');
       return { ...item, index, timestamp, iso, dateLabel: iso.replace(/-/g, '.') };
     }).filter(Boolean).sort((a, b) => b.timestamp - a.timestamp || a.index - b.index).slice(0, limit);
   }
@@ -396,6 +605,7 @@
     if (!status.hidden) status.innerHTML = t('Some selected publications could not be loaded. <a href="publications_en.html">View all publications</a> or reload this page.', '部分精选论文暂时无法加载，请<a href="publications.html">查看全部论文</a>或刷新重试。');
   }
 
+  initCvPreview();
   initCoverPreview();
 
   renderProfile().catch(error => {

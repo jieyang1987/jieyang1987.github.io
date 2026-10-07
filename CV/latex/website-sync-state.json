@@ -1,0 +1,326 @@
+{
+  "version": 1,
+  "sources": {
+    "honors": {
+      "honor:honor-2026-7bdd195d7e": {
+        "ownership": "website",
+        "last_rendered": "**2026年，国际电路与系统会议（ICCS）青年科学家奖**",
+        "snapshot": {
+          "year": 2026,
+          "title": "国际电路与系统会议（ICCS）青年科学家奖"
+        },
+        "status": "active"
+      },
+      "honor:honor-2026-777d0b955b": {
+        "ownership": "website",
+        "last_rendered": "**2026年，中国脑机接口华瑙奖“杰出青年奖”**",
+        "snapshot": {
+          "year": 2026,
+          "title": "中国脑机接口华瑙奖“杰出青年奖”"
+        },
+        "status": "active"
+      },
+      "honor:honor-2025-ed8848ab11": {
+        "ownership": "website",
+        "last_rendered": "**2025年，脑机接口青百荟青年专家**",
+        "snapshot": {
+          "year": 2025,
+          "title": "脑机接口青百荟青年专家"
+        },
+        "status": "active"
+      },
+      "honor:honor-2025-889f0494f4": {
+        "ownership": "legacy",
+        "last_rendered": "**2025年，浙江省高层次人才培养计划青年人才**",
+        "snapshot": {
+          "year": 2025,
+          "title": "浙江省高层次人才培养计划青年人才"
+        },
+        "status": "active"
+      },
+      "honor:honor-2023-91cddd4692": {
+        "ownership": "legacy",
+        "last_rendered": "2023年，九三学社浙江省委员会参政议政先进个人",
+        "snapshot": {
+          "year": 2023,
+          "title": "九三学社浙江省委员会参政议政先进个人"
+        },
+        "status": "active"
+      },
+      "honor:honor-2023-3039561e64": {
+        "ownership": "legacy",
+        "last_rendered": "2023年，九三学社杭州市西湖区优秀社员",
+        "snapshot": {
+          "year": 2023,
+          "title": "九三学社杭州市西湖区优秀社员"
+        },
+        "status": "active"
+      },
+      "honor:honor-2022-0211ff53ef": {
+        "ownership": "legacy",
+        "last_rendered": "**2022年，杭州市西湖明珠工程海外高层次人才（杭州市人才分类C类）**",
+        "snapshot": {
+          "year": 2022,
+          "title": "杭州市西湖明珠工程海外高层次人才"
+        },
+        "status": "active"
+      }
+    },
+    "talks": {
+      "talk:activity-2026-09-20-59c08a2776": {
+        "ownership": "website",
+        "last_rendered": "ICCS 2026 邀请报告：《Integrated Circuits for Brain-Computer Interface From Lab to Clinic》（2026年9月20日）",
+        "snapshot": {
+          "date": "2026-09-20",
+          "title": "ICCS 2026 邀请报告：《Integrated Circuits for Brain-Computer Interface From Lab to Clinic》",
+          "url": "https://www.iccs.org/index.html"
+        },
+        "status": "active"
+      },
+      "talk:activity-2026-08-25-f6c91c2e01": {
+        "ownership": "website",
+        "last_rendered": "全国软物质与生物物质物理学术会议：《高通量侵入式脑机接口系统级芯片：挑战与机遇》（2026年8月25日）",
+        "snapshot": {
+          "date": "2026-08-25",
+          "title": "全国软物质与生物物质物理学术会议：《高通量侵入式脑机接口系统级芯片：挑战与机遇》",
+          "url": "http://softmat2026.cpsjournals.cn/"
+        },
+        "status": "active"
+      },
+      "talk:activity-2026-08-15-3db89bd476": {
+        "ownership": "website",
+        "last_rendered": "脑机接口开发者大会：《脑机接口芯片—脑信号读出与解码》（2026年8月15日）",
+        "snapshot": {
+          "date": "2026-08-15",
+          "title": "脑机接口开发者大会：《脑机接口芯片—脑信号读出与解码》",
+          "url": "https://mp.weixin.qq.com/s/_mevmjOK0BCMCbyL9_HqDw"
+        },
+        "status": "active"
+      },
+      "talk:activity-2026-04-18-12e0e6ac57": {
+        "ownership": "website",
+        "last_rendered": "6th International Workshop on Translation of Neurotechnologies：《Surviving the Cycle: Practices and Lessons Learned from Developing Speech Neuroprostheses》（2026年4月18日）",
+        "snapshot": {
+          "date": "2026-04-18",
+          "title": "6th International Workshop on Translation of Neurotechnologies：《Surviving the Cycle: Practices and Lessons Learned from Developing Speech Neuroprostheses》",
+          "url": "https://neurotechinstitute.net/translation-of-neurotechnologies/"
+        },
+        "status": "active"
+      },
+      "talk:activity-2026-03-25-ac840acad4": {
+        "ownership": "website",
+        "last_rendered": "华人芯片设计技术研讨会 2026：《A 0.00022mm<sup>2</sup>/electrode 1024 channel Sparity-Aware Neural Interface with CIM-Based Predictive Foucused Sampling for Hotspot Spike tracking》（2026年3月25日）",
+        "snapshot": {
+          "date": "2026-03-25",
+          "title": "华人芯片设计技术研讨会 2026：《A 0.00022mm<sup>2</sup>/electrode 1024 channel Sparity-Aware Neural Interface with CIM-Based Predictive Foucused Sampling for Hotspot Spike tracking》",
+          "url": "https://icacworkshop.cn/"
+        },
+        "status": "active"
+      },
+      "talk:activity-2026-01-22-2ea375fed2": {
+        "ownership": "website",
+        "last_rendered": "北方工业大学集成电路学院名师分享会：从芯片设计到语言解码看脑机接口的技术演进（2026年1月22日）",
+        "snapshot": {
+          "date": "2026-01-22",
+          "title": "北方工业大学集成电路学院名师分享会：从芯片设计到语言解码看脑机接口的技术演进",
+          "url": ""
+        },
+        "status": "active"
+      },
+      "talk:activity-2025-12-27-c3e973b5f2": {
+        "ownership": "website",
+        "last_rendered": "兰州大学物理学院系列报告：从芯片设计到语言解码看脑机接口的技术演进（2025年12月27日）",
+        "snapshot": {
+          "date": "2025-12-27",
+          "title": "兰州大学物理学院系列报告：从芯片设计到语言解码看脑机接口的技术演进",
+          "url": ""
+        },
+        "status": "active"
+      },
+      "talk:activity-2025-11-29-02ad8d7a1a": {
+        "ownership": "website",
+        "last_rendered": "中国医疗器械行业协会产教融合发展大会:《语言神经假肢：从高集成芯片到汉语神经解码》（2025年11月29日）",
+        "snapshot": {
+          "date": "2025-11-29",
+          "title": "中国医疗器械行业协会产教融合发展大会:《语言神经假肢：从高集成芯片到汉语神经解码》",
+          "url": "https://mp.weixin.qq.com/s/o66iV2QdUnSkuqqQCDNbAA"
+        },
+        "status": "active"
+      },
+      "talk:activity-2025-11-23-36c9a6c60b": {
+        "ownership": "website",
+        "last_rendered": "脑机接口社区:《语言神经假肢：从高通量芯片到汉语神经解码》（2025年11月23日）",
+        "snapshot": {
+          "date": "2025-11-23",
+          "title": "脑机接口社区:《语言神经假肢：从高通量芯片到汉语神经解码》",
+          "url": "https://mp.weixin.qq.com/s/O-NtQyDt-uvfYm_P6A6SSg"
+        },
+        "status": "active"
+      },
+      "talk:activity-2025-11-11-8a2f613b5e": {
+        "ownership": "website",
+        "last_rendered": "第四届南渡江论坛：报告主题:《脑机接口底层技术：从高集成芯片到汉语神经解码》（2025年11月11日）",
+        "snapshot": {
+          "date": "2025-11-11",
+          "title": "第四届南渡江论坛：报告主题:《脑机接口底层技术：从高集成芯片到汉语神经解码》",
+          "url": "https://www.bilibili.com/video/BV1yuCvBLEvp?spm_id_from=333.788.videopod.sections&vd_source=15b3f7b70265110e16e17eace0ba089a"
+        },
+        "status": "active"
+      },
+      "talk:activity-2025-11-02-e02bafd051": {
+        "ownership": "website",
+        "last_rendered": "CCF DAC：报告主题:《类脑计算芯片、算法的协同设计及应用探索》（2025年11月2日）",
+        "snapshot": {
+          "date": "2025-11-02",
+          "title": "CCF DAC：报告主题:《类脑计算芯片、算法的协同设计及应用探索》",
+          "url": "https://mp.weixin.qq.com/s/D32tBL9RzhnaWKOmI6O08g"
+        },
+        "status": "active"
+      },
+      "talk:activity-2025-10-14-e5516743d4": {
+        "ownership": "website",
+        "last_rendered": "APCCAS：报告主题:《A Pipeline-Driven FPGA Accelerator ... & A Reconfigurable 8-Channel Dual-Mode Neural Stimulator ...》（2025年10月14日）",
+        "snapshot": {
+          "date": "2025-10-14",
+          "title": "APCCAS：报告主题:《A Pipeline-Driven FPGA Accelerator ... & A Reconfigurable 8-Channel Dual-Mode Neural Stimulator ...》",
+          "url": "https://apccas2025.org/program-at-a-glance/"
+        },
+        "status": "active"
+      },
+      "talk:activity-2025-03-31-d5f5714f96": {
+        "ownership": "legacy",
+        "last_rendered": "中国科学院半导体研究所物理沙龙：“脑机接口与类脑计算研究进展” （2025年3月，中国北京）",
+        "snapshot": {
+          "date": "2025-03-31",
+          "title": "中国科学院半导体所学术交流: 《脑机接口与类脑计算研究进展》",
+          "url": ""
+        },
+        "status": "active"
+      },
+      "talk:activity-2025-03-28-66fd8980a5": {
+        "ownership": "legacy",
+        "last_rendered": "华人芯片设计技术研讨会2025：“An Energy-Efficient Unstructured Sparsity-Aware Deep SNN Accelerator with 3D Compute Array” （2025年3月，中国深圳）",
+        "snapshot": {
+          "date": "2025-03-28",
+          "title": "第七届华人芯片设计技术研讨会（ICAC 2025）: 报告主题：《An Energy-Efficient Unstructured Sparsity-Aware Deep SNN Accelerator with 3D Compute Array》",
+          "url": "https://icacworkshop.cn/"
+        },
+        "status": "active"
+      },
+      "talk:activity-2024-11-21-cf3e1b4d94": {
+        "ownership": "website",
+        "last_rendered": "同济大学《微电子学堂》学术讲座：报告主题：《脑机接口——大脑信号读出与解码》（2024年11月21日）",
+        "snapshot": {
+          "date": "2024-11-21",
+          "title": "同济大学《微电子学堂》学术讲座：报告主题：《脑机接口——大脑信号读出与解码》",
+          "url": ""
+        },
+        "status": "active"
+      },
+      "talk:activity-2024-10-24-502af84ae1": {
+        "ownership": "legacy",
+        "last_rendered": "2024 17th International Conference on Solid-State and Integrated Circuit Technology(ICSICT): “侵入式脑机接口的系统级芯片：挑战与机遇”（2024年10月，中国珠海）",
+        "snapshot": {
+          "date": "2024-10-24",
+          "title": "IEEE 17th ICSICT Conference：报告主题：《侵入式脑机接口的系统级芯片：挑战与机遇》",
+          "url": "https://www.icsict.com/Data/List/FinalProgram"
+        },
+        "status": "active"
+      },
+      "talk:activity-2024-10-18-c5a346155e": {
+        "ownership": "website",
+        "last_rendered": "华东师范大学 Neuroscience Guest Lecture Series：报告主题：《脑机接口—大脑信号读出与解码》（2024年10月18日）",
+        "snapshot": {
+          "date": "2024-10-18",
+          "title": "华东师范大学 Neuroscience Guest Lecture Series：报告主题：《脑机接口—大脑信号读出与解码》",
+          "url": "https://www.ecnu.edu.cn/info/1034/67618.htm"
+        },
+        "status": "active"
+      },
+      "talk:activity-2024-08-03-81ae5eb675": {
+        "ownership": "website",
+        "last_rendered": "昆山杜克大学神经科学专题研讨会：报告主题：《High-throughput brain-computer interface chip design and language decoding application》（2024年8月3日）",
+        "snapshot": {
+          "date": "2024-08-03",
+          "title": "昆山杜克大学神经科学专题研讨会：报告主题：《High-throughput brain-computer interface chip design and language decoding application》",
+          "url": "https://news.dukekunshan.edu.cn/zh-hans/campus-news/1st-dku-neuroscience-symposium/"
+        },
+        "status": "active"
+      },
+      "talk:activity-2024-07-19-02b0981fed": {
+        "ownership": "legacy",
+        "last_rendered": "中国计算机学会芯片大会(CCF Chip 2024): “Integrated Circuits for High Throughput Neural Recording”（2024年7月，中国上海）",
+        "snapshot": {
+          "date": "2024-07-19",
+          "title": "中国计算机学会芯片大会：报告主题：《Integrated Circuits for High Throughput Neural Recording》",
+          "url": "https://ccf.org.cn/chip2024/general_1054"
+        },
+        "status": "active"
+      },
+      "talk:activity-2024-05-18-7c83ba56a4": {
+        "ownership": "legacy",
+        "last_rendered": "九三学社中央第四十次科学座谈会：“学科交叉与产业投资双驱动——加速脑机接口技术由点到链的发展”（2024年5月，中国天津）",
+        "snapshot": {
+          "date": "2024-05-18",
+          "title": "九三学社：九三学社中央第四十次科学座谈会，发言内容：《学科交叉与产业投资双驱动——加速脑机接口技术由点到链的发展》",
+          "url": "https://www.93.gov.cn/xwjc-snyw/779013.html"
+        },
+        "status": "active"
+      },
+      "talk:activity-2024-04-20-da795da285": {
+        "ownership": "legacy",
+        "last_rendered": "2024片上脑机接口国际会议：“全植入脑机接口芯片与脑-汉语神经解码”（2024年4月，中国天津）",
+        "snapshot": {
+          "date": "2024-04-20",
+          "title": "2024片上脑机接口国际会议：报告题目《全植入脑机接口芯片与脑-汉语神经解码》",
+          "url": "https://mp.weixin.qq.com/s/jQcTmt7yyR5itbgronXmeA"
+        },
+        "status": "active"
+      },
+      "talk:activity-2023-11-25-d8e08b5d6d": {
+        "ownership": "legacy",
+        "last_rendered": "之江同心·经济圆桌会议：“脑机接口技术与应用”（2023年11月，中国杭州）",
+        "snapshot": {
+          "date": "2023-11-25",
+          "title": "九三学社：「之江同心·经济圆桌会议」",
+          "url": "http://www.hzjs.org.cn/proscenium/show/5133"
+        },
+        "status": "active"
+      },
+      "talk:activity-2023-11-24-c7c4077d7b": {
+        "ownership": "legacy",
+        "last_rendered": "脑机接口与神经工程前沿交叉研讨会：“脑机接口芯片与汉语解码研究进展”（2023年11月，中国杭州）",
+        "snapshot": {
+          "date": "2023-11-24",
+          "title": "浙大求是高等研究院：「脑机接口与神经工程前沿交叉」研讨会",
+          "url": "http://www.qaas.zju.edu.cn/news.asp?id=169"
+        },
+        "status": "active"
+      },
+      "talk:activity-2023-08-25-39c5935fe0": {
+        "ownership": "legacy",
+        "last_rendered": "脑机智能·未来科技创业沙龙：“脑机接口技术与应用”（2023年8月，中国杭州）",
+        "snapshot": {
+          "date": "2023-08-25",
+          "title": "九三学社：「脑机智能·未来科技创业沙龙」",
+          "url": "http://www.hzjs.org.cn/proscenium/show/4943"
+        },
+        "status": "active"
+      },
+      "talk:activity-2022-10-20-ea3ba094bd": {
+        "ownership": "legacy",
+        "last_rendered": "2022 20<sup>th</sup> IEEE International NEWCAS Conference: “Towards Smart and Closed-Loop Neuromodulation”(2022年6月，加拿大魁北克，在线报告)",
+        "snapshot": {
+          "date": "2022-06",
+          "title": "NEWCAS 2022 Tutorial: Towards Smart and Closed-Loop Neuromodulation（加拿大魁北克，在线报告）",
+          "url": ""
+        },
+        "status": "active"
+      }
+    }
+  },
+  "research_awards": {
+    "body_sha256": "9de8a561d443447428c814add9eb61120a05773ca825b5422ee57ee5c832189f",
+    "count": 10
+  }
+}

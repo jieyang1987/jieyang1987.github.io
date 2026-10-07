@@ -89,7 +89,8 @@ const tbio=home.paperAwards.filter(item=>item.venue==='TBioCAS'&&item.year===202
 check(tbio.length===2,'Both user-provided TBioCAS records remain separate');
 check(tbio.some(item=>item.authorRole==='通讯作者')&&tbio.some(item=>item.authorRole==='通讯作者、共同第一作者'),'TBioCAS records retain their distinct author roles');
 check(home.paperAwards.filter(item=>item.distinction==='当期封面').length===2,'Cover selections are not renamed as paper awards');
-check(home.paperAwards.some(item=>item.venue==='AICAS'&&item.authorRole==='共同作者'),'AICAS keeps the co-author role rather than corresponding author');
+check(home.paperAwards.some(item=>item.venue==='半导体学报'&&item.paperTitle==='面向边缘智能的神经形态计算芯片与部署'),'Chinese-language cover paper retains its original Chinese title');
+check(home.paperAwards.some(item=>item.venue==='AICAS'&&!item.authorRole&&item.cv?.confirmedCorresponding===false),'AICAS reflects the latest author-reviewed CV without a corresponding-author claim');
 const longVenue=home.paperAwards.find(item=>item.venue.startsWith('National Conference'));
 check(!!longVenue.venueShort&&html.includes(escape(longVenue.venueShort+' · '+longVenue.distinction)),'Long conference uses a compact display label');
 render({paperAwards:home.paperAwards.slice(0,4)});

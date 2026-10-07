@@ -51,37 +51,44 @@
     {
       "title": "国际电路与系统会议（ICCS）青年科学家奖",
       "titleZh": "国际电路与系统会议（ICCS）青年科学家奖",
-      "year": 2026
+      "year": 2026,
+      "id": "honor-2026-7bdd195d7e"
     },
     {
       "title": "中国脑机接口华瑙奖“杰出青年奖”",
       "titleZh": "中国脑机接口华瑙奖“杰出青年奖”",
-      "year": 2026
+      "year": 2026,
+      "id": "honor-2026-777d0b955b"
     },
     {
       "title": "脑机接口青百荟青年专家",
       "titleZh": "脑机接口青百荟青年专家",
-      "year": 2025
+      "year": 2025,
+      "id": "honor-2025-ed8848ab11"
     },
     {
       "title": "浙江省高层次人才培养计划青年人才",
       "titleZh": "浙江省高层次人才培养计划青年人才",
-      "year": 2025
+      "year": 2025,
+      "id": "honor-2025-889f0494f4"
     },
     {
       "title": "九三学社浙江省委员会参政议政先进个人",
       "titleZh": "九三学社浙江省委员会参政议政先进个人",
-      "year": 2023
+      "year": 2023,
+      "id": "honor-2023-91cddd4692"
     },
     {
       "title": "九三学社杭州市西湖区优秀社员",
       "titleZh": "九三学社杭州市西湖区优秀社员",
-      "year": 2023
+      "year": 2023,
+      "id": "honor-2023-3039561e64"
     },
     {
       "title": "杭州市西湖明珠工程海外高层次人才",
       "titleZh": "杭州市西湖明珠工程海外高层次人才",
-      "year": 2022
+      "year": 2022,
+      "id": "honor-2022-0211ff53ef"
     }
   ],
   "researchIntro": "杨杰的研究聚焦于「记录、解码与模拟大脑」三大主线，致力于通过芯片架构创新与多学科交叉，解决脑机接口在超大规模集成、极低功耗处理以及复杂神经信号实时解码中的核心瓶颈。",
@@ -111,15 +118,24 @@
       "url": "publications.html?paper=9767670#publication-results",
       "paperTitle": "NeuroSEE: A Neuromorphic Energy-Efficient Processing Framework for Visual Prostheses",
       "cover": "images/coverage/jbhi-2022-cover.webp",
-      "coverAlt": "JBHI 2022 年 8 月刊封面"
+      "coverAlt": "JBHI 2022 年 8 月刊封面",
+      "cv": {
+        "confirmedCorresponding": true,
+        "confirmedBy": "author",
+        "confirmedOn": "2026-10-07"
+      }
     },
     {
       "year": 2023,
       "venue": "AICAS",
       "distinction": "Best Paper Award",
-      "authorRole": "共同作者",
       "url": "publications.html?paper=10168576#publication-results",
-      "paperTitle": "Binary is All You Need: Ultra-Efficient Arrhythmia Detection with a Binary-Only Compressive System"
+      "paperTitle": "Binary is All You Need: Ultra-Efficient Arrhythmia Detection with a Binary-Only Compressive System",
+      "cv": {
+        "confirmedCorresponding": false,
+        "confirmedBy": "author",
+        "confirmedOn": "2026-10-07"
+      }
     },
     {
       "year": 2023,
@@ -127,7 +143,12 @@
       "distinction": "Best Neuromorphic Paper",
       "authorRole": "通讯作者",
       "url": "publications.html?paper=10132492#publication-results",
-      "paperTitle": "A 510μW 0.738-mm² 6.2-pJ/SOP Online Learning Multi-Topology SNN Processor with Unified Computation Engine in 40-nm CMOS"
+      "paperTitle": "A 510μW 0.738-mm² 6.2-pJ/SOP Online Learning Multi-Topology SNN Processor with Unified Computation Engine in 40-nm CMOS",
+      "cv": {
+        "confirmedCorresponding": true,
+        "confirmedBy": "author",
+        "confirmedOn": "2026-10-07"
+      }
     },
     {
       "year": 2023,
@@ -135,20 +156,35 @@
       "distinction": "Best Neuromorphic Paper",
       "authorRole": "通讯作者、共同第一作者",
       "url": "publications.html?paper=10105432#publication-results",
-      "paperTitle": "A 0.99-to-4.38 μJ/class Event-Driven Hybrid Neural Network Processor for Full-Spectrum Neural Signal Analyses"
+      "paperTitle": "A 0.99-to-4.38 μJ/class Event-Driven Hybrid Neural Network Processor for Full-Spectrum Neural Signal Analyses",
+      "cv": {
+        "confirmedCorresponding": true,
+        "confirmedBy": "author",
+        "confirmedOn": "2026-10-07"
+      }
     },
     {
       "year": 2025,
       "venue": "National Conference on Machine Learning and Nature-Inspired Computing",
       "venueShort": "机器学习与自然启发计算会议",
       "distinction": "Best Poster Awards",
-      "authorRole": "通讯作者"
+      "authorRole": "通讯作者",
+      "cv": {
+        "confirmedCorresponding": true,
+        "confirmedBy": "author",
+        "confirmedOn": "2026-10-07"
+      }
     },
     {
       "year": 2025,
       "venue": "第二届中国脑机智能大会",
       "distinction": "亮点墙报",
-      "authorRole": "通讯作者"
+      "authorRole": "通讯作者",
+      "cv": {
+        "confirmedCorresponding": true,
+        "confirmedBy": "author",
+        "confirmedOn": "2026-10-07"
+      }
     },
     {
       "year": 2025,
@@ -156,7 +192,12 @@
       "distinction": "Best Paper Award for BioCAS Track",
       "authorRole": "通讯作者",
       "url": "publications.html?paper=11043802#publication-results",
-      "paperTitle": "Efficient Self-Adaptive Pseudo-Resistor with Rapid Settling and High Linearity for Neurorecording Front-End Circuits"
+      "paperTitle": "Efficient Self-Adaptive Pseudo-Resistor with Rapid Settling and High Linearity for Neurorecording Front-End Circuits",
+      "cv": {
+        "confirmedCorresponding": true,
+        "confirmedBy": "author",
+        "confirmedOn": "2026-10-07"
+      }
     },
     {
       "year": 2026,
@@ -164,9 +205,14 @@
       "distinction": "当期封面",
       "authorRole": "通讯作者",
       "url": "publications.html?paper=https%3A%2F%2Fwww.cjos.ac.cn%2Fcn%2Farticle%2Fpdf%2Fpreview%2F10.3724%2Fcjos.2025.044.pdf#publication-results",
-      "paperTitle": "Neuromorphic computing chips and deployment for edge intelligence",
+      "paperTitle": "面向边缘智能的神经形态计算芯片与部署",
       "cover": "images/coverage/cjos-2026-cover.webp",
-      "coverAlt": "半导体学报 2026 年第 2 期封面"
+      "coverAlt": "半导体学报 2026 年第 2 期封面",
+      "cv": {
+        "confirmedCorresponding": true,
+        "confirmedBy": "author",
+        "confirmedOn": "2026-10-07"
+      }
     }
   ],
   "metaDescription": "杨杰的个人学术主页，介绍其在西湖大学与西湖灵犀科技的研究及产业化工作，聚焦脑机接口芯片与系统、类脑计算芯片和脑机接口中文解码，汇集研究论文、芯片成果、在线教材与团队招募信息。",

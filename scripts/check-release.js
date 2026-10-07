@@ -4,8 +4,8 @@ const fs=require('fs'),path=require('path'),assert=require('assert/strict'),cp=r
 const {root,isPublicFile,collect}=require('./build-release');
 let checks=0;
 function check(value,message){assert(value,message);checks++;}
-for(const file of ['.cloudbase-upload/index.html','.codex_tmp/preview.html','output/test.png','.env','data/.env','data/.env.json','cloudbaserc.json','scripts/build-release.js','AGENTS.md','deploy_all.bat','static/node_modules/x.js','images/private.pem','static/notes.md'])check(!isPublicFile(file),'Forbidden public artifact entry: '+file);
-for(const file of ['join.html','join_en.html','book-item-bci_en.html','book-references_en.html','static/js/en-site.js','data/join.json','images/research1_en.svg'])check(isPublicFile(file),'Required public file allowed: '+file);
+for(const file of ['CV/latex/cv.pdf','CV/latex/content.md','static/assets/cv/raw-cv.pdf','static/assets/cv/layout.tex','.cloudbase-upload/index.html','.codex_tmp/preview.html','output/test.png','.env','data/.env','data/.env.json','cloudbaserc.json','scripts/build-release.js','AGENTS.md','deploy_all.bat','static/node_modules/x.js','images/private.pem','static/notes.md'])check(!isPublicFile(file),'Forbidden public artifact entry: '+file);
+for(const file of ['static/assets/cv/jie-yang-cv.pdf','join.html','join_en.html','book-item-bci_en.html','book-references_en.html','static/js/en-site.js','data/join.json','images/research1_en.svg'])check(isPublicFile(file),'Required public file allowed: '+file);
 const manifest=JSON.parse(fs.readFileSync(path.join(root,'dist/_release.json'),'utf8'));
 const expected=collect();
 function artifactFiles(dir,rel=''){return fs.readdirSync(dir).flatMap(name=>{const file=rel?rel+'/'+name:name,abs=path.join(dir,name);return fs.statSync(abs).isDirectory()?artifactFiles(abs,file):[file];});}

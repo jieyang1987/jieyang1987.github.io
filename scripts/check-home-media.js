@@ -87,6 +87,10 @@ async function main() {
   check(api.selectRecentActivities(fixtures,99).length===6, 'Invalid dates and empty titles are ignored');
   check(JSON.stringify(fixtures)===fixtureBefore, 'Sorting does not mutate source records');
   check(api.selectRecentActivities(null).length===0, 'Missing activity arrays are handled');
+  const monthOnly=api.selectRecentActivities([{date:'2022.06',title:'Confirmed NEWCAS month'}])[0];
+  check(monthOnly.iso==='2022-06'&&monthOnly.dateLabel==='2022.06','Homepage preserves month precision without inventing a day');
+  check(api.selectRecentActivities([{date:'2022.13',title:'Invalid month'}]).length===0,'Invalid month-only dates are rejected');
+
 
   await api.renderRecentActivities();
   check(state.requests.join('|')==='data/coverage.json', 'Read the same source as the activity page');

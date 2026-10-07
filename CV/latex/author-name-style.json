@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "confirmed_on": "2026-10-06",
+  "policy": "Use given-name initials plus full family name. Preserve given-name order, hyphenation, author order and role markers. Only explicit full-name mappings; no guessing that Y. Chen and Y-H. Chen are the same person.",
+  "aliases": {
+    "Yun-Hsuan Chen": "Y-H. Chen",
+    "Chi-Ying Tsui": "C-Y. Tsui",
+    "Kwang-Ting Tim Cheng": "K-T. T. Cheng",
+    "Tim Kwang-Ting Cheng": "T. K-T. Cheng",
+    "Di Wu": "D. Wu",
+    "Siyuan Li": "S. Li",
+    "Chen Feng": "C. Feng",
+    "Lu Cao": "L. Cao",
+    "Yue Zhang": "Y. Zhang",
+    "Jie Yang": "J. Yang",
+    "Douglas McDonald": "D. McDonald",
+    "Ulian Shahnovich": "U. Shahnovich",
+    "Orly Yadid-Pecht": "O. Yadid-Pecht",
+    "Mohammed Sawan": "M. Sawan",
+    "Mohamad Sawan": "M. Sawan"
+  }
+}

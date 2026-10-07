@@ -12,7 +12,7 @@
   const terms = search.value.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
   let visible = 0;
   for (const card of cards) {
-   const text = card.textContent.toLocaleLowerCase();
+   const text = (card.querySelector?.('.chip-content') || card).textContent.toLocaleLowerCase();
    card.hidden = !terms.every(term => text.includes(term)) || !!(topic.value && !card.dataset.topics.split(' ').includes(topic.value));
    if (!card.hidden) visible++;
   }

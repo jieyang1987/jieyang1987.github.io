@@ -23,3 +23,34 @@
 .insight-empty p { color: var(--muted); }
 .insight-main [hidden] { display: none !important; }
 @media (max-width: 520px) { .insight-card, .insight-empty { padding: 24px 20px; } .insight-controls label { width: 100%; } .insight-card h2 { font-size: 21px; } }
+
+/* Quiet circuit accents: a plain reading card with only two corner traces. */
+.chip-frame { position: relative; isolation: isolate; min-width: 0; }
+.insight-card.chip-frame, .insight-empty.chip-frame {
+  padding: 0;
+  border: 1px solid #d5e2ec;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 4px 18px rgba(35, 75, 107, .025);
+  margin-bottom: 26px;
+}
+.chip-decoration { position: absolute; inset: 0; pointer-events: none; overflow: hidden; border-radius: inherit; }
+.chip-trace { position: absolute; width: 76px; height: 42px; color: #a4bfce; opacity: .64; }
+.chip-trace--tl { top: 4px; left: 4px; }
+.chip-trace--br { bottom: 4px; right: 4px; transform: rotate(180deg); }
+.chip-content { position: relative; padding: 32px 32px 30px; min-width: 0; }
+.chip-content .insight-meta { color: var(--accent); }
+.chip-content .insight-tags:empty { display: none; }
+.chip-content h2 + .insight-tags:empty + p { margin-top: 22px; }
+.insight-empty.chip-frame .chip-content { min-height: 220px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+.insight-empty.chip-frame h2 { margin: 0 0 12px; }
+.insight-card.chip-frame:target { border-color: var(--accent); box-shadow: 0 0 0 2px var(--wash); }
+@media (max-width: 520px) {
+  .chip-content { padding: 28px 24px 26px; }
+  .chip-trace { width: 58px; height: 32px; opacity: .54; }
+  .insight-empty.chip-frame .chip-content { min-height: 200px; }
+}
+@media print {
+  .chip-decoration { display: none; }
+  .insight-card.chip-frame, .insight-empty.chip-frame { border: 1px solid #ccc; box-shadow: none; background: white; }
+}

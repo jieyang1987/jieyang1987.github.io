@@ -32,6 +32,33 @@ for (const page of pages) {
   check(new Set(ids).size === ids.length, `${page}: unique IDs`);
   for (const match of html.matchAll(/<(?:a|link|script|img)\b[^>]*\b(?:href|src)="([^"]+)"/g)) localLink(match[1], page);
 }
+for (const [page, label, honors] of [
+  ['index.html', '查看 CV', '#about'],
+  ['index_en.html', 'View CV', '#honors']
+]) {
+  const links = read(page).match(/<div class="hero-links">[\s\S]*?<\/div>/)?.[0] || '';
+  const anchor = links.match(/<a\b[^>]*id="link-cv"[^>]*>[\s\S]*?<\/a>/)?.[0] || '';
+  check(!!anchor, page + ': CV is a real link, not a disabled button');
+  check(anchor.includes(label) && anchor.includes('href="static/assets/cv/jie-yang-cv.pdf"'), page + ': CV targets the same approved public PDF');
+  check(anchor.includes('type="application/pdf"') && anchor.includes('aria-haspopup="dialog"') && anchor.includes('aria-controls="home-cv-dialog"') && !/\bdownload(?:[\s=>])/.test(anchor), page + ': CV opens an in-page preview rather than forcing a download');
+  check(!/\b(?:disabled|onclick|target)\s*=/.test(anchor) && !anchor.includes('Coming soon') && !anchor.includes('待提供'), page + ': no stale placeholder or script-based navigation');
+  check(links.indexOf('id="link-scholar"') < links.indexOf('id="link-cv"') && links.indexOf('id="link-cv"') < links.indexOf('href="' + honors + '"'), page + ': CV follows Google Scholar and precedes honors');
+}
+
+const cvPreviewSource = read('static/js/en-home.js');
+check(cvPreviewSource.includes('function initCvPreview()') && cvPreviewSource.includes('initCvPreview();'), 'CV preview is initialized on both homepages');
+check(cvPreviewSource.includes("import('../vendor/pdfjs/pdf.min.js')") && cvPreviewSource.includes('static/vendor/pdfjs/pdf.worker.min.js'), 'CV renderer and worker are self-hosted and loaded on demand');
+check(cvPreviewSource.includes('const number = currentPage;') && cvPreviewSource.includes('renderTask?.cancel()'), 'CV renders a single selected page and cancels superseded work');
+check(cvPreviewSource.includes('requestId') || cvPreviewSource.includes('currentSession !== session'), 'Closing prevents stale PDF requests from reopening the viewer');
+check(cvPreviewSource.includes('download="Jie-Yang-CV.pdf"'), 'Explicit PDF download remains available inside the preview');
+check(!cvPreviewSource.includes('<iframe class="home-cv-frame"'), 'CV preview does not depend on a browser PDF plugin');
+const publicFile = require('./build-release').isPublicFile;
+for (const asset of ['static/vendor/pdfjs/pdf.min.js', 'static/vendor/pdfjs/pdf.worker.min.js', 'static/vendor/pdfjs/LICENSE.txt']) {
+  check(hasFile(asset), 'CV preview dependency exists: ' + asset);
+  check(publicFile(asset), 'CV preview dependency is allowed in the public artifact: ' + asset);
+}
+check(!publicFile('CV/private.pdf') && !publicFile('static/assets/cv/private.pdf'), 'Adding a PDF viewer does not expose other CV files');
+
 const homeHtml = read('index_en.html');
 const homeHero = homeHtml.match(/<section class="hero"[\s\S]*?<\/section>/)?.[0] || '';
 check(homeHero.includes('<div class="hero-name-row"><h1 id="hero-name">Jie Yang</h1><span class="hero-degree">Ph.D.</span></div>'), 'English hero: name and smaller degree share a row');
@@ -61,10 +88,10 @@ const gridCss = homeCss.slice(homeCss.indexOf('/* Quiet grid background'), homeC
 check(gridCss.includes('body:is(.zh-unified, [data-en-page])::before') && gridCss.includes('background-size: 192px 192px, 192px 192px, 48px 48px, 48px 48px'), 'Chinese and English pages share the approved major/minor grid');
 check(gridCss.includes('rgba(83, 112, 138, .09)') && gridCss.includes('rgba(83, 112, 138, .034)'), 'Minor grid lines are quieter than major lines');
 check(gridCss.includes('background-position: 0 0;'), 'Both grid scales have the same origin');
-for(const page of ['index.html','research.html','publications.html','chip_gallery.html','coverage.html','join.html','book-item-bci.html'])check(read(page).includes('en-home.css?v=23'), page + ': Chinese grid stylesheet cache is refreshed');
+for(const page of ['index.html','research.html','publications.html','chip_gallery.html','coverage.html','join.html','book-item-bci.html'])check(read(page).includes('en-home.css?v=25'), page + ': Chinese grid stylesheet cache is refreshed');
 check(gridCss.includes('body:is(.zh-unified, [data-en-page]).en-inner::before { opacity: .60; }'), 'English inner pages use the same muted texture as Chinese');
 check(gridCss.includes('body:is(.zh-unified, [data-en-page])::before { display: none; }') && gridCss.includes('@media print'), 'Grid remains absent on narrow screens and in print');
-for(const page of pages)check(read(page).includes('en-home.css?v='+(page==='index_en.html'?23:21)), page + ': shared background stylesheet cache is refreshed');
+for(const page of pages)check(read(page).includes('en-home.css?v='+(page==='index_en.html'?25:21)), page + ': shared background stylesheet cache is refreshed');
 const expectedHonors = json('data/zh-home.json').selectedHonors.filter(h => !h.title.includes('九三学社'));
 const englishHonors = json('data/en-home.json').selectedHonors;
 const approvedHonorTitles = [

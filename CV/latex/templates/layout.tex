@@ -1,0 +1,131 @@
+% !TeX program = xelatex
+% Style only. Body content lives in content.md; build.py regenerates cv.tex.
+\documentclass[11pt,a4paper,fontset=fandol]{ctexart}
+\usepackage[left=19mm,right=19mm,top=24.8mm,bottom=24.8mm,footskip=11mm]{geometry}
+\usepackage{fontspec}
+% Match the Word reference on Windows; keep a distributable, open-font fallback.
+% Fonts are read from the OS, never copied into the repository.
+\IfFontExistsTF{Times New Roman}{%
+  \setmainfont{Times New Roman}[Mapping={}]
+}{%
+  \setmainfont{texgyretermes-regular.otf}[
+    BoldFont=texgyretermes-bold.otf,ItalicFont=texgyretermes-italic.otf,
+    BoldItalicFont=texgyretermes-bolditalic.otf]
+}
+\IfFontExistsTF{SimSun}{%
+  \setCJKmainfont{SimSun}[AutoFakeBold=1.4,AutoFakeSlant=0.15]
+  \setCJKfamilyfont{zhsong}{SimSun}[AutoFakeBold=1.4]
+}{}
+\IfFontExistsTF{SimHei}{%
+  \setCJKsansfont{SimHei}
+  \setCJKfamilyfont{zhhei}{SimHei}
+}{}
+\usepackage{xcolor}
+% Semantic palette: body / navigation / achievements / secondary text.
+\definecolor{CVText}{HTML}{242A30}
+\definecolor{CVInk}{HTML}{142B40}
+\definecolor{CVAchievement}{HTML}{7D383B}
+\definecolor{CVRule}{HTML}{B7C4CF}
+\definecolor{CVMuted}{HTML}{5F6B76}
+\usepackage{needspace}
+\usepackage{xeCJKfntef}
+\usepackage{ragged2e}
+\usepackage{fancyhdr}
+\usepackage[unicode,colorlinks=true,urlcolor=CVInk,linkcolor=CVInk]{hyperref}
+\urlstyle{same}
+\hypersetup{pdftitle={简历},pdfcreator={XeLaTeX}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1.5em}
+\linespread{1}
+\AtBeginDocument{\color{CVText}\fontsize{11bp}{18.2bp}\selectfont}
+\raggedbottom
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyfoot[C]{{\normalfont\fontsize{9bp}{11bp}\selectfont\color{CVMuted}\thepage}}
+
+\newif\ifCVReferences
+\CVReferencesfalse
+\newcommand{\CVReferenceMode}{\CVReferencestrue}
+\newcommand{\CVUnderline}[1]{{\CJKunderline{#1}}}
+\newcommand{\CVSquare}{\raisebox{0.12ex}{\rule{0.43em}{0.43em}}}
+\newcommand{\CVStrongEm}[1]{\textbf{\textit{#1}}}
+
+% Centered Song title, rather than the heavy sans-serif title of the first draft.
+\newcommand{\CVTitle}[1]{%
+  \par\begingroup\centering\normalfont\songti
+  \fontsize{22bp}{33bp}\selectfont\bfseries\color{CVInk} #1\par\endgroup
+  \vspace{9bp}}
+\newcommand{\CVSection}[1]{%
+  \par\CVReferencesfalse\Needspace{100bp}\addvspace{12bp}%
+  {\heiti\fontsize{14bp}{20bp}\selectfont\color{CVInk}#1\par}%
+  \nobreak\vspace{3bp}{\color{CVRule}\hrule height 0.35bp}%
+  \nobreak\vspace{7bp}\nobreak}
+\newcommand{\CVSectionWithNote}[2]{%
+  \CVSection{#1\quad{\normalfont\fontsize{9.5bp}{14bp}\selectfont\color{CVMuted}#2}}}
+\newcommand{\CVSubsection}[1]{%
+  \par\Needspace{65bp}\addvspace{8bp}%
+  {\heiti\fontsize{12bp}{19bp}\selectfont\color{CVInk} #1\par}%
+  \nobreak\vspace{4bp}\nobreak}
+\newcommand{\CVSubheading}[1]{%
+  \par\Needspace{60bp}\addvspace{7bp}%
+  {\heiti\fontsize{11.5bp}{18bp}\selectfont\color{CVInk} #1\par}%
+  \nobreak\vspace{3bp}\nobreak}
+\newcommand{\CVYear}[1]{%
+  \par\Needspace{55bp}\addvspace{6bp}%
+  {\normalfont\fontsize{10.5bp}{15bp}\selectfont\bfseries\color{CVInk}#1\par}%
+  \nobreak\vspace{3bp}\nobreak}
+\newcommand{\CVResearchTitle}[1]{%
+  \CVSubheading{\CVSquare\hspace{0.5em}#1}}
+
+% Biography has a more generous rhythm than the publication list, as in Word.
+\newcommand{\CVParagraph}[1]{%
+  \par\begingroup\fontsize{11bp}{21.5bp}\selectfont #1\par\endgroup
+  \addvspace{1.5bp}}
+\newcommand{\CVLeadParagraph}[1]{%
+  \par\Needspace{65bp}\CVParagraph{#1}\nobreak}
+% Color only pre-existing, fully emphasized honors and project titles.
+\newcommand{\CVAccentParagraph}[1]{\CVParagraph{\textcolor{CVAchievement}{#1}}}
+\newcommand{\CVAccentLeadParagraph}[1]{\CVLeadParagraph{\textcolor{CVAchievement}{#1}}}
+\newcommand{\CVDetail}[1]{%
+  \par\begingroup\fontsize{11bp}{20bp}\selectfont\leftskip=43mm #1\par\endgroup
+  \addvspace{1.5bp}}
+\newcommand{\CVProjectDetail}[1]{%
+  \par\begingroup\centering\fontsize{11bp}{20bp}\selectfont #1\par\endgroup
+  \addvspace{3bp}}
+% Inset the whole contact block; do not independently center the two columns.
+\newcommand{\CVField}[2]{%
+  \par\begingroup\fontsize{11bp}{22bp}\selectfont
+  \leftskip=24mm\rightskip=17mm\hangindent=33mm\hangafter=1
+  \makebox[33mm][l]{\color{CVMuted}#1}#2\par\endgroup}
+\newcommand{\CVItem}[2]{%
+  \par\begingroup
+  \ifCVReferences\fontsize{10.5bp}{14.4bp}\selectfont\interlinepenalty=10000
+  \else\fontsize{11bp}{17.8bp}\selectfont\fi
+  \RaggedRight\hangindent=7mm\hangafter=1
+  \makebox[7mm][l]{\color{CVMuted}#1}#2\par\endgroup\addvspace{4.5bp}}
+% One compact research-honor list: muted year and readable hanging description.
+\newcommand{\CVResearchAward}[2]{%
+  \par\begingroup\fontsize{10.8bp}{18bp}\selectfont\RaggedRight
+  \hangindent=18mm\hangafter=1
+  \makebox[18mm][l]{\color{CVMuted}#1年}%
+  \let\CVOriginalTextbf\textbf
+  \renewcommand{\textbf}[1]{\textcolor{CVInk}{\CVOriginalTextbf{##1}}}%
+  #2\par\endgroup\addvspace{4bp}}
+
+\newcommand{\CVBullet}[1]{\CVItem{\ensuremath{\bullet}}{#1}}
+\newcommand{\CVSubItem}[1]{%
+  \par\begingroup\fontsize{11bp}{18.2bp}\selectfont\RaggedRight
+  % Scope accent to underlined research evidence, never to contact labels.
+  \renewcommand{\CVUnderline}[1]{{\CJKunderline[textformat=\color{CVAchievement},format=\color{CVAchievement}]{##1}}}
+  \leftskip=6mm\hangindent=4mm\hangafter=1
+  \makebox[4mm][l]{\color{CVMuted}\raisebox{0.12ex}{\fontsize{8bp}{8bp}\selectfont\ensuremath{\triangleright}}}%
+  #1\par\endgroup\addvspace{3bp}}
+\begin{document}
+%%CV_BODY%%
+\end{document}

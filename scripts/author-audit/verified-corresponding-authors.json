@@ -1,0 +1,241 @@
+{
+  "version": 1,
+  "scope": "Evidence-backed verification of Jie Yang corresponding-author flags; not a blanket author-list certification.",
+  "records": [
+    {
+      "kind": "journals",
+      "title": "BoostViT: Booth-Serial Skipping and Tunable Scaling for Vision Transformers",
+      "source_file": "data/publications/2025.json",
+      "source_url": "10.1109/TCSI.2025.3575328",
+      "doi": "10.1109/TCSI.2025.3575328",
+      "owner": "Jie Yang",
+      "owner_corresponding": false,
+      "declared_corresponding_authors": [
+        "Shiqi Zhao",
+        "Fengshi Tian"
+      ],
+      "verified_on": "2026-10-06",
+      "method": "Published PDF explicit corresponding-author statement; text and page image inspected",
+      "evidence": {
+        "pdf": "papers/2025_TCAS-I_BoostViT_Booth-Serial_Skipping_and_Tunable_Scaling_for_Vision_Transformers.pdf",
+        "page": 1,
+        "quote": "Corresponding authors: Shiqi Zhao; Fengshi Tian.",
+        "sha256": "6b0fb556e1fc0cf9b162e5c01754d8258bcea8488acf37194b4670755e9bbd2d"
+      },
+      "scope": "Only Jie Yang corresponding-author flag; other authors, author order, year and title are not certified or rewritten by this audit."
+    },
+    {
+      "kind": "journals",
+      "title": "A Resource-Efficient Algorithm-Hardware Co-Design Towards Semi-Supervised Neurological Symptoms Prediction",
+      "source_file": "data/publications/2025.json",
+      "source_url": "https://ieeexplore.ieee.org/abstract/document/11014532",
+      "doi": "10.1109/TIM.2025.3572999",
+      "owner": "Jie Yang",
+      "owner_corresponding": false,
+      "verified_on": "2026-10-07",
+      "method": "Published PDF explicitly names Di Wu; author reconfirmed on 2026-10-07 that Jie Yang is a co-author, not corresponding author",
+      "evidence": {
+        "pdf": "papers/2025_TIM_A_Resource-Efficient_Algorithm-Hardware_Co-Design_Towards_Semi-Supervised_Neurological_Symptoms_Prediction.pdf",
+        "page": 1,
+        "quote": "Corresponding author: Di Wu.",
+        "sha256": "bd66f3422d9b877e011596edaca2cb0e9a121e6e3bdffe5fa793d3ccc7cec1c8"
+      },
+      "scope": "Jie Yang is a co-author with bold name only; prior contrary Markdown-based confirmation retained as history.",
+      "superseded_verification": {
+        "owner_corresponding": true,
+        "method": "Latest author-reviewed CV Markdown supplied as the authoritative corresponding-author record; prior evidence retained for review",
+        "evidence": {
+          "kind": "author_confirmation",
+          "statement": "通信作者信息我已经逐条核实，markdown文件中为正确版本",
+          "confirmed_on": "2026-10-07",
+          "source": "CV/latex/content.md"
+        },
+        "scope": "Latest author-confirmed Jie Yang corresponding-author flag only; earlier contrary statement is retained in superseded_verification."
+      },
+      "declared_corresponding_authors": [
+        "Di Wu"
+      ],
+      "latest_author_confirmation": {
+        "kind": "author_confirmation",
+        "statement": "我只是作者之一，不要标记通信作者了，只需要对我的名字常规加黑即可",
+        "confirmed_on": "2026-10-07"
+      }
+    },
+    {
+      "kind": "journals",
+      "title": "A 0.0012-mm² 0.66-pJ/bit BPSK demodulator incorporating a loop-filter-less PLL achieving the maximum data rate of f<sub>carrier</sub>/2",
+      "source_file": "data/publications/2025.json",
+      "source_url": "https://www.jos.ac.cn/en/article/doi/10.1088/1674-4926/24100022",
+      "doi": "10.1088/1674-4926/24100022",
+      "owner": "Jie Yang",
+      "owner_corresponding": false,
+      "declared_corresponding_authors": [
+        "Zhao Zhang"
+      ],
+      "verified_on": "2026-10-06",
+      "method": "Published PDF explicit corresponding-author statement; text and page image inspected",
+      "evidence": {
+        "pdf": "papers/2025_JOS_A_0.0012-mm²_0.66-pJbit_BPSK_demodulator_incorporating_a_loop-filter-less_PLL_achieving_the_maximum_data_rate_of_fsubcar.pdf",
+        "page": 2,
+        "quote": "Correspondence to: Z Zhang",
+        "sha256": "416d3c6f7ed5f9a59222a7f3127434a61c425ae918352132669b1332a2b77d90"
+      },
+      "scope": "Only Jie Yang corresponding-author flag; other authors, author order, year and title are not certified or rewritten by this audit."
+    },
+    {
+      "kind": "journals",
+      "title": "BioPI: An Energy Efficient and Low-Latency Neuromorphic Pipelined System with Joint Design Optimizations of Sensor-Algorithm-Processor for Wearable Healthcare",
+      "source_file": "data/publications/2024.json",
+      "source_url": "https://ieeexplore.ieee.org/abstract/document/10762792/",
+      "doi": "10.1109/TCASAI.2024.3502573",
+      "owner": "Jie Yang",
+      "owner_corresponding": false,
+      "declared_corresponding_authors": [
+        "Fengshi Tian"
+      ],
+      "verified_on": "2026-10-06",
+      "method": "Published PDF explicit corresponding-author statement; text and page image inspected",
+      "evidence": {
+        "pdf": "papers/2024_TCSAI_BioPI_An_Energy_Efficient_and_Low-Latency_Neuromorphic_Pipelined_System_with_Joint_Design_Optimizations_of.pdf",
+        "page": 1,
+        "quote": "Corresponding author: Fengshi Tian.",
+        "sha256": "5d7d03e687c0acc0980d68d32f90c62e1c78214308e9f1be636dece09c016fc8"
+      },
+      "scope": "Only Jie Yang corresponding-author flag; other authors, author order, year and title are not certified or rewritten by this audit."
+    },
+    {
+      "kind": "conferences",
+      "title": "E-NPU: A 34~126nJ/Class Event-Driven Adaptive Neural SoC with Signal-Dynamics-Aware Feature Clustering and Multi-Model In-Memory Inference/Training for Personalized Medical Wearables",
+      "source_file": "data/publications/2025.json",
+      "source_url": "https://ieeexplore.ieee.org/document/10982760",
+      "doi": "",
+      "owner": "Jie Yang",
+      "owner_corresponding": false,
+      "declared_corresponding_authors": [
+        "Fengshi Tian"
+      ],
+      "verified_on": "2026-10-06",
+      "method": "Published PDF explicit corresponding-author statement; text and page image inspected",
+      "evidence": {
+        "pdf": "papers/2025_CICC_E-NPU_A_34~126nJ_Class_Event-Driven_Adaptive_Neural_SoC_with_Signal-Dynamics-Aware_Feature_Clustering_and_Multi-Model.pdf",
+        "page": 3,
+        "quote": "The corresponding author of this paper is Fengshi Tian",
+        "sha256": "ec4756ce8972e40a87324ab8e2627414763970eae38e363cba35b9f4d5a770a4"
+      },
+      "scope": "Only Jie Yang corresponding-author flag; other authors, author order, year and title are not certified or rewritten by this audit."
+    },
+    {
+      "kind": "journals",
+      "title": "NeuroSEE: A Neuromorphic Energy-Efficient Processing Framework for Visual Prostheses",
+      "source_url": "https://ieeexplore.ieee.org/document/9767670",
+      "owner": "Jie Yang",
+      "owner_corresponding": true,
+      "confirmed_corresponding_author": "Jie Yang",
+      "verified_on": "2026-10-07",
+      "method": "Author self-confirmation for the named website research honor and corresponding publication",
+      "evidence": {
+        "kind": "author_confirmation",
+        "statement": "这几个论文，我都是通讯作者",
+        "confirmed_on": "2026-10-07",
+        "award": "JBHI · 当期封面"
+      },
+      "scope": "Jie Yang corresponding-author flag only; no inference about other contributors."
+    },
+    {
+      "kind": "conferences",
+      "title": "Binary is All You Need: Ultra-Efficient Arrhythmia Detection with a Binary-Only Compressive System",
+      "source_url": "https://ieeexplore.ieee.org/document/10168576",
+      "owner": "Jie Yang",
+      "owner_corresponding": false,
+      "verified_on": "2026-10-07",
+      "method": "Latest direct author confirmation: co-author only, not corresponding author",
+      "evidence": {
+        "kind": "author_confirmation",
+        "statement": "Binary is All You Need，我只是作者之一，不要标记为通信作者",
+        "confirmed_on": "2026-10-07",
+        "source": "CV/latex/content.md"
+      },
+      "scope": "Jie Yang is a co-author with bold name only; prior contrary author confirmation retained as history.",
+      "superseded_verification": {
+        "owner_corresponding": true,
+        "method": "Author self-confirmation for the named website research honor and corresponding publication",
+        "evidence": {
+          "kind": "author_confirmation",
+          "statement": "这几个论文，我都是通讯作者",
+          "confirmed_on": "2026-10-07",
+          "award": "AICAS · Best Paper Award"
+        },
+        "confirmed_corresponding_author": "Jie Yang"
+      }
+    },
+    {
+      "kind": "journals",
+      "title": "A 510μW 0.738-mm² 6.2-pJ/SOP Online Learning Multi-Topology SNN Processor with Unified Computation Engine in 40-nm CMOS",
+      "source_url": "https://ieeexplore.ieee.org/abstract/document/10132492",
+      "owner": "Jie Yang",
+      "owner_corresponding": true,
+      "confirmed_corresponding_author": "Jie Yang",
+      "verified_on": "2026-10-07",
+      "method": "Author self-confirmation for the named website research honor and corresponding publication",
+      "evidence": {
+        "kind": "author_confirmation",
+        "statement": "这几个论文，我都是通讯作者",
+        "confirmed_on": "2026-10-07",
+        "award": "TBioCAS · Best Neuromorphic Paper"
+      },
+      "scope": "Jie Yang corresponding-author flag only; no inference about other contributors."
+    },
+    {
+      "kind": "journals",
+      "title": "A 0.99-to-4.38 μJ/class Event-Driven Hybrid Neural Network Processor for Full-Spectrum Neural Signal Analyses",
+      "source_url": "https://ieeexplore.ieee.org/document/10105432",
+      "owner": "Jie Yang",
+      "owner_corresponding": true,
+      "confirmed_corresponding_author": "Jie Yang",
+      "verified_on": "2026-10-07",
+      "method": "Author self-confirmation for the named website research honor and corresponding publication",
+      "evidence": {
+        "kind": "author_confirmation",
+        "statement": "这几个论文，我都是通讯作者",
+        "confirmed_on": "2026-10-07",
+        "award": "TBioCAS · Best Neuromorphic Paper"
+      },
+      "scope": "Jie Yang corresponding-author flag only; no inference about other contributors."
+    },
+    {
+      "kind": "conferences",
+      "title": "Efficient Self-Adaptive Pseudo-Resistor with Rapid Settling and High Linearity for Neurorecording Front-End Circuits",
+      "source_url": "https://ieeexplore.ieee.org/abstract/document/11043802",
+      "owner": "Jie Yang",
+      "owner_corresponding": true,
+      "confirmed_corresponding_author": "Jie Yang",
+      "verified_on": "2026-10-07",
+      "method": "Author self-confirmation for the named website research honor and corresponding publication",
+      "evidence": {
+        "kind": "author_confirmation",
+        "statement": "这几个论文，我都是通讯作者",
+        "confirmed_on": "2026-10-07",
+        "award": "ISCAS · Best Paper Award for BioCAS Track"
+      },
+      "scope": "Jie Yang corresponding-author flag only; no inference about other contributors."
+    },
+    {
+      "kind": "journals",
+      "title": "面向边缘智能的神经形态计算芯片与部署",
+      "source_url": "https://www.cjos.ac.cn/cn/article/pdf/preview/10.3724/cjos.2025.044.pdf",
+      "owner": "Jie Yang",
+      "owner_corresponding": true,
+      "confirmed_corresponding_author": "Jie Yang",
+      "verified_on": "2026-10-07",
+      "method": "Author self-confirmation for the named website research honor and corresponding publication",
+      "evidence": {
+        "kind": "author_confirmation",
+        "statement": "这几个论文，我都是通讯作者",
+        "confirmed_on": "2026-10-07",
+        "award": "半导体学报 · 当期封面"
+      },
+      "scope": "Jie Yang corresponding-author flag only; no inference about other contributors.",
+      "english_translation": "Neuromorphic computing chips and deployment for edge intelligence"
+    }
+  ]
+}

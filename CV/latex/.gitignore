@@ -1,0 +1,23 @@
+# Generated standalone preview and compiler output; source lives in content.md/templates.
+cv.tex
+cv.pdf
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.xdv
+*.fls
+*.fdb_latexmk
+__pycache__/
+*.pyc
+
+# Generated freshness receipts and the latest sync audit (not CV source).
+cv.build.json
+cv.pdf.build.json
+sync-report.json
+SYNC_REVIEW.md
+
+# Generated publication audit (configuration/state remain source candidates).
+publication-sync-report.json
+PUBLICATION_REVIEW.md

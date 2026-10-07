@@ -4,11 +4,12 @@ const fs=require('fs'),path=require('path'),crypto=require('crypto'),cp=require(
 const root=path.resolve(__dirname,'..');
 const pages=['insights.html','insights_en.html','index.html','index_en.html','research.html','research_en.html','publications.html','publications_en.html','chip_gallery.html','chip_gallery_en.html','coverage.html','coverage_en.html','join.html','join_en.html','book-item-bci.html','book-item-bci_en.html','book-references_en.html','bci_book.html'];
 const topFiles=[...pages,'robots.txt','sitemap.xml'];
+const publicCv='static/assets/cv/jie-yang-cv.pdf';
 const assetTypes={static:new Set(['.html','.css','.js','.map','.woff2','.woff','.ttf','.ico','.svg','.png','.jpg','.jpeg','.webp','.gif']),images:new Set(['.svg','.png','.jpg','.jpeg','.webp','.gif','.ico']),book:new Set(['.html','.css','.js','.svg','.png','.jpg','.jpeg','.webp','.gif','.wmf']),papers:new Set(['.pdf']),data:new Set(['.json'])};
 function isPublicFile(file){
  const parts=file.split('/');
  if(parts.some(p=>p.startsWith('.')||/^(?:node_modules|output|dist|__pycache__)$/i.test(p)))return false;
- if(file==='static/assets/fonts/inter/OFL.txt')return true;
+ if(file==='static/assets/fonts/inter/OFL.txt'||file==='static/vendor/pdfjs/LICENSE.txt'||file===publicCv)return true;
  return parts.length===1?topFiles.includes(file)||file==='CNAME':Boolean(assetTypes[parts[0]]?.has(path.posix.extname(file).toLowerCase()));
 }
 function collect(){
@@ -22,6 +23,8 @@ function collect(){
  for(const file of topFiles){if(!fs.existsSync(path.join(root,file)))throw new Error('Missing page: '+file);walk(file);}
  if(fs.existsSync(path.join(root,'CNAME')))walk('CNAME');
  for(const folder of Object.keys(assetTypes))walk(folder);
+ if(!files.includes(publicCv))throw new Error('Missing approved public CV PDF: '+publicCv);
+ if(!fs.readFileSync(path.join(root,publicCv)).subarray(0,5).equals(Buffer.from('%PDF-')))throw new Error('Approved public CV is not a PDF');
  return files.sort();
 }
 function build(){

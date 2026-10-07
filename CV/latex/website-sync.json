@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "highlight_new_honors": true,
+  "notes": "Only personal honors and confirmed speaking records are synchronized. Legacy-only CV records are retained. Add stable cv.id and cv.kind to a new website activity when needed; unknown activity types go to review.",
+  "talk_decisions": {
+    "talk:activity-2025-03-31-d5f5714f96": {
+      "action": "match",
+      "legacy_contains": "中国科学院半导体研究所物理沙龙：“脑机接口与类脑计算研究进展”",
+      "reason": "同一报告；保留旧 CV 中的地点与完整描述，不重复新增。"
+    },
+    "talk:activity-2025-03-28-66fd8980a5": {
+      "action": "match",
+      "legacy_contains": "华人芯片设计技术研讨会2025",
+      "reason": "同一报告；保留旧 CV 中的完整题目、地点与格式。"
+    },
+    "talk:activity-2024-10-24-502af84ae1": {
+      "action": "match",
+      "legacy_contains": "2024 17th International Conference on Solid-State and Integrated Circuit Technology(ICSICT)",
+      "reason": "用户于 2026-10-06 确认正式题目为《侵入式脑机接口的系统级芯片：挑战与机遇》；CV 已按网页题目更新。",
+      "confirmed_by": "user",
+      "confirmed_on": "2026-10-06"
+    },
+    "talk:activity-2024-07-19-02b0981fed": {
+      "action": "match",
+      "legacy_contains": "中国计算机学会芯片大会(CCF Chip 2024)",
+      "reason": "用户于 2026-10-06 确认正式题目为 Integrated Circuits for High Throughput Neural Recording；CV 与网页已统一。",
+      "confirmed_by": "user",
+      "confirmed_on": "2026-10-06"
+    },
+    "talk:activity-2024-05-18-7c83ba56a4": {
+      "action": "match",
+      "legacy_contains": "九三学社中央第四十次科学座谈会",
+      "reason": "同一发言；旧 CV 已收录，保留原文字和地点。"
+    },
+    "talk:activity-2024-04-20-da795da285": {
+      "action": "match",
+      "legacy_contains": "2024片上脑机接口国际会议",
+      "reason": "同一报告；旧 CV 已收录，保留原文字和地点。"
+    },
+    "talk:activity-2023-11-25-d8e08b5d6d": {
+      "action": "match",
+      "legacy_contains": "之江同心·经济圆桌会议",
+      "reason": "网页只列活动名称；保留旧 CV 中已有的报告题目。"
+    },
+    "talk:activity-2023-11-24-c7c4077d7b": {
+      "action": "match",
+      "legacy_contains": "脑机接口与神经工程前沿交叉研讨会",
+      "reason": "网页只列研讨会名称；保留旧 CV 中已有的报告题目。"
+    },
+    "talk:activity-2023-08-25-39c5935fe0": {
+      "action": "match",
+      "legacy_contains": "脑机智能·未来科技创业沙龙",
+      "reason": "网页只列活动名称；保留旧 CV 中已有的报告题目。"
+    },
+    "talk:activity-2022-10-20-ea3ba094bd": {
+      "action": "match",
+      "legacy_contains": "2022 20th IEEE International NEWCAS Conference",
+      "reason": "用户于 2026-10-06 确认：2022 年 6 月、加拿大魁北克、在线报告。按月保存日期，不猜具体日；原 AICAS 链接已移除，保留 CV 完整记录。",
+      "confirmed_by": "user",
+      "confirmed_on": "2026-10-06"
+    },
+    "talk:activity-2025-05-18-a62d4bd96b": {
+      "action": "skip",
+      "reason": "用户于 2026-10-06 确认只担任主持人，没有作报告；不加入邀请报告。",
+      "confirmed_by": "user",
+      "confirmed_on": "2026-10-06"
+    }
+  },
+  "talk_numbering": "descending"
+}

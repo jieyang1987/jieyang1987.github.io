@@ -26,8 +26,8 @@
         {
           "src": "images/research3_new.svg",
           "caption": {
-            "zh": "脑机接口芯片概念图",
-            "en": "BCI Chip Concept"
+            "zh": "侵入式脑机接口概念示意：植入式神经采集、片上处理与无线传输",
+            "en": "Invasive neural interface concept: neural recording, on-chip processing and wireless telemetry"
           },
           "group": "bci-chip",
           "srcEn": "images/research3_en.svg"

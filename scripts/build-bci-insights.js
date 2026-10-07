@@ -71,6 +71,13 @@ function validate(data) {
  }
  return data;
 }
+// Two quiet corner traces suggest circuitry without turning the reading area into a diagram.
+// Decoration stays non-interactive, accessible text stays inside chip-content.
+function chipFrame(body, lang) {
+ const corners = ['tl','br'].map(corner => `<svg class="chip-trace chip-trace--${corner}" viewBox="0 0 88 48" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M10 37V24L24 10H70"/><circle cx="10" cy="39" r="2.1" fill="white"/><circle cx="72" cy="10" r="2.1" fill="white"/></g></svg>`).join('');
+ return `<div class="chip-decoration" aria-hidden="true">${corners}</div><div class="chip-content">${body}</div>`;
+}
+
 function render(data, lang) {
  validate(data);
  const c = copy[lang], zh = lang === 'zh', file = zh ? 'insights.html' : 'insights_en.html';
@@ -79,7 +86,7 @@ function render(data, lang) {
   .replace(/<title>[\s\S]*?<\/title>/, `<title>${c.title} — ${zh ? '杨杰' : 'Jie Yang'} | ${zh ? '西湖大学' : 'Westlake University'}</title>`)
   .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${esc(c.description)}">`)
   .replace(/<link rel="alternate"[^>]*>/g, '').replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, '');
- head += `<link rel="stylesheet" href="static/css/bci-insights.css?v=2"><link rel="canonical" href="https://yangjie.ac.cn/${file}"><link rel="alternate" hreflang="zh-CN" href="insights.html"><link rel="alternate" hreflang="en" href="insights_en.html">`;
+ head += `<link rel="stylesheet" href="static/css/bci-insights.css?v=4"><link rel="canonical" href="https://yangjie.ac.cn/${file}"><link rel="alternate" hreflang="zh-CN" href="insights.html"><link rel="alternate" hreflang="en" href="insights_en.html">`;
  const localize = html => html.replaceAll(' aria-current="page"','').replace(/href="coverage(_en)?\.html"(?= lang=)/g, `href="${zh ? 'insights_en.html' : 'insights.html'}"`);
  const header = localize(template.match(/<header class="site-header">[\s\S]*?<\/header>/)[0])
   .replaceAll(`href="${file}"`, `href="${file}" aria-current="page"`);
@@ -87,11 +94,11 @@ function render(data, lang) {
  const articles = data.articles.filter(a => a[lang]).sort((a,b) => b.date.localeCompare(a.date) || a.id.localeCompare(b.id));
  const cards = articles.map(a => {
   const t = a[lang];
-  return `<article class="insight-card" id="note-${a.id}" data-topics="${esc(a.topics.join(' '))}">
-<div class="insight-meta">${a.source ? `<span>${esc(a.source)}</span>` : ''}<span>${c.date} <time datetime="${a.date}">${a.date}</time></span>${a.sourceDate ? `<span>${c.sourceDate} <time datetime="${a.sourceDate}">${a.sourceDate}</time></span>` : ''}</div>
+  const body = `<div class="insight-meta">${a.source ? `<span>${esc(a.source)}</span>` : ''}<span>${c.date} <time datetime="${a.date}">${a.date}</time></span>${a.sourceDate ? `<span>${c.sourceDate} <time datetime="${a.sourceDate}">${a.sourceDate}</time></span>` : ''}</div>
 <h2>${esc(t.title)}</h2><div class="insight-tags">${a.topics.map(id => `<span>${esc(data.topics.find(topic => topic.id === id)[lang])}</span>`).join('')}</div>
 <p>${esc(t.body ?? t.summary)}</p>${t.note ? `<div class="insight-note"><h3>${c.note}</h3><p>${esc(t.note)}</p></div>` : ''}
-<div class="insight-links">${a.url ? `<a href="${esc(a.url)}" target="_blank" rel="noopener noreferrer">${c.source} <span aria-hidden="true">↗</span></a>` : ''}<a href="#note-${a.id}">${c.permalink}</a></div></article>`;
+<div class="insight-links">${a.url ? `<a href="${esc(a.url)}" target="_blank" rel="noopener noreferrer">${c.source} <span aria-hidden="true">↗</span></a>` : ''}<a href="#note-${a.id}">${c.permalink}</a></div>`;
+  return `<article class="insight-card chip-frame" id="note-${a.id}" data-topics="${esc(a.topics.join(' '))}">${chipFrame(body,lang)}</article>`;
  }).join('\n');
  return `<!DOCTYPE html>
 <html lang="${zh ? 'zh-CN' : 'en'}"><head>${head}</head>
@@ -100,10 +107,10 @@ function render(data, lang) {
 <div class="insight-layout"><section aria-label="${c.title}">
 <div class="insight-controls" hidden><label>${c.search}<input id="insight-search" type="search" placeholder="${c.placeholder}" autocomplete="off"></label><label>${c.topic}<select id="insight-topic"><option value="">${c.all}</option>${data.topics.map(t => `<option value="${t.id}">${esc(t[lang])}</option>`).join('')}</select></label><button id="insight-reset" type="button">${c.reset}</button></div>
 <p id="insight-count" class="insight-count" role="status" aria-live="polite" data-unit="${c.count}">${articles.length} ${c.count}</p>
-<div id="insight-list">${cards || `<div class="insight-empty"><h2>${c.empty}</h2><p>${c.emptyText}</p></div>`}</div>
+<div id="insight-list">${cards || `<div class="insight-empty chip-frame">${chipFrame(`<h2>${c.empty}</h2><p>${c.emptyText}</p>`,lang)}</div>`}</div>
 <p id="insight-no-results" class="insight-empty" hidden>${c.noResults}</p></section>
 </div></main>
-${footer}<script src="static/js/bci-insights.js?v=1" defer></script></body></html>\n`;
+${footer}<script src="static/js/bci-insights.js?v=2" defer></script></body></html>\n`;
 }
 function build(check = false) {
  const data = validate(JSON.parse(read('data/bci-insights.json')));

@@ -37,6 +37,10 @@ async function main(){
    if(item.url)check(result.html.includes('href="'+esc(item.url)+'"'),lang+': external activity link retained');
    for(const image of item.images||[])check(result.html.includes('data-image="'+esc(image.src)+'"'),lang+': image enlargement control retained');
   }
+  const monthly=await render(lang,{items:[{date:'2022.06',title:'NEWCAS 在线报告',titleEn:'NEWCAS online talk',images:[]}]});
+  check(monthly.html.includes('datetime="2022-06"'),lang+': confirmed month precision is retained');
+  check(!monthly.html.includes('2022-06-01')&&!monthly.html.includes('Invalid Date'),lang+': no invented day or invalid date is displayed');
+  check(monthly.html.includes(lang==='zh'?'>2022.06</time>':'>Jun 2022</time>'),lang+': month-only dates have appropriate visible labels');
   const empty=await render(lang,{items:[]});
   check(!empty.shell.includes('activity-count'),lang+': empty archive does not restore a counter');
   check(empty.html.includes(lang==='zh'?'暂无活动记录。':'No activity records are available yet.')&&!/search|关键词/.test(empty.html),lang+': empty state does not refer to removed filters');

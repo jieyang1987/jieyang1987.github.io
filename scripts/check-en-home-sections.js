@@ -32,11 +32,13 @@ check(!html.includes('id="about"')&&html.includes('id="honors"')&&html.includes(
 check(!html.includes('class="content-section about-grid"'),'No legacy biography/teaching split');
 check(html.indexOf('id="hero-intro"')<html.indexOf('id="honors"')&&html.indexOf('id="honors"')<html.indexOf('id="teaching"'),'Section order is stable');
 check(en.paperAwards.length===zh.paperAwards.length,'All Chinese paper-honor records represented');
+const cjsPaper=JSON.parse(read('data/publications/2026.json')).journals.flatMap(group=>group.items).find(p=>p.doi==='10.3724/cjos.2025.044');
+check(cjsPaper?.title==='面向边缘智能的神经形态计算芯片与部署'&&!!cjsPaper.titleEn,'Chinese cover paper retains its original title and English translation');
 en.paperAwards.forEach((a,i)=>{
  const original=zh.paperAwards[i];
  check(a.year===original.year,'Honor year retained '+i);
  check(a.url===(original.url?.replace('publications.html','publications_en.html')),'Known paper links localized, missing links not invented '+i);
- check(a.paperTitle===original.paperTitle,'Publication title preserved '+i);
+ check(a.paperTitle===original.paperTitle || (original.venue==='半导体学报'&&original.paperTitle===cjsPaper.title&&a.paperTitle===cjsPaper.titleEn),'Publication original title or English translation preserved '+i);
 });
 const awards=rendered['paper-awards-list'];
 check((awards.split('<details')[0].match(/class="paper-award-item"/g)||[]).length===3,'Three latest English paper honors initially visible');

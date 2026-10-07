@@ -4,7 +4,7 @@
       "year": 2021,
       "items": [
         {
-          "authors": "Z. Wang, <strong>J. Yang*</strong>, H. Wu, J. Zhu, M. Sawan",
+          "authors": "Z. Wang, <strong>J. Yang</strong><sup>*</sup>, H. Wu, J. Zhu, M. Sawan",
           "title": "Power efficient refined seizure prediction algorithm based on an enhanced benchmarking",
           "venue": "Scientific Reports",
           "venueHighlight": false,
@@ -15,7 +15,7 @@
           ]
         },
         {
-          "authors": "S. Zhao, <strong>J. Yang*</strong>, M. Sawan",
+          "authors": "S. Zhao, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
           "title": "Energy-efficient neural network for epileptic seizure prediction",
           "venue": "IEEE Transactions on Biomedical Engineering",
           "venueHighlight": false,
@@ -33,7 +33,7 @@
       "year": 2021,
       "items": [
         {
-          "authors": "Z. Wang, <strong>J. Yang*</strong>, M. Sawan",
+          "authors": "Z. Wang, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
           "title": "A Novel Multi-scale Dilated 3D CNN for Epileptic Seizure Prediction",
           "venue": "2021 IEEE 3rd International Conference on Artificial Intelligence Circuits and Systems (AICAS)",
           "venueHighlight": false,
@@ -44,7 +44,7 @@
           ]
         },
         {
-          "authors": "F. Tian, <strong>J. Yang*</strong>, S. Zhao, M. Sawan",
+          "authors": "F. Tian, <strong>J. Yang</strong><sup>*</sup>, S. Zhao, M. Sawan",
           "title": "A New Neuromorphic Computing Approach for Epileptic Seizure Prediction",
           "venue": "2021 IEEE International Symposium on Circuits and Systems (ISCAS)",
           "venueHighlight": false,

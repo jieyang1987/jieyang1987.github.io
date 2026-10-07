@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "records": [
+    {
+      "kind": "conferences",
+      "title": "Binary is All You Need: Ultra-Efficient Arrhythmia Detection with a Binary-Only Compressive System",
+      "source_url": "https://ieeexplore.ieee.org/document/10168576",
+      "required_authors": [
+        "K. Cheng"
+      ],
+      "confirmed_on": "2026-10-06",
+      "confirmed_by": "user",
+      "scope": "Presence of K. Cheng, explicitly confirmed by the author. Appended in the position recorded in the old CV. No corresponding-author role inferred or changed."
+    }
+  ]
+}

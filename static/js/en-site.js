@@ -318,7 +318,10 @@
     const data=await json('data/coverage.json');
     const items=data.items.map((item,i)=>{
       const [y,m,d]=item.date.split('.').map(Number);
-      return {...item,key:i,year:y,iso:`${y}-${String(m).padStart(2,'0')}-${String(d).padStart(2,'0')}`,dateText:lang==='zh'?item.date:new Date(Date.UTC(y,m-1,d)).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric',timeZone:'UTC'})};
+      const hasDay=Number.isInteger(d);
+      const iso=`${y}-${String(m).padStart(2,'0')}`+(hasDay?`-${String(d).padStart(2,'0')}`:'');
+      const dateOptions={month:'short',year:'numeric',timeZone:'UTC',...(hasDay?{day:'numeric'}:{})};
+      return {...item,key:i,year:y,iso,dateText:lang==='zh'?item.date:new Date(Date.UTC(y,m-1,hasDay?d:1)).toLocaleDateString('en-US',dateOptions)};
     }).sort((a,b)=>b.iso.localeCompare(a.iso));
     const years=[...new Set(items.map(i=>i.year))];
     content.innerHTML='<div id="activity-results"></div>';

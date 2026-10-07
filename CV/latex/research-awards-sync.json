@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "source": "data/zh-home.json#paperAwards",
+  "format": "one-chronological-list",
+  "owner_role_policy": "Never infer personal awardee status from a company/team recipient; do not import unverified authorRole labels."
+}

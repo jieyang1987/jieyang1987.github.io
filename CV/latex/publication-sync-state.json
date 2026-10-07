@@ -1,0 +1,2086 @@
+{
+  "version": 1,
+  "records": {
+    "journals:doi:10.3724/cjos.2025.044": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "Z. Liao, C. Zhang, C. Fang, Y. Zhang, Z. Shen, **J. Yang**\\*, M. Sawan\\*, \"面向边缘智能的神经形态计算芯片与部署\", ***Chinese Journal of Semiconductors***, 2026.",
+      "last_rendered": "Z. Liao, C. Zhang, C. Fang, Y. Zhang, Z. Shen, **J. Yang**\\*, M. Sawan\\*, \"面向边缘智能的神经形态计算芯片与部署\", ***Chinese Journal of Semiconductors***, 2026.",
+      "snapshot": {
+        "year": 2026,
+        "authors": "Z. Liao, C. Zhang, C. Fang, Y. Zhang, Z. Shen, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "面向边缘智能的神经形态计算芯片与部署",
+        "venue": "Chinese Journal of Semiconductors",
+        "venueHighlight": false,
+        "url": "https://www.cjos.ac.cn/cn/article/pdf/preview/10.3724/cjos.2025.044.pdf",
+        "doi": "10.3724/cjos.2025.044"
+      }
+    },
+    "journals:doi:10.1109/jsen.2026.3726601": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "X. Liu, H. Ali, J. Chen, H. Wu, W. Zou, **J. Yang**\\*, M. Sawan\\*, \"RF Energy Harvesting Integrated Circuits for Low-Power Sensors: A Review\", ***IEEE Sensors Journal***, 2026.",
+      "last_rendered": "X. Liu, H. Ali, J. Chen, H. Wu, W. Zou, **J. Yang**\\*, M. Sawan\\*, \"RF Energy Harvesting Integrated Circuits for Low-Power Sensors: A Review\", ***IEEE Sensors Journal***, 2026.",
+      "snapshot": {
+        "year": 2026,
+        "authors": "X. Liu, H. Ali, J. Chen, H. Wu, W. Zou, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
+        "title": "RF Energy Harvesting Integrated Circuits for Low-Power Sensors: A Review",
+        "venue": "IEEE Sensors Journal",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/11672224/",
+        "doi": "10.1109/jsen.2026.3726601"
+      }
+    },
+    "journals:doi:10.1109/tcsi.2026.3720571": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "Z. Shen, Z. Liao, S. Shen, C. Fang, F. Tian, **J. Yang**\\*, M. Sawan\\*, \"SHARP: An Energy-Efficient Spike-Based 3-D Recognition Processor With Hierarchical Hybrid Sparsity Awareness on Point Cloud\", ***IEEE Transactions on Circuits and Systems I: Regular Papers***, 2026.",
+      "last_rendered": "Z. Shen, Z. Liao, S. Shen, C. Fang, F. Tian, **J. Yang**\\*, M. Sawan\\*, \"SHARP: An Energy-Efficient Spike-Based 3-D Recognition Processor With Hierarchical Hybrid Sparsity Awareness on Point Cloud\", ***IEEE Transactions on Circuits and Systems I: Regular Papers***, 2026.",
+      "snapshot": {
+        "year": 2026,
+        "authors": "Z. Shen, Z. Liao, S. Shen, C. Fang, F. Tian, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
+        "title": "SHARP: An Energy-Efficient Spike-Based 3-D Recognition Processor With Hierarchical Hybrid Sparsity Awareness on Point Cloud",
+        "venue": "IEEE Transactions on Circuits and Systems I: Regular Papers",
+        "venueHighlight": false,
+        "url": "https://doi.org/10.1109/TCSI.2026.3720571"
+      }
+    },
+    "journals:doi:10.1016/j.neucom.2026.134740": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "H. Liu, S. Zhao, C. Fu, **J. Yang**, M. Sawan, \"A plug-and-play hybrid pruning framework for spike-driven transformers via adaptive spiking statistical importance scoring\", ***Neurocomputing***, 2026.",
+      "last_rendered": "H. Liu, S. Zhao, C. Fu, **J. Yang**, M. Sawan, \"A plug-and-play hybrid pruning framework for spike-driven transformers via adaptive spiking statistical importance scoring\", ***Neurocomputing***, 2026.",
+      "snapshot": {
+        "year": 2026,
+        "authors": "H. Liu, S. Zhao, C. Fu, <strong>J. Yang</strong>, M. Sawan",
+        "title": "A plug-and-play hybrid pruning framework for spike-driven transformers via adaptive spiking statistical importance scoring",
+        "venue": "Neurocomputing",
+        "venueHighlight": false,
+        "url": "https://doi.org/10.1016/j.neucom.2026.134740"
+      }
+    },
+    "journals:doi:10.1109/tim.2026.3712917": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "S. Zhao, Q. Wang, Z. Shu, X. Yang, M. Fang, **J. Yang**, M. Sawan, \"A Bioinspired Spiking Attention Neuromorphic Accelerator for Low-Power Visual Prosthesis\", ***IEEE Transactions on Instrumentation and Measurement***, 2026.",
+      "last_rendered": "S. Zhao, Q. Wang, Z. Shu, X. Yang, M. Fang, **J. Yang**, M. Sawan, \"A Bioinspired Spiking Attention Neuromorphic Accelerator for Low-Power Visual Prosthesis\", ***IEEE Transactions on Instrumentation and Measurement***, 2026.",
+      "snapshot": {
+        "year": 2026,
+        "authors": "S. Zhao, Q. Wang, Z. Shu, X. Yang, M. Fang, <strong>J. Yang</strong>, A. M. Sawan",
+        "title": "A Bioinspired Spiking Attention Neuromorphic Accelerator for Low-Power Visual Prosthesis",
+        "venue": "IEEE Transactions on Instrumentation and Measurement",
+        "venueHighlight": false,
+        "url": "https://doi.org/10.1109/TIM.2026.3712917"
+      }
+    },
+    "journals:url:www.mdpi.com/1424-8220/26/14/4485": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "W. Zou, **J. Yang**\\*, M. Sawan\\*, \"A Duty-Cycled PLL and Fractal Antenna Co-Design Architecture for a Low-Power IR-UWB Transmitter in Neural Implants\", ***Sensors***, 2026.",
+      "last_rendered": "W. Zou, **J. Yang**\\*, M. Sawan\\*, \"A Duty-Cycled PLL and Fractal Antenna Co-Design Architecture for a Low-Power IR-UWB Transmitter in Neural Implants\", ***Sensors***, 2026.",
+      "snapshot": {
+        "year": 2026,
+        "authors": "W. Zou, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
+        "title": "A Duty-Cycled PLL and Fractal Antenna Co-Design Architecture for a Low-Power IR-UWB Transmitter in Neural Implants",
+        "venue": "Sensors",
+        "venueHighlight": false,
+        "url": "https://www.mdpi.com/1424-8220/26/14/4485"
+      }
+    },
+    "journals:url:www.researchgate.net/publication/408501244_A_High-Energy-Efficiency_Tunable-Bandwidth_and_OOK_IR-UWB_Transmitter_for_Implantable_Brain-Computer_Interfaces": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "W. Zou, R. Eskandari, **J. Yang**\\*, M. Sawan\\*, \"A High-Energy-Efficiency, Tunable-Bandwidth, and OOK IR-UWB Transmitter for Implantable Brain–Computer Interfaces\", ***Electronics***, 2026.",
+      "last_rendered": "W. Zou, R. Eskandari, **J. Yang**\\*, M. Sawan\\*, \"A High-Energy-Efficiency, Tunable-Bandwidth, and OOK IR-UWB Transmitter for Implantable Brain–Computer Interfaces\", ***Electronics***, 2026.",
+      "snapshot": {
+        "year": 2026,
+        "authors": "W. Zou, R. Eskandari, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
+        "title": "A High-Energy-Efficiency, Tunable-Bandwidth, and OOK IR-UWB Transmitter for Implantable Brain–Computer Interfaces",
+        "venue": "Electronics",
+        "venueHighlight": false,
+        "url": "https://www.researchgate.net/publication/408501244_A_High-Energy-Efficiency_Tunable-Bandwidth_and_OOK_IR-UWB_Transmitter_for_Implantable_Brain-Computer_Interfaces"
+      }
+    },
+    "journals:ieee:11571815": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "H. Wu, J. Chen, R. Eskandari, Y. Han, X. Liu, W. Zou, F. Tian, Q. Hou, **J. Yang**\\*, M. Sawan\\*, \"NeuroSEED: A Neuromorphic Scalable Event-Driven SoC with Direct Multiplexing for Spike Detection and Wireless Telemetry\", ***IEEE Journal on Emerging and Selected Topics in Circuits and Systems***, 2026.",
+      "last_rendered": "H. Wu, J. Chen, R. Eskandari, Y. Han, X. Liu, W. Zou, F. Tian, Q. Hou, **J. Yang**\\*, M. Sawan\\*, \"NeuroSEED: A Neuromorphic Scalable Event-Driven SoC with Direct Multiplexing for Spike Detection and Wireless Telemetry\", ***IEEE Journal on Emerging and Selected Topics in Circuits and Systems***, 2026.",
+      "snapshot": {
+        "year": 2026,
+        "authors": "H. Wu, J. Chen, R. Eskandari, Y. Han, X. Liu, W. Zou, F. Tian, Q. Hou, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
+        "title": "NeuroSEED: A Neuromorphic Scalable Event-Driven SoC with Direct Multiplexing for Spike Detection and Wireless Telemetry",
+        "venue": "IEEE Journal on Emerging and Selected Topics in Circuits and Systems",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/11571815/"
+      }
+    },
+    "journals:url:www.sciencedirect.com/science/article/pii/S0950705126005563": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "S. Zhao, Z. Wang, H. Sun, S. Wang, Z. Chen, C. Fu, **J. Yang**, M. Sawan, \"HAQ-ViT: A hardware-aware post-training quantization for efficient vision transformer inference\", ***Knowledge-Based Systems***, 2026.",
+      "last_rendered": "S. Zhao, Z. Wang, H. Sun, S. Wang, Z. Chen, C. Fu, **J. Yang**, M. Sawan, \"HAQ-ViT: A hardware-aware post-training quantization for efficient vision transformer inference\", ***Knowledge-Based Systems***, 2026.",
+      "snapshot": {
+        "year": 2026,
+        "authors": "S. Zhao, Z. Wang, H. Sun, S. Wang, Z. Chen, C. Fu, <strong>J. Yang</strong>, M. Sawan",
+        "title": "HAQ-ViT: A hardware-aware post-training quantization for efficient vision transformer inference",
+        "venue": "Knowledge-Based Systems",
+        "venueHighlight": false,
+        "url": "https://www.sciencedirect.com/science/article/pii/S0950705126005563"
+      }
+    },
+    "journals:ieee:11386767": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "C. Zhang, Y. Zhang, J. Yu, **J. Yang**\\*, M. Sawan\\*, \"Event-Fused Hybrid ANN-SNN Architecture for Low-Latency Object Detection in Automotive Vision\", ***IEEE Robotics and Automation Letters***, 2026.",
+      "last_rendered": "C. Zhang, Y. Zhang, J. Yu, **J. Yang**\\*, M. Sawan\\*, \"Event-Fused Hybrid ANN-SNN Architecture for Low-Latency Object Detection in Automotive Vision\", ***IEEE Robotics and Automation Letters***, 2026.",
+      "snapshot": {
+        "year": 2026,
+        "authors": "C. Zhang, Y. Zhang, J. Yu, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
+        "title": "Event-Fused Hybrid ANN-SNN Architecture for Low-Latency Object Detection in Automotive Vision",
+        "venue": "IEEE Robotics and Automation Letters",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/11386767"
+      }
+    },
+    "journals:ieee:11392762": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "C. Wang, D. Wu, Y. Liao, W. Zheng, Z. Zeng, X. Gao, H. Wu, Z. Zhu, **J. Yang**, L. Zhong, W. Cheng, Y-H. Chen, M. Sawan, \"NeuroCLIP: A Multimodal Contrastive Learning Method for rTMS-treated Methamphetamine Addiction Analysis\", ***IEEE Journal of Biomedical and Health Informatics***, 2026.",
+      "last_rendered": "C. Wang, D. Wu, Y. Liao, W. Zheng, Z. Zeng, X. Gao, H. Wu, Z. Zhu, **J. Yang**, L. Zhong, W. Cheng, Y-H. Chen, M. Sawan, \"NeuroCLIP: A Multimodal Contrastive Learning Method for rTMS-treated Methamphetamine Addiction Analysis\", ***IEEE Journal of Biomedical and Health Informatics***, 2026.",
+      "snapshot": {
+        "year": 2026,
+        "authors": "C. Wang, D. Wu, Y. Liao, W. Zheng, Z. Zeng, X. Gao, H. Wu, Z. Zhu, <strong>J. Yang</strong>, L. Zhong, W. Cheng, Y-H. Chen, M. Sawan",
+        "title": "NeuroCLIP: A Multimodal Contrastive Learning Method for rTMS-treated Methamphetamine Addiction Analysis",
+        "venue": "IEEE Journal of Biomedical and Health Informatics",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/11392762"
+      }
+    },
+    "journals:ieee:11303122": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "H. Wu, Z. Tan, X. Liu, J. Chen, W. Zou, Q. Hou, S. Liu, Y. Mao, X. Kuang, **J. Yang**\\*, M. Sawan\\*, \"Self-Adaptive Pseudo-Resistors Enabling Millisecond-Level Artifact Recovery and High-Linearity for Neural Recording Front-Ends\", ***IEEE Transactions on Biomedical Circuits and Systems***, 2025.",
+      "last_rendered": "H. Wu, Z. Tan, X. Liu, J. Chen, W. Zou, Q. Hou, S. Liu, Y. Mao, X. Kuang, **J. Yang**\\*, M. Sawan\\*, \"Self-Adaptive Pseudo-Resistors Enabling Millisecond-Level Artifact Recovery and High-Linearity for Neural Recording Front-Ends\", ***IEEE Transactions on Biomedical Circuits and Systems***, 2025.",
+      "snapshot": {
+        "year": 2025,
+        "authors": "H. Wu, Z. Tan, X. Liu, J. Chen, W. Zou, Q. Hou, S. Liu, Y. Mao, X. Kuang, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
+        "title": "Self-Adaptive Pseudo-Resistors Enabling Millisecond-Level Artifact Recovery and High-Linearity for Neural Recording Front-Ends",
+        "venue": "IEEE Transactions on Biomedical Circuits and Systems",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/11303122"
+      }
+    },
+    "journals:ieee:11300703": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "S. Li, D. Wu, S. Zhao, **J. Yang**, M. Sawan, \"Memory-Efficient Intrinsic Gating Adaptation for Enhanced On-Device Epilepsy Diagnosis\", ***IEEE Journal of Biomedical and Health Informatics***, 2025.",
+      "last_rendered": "S. Li, D. Wu, S. Zhao, **J. Yang**, M. Sawan, \"Memory-Efficient Intrinsic Gating Adaptation for Enhanced On-Device Epilepsy Diagnosis\", ***IEEE Journal of Biomedical and Health Informatics***, 2025.",
+      "snapshot": {
+        "year": 2025,
+        "authors": "S. Li, D. Wu, S. Zhao, <strong>J. Yang</strong>, M. Sawan",
+        "title": "Memory-Efficient Intrinsic Gating Adaptation for Enhanced On-Device Epilepsy Diagnosis",
+        "venue": "IEEE Journal of Biomedical and Health Informatics",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/11300703"
+      }
+    },
+    "journals:doi:10.1109/jsen.2025.3612041": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "Z. Zeng, Y-H. Chen, X. Gao, W. Zheng, H. Wu, Z. Zhu, **J. Yang**, C. Wang, L. Zhong, W. Cheng, M. Sawan, \"Repetitive TMS-based Identification of Methamphetamine-Dependent Individuals Using EEG Spectra\", ***IEEE Sensors Journal***, 2025.",
+      "last_rendered": "Z. Zeng, Y-H. Chen, X. Gao, W. Zheng, H. Wu, Z. Zhu, **J. Yang**, C. Wang, L. Zhong, W. Cheng, M. Sawan, \"Repetitive TMS-based Identification of Methamphetamine-Dependent Individuals Using EEG Spectra\", ***IEEE Sensors Journal***, 2025.",
+      "snapshot": {
+        "year": 2025,
+        "authors": "Z. Zeng, Y-H. Chen, X. Gao, W. Zheng, H. Wu, Z. Zhu, <strong>J. Yang</strong>, C. Wang, L. Zhong, W. Cheng, M. Sawan",
+        "title": "Repetitive TMS-based Identification of Methamphetamine-Dependent Individuals Using EEG Spectra",
+        "venue": "IEEE Sensors Journal",
+        "venueHighlight": false,
+        "url": "10.1109/JSEN.2025.3612041"
+      }
+    },
+    "journals:ieee:11124571": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "C. Fang, Z. Shen, T. Li, S. Zhao, F. Tian, **J. Yang**\\*, M. Sawan\\*, \" A 28nm Spiking Vision Transformer Accelerator with Dual-Path Sparse Compute Core and EMA-free Self-Attention Engine for Embodied Intelligence\", ***IEEE Transactions on Circuits and Systems for Artificial Intelligence, 2025.***",
+      "last_rendered": "C. Fang, Z. Shen, T. Li, S. Zhao, F. Tian, **J. Yang**\\*, M. Sawan\\*, \" A 28nm Spiking Vision Transformer Accelerator with Dual-Path Sparse Compute Core and EMA-free Self-Attention Engine for Embodied Intelligence\", ***IEEE Transactions on Circuits and Systems for Artificial Intelligence, 2025.***",
+      "snapshot": {
+        "year": 2025,
+        "authors": "C. Fang, Z. Shen, T. Li, S. Zhao, F. Tian, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "A 28nm Spiking Vision Transformer Accelerator with Dual-Path Sparse Compute Core and EMA-free Self-Attention Engine for Embodied Intelligence",
+        "venue": "IEEE Transactions on Circuits and Systems for Artificial Intelligence",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/11124571"
+      }
+    },
+    "journals:url:www.elspub.com/papers/j/1920036428897701888.html": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "Z. Wang, Y. Liao, **J. Yang**\\*, M. Sawan\\*, \"AI-driven and IC-enabled advanced closed-loop neuromodulation for practical clinical applications\", ***Neuroelectronics***, 2025.",
+      "last_rendered": "Z. Wang, Y. Liao, **J. Yang**\\*, M. Sawan\\*, \"AI-driven and IC-enabled advanced closed-loop neuromodulation for practical clinical applications\", ***Neuroelectronics***, 2025.",
+      "snapshot": {
+        "year": 2025,
+        "authors": "Z. Wang, Y. Liao, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
+        "title": "AI-driven and IC-enabled advanced closed-loop neuromodulation for practical clinical applications",
+        "venue": "Neuroelectronics",
+        "venueHighlight": false,
+        "url": "https://www.elspub.com/papers/j/1920036428897701888.html"
+      }
+    },
+    "journals:doi:10.1109/tcsi.2025.3575328": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "S. Zhao, S. Wang, Z. Wang, C. Fang, F. Tian, J. Chen, C. Fu, **J. Yang**, M. Sawan, \"BoostViT: Booth-Serial Skipping and Tunable Scaling for Vision Transformers\", ***IEEE Transactions on Circuits and Systems I: Regular Papers, 2025.***",
+      "last_rendered": "S. Zhao, S. Wang, Z. Wang, C. Fang, F. Tian, J. Chen, C. Fu, **J. Yang**, M. Sawan, \"BoostViT: Booth-Serial Skipping and Tunable Scaling for Vision Transformers\", ***IEEE Transactions on Circuits and Systems I: Regular Papers, 2025.***",
+      "snapshot": {
+        "year": 2025,
+        "authors": "S. Zhao, S. Wang, Z. Wang, C. Fang, F. Tian, J. Chen, C. Fu, <strong>J. Yang</strong>, M. Sawan",
+        "title": "BoostViT: Booth-Serial Skipping and Tunable Scaling for Vision Transformers",
+        "venue": "IEEE Transactions on Circuits and Systems I: Regular Papers",
+        "venueHighlight": false,
+        "url": "10.1109/TCSI.2025.3575328"
+      }
+    },
+    "journals:ieee:11010158": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "X. Liu, J. Chen, H. Wu, W. Zou, **J. Yang**\\*, M. Sawan\\*, \"An On-Chip Reconfigurable Front-end for Ultra-Low-Power RF Energy Harvesting\", ***IEEE Transactions on Circuits and Systems II: Express Briefs, 2025.***",
+      "last_rendered": "X. Liu, J. Chen, H. Wu, W. Zou, **J. Yang**\\*, M. Sawan\\*, \"An On-Chip Reconfigurable Front-end for Ultra-Low-Power RF Energy Harvesting\", ***IEEE Transactions on Circuits and Systems II: Express Briefs, 2025.***",
+      "snapshot": {
+        "year": 2025,
+        "authors": "X. Liu, J. Chen, H. Wu, W. Zou, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "An On-Chip Reconfigurable Front-end for Ultra-Low-Power RF Energy Harvesting",
+        "venue": "IEEE Transactions on Circuits and Systems II: Express Briefs",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/11010158"
+      }
+    },
+    "journals:ieee:11014532": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "S. Zhao, D. Wu, F. Tian, **J. Yang**, M. Sawan\\*, \"A Resource-Efficient Algorithm-Hardware Co-Design Towards Semi-Supervised Neurological Symptoms Prediction\", ***IEEE Transactions on Instrumentation and Measurement, 2025.***",
+      "last_rendered": "S. Zhao, D. Wu, F. Tian, **J. Yang**, M. Sawan\\*, \"A Resource-Efficient Algorithm-Hardware Co-Design Towards Semi-Supervised Neurological Symptoms Prediction\", ***IEEE Transactions on Instrumentation and Measurement, 2025.***",
+      "snapshot": {
+        "year": 2025,
+        "authors": "S. Zhao, D. Wu, F. Tian, <strong>J. Yang</strong>, M. Sawan",
+        "title": "A Resource-Efficient Algorithm-Hardware Co-Design Towards Semi-Supervised Neurological Symptoms Prediction",
+        "venue": "IEEE Transactions on Instrumentation and Measurement",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/11014532"
+      }
+    },
+    "journals:url:www.academia.edu/2994-7065/2/2/10.20935/AcadEng7721": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "X. Shao, **J. Yang**, M. Sawan, W. Cui, \"Bridging biology and robotics: advancing submersible technology from robotic to live-fish models\", ***Academia Engineering, 2025.***",
+      "last_rendered": "X. Shao, **J. Yang**, M. Sawan, W. Cui, \"Bridging biology and robotics: advancing submersible technology from robotic to live-fish models\", ***Academia Engineering, 2025.***",
+      "snapshot": {
+        "year": 2025,
+        "authors": "X. Shao, <strong>J. Yang</strong>, M. Sawan, W. Cui",
+        "title": "Bridging biology and robotics: advancing submersible technology from robotic to live-fish models",
+        "venue": "Academia Engineering",
+        "venueHighlight": false,
+        "url": "https://www.academia.edu/2994-7065/2/2/10.20935/AcadEng7721"
+      }
+    },
+    "journals:url:spj.science.org/doi/full/10.34133/cbsystems.0257": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "C. Feng, L. Cao, E. Zhang, T. Wang, X. Jiang, J. Chen, H. Wu, S. Lin, Q. Hou, J. Zhu\\*, **J. Yang**\\*, M. Sawan\\*, Y. Zhang\\*, \"Acoustic Inspired Brain-to-Sentence Decoder for Logosyllabic Language\", ***Cyborg and Bionic Systems, 2025.*** **（生物医学工程顶级期刊，JCR 一区，影响影子\\>18）**",
+      "last_rendered": "C. Feng, L. Cao, E. Zhang, T. Wang, X. Jiang, J. Chen, H. Wu, S. Lin, Q. Hou, J. Zhu\\*, **J. Yang**\\*, M. Sawan\\*, Y. Zhang\\*, \"Acoustic Inspired Brain-to-Sentence Decoder for Logosyllabic Language\", ***Cyborg and Bionic Systems, 2025.*** **（生物医学工程顶级期刊，JCR 一区，影响影子\\>18）**",
+      "snapshot": {
+        "year": 2025,
+        "authors": "C. Feng, L. Cao, E. Zhang, T. Wang, X. Jiang, J. Chen, H. Wu, S. Lin, Q. Hou, J. Zhu, <strong>J. Yang</strong><sup>*</sup>, M. Sawan, Y. Zhang",
+        "title": "Acoustic Inspired Brain-to-Sentence Decoder for Logosyllabic Language",
+        "venue": "Cyborg and Bionic Systems",
+        "venueHighlight": false,
+        "url": "https://spj.science.org/doi/full/10.34133/cbsystems.0257"
+      }
+    },
+    "journals:url:www.frontiersin.org/journals/psychiatry/articles/10.3389/fpsyt.2024.1513793/full": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "X. Gao, Y-H. Chen, Z. Zeng, W. Zheng, C. Chai, H. Wu, Z. Zhu, **J. Yang**, L. Zhong, H. Shen, M. Sawan, \"Specific endophenotypes in EEG microstates for methamphetamine use disorder\", ***Frontiers in Psychiatry, 2025.***",
+      "last_rendered": "X. Gao, Y-H. Chen, Z. Zeng, W. Zheng, C. Chai, H. Wu, Z. Zhu, **J. Yang**, L. Zhong, H. Shen, M. Sawan, \"Specific endophenotypes in EEG microstates for methamphetamine use disorder\", ***Frontiers in Psychiatry, 2025.***",
+      "snapshot": {
+        "year": 2025,
+        "authors": "X. Gao, Y-H. Chen, Z. Zeng, W. Zheng, C. Chai, H. Wu, Z. Zhu, <strong>J. Yang</strong>, L. Zhong, H. Shen, M. Sawan",
+        "title": "Specific endophenotypes in EEG microstates for methamphetamine use disorder",
+        "venue": "Frontiers in Psychiatry",
+        "venueHighlight": false,
+        "url": "https://www.frontiersin.org/journals/psychiatry/articles/10.3389/fpsyt.2024.1513793/full"
+      }
+    },
+    "journals:url:www.sciencedirect.com/science/article/abs/pii/S0925400524016216": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "S. Shang, Y. Xu, M. Jin, C. Ni, H. Jiang, X. Wang, X. Wang, Y. Cheng, M. Wang, S. Zhang, B. Ji, **J. Yang**, G. Wang, M. Sawan, \"Biocompatible dipeptide coated on Pt/PEDOT: PSS modified silicon probes for tissues rejection alleviation\", ***Sensors and Actuators B: Chemical, 2025.***",
+      "last_rendered": "S. Shang, Y. Xu, M. Jin, C. Ni, H. Jiang, X. Wang, X. Wang, Y. Cheng, M. Wang, S. Zhang, B. Ji, **J. Yang**, G. Wang, M. Sawan, \"Biocompatible dipeptide coated on Pt/PEDOT: PSS modified silicon probes for tissues rejection alleviation\", ***Sensors and Actuators B: Chemical, 2025.***",
+      "snapshot": {
+        "year": 2025,
+        "authors": "S. Shang, Y. Xu, M. Jin, C. Ni, H. Jiang, X. Wang, X. Wang, Y. Cheng, M. Wang, S. Zhang, B. Ji, <strong>J. Yang</strong>, G. Wang, M. Sawan",
+        "title": "Biocompatible dipeptide coated on Pt/PEDOT: PSS modified silicon probes for tissues rejection alleviation",
+        "venue": "Sensors and Actuators B: Chemical",
+        "venueHighlight": false,
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0925400524016216"
+      }
+    },
+    "journals:url:www.jos.ac.cn/en/article/doi/10.1088/1674-4926/24100022": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "X. Shen, Z. Zhang, **J. Yang**, J. Liu, N. Wu, M. Sawan, L. Liu, \"A 0.0012-mm2 0.66-pJ/bit BPSK demodulator incorporating a loop-filter-less PLL achieving the maximum data rate of fcarrier/2\", ***Journal of Semiconductors, 2025.***",
+      "last_rendered": "X. Shen, Z. Zhang, **J. Yang**, J. Liu, N. Wu, M. Sawan, L. Liu, \"A 0.0012-mm2 0.66-pJ/bit BPSK demodulator incorporating a loop-filter-less PLL achieving the maximum data rate of fcarrier/2\", ***Journal of Semiconductors, 2025.***",
+      "snapshot": {
+        "year": 2025,
+        "authors": "X. Shen, Z. Zhang, <strong>J. Yang</strong>, J. Liu, N. Wu, M. Sawan, L. Liu",
+        "title": "A 0.0012-mm² 0.66-pJ/bit BPSK demodulator incorporating a loop-filter-less PLL achieving the maximum data rate of f<sub>carrier</sub>/2",
+        "venue": "Journal of Semiconductors",
+        "venueHighlight": false,
+        "url": "https://www.jos.ac.cn/en/article/doi/10.1088/1674-4926/24100022"
+      }
+    },
+    "journals:ieee:10777513": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "C. Fang, Z. Shen, Z. Wang, C. Wang, S. Zhao, F. Tian, **J. Yang**\\*, M. Sawan\\*, \"An Energy-Efficient Unstructured Sparsity-Aware Deep SNN Accelerator With 3-D Computation Array\", ***IEEE Journal of Solid-State Circuits, 2024.*** **（集成电路设计领域顶级期刊，JCR 一区）**",
+      "last_rendered": "C. Fang, Z. Shen, Z. Wang, C. Wang, S. Zhao, F. Tian, **J. Yang**\\*, M. Sawan\\*, \"An Energy-Efficient Unstructured Sparsity-Aware Deep SNN Accelerator With 3-D Computation Array\", ***IEEE Journal of Solid-State Circuits, 2024.*** **（集成电路设计领域顶级期刊，JCR 一区）**",
+      "snapshot": {
+        "year": 2024,
+        "authors": "C. Fang, Z. Shen, Z. Wang, C. Wang, S. Zhao, F. Tian, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
+        "title": "An Energy-Efficient Unstructured Sparsity-Aware Deep SNN Accelerator With 3-D Computation Array",
+        "venue": "IEEE Journal of Solid-State Circuits",
+        "venueHighlight": true,
+        "url": "https://ieeexplore.ieee.org/abstract/document/10777513/"
+      }
+    },
+    "journals:ieee:10762792": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "F. Tian, J. Chen, J. Zheng, H. Wu, J. He, X. Wang, C. Fang, Y. Yao, **J. Yang**, M. Sawan, C-Y. Tsui, K-T. T. Cheng, \"BioPI: An Energy Efficient and Low-Latency Neuromorphic Pipelined System with Joint Design Optimizations of Sensor-Algorithm-Processor for Wearable Healthcare\", ***IEEE Transactions on Circuits and Systems for Artificial Intelligence, 2024.***",
+      "last_rendered": "F. Tian, J. Chen, J. Zheng, H. Wu, J. He, X. Wang, C. Fang, Y. Yao, **J. Yang**, M. Sawan, C-Y. Tsui, K-T. T. Cheng, \"BioPI: An Energy Efficient and Low-Latency Neuromorphic Pipelined System with Joint Design Optimizations of Sensor-Algorithm-Processor for Wearable Healthcare\", ***IEEE Transactions on Circuits and Systems for Artificial Intelligence, 2024.***",
+      "snapshot": {
+        "year": 2024,
+        "authors": "F. Tian, J. Chen, J. Zheng, H. Wu, J. He, X. Wang, C. Fang, Y. Yao, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui, K-T. T. Cheng",
+        "title": "BioPI: An Energy Efficient and Low-Latency Neuromorphic Pipelined System with Joint Design Optimizations of Sensor-Algorithm-Processor for Wearable Healthcare",
+        "venue": "IEEE Transactions on Circuits and Systems for Artificial Intelligence",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/10762792/"
+      }
+    },
+    "journals:ieee:10561479": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "D. Wu, S. Li, **J. Yang**\\*, M. Sawan\\*, \"Neuro-BERT: Rethinking Masked Autoencoding for Self-Supervised Neurological Pretraining\", ***IEEE Journal of Biomedical and Health Informatics, 2024.*** **（生物医学信息领域顶级期刊，JCR一区）**",
+      "last_rendered": "D. Wu, S. Li, **J. Yang**\\*, M. Sawan\\*, \"Neuro-BERT: Rethinking Masked Autoencoding for Self-Supervised Neurological Pretraining\", ***IEEE Journal of Biomedical and Health Informatics, 2024.*** **（生物医学信息领域顶级期刊，JCR一区）**",
+      "snapshot": {
+        "year": 2024,
+        "authors": "D. Wu, S. Li, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
+        "title": "Neuro-BERT: Rethinking Masked Autoencoding for Self-Supervised Neurological Pretraining",
+        "venue": "IEEE Journal of Biomedical and Health Informatics",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/10561479"
+      }
+    },
+    "journals:ieee:10504647": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "S. Zhao, C. Wang, C. Fang, F. Tian, **J. Yang**\\*, M. Sawan\\*, \"HybMED: A Hybrid Neural Network Training Processor with Multi-Sparsity Exploitation for Internet of Medical Things,\" ***IEEE Transactions on Biomedical Circuits and Systems***, 2024. **（生物医疗芯片设计顶级期刊，JCR一区）**",
+      "last_rendered": "S. Zhao, C. Wang, C. Fang, F. Tian, **J. Yang**\\*, M. Sawan\\*, \"HybMED: A Hybrid Neural Network Training Processor with Multi-Sparsity Exploitation for Internet of Medical Things,\" ***IEEE Transactions on Biomedical Circuits and Systems***, 2024. **（生物医疗芯片设计顶级期刊，JCR一区）**",
+      "snapshot": {
+        "year": 2024,
+        "authors": "S. Zhao, C. Wang, C. Fang, F. Tian, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "HybMED: A Hybrid Neural Network Training Processor with Multi-Sparsity Exploitation for Internet of Medical Things",
+        "venue": "IEEE Transactions on Biomedical Circuits and Systems",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/10504647/"
+      }
+    },
+    "journals:url:www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2024.1340164/full": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "**J. Yang**, S. Zhao, J. Wang, S. Lin, Q. Hou, M. Sawan, \"Precise and low-power closed-loop neuromodulation through algorithm-integrated circuit co-design,\" ***Frontiers in Neuroscience***, 2024.",
+      "last_rendered": "**J. Yang**, S. Zhao, J. Wang, S. Lin, Q. Hou, M. Sawan, \"Precise and low-power closed-loop neuromodulation through algorithm-integrated circuit co-design,\" ***Frontiers in Neuroscience***, 2024.",
+      "snapshot": {
+        "year": 2024,
+        "authors": "<strong>J. Yang</strong>, S. Zhao, J. Wang, S. Lin, Q. Hou, M. Sawan",
+        "title": "Precise and low-power closed-loop neuromodulation through algorithm-integrated circuit co-design",
+        "venue": "Frontiers in Neuroscience",
+        "venueHighlight": false,
+        "url": "https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2024.1340164/full"
+      }
+    },
+    "journals:url:www.sciencedirect.com/science/article/abs/pii/S0957417423018614": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "Y. Xu, **J. Yang**, W. Ming, S. Wang, M. Sawan, \"Shorter latency of real-time epileptic seizure detection via probabilistic prediction,\" ***Expert Systems with Applications***, 2024. **（人工智能领域知名期刊，JCR一区）**",
+      "last_rendered": "Y. Xu, **J. Yang**, W. Ming, S. Wang, M. Sawan, \"Shorter latency of real-time epileptic seizure detection via probabilistic prediction,\" ***Expert Systems with Applications***, 2024. **（人工智能领域知名期刊，JCR一区）**",
+      "snapshot": {
+        "year": 2024,
+        "authors": "Y. Xu, <strong>J. Yang</strong>, W. Ming, S. Wang, M. Sawan",
+        "title": "Shorter latency of real-time epileptic seizure detection via probabilistic prediction",
+        "venue": "Expert Systems with Applications",
+        "venueHighlight": false,
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0957417423018614"
+      }
+    },
+    "journals:url:www.mdpi.com/1424-8220/23/21/8882": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "F. Xia, H. Li, Y. Li, X. Liu, Y. Xu, C. Fang, Q. Hou, S. Lin, Z. Zhang, **J. Yang**\\*, M. Sawan, \"Minimally Invasive Hypoglossal Nerve Stimulator Enabled by ECG Sensor and WPT to Manage Obstructive Sleep Apnea,\" ***MDPI Sensors***, 2023.",
+      "last_rendered": "F. Xia, H. Li, Y. Li, X. Liu, Y. Xu, C. Fang, Q. Hou, S. Lin, Z. Zhang, **J. Yang**\\*, M. Sawan, \"Minimally Invasive Hypoglossal Nerve Stimulator Enabled by ECG Sensor and WPT to Manage Obstructive Sleep Apnea,\" ***MDPI Sensors***, 2023.",
+      "snapshot": {
+        "year": 2023,
+        "authors": "F. Xia, H. Li, Y. Li, X. Liu, Y. Xu, C. Fang, Q. Hou, S. Lin, Z. Zhang, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "Minimally Invasive Hypoglossal Nerve Stimulator Enabled by ECG Sensor and WPT to Manage Obstructive Sleep Apnea",
+        "venue": "MDPI Sensors",
+        "venueHighlight": false,
+        "url": "https://www.mdpi.com/1424-8220/23/21/8882"
+      }
+    },
+    "journals:ieee:10184170": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "D. Wu, **J. Yang**\\*, M. Sawan\\*, \"Transfer Learning on Electromyography (EMG) Tasks: Approaches and Beyond,\" ***IEEE Transactions on Neural Systems and Rehabilitation Engineering***, 2023.",
+      "last_rendered": "D. Wu, **J. Yang**\\*, M. Sawan\\*, \"Transfer Learning on Electromyography (EMG) Tasks: Approaches and Beyond,\" ***IEEE Transactions on Neural Systems and Rehabilitation Engineering***, 2023.",
+      "snapshot": {
+        "year": 2023,
+        "authors": "D. Wu, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "Transfer Learning on Electromyography (EMG) Tasks: Approaches and Beyond",
+        "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/10184170"
+      }
+    },
+    "journals:ieee:10177203": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "H. Wu, J. Chen, X. Liu, W. Zou, **J. Yang**\\*, M. Sawan\\*, \"An Energy-Efficient Small-Area Configurable Analog Front-End Interface for Diverse Biosignals Recording,\" ***IEEE Transactions on Biomedical Circuits and Systems***, 2023. **（生物医疗芯片设计顶级期刊，JCR一区）**",
+      "last_rendered": "H. Wu, J. Chen, X. Liu, W. Zou, **J. Yang**\\*, M. Sawan\\*, \"An Energy-Efficient Small-Area Configurable Analog Front-End Interface for Diverse Biosignals Recording,\" ***IEEE Transactions on Biomedical Circuits and Systems***, 2023. **（生物医疗芯片设计顶级期刊，JCR一区）**",
+      "snapshot": {
+        "year": 2023,
+        "authors": "H. Wu, J. Chen, X. Liu, W. Zou, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "An Energy-Efficient Small-Area Configurable Analog Front-End Interface for Diverse Biosignals Recording",
+        "venue": "IEEE Transactions on Biomedical Circuits and Systems",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/10177203"
+      }
+    },
+    "journals:url:www.sciencedirect.com/science/article/abs/pii/S0893608023002332": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "C. Wang, C. Fang, Y. Zou, **J. Yang**\\*, M. Sawan\\*, \"SpikeSEE: An energy-efficient dynamic scenes processing framework for retinal prostheses,\" ***Neural Networks***, 2023. **（人工智能领域权威期刊，JCR一区）**",
+      "last_rendered": "C. Wang, C. Fang, Y. Zou, **J. Yang**\\*, M. Sawan\\*, \"SpikeSEE: An energy-efficient dynamic scenes processing framework for retinal prostheses,\" ***Neural Networks***, 2023. **（人工智能领域权威期刊，JCR一区）**",
+      "snapshot": {
+        "year": 2023,
+        "authors": "C. Wang, C. Fang, Y. Zou, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "SpikeSEE: An energy-efficient dynamic scenes processing framework for retinal prostheses",
+        "venue": "Neural Networks",
+        "venueHighlight": false,
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0893608023002332"
+      }
+    },
+    "journals:ieee:10132492": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "C. Fang, C. Wang, S. Zhao, F. Tian, **J. Yang**\\*, M. Sawan\\*, \"A 510μW 0.738-mm2 6.2-pJ/SOP Online Learning Multi-Topology SNN Processor with Unified Computation Engine in 40-nm CMOS,\" ***IEEE Transactions on Biomedical Circuits and Systems***, 2023. **（生物医疗芯片设计顶级期刊，JCR一区）** **（奖项：TBioCAS Best Neuromorphic Paper of 2023）**",
+      "last_rendered": "C. Fang, C. Wang, S. Zhao, F. Tian, **J. Yang**\\*, M. Sawan\\*, \"A 510μW 0.738-mm2 6.2-pJ/SOP Online Learning Multi-Topology SNN Processor with Unified Computation Engine in 40-nm CMOS,\" ***IEEE Transactions on Biomedical Circuits and Systems***, 2023. **（生物医疗芯片设计顶级期刊，JCR一区）** **（奖项：TBioCAS Best Neuromorphic Paper of 2023）**",
+      "snapshot": {
+        "year": 2023,
+        "authors": "C. Fang, C. Wang, S. Zhao, F. Tian, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "A 510μW 0.738-mm² 6.2-pJ/SOP Online Learning Multi-Topology SNN Processor with Unified Computation Engine in 40-nm CMOS",
+        "venue": "IEEE Transactions on Biomedical Circuits and Systems",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/10132492",
+        "award": "TBioCAS Best Neuromorphic Paper of 2023"
+      }
+    },
+    "journals:ieee:10105432": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "S. Zhao\\#, **J. Yang**\\*#, J. Wang, C. Fang, T. Liu, S. Zhang, M. Sawan, \"A 0.99-to-4.38 μJ/class Event-Driven Hybrid Neural Network Processor for Full-Spectrum Neural Signal Analyses,\" ***IEEE Transactions on Biomedical Circuits and Systems***, 2023. **（生物医疗芯片设计顶级期刊，JCR一区）** **（奖项：TBioCAS Best Neuromorphic Paper of 2023）**",
+      "last_rendered": "S. Zhao\\#, **J. Yang**\\*#, J. Wang, C. Fang, T. Liu, S. Zhang, M. Sawan, \"A 0.99-to-4.38 μJ/class Event-Driven Hybrid Neural Network Processor for Full-Spectrum Neural Signal Analyses,\" ***IEEE Transactions on Biomedical Circuits and Systems***, 2023. **（生物医疗芯片设计顶级期刊，JCR一区）** **（奖项：TBioCAS Best Neuromorphic Paper of 2023）**",
+      "snapshot": {
+        "year": 2023,
+        "authors": "S. Zhao, <strong>J. Yang</strong><sup>*#</sup>, J. Wang, C. Fang, T. Liu, S. Zhang, M. Sawan",
+        "title": "A 0.99-to-4.38 μJ/class Event-Driven Hybrid Neural Network Processor for Full-Spectrum Neural Signal Analyses",
+        "venue": "IEEE Transactions on Biomedical Circuits and Systems",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/10105432",
+        "award": "TBioCAS Best Neuromorphic Paper of 2023"
+      }
+    },
+    "journals:url:www.frontiersin.org/articles/10.3389/fpsyt.2023.1085036/full": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "Y. Chen, **J. Yang**, H. Wu, K. Beier, M. Sawan, \"Challenges and future trends in wearable closed-loop neuromodulation to efficiently treat methamphetamine addiction,\" ***Frontiers in Psychiatry***, 2023.",
+      "last_rendered": "Y. Chen, **J. Yang**, H. Wu, K. Beier, M. Sawan, \"Challenges and future trends in wearable closed-loop neuromodulation to efficiently treat methamphetamine addiction,\" ***Frontiers in Psychiatry***, 2023.",
+      "snapshot": {
+        "year": 2023,
+        "authors": "Y. Chen, <strong>J. Yang</strong>, H. Wu, K. Beier, M. Sawan",
+        "title": "Challenges and future trends in wearable closed-loop neuromodulation to efficiently treat methamphetamine addiction",
+        "venue": "Frontiers in Psychiatry",
+        "venueHighlight": false,
+        "url": "https://www.frontiersin.org/articles/10.3389/fpsyt.2023.1085036/full"
+      }
+    },
+    "journals:ieee:10024315": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "D. Wu, S. Zhao, **J. Yang**\\*, M. Sawan\\*, \"Software-Hardware Co-Design for Energy-Efficient Continuous Health Monitoring Via Task-Aware Compression,\" ***IEEE Transactions on Biomedical Circuits and Systems***, 2023. **（生物医疗芯片设计顶级期刊，JCR一区）**",
+      "last_rendered": "D. Wu, S. Zhao, **J. Yang**\\*, M. Sawan\\*, \"Software-Hardware Co-Design for Energy-Efficient Continuous Health Monitoring Via Task-Aware Compression,\" ***IEEE Transactions on Biomedical Circuits and Systems***, 2023. **（生物医疗芯片设计顶级期刊，JCR一区）**",
+      "snapshot": {
+        "year": 2023,
+        "authors": "D. Wu, S. Zhao, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "Software-Hardware Co-Design for Energy-Efficient Continuous Health Monitoring Via Task-Aware Compression",
+        "venue": "IEEE Transactions on Biomedical Circuits and Systems",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/10024315/"
+      }
+    },
+    "journals:url:www.frontiersin.org/articles/10.3389/fnins.2023.1093865/full": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "F. Tian, **J. Yang**\\*, S. Zhao, M. Sawan\\*, \"NeuroCARE: A generic neuromorphic edge computing framework for healthcare applications,\" ***Frontiers in Neuroscience***, 2023.",
+      "last_rendered": "F. Tian, **J. Yang**\\*, S. Zhao, M. Sawan\\*, \"NeuroCARE: A generic neuromorphic edge computing framework for healthcare applications,\" ***Frontiers in Neuroscience***, 2023.",
+      "snapshot": {
+        "year": 2023,
+        "authors": "F. Tian, <strong>J. Yang</strong><sup>*</sup>, S. Zhao, M. Sawan",
+        "title": "NeuroCARE: A generic neuromorphic edge computing framework for healthcare applications",
+        "venue": "Frontiers in Neuroscience",
+        "venueHighlight": false,
+        "url": "https://www.frontiersin.org/articles/10.3389/fnins.2023.1093865/full"
+      }
+    },
+    "journals:url:iopscience.iop.org/article/10.1088/1741-2552/acb295": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "C. Wang, C. Fang, Y. Zou, **J. Yang**\\*, M. Sawan\\*, \"Artificial intelligence techniques for retinal prostheses: A comprehensive review and future direction,\" ***Journal of Neural Engineering***, 2023.",
+      "last_rendered": "C. Wang, C. Fang, Y. Zou, **J. Yang**\\*, M. Sawan\\*, \"Artificial intelligence techniques for retinal prostheses: A comprehensive review and future direction,\" ***Journal of Neural Engineering***, 2023.",
+      "snapshot": {
+        "year": 2023,
+        "authors": "C. Wang, C. Fang, Y. Zou, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "Artificial intelligence techniques for retinal prostheses: A comprehensive review and future direction",
+        "venue": "Journal of Neural Engineering",
+        "venueHighlight": false,
+        "url": "https://iopscience.iop.org/article/10.1088/1741-2552/acb295"
+      }
+    },
+    "journals:ieee:10012381": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "D. Wu, Y. Shi, Z. Wang, **J. Yang**\\*, M. Sawan\\*, \"C²SP-Net: joint compression and classification network for epilepsy seizure prediction,\" ***IEEE Transactions on Neural Systems and Rehabilitation Engineering***, 2023.",
+      "last_rendered": "D. Wu, Y. Shi, Z. Wang, **J. Yang**\\*, M. Sawan\\*, \"C²SP-Net: joint compression and classification network for epilepsy seizure prediction,\" ***IEEE Transactions on Neural Systems and Rehabilitation Engineering***, 2023.",
+      "snapshot": {
+        "year": 2023,
+        "authors": "D. Wu, Y. Shi, Z. Wang, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "C²SP-Net: joint compression and classification network for epilepsy seizure prediction",
+        "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/10012381"
+      }
+    },
+    "journals:url:iopscience.iop.org/article/10.1088/1674-4926/44/5/050204": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "J. Chen, **J. Yang**\\*, M. Sawan\\*, \"Emerging trends of integrated-mixed-signal chips in ISSCC 2023,\" ***Journal of Semiconductors***, 2023.",
+      "last_rendered": "J. Chen, **J. Yang**\\*, M. Sawan\\*, \"Emerging trends of integrated-mixed-signal chips in ISSCC 2023,\" ***Journal of Semiconductors***, 2023.",
+      "snapshot": {
+        "year": 2023,
+        "authors": "J. Chen, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "Emerging trends of integrated-mixed-signal chips in ISSCC 2023",
+        "venue": "Journal of Semiconductors",
+        "venueHighlight": false,
+        "url": "https://iopscience.iop.org/article/10.1088/1674-4926/44/5/050204"
+      }
+    },
+    "journals:url:www.mdpi.com/2076-3417/12/13/6297": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "S. Sun, **J. Yang**\\*, Y. Chen, J. Miao, M. Sawan\\*, \"EEG Signals Based Internet Addiction Diagnosis Using Convolutional Neural Networks,\" ***MDPI Applied Sciences***, 2022.",
+      "last_rendered": "S. Sun, **J. Yang**\\*, Y. Chen, J. Miao, M. Sawan\\*, \"EEG Signals Based Internet Addiction Diagnosis Using Convolutional Neural Networks,\" ***MDPI Applied Sciences***, 2022.",
+      "snapshot": {
+        "year": 2022,
+        "authors": "S. Sun, <strong>J. Yang</strong><sup>*</sup>, Y-H. Chen, J. Miao, M. Sawan",
+        "title": "EEG Signals Based Internet Addiction Diagnosis Using Convolutional Neural Networks",
+        "venue": "MDPI Applied Sciences",
+        "venueHighlight": false,
+        "url": "https://www.mdpi.com/2076-3417/12/13/6297"
+      }
+    },
+    "journals:url:iopscience.iop.org/article/10.1088/1741-2552/ac73b3": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "D. Wu, **J. Yang**\\*, M. Sawan\\*, \"Bridging the gap between patient-specific and patient-independent seizure prediction via knowledge distillation,\" ***Journal of Neural Engineering***, 2022.",
+      "last_rendered": "D. Wu, **J. Yang**\\*, M. Sawan\\*, \"Bridging the gap between patient-specific and patient-independent seizure prediction via knowledge distillation,\" ***Journal of Neural Engineering***, 2022.",
+      "snapshot": {
+        "year": 2022,
+        "authors": "D. Wu, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "Bridging the gap between patient-specific and patient-independent seizure prediction via knowledge distillation",
+        "venue": "Journal of Neural Engineering",
+        "venueHighlight": false,
+        "url": "https://iopscience.iop.org/article/10.1088/1741-2552/ac73b3"
+      }
+    },
+    "journals:url:www.mdpi.com/2079-6374/12/6/384": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "J. Wang, Y. Chen, **J. Yang**, M. Sawan, \"Intelligent Classification Technique of Hand Motor Imagery Using EEG Beta Rebound Follow-Up Pattern,\" ***MDPI Biosensors***, 2022.",
+      "last_rendered": "J. Wang, Y. Chen, **J. Yang**, M. Sawan, \"Intelligent Classification Technique of Hand Motor Imagery Using EEG Beta Rebound Follow-Up Pattern,\" ***MDPI Biosensors***, 2022.",
+      "snapshot": {
+        "year": 2022,
+        "authors": "J. Wang, Y-H. Chen, <strong>J. Yang</strong>, M. Sawan",
+        "title": "Intelligent Classification Technique of Hand Motor Imagery Using EEG Beta Rebound Follow-Up Pattern",
+        "venue": "MDPI Biosensors",
+        "venueHighlight": false,
+        "url": "https://www.mdpi.com/2079-6374/12/6/384"
+      }
+    },
+    "journals:url:link.springer.com/article/10.1007/s11265-021-01659-x": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "Y. Xu, **J. Yang**\\*, M. Sawan\\*, \"Trends and challenges of processing measurements from wearable devices intended for epileptic seizure prediction,\" ***Journal of Signal Processing Systems***, 2022.",
+      "last_rendered": "Y. Xu, **J. Yang**\\*, M. Sawan\\*, \"Trends and challenges of processing measurements from wearable devices intended for epileptic seizure prediction,\" ***Journal of Signal Processing Systems***, 2022.",
+      "snapshot": {
+        "year": 2022,
+        "authors": "Y. Xu, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "Trends and challenges of processing measurements from wearable devices intended for epileptic seizure prediction",
+        "venue": "Journal of Signal Processing Systems",
+        "venueHighlight": false,
+        "url": "https://link.springer.com/article/10.1007/s11265-021-01659-x"
+      }
+    },
+    "journals:ieee:9767670": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "C. Wang, **J. Yang**\\*, M. Sawan\\*, \"NeuroSEE: A Neuromorphic Energy-Efficient Processing Framework for Visual Prostheses,\" ***IEEE Journal of Biomedical and Health Informatics***, 2022. **（生物医学信息领域顶级期刊，入选封面文章，JCR一区）**",
+      "last_rendered": "C. Wang, **J. Yang**\\*, M. Sawan\\*, \"NeuroSEE: A Neuromorphic Energy-Efficient Processing Framework for Visual Prostheses,\" ***IEEE Journal of Biomedical and Health Informatics***, 2022. **（生物医学信息领域顶级期刊，入选封面文章，JCR一区）**",
+      "snapshot": {
+        "year": 2022,
+        "authors": "C. Wang, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "NeuroSEE: A Neuromorphic Energy-Efficient Processing Framework for Visual Prostheses",
+        "venue": "IEEE Journal of Biomedical and Health Informatics",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/9767670"
+      }
+    },
+    "journals:ieee:9767764": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "Y. Xu, **J. Yang**\\*, M. Sawan\\*, \"Multichannel synthetic preictal EEG signals to enhance the prediction of epileptic seizures,\" ***IEEE Transactions on Biomedical Engineering***, 2022. **（生医工程领域高水平期刊）**",
+      "last_rendered": "Y. Xu, **J. Yang**\\*, M. Sawan\\*, \"Multichannel synthetic preictal EEG signals to enhance the prediction of epileptic seizures,\" ***IEEE Transactions on Biomedical Engineering***, 2022. **（生医工程领域高水平期刊）**",
+      "snapshot": {
+        "year": 2022,
+        "authors": "Y. Xu, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "Multichannel synthetic preictal eeg signals to enhance the prediction of epileptic seizures",
+        "venue": "IEEE Transactions on Biomedical Engineering",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/9767764/"
+      }
+    },
+    "journals:ieee:9766042": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "J. Chen, M. Tarkhan, H. Wu, F. Noshahr, **J. Yang**\\*, M. Sawan, \"Recent trends and future prospects of neural recording circuits and systems: A tutorial brief,\" ***IEEE Transactions on Circuits and Systems II: Express Briefs***, 2022. **（生物医疗芯片设计顶级期刊，JCR一区）**",
+      "last_rendered": "J. Chen, M. Tarkhan, H. Wu, F. Noshahr, **J. Yang**\\*, M. Sawan, \"Recent trends and future prospects of neural recording circuits and systems: A tutorial brief,\" ***IEEE Transactions on Circuits and Systems II: Express Briefs***, 2022. **（生物医疗芯片设计顶级期刊，JCR一区）**",
+      "snapshot": {
+        "year": 2022,
+        "authors": "J. Chen, M. Tarkhan, H. Wu, F. Noshahr, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "Recent trends and future prospects of neural recording circuits and systems: A tutorial brief",
+        "venue": "IEEE Transactions on Circuits and Systems II: Express Briefs",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/9766042"
+      }
+    },
+    "journals:ieee:9760507": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "S. Zhao, C. Fang, **J. Yang**\\*, M. Sawan, \"Emerging energy-efficient biosignal-dedicated circuit techniques: A tutorial brief,\" ***IEEE Transactions on Circuits and Systems II: Express Briefs***, 2022.",
+      "last_rendered": "S. Zhao, C. Fang, **J. Yang**\\*, M. Sawan, \"Emerging energy-efficient biosignal-dedicated circuit techniques: A tutorial brief,\" ***IEEE Transactions on Circuits and Systems II: Express Briefs***, 2022.",
+      "snapshot": {
+        "year": 2022,
+        "authors": "S. Zhao, C. Fang, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "Emerging energy-efficient biosignal-dedicated circuit techniques: A tutorial brief",
+        "venue": "IEEE Transactions on Circuits and Systems II: Express Briefs",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/9760507"
+      }
+    },
+    "journals:url:www.nature.com/articles/s41598-021-02798-8": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "Z. Wang, **J. Yang**\\*, H. Wu, J. Zhu, M. Sawan\\*, \"Power efficient refined seizure prediction algorithm based on an enhanced benchmarking,\" ***Scientific Reports***, 2021.",
+      "last_rendered": "Z. Wang, **J. Yang**\\*, H. Wu, J. Zhu, M. Sawan\\*, \"Power efficient refined seizure prediction algorithm based on an enhanced benchmarking,\" ***Scientific Reports***, 2021.",
+      "snapshot": {
+        "year": 2021,
+        "authors": "Z. Wang, <strong>J. Yang</strong><sup>*</sup>, H. Wu, J. Zhu, M. Sawan",
+        "title": "Power efficient refined seizure prediction algorithm based on an enhanced benchmarking",
+        "venue": "Scientific Reports",
+        "venueHighlight": false,
+        "url": "https://www.nature.com/articles/s41598-021-02798-8"
+      }
+    },
+    "journals:ieee:9479737": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "S. Zhao, **J. Yang**\\*, M. Sawan\\*, \"Energy-efficient neural network for epileptic seizure prediction,\" ***IEEE Transactions on Biomedical Engineering***, 2021.**（生医工程领域高水平期刊）**",
+      "last_rendered": "S. Zhao, **J. Yang**\\*, M. Sawan\\*, \"Energy-efficient neural network for epileptic seizure prediction,\" ***IEEE Transactions on Biomedical Engineering***, 2021.**（生医工程领域高水平期刊）**",
+      "snapshot": {
+        "year": 2021,
+        "authors": "S. Zhao, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "Energy-efficient neural network for epileptic seizure prediction",
+        "venue": "IEEE Transactions on Biomedical Engineering",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/9479737"
+      }
+    },
+    "journals:ieee:9173735": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "**J. Yang**, M. Sawan, \"From Seizure Detection to Smart and Fully Embedded Seizure Prediction Engine: A Review,\" ***IEEE Transactions on Biomedical Circuits and Systems,*** 2020. **（生物医疗芯片设计顶级期刊，JCR一区）**",
+      "last_rendered": "**J. Yang**, M. Sawan, \"From Seizure Detection to Smart and Fully Embedded Seizure Prediction Engine: A Review,\" ***IEEE Transactions on Biomedical Circuits and Systems,*** 2020. **（生物医疗芯片设计顶级期刊，JCR一区）**",
+      "snapshot": {
+        "year": null,
+        "authors": "<strong>J. Yang</strong>, M. Sawan",
+        "title": "From Seizure Detection to Smart and Fully Embedded Seizure Prediction Engine: A Review",
+        "venue": "IEEE Transactions on Biomedical Circuits and Systems",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/9173735"
+      }
+    },
+    "journals:url:www.irla.cn/en/article/doi/10.3788/IRLA20190553": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "李鸿龙, **杨杰**, 张忠星, 罗迁, 于双铭, 刘力源, 吴南健, \"用于实时目标检测的高速可编程视觉芯片,\" ***红外与激光工程***, 2020.",
+      "last_rendered": "李鸿龙, **杨杰**, 张忠星, 罗迁, 于双铭, 刘力源, 吴南健, \"用于实时目标检测的高速可编程视觉芯片,\" ***红外与激光工程***, 2020.",
+      "snapshot": {
+        "year": null,
+        "authors": "李鸿龙, <strong>杨杰</strong>, 张忠星, 罗迁, 于双铭, 刘力源, 吴南健",
+        "title": "用于实时目标检测的高速可编程视觉芯片",
+        "venue": "红外与激光工程",
+        "venueHighlight": false,
+        "url": "http://www.irla.cn/en/article/doi/10.3788/IRLA20190553"
+      }
+    },
+    "journals:ieee:8660478": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "**J. Yang**, U. Shahnovich, O. Yadid-Pecht, \"Mantissa-Exponent-Based Tone Mapping for Wide Dynamic Range Image Sensors,\" ***IEEE Transactions on Circuits and Systems II: Express Briefs***, 2019.",
+      "last_rendered": "**J. Yang**, U. Shahnovich, O. Yadid-Pecht, \"Mantissa-Exponent-Based Tone Mapping for Wide Dynamic Range Image Sensors,\" ***IEEE Transactions on Circuits and Systems II: Express Briefs***, 2019.",
+      "snapshot": {
+        "year": null,
+        "authors": "<strong>J. Yang</strong>, U. Shahnovich, O. Yadid-Pecht",
+        "title": "Mantissa-Exponent-Based Tone Mapping for Wide Dynamic Range Image Sensors",
+        "venue": "IEEE Transactions on Circuits and Systems II: Express Briefs",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/8660478"
+      }
+    },
+    "journals:url:wndz.cbpt.cnki.net/WKD/WebPublication/wkTextContent.aspx": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "**杨杰**, O. Yadid-Pecht, \"用于高动态图像色调映射的算法和硬件,\" ***微纳电子与智能制造***, 2019.",
+      "last_rendered": "**杨杰**, O. Yadid-Pecht, \"用于高动态图像色调映射的算法和硬件,\" ***微纳电子与智能制造***, 2019.",
+      "snapshot": {
+        "year": null,
+        "authors": "O. Y-P. <strong>杨杰</strong>",
+        "title": "用于高动态图像色调映射的算法和硬件",
+        "venue": "微纳电子与智能制造",
+        "venueHighlight": false,
+        "url": "https://wndz.cbpt.cnki.net/WKD/WebPublication/wkTextContent.aspx?colType=4&yt=2019&st=03"
+      }
+    },
+    "journals:url:ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/el.2017.3227": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "**J. Yang**, A. Hore, O. Yadid-Pecht, \"Local tone mapping algorithm and hardware implementation,\" ***Electronics Letters***, 2018.",
+      "last_rendered": "**J. Yang**, A. Hore, O. Yadid-Pecht, \"Local tone mapping algorithm and hardware implementation,\" ***Electronics Letters***, 2018.",
+      "snapshot": {
+        "year": null,
+        "authors": "<strong>J. Yang</strong>, A. Hore, O. Yadid-Pecht",
+        "title": "Local tone mapping algorithm and hardware implementation",
+        "venue": "Electronics Letters",
+        "venueHighlight": false,
+        "url": "https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/el.2017.3227"
+      }
+    },
+    "journals:ieee:7593227": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "**J. Yang**, Y. Yang, Z. Chen, L. Liu, J. Liu, N. Wu, \"A Heterogeneous Parallel Processor for High-Speed Vision Chip,\" ***IEEE Transactions on Circuits and Systems for Video Technology***, 2018. **（视觉处理领域顶级期刊，JCR一区）**",
+      "last_rendered": "**J. Yang**, Y. Yang, Z. Chen, L. Liu, J. Liu, N. Wu, \"A Heterogeneous Parallel Processor for High-Speed Vision Chip,\" ***IEEE Transactions on Circuits and Systems for Video Technology***, 2018. **（视觉处理领域顶级期刊，JCR一区）**",
+      "snapshot": {
+        "year": null,
+        "authors": "<strong>J. Yang</strong>, Y. Yang, Z. Chen, L. Liu, J. Liu, N. Wu",
+        "title": "A Heterogeneous Parallel Processor for High-Speed Vision Chip",
+        "venue": "IEEE Transactions on Circuits and Systems for Video Technology",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/7593227"
+      }
+    },
+    "journals:ieee:7926419": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "Z. Liu, L. Liu, **J. Yang**, N. Wu, \"A CMOS fully integrated 860-GHz terahertz sensor,\" ***IEEE Transactions on Terahertz Science and Technology***, 2017.",
+      "last_rendered": "Z. Liu, L. Liu, **J. Yang**, N. Wu, \"A CMOS fully integrated 860-GHz terahertz sensor,\" ***IEEE Transactions on Terahertz Science and Technology***, 2017.",
+      "snapshot": {
+        "year": null,
+        "authors": "Z. Liu, L. Liu, <strong>J. Yang</strong>, N. Wu",
+        "title": "A CMOS fully integrated 860-GHz terahertz sensor",
+        "venue": "IEEE Transactions on Terahertz Science and Technology",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/7926419"
+      }
+    },
+    "journals:url:link.springer.com/article/10.1007/s11432-016-0037-0": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "Y. Yang, **J. Yang**, Z. Zhang, L. Liu, N. Wu, \"High-speed visual target tracking with mixed rotation invariant description and skipping searching,\" ***Science China Information Science***, 2017.",
+      "last_rendered": "Y. Yang, **J. Yang**, Z. Zhang, L. Liu, N. Wu, \"High-speed visual target tracking with mixed rotation invariant description and skipping searching,\" ***Science China Information Science***, 2017.",
+      "snapshot": {
+        "year": null,
+        "authors": "Y. Yang, <strong>J. Yang</strong>, Z. Zhang, L. Liu, N. Wu",
+        "title": "High-speed visual target tracking with mixed rotation invariant description and skipping searching",
+        "venue": "Science China Information Science",
+        "venueHighlight": false,
+        "url": "https://link.springer.com/article/10.1007/s11432-016-0037-0"
+      }
+    },
+    "journals:url:iopscience.iop.org/article/10.7567/JJAP.56.04CF15": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "V. Nshunguyimfura, **J. Yang**, L. Liu, N. Wu, \"Property-driven functional verification technique for high-speed vision system-on-chip processor,\" ***Japanese Journal of Applied Physics***, 2017.",
+      "last_rendered": "V. Nshunguyimfura, **J. Yang**, L. Liu, N. Wu, \"Property-driven functional verification technique for high-speed vision system-on-chip processor,\" ***Japanese Journal of Applied Physics***, 2017.",
+      "snapshot": {
+        "year": null,
+        "authors": "V. Nshunguyimfura, <strong>J. Yang</strong>, L. Liu, N. Wu",
+        "title": "Property-driven functional verification technique for high-speed vision system-on-chip processor",
+        "venue": "Japanese Journal of Applied Physics",
+        "venueHighlight": false,
+        "url": "https://iopscience.iop.org/article/10.7567/JJAP.56.04CF15"
+      }
+    },
+    "journals:url:iopscience.iop.org/article/10.7567/JJAP.55.04EF08/meta": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "Z. Chen, **J. Yang**, C. Shi, Q. Qin, L. Liu, N. Wu, \"High speed vision processor with reconfigurable processing element array based on full-custom distributed memory,\" ***Japanese Journal of Applied Physics***, 2016.",
+      "last_rendered": "Z. Chen, **J. Yang**, C. Shi, Q. Qin, L. Liu, N. Wu, \"High speed vision processor with reconfigurable processing element array based on full-custom distributed memory,\" ***Japanese Journal of Applied Physics***, 2016.",
+      "snapshot": {
+        "year": null,
+        "authors": "Z. Chen, <strong>J. Yang</strong>, C. Shi, Q. Qin, L. Liu, N. Wu",
+        "title": "High speed vision processor with reconfigurable processing element array based on full-custom distributed memory",
+        "venue": "Japanese Journal of Applied Physics",
+        "venueHighlight": false,
+        "url": "https://iopscience.iop.org/article/10.7567/JJAP.55.04EF08/meta"
+      }
+    },
+    "journals:url:ietresearch.onlinelibrary.wiley.com/doi/10.1049/el.2015.3071": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "Y. Yang, **J. Yang**, Z. Zhang, L. Liu, N. Wu, \"High-speed visual tracking with mixed rotation invariant description,\" ***Electronics Letters***, 2016.",
+      "last_rendered": "Y. Yang, **J. Yang**, Z. Zhang, L. Liu, N. Wu, \"High-speed visual tracking with mixed rotation invariant description,\" ***Electronics Letters***, 2016.",
+      "snapshot": {
+        "year": null,
+        "authors": "Y. Yang, <strong>J. Yang</strong>, Z. Zhang, L. Liu, N. Wu",
+        "title": "High-speed visual tracking with mixed rotation invariant description",
+        "venue": "Electronics Letters",
+        "venueHighlight": false,
+        "url": "https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/el.2015.3071"
+      }
+    },
+    "journals:ieee:7414458": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "Y. Yang, **J. Yang**, L. Liu, N. Wu, \"High-Speed Target Tracking System Based on a Hierarchical Parallel Vision Processor and Gray-Level LBP Algorithm,\" ***IEEE Transactions on Systems, Man, and Cybernetics: Systems***, 2016. **（工程领域顶级期刊，JCR一区）**",
+      "last_rendered": "Y. Yang, **J. Yang**, L. Liu, N. Wu, \"High-Speed Target Tracking System Based on a Hierarchical Parallel Vision Processor and Gray-Level LBP Algorithm,\" ***IEEE Transactions on Systems, Man, and Cybernetics: Systems***, 2016. **（工程领域顶级期刊，JCR一区）**",
+      "snapshot": {
+        "year": null,
+        "authors": "Y. Yang, <strong>J. Yang</strong>, L. Liu, N. Wu",
+        "title": "High-Speed Target Tracking System Based on a Hierarchical Parallel Vision Processor and Gray-Level LBP Algorithm",
+        "venue": "IEEE Transactions on Systems, Man, and Cybernetics: Systems",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/7414458"
+      }
+    },
+    "journals:url:ietresearch.onlinelibrary.wiley.com/doi/10.1049/el.2014.1787": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "**J. Yang**, C. Shi, L. Liu, J. Liu, N. Wu, \"Pixel-parallel feature detection on vision chip,\" ***Electronics Letters***, 2014.",
+      "last_rendered": "**J. Yang**, C. Shi, L. Liu, J. Liu, N. Wu, \"Pixel-parallel feature detection on vision chip,\" ***Electronics Letters***, 2014.",
+      "snapshot": {
+        "year": null,
+        "authors": "<strong>J. Yang</strong>, C. Shi, L. Liu, J. Liu, N. Wu",
+        "title": "Pixel-parallel feature detection on vision chip",
+        "venue": "Electronics Letters",
+        "venueHighlight": false,
+        "url": "https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/el.2014.1787"
+      }
+    },
+    "journals:url:link.springer.com/article/10.1007/s11432-014-5174-9": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "C. Shi, **J. Yang**, L. Liu, N. Wu, Z. Wang, \"A massively parallel keypoint detection and description (MP-KDD) algorithm for high-speed vision chip,\" ***Science China Information Science***, 2014.",
+      "last_rendered": "C. Shi, **J. Yang**, L. Liu, N. Wu, Z. Wang, \"A massively parallel keypoint detection and description (MP-KDD) algorithm for high-speed vision chip,\" ***Science China Information Science***, 2014.",
+      "snapshot": {
+        "year": null,
+        "authors": "C. Shi, <strong>J. Yang</strong>, L. Liu, N. Wu, Z. Wang",
+        "title": "A massively parallel keypoint detection and description (MP-KDD) algorithm for high-speed vision chip",
+        "venue": "Science China Information Science",
+        "venueHighlight": false,
+        "url": "https://link.springer.com/article/10.1007/s11432-014-5174-9"
+      }
+    },
+    "journals:ieee:6853420": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "C. Shi, **J. Yang**, Y. Han, Z. Cao, Q. Qin, L. Liu, N. Wu, Z. Wang, \"A 1000 fps Vision Chip Based on a Dynamically Reconfigurable Hybrid Architecture Comprising a PE Array Processor and Self-Organizing Map Neural Network,\" ***IEEE Journal of Solid-State Circuits***, 2014. **（集成电路设计领域顶级期刊，JCR 一区）**",
+      "last_rendered": "C. Shi, **J. Yang**, Y. Han, Z. Cao, Q. Qin, L. Liu, N. Wu, Z. Wang, \"A 1000 fps Vision Chip Based on a Dynamically Reconfigurable Hybrid Architecture Comprising a PE Array Processor and Self-Organizing Map Neural Network,\" ***IEEE Journal of Solid-State Circuits***, 2014. **（集成电路设计领域顶级期刊，JCR 一区）**",
+      "snapshot": {
+        "year": null,
+        "authors": "C. Shi, <strong>J. Yang</strong>, Y. Han, Z. Cao, Q. Qin, L. Liu, N. Wu, Z. Wang",
+        "title": "A 1000 fps Vision Chip Based on a Dynamically Reconfigurable Hybrid Architecture Comprising a PE Array Processor and Self-Organizing Map Neural Network",
+        "venue": "IEEE Journal of Solid-State Circuits",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/6853420"
+      }
+    },
+    "journals:url:iopscience.iop.org/article/10.1088/1674-4926/35/9/095002": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "C. Shi, Z. Chen, **J. Yang**, N. Wu, Z. Wang, \"A compact PE memory for vision chips,\" ***Journal of Semiconductors***, 2014.",
+      "last_rendered": "C. Shi, Z. Chen, **J. Yang**, N. Wu, Z. Wang, \"A compact PE memory for vision chips,\" ***Journal of Semiconductors***, 2014.",
+      "snapshot": {
+        "year": null,
+        "authors": "S. Cong, C. Zhe, <strong>J. Yang</strong>, W. Nanjian, W. Zhihua",
+        "title": "A compact PE memory for vision chips",
+        "venue": "Journal of Semiconductors",
+        "venueHighlight": false,
+        "url": "https://iopscience.iop.org/article/10.1088/1674-4926/35/9/095002"
+      }
+    },
+    "journals:url:link.springer.com/article/10.1007/s11432-013-4969-4": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "C. Shi, **J. Yang**, N. Wu, Z. Wang, \"A high speed multi-level-parallel array processor for vision chips,\" ***Science China Information Sciences***, 2014.",
+      "last_rendered": "C. Shi, **J. Yang**, N. Wu, Z. Wang, \"A high speed multi-level-parallel array processor for vision chips,\" ***Science China Information Sciences***, 2014.",
+      "snapshot": {
+        "year": null,
+        "authors": "C. Shi, <strong>J. Yang</strong>, N. Wu, Z. Wang",
+        "title": "A high speed multi-level-parallel array processor for vision chips",
+        "venue": "Science China Information Sciences",
+        "venueHighlight": false,
+        "url": "https://link.springer.com/article/10.1007/s11432-013-4969-4"
+      }
+    },
+    "journals:url:ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/el.2014.0033": {
+      "kind": "journals",
+      "ownership": "legacy",
+      "base_legacy": "**J. Yang**, C. Shi, L. Liu, N. Wu, \"Heterogeneous vision chip and LBP-based algorithm for high-speed tracking,\" ***Electronics Letters***, 2014.",
+      "last_rendered": "**J. Yang**, C. Shi, L. Liu, N. Wu, \"Heterogeneous vision chip and LBP-based algorithm for high-speed tracking,\" ***Electronics Letters***, 2014.",
+      "snapshot": {
+        "year": null,
+        "authors": "<strong>J. Yang</strong>, C. Shi, L. Liu, N. Wu",
+        "title": "Heterogeneous vision chip and LBP-based algorithm for high-speed tracking",
+        "venue": "Electronics Letters",
+        "venueHighlight": false,
+        "url": "https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/el.2014.0033"
+      }
+    },
+    "conferences:doi:10.1109/newcas64543.2026.11673969": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "W. Zou, H. Wu, X. Liu, J. Chen, Y. Ye, **J. Yang**\\*, M. Sawan\\*, \"A Duty-Cycled PLL Architecture for a Low-Power IR-UWB Transmitter in Neural Implants\", *2026 24nd IEEE Interregional NEWCAS Conference (NEWCAS)*, 2026.",
+      "last_rendered": "W. Zou, H. Wu, X. Liu, J. Chen, Y. Ye, **J. Yang**\\*, M. Sawan\\*, \"A Duty-Cycled PLL Architecture for a Low-Power IR-UWB Transmitter in Neural Implants\", *2026 24nd IEEE Interregional NEWCAS Conference (NEWCAS)*, 2026.",
+      "snapshot": {
+        "year": 2026,
+        "authors": "W. Zou, H. Wu, X. Liu, J. Chen, Y. Ye, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
+        "title": "A Duty-Cycled PLL Architecture for a Low-Power IR-UWB Transmitter in Neural Implants",
+        "venue": "2026 24nd IEEE Interregional NEWCAS Conference (NEWCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/11673969",
+        "doi": "10.1109/newcas64543.2026.11673969"
+      }
+    },
+    "conferences:doi:10.1109/newcas64543.2026.11674044": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "X. Liu, H. Wu, J. Chen, W. Zou, Y. Ye, **J. Yang**\\*, M. Sawan\\*, \"A High-Sensitivity Surge-Mode RF Energy Harvester for Self-Powered Devices\", *2026 24nd IEEE Interregional NEWCAS Conference (NEWCAS)*, 2026.",
+      "last_rendered": "X. Liu, H. Wu, J. Chen, W. Zou, Y. Ye, **J. Yang**\\*, M. Sawan\\*, \"A High-Sensitivity Surge-Mode RF Energy Harvester for Self-Powered Devices\", *2026 24nd IEEE Interregional NEWCAS Conference (NEWCAS)*, 2026.",
+      "snapshot": {
+        "year": 2026,
+        "authors": "X. Liu, H. Wu, J. Chen, W. Zou, Y. Ye, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
+        "title": "A High-Sensitivity Surge-Mode RF Energy Harvester for Self-Powered Devices",
+        "venue": "2026 24nd IEEE Interregional NEWCAS Conference (NEWCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/11674044/",
+        "doi": "10.1109/newcas64543.2026.11674044"
+      }
+    },
+    "conferences:ieee:11562936": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "Z. Shen, Z. Liao, S. Shen, C. Fang, F. Tian, **J. Yang**\\*, M. Sawan\\*, \"A Heterogeneous Decision Spiking Transformer Accelerator with Locality-dependent KV Product Cache and Compute Pattern Reconfigurable Engine\", *2026 IEEE International Symposium on Circuits and Systems (ISCAS)*, 2026.",
+      "last_rendered": "Z. Shen, Z. Liao, S. Shen, C. Fang, F. Tian, **J. Yang**\\*, M. Sawan\\*, \"A Heterogeneous Decision Spiking Transformer Accelerator with Locality-dependent KV Product Cache and Compute Pattern Reconfigurable Engine\", *2026 IEEE International Symposium on Circuits and Systems (ISCAS)*, 2026.",
+      "snapshot": {
+        "year": 2026,
+        "authors": "Z. Shen, Z. Liao, S. Shen, C. Fang, F. Tian, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
+        "title": "A Heterogeneous Decision Spiking Transformer Accelerator with Locality-dependent KV Product Cache and Compute Pattern Reconfigurable Engine",
+        "venue": "2026 IEEE International Symposium on Circuits and Systems (ISCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/11562936/"
+      }
+    },
+    "conferences:ieee:11562790": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "F. Tian, J. Zheng, H. Wu, Z. Liu, J. Chen, S. Zhao, **J. Yang**, M. Sawan, C-Y. Tsui, K-T. Cheng, \"BioSeek: A Design Generation Framework of Biosignal Processors with Large-Language Models for Edge Healthcare Applications\", *2026 IEEE International Symposium on Circuits and Systems (ISCAS)*, 2026.",
+      "last_rendered": "F. Tian, J. Zheng, H. Wu, Z. Liu, J. Chen, S. Zhao, **J. Yang**, M. Sawan, C-Y. Tsui, K-T. Cheng, \"BioSeek: A Design Generation Framework of Biosignal Processors with Large-Language Models for Edge Healthcare Applications\", *2026 IEEE International Symposium on Circuits and Systems (ISCAS)*, 2026.",
+      "snapshot": {
+        "year": 2026,
+        "authors": "F. Tian, J. Zheng, H. Wu, Z. Liu, J. Chen, S. Zhao, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui, K-T. Cheng",
+        "title": "BioSeek: A Design Generation Framework of Biosignal Processors with Large-Language Models for Edge Healthcare Applications",
+        "venue": "2026 IEEE International Symposium on Circuits and Systems (ISCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/11562790"
+      }
+    },
+    "conferences:ieee:11562257": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "Y. Liao, **J. Yang**\\*, M. Sawan\\*, \"TF-MV SwAV++: Subject-Invariant Time–Frequency Prototype Learning for Cross-Subject sEEG Seizure Detection\", *2026 IEEE International Symposium on Circuits and Systems (ISCAS)*, 2026.",
+      "last_rendered": "Y. Liao, **J. Yang**\\*, M. Sawan\\*, \"TF-MV SwAV++: Subject-Invariant Time–Frequency Prototype Learning for Cross-Subject sEEG Seizure Detection\", *2026 IEEE International Symposium on Circuits and Systems (ISCAS)*, 2026.",
+      "snapshot": {
+        "year": 2026,
+        "authors": "Y. Liao, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
+        "title": "TF-MV SwAV++: Subject-Invariant Time–Frequency Prototype Learning for Cross-Subject sEEG Seizure Detection",
+        "venue": "2026 IEEE International Symposium on Circuits and Systems (ISCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/11562257/"
+      }
+    },
+    "conferences:ieee:11409079": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "H. Wu, F. Tian, J. Chen, Z. Liao, H. Zhang, X. Liu, W. Zou, S. Cheng, Z. Zhang, J. Xu, C-Y. Tsui, K-T. Cheng, **J. Yang**\\*, M. Sawan\\*, \"Sparsity-Aware Neural Interface with CIM-Based Predictive Focused Sampling for Hotspot Spike Tracking\", ***2026 IEEE International Solid-State Circuits Conference (ISSCC)***, 2026.",
+      "last_rendered": "H. Wu, F. Tian, J. Chen, Z. Liao, H. Zhang, X. Liu, W. Zou, S. Cheng, Z. Zhang, J. Xu, C-Y. Tsui, K-T. Cheng, **J. Yang**\\*, M. Sawan\\*, \"Sparsity-Aware Neural Interface with CIM-Based Predictive Focused Sampling for Hotspot Spike Tracking\", ***2026 IEEE International Solid-State Circuits Conference (ISSCC)***, 2026.",
+      "snapshot": {
+        "year": 2026,
+        "authors": "H. Wu, F. Tian, J. Chen, Z. Liao, H. Zhang, X. Liu, W. Zou, S. Cheng, Z. Zhang, J. Xu, C-Y. Tsui, K-T. Cheng, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
+        "title": "Sparsity-Aware Neural Interface with CIM-Based Predictive Focused Sampling for Hotspot Spike Tracking",
+        "venue": "2026 IEEE International Solid-State Circuits Conference (ISSCC)",
+        "venueHighlight": true,
+        "url": "https://ieeexplore.ieee.org/abstract/document/11409079"
+      }
+    },
+    "conferences:ieee:11408963": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "Y. Li, J. Chen, X. Shen, **J. Yang**, J. Liu, N. Wu, Z. Zhang, L. Liu, \"A 0.65-to-1V-VDD 10.5-to-11.85GHz Fractional-N Sampling PLL Achieving 71.47fs Integrated Jitter and \\<-60dBc Near-Integer Fractional Spur in 40nm CMOS\", ***2026 IEEE International Solid-State Circuits Conference (ISSCC)***, 2026.",
+      "last_rendered": "Y. Li, J. Chen, X. Shen, **J. Yang**, J. Liu, N. Wu, Z. Zhang, L. Liu, \"A 0.65-to-1V-VDD 10.5-to-11.85GHz Fractional-N Sampling PLL Achieving 71.47fs Integrated Jitter and \\<-60dBc Near-Integer Fractional Spur in 40nm CMOS\", ***2026 IEEE International Solid-State Circuits Conference (ISSCC)***, 2026.",
+      "snapshot": {
+        "year": 2026,
+        "authors": "Y. Li, J. Chen, X. Shen, <strong>J. Yang</strong>, J. Liu, N. Wu, Z. Zhang, L. Liu",
+        "title": "A 0.65-to-1V-VDD 10.5-to-11.85GHz Fractional-N Sampling PLL Achieving 71.47fs Integrated Jitter and <-60dBc Near-Integer Fractional Spur in 40nm CMOS",
+        "venue": "2026 IEEE International Solid-State Circuits Conference (ISSCC)",
+        "venueHighlight": true,
+        "url": "https://ieeexplore.ieee.org/abstract/document/11408963"
+      }
+    },
+    "conferences:ambiguous-url-title:bff2b47f33057cbf4fe1": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "T. Li, Z. Liao, C. Zhang, **J. Yang**\\*, M. Sawan\\*, \"A Neuromorphic FPGA-Based Architecture for Energy-Efficient Visual Recognition\", *2025 37th International Conference on Microelectronics (ICM)*, 2025.",
+      "last_rendered": "T. Li, Z. Liao, C. Zhang, **J. Yang**\\*, M. Sawan\\*, \"A Neuromorphic FPGA-Based Architecture for Energy-Efficient Visual Recognition\", *2025 37th International Conference on Microelectronics (ICM)*, 2025.",
+      "snapshot": {
+        "year": 2025,
+        "authors": "T. Li, Z. Liao, C. Zhang, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
+        "title": "A Neuromorphic FPGA-Based Architecture for Energy-Efficient Visual Recognition",
+        "venue": "2025 37th International Conference on Microelectronics (ICM)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/11322523"
+      }
+    },
+    "conferences:ieee:11349463": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "F. Tian, K. Shao, J. Zheng, Z. Liu, H. Wu, Z. Liao, J. He, X. Guan, P. Dong, C. Fang, Z. Shen, S. Zhao, **J. Yang**, M. Sawan, C-Y. Tsui, K-T. Cheng, \"Lemem: A 179.8TFLOPS/W, 24.21TFLOPS Learning-In-Memory Processor with Layer-Fused Forward/Backward Pipeline for Edge DNN/SNN Training/Inference\", *2025 IEEE Asian Solid-State Circuits Conference (A-SSCC)*, 2025.",
+      "last_rendered": "F. Tian, K. Shao, J. Zheng, Z. Liu, H. Wu, Z. Liao, J. He, X. Guan, P. Dong, C. Fang, Z. Shen, S. Zhao, **J. Yang**, M. Sawan, C-Y. Tsui, K-T. Cheng, \"Lemem: A 179.8TFLOPS/W, 24.21TFLOPS Learning-In-Memory Processor with Layer-Fused Forward/Backward Pipeline for Edge DNN/SNN Training/Inference\", *2025 IEEE Asian Solid-State Circuits Conference (A-SSCC)*, 2025.",
+      "snapshot": {
+        "year": 2025,
+        "authors": "F. Tian, K. Shao, J. Zheng, Z. Liu, H. Wu, Z. Liao, J. He, X. Guan, P. Dong, C. Fang, Z. Shen, S. Zhao, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui, K-T. Cheng",
+        "title": "Lemem: A 179.8TFLOPS/W, 24.21TFLOPS Learning-In-Memory Processor with Layer-Fused Forward/Backward Pipeline for Edge DNN/SNN Training/Inference",
+        "venue": "2025 IEEE Asian Solid-State Circuits Conference (A-SSCC)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/11349463/"
+      }
+    },
+    "conferences:ieee:11327513": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "Z. Liao, K. Shao, J. Yu, L. Zhao, K-T. Cheng, C-Y. Tsui, **J. Yang**\\*, M. Sawan\\*, \"A Memory-Efficient Retrieval Architecture for RAG-Enabled Wearable Medical LLMs-Agents\", *2025 IEEE Biomedical Circuits and Systems Conference (BioCAS)*, 2025.",
+      "last_rendered": "Z. Liao, K. Shao, J. Yu, L. Zhao, K-T. Cheng, C-Y. Tsui, **J. Yang**\\*, M. Sawan\\*, \"A Memory-Efficient Retrieval Architecture for RAG-Enabled Wearable Medical LLMs-Agents\", *2025 IEEE Biomedical Circuits and Systems Conference (BioCAS)*, 2025.",
+      "snapshot": {
+        "year": 2025,
+        "authors": "Z. Liao, K. Shao, J. Yu, L. Zhao, K-T. Cheng, C-Y. Tsui, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
+        "title": "A Memory-Efficient Retrieval Architecture for RAG-Enabled Wearable Medical LLMs-Agents",
+        "venue": "2025 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/11327513"
+      }
+    },
+    "conferences:ieee:11043802": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "H. Wu, X. Liu, J. Chen, W. Zou, Q. Hou, S. Lin, Y. Mao, X. Kuang, **J. Yang**\\*, M. Sawan\\*, \"Efficient Self-Adaptive Pseudo-Resistor with Rapid Settling and High Linearity for Neurorecording Front-End Circuits\", 2025 IEEE International Symposium on Circuits and Systems (ISCAS), 2025. **(电路与系统领域权威会议，获Best Biomedical Circuit and System Paper Award)**",
+      "last_rendered": "H. Wu, X. Liu, J. Chen, W. Zou, Q. Hou, S. Lin, Y. Mao, X. Kuang, **J. Yang**\\*, M. Sawan\\*, \"Efficient Self-Adaptive Pseudo-Resistor with Rapid Settling and High Linearity for Neurorecording Front-End Circuits\", 2025 IEEE International Symposium on Circuits and Systems (ISCAS), 2025. **(电路与系统领域权威会议，获Best Biomedical Circuit and System Paper Award)**",
+      "snapshot": {
+        "year": 2025,
+        "authors": "H. Wu, X. Liu, J. Chen, W. Zou, Q. Hou, S. Lin, Y. Mao, X. Kuang, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "Efficient Self-Adaptive Pseudo-Resistor with Rapid Settling and High Linearity for Neurorecording Front-End Circuits",
+        "venue": "2025 IEEE International Symposium on Circuits and Systems (ISCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/11043802",
+        "award": "Best Paper Award for BioCAS Track"
+      }
+    },
+    "conferences:url:arxiv.org/abs/2410.12866": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "D. Wu, S. Li, C. Feng, L. Cao, Y. Zhang, **J. Yang**\\*, M. Sawan\\*, \"Towards Homogeneous Lexical Tone Decoding from Heterogeneous Intracranial Recordings\", 2025 International Conference on Learning Representations (ICLR) , 2025. **（人工智能领域顶级会议，新加坡）**",
+      "last_rendered": "D. Wu, S. Li, C. Feng, L. Cao, Y. Zhang, **J. Yang**\\*, M. Sawan\\*, \"Towards Homogeneous Lexical Tone Decoding from Heterogeneous Intracranial Recordings\", 2025 International Conference on Learning Representations (ICLR) , 2025. **（人工智能领域顶级会议，新加坡）**",
+      "snapshot": {
+        "year": 2025,
+        "authors": "D. Wu, S. Li, C. Feng, L. Cao, Y. Zhang, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "Towards Homogeneous Lexical Tone Decoding from Heterogeneous Intracranial Recordings",
+        "venue": "2025 International Conference on Learning Representations (ICLR)",
+        "venueHighlight": true,
+        "url": "https://arxiv.org/abs/2410.12866"
+      }
+    },
+    "conferences:ieee:11043979": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "**J. Yang**, M. Sawan, \"Neuromorphic Computing Chips: Challenges and Trends\", 2025 IEEE International Symposium on Circuits and Systems (ISCAS), 2025.",
+      "last_rendered": "**J. Yang**, M. Sawan, \"Neuromorphic Computing Chips: Challenges and Trends\", 2025 IEEE International Symposium on Circuits and Systems (ISCAS), 2025.",
+      "snapshot": {
+        "year": 2025,
+        "authors": "<strong>J. Yang</strong>, M. Sawan",
+        "title": "Neuromorphic Computing Chips: Challenges and Trends",
+        "venue": "2025 IEEE International Symposium on Circuits and Systems (ISCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/11043979/"
+      }
+    },
+    "conferences:ieee:11043823": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "C. Fang, Z. Shen, F. Tian, **J. Yang**\\*, M. Sawan\\*, \"An Area-Efficient and Bit-Width Configurable Carry-Save Adder Tree for Spiking Transformers\", 2025 IEEE International Symposium on Circuits and Systems (ISCAS), 2025.",
+      "last_rendered": "C. Fang, Z. Shen, F. Tian, **J. Yang**\\*, M. Sawan\\*, \"An Area-Efficient and Bit-Width Configurable Carry-Save Adder Tree for Spiking Transformers\", 2025 IEEE International Symposium on Circuits and Systems (ISCAS), 2025.",
+      "snapshot": {
+        "year": 2025,
+        "authors": "C. Fang, Z. Shen, F. Tian, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "An Area-Efficient and Bit-Width Configurable Carry-Save Adder Tree for Spiking Transformers",
+        "venue": "2025 IEEE International Symposium on Circuits and Systems (ISCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/11043823/"
+      }
+    },
+    "conferences:ieee:11351864": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "Z. Liao, T. Li, Z. Shen, C. Fang, **J. Yang**\\*, M. Sawan\\*, \"NeuroPlat: An FPGA-based Neuromorphic Computing Platform with Optimized Toolchain for Efficient SNN Deployment\", *2025 IEEE International Conference on Machine Intelligence and Nature-inspired Computing (MIND)*, 2025. **（奖项：Best Poster Award）**",
+      "last_rendered": "Z. Liao, T. Li, Z. Shen, C. Fang, **J. Yang**\\*, M. Sawan\\*, \"NeuroPlat: An FPGA-based Neuromorphic Computing Platform with Optimized Toolchain for Efficient SNN Deployment\", *2025 IEEE International Conference on Machine Intelligence and Nature-inspired Computing (MIND)*, 2025. **（奖项：Best Poster Award）**",
+      "snapshot": {
+        "year": 2025,
+        "authors": "Z. Liao, T. Li, Z. Shen, C. Fang, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
+        "title": "NeuroPlat: An FPGA-based Neuromorphic Computing Platform with Optimized Toolchain for Efficient SNN Deployment",
+        "venue": "2025 IEEE International Conference on Machine Intelligence and Nature-inspired Computing (MIND)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/11351864/",
+        "award": "Best Poster Award"
+      }
+    },
+    "conferences:ieee:10982760": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "F. Tian, J. Chen, K. Shao, Z. Liu, J. Zheng, H. Wu, C. Fang, X. Meng, Z. Shen, P. Dong, Y. Yao, X. Wang, **J. Yang**, M. Sawan, C-Y. Tsui, T. K-T. Cheng,\"E-NPU: A 34~126nJ/Class Event-Driven Adaptive Neural SoC with Signal-Dynamics-Aware Feature Clustering and Multi-Model In-Memory Inference/Training for Personalized Medical Wearables\", 2025 IEEE Custom Integrated Circuits Conference (CICC) , 2025.",
+      "last_rendered": "F. Tian, J. Chen, K. Shao, Z. Liu, J. Zheng, H. Wu, C. Fang, X. Meng, Z. Shen, P. Dong, Y. Yao, X. Wang, **J. Yang**, M. Sawan, C-Y. Tsui, T. K-T. Cheng,\"E-NPU: A 34~126nJ/Class Event-Driven Adaptive Neural SoC with Signal-Dynamics-Aware Feature Clustering and Multi-Model In-Memory Inference/Training for Personalized Medical Wearables\", 2025 IEEE Custom Integrated Circuits Conference (CICC) , 2025.",
+      "snapshot": {
+        "year": 2025,
+        "authors": "F. Tian, J. Chen, K. Shao, Z. Liu, J. Zheng, H. Wu, C. Fang, X. Meng, Z. Shen, P. Dong, Y. Yao, X. Wang, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui, K-T. Cheng",
+        "title": "E-NPU: A 34~126nJ/Class Event-Driven Adaptive Neural SoC with Signal-Dynamics-Aware Feature Clustering and Multi-Model In-Memory Inference/Training for Personalized Medical Wearables",
+        "venue": "2025 IEEE Custom Integrated Circuits Conference (CICC)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/10982760"
+      }
+    },
+    "conferences:ieee:11214110": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "Q. Luo, Z. Zhang, S. Cai, **J. Yang**, M. Sawan, Z. Zhang, \"A 0.25-V-VDD 0.93-nW 1-Kbps Amplifier-and-Bias-Free Time-Domain Wake-Up Receiver Occupying 0.045-mm2 Achieving -66-dBm Sensitivity and -165.9-dB FoM\", *2025 IEEE European Solid-State Electronics Research Conference (ESSERC)*, 2025.",
+      "last_rendered": "Q. Luo, Z. Zhang, S. Cai, **J. Yang**, M. Sawan, Z. Zhang, \"A 0.25-V-VDD 0.93-nW 1-Kbps Amplifier-and-Bias-Free Time-Domain Wake-Up Receiver Occupying 0.045-mm2 Achieving -66-dBm Sensitivity and -165.9-dB FoM\", *2025 IEEE European Solid-State Electronics Research Conference (ESSERC)*, 2025.",
+      "snapshot": {
+        "year": 2025,
+        "authors": "Q. Luo, Z. Zhang, S. Cai, <strong>J. Yang</strong>, M. Sawan, Z. Zhang",
+        "title": "A 0.25-V-VDD 0.93-nW 1-Kbps Amplifier-and-Bias-Free Time-Domain Wake-Up Receiver Occupying 0.045-mm2 Achieving -66-dBm Sensitivity and -165.9-dB FoM",
+        "venue": "2025 IEEE European Solid-State Electronics Research Conference (ESSERC)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/11214110/"
+      }
+    },
+    "conferences:ieee:11351684": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "J. Yu, C. Zhang, Y. Zhang, **J. Yang**\\*, M. Sawan\\*, \"Spiking Decision-Making System Based on Reinforcement Learning\", *2025 IEEE International Conference on Machine Intelligence and Nature-inspired Computing (MIND)*, 2025.",
+      "last_rendered": "J. Yu, C. Zhang, Y. Zhang, **J. Yang**\\*, M. Sawan\\*, \"Spiking Decision-Making System Based on Reinforcement Learning\", *2025 IEEE International Conference on Machine Intelligence and Nature-inspired Computing (MIND)*, 2025.",
+      "snapshot": {
+        "year": 2025,
+        "authors": "J. Yu, C. Zhang, Y. Zhang, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
+        "title": "Spiking Decision-Making System Based on Reinforcement Learning",
+        "venue": "2025 IEEE International Conference on Machine Intelligence and Nature-inspired Computing (MIND)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/11351684/"
+      }
+    },
+    "conferences:ambiguous-url-title:1e517afc4a425305f5c5": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "Z. Tian, Y. Ye, Y. Mao, H. Wu, X. Kuang, **J. Yang**\\*, M. Sawan\\*, \"A Low-Power High-Precision Impedance Measurement Circuit Using DC Servo Loop for Closed-Loop DBS Systems\", *2025 IEEE 16th International Conference on ASIC (ASICON)*, 2025.",
+      "last_rendered": "Z. Tian, Y. Ye, Y. Mao, H. Wu, X. Kuang, **J. Yang**\\*, M. Sawan\\*, \"A Low-Power High-Precision Impedance Measurement Circuit Using DC Servo Loop for Closed-Loop DBS Systems\", *2025 IEEE 16th International Conference on ASIC (ASICON)*, 2025.",
+      "snapshot": {
+        "year": 2025,
+        "authors": "Z. Tian, Y. Ye, Y. Mao, H. Wu, X. Kuang, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
+        "title": "A Low-Power High-Precision Impedance Measurement Circuit Using DC Servo Loop for Closed-Loop DBS Systems",
+        "venue": "2025 IEEE 16th International Conference on ASIC (ASICON)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/11322523"
+      }
+    },
+    "conferences:ieee:11043272": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "J. Zheng, F. Tian, J. Chen, C. Fang, Y. Yao, **J. Yang**, M. Sawan, K.T Cheng, C-Y Tsui, \"NeuroEye: A 54.59 mW, 12200FPS Event-Driven Near-Sensor Eye-Tracking Processor with Pipelined Spatial-Temporal Spike-Streaming\", 2025 IEEE International Symposium on Circuits and Systems (ISCAS), 2025.",
+      "last_rendered": "J. Zheng, F. Tian, J. Chen, C. Fang, Y. Yao, **J. Yang**, M. Sawan, K.T Cheng, C-Y Tsui, \"NeuroEye: A 54.59 mW, 12200FPS Event-Driven Near-Sensor Eye-Tracking Processor with Pipelined Spatial-Temporal Spike-Streaming\", 2025 IEEE International Symposium on Circuits and Systems (ISCAS), 2025.",
+      "snapshot": {
+        "year": 2025,
+        "authors": "J. Zheng, F. Tian, J. Chen, C. Fang, Y. Yao, <strong>J. Yang</strong>, M. Sawan, K-T. Cheng, C-Y. Tsui",
+        "title": "NeuroEye: A 54.59 mW, 12200FPS Event-Driven Near-Sensor Eye-Tracking Processor with Pipelined Spatial-Temporal Spike-Streaming",
+        "venue": "2025 IEEE International Symposium on Circuits and Systems (ISCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/11043272"
+      }
+    },
+    "conferences:ieee:11044160": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "Y. Mao, J. Chen, H. Wu, **J. Yang**, X. Kuang, M. Sawan, \"A 2.53 fJ/Conversion Low-Power Hybrid ADC with Level-Crossing Assisted Sparisty Adaptivity for Implantable Neural Interface\", 2025 IEEE International Symposium on Circuits and Systems (ISCAS), 2025.",
+      "last_rendered": "Y. Mao, J. Chen, H. Wu, **J. Yang**, X. Kuang, M. Sawan, \"A 2.53 fJ/Conversion Low-Power Hybrid ADC with Level-Crossing Assisted Sparisty Adaptivity for Implantable Neural Interface\", 2025 IEEE International Symposium on Circuits and Systems (ISCAS), 2025.",
+      "snapshot": {
+        "year": 2025,
+        "authors": "Y. Mao, J. Chen, H. Wu, <strong>J. Yang</strong>, X. Kuang, M. Sawan",
+        "title": "A 2.53 fJ/Conversion Low-Power Hybrid ADC with Level-Crossing Assisted Sparisty Adaptivity for Implantable Neural Interface",
+        "venue": "2025 IEEE International Symposium on Circuits and Systems (ISCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/11044160/"
+      }
+    },
+    "conferences:url:arxiv.org/abs/2411.16806": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "K. Shao, F. Tian, X. Wang, J. Zheng, J. Chen, J. He, H. Wu, J. Chen, X. Guan, Y. Deng, F. Tu, **J. Yang**, M. Sawan, T. K-T. Cheng, C-Y. Tsui, \"SynDCIM: A Performance-Aware Digital Computing-in-Memory Compiler with Multi-Spec-Oriented Subcircuit Synthesis\", 2025 28th Design, Automation & Test in Europe Conference & Exhibition (DATE) , 2025.",
+      "last_rendered": "K. Shao, F. Tian, X. Wang, J. Zheng, J. Chen, J. He, H. Wu, J. Chen, X. Guan, Y. Deng, F. Tu, **J. Yang**, M. Sawan, T. K-T. Cheng, C-Y. Tsui, \"SynDCIM: A Performance-Aware Digital Computing-in-Memory Compiler with Multi-Spec-Oriented Subcircuit Synthesis\", 2025 28th Design, Automation & Test in Europe Conference & Exhibition (DATE) , 2025.",
+      "snapshot": {
+        "year": 2025,
+        "authors": "K. Shao, F. Tian, X. Wang, J. Zheng, J. Chen, J. He, H. Wu, J. Chen, X. Guan, Y. Deng, F. Tu, <strong>J. Yang</strong>, M. Sawan, T. K-T. Cheng, C-Y. Tsui",
+        "title": "SynDCIM: A Performance-Aware Digital Computing-in-Memory Compiler with Multi-Spec-Oriented Subcircuit Synthesis",
+        "venue": "2025 28th Design, Automation & Test in Europe Conference & Exhibition (DATE)",
+        "venueHighlight": false,
+        "url": "https://arxiv.org/abs/2411.16806"
+      }
+    },
+    "conferences:ieee:10529097": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "J. Chen, H. Wu, R. Eskandari, X. Liu, S. Lin, Q. Hou, F. Tian, W. Zou, **J. Yang**\\*, M. Sawan\\*, \"A Neuron-Inspired 0.0032mm²−1.38μW/Ch Wireless Implantable Neural Interface with Direct Multiplexing Front-End and Event-Driven Spike Detection and Transmission\", *2024 IEEE Custom Integrated Circuits Conference (****CICC****), 2024.* **（集成电路设计顶级会议，美国丹佛）**",
+      "last_rendered": "J. Chen, H. Wu, R. Eskandari, X. Liu, S. Lin, Q. Hou, F. Tian, W. Zou, **J. Yang**\\*, M. Sawan\\*, \"A Neuron-Inspired 0.0032mm²−1.38μW/Ch Wireless Implantable Neural Interface with Direct Multiplexing Front-End and Event-Driven Spike Detection and Transmission\", *2024 IEEE Custom Integrated Circuits Conference (****CICC****), 2024.* **（集成电路设计顶级会议，美国丹佛）**",
+      "snapshot": {
+        "year": 2024,
+        "authors": "J. Chen, H. Wu, R. Eskandari, X. Liu, S. Lin, Q. Hou, F. Tian, W. Zou, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
+        "title": "A Neuron-Inspired 0.0032mm²−1.38μW/Ch Wireless Implantable Neural Interface with Direct Multiplexing Front-End and Event-Driven Spike Detection and Transmission",
+        "venue": "2024 IEEE Custom Integrated Circuits Conference (CICC)",
+        "venueHighlight": true,
+        "url": "https://ieeexplore.ieee.org/abstract/document/10529097"
+      }
+    },
+    "conferences:ieee:10529019": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "C. Fang, Z. Yang, S. Zhao, C. Wang, F. Tian, **J. Yang**\\*, M. Sawan\\*, \"A 0.078 pJ/SOP Unstructured Sparsity-Aware Spiking Attention/Convolution Processor with 3D Compute Array\", *2024 IEEE Custom Integrated Circuits Conference (****CICC****)*, 2024. **（集成电路设计顶级会议，美国丹佛）**",
+      "last_rendered": "C. Fang, Z. Yang, S. Zhao, C. Wang, F. Tian, **J. Yang**\\*, M. Sawan\\*, \"A 0.078 pJ/SOP Unstructured Sparsity-Aware Spiking Attention/Convolution Processor with 3D Compute Array\", *2024 IEEE Custom Integrated Circuits Conference (****CICC****)*, 2024. **（集成电路设计顶级会议，美国丹佛）**",
+      "snapshot": {
+        "year": 2024,
+        "authors": "C. Fang, Z. Yang, S. Zhao, C. Wang, F. Tian, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
+        "title": "A 0.078 pJ/SOP Unstructured Sparsity-Aware Spiking Attention/Convolution Processor with 3D Compute Array",
+        "venue": "2024 IEEE Custom Integrated Circuits Conference (CICC)",
+        "venueHighlight": true,
+        "url": "https://ieeexplore.ieee.org/abstract/document/10529019"
+      }
+    },
+    "conferences:url:openreview.net/forum": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "C. Wang, D. Wu, C. Fang, **J. Yang**\\*, M. Sawan\\*, \"Exploring Effective Stimulus Encoding via Vision System Modeling for Visual Prostheses\", 2024 *The twelfth Internation Conference on Learning Representation (****ICLR****)*, 2024.**（人工智能领域顶级会议，奥地利维也纳）**",
+      "last_rendered": "C. Wang, D. Wu, C. Fang, **J. Yang**\\*, M. Sawan\\*, \"Exploring Effective Stimulus Encoding via Vision System Modeling for Visual Prostheses\", 2024 *The twelfth Internation Conference on Learning Representation (****ICLR****)*, 2024.**（人工智能领域顶级会议，奥地利维也纳）**",
+      "snapshot": {
+        "year": 2024,
+        "authors": "C. Wang, D. Wu, C. Fang, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
+        "title": "Exploring Effective Stimulus Encoding via Vision System Modeling for Visual Prostheses",
+        "venue": "2024 The Twelfth International Conference on Learning Representations (ICLR)",
+        "venueHighlight": true,
+        "url": "https://openreview.net/forum?id=cKAUvMePUN"
+      }
+    },
+    "conferences:url:link.springer.com/chapter/10.1007/978-3-031-73007-8_14": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "Y. Xu, J. Wang, Y. Chen, **J. Yang**, W. Ming, S. Wang, M. Sawan\\*, \"VSViG: Real-Time Video-Based Seizure Detection via Skeleton-Based Spatiotemporal ViG\", 2024 European Conference on Computer Vision (ECCV) , 2024.",
+      "last_rendered": "Y. Xu, J. Wang, Y. Chen, **J. Yang**, W. Ming, S. Wang, M. Sawan\\*, \"VSViG: Real-Time Video-Based Seizure Detection via Skeleton-Based Spatiotemporal ViG\", 2024 European Conference on Computer Vision (ECCV) , 2024.",
+      "snapshot": {
+        "year": 2024,
+        "authors": "Y. Xu, J. Wang, Y-H. Chen, <strong>J. Yang</strong>, W. Ming, S. Wang, M. Sawan",
+        "title": "VSViG: Real-Time Video-Based Seizure Detection via Skeleton-Based Spatiotemporal ViG",
+        "venue": "2024 European Conference on Computer Vision (ECCV)",
+        "venueHighlight": true,
+        "url": "https://link.springer.com/chapter/10.1007/978-3-031-73007-8_14"
+      }
+    },
+    "conferences:ieee:10762683": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "X. Liang, X. Kuang, **J. Yang**, L. Wang, \"A Fast Transient Response Output-capacitorless LDO With Low Quiescent Power\", *2024 3rd International Conference on Electronics and Information Technology (EIT)*, 2024.",
+      "last_rendered": "X. Liang, X. Kuang, **J. Yang**, L. Wang, \"A Fast Transient Response Output-capacitorless LDO With Low Quiescent Power\", *2024 3rd International Conference on Electronics and Information Technology (EIT)*, 2024.",
+      "snapshot": {
+        "year": 2024,
+        "authors": "X. Liang, X. Kuang, <strong>J. Yang</strong>, L. Wang",
+        "title": "A Fast Transient Response Output-capacitorless LDO With Low Quiescent Power",
+        "venue": "2024 3rd International Conference on Electronics and Information Technology (EIT)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/10762683/"
+      }
+    },
+    "conferences:ieee:10798227": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "J. Wang, C. Fang, Z. Shen, **J. Yang**\\*, M. Sawan, \"Live Demonstration: Low-energy Unstructured Sparsity-aware Spiking Attention and Convolution SNN Accelerator\", 2024 IEEE Biomedical Circuits and Systems Conference (BioCAS) , 2024.",
+      "last_rendered": "J. Wang, C. Fang, Z. Shen, **J. Yang**\\*, M. Sawan, \"Live Demonstration: Low-energy Unstructured Sparsity-aware Spiking Attention and Convolution SNN Accelerator\", 2024 IEEE Biomedical Circuits and Systems Conference (BioCAS) , 2024.",
+      "snapshot": {
+        "year": 2024,
+        "authors": "J. Wang, C. Fang, Z. Shen, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "Live Demonstration: Low-energy Unstructured Sparsity-aware Spiking Attention and Convolution SNN Accelerator",
+        "venue": "2024 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/10798227"
+      }
+    },
+    "conferences:ieee:10798161": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "W. Zou, R. Eskandari, X. Liu, J. Chen, Y. Ye, H. Wu, **J. Yang**\\*, M. Sawan\\*, \"A 34 μW and 3.4 pJ/b IR-UWB Transmitter Featuring Spectrum Tunability for Brain-Machine Interfaces\", 2024 IEEE Biomedical Circuits and Systems Conference (BioCAS) , 2024.",
+      "last_rendered": "W. Zou, R. Eskandari, X. Liu, J. Chen, Y. Ye, H. Wu, **J. Yang**\\*, M. Sawan\\*, \"A 34 μW and 3.4 pJ/b IR-UWB Transmitter Featuring Spectrum Tunability for Brain-Machine Interfaces\", 2024 IEEE Biomedical Circuits and Systems Conference (BioCAS) , 2024.",
+      "snapshot": {
+        "year": 2024,
+        "authors": "W. Zou, R. Eskandari, X. Liu, J. Chen, Y. Ye, H. Wu, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "A 34 μW and 3.4 pJ/b IR-UWB Transmitter Featuring Spectrum Tunability for Brain-Machine Interfaces",
+        "venue": "2024 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/10798161"
+      }
+    },
+    "conferences:ieee:10798305": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "X. Liu, W. Zou, H. Wu, J. Chen, **J. Yang**\\*, M. Sawan\\*, \"A Reconfigurable RF Energy Harvesting Front-end Interface for Biomedical Applications\", 2024 IEEE Biomedical Circuits and Systems Conference (BioCAS) , 2024.",
+      "last_rendered": "X. Liu, W. Zou, H. Wu, J. Chen, **J. Yang**\\*, M. Sawan\\*, \"A Reconfigurable RF Energy Harvesting Front-end Interface for Biomedical Applications\", 2024 IEEE Biomedical Circuits and Systems Conference (BioCAS) , 2024.",
+      "snapshot": {
+        "year": 2024,
+        "authors": "X. Liu, W. Zou, H. Wu, J. Chen, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "A Reconfigurable RF Energy Harvesting Front-end Interface for Biomedical Applications",
+        "venue": "2024 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/10798305"
+      }
+    },
+    "conferences:ieee:10595908": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "Z. Shen, X. Xie, C. Fang, F. Tian, S. Ma, **J. Yang**\\*, M. Sawan\\*, \"NeuroSORT: A Neuromorphic Accelerator for Spike-based Online and Real-time Tracking\", 2024 IEEE 6th International Conference on AI Circuits and Systems (AICAS) , 2024.",
+      "last_rendered": "Z. Shen, X. Xie, C. Fang, F. Tian, S. Ma, **J. Yang**\\*, M. Sawan\\*, \"NeuroSORT: A Neuromorphic Accelerator for Spike-based Online and Real-time Tracking\", 2024 IEEE 6th International Conference on AI Circuits and Systems (AICAS) , 2024.",
+      "snapshot": {
+        "year": 2024,
+        "authors": "Z. Shen, X. Xie, C. Fang, F. Tian, S. Ma, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "NeuroSORT: A Neuromorphic Accelerator for Spike-based Online and Real-time Tracking",
+        "venue": "2024 IEEE 6th International Conference on AI Circuits and Systems (AICAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/10595908/"
+      }
+    },
+    "conferences:ieee:10558462": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "F. Tian, J. Zheng, J. He, J. Chen, X. Wang, C. Fang, **J. Yang**, M. Sawan, C. Tsui, K. Cheng, \"BOLS: A Bionic Sensor-direct On-chip Learning System with Direct-Feedback-Through-Time for Personalized Wearable Health Monitoring\", 2024 IEEE International Symposium on Circuits and Systems (ISCAS), 2024.",
+      "last_rendered": "F. Tian, J. Zheng, J. He, J. Chen, X. Wang, C. Fang, **J. Yang**, M. Sawan, C. Tsui, K. Cheng, \"BOLS: A Bionic Sensor-direct On-chip Learning System with Direct-Feedback-Through-Time for Personalized Wearable Health Monitoring\", 2024 IEEE International Symposium on Circuits and Systems (ISCAS), 2024.",
+      "snapshot": {
+        "year": 2024,
+        "authors": "F. Tian, J. Zheng, J. He, J. Chen, X. Wang, C. Fang, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui, K-T. Cheng",
+        "title": "BOLS: A Bionic Sensor-direct On-chip Learning System with Direct-Feedback-Through-Time for Personalized Wearable Health Monitoring",
+        "venue": "2024 IEEE International Symposium on Circuits and Systems (ISCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/10558462"
+      }
+    },
+    "conferences:ieee:10558258": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "J. Chen, H. Wu, F. Tian, Q. Hou, S. Lin, **J. Yang**\\*, M. Sawan\\*, \"A Low-Power Level-Crossing Analog-to-Spike Converter Intended for Neuromorphic Biomedical Applications\", *2024 IEEE International Symposium on Circuits and Systems (ISCAS)*, 2024.",
+      "last_rendered": "J. Chen, H. Wu, F. Tian, Q. Hou, S. Lin, **J. Yang**\\*, M. Sawan\\*, \"A Low-Power Level-Crossing Analog-to-Spike Converter Intended for Neuromorphic Biomedical Applications\", *2024 IEEE International Symposium on Circuits and Systems (ISCAS)*, 2024.",
+      "snapshot": {
+        "year": 2024,
+        "authors": "J. Chen, H. Wu, F. Tian, Q. Hou, S. Lin, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
+        "title": "A Low-Power Level-Crossing Analog-to-Spike Converter Intended for Neuromorphic Biomedical Applications",
+        "venue": "2024 IEEE International Symposium on Circuits and Systems (ISCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/10558258"
+      }
+    },
+    "conferences:ieee:10558101": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "C. Fang, F. Tian, **J. Yang**\\*, M. Sawan\\*, \"Accelerating BPTT-Based SNN Training with Sparsity-Aware and Pipelined Architecture\", *2024 IEEE International Symposium on Circuits and Systems (ISCAS)*, 2024.",
+      "last_rendered": "C. Fang, F. Tian, **J. Yang**\\*, M. Sawan\\*, \"Accelerating BPTT-Based SNN Training with Sparsity-Aware and Pipelined Architecture\", *2024 IEEE International Symposium on Circuits and Systems (ISCAS)*, 2024.",
+      "snapshot": {
+        "year": 2024,
+        "authors": "C. Fang, F. Tian, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
+        "title": "Accelerating BPTT-Based SNN Training with Sparsity-Aware and Pipelined Architecture",
+        "venue": "2024 IEEE International Symposium on Circuits and Systems (ISCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/10558101"
+      }
+    },
+    "conferences:ieee:10389127": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "D. Wu, **J. Yang**\\*, M. Sawan, \"Task-aware Compression for Wearable Sensor Data\", *2023 IEEE Biomedical Circuits and Systems Conference (****BioCAS****)*, 2023.",
+      "last_rendered": "D. Wu, **J. Yang**\\*, M. Sawan, \"Task-aware Compression for Wearable Sensor Data\", *2023 IEEE Biomedical Circuits and Systems Conference (****BioCAS****)*, 2023.",
+      "snapshot": {
+        "year": 2023,
+        "authors": "D. Wu, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
+        "title": "Task-aware Compression for Wearable Sensor Data",
+        "venue": "2023 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/10389127"
+      }
+    },
+    "conferences:ieee:10388760": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "F. Tian, S. Zhao, J. He, J. Chen, X. Wang, **J. Yang**, M. Sawan, C. Tsui, K. Tim, \"NOLS: A Near-sensor On-chip Learning System with Direct Feedback Alignment for Personalized Wearable Heart Health Monitoring\", *2023 IEEE Biomedical Circuits and Systems Conference (****BioCAS****)*, 2023.",
+      "last_rendered": "F. Tian, S. Zhao, J. He, J. Chen, X. Wang, **J. Yang**, M. Sawan, C. Tsui, K. Tim, \"NOLS: A Near-sensor On-chip Learning System with Direct Feedback Alignment for Personalized Wearable Heart Health Monitoring\", *2023 IEEE Biomedical Circuits and Systems Conference (****BioCAS****)*, 2023.",
+      "snapshot": {
+        "year": 2023,
+        "authors": "F. Tian, S. Zhao, J. He, J. Chen, X. Wang, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui, K-T. Cheng",
+        "title": "NOLS: A Near-sensor On-chip Learning System with Direct Feedback Alignment for Personalized Wearable Heart Health Monitoring",
+        "venue": "2023 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/10388760/"
+      }
+    },
+    "conferences:ieee:10388528": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "H. Li, F. Tian, **J. Yang**, M. Sawan, N. El-Atab, \"NMBNN: Noise-Adaptive Memristive Bayesian Neural Network for Energy-Efficient Edge Health Care\", *2023 IEEE Biomedical Circuits and Systems Conference (****BioCAS****)*, 2023.",
+      "last_rendered": "H. Li, F. Tian, **J. Yang**, M. Sawan, N. El-Atab, \"NMBNN: Noise-Adaptive Memristive Bayesian Neural Network for Energy-Efficient Edge Health Care\", *2023 IEEE Biomedical Circuits and Systems Conference (****BioCAS****)*, 2023.",
+      "snapshot": {
+        "year": 2023,
+        "authors": "H. Li, F. Tian, <strong>J. Yang</strong>, M. Sawan, N. El-Atab",
+        "title": "NMBNN: Noise-Adaptive Memristive Bayesian Neural Network for Energy-Efficient Edge Health Care",
+        "venue": "2023 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/10388528"
+      }
+    },
+    "conferences:ieee:10388732": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "J. Chen, X. Liu, H. Wu, F. Tian, W. Zou, M. Katebi, R. Eskandari, **J. Yang**\\*, M. Sawan\\*, \"A Clockless Robust Bionic Spike Detector for Implantable Brain-Computer Interfaces\", *2023 IEEE Biomedical Circuits and Systems Conference (****BioCAS****)*, 2023.",
+      "last_rendered": "J. Chen, X. Liu, H. Wu, F. Tian, W. Zou, M. Katebi, R. Eskandari, **J. Yang**\\*, M. Sawan\\*, \"A Clockless Robust Bionic Spike Detector for Implantable Brain-Computer Interfaces\", *2023 IEEE Biomedical Circuits and Systems Conference (****BioCAS****)*, 2023.",
+      "snapshot": {
+        "year": 2023,
+        "authors": "J. Chen, X. Liu, H. Wu, F. Tian, W. Zou, M. Katebi, R. Eskandari, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
+        "title": "A Clockless Robust Bionic Spike Detector for Implantable Brain-Computer Interfaces",
+        "venue": "2023 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/10388732/"
+      }
+    },
+    "conferences:ieee:10389111": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "T. Li, **J. Yang**, T. Liu, S. Dong, W. Chen, S. Zhang, \"A Sparsity-Adapted Hardware Implementation of SNN for Cortical Spike Trains Decoding\", *2023 IEEE Biomedical Circuits and Systems Conference (****BioCAS****)*, 2023.",
+      "last_rendered": "T. Li, **J. Yang**, T. Liu, S. Dong, W. Chen, S. Zhang, \"A Sparsity-Adapted Hardware Implementation of SNN for Cortical Spike Trains Decoding\", *2023 IEEE Biomedical Circuits and Systems Conference (****BioCAS****)*, 2023.",
+      "snapshot": {
+        "year": 2023,
+        "authors": "T. Li, <strong>J. Yang</strong>, T. Liu, S. Dong, W. Chen, S. Zhang",
+        "title": "A Sparsity-Adapted Hardware Implementation of SNN for Cortical Spike Trains Decoding",
+        "venue": "2023 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/10389111"
+      }
+    },
+    "conferences:ieee:10388570": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "W. Zou, R. Eskandari, X. Liu, J. Chen, **J. Yang**\\*, M. Sawan\\*, \"Wireless Data Transceivers for Brain-machine Interfaces\", *2023 IEEE Biomedical Circuits and Systems Conference (****BioCAS****)*, 2023.",
+      "last_rendered": "W. Zou, R. Eskandari, X. Liu, J. Chen, **J. Yang**\\*, M. Sawan\\*, \"Wireless Data Transceivers for Brain-machine Interfaces\", *2023 IEEE Biomedical Circuits and Systems Conference (****BioCAS****)*, 2023.",
+      "snapshot": {
+        "year": 2023,
+        "authors": "W. Zou, R. Eskandari, X. Liu, J. Chen, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
+        "title": "Wireless Data Transceivers for Brain-machine Interfaces",
+        "venue": "2023 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/10388570"
+      }
+    },
+    "conferences:ieee:10388818": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "J. Wang, S. Zhao, **J. Yang**\\*, M. Sawan\\*, \"An Event-driven Neural Signal Processor for Closed-loop Seizure Prediction\", *2023 IEEE Biomedical Circuits and Systems Conference (****BioCAS****)*, 2023.",
+      "last_rendered": "J. Wang, S. Zhao, **J. Yang**\\*, M. Sawan\\*, \"An Event-driven Neural Signal Processor for Closed-loop Seizure Prediction\", *2023 IEEE Biomedical Circuits and Systems Conference (****BioCAS****)*, 2023.",
+      "snapshot": {
+        "year": 2023,
+        "authors": "J. Wang, S. Zhao, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "An Event-driven Neural Signal Processor for Closed-loop Seizure Prediction",
+        "venue": "2023 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/10388818"
+      }
+    },
+    "conferences:ieee:10268765": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "F. Tian, X. Wang, J. Chen, J. Zheng, H. Wu, X. Liu, F. Tu, **J. Yang**, M. Sawan, C. Tsui, \"BIOS: A 40nm Bionic Sensor-defined 0.47 pJ/SOP, 268.7 TSOPs/W Configurable Spiking Neuron-in-Memory Processor for Wearable Healthcare\", *ESSCIRC 2023-IEEE 49th European Solid State Circuits Conference (****ESSCIRC****)*, 2023.",
+      "last_rendered": "F. Tian, X. Wang, J. Chen, J. Zheng, H. Wu, X. Liu, F. Tu, **J. Yang**, M. Sawan, C. Tsui, \"BIOS: A 40nm Bionic Sensor-defined 0.47 pJ/SOP, 268.7 TSOPs/W Configurable Spiking Neuron-in-Memory Processor for Wearable Healthcare\", *ESSCIRC 2023-IEEE 49th European Solid State Circuits Conference (****ESSCIRC****)*, 2023.",
+      "snapshot": {
+        "year": 2023,
+        "authors": "F. Tian, X. Wang, J. Chen, J. Zheng, H. Wu, X. Liu, F. Tu, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui",
+        "title": "BIOS: A 40nm Bionic Sensor-defined 0.47 pJ/SOP, 268.7 TSOPs/W Configurable Spiking Neuron-in-Memory Processor for Wearable Healthcare",
+        "venue": "ESSCIRC 2023 - IEEE 49th European Solid State Circuits Conference (ESSCIRC)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/10268765"
+      }
+    },
+    "conferences:ieee:10168631": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "J. Wang, S. Zhao, C. Fang, **J. Yang**\\*, M. Sawan\\*, \"Live Demonstration: Real-time Analyses of Biosignals based on a Dedicated CMOS Configurable Deep Learning Engine\", *2023 IEEE 5th International Conference on Artificial Intelligence Circuits and Systems (****AICAS****)*, 2023.",
+      "last_rendered": "J. Wang, S. Zhao, C. Fang, **J. Yang**\\*, M. Sawan\\*, \"Live Demonstration: Real-time Analyses of Biosignals based on a Dedicated CMOS Configurable Deep Learning Engine\", *2023 IEEE 5th International Conference on Artificial Intelligence Circuits and Systems (****AICAS****)*, 2023.",
+      "snapshot": {
+        "year": 2023,
+        "authors": "J. Wang, S. Zhao, C. Fang, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "Live Demonstration: Real-time Analyses of Biosignals based on a Dedicated CMOS Configurable Deep Learning Engine",
+        "venue": "2023 IEEE 5th International Conference on Artificial Intelligence Circuits and Systems (AICAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/10168631"
+      }
+    },
+    "conferences:ieee:10168575": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "H. Li, A. Lone, F. Tian, **J. Yang**, M. Sawan, N. El-Atab, \"Novel Knowledge Distillation to Improve Training Accuracy of Spin-based SNN\", *2023 IEEE 5th International Conference on Artificial Intelligence Circuits and Systems (****AICAS****)*, 2023.",
+      "last_rendered": "H. Li, A. Lone, F. Tian, **J. Yang**, M. Sawan, N. El-Atab, \"Novel Knowledge Distillation to Improve Training Accuracy of Spin-based SNN\", *2023 IEEE 5th International Conference on Artificial Intelligence Circuits and Systems (****AICAS****)*, 2023.",
+      "snapshot": {
+        "year": 2023,
+        "authors": "H. Li, A. Lone, F. Tian, <strong>J. Yang</strong>, M. Sawan, N. El-Atab",
+        "title": "Novel Knowledge Distillation to Improve Training Accuracy of Spin-based SNN",
+        "venue": "2023 IEEE 5th International Conference on Artificial Intelligence Circuits and Systems (AICAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/10168575"
+      }
+    },
+    "conferences:ieee:10168590": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "Z. Shen, C. Fang, F. Tian, **J. Yang**\\*, M. Sawan\\*, \"PN-TMS: Pruned Node-fusion Tree-based Multicast Scheme for Efficient Neuromorphic Systems\", *2023 IEEE 5th International Conference on Artificial Intelligence Circuits and Systems (****AICAS****)*, 2023.",
+      "last_rendered": "Z. Shen, C. Fang, F. Tian, **J. Yang**\\*, M. Sawan\\*, \"PN-TMS: Pruned Node-fusion Tree-based Multicast Scheme for Efficient Neuromorphic Systems\", *2023 IEEE 5th International Conference on Artificial Intelligence Circuits and Systems (****AICAS****)*, 2023.",
+      "snapshot": {
+        "year": 2023,
+        "authors": "Z. Shen, C. Fang, F. Tian, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "PN-TMS: Pruned Node-fusion Tree-based Multicast Scheme for Efficient Neuromorphic Systems",
+        "venue": "2023 IEEE 5th International Conference on Artificial Intelligence Circuits and Systems (AICAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/10168590"
+      }
+    },
+    "conferences:ieee:10168619": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "J. Chen, H. Wu, X. Liu, R. Eskandari, F. Tian, W. Zou, C. Fang, **J. Yang**\\*, M. Sawan\\*, \"NeuroBMI: A New Neuromorphic Implantable Wireless Brain Machine Interface with A 0.48 µW Event-Driven Noise-Tolerant Spike Detector\", *2023 IEEE 5th International Conference on Artificial Intelligence Circuits and Systems (****AICAS****)*, 2023.",
+      "last_rendered": "J. Chen, H. Wu, X. Liu, R. Eskandari, F. Tian, W. Zou, C. Fang, **J. Yang**\\*, M. Sawan\\*, \"NeuroBMI: A New Neuromorphic Implantable Wireless Brain Machine Interface with A 0.48 µW Event-Driven Noise-Tolerant Spike Detector\", *2023 IEEE 5th International Conference on Artificial Intelligence Circuits and Systems (****AICAS****)*, 2023.",
+      "snapshot": {
+        "year": 2023,
+        "authors": "J. Chen, H. Wu, X. Liu, R. Eskandari, F. Tian, W. Zou, C. Fang, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "NeuroBMI: A New Neuromorphic Implantable Wireless Brain Machine Interface with A 0.48 µW Event-Driven Noise-Tolerant Spike Detector",
+        "venue": "2023 IEEE 5th International Conference on Artificial Intelligence Circuits and Systems (AICAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/10168619"
+      }
+    },
+    "conferences:ieee:10168576": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "F. Tian, X. Wang, J. Chen, **J. Yang**, M. Sawan, C. Tsui, K. Cheng, \"Binary is All You Need: Ultra-Efficient Arrhythmia Detection with a Binary-Only Compressive System\", *2023 IEEE 5th International Conference on Artificial Intelligence Circuits and Systems (****AICAS****)*, 2023. **（奖项：Best Paper Award）**",
+      "last_rendered": "F. Tian, X. Wang, J. Chen, **J. Yang**, M. Sawan, C. Tsui, K. Cheng, \"Binary is All You Need: Ultra-Efficient Arrhythmia Detection with a Binary-Only Compressive System\", *2023 IEEE 5th International Conference on Artificial Intelligence Circuits and Systems (****AICAS****)*, 2023. **（奖项：Best Paper Award）**",
+      "snapshot": {
+        "year": 2023,
+        "authors": "F. Tian, X. Wang, J. Chen, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui, K. Cheng",
+        "title": "Binary is All You Need: Ultra-Efficient Arrhythmia Detection with a Binary-Only Compressive System",
+        "venue": "2023 IEEE 5th International Conference on Artificial Intelligence Circuits and Systems (AICAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/10168576",
+        "award": "Best Paper Award"
+      }
+    },
+    "conferences:ieee:10168605": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "J. He, Z. Shen, F. Tian, J. Chen, **J. Yang**, M. Sawan, T. Cheng, P. Bogdan, C. Tsui, \"SNNOpt: An Application-Specific Design Framework for Spiking Neural Networks\", *2023 IEEE 5th International Conference on Artificial Intelligence Circuits and Systems (****AICAS****)*, 2023.",
+      "last_rendered": "J. He, Z. Shen, F. Tian, J. Chen, **J. Yang**, M. Sawan, T. Cheng, P. Bogdan, C. Tsui, \"SNNOpt: An Application-Specific Design Framework for Spiking Neural Networks\", *2023 IEEE 5th International Conference on Artificial Intelligence Circuits and Systems (****AICAS****)*, 2023.",
+      "snapshot": {
+        "year": 2023,
+        "authors": "J. He, Z. Shen, F. Tian, J. Chen, <strong>J. Yang</strong>, M. Sawan, T. Cheng, P. Bogdan, C-Y. Tsui",
+        "title": "SNNOpt: An Application-Specific Design Framework for Spiking Neural Networks",
+        "venue": "2023 IEEE 5th International Conference on Artificial Intelligence Circuits and Systems (AICAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/10168605"
+      }
+    },
+    "conferences:ieee:10181850": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "Z. Shen, F. Tian, J. Jiang, C. Fang, X. Xue, **J. Yang**\\*, M. Sawan\\*, \"NBSSN: A Neuromorphic Binary Single-Spike Neural Network for Efficient Edge Intelligence\", *2023 IEEE International Symposium on Circuits and Systems (****ISCAS****)*, 2023.",
+      "last_rendered": "Z. Shen, F. Tian, J. Jiang, C. Fang, X. Xue, **J. Yang**\\*, M. Sawan\\*, \"NBSSN: A Neuromorphic Binary Single-Spike Neural Network for Efficient Edge Intelligence\", *2023 IEEE International Symposium on Circuits and Systems (****ISCAS****)*, 2023.",
+      "snapshot": {
+        "year": 2023,
+        "authors": "Z. Shen, F. Tian, J. Jiang, C. Fang, X. Xue, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "NBSSN: A Neuromorphic Binary Single-Spike Neural Network for Efficient Edge Intelligence",
+        "venue": "2023 IEEE International Symposium on Circuits and Systems (ISCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/10181850"
+      }
+    },
+    "conferences:ieee:9980727": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "C. Fang, F. Tian, C. Wang, **J. Yang**\\*, M. Sawan\\*, \"A 217.8 MSOPs/W FPGA-based Online Learning SNN Processor Using Unified Event-Driven Structure and Topology Aware Data Reuse Strategies\", *2022 IEEE Asian Solid-State Circuits Conference (****A-SSCC****)*, 2022.**（集成电路设计高水平会议，中国台北）**",
+      "last_rendered": "C. Fang, F. Tian, C. Wang, **J. Yang**\\*, M. Sawan\\*, \"A 217.8 MSOPs/W FPGA-based Online Learning SNN Processor Using Unified Event-Driven Structure and Topology Aware Data Reuse Strategies\", *2022 IEEE Asian Solid-State Circuits Conference (****A-SSCC****)*, 2022.**（集成电路设计高水平会议，中国台北）**",
+      "snapshot": {
+        "year": 2022,
+        "authors": "C. Fang, C. Wang, S. Zhao, F. Tian, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "An Online-Learning Multi-topology Spiking Neural Network Processor",
+        "venue": "2022 IEEE Asia South Pacific Design Automation Conference (A-SSCC)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/9980727"
+      }
+    },
+    "conferences:ieee:10090263": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "F. Xia, Z. Zhang, **J. Yang**\\*, M. Sawan\\*, \"Compact Power Front-end Management for Wireless Supply of Multi-voltages to Neuromodulators\", *2022 IEEE Asia Pacific Conference on Circuits and Systems (****APCCAS****)*, 2022.",
+      "last_rendered": "F. Xia, Z. Zhang, **J. Yang**\\*, M. Sawan\\*, \"Compact Power Front-end Management for Wireless Supply of Multi-voltages to Neuromodulators\", *2022 IEEE Asia Pacific Conference on Circuits and Systems (****APCCAS****)*, 2022.",
+      "snapshot": {
+        "year": 2022,
+        "authors": "F. Xia, Z. Zhang, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "Compact Power Front-end Management for Wireless Supply of Multi-voltages to Neuromodulators",
+        "venue": "2022 IEEE Asia Pacific Conference on Circuits and Systems (APCCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/10090263"
+      }
+    },
+    "conferences:ieee:10090325": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "J. Chen, H. Wu, **J. Yang**\\*, M. Sawan\\*, \"A 97 fJ/Conversion Neuron-ADC with Reconfigurable Sampling and Static Power Reduction\", *2022 IEEE Asia Pacific Conference on Circuits and Systems (****APCCAS****)*, 2022.",
+      "last_rendered": "J. Chen, H. Wu, **J. Yang**\\*, M. Sawan\\*, \"A 97 fJ/Conversion Neuron-ADC with Reconfigurable Sampling and Static Power Reduction\", *2022 IEEE Asia Pacific Conference on Circuits and Systems (****APCCAS****)*, 2022.",
+      "snapshot": {
+        "year": 2022,
+        "authors": "J. Chen, H. Wu, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "A 97 fJ/Conversion Neuron-ADC with Reconfigurable Sampling and Static Power Reduction",
+        "venue": "2022 IEEE Asia Pacific Conference on Circuits and Systems (APCCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/10090325"
+      }
+    },
+    "conferences:ieee:9963463": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "H. Wu, J. Chen, **J. Yang**\\*, M. Sawan\\*, \"A Low-Power Low-Pass Filter for Noise Suppression in Chopped Bioamplifiers\", *2022 IEEE 16th International Conference on Solid-State & Integrated Circuit Technology (****ICSICT****)*, 2022.",
+      "last_rendered": "H. Wu, J. Chen, **J. Yang**\\*, M. Sawan\\*, \"A Low-Power Low-Pass Filter for Noise Suppression in Chopped Bioamplifiers\", *2022 IEEE 16th International Conference on Solid-State & Integrated Circuit Technology (****ICSICT****)*, 2022.",
+      "snapshot": {
+        "year": 2022,
+        "authors": "H. Wu, J. Chen, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "A Low-Power Low-Pass Filter for Noise Suppression in Chopped Bioamplifiers",
+        "venue": "2022 IEEE 16th International Conference on Solid-State Integrated Circuit Technology (ICSICT)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/9963463"
+      }
+    },
+    "conferences:ieee:9948669": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "S. Zhao, D. Wu, **J. Yang**\\*, M. Sawan\\*, \"A Resource-Efficient and Data-Restricted Training Method Towards Neurological Symptoms Prediction\", *2022 IEEE Biomedical Circuits and Systems Conference (****BioCAS****)*, 2022.",
+      "last_rendered": "S. Zhao, D. Wu, **J. Yang**\\*, M. Sawan\\*, \"A Resource-Efficient and Data-Restricted Training Method Towards Neurological Symptoms Prediction\", *2022 IEEE Biomedical Circuits and Systems Conference (****BioCAS****)*, 2022.",
+      "snapshot": {
+        "year": 2022,
+        "authors": "S. Zhao, D. Wu, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "A Resource-Efficient and Data-Restricted Training Method Towards Neurological Symptoms Prediction",
+        "venue": "2022 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/9948669"
+      }
+    },
+    "conferences:ieee:9948655": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "H. Wu, X. Liu, **J. Yang**\\*, M. Sawan\\*, \"A Power-Efficient Source-Follower Based Tunable Pseudo-RC Low-Pass Filter for Wearable Biomedical Applications\", *2022 IEEE Biomedical Circuits and Systems Conference (****BioCAS****)*, 2022.",
+      "last_rendered": "H. Wu, X. Liu, **J. Yang**\\*, M. Sawan\\*, \"A Power-Efficient Source-Follower Based Tunable Pseudo-RC Low-Pass Filter for Wearable Biomedical Applications\", *2022 IEEE Biomedical Circuits and Systems Conference (****BioCAS****)*, 2022.",
+      "snapshot": {
+        "year": 2022,
+        "authors": "H. Wu, X. Liu, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "A Power-Efficient Source-Follower Based Tunable Pseudo-RC Low-Pass Filter for Wearable Biomedical Applications",
+        "venue": "2022 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/9948655"
+      }
+    },
+    "conferences:ieee:9842210": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "N. Li, **J. Yang**\\*, M. Sawan\\*, \"Compact Closed-loop EEG/fNIRS Recording and TMS Neuromodulation System\", *2022 20th IEEE Interregional NEWCAS Conference (****NEWCAS****),* 2022.",
+      "last_rendered": "N. Li, **J. Yang**\\*, M. Sawan\\*, \"Compact Closed-loop EEG/fNIRS Recording and TMS Neuromodulation System\", *2022 20th IEEE Interregional NEWCAS Conference (****NEWCAS****),* 2022.",
+      "snapshot": {
+        "year": 2022,
+        "authors": "N. Li, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "Compact Closed-loop EEG/fNIRS Recording and TMS Neuromodulation System",
+        "venue": "2022 20th IEEE Interregional NEWCAS Conference (NEWCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/9842210"
+      }
+    },
+    "conferences:ieee:9870022": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "**J. Yang**, N. Li, Y. Chen, M. Sawan, \"Towards Intelligent Noninvasive Closed-loop Neuromodulation Systems\", *2022 IEEE 4th International Conference on Artificial Intelligence Circuits and Systems (****AICAS****)*, 2022.",
+      "last_rendered": "**J. Yang**, N. Li, Y. Chen, M. Sawan, \"Towards Intelligent Noninvasive Closed-loop Neuromodulation Systems\", *2022 IEEE 4th International Conference on Artificial Intelligence Circuits and Systems (****AICAS****)*, 2022.",
+      "snapshot": {
+        "year": 2022,
+        "authors": "<strong>J. Yang</strong>, N. Li, Y-H. Chen, M. Sawan",
+        "title": "Towards Intelligent Noninvasive Closed-loop Neuromodulation Systems",
+        "venue": "2022 IEEE 4th International Conference on Artificial Intelligence Circuits and Systems (AICAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/9870022"
+      }
+    },
+    "conferences:ieee:9869982": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "H. Li, J. Wang, S. Zhao, F. Tian, **J. Yang**\\*, M. Sawan, \"Real-time Biosignal Recording and Machine-Learning Analysis System\", *2022 IEEE 4th International Conference on Artificial Intelligence Circuits and Systems (****AICAS****),* 2022.",
+      "last_rendered": "H. Li, J. Wang, S. Zhao, F. Tian, **J. Yang**\\*, M. Sawan, \"Real-time Biosignal Recording and Machine-Learning Analysis System\", *2022 IEEE 4th International Conference on Artificial Intelligence Circuits and Systems (****AICAS****),* 2022.",
+      "snapshot": {
+        "year": 2022,
+        "authors": "H. Li, J. Wang, S. Zhao, F. Tian, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "Real-time Biosignal Recording and Machine-Learning Analysis System",
+        "venue": "2022 IEEE 4th International Conference on Artificial Intelligence Circuits and Systems (AICAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/9869982"
+      }
+    },
+    "conferences:ieee:9937415": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "D. Wu, **J. Yang**\\*, M. Sawan\\*, \"Towards Task-aware Signal Compression for Efficient Continuous Health Monitoring\", *2022 IEEE International Symposium on Circuits and Systems (****ISCAS****)*, 2022.",
+      "last_rendered": "D. Wu, **J. Yang**\\*, M. Sawan\\*, \"Towards Task-aware Signal Compression for Efficient Continuous Health Monitoring\", *2022 IEEE International Symposium on Circuits and Systems (****ISCAS****)*, 2022.",
+      "snapshot": {
+        "year": 2022,
+        "authors": "D. Wu, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "Towards Task-aware Signal Compression for Efficient Continuous Health Monitoring",
+        "venue": "2022 IEEE International Symposium on Circuits and Systems (ISCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/9937415"
+      }
+    },
+    "conferences:ieee:9937459": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "C. Fang, Z. Shen, F. Tian, **J. Yang**\\*, M. Sawan\\*, \"A Compact Online-Learning Spiking Neuromorphic Biosignal Processor\", *2022 IEEE International Symposium on Circuits and Systems (****ISCAS****)*, 2022.",
+      "last_rendered": "C. Fang, Z. Shen, F. Tian, **J. Yang**\\*, M. Sawan\\*, \"A Compact Online-Learning Spiking Neuromorphic Biosignal Processor\", *2022 IEEE International Symposium on Circuits and Systems (****ISCAS****)*, 2022.",
+      "snapshot": {
+        "year": 2022,
+        "authors": "C. Fang, Z. Shen, F. Tian, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "A Compact Online-Learning Spiking Neuromorphic Biosignal Processor",
+        "venue": "2022 IEEE International Symposium on Circuits and Systems (ISCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/9937459"
+      }
+    },
+    "conferences:ieee:9937756": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "J. Chen, F. Tian, **J. Yang**\\*, M. Sawan\\*, \"An event-driven compressive neuromorphic system for cardiac arrhythmia detection\", *2022 IEEE International Symposium on Circuits and Systems (****ISCAS****)*, 2022.",
+      "last_rendered": "J. Chen, F. Tian, **J. Yang**\\*, M. Sawan\\*, \"An event-driven compressive neuromorphic system for cardiac arrhythmia detection\", *2022 IEEE International Symposium on Circuits and Systems (****ISCAS****)*, 2022.",
+      "snapshot": {
+        "year": 2022,
+        "authors": "J. Chen, F. Tian, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "An event-driven compressive neuromorphic system for cardiac arrhythmia detection",
+        "venue": "2022 IEEE International Symposium on Circuits and Systems (ISCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/9937756"
+      }
+    },
+    "conferences:ieee:9458571": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "Z. Wang, **J. Yang**\\*, M. Sawan\\*, \"A Novel Multi-scale Dilated 3D CNN for Epileptic Seizure Prediction\", *2021 IEEE 3rd International Conference on Artificial Intelligence Circuits and Systems (****AICAS****)*, 2021.",
+      "last_rendered": "Z. Wang, **J. Yang**\\*, M. Sawan\\*, \"A Novel Multi-scale Dilated 3D CNN for Epileptic Seizure Prediction\", *2021 IEEE 3rd International Conference on Artificial Intelligence Circuits and Systems (****AICAS****)*, 2021.",
+      "snapshot": {
+        "year": 2021,
+        "authors": "Z. Wang, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
+        "title": "A Novel Multi-scale Dilated 3D CNN for Epileptic Seizure Prediction",
+        "venue": "2021 IEEE 3rd International Conference on Artificial Intelligence Circuits and Systems (AICAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/9458571/"
+      }
+    },
+    "conferences:ieee:9401560": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "F. Tian, **J. Yang**\\*, S. Zhao, M. Sawan\\*, \"A New Neuromorphic Computing Approach for Epileptic Seizure Prediction\", *2021 IEEE International Symposium on Circuits and Systems (****ISCAS****),* 2021.",
+      "last_rendered": "F. Tian, **J. Yang**\\*, S. Zhao, M. Sawan\\*, \"A New Neuromorphic Computing Approach for Epileptic Seizure Prediction\", *2021 IEEE International Symposium on Circuits and Systems (****ISCAS****),* 2021.",
+      "snapshot": {
+        "year": 2021,
+        "authors": "F. Tian, <strong>J. Yang</strong><sup>*</sup>, S. Zhao, M. Sawan",
+        "title": "A New Neuromorphic Computing Approach for Epileptic Seizure Prediction",
+        "venue": "2021 IEEE International Symposium on Circuits and Systems (ISCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/9401560"
+      }
+    },
+    "conferences:ieee:9180430": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "S. Zhao, **J. Yang**\\*, Y. Xu, M. Sawan, \"Binary Single-Dimensional Convolutional Neural Network for Seizure Prediction\", *2020 IEEE International Symposium on Circuits and Systems (****ISCAS****)*, 2020.",
+      "last_rendered": "S. Zhao, **J. Yang**\\*, Y. Xu, M. Sawan, \"Binary Single-Dimensional Convolutional Neural Network for Seizure Prediction\", *2020 IEEE International Symposium on Circuits and Systems (****ISCAS****)*, 2020.",
+      "snapshot": {
+        "year": null,
+        "authors": "S. Zhao, <strong>J. Yang</strong><sup>*</sup>, Y. Xu, M. Sawan",
+        "title": "Binary Single-Dimensional Convolutional Neural Network for Seizure Prediction",
+        "venue": "2020 IEEE International Symposium on Circuits and Systems (ISCAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/9180430"
+      }
+    },
+    "conferences:ieee:9073988": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "Y. Xu, **J. Yang**\\*, S. Zhao, H. Wu, M. Sawan, \"An End-to-End Deep Learning Approach for Epileptic Seizure Prediction\", *2020 2nd IEEE International Conference on Artificial Intelligence Circuits and Systems (****AICAS****)*, 2020.",
+      "last_rendered": "Y. Xu, **J. Yang**\\*, S. Zhao, H. Wu, M. Sawan, \"An End-to-End Deep Learning Approach for Epileptic Seizure Prediction\", *2020 2nd IEEE International Conference on Artificial Intelligence Circuits and Systems (****AICAS****)*, 2020.",
+      "snapshot": {
+        "year": null,
+        "authors": "Y. Xu, <strong>J. Yang</strong><sup>*</sup>, S. Zhao, H. Wu, M. Sawan",
+        "title": "An End-to-End Deep Learning Approach for Epileptic Seizure Prediction",
+        "venue": "2020 2nd IEEE International Conference on Artificial Intelligence Circuits and Systems (AICAS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/9073988"
+      }
+    },
+    "conferences:ieee:8909891": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "M. Lin, **J. Yang**, O. Yadid-Pecht, \"Deep Single Image Enhancer\", *2019 16th IEEE International Conference on Advanced Video and Signal Based Surveillance (****AVSS****)*, 2019.",
+      "last_rendered": "M. Lin, **J. Yang**, O. Yadid-Pecht, \"Deep Single Image Enhancer\", *2019 16th IEEE International Conference on Advanced Video and Signal Based Surveillance (****AVSS****)*, 2019.",
+      "snapshot": {
+        "year": null,
+        "authors": "M. Lin, <strong>J. Yang</strong>, O. Yadid-Pecht",
+        "title": "Deep Single Image Enhancer",
+        "venue": "2019 16th IEEE International Conference on Advanced Video and Signal Based Surveillance (AVSS)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/8909891"
+      }
+    },
+    "conferences:ieee:8078533": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "**J. Yang**, A. Horé, U. Shahnovich, K. Lai, S. Yanushkevich, O. Yadid-Pecht, \"Multi-Scale histogram tone mapping algorithm enables better object detection in wide dynamic range images\", *2017 14th IEEE International Conference on Advanced Video and Signal Based Surveillance (****AVSS****)*, 2017.",
+      "last_rendered": "**J. Yang**, A. Horé, U. Shahnovich, K. Lai, S. Yanushkevich, O. Yadid-Pecht, \"Multi-Scale histogram tone mapping algorithm enables better object detection in wide dynamic range images\", *2017 14th IEEE International Conference on Advanced Video and Signal Based Surveillance (****AVSS****)*, 2017.",
+      "snapshot": {
+        "year": null,
+        "authors": "<strong>J. Yang</strong>, A. Horé, U. Shahnovich, K. Lai, S. Yanushkevich, O. Yadid-Pecht",
+        "title": "Multi-Scale histogram tone mapping algorithm enables better object detection in wide dynamic range images",
+        "venue": "Advanced Video and Signal Based Surveillance (AVSS), 2017 14th IEEE International Conference on",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/8078533"
+      }
+    },
+    "conferences:ieee:8402462": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "H. Zheng, **J. Yang**, J. Chen, \"A performance evaluation method for infrared tracker\", *2017 International Conference on Image and Vision Computing New Zealand (****IVCNZ****)*, 2017.",
+      "last_rendered": "H. Zheng, **J. Yang**, J. Chen, \"A performance evaluation method for infrared tracker\", *2017 International Conference on Image and Vision Computing New Zealand (****IVCNZ****)*, 2017.",
+      "snapshot": {
+        "year": null,
+        "authors": "H. Zheng, <strong>J. Yang</strong>, J. Chen",
+        "title": "A performance evaluation method for infrared tracker",
+        "venue": "2017 International Conference on Image and Vision Computing New Zealand (IVCNZ)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/abstract/document/8402462"
+      }
+    },
+    "conferences:ieee:8313070": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "**J. Yang**, A. Hore, U. Shahnovich, O. Yadid-Pecht, \"Multi-Scale histogram tone mapping algorithm for display of wide dynamic range images\", *2017 IEEE 7th International Workshop on Computational Advances in Multi-Sensor Adaptive Processing (****CAMSAP****)*, 2017.",
+      "last_rendered": "**J. Yang**, A. Hore, U. Shahnovich, O. Yadid-Pecht, \"Multi-Scale histogram tone mapping algorithm for display of wide dynamic range images\", *2017 IEEE 7th International Workshop on Computational Advances in Multi-Sensor Adaptive Processing (****CAMSAP****)*, 2017.",
+      "snapshot": {
+        "year": null,
+        "authors": "<strong>J. Yang</strong>, A. Hore, U. Shahnovich, O. Yadid-Pecht",
+        "title": "Multi-Scale histogram tone mapping algorithm for display of wide dynamic range images",
+        "venue": "2017 IEEE 7th International Workshop on Computational Advances in Multi-Sensor Adaptive Processing (CAMSAP)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/8313070"
+      }
+    },
+    "conferences:ieee:7387437": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "Z. Liu, L. Liu, **J. Yang**, N. Wu, \"A fully-integrated 860-GHz CMOS terahertz sensor\", *2015 IEEE Asian Solid-State Circuits Conference (****A-SSCC****)*, 2015. **（集成电路设计高水平会议，中国厦门）**",
+      "last_rendered": "Z. Liu, L. Liu, **J. Yang**, N. Wu, \"A fully-integrated 860-GHz CMOS terahertz sensor\", *2015 IEEE Asian Solid-State Circuits Conference (****A-SSCC****)*, 2015. **（集成电路设计高水平会议，中国厦门）**",
+      "snapshot": {
+        "year": null,
+        "authors": "Z. Liu, L. Liu, <strong>J. Yang</strong>, N. Wu",
+        "title": "A fully-integrated 860-GHz CMOS terahertz sensor",
+        "venue": "2015 IEEE Asian Solid-State Circuits Conference (A-SSCC)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/7387437"
+      }
+    },
+    "conferences:ieee:7516876": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "Z. Zhang, **J. Yang**, H. Li, L. Liu, J. Liu, N. Wu, \"High-speed object detection based on a hierarchical parallel vision chip\", *2015 IEEE 11th International Conference on ASIC (****ASICON****)*, 2015.",
+      "last_rendered": "Z. Zhang, **J. Yang**, H. Li, L. Liu, J. Liu, N. Wu, \"High-speed object detection based on a hierarchical parallel vision chip\", *2015 IEEE 11th International Conference on ASIC (****ASICON****)*, 2015.",
+      "snapshot": {
+        "year": null,
+        "authors": "Z. Zhang, <strong>J. Yang</strong>, H. Li, L. Liu, J. Liu, N. Wu",
+        "title": "High-speed object detection based on a hierarchical parallel vision chip",
+        "venue": "2015 IEEE 11th International Conference on ASIC (ASICON)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/7516876"
+      }
+    },
+    "conferences:ieee:7517029": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "V. Nshunguyimfura, **J. Yang**, L. Liu, N. Wu, \"An efficient layered ABV methodology for vision system on chip based on heterogeneous parallel processors\", *2015 IEEE 11th International Conference on ASIC (****ASICON****)*, 2015.",
+      "last_rendered": "V. Nshunguyimfura, **J. Yang**, L. Liu, N. Wu, \"An efficient layered ABV methodology for vision system on chip based on heterogeneous parallel processors\", *2015 IEEE 11th International Conference on ASIC (****ASICON****)*, 2015.",
+      "snapshot": {
+        "year": null,
+        "authors": "V. Nshunguyimfura, <strong>J. Yang</strong>, L. Liu, N. Wu",
+        "title": "An efficient layered ABV methodology for vision system on chip based on heterogeneous parallel processors",
+        "venue": "2015 IEEE 11th International Conference on ASIC (ASICON)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/7517029"
+      }
+    },
+    "conferences:ieee:7516878": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "H. Li, Z. Zhang, **J. Yang**, L. Liu, N. Wu, \"A novel vision chip architecture for image recognition based on convolutional neural network\", *2015 IEEE 11th International Conference on ASIC (****ASICON****)*, 2015.",
+      "last_rendered": "H. Li, Z. Zhang, **J. Yang**, L. Liu, N. Wu, \"A novel vision chip architecture for image recognition based on convolutional neural network\", *2015 IEEE 11th International Conference on ASIC (****ASICON****)*, 2015.",
+      "snapshot": {
+        "year": null,
+        "authors": "H. Li, Z. Zhang, <strong>J. Yang</strong>, L. Liu, N. Wu",
+        "title": "A novel vision chip architecture for image recognition based on convolutional neural network",
+        "venue": "2015 IEEE 11th International Conference on ASIC (ASICON)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/7516878"
+      }
+    },
+    "conferences:url:www.spiedigitallibrary.org/conference-proceedings-of-spie/9522/95220U/Enhanced-memory-architecture-for-massively-parallel-vision-chip/10.1117/12.2179447.short": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "Z. Chen, **J. Yang**, L. Liu, N. Wu, \"Enhanced memory architecture for massively parallel vision chip\", *Selected Papers from Conferences of the Photoelectronic Technology Committee of the Chinese Society of Astronautics 2014, Part II*, 2014.",
+      "last_rendered": "Z. Chen, **J. Yang**, L. Liu, N. Wu, \"Enhanced memory architecture for massively parallel vision chip\", *Selected Papers from Conferences of the Photoelectronic Technology Committee of the Chinese Society of Astronautics 2014, Part II*, 2014.",
+      "snapshot": {
+        "year": null,
+        "authors": "Z. Chen, <strong>J. Yang</strong>, L. Liu, N. Wu",
+        "title": "Enhanced memory architecture for massively parallel vision chip",
+        "venue": "Selected Papers from Conferences of the Photoelectronic Technology Committee of the Chinese Society of Astronautics 2014, Part II",
+        "venueHighlight": false,
+        "url": "https://www.spiedigitallibrary.org/conference-proceedings-of-spie/9522/95220U/Enhanced-memory-architecture-for-massively-parallel-vision-chip/10.1117/12.2179447.short"
+      }
+    },
+    "conferences:ieee:7021569": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "B. Li, **J. Yang**, Y. Yang, N. Wu, \"A high speed vision processor for chip package visual inspection\", *2014 12th IEEE International Conference on Solid-State and Integrated Circuit Technology (****ICSICT****),* 2014.",
+      "last_rendered": "B. Li, **J. Yang**, Y. Yang, N. Wu, \"A high speed vision processor for chip package visual inspection\", *2014 12th IEEE International Conference on Solid-State and Integrated Circuit Technology (****ICSICT****),* 2014.",
+      "snapshot": {
+        "year": null,
+        "authors": "B. Li, <strong>J. Yang</strong>, Y. Yang, N. Wu",
+        "title": "A high speed vision processor for chip package visual inspection",
+        "venue": "2014 12th IEEE International Conference on Solid-State and Integrated Circuit Technology (ICSICT)",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/7021569"
+      }
+    },
+    "conferences:ieee:6757367": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "C. Shi, **J. Yang**, Y. Han, Z. Cao, Q. Qin, L. Liu, N. Wu, Z. Wang, \"7.3 a 1000fps vision chip based on a dynamically reconfigurable hybrid architecture comprising a pe array and self-organizing map neural network\", *2014 IEEE International Solid-State Circuits Conference Digest of Technical Papers (****ISSCC****)*, 2014. **（集成电路设计顶级会议，美国旧金山）**",
+      "last_rendered": "C. Shi, **J. Yang**, Y. Han, Z. Cao, Q. Qin, L. Liu, N. Wu, Z. Wang, \"7.3 a 1000fps vision chip based on a dynamically reconfigurable hybrid architecture comprising a pe array and self-organizing map neural network\", *2014 IEEE International Solid-State Circuits Conference Digest of Technical Papers (****ISSCC****)*, 2014. **（集成电路设计顶级会议，美国旧金山）**",
+      "snapshot": {
+        "year": null,
+        "authors": "C. Shi, <strong>J. Yang</strong>, Y. Han, Z. Cao, Q. Qin, L. Liu, N. Wu, Z. Wang",
+        "title": "7.3 A 1000fps vision chip based on a dynamically reconfigurable hybrid architecture comprising a PE array and self-organizing map neural network",
+        "venue": "2014 IEEE International Solid-State Circuits Conference (ISSCC)",
+        "venueHighlight": true,
+        "url": "https://ieeexplore.ieee.org/document/6757367"
+      }
+    },
+    "conferences:ieee:6688261": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "**J. Yang**, C. Shi, Z. Cao, Y. Han, L. Liu, N. Wu, \"Smart image sensing system\", *2013 IEEE Sensors Conference*, 2013.",
+      "last_rendered": "**J. Yang**, C. Shi, Z. Cao, Y. Han, L. Liu, N. Wu, \"Smart image sensing system\", *2013 IEEE Sensors Conference*, 2013.",
+      "snapshot": {
+        "year": null,
+        "authors": "<strong>J. Yang</strong>, C. Shi, Z. Cao, Y. Han, L. Liu, N. Wu",
+        "title": "Smart image sensing system",
+        "venue": "2013 IEEE Sensors Conference",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/6688261"
+      }
+    },
+    "conferences:ieee:6811989": {
+      "kind": "conferences",
+      "ownership": "legacy",
+      "base_legacy": "Z. Chen, **J. Yang**, C. Shi, N. Wu, \"A novel architecture of local memory for programmable SIMD vision chip\", *2013 IEEE 10th International Conference on ASIC (****ASICON****),* 2013.",
+      "last_rendered": "Z. Chen, **J. Yang**, C. Shi, N. Wu, \"A novel architecture of local memory for programmable SIMD vision chip\", *2013 IEEE 10th International Conference on ASIC (****ASICON****),* 2013.",
+      "snapshot": {
+        "year": null,
+        "authors": "Z. Chen, <strong>J. Yang</strong>, C. Shi, N. Wu",
+        "title": "A novel architecture of local memory for programmable SIMD vision chip",
+        "venue": "2013 IEEE 10th International Conference on ASIC",
+        "venueHighlight": false,
+        "url": "https://ieeexplore.ieee.org/document/6811989"
+      }
+    }
+  }
+}
