@@ -3,7 +3,7 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const { homepageShareTags, updateEnglishHomepage, homeShares, image, origin } = require('../share-metadata');
+const { homepageHead, homepageShareTags, updateEnglishHomepage, homeShares, image, origin } = require('../share-metadata');
 const { collect } = require('../build-release');
 const root = path.resolve(__dirname, '../..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
@@ -12,6 +12,7 @@ for (const [file, share] of Object.entries(homeShares)) {
   test(file + ': static, unique, localized share metadata', () => {
     const html = read(file);
     const head = html.match(/<head\b[^>]*>([\s\S]*?)<\/head>/i)[1];
+    assert(html.includes(homepageHead), 'WebPage properties must have an explicit scope');
     const expected = homepageShareTags(file);
     assert(head.includes(expected), 'Generated metadata must appear in the initial HTML head');
     const tags = [...head.matchAll(/<(?:meta|link)\b[^>]*>/gi)].map(match =>
@@ -31,6 +32,14 @@ for (const [file, share] of Object.entries(homeShares)) {
     assert.equal(content('og:url'), share.url);
     assert.equal(content('og:image'), origin + '/' + image.path);
     assert.equal(content('twitter:image'), content('og:image'));
+    for (const [key, ogKey] of [['name', 'og:title'], ['description', 'og:description'], ['image', 'og:image']]) {
+      const found = tags.filter(tag => tag.itemprop === key);
+      assert.equal(found.length, 1, 'Unique microdata ' + key);
+      assert.equal(found[0].content, content(ogKey), 'Microdata and OG must agree');
+      assert(!found[0].name && !found[0].property, 'Do not mix metadata syntaxes on one tag');
+    }
+    assert.equal(tags.filter(tag => tag.name === 'description').length, 1, 'Preserve one SEO description');
+    assert(!/jweixin|wx\.config|WeixinJSBridge/i.test(html), 'No SDK or undocumented bridge hacks');
     const canonical = tags.filter(tag => tag.rel === 'canonical');
     assert.equal(canonical.length, 1);
     assert.equal(canonical[0].href, share.url);
@@ -65,7 +74,7 @@ test('English metadata sync is idempotent and preserves content outside its bloc
   const original = '<html><head><title>Original</title></head><body>Unchanged</body></html>';
   const updated = updateEnglishHomepage(original);
   assert.equal(updateEnglishHomepage(updated), updated);
-  assert.equal(updated.replace(homepageShareTags('index_en.html') + '\n', ''), original);
+  assert.equal(updated.replace(homepageShareTags('index_en.html') + '\n', '').replace(homepageHead, '<head>'), original);
   const real = read('index_en.html');
   assert.equal(updateEnglishHomepage(real), real);
   assert.throws(() => updateEnglishHomepage(updated.replace('</head>', homepageShareTags('index_en.html') + '</head>')), /Duplicate/);
@@ -80,4 +89,13 @@ test('Share copy is escaped as attributes, not markup', () => {
     assert(homepageShareTags('index.html').includes('A &quot;quote&quot; &amp; &lt;tag&gt;&#39;s'));
   } finally { homeShares['index.html'].title = original; }
   assert.throws(() => homepageShareTags('unknown.html'), /Unsupported/);
+});
+
+
+test('Microdata scope preserves unrelated head attributes and rejects conflicting scopes', () => {
+  const original = '<html><head data-test="keep"><title>Keep SEO title</title><meta name="description" content="Keep SEO summary"></head><body>Keep body</body></html>';
+  const updated = updateEnglishHomepage(original);
+  assert.equal(updateEnglishHomepage(updated), updated);
+  assert.equal(updated.replace(homepageShareTags('index_en.html') + '\n', '').replace(' itemscope itemtype="https://schema.org/WebPage"', ''), original);
+  assert.throws(() => updateEnglishHomepage('<head itemscope itemtype="https://schema.org/Person"></head>'), /Conflicting/);
 });

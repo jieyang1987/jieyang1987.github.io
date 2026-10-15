@@ -19,6 +19,7 @@ const homeShares = {
     siteName: 'Jie Yang · Academic Homepage', alt: 'Portrait of Jie Yang'
   }
 };
+const homepageHead = '<head itemscope itemtype="https://schema.org/WebPage">';
 const start = '<!-- homepage-share:start -->';
 const end = '<!-- homepage-share:end -->';
 const escapeAttribute = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[c]));
@@ -37,11 +38,25 @@ function homepageShareTags(file) {
   const twitter = { 'twitter:card': 'summary', 'twitter:title': share.title,
     'twitter:description': share.description, 'twitter:image': origin + '/' + image.path,
     'twitter:image:alt': share.alt };
+  // Standard WebPage microdata, not a documented WeChat sharing API.
+  // Keep these values identical to OG; client adoption needs manual testing.
+  const microdata = { name: share.title, description: share.description, image: origin + '/' + image.path };
   return [start, `<link rel="canonical" href="${share.url}">`,
+    ...Object.entries(microdata).map(([key, value]) => tag('itemprop', key, value)),
     ...Object.entries(properties).map(([key, value]) => tag('property', key, value)),
     ...Object.entries(twitter).map(([key, value]) => tag('name', key, value)), end].join('\n');
 }
 function updateEnglishHomepage(html) {
+  const head = html.match(/<head\b([^>]*)>/i);
+  if (!head) throw new Error('Missing head opening tag');
+  // Do not overwrite a different structured-data scope if one is added later.
+  if (/\bitemscope\b|\bitemtype\s*=/i.test(head[1])) {
+    if (!/\bitemscope(?:\s|$)/i.test(head[1]) || !/\bitemtype="https:\/\/schema\.org\/WebPage"(?:\s|$)/i.test(head[1])) {
+      throw new Error('Conflicting homepage microdata scope');
+    }
+  } else {
+    html = html.replace(head[0], head[0].slice(0, -1) + ' itemscope itemtype="https://schema.org/WebPage">');
+  }
   const block = homepageShareTags('index_en.html');
   const pattern = /<!-- homepage-share:start -->[\s\S]*?<!-- homepage-share:end -->/g;
   const matches = html.match(pattern) || [];
@@ -60,4 +75,4 @@ if (require.main === module) {
   } else if (before !== after) fs.writeFileSync(file, after);
   console.log('English homepage share metadata is current.');
 }
-module.exports = { homepageShareTags, updateEnglishHomepage, homeShares, image, origin };
+module.exports = { homepageHead, homepageShareTags, updateEnglishHomepage, homeShares, image, origin };
