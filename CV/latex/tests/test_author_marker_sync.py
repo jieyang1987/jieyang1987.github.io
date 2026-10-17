@@ -5,7 +5,7 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 from sync_author_markers import cv_role, normalize_cv_style, plan, website_authors
-from sync_publications import load_publications, normalize
+from sync_publications import load_publications, normalize, citation_rows
 
 
 class AuthorMarkerSyncTests(unittest.TestCase):
@@ -28,8 +28,11 @@ class AuthorMarkerSyncTests(unittest.TestCase):
         source, styled, changes, unresolved, roles = plan()
         self.assertEqual(source, styled)
         self.assertFalse(changes)
-        self.assertEqual(len(roles), 148)
+        self.assertEqual(len(roles), 149)
         self.assertEqual(unresolved, [])
+        added = [r for r in citation_rows(source, 'journals') if r['title'] == 'Dual-path continual learning with cross-scale attention for sparse physiological signal analysis']
+        self.assertEqual(len(added), 1)
+        self.assertEqual(added[0]['authors'], 'S. Zhao, Z. Chen, Z. Wang, C. Fu, H. Ding, J. Yang, M. Sawan')
         self.assertNotIn("mobilegpuimplementation", " ".join(title for _, title in roles))
         self.assertEqual(roles[('journals', normalize('A Resource-Efficient Algorithm-Hardware Co-Design Towards Semi-Supervised Neurological Symptoms Prediction'))], '')
         self.assertEqual(roles[('conferences', normalize('Binary is All You Need: Ultra-Efficient Arrhythmia Detection with a Binary-Only Compressive System'))], '')

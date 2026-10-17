@@ -316,6 +316,16 @@
           "url": ""
         },
         "status": "active"
+      },
+      "talk:activity-2026-10-17-bci-frontiers": {
+        "ownership": "website",
+        "last_rendered": "2026脑机接口前沿技术与产业转化大会：《语言神经假肢：从高通量芯片到汉语神经解码》（2026年10月17日）",
+        "snapshot": {
+          "date": "2026-10-17",
+          "title": "2026脑机接口前沿技术与产业转化大会：《语言神经假肢：从高通量芯片到汉语神经解码》",
+          "url": "https://mp.weixin.qq.com/s/flaspHq_KpyWtyThXHcPcw"
+        },
+        "status": "active"
       }
     }
   },

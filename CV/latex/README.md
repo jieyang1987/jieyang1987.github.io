@@ -237,6 +237,10 @@ python scripts/compile_pdf.py --offline
 
 ## 论文增量同步（2026-10-06）
 
+### 已核对的未来正式卷期（2026-10-17）
+
+`publication-sync.json` 的 `verified_future_issues` 可按论文唯一标识登记已核对的未来卷期，须包含准确标题、年份、月份、出版链接、Crossref 来源、核对日期及理由。仅该条记录可同步；其他未来年份论文仍进入待核对。当前仅登记 DOI `10.1016/j.bspc.2026.111555`（第 130 卷、111555、2027 年 2 月），保留正式年份，不推测在线发表日期；到对应年月前，CV 条目注明“正式卷期尚未到期”。这篇文章所有作者均不显示通讯星号，J. Yang 仅姓名加粗。
+
 论文已纳入同一个 `npm run build:cv` / `npm run check:cv` 工作流，无需另跑一套命令。读取 `data/publications.json` 中的 `yearlyFiles` 注册表，再加载其中各年份的期刊/会议论文。新增年份文件后，记得在网页注册表登记。
 
 首次同步新增 **15 篇期刊、17 篇会议论文**，当时 CV 有 **70 篇期刊、79 篇会议论文**，共 149 篇；当时旧 CV 的 117 篇全部保留。对 3 条旧论文补充了网页明确列出的奖项：两条 TBioCAS 2023 最佳类脑论文，以及 Binary is All You Need 的最佳论文奖。新增 NeuroPlat 条目也保留网页中的 Best Poster Award。

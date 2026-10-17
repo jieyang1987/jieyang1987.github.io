@@ -5,6 +5,23 @@
   },
   "items": [
     {
+      "date": "2026.10.17",
+      "title": "2026脑机接口前沿技术与产业转化大会：《语言神经假肢：从高通量芯片到汉语神经解码》",
+      "url": "https://mp.weixin.qq.com/s/flaspHq_KpyWtyThXHcPcw",
+      "images": [
+        {
+          "src": "images/coverage/bci-frontiers-2026-talk-1.webp",
+          "caption": "2026脑机接口前沿技术与产业转化大会：杨杰报告现场（一）"
+        },
+        {
+          "src": "images/coverage/bci-frontiers-2026-talk-2.webp",
+          "caption": "2026脑机接口前沿技术与产业转化大会：杨杰报告现场（二）"
+        }
+      ],
+      "titleEn": "2026 Conference on Frontiers in Brain–Computer Interface Technology and Industrial Translation: Speech Neuroprostheses — From High-Throughput Chips to Chinese Speech Decoding",
+      "id": "activity-2026-10-17-bci-frontiers"
+    },
+    {
       "date": "2026.9.20",
       "title": "ICCS 2026 邀请报告：《Integrated Circuits for Brain-Computer Interface From Lab to Clinic》",
       "url": "https://www.iccs.org/index.html",

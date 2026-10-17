@@ -204,6 +204,10 @@
 
 ### 期刊论文:
 
+#### 2027
+
+71. S. Zhao, Z. Chen, Z. Wang, C. Fu, H. Ding, **J. Yang**, M. Sawan, "Dual-path continual learning with cross-scale attention for sparse physiological signal analysis", ***Biomedical Signal Processing and Control, vol. 130, Art. no. 111555, February 2027***, 2027.（正式卷期尚未到期）
+
 #### 2026
 
 70. Z. Liao, C. Zhang, C. Fang, Y. Zhang, Z. Shen, **J. Yang**\*, M. Sawan\*, "面向边缘智能的神经形态计算芯片与部署", ***Chinese Journal of Semiconductors***, 2026.
@@ -531,6 +535,8 @@
 1. Z. Chen, **J. Yang**, C. Shi, N. Wu, "A novel architecture of local memory for programmable SIMD vision chip", *2013 IEEE 10th International Conference on ASIC (****ASICON****),* 2013.
 
 ## 邀请报告
+
+28. 2026脑机接口前沿技术与产业转化大会：《语言神经假肢：从高通量芯片到汉语神经解码》（2026年10月17日）
 
 27. ICCS 2026 邀请报告：《Integrated Circuits for Brain-Computer Interface From Lab to Clinic》（2026年9月20日）
 

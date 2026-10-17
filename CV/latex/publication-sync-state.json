@@ -2081,6 +2081,21 @@
         "venueHighlight": false,
         "url": "https://ieeexplore.ieee.org/document/6811989"
       }
+    },
+    "journals:doi:10.1016/j.bspc.2026.111555": {
+      "kind": "journals",
+      "ownership": "website",
+      "base_legacy": null,
+      "last_rendered": "S. Zhao, Z. Chen, Z. Wang, C. Fu, H. Ding, **J. Yang**, M. Sawan, \"Dual-path continual learning with cross-scale attention for sparse physiological signal analysis\", ***Biomedical Signal Processing and Control, vol. 130, Art. no. 111555, February 2027***, 2027.（正式卷期尚未到期）",
+      "snapshot": {
+        "year": 2027,
+        "authors": "S. Zhao, Z. Chen, Z. Wang, C. Fu, H. Ding, <strong>J. Yang</strong>, M. Sawan",
+        "title": "Dual-path continual learning with cross-scale attention for sparse physiological signal analysis",
+        "venue": "Biomedical Signal Processing and Control, vol. 130, Art. no. 111555, February 2027",
+        "venueHighlight": false,
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S1746809426021130",
+        "doi": "10.1016/j.bspc.2026.111555"
+      }
     }
   }
 }

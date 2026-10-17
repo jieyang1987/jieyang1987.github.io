@@ -13,5 +13,16 @@
       }
     }
   },
-  "numbering": "descending"
+  "numbering": "descending",
+  "verified_future_issues": {
+    "journals:doi:10.1016/j.bspc.2026.111555": {
+      "title": "Dual-path continual learning with cross-scale attention for sparse physiological signal analysis",
+      "year": 2027,
+      "issue_month": 2,
+      "verified_on": "2026-10-17",
+      "source_url": "https://www.sciencedirect.com/science/article/abs/pii/S1746809426021130",
+      "registry": "https://api.crossref.org/works/10.1016%2Fj.bspc.2026.111555",
+      "reason": "User requested CV synchronization of this specific paper. The publisher-deposited Crossref record matches its title, seven authors and PII, and assigns volume 130, article 111555, February 2027. Preserve the formal issue year, explicitly label it as a future issue, and do not infer an online publication date."
+    }
+  }
 }

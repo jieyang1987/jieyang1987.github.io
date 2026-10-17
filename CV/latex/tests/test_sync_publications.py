@@ -52,6 +52,62 @@ def run(papers, content=CONTENT, state=None, config=CONFIG):
 
 
 class PublicationSyncTests(unittest.TestCase):
+    def future_issue_fixture(self):
+        source = paper(year=2027, url="https://doi.org/10.1234/future")
+        source["authors"] = "S. Zhao, Z. Chen, <strong>J. Yang</strong>, M. Sawan"
+        config = deepcopy(CONFIG)
+        config["verified_future_issues"] = {paper_key(source): {
+            "title": source["title"], "year": 2027, "issue_month": 2, "verified_on": "2026-10-06",
+            "source_url": source["url"], "registry": "https://api.crossref.org/works/10.1234/future",
+            "reason": "Specific issue assignment verified against publisher metadata."
+        }}
+        return source, config
+
+    def test_unverified_future_issue_remains_held(self):
+        source, _ = self.future_issue_fixture()
+        out, _, report = run([source])
+        self.assertNotIn(source["title"], out)
+        self.assertEqual(len(report["review"]), 1)
+
+    def test_verified_future_issue_import_is_labelled_idempotent_and_unstarred(self):
+        source, config = self.future_issue_fixture()
+        out, state, report = run([source], config=config)
+        self.assertEqual(len(report["added"]), 1)
+        self.assertIn("2027.（正式卷期尚未到期）", out)
+        row = next(r for r in citation_rows(out, "journals") if r["title"] == source["title"])
+        self.assertNotIn("*", row["authors"])
+        self.assertIn("**J. Yang**", row["md"])
+        again, state2, second = run([source], out, state, config)
+        self.assertEqual(again, out)
+        self.assertEqual(state2, state)
+        self.assertFalse(second["content_changed"])
+
+    def test_future_issue_exception_does_not_allow_another_paper(self):
+        source, config = self.future_issue_fixture()
+        other = paper("Unverified future paper", 2027, url="https://doi.org/10.1234/other")
+        out, _, report = run([source, other], config=config)
+        self.assertNotIn(other["title"], out)
+        self.assertEqual(len(report["review"]), 1)
+
+    def test_future_issue_verification_must_match_record_and_current_date(self):
+        source, config = self.future_issue_fixture()
+        for field, value in [("year", 2028), ("issue_month", 13), ("title", "Wrong title"), ("source_url", "https://example.com"),
+                             ("verified_on", "2026-10-07"), ("reason", ""), ("registry", "")]:
+            changed = deepcopy(config)
+            changed["verified_future_issues"][paper_key(source)][field] = value
+            with self.subTest(field=field), self.assertRaises(ValueError):
+                run([source], config=changed)
+
+    def test_future_issue_label_expires_without_duplicate_import(self):
+        source, config = self.future_issue_fixture()
+        out, state, _ = run([source], config=config)
+        january, _, _ = plan_publications(out, [source], config, state, date(2027, 1, 1))
+        self.assertIn("正式卷期尚未到期", january)
+        newer, _, report = plan_publications(out, [source], config, state, date(2027, 2, 1))
+        self.assertNotIn("正式卷期尚未到期", newer)
+        self.assertEqual(len(report["updated"]), 1)
+        self.assertEqual(len(report["added"]), 0)
+
     def test_append_and_preserve_legacy(self):
         out, _, report = run([paper(), paper("New conference", kind="conferences", url="https://doi.org/10.1234/conf")])
         self.assertEqual(len(report["added"]), 2)

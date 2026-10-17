@@ -4,6 +4,25 @@
   "records": [
     {
       "kind": "journals",
+      "title": "Dual-path continual learning with cross-scale attention for sparse physiological signal analysis",
+      "source_url": "https://www.sciencedirect.com/science/article/abs/pii/S1746809426021130",
+      "owner": "Jie Yang",
+      "owner_corresponding": false,
+      "confirmed_corresponding_author": "Zihan Chen",
+      "verified_on": "2026-10-17",
+      "method": "Author self-confirmation and the publisher author list supplied by the user",
+      "evidence": {
+        "kind": "author_confirmation",
+        "statement": "用户确认：杨杰仅为合作者，不是通讯作者。",
+        "original_statement": "我只是合作者，不是通讯",
+        "confirmed_on": "2026-10-17",
+        "supplied_author_list": "Shiqi Zhao; Zihan Chen (Correspondence author icon); Zhengjie Wang; Changzeng Fu; Hongwei Ding; Jie Yang; Mohamad Sawan"
+      },
+      "display_instruction": "这个文章不要标注通讯了",
+      "scope": "Jie Yang is a coauthor, not a corresponding author. Per the user's subsequent display instruction, omit corresponding-author markers for every author of this paper. The supplied source evidence is retained for reference only."
+    },
+    {
+      "kind": "journals",
       "title": "BoostViT: Booth-Serial Skipping and Tunable Scaling for Vision Transformers",
       "source_file": "data/publications/2025.json",
       "source_url": "10.1109/TCSI.2025.3575328",

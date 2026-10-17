@@ -250,6 +250,26 @@ def differences(legacy, paper):
     return fields
 
 
+def verified_future_issue(paper, config, as_of):
+    """Allow only a specifically reviewed future issue, never a blanket year bypass."""
+    if paper["year"] is None or paper["year"] < as_of.year:
+        return False
+    record = config.get("verified_future_issues", {}).get(paper_key(paper))
+    if not record:
+        return False
+    verified_on = date.fromisoformat(record.get("verified_on", ""))
+    issue_month = record.get("issue_month")
+    if (record.get("year") != paper["year"]
+            or not isinstance(issue_month, int) or not 1 <= issue_month <= 12
+            or normalize(record.get("title", "")) != normalize(visible(paper["title"]))
+            or record.get("source_url") != paper.get("url")
+            or not record.get("reason", "").strip()
+            or not record.get("registry", "").startswith("https://api.crossref.org/works/")
+            or verified_on > as_of):
+        raise ValueError("Future-issue verification does not match the publication: " + paper["title"])
+    return (paper["year"], issue_month) > (as_of.year, as_of.month)
+
+
 def plan_publications(content, papers, config, state=None, as_of=None):
     as_of = as_of or china_today()
     if config.get("version") != 1 or (state and state.get("version") != 1):
@@ -268,6 +288,7 @@ def plan_publications(content, papers, config, state=None, as_of=None):
         claimed = set()
         for rank, paper in enumerate(p for p in papers if p["kind"] == kind):
             identity = paper_key(paper)
+            future_issue = verified_future_issue(paper, config, as_of)
             active.add(identity)
             event = {"key": identity, "kind": kind, "title": visible(paper["title"]), "website": snapshot(paper), "source_file": paper.get("source_file", "")}
             if paper.get("source_identity_issue"):
@@ -300,7 +321,7 @@ def plan_publications(content, papers, config, state=None, as_of=None):
                 if paper["year"] is None:
                     report["review"].append({**event, "reason": "2020 及以前只是展示分组；新增论文缺少实际年份，暂不导入。"})
                     continue
-                if paper["year"] > as_of.year:
+                if paper["year"] > as_of.year and not future_issue:
                     report["review"].append({**event, "reason": "未来年份记录暂不作为已发表论文导入。"})
                     continue
                 close = [r for r in existing if SequenceMatcher(None, normalize(r["title"]), normalize(event["title"])).ratio() >= 0.93]
@@ -308,6 +329,8 @@ def plan_publications(content, papers, config, state=None, as_of=None):
                     report["review"].append({**event, "reason": "题目高度相似但不能确认同一论文；请审核后添加明确映射。", "candidates": [r["title"] for r in close]})
                     continue
                 rendered = format_citation(paper)
+                if future_issue:
+                    rendered += "（正式卷期尚未到期）"
                 target = {**parse_citation(rendered), "rank": rank}
                 existing.append(target)
                 ownership, base = "website", None
@@ -316,10 +339,12 @@ def plan_publications(content, papers, config, state=None, as_of=None):
                 ownership = old["ownership"] if old else "legacy"
                 base = old.get("base_legacy", target["md"]) if old else target["md"]
                 if ownership == "website":
-                    if paper["year"] is None or paper["year"] > as_of.year:
+                    if paper["year"] is None or (paper["year"] > as_of.year and not future_issue):
                         report["review"].append({**event, "reason": "新元数据年份缺失/在未来，保留上次生成的有效记录。"})
                         continue
                     rendered = format_citation(paper)
+                    if future_issue:
+                        rendered += "（正式卷期尚未到期）"
                 else:
                     base = normalize_citation_authors(base)
                     legacy = parse_citation(base)

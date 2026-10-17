@@ -33,6 +33,10 @@
   ],
   "yearlyFiles": [
     {
+      "year": 2027,
+      "file": "data/publications/2027.json"
+    },
+    {
       "year": 2026,
       "file": "data/publications/2026.json"
     },
