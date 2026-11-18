@@ -4,6 +4,17 @@
       "year": 2026,
       "items": [
         {
+          "authors": "Z. Liao, Z. Shen, T. Li, S. Shen, C. Zhang, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
+          "title": "Resource-Efficient FPGA Acceleration for Neuromorphic Visual Recognition via Spike-Weight-State Co-Optimization",
+          "venue": "IEEE Transactions on Circuits and Systems for Artificial Intelligence",
+          "venueHighlight": false,
+          "url": "https://ieeexplore.ieee.org/document/11743438",
+          "doi": "10.1109/TCASAI.2026.3746180",
+          "topics": [
+            "neuromorphic"
+          ]
+        },
+        {
           "authors": "Z. Liao, C. Zhang, C. Fang, Y. Zhang, Z. Shen, <strong>J. Yang</strong><sup>*</sup>, M. Sawan",
           "title": "面向边缘智能的神经形态计算芯片与部署",
           "titleZh": "面向边缘智能的神经形态计算芯片与部署",

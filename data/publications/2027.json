@@ -4,6 +4,15 @@
       "year": 2027,
       "items": [
         {
+          "authors": "H. Dai, H. Ding, Y. Zhang, C. Fu, <strong>J. Yang</strong>, M. Sawan, S. Zhao",
+          "title": "BioDiff: Spectrally consistent diffusion modeling for high-fidelity physiological signal generation",
+          "venue": "Expert Systems with Applications, vol. 334, Art. no. 134824, February 2027",
+          "venueHighlight": false,
+          "url": "https://www.sciencedirect.com/science/article/pii/S0957417426037280",
+          "doi": "10.1016/j.eswa.2026.134824",
+          "topics": []
+        },
+        {
           "authors": "S. Zhao, Z. Chen, Z. Wang, C. Fu, H. Ding, <strong>J. Yang</strong>, M. Sawan",
           "title": "Dual-path continual learning with cross-scale attention for sparse physiological signal analysis",
           "venue": "Biomedical Signal Processing and Control, vol. 130, Art. no. 111555, February 2027",

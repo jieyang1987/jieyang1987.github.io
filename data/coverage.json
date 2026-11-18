@@ -5,6 +5,44 @@
   },
   "items": [
     {
+      "date": "2026.11.13",
+      "title": "第五届南渡江智慧医疗与康复产业高峰论坛：《脑机接口语言神经假肢技术》",
+      "url": "https://www.eet-china.com/mp/a539217.html",
+      "images": [
+        {
+          "src": "images/coverage/nandujiang-2026-talk.webp",
+          "caption": "第五届南渡江论坛：杨杰在海口作《脑机接口语言神经假肢技术》报告"
+        },
+        {
+          "src": "images/coverage/nandujiang-2026-discussion.webp",
+          "caption": "第五届南渡江论坛：杨杰在现场交流中发言"
+        }
+      ],
+      "titleEn": "5th Nandujiang Smart Healthcare and Rehabilitation Industry Summit, Haikou: Brain–Computer Interfaces for Speech Neuroprostheses",
+      "id": "activity-2026-11-13-nandujiang"
+    },
+    {
+      "date": "2026.11.6",
+      "title": "2026中国多智能体应用大会“驭智·脑机接口与具身智能”专题会：《脑机接口语言神经假肢技术》",
+      "url": "https://news.qq.com/rain/a/20261108A05EFX00",
+      "titleEn": "2026 China Conference on Multi-Agent Applications, Chengdu, session on brain–computer interfaces and embodied intelligence: Brain–Computer Interfaces for Speech Neuroprostheses",
+      "id": "activity-2026-11-06-multi-agent"
+    },
+    {
+      "date": "2026.10.28",
+      "title": "脑机接口技术创新与产业发展大会暨展览会（BCIC 2026）：《脑机接口语言神经假肢技术》",
+      "url": "https://m.x-techcon.com/article/200799.html",
+      "titleEn": "BCIC 2026 Conference and Exhibition on Brain–Computer Interface Technology Innovation and Industry Development, Shanghai: Brain–Computer Interfaces for Speech Neuroprostheses",
+      "id": "activity-2026-10-28-bcic"
+    },
+    {
+      "date": "2026.10.22",
+      "title": "HSE 大学语言与大脑中心线上报告：《From Brain Signals to Chinese Characters: Mandarin Speech Decoding with Invasive BCIs》",
+      "url": "https://neuroling.hse.ru/announcements/1210949921.html",
+      "titleEn": "Online talk at the Center for Language and Brain, HSE University: From Brain Signals to Chinese Characters: Mandarin Speech Decoding with Invasive BCIs",
+      "id": "activity-2026-10-22-hse"
+    },
+    {
       "date": "2026.10.17",
       "title": "2026脑机接口前沿技术与产业转化大会：《语言神经假肢：从高通量芯片到汉语神经解码》",
       "url": "https://mp.weixin.qq.com/s/flaspHq_KpyWtyThXHcPcw",
