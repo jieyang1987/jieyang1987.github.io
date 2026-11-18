@@ -4,18 +4,6 @@
       "year": 2024,
       "items": [
         {
-          "authors": "C. Fang, Z. Shen, Z. Wang, C. Wang, S. Zhao, F. Tian, <strong>J. Yang</strong><sup>*</sup>, M. Sawan<sup>*</sup>",
-          "title": "An Energy-Efficient Unstructured Sparsity-Aware Deep SNN Accelerator With 3-D Computation Array",
-          "venue": "IEEE Journal of Solid-State Circuits",
-          "venueHighlight": true,
-          "url": "https://ieeexplore.ieee.org/abstract/document/10777513/",
-          "pdf": "papers/2025_JSSC_An_Energy-Efficient_Unstructured_Sparsity-Aware_Deep_SNN_Accelerator_With_3-D_Computation_Array.pdf",
-          "topics": [
-            "neuromorphic"
-          ],
-          "abstract": "Deep spiking neural networks (DSNNs), such as spiking transformers, have demonstrated comparable perfor- mance to artificial neural networks (ANNs). With higher spike input sparsity and the utilization of accumulation (AC)-only operations, DSNNs have great potential for achieving high energy efficiency. Many researchers have proposed neuromorphic processors to accelerate spiking neural networks (SNNs) with dedicated architectures. However, three problems still exist when processing DSNNs, including redundant memory access among timesteps, inefficiency in exploiting unstructured sparsity in spikes, and the lack of optimizations for new operators involved in DSNNs. In this work, an accelerator for deep and sparse SNNs is proposed with three design features: a 3-D computation array that allows parallel computation of multiple timesteps to maximize weight data reuse and reduce external memory access; a parallel non-zero data fetcher that efficiently searches non-zero spike positions and fetches corresponding weights to reduce com- putation latency; and a multimode unified computation scheduler that can be configured to maximize energy efficiency for spiking convolution (SCONV), spiking Q,K,andVmatrix generation, and spiking self-attention (SSA). The accelerator is implemented and fabricated using 40-nm CMOS technology."
-        },
-        {
           "authors": "F. Tian, J. Chen, J. Zheng, H. Wu, J. He, X. Wang, C. Fang, Y. Yao, <strong>J. Yang</strong>, M. Sawan, C-Y. Tsui, K-T. T. Cheng",
           "title": "BioPI: An Energy Efficient and Low-Latency Neuromorphic Pipelined System with Joint Design Optimizations of Sensor-Algorithm-Processor for Wearable Healthcare",
           "venue": "IEEE Transactions on Circuits and Systems for Artificial Intelligence",
